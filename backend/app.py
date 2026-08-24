@@ -53,8 +53,14 @@ if house_metadata.get("features") != HOUSE_FEATURES:
     raise RuntimeError("House metadata features do not match backend schema.")
 
 
+def normalize_artifact_relative_path(relative_path):
+    return tuple(part for part in relative_path.replace("\\", "/").split("/") if part)
+
+
 def resolve_artifact_path(relative_path):
-    path = (ARTIFACT_DIR / relative_path).resolve()
+    path = ARTIFACT_DIR.joinpath(
+        *normalize_artifact_relative_path(relative_path)
+    ).resolve()
     artifact_root = ARTIFACT_DIR.resolve()
 
     if artifact_root not in path.parents and path != artifact_root:

@@ -12,6 +12,7 @@ from app import (
     app,
     diabetes_models,
     house_models,
+    normalize_artifact_relative_path,
 )
 
 
@@ -61,6 +62,12 @@ def test_allowed_origins_includes_configured_web_origin(monkeypatch):
     monkeypatch.setenv("WEB_ORIGIN", "https://assignment-web.onrender.com/")
 
     assert "https://assignment-web.onrender.com" in allowed_origins()
+
+
+def test_artifact_paths_accept_windows_style_metadata_paths():
+    assert normalize_artifact_relative_path(
+        "diabetes_models\\logistic_regression.joblib"
+    ) == ("diabetes_models", "logistic_regression.joblib")
 
 
 def test_model_options_are_available():
