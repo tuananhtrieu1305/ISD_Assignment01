@@ -5,18 +5,20 @@ type HomeScreenProps = {
   backendOnline: boolean | null;
   onSelectDiabetes: () => void;
   onSelectHouse: () => void;
+  onSelectCustomer: () => void;
 };
 
 export default function HomeScreen({
   backendOnline,
   onSelectDiabetes,
   onSelectHouse,
+  onSelectCustomer,
 }: HomeScreenProps) {
   return (
     <View style={styles.container}>
       <View style={styles.intro}>
         <Text style={styles.eyebrow}>Intelligent Systems Development</Text>
-        <Text style={styles.title}>Assignment 01</Text>
+        <Text style={styles.title}>Assignment 02</Text>
         <Text style={styles.subtitle}>
           Chọn một chức năng để nhập thông tin và xem kết quả dự đoán theo cách
           dễ hiểu.
@@ -55,6 +57,16 @@ export default function HomeScreen({
           Nhập 6 đặc điểm căn nhà để nhận mức giá ước tính từ mô hình.
         </Text>
         <AppButton label="Dự đoán giá nhà" onPress={onSelectHouse} />
+      </View>
+
+      <View style={styles.card}>
+        <Text style={styles.kicker}>Hành vi khách hàng</Text>
+        <Text style={styles.cardTitle}>Dự đoán churn</Text>
+        <Text style={styles.cardText}>
+          Nhập dữ liệu giao dịch, phiên truy cập và review để dự đoán nguy cơ
+          khách hàng rời bỏ.
+        </Text>
+        <AppButton label="Dự đoán hành vi" onPress={onSelectCustomer} />
       </View>
     </View>
   );

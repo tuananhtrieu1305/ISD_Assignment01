@@ -30,7 +30,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
       <header className="app-header">
         <div>
           <p className="eyebrow">Intelligent Systems Development</p>
-          <h1>Assignment 01</h1>
+          <h1>Assignment 02</h1>
         </div>
         <nav className="nav-links" aria-label="Primary navigation">
           <NavLink to="/" end>
@@ -38,6 +38,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
           </NavLink>
           <NavLink to="/diabetes">Tiểu đường</NavLink>
           <NavLink to="/house">Giá nhà</NavLink>
+          <NavLink to="/customer-behavior">Khách hàng</NavLink>
         </nav>
         <div
           className={`status-pill ${

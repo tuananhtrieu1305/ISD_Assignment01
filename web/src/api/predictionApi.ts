@@ -80,6 +80,71 @@ export type HouseCompareResponse = {
   unit_note: string;
 };
 
+export type CustomerBehaviorRequest = {
+  model?: string;
+  age: number;
+  email_opt_in: number;
+  has_app: number;
+  customer_tenure_days: number;
+  transaction_count: number;
+  completed_count: number;
+  cancelled_rate: number;
+  refunded_rate: number;
+  total_spent: number;
+  avg_order_value: number;
+  total_quantity: number;
+  avg_discount: number;
+  avg_shipping_cost: number;
+  unique_products: number;
+  transaction_recency_days: number;
+  session_count: number;
+  avg_duration_seconds: number;
+  total_pages_viewed: number;
+  avg_pages_viewed: number;
+  conversion_rate: number;
+  bounce_rate: number;
+  cart_additions_sum: number;
+  avg_cart_additions: number;
+  session_recency_days: number;
+  review_count: number;
+  avg_rating: number;
+  low_rating_share: number;
+  helpful_votes_total: number;
+  verified_review_rate: number;
+  gender: string;
+  country: string;
+  segment: string;
+  favorite_payment_method: string;
+  top_category: string;
+  top_brand: string;
+  most_used_device: string;
+  top_channel: string;
+  review_text_clean: string;
+};
+
+export type CustomerBehaviorResponse = {
+  task: "customer_behavior";
+  model?: ModelInfo;
+  prediction: number;
+  label: string;
+  interpretation: string;
+  churn_score?: number;
+};
+
+export type CustomerBehaviorCompareResult = {
+  model_id: string;
+  model_name: string;
+  recommended: boolean;
+  prediction: number;
+  churn_score?: number;
+};
+
+export type CustomerBehaviorCompareResponse = {
+  task: "customer_behavior";
+  results: CustomerBehaviorCompareResult[];
+  consensus: DiabetesConsensus;
+};
+
 export type ModelInfo = {
   id: string;
   name: string;
@@ -98,6 +163,10 @@ export type ModelOptionsResponse = {
     default_model: string;
     models: ModelOption[];
   };
+  customer_behavior: {
+    default_model: string;
+    models: ModelOption[];
+  };
 };
 
 export type HealthResponse = {
@@ -105,6 +174,7 @@ export type HealthResponse = {
   models?: {
     diabetes: boolean;
     house: boolean;
+    customer_behavior: boolean;
   };
 };
 
@@ -166,4 +236,23 @@ export function compareHouseModels(payload: HouseRequest) {
     method: "POST",
     body: JSON.stringify(features),
   });
+}
+
+export function predictCustomerBehavior(payload: CustomerBehaviorRequest) {
+  return requestJson<CustomerBehaviorResponse>("/api/customer-behavior", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export function compareCustomerBehaviorModels(payload: CustomerBehaviorRequest) {
+  const { model: _model, ...features } = payload;
+
+  return requestJson<CustomerBehaviorCompareResponse>(
+    "/api/customer-behavior/compare",
+    {
+      method: "POST",
+      body: JSON.stringify(features),
+    },
+  );
 }

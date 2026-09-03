@@ -155,7 +155,7 @@ select {
 
 .system-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 18px;
 }
 
@@ -231,6 +231,21 @@ select {
   gap: 15px 16px;
 }
 
+.form-grid.nested {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.form-field-group {
+  grid-column: 1 / -1;
+  padding-top: 6px;
+}
+
+.form-field-group h3 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-size: 1rem;
+}
+
 .scenario-input-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -265,12 +280,24 @@ select {
   background: #ffffff;
 }
 
+.textarea-field textarea {
+  width: 100%;
+  min-height: 112px;
+  resize: vertical;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: var(--text);
+  background: #ffffff;
+}
+
 .form-field.full-width {
   grid-column: 1 / -1;
 }
 
 .form-field input:focus,
-.form-field select:focus {
+.form-field select:focus,
+.textarea-field textarea:focus {
   border-color: var(--primary);
   outline: 3px solid #dbeafe;
 }

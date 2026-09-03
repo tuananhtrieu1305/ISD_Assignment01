@@ -1,0 +1,128 @@
+{
+  "task": "binary_classification",
+  "features": [
+    "age",
+    "email_opt_in",
+    "has_app",
+    "customer_tenure_days",
+    "transaction_count",
+    "completed_count",
+    "cancelled_rate",
+    "refunded_rate",
+    "total_spent",
+    "avg_order_value",
+    "total_quantity",
+    "avg_discount",
+    "avg_shipping_cost",
+    "unique_products",
+    "transaction_recency_days",
+    "session_count",
+    "avg_duration_seconds",
+    "total_pages_viewed",
+    "avg_pages_viewed",
+    "conversion_rate",
+    "bounce_rate",
+    "cart_additions_sum",
+    "avg_cart_additions",
+    "session_recency_days",
+    "review_count",
+    "avg_rating",
+    "low_rating_share",
+    "helpful_votes_total",
+    "verified_review_rate",
+    "gender",
+    "country",
+    "segment",
+    "favorite_payment_method",
+    "top_category",
+    "top_brand",
+    "most_used_device",
+    "top_channel",
+    "review_text_clean"
+  ],
+  "numeric_features": [
+    "age",
+    "email_opt_in",
+    "has_app",
+    "customer_tenure_days",
+    "transaction_count",
+    "completed_count",
+    "cancelled_rate",
+    "refunded_rate",
+    "total_spent",
+    "avg_order_value",
+    "total_quantity",
+    "avg_discount",
+    "avg_shipping_cost",
+    "unique_products",
+    "transaction_recency_days",
+    "session_count",
+    "avg_duration_seconds",
+    "total_pages_viewed",
+    "avg_pages_viewed",
+    "conversion_rate",
+    "bounce_rate",
+    "cart_additions_sum",
+    "avg_cart_additions",
+    "session_recency_days",
+    "review_count",
+    "avg_rating",
+    "low_rating_share",
+    "helpful_votes_total",
+    "verified_review_rate"
+  ],
+  "categorical_features": [
+    "gender",
+    "country",
+    "segment",
+    "favorite_payment_method",
+    "top_category",
+    "top_brand",
+    "most_used_device",
+    "top_channel"
+  ],
+  "text_feature": "review_text_clean",
+  "target": "is_churned",
+  "selected_model": "Linear SVM (tabular)",
+  "recommended_model_id": "linear_svm_tabular",
+  "selection_metric": "mean_cv_f1",
+  "available_models": {
+    "logistic_regression_tabular": {
+      "name": "Logistic Regression (tabular)",
+      "artifact": "customer_behavior_models\\logistic_regression_tabular.joblib",
+      "recommended": false
+    },
+    "decision_tree_tabular": {
+      "name": "Decision Tree (tabular)",
+      "artifact": "customer_behavior_models\\decision_tree_tabular.joblib",
+      "recommended": false
+    },
+    "random_forest_tabular": {
+      "name": "Random Forest (tabular)",
+      "artifact": "customer_behavior_models\\random_forest_tabular.joblib",
+      "recommended": false
+    },
+    "linear_svm_tabular": {
+      "name": "Linear SVM (tabular)",
+      "artifact": "customer_behavior_models\\linear_svm_tabular.joblib",
+      "recommended": true
+    },
+    "gradient_boosting_tabular": {
+      "name": "Gradient Boosting (tabular)",
+      "artifact": "customer_behavior_models\\gradient_boosting_tabular.joblib",
+      "recommended": false
+    },
+    "text_tabular_logistic_regression": {
+      "name": "Text + Tabular Logistic Regression",
+      "artifact": "customer_behavior_models\\text_tabular_logistic_regression.joblib",
+      "recommended": false
+    }
+  },
+  "test_metrics": {
+    "Accuracy": 0.631,
+    "Precision": 0.2564102564102564,
+    "Recall": 0.6194690265486725,
+    "F1": 0.3626943005181347
+  },
+  "roc_auc": 0.6773774195095181
+}

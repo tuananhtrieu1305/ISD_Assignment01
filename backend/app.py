@@ -45,6 +45,12 @@ def load_json(path):
 
 diabetes_metadata = load_json(ARTIFACT_DIR / "diabetes_metadata.json")
 house_metadata = load_json(ARTIFACT_DIR / "house_metadata.json")
+customer_metadata = load_json(ARTIFACT_DIR / "customer_behavior_metadata.json")
+
+CUSTOMER_FEATURES = customer_metadata["features"]
+CUSTOMER_NUMERIC_FEATURES = customer_metadata["numeric_features"]
+CUSTOMER_CATEGORICAL_FEATURES = customer_metadata["categorical_features"]
+CUSTOMER_TEXT_FEATURE = customer_metadata["text_feature"]
 
 if diabetes_metadata.get("features") != DIABETES_FEATURES:
     raise RuntimeError("Diabetes metadata features do not match backend schema.")
@@ -105,6 +111,10 @@ diabetes_models, DEFAULT_DIABETES_MODEL_ID = load_model_catalog(
 house_models, DEFAULT_HOUSE_MODEL_ID = load_model_catalog(
     house_metadata,
     MODEL_DIR / "house_pipeline.joblib",
+)
+customer_models, DEFAULT_CUSTOMER_MODEL_ID = load_model_catalog(
+    customer_metadata,
+    ARTIFACT_DIR / "customer_churn_pipeline.joblib",
 )
 
 
@@ -168,6 +178,52 @@ def parse_numeric_payload(payload, features):
     return pd.DataFrame([[values[field] for field in features]], columns=features)
 
 
+def parse_customer_payload(payload):
+    values = {}
+
+    for field in CUSTOMER_NUMERIC_FEATURES:
+        if field not in payload:
+            raise ValidationError(f"Missing required field: {field}")
+
+        value = payload[field]
+        if isinstance(value, bool):
+            raise ValidationError(f"Invalid number for field: {field}")
+
+        try:
+            number = float(value)
+        except (TypeError, ValueError) as exc:
+            raise ValidationError(f"Invalid number for field: {field}") from exc
+
+        if not math.isfinite(number):
+            raise ValidationError(f"Invalid number for field: {field}")
+
+        values[field] = number
+
+    for field in CUSTOMER_CATEGORICAL_FEATURES:
+        if field not in payload:
+            raise ValidationError(f"Missing required field: {field}")
+
+        value = payload[field]
+        if not isinstance(value, str) or not value.strip():
+            raise ValidationError(f"Invalid text for field: {field}")
+
+        values[field] = value.strip()
+
+    text_value = payload.get(CUSTOMER_TEXT_FEATURE, "")
+    if text_value is None:
+        text_value = ""
+
+    if not isinstance(text_value, str):
+        raise ValidationError(f"Invalid text for field: {CUSTOMER_TEXT_FEATURE}")
+
+    values[CUSTOMER_TEXT_FEATURE] = text_value.strip()
+
+    return pd.DataFrame(
+        [[values[field] for field in CUSTOMER_FEATURES]],
+        columns=CUSTOMER_FEATURES,
+    )
+
+
 def parse_model_id(payload, catalog, default_model_id):
     model_id = payload.get("model", default_model_id)
 
@@ -206,6 +262,23 @@ def positive_class_probability(model, frame):
     return float(probabilities[class_index])
 
 
+def positive_class_score(model, frame):
+    probability = positive_class_probability(model, frame)
+    if probability is not None:
+        return probability
+
+    if not hasattr(model, "decision_function"):
+        return None
+
+    score = model.decision_function(frame)
+    if hasattr(score, "ravel"):
+        raw_score = float(score.ravel()[0])
+    else:
+        raw_score = float(score[0])
+
+    return 1 / (1 + math.exp(-raw_score))
+
+
 def diabetes_prediction_result(model_id, model_entry, frame):
     model = model_entry["model"]
     prediction = int(model.predict(frame)[0])
@@ -233,7 +306,45 @@ def house_prediction_result(model_id, model_entry, frame):
     }
 
 
+def customer_prediction_result(model_id, model_entry, frame):
+    model = model_entry["model"]
+    prediction = int(model.predict(frame)[0])
+    churn_score = positive_class_score(model, frame)
+    result = {
+        "model_id": model_id,
+        "model_name": model_entry["name"],
+        "recommended": model_id == DEFAULT_CUSTOMER_MODEL_ID
+        or model_entry["recommended"],
+        "prediction": prediction,
+    }
+
+    if churn_score is not None:
+        result["churn_score"] = churn_score
+
+    return result
+
+
 def diabetes_consensus(results):
+    prediction_counts = {}
+    for result in results:
+        prediction = result["prediction"]
+        prediction_counts[prediction] = prediction_counts.get(prediction, 0) + 1
+
+    majority_prediction, agreeing_models = max(
+        prediction_counts.items(),
+        key=lambda item: item[1],
+    )
+    total_models = len(results)
+
+    return {
+        "majority_prediction": majority_prediction,
+        "agreeing_models": agreeing_models,
+        "total_models": total_models,
+        "agreement_ratio": agreeing_models / total_models if total_models else 0,
+    }
+
+
+def customer_consensus(results):
     prediction_counts = {}
     for result in results:
         prediction = result["prediction"]
@@ -282,8 +393,13 @@ def handle_unexpected_error(error):
 def index():
     return jsonify(
         {
-            "name": "Intelligent Systems Assignment 01 API",
-            "endpoints": ["/health", "/api/diabetes", "/api/house"],
+            "name": "Intelligent Systems Assignment API",
+            "endpoints": [
+                "/health",
+                "/api/diabetes",
+                "/api/house",
+                "/api/customer-behavior",
+            ],
         }
     )
 
@@ -296,6 +412,7 @@ def health():
             "models": {
                 "diabetes": bool(diabetes_models),
                 "house": bool(house_models),
+                "customer_behavior": bool(customer_models),
             },
         }
     )
@@ -315,6 +432,13 @@ def model_options():
             "house": {
                 "default_model": DEFAULT_HOUSE_MODEL_ID,
                 "models": public_model_options(house_models, DEFAULT_HOUSE_MODEL_ID),
+            },
+            "customer_behavior": {
+                "default_model": DEFAULT_CUSTOMER_MODEL_ID,
+                "models": public_model_options(
+                    customer_models,
+                    DEFAULT_CUSTOMER_MODEL_ID,
+                ),
             },
         }
     )
@@ -395,6 +519,50 @@ def compare_house_models():
             "results": results,
             "spread": house_spread(results),
             "unit_note": house_metadata.get("price_unit_note", HOUSE_UNIT_NOTE),
+        }
+    )
+
+
+@app.post("/api/customer-behavior")
+def predict_customer_behavior():
+    payload = parse_json_body()
+    frame = parse_customer_payload(payload)
+    model_id = parse_model_id(payload, customer_models, DEFAULT_CUSTOMER_MODEL_ID)
+    model_entry = customer_models[model_id]
+    result = customer_prediction_result(model_id, model_entry, frame)
+
+    response = {
+        "task": "customer_behavior",
+        "model": {"id": model_id, "name": model_entry["name"]},
+        "prediction": result["prediction"],
+        "label": "Có nguy cơ rời bỏ" if result["prediction"] == 1 else "Đang gắn bó",
+        "interpretation": (
+            "Mô hình xếp khách hàng vào nhóm có nguy cơ churn."
+            if result["prediction"] == 1
+            else "Mô hình xếp khách hàng vào nhóm còn gắn bó."
+        ),
+    }
+
+    if "churn_score" in result:
+        response["churn_score"] = result["churn_score"]
+
+    return jsonify(response)
+
+
+@app.post("/api/customer-behavior/compare")
+def compare_customer_behavior_models():
+    payload = parse_json_body()
+    frame = parse_customer_payload(payload)
+    results = [
+        customer_prediction_result(model_id, model_entry, frame)
+        for model_id, model_entry in customer_models.items()
+    ]
+
+    return jsonify(
+        {
+            "task": "customer_behavior",
+            "results": results,
+            "consensus": customer_consensus(results),
         }
     )
 

@@ -10,11 +10,12 @@ import {
 } from "react-native";
 import { healthCheck } from "./src/api/predictionApi";
 import AppButton from "./src/components/AppButton";
+import CustomerBehaviorScreen from "./src/screens/CustomerBehaviorScreen";
 import DiabetesScreen from "./src/screens/DiabetesScreen";
 import HomeScreen from "./src/screens/HomeScreen";
 import HousePriceScreen from "./src/screens/HousePriceScreen";
 
-type Screen = "home" | "diabetes" | "house";
+type Screen = "home" | "diabetes" | "house" | "customer";
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>("home");
@@ -63,10 +64,12 @@ export default function App() {
             backendOnline={backendOnline}
             onSelectDiabetes={() => setScreen("diabetes")}
             onSelectHouse={() => setScreen("house")}
+            onSelectCustomer={() => setScreen("customer")}
           />
         ) : null}
         {screen === "diabetes" ? <DiabetesScreen /> : null}
         {screen === "house" ? <HousePriceScreen /> : null}
+        {screen === "customer" ? <CustomerBehaviorScreen /> : null}
       </ScrollView>
     </SafeAreaView>
   );
