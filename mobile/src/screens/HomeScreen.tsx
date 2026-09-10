@@ -18,7 +18,7 @@ export default function HomeScreen({
     <View style={styles.container}>
       <View style={styles.intro}>
         <Text style={styles.eyebrow}>Intelligent Systems Development</Text>
-        <Text style={styles.title}>Assignment 02</Text>
+        <Text style={styles.title}>Assignment 03</Text>
         <Text style={styles.subtitle}>
           Chọn một chức năng để nhập thông tin và xem kết quả dự đoán theo cách
           dễ hiểu.
