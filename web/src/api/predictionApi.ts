@@ -3,12 +3,27 @@ const API_BASE_URL =
 
 export type DiabetesRequest = {
   model?: string;
-  Glucose: number;
+  HighBP: number;
+  HighChol: number;
+  CholCheck: number;
   BMI: number;
+  Smoker: number;
+  Stroke: number;
+  HeartDiseaseorAttack: number;
+  PhysActivity: number;
+  Fruits: number;
+  Veggies: number;
+  HvyAlcoholConsump: number;
+  AnyHealthcare: number;
+  NoDocbcCost: number;
+  GenHlth: number;
+  MentHlth: number;
+  PhysHlth: number;
+  DiffWalk: number;
+  Sex: number;
   Age: number;
-  Pregnancies: number;
-  BloodPressure: number;
-  DiabetesPedigreeFunction: number;
+  Education: number;
+  Income: number;
 };
 
 export type DiabetesResponse = {
@@ -43,12 +58,18 @@ export type DiabetesCompareResponse = {
 
 export type HouseRequest = {
   model?: string;
-  Area: number;
-  Frontage: number;
-  "Access Road": number;
+  Area_m2: number;
+  Frontage_m: number | null;
+  Access_Road_m: number | null;
   Floors: number;
-  Bedrooms: number;
-  Bathrooms: number;
+  Bedrooms: number | null;
+  Bathrooms: number | null;
+  city: string;
+  district: string;
+  "Legal status": string;
+  "Furniture state": string;
+  "House direction": string;
+  "Balcony direction": string;
 };
 
 export type HouseResponse = {
@@ -86,40 +107,53 @@ export type CustomerBehaviorRequest = {
   email_opt_in: number;
   has_app: number;
   customer_tenure_days: number;
-  transaction_count: number;
-  completed_count: number;
-  cancelled_rate: number;
-  refunded_rate: number;
-  total_spent: number;
-  avg_order_value: number;
+  total_transactions: number;
   total_quantity: number;
   avg_discount: number;
   avg_shipping_cost: number;
-  unique_products: number;
-  transaction_recency_days: number;
+  completed_orders: number;
+  total_spent: number;
+  avg_order_value: number;
+  category_diversity: number;
+  brand_diversity: number;
+  cancelled_transactions: number;
+  completed_transactions: number;
+  pending_transactions: number;
+  refunded_transactions: number;
   session_count: number;
-  avg_duration_seconds: number;
+  avg_session_duration: number;
   total_pages_viewed: number;
   avg_pages_viewed: number;
   conversion_rate: number;
   bounce_rate: number;
-  cart_additions_sum: number;
-  avg_cart_additions: number;
-  session_recency_days: number;
+  cart_additions_total: number;
+  cart_additions_avg: number;
+  device_diversity: number;
+  channel_diversity: number;
   review_count: number;
   avg_rating: number;
   low_rating_share: number;
+  verified_review_share: number;
   helpful_votes_total: number;
-  verified_review_rate: number;
+  days_since_last_transaction: number;
+  days_since_last_session: number;
+  days_since_last_review: number;
+  spend_category_clothing: number;
+  spend_category_electronics: number;
+  spend_category_food_grocery: number;
+  spend_category_health: number;
+  spend_category_jewelry: number;
+  spend_category_office_supplies: number;
+  spend_category_pet_supplies: number;
+  spend_category_sports: number;
   gender: string;
   country: string;
   segment: string;
-  favorite_payment_method: string;
   top_category: string;
   top_brand: string;
-  most_used_device: string;
+  top_device: string;
   top_channel: string;
-  review_text_clean: string;
+  review_text_all: string;
 };
 
 export type CustomerBehaviorResponse = {

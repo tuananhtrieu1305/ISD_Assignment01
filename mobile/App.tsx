@@ -10,10 +10,10 @@ import {
 } from "react-native";
 import { healthCheck } from "./src/api/predictionApi";
 import AppButton from "./src/components/AppButton";
-import CustomerBehaviorScreen from "./src/screens/CustomerBehaviorScreen";
-import DiabetesScreen from "./src/screens/DiabetesScreen";
-import HomeScreen from "./src/screens/HomeScreen";
-import HousePriceScreen from "./src/screens/HousePriceScreen";
+import CustomerBehaviorScreen from "./src/screens/CustomerBehaviorPipelineScreen";
+import DiabetesScreen from "./src/screens/DiabetesPipelineScreen";
+import HomeScreen from "./src/screens/HomePipelineScreen";
+import HousePriceScreen from "./src/screens/HousePricePipelineScreen";
 
 type Screen = "home" | "diabetes" | "house" | "customer";
 

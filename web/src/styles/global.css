@@ -246,6 +246,87 @@ select {
   font-size: 1rem;
 }
 
+.input-accordion {
+  grid-column: 1 / -1;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfdff;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.input-accordion.open {
+  border-color: #c8d9f7;
+  background: #ffffff;
+}
+
+.input-accordion-trigger {
+  width: 100%;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 0;
+  padding: 12px 14px;
+  color: var(--text);
+  background: transparent;
+  cursor: pointer;
+  font-weight: 850;
+  text-align: left;
+}
+
+.input-accordion-trigger:focus-visible {
+  outline: 3px solid #dbeafe;
+  outline-offset: -3px;
+}
+
+.input-accordion-chevron {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 0.9rem;
+  transform-origin: center;
+  transition: transform 220ms ease;
+}
+
+.input-accordion.open .input-accordion-chevron {
+  transform: rotate(180deg);
+}
+
+.input-accordion-shell {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 240ms ease,
+    opacity 180ms ease;
+}
+
+.input-accordion.open .input-accordion-shell {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  border-top: 1px solid var(--border);
+}
+
+.input-accordion-content {
+  min-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: visibility 0s linear 240ms;
+}
+
+.input-accordion.open .input-accordion-content {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.input-accordion-content > .form-grid {
+  padding: 14px;
+}
+
 .scenario-input-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

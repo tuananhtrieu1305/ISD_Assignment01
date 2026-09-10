@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { FormEvent, useEffect, useRef, useState } from "react";
 import {
   HouseRequest,

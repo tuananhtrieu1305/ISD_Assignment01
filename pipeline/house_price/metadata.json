@@ -1,0 +1,31 @@
+{
+  "task_name": "Vietnam House Price Regression",
+  "task_type": "regression",
+  "dataset_name": "House Price Prediction Dataset Vietnam 2024",
+  "dataset_path": "datasets/housing_price/vietnam_housing_dataset.csv",
+  "target": "Price_BillionVND",
+  "target_unit": "billion VND",
+  "selected_model": "Improved DNN",
+  "selection_metric": "RMSE",
+  "metrics": {
+    "MAE": 1.064817388105978,
+    "MSE": 2.007712687790892,
+    "RMSE": 1.4169377854341,
+    "R2": 0.5798776325912685,
+    "MAPE": 21.22073116573287
+  },
+  "feature_count": 12,
+  "transformed_feature_count": 154,
+  "training_date": "2026-09-07T10:13:48+00:00",
+  "preprocessing_summary": "Numeric median imputation + scaling; categorical Unknown imputation + one-hot encoding, all fitted on training split only.",
+  "target_transformation": "Improved DNN trains on standardized log1p target and inverse-transforms predictions with expm1 for final metrics.",
+  "target_log_mean": 1.8708937298002686,
+  "target_log_std": 0.36215013164781595,
+  "model_format": "NumPy DNN weights (.npz) + joblib ColumnTransformer",
+  "model_file": "pipeline/house_price/model.npz",
+  "preprocessor_file": "pipeline/house_price/preprocessor.joblib",
+  "notes": [
+    "Price-derived price_per_m2_million is used only for EDA and excluded from X.",
+    "Final metrics are reported in original billion-VND units."
+  ]
+}

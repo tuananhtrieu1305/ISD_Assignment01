@@ -10,8 +10,8 @@ type ModelDropdownProps = {
 };
 
 function formatOption(option?: ModelOption) {
-  if (!option) return "Ch\u1ecdn model";
-  return `${option.name}${option.recommended ? " (khuy\u1ebfn ngh\u1ecb)" : ""}`;
+  if (!option) return "Chọn model";
+  return `${option.name}${option.recommended ? " (khuyến nghị)" : ""}`;
 }
 
 export default function ModelDropdown({
@@ -47,7 +47,7 @@ export default function ModelDropdown({
       </Pressable>
 
       <Modal
-        animationType="fade"
+        animationType="slide"
         transparent
         visible={open}
         onRequestClose={() => setOpen(false)}
@@ -55,7 +55,7 @@ export default function ModelDropdown({
         <View style={styles.backdrop}>
           <Pressable
             accessibilityRole="button"
-            accessibilityLabel="\u0110\u00f3ng danh s\u00e1ch model"
+            accessibilityLabel="Đóng danh sách model"
             style={styles.backdropHitArea}
             onPress={() => setOpen(false)}
           />

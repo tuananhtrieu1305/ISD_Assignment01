@@ -1,9 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "./components/AppLayout";
-import CustomerBehaviorPage from "./pages/CustomerBehaviorPage";
-import DiabetesPage from "./pages/DiabetesPage";
-import HomePage from "./pages/HomePage";
-import HousePricePage from "./pages/HousePricePage";
+import CustomerBehaviorPage from "./pages/CustomerBehaviorPipelinePage";
+import DiabetesPage from "./pages/DiabetesPipelinePage";
+import HomePage from "./pages/HomePipelinePage";
+import HousePricePage from "./pages/HousePricePipelinePage";
 
 export default function App() {
   return (

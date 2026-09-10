@@ -1,0 +1,469 @@
+{
+  "task_name": "Customer Behavior Churn Classification",
+  "target": "is_churned",
+  "prediction_time_input": "One customer-level feature row built only from information available before the prediction cutoff.",
+  "prediction_cutoff": "2024-10-01 23:59:05",
+  "feature_order": [
+    "age",
+    "email_opt_in",
+    "has_app",
+    "customer_tenure_days",
+    "total_transactions",
+    "total_quantity",
+    "avg_discount",
+    "avg_shipping_cost",
+    "completed_orders",
+    "total_spent",
+    "avg_order_value",
+    "category_diversity",
+    "brand_diversity",
+    "cancelled_transactions",
+    "completed_transactions",
+    "pending_transactions",
+    "refunded_transactions",
+    "session_count",
+    "avg_session_duration",
+    "total_pages_viewed",
+    "avg_pages_viewed",
+    "conversion_rate",
+    "bounce_rate",
+    "cart_additions_total",
+    "cart_additions_avg",
+    "device_diversity",
+    "channel_diversity",
+    "review_count",
+    "avg_rating",
+    "low_rating_share",
+    "verified_review_share",
+    "helpful_votes_total",
+    "days_since_last_transaction",
+    "days_since_last_session",
+    "days_since_last_review",
+    "spend_category_clothing",
+    "spend_category_electronics",
+    "spend_category_food_grocery",
+    "spend_category_health",
+    "spend_category_jewelry",
+    "spend_category_office_supplies",
+    "spend_category_pet_supplies",
+    "spend_category_sports",
+    "gender",
+    "country",
+    "segment",
+    "top_category",
+    "top_brand",
+    "top_device",
+    "top_channel",
+    "review_text_all"
+  ],
+  "features": [
+    {
+      "name": "age",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": null,
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "email_opt_in",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": null,
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "has_app",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": null,
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "customer_tenure_days",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "days",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "total_transactions",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "total_quantity",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "avg_discount",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "source monetary amount",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "avg_shipping_cost",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "source monetary amount",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "completed_orders",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "total_spent",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "source monetary amount",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "avg_order_value",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "source monetary amount",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "category_diversity",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "brand_diversity",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "cancelled_transactions",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "completed_transactions",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "pending_transactions",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "refunded_transactions",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "session_count",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "avg_session_duration",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "seconds",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "total_pages_viewed",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "avg_pages_viewed",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "conversion_rate",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "proportion",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "bounce_rate",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "proportion",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "cart_additions_total",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "cart_additions_avg",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "device_diversity",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "channel_diversity",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "review_count",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "avg_rating",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": null,
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "low_rating_share",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "proportion",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "verified_review_share",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "proportion",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "helpful_votes_total",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "count",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "days_since_last_transaction",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "days",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "days_since_last_session",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "days",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "days_since_last_review",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": "days",
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "spend_category_clothing",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": null,
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "spend_category_electronics",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": null,
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "spend_category_food_grocery",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": null,
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "spend_category_health",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": null,
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "spend_category_jewelry",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": null,
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "spend_category_office_supplies",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": null,
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "spend_category_pet_supplies",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": null,
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "spend_category_sports",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Numeric customer-level aggregate available at prediction time.",
+      "unit": null,
+      "description": "Customer profile or pre-cutoff behavior aggregate."
+    },
+    {
+      "name": "gender",
+      "type": "string",
+      "required": true,
+      "allowed_or_category_notes": "Seen training categories are encoded; unseen values are ignored safely by OneHotEncoder.",
+      "unit": null,
+      "description": "Customer profile or dominant pre-cutoff preference category."
+    },
+    {
+      "name": "country",
+      "type": "string",
+      "required": true,
+      "allowed_or_category_notes": "Seen training categories are encoded; unseen values are ignored safely by OneHotEncoder.",
+      "unit": null,
+      "description": "Customer profile or dominant pre-cutoff preference category."
+    },
+    {
+      "name": "segment",
+      "type": "string",
+      "required": true,
+      "allowed_or_category_notes": "Seen training categories are encoded; unseen values are ignored safely by OneHotEncoder.",
+      "unit": null,
+      "description": "Customer profile or dominant pre-cutoff preference category."
+    },
+    {
+      "name": "top_category",
+      "type": "string",
+      "required": true,
+      "allowed_or_category_notes": "Seen training categories are encoded; unseen values are ignored safely by OneHotEncoder.",
+      "unit": null,
+      "description": "Customer profile or dominant pre-cutoff preference category."
+    },
+    {
+      "name": "top_brand",
+      "type": "string",
+      "required": true,
+      "allowed_or_category_notes": "Seen training categories are encoded; unseen values are ignored safely by OneHotEncoder.",
+      "unit": null,
+      "description": "Customer profile or dominant pre-cutoff preference category."
+    },
+    {
+      "name": "top_device",
+      "type": "string",
+      "required": true,
+      "allowed_or_category_notes": "Seen training categories are encoded; unseen values are ignored safely by OneHotEncoder.",
+      "unit": null,
+      "description": "Customer profile or dominant pre-cutoff preference category."
+    },
+    {
+      "name": "top_channel",
+      "type": "string",
+      "required": true,
+      "allowed_or_category_notes": "Seen training categories are encoded; unseen values are ignored safely by OneHotEncoder.",
+      "unit": null,
+      "description": "Customer profile or dominant pre-cutoff preference category."
+    },
+    {
+      "name": "review_text_all",
+      "type": "string",
+      "required": true,
+      "allowed_or_category_notes": "Use an empty string when no review text is available.",
+      "unit": null,
+      "description": "Concatenated pre-cutoff review text represented by TF-IDF."
+    }
+  ]
+}

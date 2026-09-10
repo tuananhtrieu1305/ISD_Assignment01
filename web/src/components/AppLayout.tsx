@@ -34,7 +34,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
         </div>
         <nav className="nav-links" aria-label="Primary navigation">
           <NavLink to="/" end>
-            Home
+            Trang chủ
           </NavLink>
           <NavLink to="/diabetes">Tiểu đường</NavLink>
           <NavLink to="/house">Giá nhà</NavLink>

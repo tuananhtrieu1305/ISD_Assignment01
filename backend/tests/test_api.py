@@ -1,38 +1,36 @@
 import math
 import statistics
+import json
+from pathlib import Path
 
 import pandas as pd
 
 from app import (
+    CUSTOMER_FEATURES,
     DEFAULT_DIABETES_MODEL_ID,
+    DEFAULT_CUSTOMER_MODEL_ID,
     DEFAULT_HOUSE_MODEL_ID,
     DIABETES_FEATURES,
     HOUSE_FEATURES,
     allowed_origins,
     app,
+    customer_models,
     diabetes_models,
     house_models,
     normalize_artifact_relative_path,
 )
 
 
-DIABETES_DEMO_INPUT = {
-    "Glucose": 125,
-    "BMI": 29.5,
-    "Age": 38,
-    "Pregnancies": 3,
-    "BloodPressure": 78,
-    "DiabetesPedigreeFunction": 0.55,
-}
+ROOT = Path(__file__).resolve().parents[2]
 
-HOUSE_DEMO_INPUT = {
-    "Area": 70,
-    "Frontage": 5.0,
-    "Access Road": 6.0,
-    "Floors": 4,
-    "Bedrooms": 4,
-    "Bathrooms": 3,
-}
+
+def load_demo_input(folder):
+    return json.loads((ROOT / "pipeline" / folder / "demo_input.json").read_text())
+
+
+DIABETES_DEMO_INPUT = load_demo_input("diabetes")
+HOUSE_DEMO_INPUT = load_demo_input("house_price")
+CUSTOMER_DEMO_INPUT = load_demo_input("customer_behavior")
 
 
 def test_health_reports_loaded_models():
@@ -43,7 +41,7 @@ def test_health_reports_loaded_models():
     assert response.status_code == 200
     assert response.get_json() == {
         "status": "ok",
-        "models": {"diabetes": True, "house": True},
+        "models": {"diabetes": True, "house": True, "customer_behavior": True},
     }
 
 
@@ -79,8 +77,23 @@ def test_model_options_are_available():
     assert response.status_code == 200
     assert data["diabetes"]["default_model"] == DEFAULT_DIABETES_MODEL_ID
     assert data["house"]["default_model"] == DEFAULT_HOUSE_MODEL_ID
+    assert data["customer_behavior"]["default_model"] == DEFAULT_CUSTOMER_MODEL_ID
     assert len(data["diabetes"]["models"]) >= 1
     assert len(data["house"]["models"]) >= 1
+    assert len(data["customer_behavior"]["models"]) >= 1
+
+
+def test_feature_schemas_return_demo_inputs():
+    client = app.test_client()
+
+    response = client.get("/api/schemas")
+    data = response.get_json()
+
+    assert response.status_code == 200
+    assert data["diabetes"]["feature_order"] == DIABETES_FEATURES
+    assert data["house"]["feature_order"] == HOUSE_FEATURES
+    assert data["customer_behavior"]["feature_order"] == CUSTOMER_FEATURES
+    assert data["diabetes"]["demo_input"] == DIABETES_DEMO_INPUT
 
 
 def test_diabetes_prediction_matches_direct_joblib():
@@ -118,23 +131,23 @@ def test_house_prediction_matches_direct_joblib():
 def test_missing_required_field_returns_400():
     client = app.test_client()
     payload = DIABETES_DEMO_INPUT.copy()
-    payload.pop("BMI")
+    payload.pop(DIABETES_FEATURES[0])
 
     response = client.post("/api/diabetes", json=payload)
 
     assert response.status_code == 400
-    assert response.get_json() == {"error": "Missing required field: BMI"}
+    assert response.get_json() == {"error": f"Missing required field: {DIABETES_FEATURES[0]}"}
 
 
 def test_invalid_numeric_value_returns_400():
     client = app.test_client()
     payload = HOUSE_DEMO_INPUT.copy()
-    payload["Area"] = "sixty"
+    payload[HOUSE_FEATURES[0]] = "sixty"
 
     response = client.post("/api/house", json=payload)
 
     assert response.status_code == 400
-    assert response.get_json() == {"error": "Invalid number for field: Area"}
+    assert response.get_json() == {"error": f"Invalid number for field: {HOUSE_FEATURES[0]}"}
 
 
 def test_invalid_model_selection_returns_400():
@@ -157,8 +170,8 @@ def test_diabetes_compare_returns_all_models_and_consensus():
 
     assert response.status_code == 200
     assert data["task"] == "diabetes"
-    assert len(results) == len(diabetes_models) == 5
-    assert len({result["model_id"] for result in results}) == 5
+    assert len(results) == len(diabetes_models)
+    assert len({result["model_id"] for result in results}) == len(diabetes_models)
     assert any(result["recommended"] for result in results)
 
     for result in results:
@@ -185,8 +198,8 @@ def test_diabetes_compare_returns_all_models_and_consensus():
 
     assert consensus["majority_prediction"] == majority_prediction
     assert consensus["agreeing_models"] == agreeing_models
-    assert consensus["total_models"] == 5
-    assert math.isclose(consensus["agreement_ratio"], agreeing_models / 5)
+    assert consensus["total_models"] == len(diabetes_models)
+    assert math.isclose(consensus["agreement_ratio"], agreeing_models / len(diabetes_models))
 
 
 def test_house_compare_returns_all_models_and_spread():
@@ -198,8 +211,8 @@ def test_house_compare_returns_all_models_and_spread():
 
     assert response.status_code == 200
     assert data["task"] == "house"
-    assert len(results) == len(house_models) == 5
-    assert len({result["model_id"] for result in results}) == 5
+    assert len(results) == len(house_models)
+    assert len({result["model_id"] for result in results}) == len(house_models)
     assert any(result["recommended"] for result in results)
 
     for result in results:
@@ -222,3 +235,20 @@ def test_house_compare_returns_all_models_and_spread():
     assert math.isclose(spread["mean"], statistics.fmean(prices))
     assert math.isclose(spread["median"], statistics.median(prices))
     assert math.isclose(spread["range"], max(prices) - min(prices))
+
+
+def test_customer_behavior_prediction_matches_direct_numpy_dnn():
+    client = app.test_client()
+    model = customer_models[DEFAULT_CUSTOMER_MODEL_ID]["model"]
+    frame = pd.DataFrame([[CUSTOMER_DEMO_INPUT[name] for name in CUSTOMER_FEATURES]], columns=CUSTOMER_FEATURES)
+    expected_prediction = int(model.predict(frame)[0])
+    expected_probability = float(model.predict_proba(frame)[0][1])
+
+    response = client.post("/api/customer-behavior", json=CUSTOMER_DEMO_INPUT)
+    data = response.get_json()
+
+    assert response.status_code == 200
+    assert data["task"] == "customer_behavior"
+    assert data["prediction"] == expected_prediction
+    assert math.isclose(data["churn_score"], expected_probability, rel_tol=1e-12)
+    assert data["model"]["id"] == DEFAULT_CUSTOMER_MODEL_ID

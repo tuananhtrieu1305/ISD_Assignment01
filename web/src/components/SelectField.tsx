@@ -8,6 +8,7 @@ type SelectFieldProps = {
   label: string;
   value: string;
   options: SelectOption[];
+  fullWidth?: boolean;
   onChange: (value: string) => void;
 };
 
@@ -16,10 +17,11 @@ export default function SelectField({
   label,
   value,
   options,
+  fullWidth = true,
   onChange,
 }: SelectFieldProps) {
   return (
-    <div className="form-field full-width">
+    <div className={`form-field${fullWidth ? " full-width" : ""}`}>
       <label htmlFor={id}>{label}</label>
       <select
         id={id}

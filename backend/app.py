@@ -5,6 +5,7 @@ import statistics
 from pathlib import Path
 
 import joblib
+import numpy as np
 import pandas as pd
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -12,30 +13,12 @@ from werkzeug.exceptions import BadRequest
 
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_DIR = BASE_DIR / "models"
-ARTIFACT_DIR = BASE_DIR.parent / "artifacts"
-
-DIABETES_FEATURES = [
-    "Glucose",
-    "BMI",
-    "Age",
-    "Pregnancies",
-    "BloodPressure",
-    "DiabetesPedigreeFunction",
-]
-HOUSE_FEATURES = [
-    "Area",
-    "Frontage",
-    "Access Road",
-    "Floors",
-    "Bedrooms",
-    "Bathrooms",
-]
+PIPELINE_DIR = BASE_DIR.parent / "pipeline"
 
 DIABETES_DISCLAIMER = (
     "Educational machine-learning prediction only - not a medical diagnosis."
 )
-HOUSE_UNIT_NOTE = "Prediction uses the same unit as the dataset Price column."
+HOUSE_UNIT_NOTE = "Prediction is reported in billion VND."
 
 
 def load_json(path):
@@ -43,79 +26,132 @@ def load_json(path):
         return json.load(file)
 
 
-diabetes_metadata = load_json(ARTIFACT_DIR / "diabetes_metadata.json")
-house_metadata = load_json(ARTIFACT_DIR / "house_metadata.json")
-customer_metadata = load_json(ARTIFACT_DIR / "customer_behavior_metadata.json")
+def load_pipeline_bundle(folder_name):
+    folder = PIPELINE_DIR / folder_name
+    metadata = load_json(folder / "metadata.json")
+    schema = load_json(folder / "feature_schema.json")
+    return {
+        "folder": folder,
+        "metadata": metadata,
+        "schema": schema,
+        "features": schema["feature_order"],
+        "feature_defs": schema["features"],
+        "preprocessor": joblib.load(folder / "preprocessor.joblib"),
+        "weights": dict(np.load(folder / "model.npz")),
+    }
 
-CUSTOMER_FEATURES = customer_metadata["features"]
-CUSTOMER_NUMERIC_FEATURES = customer_metadata["numeric_features"]
-CUSTOMER_CATEGORICAL_FEATURES = customer_metadata["categorical_features"]
+
+def relu(values):
+    return np.maximum(0, values)
+
+
+def sigmoid(values):
+    values = np.clip(values, -50, 50)
+    return 1.0 / (1.0 + np.exp(-values))
+
+
+def as_dense(values):
+    if hasattr(values, "toarray"):
+        return values.toarray()
+    return np.asarray(values, dtype=float)
+
+
+class PipelineDnnModel:
+    def __init__(self, bundle, task_type):
+        self.bundle = bundle
+        self.task_type = task_type
+        self.classes_ = np.array([0, 1]) if task_type == "binary_classification" else None
+
+    def _transform(self, frame):
+        return as_dense(self.bundle["preprocessor"].transform(frame))
+
+    def _forward(self, frame):
+        x = self._transform(frame)
+        weights = self.bundle["weights"]
+        hidden_1 = relu(x @ weights["W1"] + weights["b1"])
+        hidden_2 = relu(hidden_1 @ weights["W2"] + weights["b2"])
+        output = hidden_2 @ weights["W3"] + weights["b3"]
+
+        if self.task_type == "binary_classification":
+            return sigmoid(output).ravel()
+
+        metadata = self.bundle["metadata"]
+        output_log = (
+            output.ravel() * float(metadata["target_log_std"])
+            + float(metadata["target_log_mean"])
+        )
+        return np.maximum(np.expm1(output_log), 0)
+
+    def predict(self, frame):
+        output = self._forward(frame)
+        if self.task_type == "binary_classification":
+            threshold = float(self.bundle["metadata"].get("decision_threshold", 0.5))
+            return (output >= threshold).astype(int)
+        return output
+
+    def predict_proba(self, frame):
+        if self.task_type != "binary_classification":
+            raise AttributeError("Regression model does not support predict_proba.")
+        positive = self._forward(frame)
+        return np.column_stack([1 - positive, positive])
+
+
+diabetes_bundle = load_pipeline_bundle("diabetes")
+house_bundle = load_pipeline_bundle("house_price")
+customer_bundle = load_pipeline_bundle("customer_behavior")
+
+diabetes_metadata = diabetes_bundle["metadata"]
+house_metadata = house_bundle["metadata"]
+customer_metadata = customer_bundle["metadata"]
+
+DIABETES_FEATURES = diabetes_bundle["features"]
+HOUSE_FEATURES = house_bundle["features"]
+CUSTOMER_FEATURES = customer_bundle["features"]
+CUSTOMER_NUMERIC_FEATURES = [
+    feature["name"]
+    for feature in customer_bundle["feature_defs"]
+    if feature["type"] == "number"
+]
+CUSTOMER_CATEGORICAL_FEATURES = [
+    feature["name"]
+    for feature in customer_bundle["feature_defs"]
+    if feature["type"] == "string"
+    and feature["name"] != customer_metadata["text_feature"]
+]
 CUSTOMER_TEXT_FEATURE = customer_metadata["text_feature"]
 
-if diabetes_metadata.get("features") != DIABETES_FEATURES:
-    raise RuntimeError("Diabetes metadata features do not match backend schema.")
+DEFAULT_DIABETES_MODEL_ID = "improved_dnn"
+DEFAULT_HOUSE_MODEL_ID = "improved_dnn"
+DEFAULT_CUSTOMER_MODEL_ID = "improved_dnn"
 
-if house_metadata.get("features") != HOUSE_FEATURES:
-    raise RuntimeError("House metadata features do not match backend schema.")
+diabetes_models = {
+    DEFAULT_DIABETES_MODEL_ID: {
+        "id": DEFAULT_DIABETES_MODEL_ID,
+        "name": diabetes_metadata["selected_model"],
+        "recommended": True,
+        "model": PipelineDnnModel(diabetes_bundle, diabetes_metadata["task_type"]),
+    }
+}
+house_models = {
+    DEFAULT_HOUSE_MODEL_ID: {
+        "id": DEFAULT_HOUSE_MODEL_ID,
+        "name": house_metadata["selected_model"],
+        "recommended": True,
+        "model": PipelineDnnModel(house_bundle, house_metadata["task_type"]),
+    }
+}
+customer_models = {
+    DEFAULT_CUSTOMER_MODEL_ID: {
+        "id": DEFAULT_CUSTOMER_MODEL_ID,
+        "name": customer_metadata["selected_model"],
+        "recommended": True,
+        "model": PipelineDnnModel(customer_bundle, customer_metadata["task_type"]),
+    }
+}
 
 
 def normalize_artifact_relative_path(relative_path):
     return tuple(part for part in relative_path.replace("\\", "/").split("/") if part)
-
-
-def resolve_artifact_path(relative_path):
-    path = ARTIFACT_DIR.joinpath(
-        *normalize_artifact_relative_path(relative_path)
-    ).resolve()
-    artifact_root = ARTIFACT_DIR.resolve()
-
-    if artifact_root not in path.parents and path != artifact_root:
-        raise RuntimeError("Model artifact path escapes artifacts directory.")
-
-    return path
-
-
-def load_model_catalog(metadata, fallback_model_path):
-    available_models = metadata.get("available_models", {})
-    catalog = {}
-
-    for model_id, model_info in available_models.items():
-        artifact_path = resolve_artifact_path(model_info["artifact"])
-        catalog[model_id] = {
-            "id": model_id,
-            "name": model_info["name"],
-            "recommended": bool(model_info.get("recommended", False)),
-            "model": joblib.load(artifact_path),
-        }
-
-    recommended_id = metadata.get("recommended_model_id")
-    if not catalog:
-        recommended_id = "default"
-        catalog[recommended_id] = {
-            "id": recommended_id,
-            "name": metadata.get("selected_model", "Default model"),
-            "recommended": True,
-            "model": joblib.load(fallback_model_path),
-        }
-
-    if recommended_id not in catalog:
-        raise RuntimeError("Recommended model id is not present in metadata catalog.")
-
-    return catalog, recommended_id
-
-
-diabetes_models, DEFAULT_DIABETES_MODEL_ID = load_model_catalog(
-    diabetes_metadata,
-    MODEL_DIR / "diabetes_pipeline.joblib",
-)
-house_models, DEFAULT_HOUSE_MODEL_ID = load_model_catalog(
-    house_metadata,
-    MODEL_DIR / "house_pipeline.joblib",
-)
-customer_models, DEFAULT_CUSTOMER_MODEL_ID = load_model_catalog(
-    customer_metadata,
-    ARTIFACT_DIR / "customer_churn_pipeline.joblib",
-)
 
 
 def allowed_origins():
@@ -162,6 +198,10 @@ def parse_numeric_payload(payload, features):
             raise ValidationError(f"Missing required field: {field}")
 
         value = payload[field]
+        if value is None or value == "":
+            values[field] = np.nan
+            continue
+
         if isinstance(value, bool):
             raise ValidationError(f"Invalid number for field: {field}")
 
@@ -176,6 +216,47 @@ def parse_numeric_payload(payload, features):
         values[field] = number
 
     return pd.DataFrame([[values[field] for field in features]], columns=features)
+
+
+def parse_schema_payload(payload, bundle):
+    values = {}
+
+    for feature in bundle["feature_defs"]:
+        field = feature["name"]
+        if field not in payload:
+            raise ValidationError(f"Missing required field: {field}")
+
+        value = payload[field]
+        if feature["type"] == "number":
+            if value is None or value == "":
+                values[field] = np.nan
+                continue
+            if isinstance(value, bool):
+                raise ValidationError(f"Invalid number for field: {field}")
+
+            try:
+                number = float(value)
+            except (TypeError, ValueError) as exc:
+                raise ValidationError(f"Invalid number for field: {field}") from exc
+
+            if not math.isfinite(number):
+                raise ValidationError(f"Invalid number for field: {field}")
+
+            values[field] = number
+            continue
+
+        if value is None:
+            value = "Unknown"
+
+        if not isinstance(value, str):
+            raise ValidationError(f"Invalid text for field: {field}")
+
+        values[field] = value.strip() or "Unknown"
+
+    return pd.DataFrame(
+        [[values[field] for field in bundle["features"]]],
+        columns=bundle["features"],
+    )
 
 
 def parse_customer_payload(payload):
@@ -245,6 +326,17 @@ def public_model_options(catalog, default_model_id):
         }
         for model_id, item in catalog.items()
     ]
+
+
+def public_schema(bundle):
+    demo_input = load_json(bundle["folder"] / "demo_input.json")
+    return {
+        "task_name": bundle["schema"]["task_name"],
+        "target": bundle["schema"]["target"],
+        "features": bundle["feature_defs"],
+        "feature_order": bundle["features"],
+        "demo_input": demo_input,
+    }
 
 
 def positive_class_probability(model, frame):
@@ -418,6 +510,17 @@ def health():
     )
 
 
+@app.get("/api/schemas")
+def feature_schemas():
+    return jsonify(
+        {
+            "diabetes": public_schema(diabetes_bundle),
+            "house": public_schema(house_bundle),
+            "customer_behavior": public_schema(customer_bundle),
+        }
+    )
+
+
 @app.get("/api/models")
 def model_options():
     return jsonify(
@@ -489,7 +592,7 @@ def compare_diabetes_models():
 @app.post("/api/house")
 def predict_house():
     payload = parse_json_body()
-    frame = parse_numeric_payload(payload, HOUSE_FEATURES)
+    frame = parse_schema_payload(payload, house_bundle)
     model_id = parse_model_id(payload, house_models, DEFAULT_HOUSE_MODEL_ID)
     model_entry = house_models[model_id]
     predicted_price = float(model_entry["model"].predict(frame)[0])
@@ -507,7 +610,7 @@ def predict_house():
 @app.post("/api/house/compare")
 def compare_house_models():
     payload = parse_json_body()
-    frame = parse_numeric_payload(payload, HOUSE_FEATURES)
+    frame = parse_schema_payload(payload, house_bundle)
     results = [
         house_prediction_result(model_id, model_entry, frame)
         for model_id, model_entry in house_models.items()
