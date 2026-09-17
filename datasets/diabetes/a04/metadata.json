@@ -1,0 +1,389 @@
+{
+  "dataset_name": "BRFSS 2021 Diabetes Health Indicators - Binary Unbalanced",
+  "source": "Kaggle dataset cleaned from CDC BRFSS 2021",
+  "source_url": "https://www.kaggle.com/datasets/julnazz/diabetes-health-indicators-dataset/data",
+  "license": "CC0: Public Domain",
+  "task": "patient health indicators -> diabetes / diabetes risk binary classification",
+  "target": "Diabetes_binary",
+  "samples": 236378,
+  "features": 21,
+  "shape": [
+    236378,
+    22
+  ],
+  "columns": [
+    "Diabetes_binary",
+    "HighBP",
+    "HighChol",
+    "CholCheck",
+    "BMI",
+    "Smoker",
+    "Stroke",
+    "HeartDiseaseorAttack",
+    "PhysActivity",
+    "Fruits",
+    "Veggies",
+    "HvyAlcoholConsump",
+    "AnyHealthcare",
+    "NoDocbcCost",
+    "GenHlth",
+    "MentHlth",
+    "PhysHlth",
+    "DiffWalk",
+    "Sex",
+    "Age",
+    "Education",
+    "Income"
+  ],
+  "dtypes": {
+    "Diabetes_binary": "float64",
+    "HighBP": "int64",
+    "HighChol": "float64",
+    "CholCheck": "int64",
+    "BMI": "float64",
+    "Smoker": "float64",
+    "Stroke": "float64",
+    "HeartDiseaseorAttack": "float64",
+    "PhysActivity": "int64",
+    "Fruits": "int64",
+    "Veggies": "int64",
+    "HvyAlcoholConsump": "int64",
+    "AnyHealthcare": "int64",
+    "NoDocbcCost": "float64",
+    "GenHlth": "float64",
+    "MentHlth": "float64",
+    "PhysHlth": "float64",
+    "DiffWalk": "float64",
+    "Sex": "int64",
+    "Age": "int64",
+    "Education": "float64",
+    "Income": "float64"
+  },
+  "numerical_features": [
+    "HighBP",
+    "HighChol",
+    "CholCheck",
+    "BMI",
+    "Smoker",
+    "Stroke",
+    "HeartDiseaseorAttack",
+    "PhysActivity",
+    "Fruits",
+    "Veggies",
+    "HvyAlcoholConsump",
+    "AnyHealthcare",
+    "NoDocbcCost",
+    "GenHlth",
+    "MentHlth",
+    "PhysHlth",
+    "DiffWalk",
+    "Sex",
+    "Age",
+    "Education",
+    "Income"
+  ],
+  "categorical_features": [],
+  "missing_values": {
+    "total_missing_cells": 0,
+    "columns_with_missing": {}
+  },
+  "duplicates": 13135,
+  "class_distribution": {
+    "0.0": {
+      "count": 202810,
+      "pct": 85.799
+    },
+    "1.0": {
+      "count": 33568,
+      "pct": 14.201
+    }
+  },
+  "raw_files": [
+    {
+      "path": "datasets/diabetes/a04/diabetes_binary_health_indicators_BRFSS2021.csv",
+      "size_bytes": 16968931,
+      "size": "16.18 MB"
+    }
+  ],
+  "descriptive_statistics": {
+    "HighBP": {
+      "count": 236378.0,
+      "mean": 0.4185584106811971,
+      "std": 0.493323724446498,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "HighChol": {
+      "count": 236378.0,
+      "mean": 0.4020594133125756,
+      "std": 0.4903148565269799,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "CholCheck": {
+      "count": 236378.0,
+      "mean": 0.9633468427687856,
+      "std": 0.187909160699948,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 1.0,
+      "50%": 1.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "BMI": {
+      "count": 236378.0,
+      "mean": 28.953578590224133,
+      "std": 6.552055319648995,
+      "min": 12.0,
+      "1%": 18.0,
+      "5%": 21.0,
+      "50%": 28.0,
+      "95%": 41.0,
+      "99%": 50.0,
+      "max": 99.0
+    },
+    "Smoker": {
+      "count": 236378.0,
+      "mean": 0.4119968863430607,
+      "std": 0.49219556769200135,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "Stroke": {
+      "count": 236378.0,
+      "mean": 0.03889955918063441,
+      "std": 0.19335599716689736,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 0.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "HeartDiseaseorAttack": {
+      "count": 236378.0,
+      "mean": 0.08654781747878398,
+      "std": 0.28117188199159476,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "PhysActivity": {
+      "count": 236378.0,
+      "mean": 0.7792307236714077,
+      "std": 0.4147661157048438,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 1.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "Fruits": {
+      "count": 236378.0,
+      "mean": 0.621259169635076,
+      "std": 0.4850744367693615,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 1.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "Veggies": {
+      "count": 236378.0,
+      "mean": 0.8277673895201754,
+      "std": 0.3775832908215278,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 1.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "HvyAlcoholConsump": {
+      "count": 236378.0,
+      "mean": 0.06208276573962044,
+      "std": 0.24130632456514953,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "AnyHealthcare": {
+      "count": 236378.0,
+      "mean": 0.9625726590461041,
+      "std": 0.18980697435646515,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 1.0,
+      "50%": 1.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "NoDocbcCost": {
+      "count": 236378.0,
+      "mean": 0.06373689598862839,
+      "std": 0.24428417167951236,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "GenHlth": {
+      "count": 236378.0,
+      "mean": 2.480717325639442,
+      "std": 1.0291335069356558,
+      "min": 1.0,
+      "1%": 1.0,
+      "5%": 1.0,
+      "50%": 2.0,
+      "95%": 4.0,
+      "99%": 5.0,
+      "max": 5.0
+    },
+    "MentHlth": {
+      "count": 236378.0,
+      "mean": 3.9377099391652353,
+      "std": 7.886506009462825,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 30.0,
+      "99%": 30.0,
+      "max": 30.0
+    },
+    "PhysHlth": {
+      "count": 236378.0,
+      "mean": 3.751296651972688,
+      "std": 8.245906822394167,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 30.0,
+      "99%": 30.0,
+      "max": 30.0
+    },
+    "DiffWalk": {
+      "count": 236378.0,
+      "mean": 0.15394833698567548,
+      "std": 0.3608999827433362,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "Sex": {
+      "count": 236378.0,
+      "mean": 0.47782365533171445,
+      "std": 0.49950902423192584,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "Age": {
+      "count": 236378.0,
+      "mean": 7.863929807342477,
+      "std": 3.2369969186581686,
+      "min": 1.0,
+      "1%": 1.0,
+      "5%": 2.0,
+      "50%": 8.0,
+      "95%": 13.0,
+      "99%": 13.0,
+      "max": 13.0
+    },
+    "Education": {
+      "count": 236378.0,
+      "mean": 5.139099239353916,
+      "std": 0.9461852524195588,
+      "min": 1.0,
+      "1%": 2.0,
+      "5%": 4.0,
+      "50%": 5.0,
+      "95%": 6.0,
+      "99%": 6.0,
+      "max": 6.0
+    },
+    "Income": {
+      "count": 236378.0,
+      "mean": 6.927450947211669,
+      "std": 2.375449587681468,
+      "min": 1.0,
+      "1%": 1.0,
+      "5%": 2.0,
+      "50%": 7.0,
+      "95%": 11.0,
+      "99%": 11.0,
+      "max": 11.0
+    }
+  },
+  "data_quality_findings": {
+    "target_missing": 0,
+    "target_values": [
+      "0.0",
+      "1.0"
+    ],
+    "bmi_zero_or_negative": 0,
+    "age_outside_1_13": 0,
+    "ordinal_range_issues": {
+      "GenHlth": 0,
+      "Education": 0,
+      "Income": 0,
+      "MentHlth": 0,
+      "PhysHlth": 0
+    },
+    "income_code_range": {
+      "min": 1,
+      "max": 11,
+      "note": "BRFSS 2021 cleaned file uses 11 income categories; A03 BRFSS 2015 used 8."
+    }
+  },
+  "notes": [
+    "Selected the unbalanced binary BRFSS 2021 file to preserve realistic class distribution.",
+    "Kaggle archive also contained 3-class and 50/50 binary variants; unused variants were not retained in a04 to avoid ambiguity.",
+    "No model training performed in this phase.",
+    "Income is coded 1-11 in this BRFSS 2021 version; zero values are valid for binary indicators, not clinical missing values."
+  ]
+}

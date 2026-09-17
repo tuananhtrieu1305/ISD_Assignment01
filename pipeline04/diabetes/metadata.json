@@ -1,0 +1,133 @@
+{
+  "assignment": "Assignment 04",
+  "domain": "Diabetes",
+  "task": "Binary classification: patient health indicators -> diabetes / diabetes risk",
+  "dataset_name": "BRFSS 2021 Diabetes Health Indicators - Binary Unbalanced",
+  "source": "Kaggle dataset cleaned from CDC BRFSS 2021",
+  "source_url": "https://www.kaggle.com/datasets/julnazz/diabetes-health-indicators-dataset/data",
+  "license": "CC0: Public Domain",
+  "target": "Diabetes_binary",
+  "raw_samples": 236378,
+  "samples_after_duplicate_removal": 223243,
+  "features": 21,
+  "numerical_features": [
+    "HighBP",
+    "HighChol",
+    "CholCheck",
+    "BMI",
+    "Smoker",
+    "Stroke",
+    "HeartDiseaseorAttack",
+    "PhysActivity",
+    "Fruits",
+    "Veggies",
+    "HvyAlcoholConsump",
+    "AnyHealthcare",
+    "NoDocbcCost",
+    "GenHlth",
+    "MentHlth",
+    "PhysHlth",
+    "DiffWalk",
+    "Sex",
+    "Age",
+    "Education",
+    "Income"
+  ],
+  "categorical_features": [],
+  "missing_values_total": 0,
+  "duplicates_removed": 13135,
+  "class_distribution_after_dedup": {
+    "0": 189848,
+    "1": 33395
+  },
+  "split": {
+    "train": 156270,
+    "validation": 33486,
+    "test": 33487
+  },
+  "preprocessing": "Median imputation and StandardScaler fitted on training data only.",
+  "representation": "Tabular vector representation, shape (samples, features).",
+  "cnn_methodology": "CNN not used as production model because feature order is not spatial/sequential.",
+  "models_tested": [
+    "M3 Residual MLP",
+    "M1 Basic MLP",
+    "M4 Residual MLP Feature Attention",
+    "M2 BatchNorm MLP"
+  ],
+  "framework_baselines": [
+    "PyTorch",
+    "Keras"
+  ],
+  "selection_metric": "Validation F1",
+  "selected_model": "M3 Residual MLP",
+  "decision_threshold": 0.63,
+  "test_metrics": {
+    "Threshold": 0.63,
+    "Accuracy": 0.7843939439185356,
+    "Precision": 0.36696364074163257,
+    "Recall": 0.6083832335329341,
+    "F1": 0.4577951336737759,
+    "ROC-AUC": 0.8089090527026153,
+    "TN": 23219,
+    "FP": 5258,
+    "FN": 1962,
+    "TP": 3048
+  },
+  "artifacts": {
+    "models": [
+      "pipeline04/diabetes/models/final_model.keras",
+      "pipeline04/diabetes/models/m1_basic_mlp_best.keras",
+      "pipeline04/diabetes/models/m2_batchnorm_mlp_best.keras",
+      "pipeline04/diabetes/models/m3_residual_mlp_best.keras",
+      "pipeline04/diabetes/models/m4_attention_residual_mlp_best.keras",
+      "pipeline04/diabetes/models/preprocessor.joblib",
+      "pipeline04/diabetes/models/pytorch_basic_mlp_best.pt"
+    ],
+    "metrics": [
+      "pipeline04/diabetes/metrics/a03_vs_a04_comparison.csv",
+      "pipeline04/diabetes/metrics/architecture_comparison.csv",
+      "pipeline04/diabetes/metrics/feature_attention_summary.csv",
+      "pipeline04/diabetes/metrics/final_classification_report.csv",
+      "pipeline04/diabetes/metrics/final_results.csv",
+      "pipeline04/diabetes/metrics/final_test_metrics.json",
+      "pipeline04/diabetes/metrics/keras_basic_mlp_classification_report.csv",
+      "pipeline04/diabetes/metrics/keras_basic_mlp_thresholds.csv",
+      "pipeline04/diabetes/metrics/keras_basic_mlp_validation_metrics.json",
+      "pipeline04/diabetes/metrics/keras_vs_pytorch_comparison.csv",
+      "pipeline04/diabetes/metrics/m1_basic_mlp_history.csv",
+      "pipeline04/diabetes/metrics/m2_batchnorm_mlp_history.csv",
+      "pipeline04/diabetes/metrics/m2_batchnorm_mlp_thresholds.csv",
+      "pipeline04/diabetes/metrics/m2_batchnorm_mlp_validation_metrics.json",
+      "pipeline04/diabetes/metrics/m3_residual_mlp_history.csv",
+      "pipeline04/diabetes/metrics/m3_residual_mlp_thresholds.csv",
+      "pipeline04/diabetes/metrics/m3_residual_mlp_validation_metrics.json",
+      "pipeline04/diabetes/metrics/m4_attention_residual_mlp_history.csv",
+      "pipeline04/diabetes/metrics/m4_attention_residual_mlp_thresholds.csv",
+      "pipeline04/diabetes/metrics/m4_attention_residual_mlp_validation_metrics.json",
+      "pipeline04/diabetes/metrics/notebook_facts.json",
+      "pipeline04/diabetes/metrics/pytorch_basic_mlp_classification_report.csv",
+      "pipeline04/diabetes/metrics/pytorch_basic_mlp_history.csv",
+      "pipeline04/diabetes/metrics/pytorch_basic_mlp_thresholds.csv",
+      "pipeline04/diabetes/metrics/pytorch_basic_mlp_validation_metrics.json",
+      "pipeline04/diabetes/metrics/validation_error_summary.csv",
+      "pipeline04/diabetes/metrics/validation_fp_fn_feature_means.csv",
+      "pipeline04/diabetes/metrics/validation_high_confidence_errors.csv"
+    ],
+    "figures": [
+      "pipeline04/diabetes/figures/architecture_comparison_f1.png",
+      "pipeline04/diabetes/figures/feature_attention_weights.png",
+      "pipeline04/diabetes/figures/final_confusion_matrix.png",
+      "pipeline04/diabetes/figures/final_roc_curve.png",
+      "pipeline04/diabetes/figures/keras_basic_mlp_training_curves.png",
+      "pipeline04/diabetes/figures/target_distribution.png"
+    ]
+  },
+  "created_at_utc": "2026-09-15T00:54:44.120496+00:00",
+  "limitations": [
+    "BRFSS is survey/indicator data, not a direct clinical diagnosis workflow.",
+    "A04 class imbalance makes accuracy alone misleading.",
+    "A03 and A04 metrics are not directly comparable because the datasets differ.",
+    "CNN is demonstrated only on toy tensors because tabular feature columns have no justified local ordering."
+  ],
+  "total_recorded_train_time_seconds": 306.0814568000005
+}

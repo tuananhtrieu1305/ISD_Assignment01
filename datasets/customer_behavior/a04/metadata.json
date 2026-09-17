@@ -1,0 +1,661 @@
+{
+  "dataset_name": "Olist Brazilian E-Commerce Public Dataset - Customer Churn A04 Prepared",
+  "source": "Kaggle: Brazilian E-Commerce Public Dataset by Olist",
+  "source_url": "https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce",
+  "license": "CC BY-NC-SA 4.0",
+  "task": "customer behavior -> customer churn binary classification, continuing A03 target concept",
+  "target": "is_churned",
+  "samples": 58101,
+  "features": 29,
+  "shape": [
+    58101,
+    31
+  ],
+  "columns": [
+    "customer_unique_id",
+    "customer_tenure_days",
+    "days_since_last_order",
+    "order_count",
+    "created_orders",
+    "approved_orders",
+    "invoiced_orders",
+    "processing_orders",
+    "shipped_orders",
+    "delivered_orders",
+    "total_item_price",
+    "total_freight_value",
+    "avg_order_value",
+    "total_payment_value",
+    "item_count",
+    "distinct_products",
+    "category_diversity",
+    "avg_payment_installments",
+    "payment_type_diversity",
+    "avg_review_score",
+    "review_count",
+    "low_review_share",
+    "review_comment_count",
+    "avg_delivery_time_days",
+    "avg_delivery_delay_days",
+    "on_time_delivery_rate",
+    "primary_category",
+    "primary_payment_type",
+    "customer_city",
+    "customer_state",
+    "is_churned"
+  ],
+  "dtypes": {
+    "customer_unique_id": "str",
+    "customer_tenure_days": "int64",
+    "days_since_last_order": "int64",
+    "order_count": "int64",
+    "created_orders": "int64",
+    "approved_orders": "int64",
+    "invoiced_orders": "int64",
+    "processing_orders": "int64",
+    "shipped_orders": "int64",
+    "delivered_orders": "int64",
+    "total_item_price": "float64",
+    "total_freight_value": "float64",
+    "avg_order_value": "float64",
+    "total_payment_value": "float64",
+    "item_count": "float64",
+    "distinct_products": "float64",
+    "category_diversity": "int64",
+    "avg_payment_installments": "float64",
+    "payment_type_diversity": "float64",
+    "avg_review_score": "float64",
+    "review_count": "float64",
+    "low_review_share": "float64",
+    "review_comment_count": "float64",
+    "avg_delivery_time_days": "float64",
+    "avg_delivery_delay_days": "float64",
+    "on_time_delivery_rate": "float64",
+    "primary_category": "str",
+    "primary_payment_type": "str",
+    "customer_city": "str",
+    "customer_state": "str",
+    "is_churned": "int64"
+  },
+  "numerical_features": [
+    "customer_tenure_days",
+    "days_since_last_order",
+    "order_count",
+    "created_orders",
+    "approved_orders",
+    "invoiced_orders",
+    "processing_orders",
+    "shipped_orders",
+    "delivered_orders",
+    "total_item_price",
+    "total_freight_value",
+    "avg_order_value",
+    "total_payment_value",
+    "item_count",
+    "distinct_products",
+    "category_diversity",
+    "avg_payment_installments",
+    "payment_type_diversity",
+    "avg_review_score",
+    "review_count",
+    "low_review_share",
+    "review_comment_count",
+    "avg_delivery_time_days",
+    "avg_delivery_delay_days",
+    "on_time_delivery_rate"
+  ],
+  "categorical_features": [
+    "primary_category",
+    "primary_payment_type",
+    "customer_city",
+    "customer_state"
+  ],
+  "missing_values": {
+    "total_missing_cells": 0,
+    "columns_with_missing": {}
+  },
+  "duplicates": 0,
+  "class_distribution": {
+    "0": {
+      "count": 665,
+      "pct": 1.1446
+    },
+    "1": {
+      "count": 57436,
+      "pct": 98.8554
+    }
+  },
+  "raw_files": [
+    {
+      "path": "datasets/customer_behavior/a04/olist_customers_dataset.csv",
+      "size_bytes": 9033957,
+      "size": "8.62 MB"
+    },
+    {
+      "path": "datasets/customer_behavior/a04/olist_geolocation_dataset.csv",
+      "size_bytes": 61273883,
+      "size": "58.44 MB"
+    },
+    {
+      "path": "datasets/customer_behavior/a04/olist_order_items_dataset.csv",
+      "size_bytes": 15438671,
+      "size": "14.72 MB"
+    },
+    {
+      "path": "datasets/customer_behavior/a04/olist_order_payments_dataset.csv",
+      "size_bytes": 5777138,
+      "size": "5.51 MB"
+    },
+    {
+      "path": "datasets/customer_behavior/a04/olist_order_reviews_dataset.csv",
+      "size_bytes": 14451670,
+      "size": "13.78 MB"
+    },
+    {
+      "path": "datasets/customer_behavior/a04/olist_orders_dataset.csv",
+      "size_bytes": 17654914,
+      "size": "16.84 MB"
+    },
+    {
+      "path": "datasets/customer_behavior/a04/olist_products_dataset.csv",
+      "size_bytes": 2379446,
+      "size": "2.27 MB"
+    },
+    {
+      "path": "datasets/customer_behavior/a04/olist_sellers_dataset.csv",
+      "size_bytes": 174703,
+      "size": "170.61 KB"
+    },
+    {
+      "path": "datasets/customer_behavior/a04/product_category_name_translation.csv",
+      "size_bytes": 2613,
+      "size": "2.55 KB"
+    }
+  ],
+  "prepared_files": [
+    {
+      "path": "datasets/customer_behavior/a04/olist_customer_churn_a04.csv",
+      "size_bytes": 11410007,
+      "size": "10.88 MB"
+    }
+  ],
+  "descriptive_statistics": {
+    "customer_tenure_days": {
+      "count": 58101.0,
+      "mean": 161.18237207621212,
+      "std": 114.51331165887345,
+      "min": 0.0,
+      "1%": 2.0,
+      "5%": 11.0,
+      "50%": 138.0,
+      "95%": 368.0,
+      "99%": 408.0,
+      "max": 548.0
+    },
+    "days_since_last_order": {
+      "count": 58101.0,
+      "mean": 159.53599765924855,
+      "std": 114.1403304811941,
+      "min": 0.0,
+      "1%": 2.0,
+      "5%": 11.0,
+      "50%": 135.0,
+      "95%": 367.0,
+      "99%": 407.0,
+      "max": 548.0
+    },
+    "order_count": {
+      "count": 58101.0,
+      "mean": 1.032977057193508,
+      "std": 0.20387029550918492,
+      "min": 1.0,
+      "1%": 1.0,
+      "5%": 1.0,
+      "50%": 1.0,
+      "95%": 1.0,
+      "99%": 2.0,
+      "max": 9.0
+    },
+    "created_orders": {
+      "count": 58101.0,
+      "mean": 8.605703860518752e-05,
+      "std": 0.009276373960341365,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 0.0,
+      "99%": 0.0,
+      "max": 1.0
+    },
+    "approved_orders": {
+      "count": 58101.0,
+      "mean": 3.4422815442075006e-05,
+      "std": 0.005867045505769169,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 0.0,
+      "99%": 0.0,
+      "max": 1.0
+    },
+    "invoiced_orders": {
+      "count": 58101.0,
+      "mean": 0.003734875475465138,
+      "std": 0.060999919869847215,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 0.0,
+      "99%": 0.0,
+      "max": 1.0
+    },
+    "processing_orders": {
+      "count": 58101.0,
+      "mean": 0.004784771346448426,
+      "std": 0.0690069508791192,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 0.0,
+      "99%": 0.0,
+      "max": 1.0
+    },
+    "shipped_orders": {
+      "count": 58101.0,
+      "mean": 0.011961928366121066,
+      "std": 0.1093468686791741,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 0.0,
+      "99%": 1.0,
+      "max": 2.0
+    },
+    "delivered_orders": {
+      "count": 58101.0,
+      "mean": 1.012375002151426,
+      "std": 0.24607425007149072,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 1.0,
+      "50%": 1.0,
+      "95%": 1.0,
+      "99%": 2.0,
+      "max": 9.0
+    },
+    "total_item_price": {
+      "count": 58101.0,
+      "mean": 140.19874236243783,
+      "std": 212.49733526450734,
+      "min": 0.0,
+      "1%": 11.99,
+      "5%": 19.8,
+      "50%": 89.0,
+      "95%": 411.96000000000004,
+      "99%": 998.9,
+      "max": 13440.0
+    },
+    "total_freight_value": {
+      "count": 58101.0,
+      "mean": 22.774910070394654,
+      "std": 20.671705793274597,
+      "min": 0.0,
+      "1%": 7.78,
+      "5%": 8.72,
+      "50%": 16.79,
+      "95%": 53.6,
+      "99%": 102.5,
+      "max": 1002.2900000000001
+    },
+    "avg_order_value": {
+      "count": 58101.0,
+      "mean": 158.327545022857,
+      "std": 215.39820928582893,
+      "min": 0.0,
+      "1%": 23.68,
+      "5%": 32.63,
+      "50%": 104.38,
+      "95%": 437.75,
+      "99%": 1038.34,
+      "max": 13664.08
+    },
+    "total_payment_value": {
+      "count": 58101.0,
+      "mean": 163.03012994612828,
+      "std": 222.21594395992065,
+      "min": 0.0,
+      "1%": 23.72,
+      "5%": 32.77,
+      "50%": 106.38,
+      "95%": 458.58,
+      "99%": 1069.41,
+      "max": 13664.08
+    },
+    "item_count": {
+      "count": 58101.0,
+      "mean": 1.1783790296208327,
+      "std": 0.6103140995591112,
+      "min": 0.0,
+      "1%": 1.0,
+      "5%": 1.0,
+      "50%": 1.0,
+      "95%": 2.0,
+      "99%": 4.0,
+      "max": 21.0
+    },
+    "distinct_products": {
+      "count": 58101.0,
+      "mean": 1.0717027245658421,
+      "std": 0.32224701746652457,
+      "min": 0.0,
+      "1%": 1.0,
+      "5%": 1.0,
+      "50%": 1.0,
+      "95%": 2.0,
+      "99%": 2.0,
+      "max": 13.0
+    },
+    "category_diversity": {
+      "count": 58101.0,
+      "mean": 1.0158172836956334,
+      "std": 0.13420665829432094,
+      "min": 0.0,
+      "1%": 1.0,
+      "5%": 1.0,
+      "50%": 1.0,
+      "95%": 1.0,
+      "99%": 2.0,
+      "max": 5.0
+    },
+    "avg_payment_installments": {
+      "count": 58101.0,
+      "mean": 2.966366734292846,
+      "std": 2.7353641993766455,
+      "min": 0.0,
+      "1%": 1.0,
+      "5%": 1.0,
+      "50%": 2.0,
+      "95%": 10.0,
+      "99%": 10.0,
+      "max": 24.0
+    },
+    "payment_type_diversity": {
+      "count": 58101.0,
+      "mean": 1.0241945266084265,
+      "std": 0.15293487762699579,
+      "min": 0.0,
+      "1%": 1.0,
+      "5%": 1.0,
+      "50%": 1.0,
+      "95%": 1.0,
+      "99%": 2.0,
+      "max": 2.0
+    },
+    "avg_review_score": {
+      "count": 58101.0,
+      "mean": 4.078105798523261,
+      "std": 1.337541292845957,
+      "min": 1.0,
+      "1%": 1.0,
+      "5%": 1.0,
+      "50%": 5.0,
+      "95%": 5.0,
+      "99%": 5.0,
+      "max": 5.0
+    },
+    "review_count": {
+      "count": 58101.0,
+      "mean": 1.0325123491850399,
+      "std": 0.27636639641415206,
+      "min": 0.0,
+      "1%": 1.0,
+      "5%": 1.0,
+      "50%": 1.0,
+      "95%": 1.0,
+      "99%": 2.0,
+      "max": 9.0
+    },
+    "low_review_share": {
+      "count": 58101.0,
+      "mean": 0.14628386583516445,
+      "std": 0.351801141727781,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    },
+    "review_comment_count": {
+      "count": 58101.0,
+      "mean": 0.4316793170513416,
+      "std": 0.5259210599101941,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 6.0
+    },
+    "avg_delivery_time_days": {
+      "count": 58101.0,
+      "mean": 13.743125924153496,
+      "std": 10.129520726745648,
+      "min": 0.5334143518518518,
+      "1%": 2.0002314814814817,
+      "5%": 3.6414930555555554,
+      "50%": 11.506273148148148,
+      "95%": 31.15515046296296,
+      "99%": 48.18760416666667,
+      "max": 209.6286111111111
+    },
+    "avg_delivery_delay_days": {
+      "count": 58101.0,
+      "mean": -11.151038232780078,
+      "std": 10.375134184344292,
+      "min": -146.0161226851852,
+      "1%": -34.38466435185185,
+      "5%": -24.18045138888889,
+      "50%": -12.163541666666667,
+      "95%": 4.651168981481481,
+      "99%": 20.99915509259259,
+      "max": 188.97508101851852
+    },
+    "on_time_delivery_rate": {
+      "count": 58101.0,
+      "mean": 0.8989026771388521,
+      "std": 0.29983868480637244,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 1.0,
+      "95%": 1.0,
+      "99%": 1.0,
+      "max": 1.0
+    }
+  },
+  "data_quality_findings": {
+    "target_missing": 0,
+    "target_values": [
+      "0",
+      "1"
+    ],
+    "prediction_cutoff": "2018-03-07 09:06:57",
+    "outcome_window_days": 180,
+    "outcome_end": "2018-09-03 09:06:57",
+    "eligible_customers_with_pre_cutoff_orders": 58101,
+    "future_window_orders": 38190,
+    "raw_time_range": {
+      "min_order_purchase_timestamp": "2016-09-04 21:15:19",
+      "max_order_purchase_timestamp": "2018-09-03 09:06:57"
+    },
+    "sequence_structure": "Raw Olist orders/items/payments/reviews are timestamped relational events. Prepared file is customer-level aggregate; optional later notebook can build monthly/order sequence from raw files for Conv1D/TCN.",
+    "raw_table_summary": {
+      "customers": {
+        "shape": [
+          99441,
+          5
+        ],
+        "missing_values": {
+          "total_missing_cells": 0,
+          "columns_with_missing": {}
+        },
+        "duplicates": 0,
+        "columns": [
+          "customer_id",
+          "customer_unique_id",
+          "customer_zip_code_prefix",
+          "customer_city",
+          "customer_state"
+        ]
+      },
+      "orders": {
+        "shape": [
+          99441,
+          8
+        ],
+        "missing_values": {
+          "total_missing_cells": 4908,
+          "columns_with_missing": {
+            "order_approved_at": 160,
+            "order_delivered_carrier_date": 1783,
+            "order_delivered_customer_date": 2965
+          }
+        },
+        "duplicates": 0,
+        "columns": [
+          "order_id",
+          "customer_id",
+          "order_status",
+          "order_purchase_timestamp",
+          "order_approved_at",
+          "order_delivered_carrier_date",
+          "order_delivered_customer_date",
+          "order_estimated_delivery_date"
+        ]
+      },
+      "order_items": {
+        "shape": [
+          112650,
+          7
+        ],
+        "missing_values": {
+          "total_missing_cells": 0,
+          "columns_with_missing": {}
+        },
+        "duplicates": 0,
+        "columns": [
+          "order_id",
+          "order_item_id",
+          "product_id",
+          "seller_id",
+          "shipping_limit_date",
+          "price",
+          "freight_value"
+        ]
+      },
+      "order_payments": {
+        "shape": [
+          103886,
+          5
+        ],
+        "missing_values": {
+          "total_missing_cells": 0,
+          "columns_with_missing": {}
+        },
+        "duplicates": 0,
+        "columns": [
+          "order_id",
+          "payment_sequential",
+          "payment_type",
+          "payment_installments",
+          "payment_value"
+        ]
+      },
+      "order_reviews": {
+        "shape": [
+          99224,
+          7
+        ],
+        "missing_values": {
+          "total_missing_cells": 145903,
+          "columns_with_missing": {
+            "review_comment_title": 87656,
+            "review_comment_message": 58247
+          }
+        },
+        "duplicates": 0,
+        "columns": [
+          "review_id",
+          "order_id",
+          "review_score",
+          "review_comment_title",
+          "review_comment_message",
+          "review_creation_date",
+          "review_answer_timestamp"
+        ]
+      },
+      "products": {
+        "shape": [
+          32951,
+          9
+        ],
+        "missing_values": {
+          "total_missing_cells": 2448,
+          "columns_with_missing": {
+            "product_category_name": 610,
+            "product_name_lenght": 610,
+            "product_description_lenght": 610,
+            "product_photos_qty": 610,
+            "product_weight_g": 2,
+            "product_length_cm": 2,
+            "product_height_cm": 2,
+            "product_width_cm": 2
+          }
+        },
+        "duplicates": 0,
+        "columns": [
+          "product_id",
+          "product_category_name",
+          "product_name_lenght",
+          "product_description_lenght",
+          "product_photos_qty",
+          "product_weight_g",
+          "product_length_cm",
+          "product_height_cm",
+          "product_width_cm"
+        ]
+      },
+      "category_translation": {
+        "shape": [
+          71,
+          2
+        ],
+        "missing_values": {
+          "total_missing_cells": 0,
+          "columns_with_missing": {}
+        },
+        "duplicates": 0,
+        "columns": [
+          "product_category_name",
+          "product_category_name_english"
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Raw Olist data has no provided churn label; is_churned was reconstructed from time-stamped repeat-purchase behavior to keep the A03 churn task.",
+    "Label definition: among customers with at least one valid pre-cutoff order, is_churned=1 when there is no valid order in the next 180 days, otherwise 0.",
+    "Valid orders exclude canceled and unavailable statuses for target construction.",
+    "The prepared customer-level CSV includes customer_unique_id as an identifier; exclude it from model features.",
+    "Class imbalance is expected because Olist has very low repeat-purchase rate.",
+    "No model training performed in this phase."
+  ]
+}

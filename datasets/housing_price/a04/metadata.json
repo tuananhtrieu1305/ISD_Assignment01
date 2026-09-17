@@ -1,0 +1,387 @@
+{
+  "dataset_name": "King County House Sales",
+  "source": "Kaggle: House Sales in King County, USA",
+  "source_url": "https://www.kaggle.com/datasets/harlfoxem/housesalesprediction",
+  "license": "Kaggle dataset page does not expose a clear license in the downloaded data; verify before redistribution.",
+  "task": "property features -> continuous house sale price regression",
+  "target": "price",
+  "samples": 21613,
+  "features": 20,
+  "shape": [
+    21613,
+    21
+  ],
+  "columns": [
+    "id",
+    "date",
+    "price",
+    "bedrooms",
+    "bathrooms",
+    "sqft_living",
+    "sqft_lot",
+    "floors",
+    "waterfront",
+    "view",
+    "condition",
+    "grade",
+    "sqft_above",
+    "sqft_basement",
+    "yr_built",
+    "yr_renovated",
+    "zipcode",
+    "lat",
+    "long",
+    "sqft_living15",
+    "sqft_lot15"
+  ],
+  "dtypes": {
+    "id": "int64",
+    "date": "str",
+    "price": "float64",
+    "bedrooms": "int64",
+    "bathrooms": "float64",
+    "sqft_living": "int64",
+    "sqft_lot": "int64",
+    "floors": "float64",
+    "waterfront": "int64",
+    "view": "int64",
+    "condition": "int64",
+    "grade": "int64",
+    "sqft_above": "int64",
+    "sqft_basement": "int64",
+    "yr_built": "int64",
+    "yr_renovated": "int64",
+    "zipcode": "int64",
+    "lat": "float64",
+    "long": "float64",
+    "sqft_living15": "int64",
+    "sqft_lot15": "int64"
+  },
+  "numerical_features": [
+    "id",
+    "bedrooms",
+    "bathrooms",
+    "sqft_living",
+    "sqft_lot",
+    "floors",
+    "waterfront",
+    "view",
+    "condition",
+    "grade",
+    "sqft_above",
+    "sqft_basement",
+    "yr_built",
+    "yr_renovated",
+    "zipcode",
+    "lat",
+    "long",
+    "sqft_living15",
+    "sqft_lot15"
+  ],
+  "categorical_features": [
+    "date"
+  ],
+  "missing_values": {
+    "total_missing_cells": 0,
+    "columns_with_missing": {}
+  },
+  "duplicates": 0,
+  "class_distribution": null,
+  "raw_files": [
+    {
+      "path": "datasets/housing_price/a04/kc_house_data.csv",
+      "size_bytes": 2515206,
+      "size": "2.40 MB"
+    }
+  ],
+  "descriptive_statistics": {
+    "price": {
+      "count": 21613.0,
+      "mean": 540088.1417665294,
+      "std": 367127.1964826998,
+      "min": 75000.0,
+      "1%": 153500.36,
+      "5%": 210000.0,
+      "50%": 450000.0,
+      "95%": 1156479.9999999974,
+      "99%": 1964400.0000000051,
+      "max": 7700000.0
+    },
+    "id": {
+      "count": 21613.0,
+      "mean": 4580301520.864988,
+      "std": 2876565571.312057,
+      "min": 1000102.0,
+      "1%": 122033870.92,
+      "5%": 512480335.0000002,
+      "50%": 3904930410.0,
+      "95%": 9297300429.0,
+      "99%": 9558728047.2,
+      "max": 9900000190.0
+    },
+    "bedrooms": {
+      "count": 21613.0,
+      "mean": 3.37084162309721,
+      "std": 0.9300618311474514,
+      "min": 0.0,
+      "1%": 2.0,
+      "5%": 2.0,
+      "50%": 3.0,
+      "95%": 5.0,
+      "99%": 6.0,
+      "max": 33.0
+    },
+    "bathrooms": {
+      "count": 21613.0,
+      "mean": 2.1147573219821405,
+      "std": 0.7701631572177421,
+      "min": 0.0,
+      "1%": 1.0,
+      "5%": 1.0,
+      "50%": 2.25,
+      "95%": 3.5,
+      "99%": 4.25,
+      "max": 8.0
+    },
+    "sqft_living": {
+      "count": 21613.0,
+      "mean": 2079.8997362698374,
+      "std": 918.4408970468115,
+      "min": 290.0,
+      "1%": 720.0,
+      "5%": 940.0,
+      "50%": 1910.0,
+      "95%": 3760.0,
+      "99%": 4978.80000000001,
+      "max": 13540.0
+    },
+    "sqft_lot": {
+      "count": 21613.0,
+      "mean": 15106.967565816869,
+      "std": 41420.51151513548,
+      "min": 520.0,
+      "1%": 1013.12,
+      "5%": 1800.0,
+      "50%": 7618.0,
+      "95%": 43339.19999999996,
+      "99%": 213008.0,
+      "max": 1651359.0
+    },
+    "floors": {
+      "count": 21613.0,
+      "mean": 1.4943089807060566,
+      "std": 0.5399888951423463,
+      "min": 1.0,
+      "1%": 1.0,
+      "5%": 1.0,
+      "50%": 1.5,
+      "95%": 2.0,
+      "99%": 3.0,
+      "max": 3.5
+    },
+    "waterfront": {
+      "count": 21613.0,
+      "mean": 0.007541757275713691,
+      "std": 0.08651719772788764,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 0.0,
+      "99%": 0.0,
+      "max": 1.0
+    },
+    "view": {
+      "count": 21613.0,
+      "mean": 0.23430342849211122,
+      "std": 0.7663175692736122,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 2.0,
+      "99%": 4.0,
+      "max": 4.0
+    },
+    "condition": {
+      "count": 21613.0,
+      "mean": 3.4094295100171195,
+      "std": 0.650743046366207,
+      "min": 1.0,
+      "1%": 3.0,
+      "5%": 3.0,
+      "50%": 3.0,
+      "95%": 5.0,
+      "99%": 5.0,
+      "max": 5.0
+    },
+    "grade": {
+      "count": 21613.0,
+      "mean": 7.656873178179799,
+      "std": 1.175458756974335,
+      "min": 1.0,
+      "1%": 5.0,
+      "5%": 6.0,
+      "50%": 7.0,
+      "95%": 10.0,
+      "99%": 11.0,
+      "max": 13.0
+    },
+    "sqft_above": {
+      "count": 21613.0,
+      "mean": 1788.3906907879516,
+      "std": 828.090977651917,
+      "min": 290.0,
+      "1%": 700.0,
+      "5%": 850.0,
+      "50%": 1560.0,
+      "95%": 3400.0,
+      "99%": 4370.0,
+      "max": 9410.0
+    },
+    "sqft_basement": {
+      "count": 21613.0,
+      "mean": 291.5090454818859,
+      "std": 442.57504267746816,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 1190.0,
+      "99%": 1660.0,
+      "max": 4820.0
+    },
+    "yr_built": {
+      "count": 21613.0,
+      "mean": 1971.0051357978994,
+      "std": 29.37341080238659,
+      "min": 1900.0,
+      "1%": 1904.0,
+      "5%": 1915.0,
+      "50%": 1975.0,
+      "95%": 2011.0,
+      "99%": 2014.0,
+      "max": 2015.0
+    },
+    "yr_renovated": {
+      "count": 21613.0,
+      "mean": 84.40225790033776,
+      "std": 401.6792400191759,
+      "min": 0.0,
+      "1%": 0.0,
+      "5%": 0.0,
+      "50%": 0.0,
+      "95%": 0.0,
+      "99%": 2008.0,
+      "max": 2015.0
+    },
+    "zipcode": {
+      "count": 21613.0,
+      "mean": 98077.93980474715,
+      "std": 53.505026257473084,
+      "min": 98001.0,
+      "1%": 98001.0,
+      "5%": 98004.0,
+      "50%": 98065.0,
+      "95%": 98177.0,
+      "99%": 98199.0,
+      "max": 98199.0
+    },
+    "lat": {
+      "count": 21613.0,
+      "mean": 47.560052519317075,
+      "std": 0.13856371024192418,
+      "min": 47.1559,
+      "1%": 47.256872,
+      "5%": 47.3103,
+      "50%": 47.5718,
+      "95%": 47.74964,
+      "99%": 47.772688,
+      "max": 47.7776
+    },
+    "long": {
+      "count": 21613.0,
+      "mean": -122.21389640494147,
+      "std": 0.14082834238139405,
+      "min": -122.519,
+      "1%": -122.408,
+      "5%": -122.387,
+      "50%": -122.23,
+      "95%": -121.979,
+      "99%": -121.783,
+      "max": -121.315
+    },
+    "sqft_living15": {
+      "count": 21613.0,
+      "mean": 1986.552491556008,
+      "std": 685.3913042527774,
+      "min": 399.0,
+      "1%": 950.0,
+      "5%": 1140.0,
+      "50%": 1840.0,
+      "95%": 3300.0,
+      "99%": 4080.0,
+      "max": 6210.0
+    },
+    "sqft_lot15": {
+      "count": 21613.0,
+      "mean": 12768.455651691113,
+      "std": 27304.17963133851,
+      "min": 651.0,
+      "1%": 1191.24,
+      "5%": 1999.2000000000003,
+      "50%": 7620.0,
+      "95%": 37062.799999999974,
+      "99%": 157687.0,
+      "max": 871200.0
+    }
+  },
+  "data_quality_findings": {
+    "target_missing": 0,
+    "price_zero_or_negative": 0,
+    "price_min": 75000.0,
+    "price_median": 450000.0,
+    "price_mean": 540088.1417665294,
+    "price_max": 7700000.0,
+    "price_iqr_lower": -162625.0,
+    "price_iqr_upper": 1129575.0,
+    "price_iqr_outliers": 1146,
+    "zero_or_negative_counts": {
+      "bedrooms": 13,
+      "bathrooms": 10,
+      "sqft_living": 0,
+      "sqft_lot": 0,
+      "floors": 0,
+      "yr_built": 0,
+      "lat": 0
+    },
+    "coordinate_ranges": {
+      "lat": {
+        "min": 47.1559,
+        "max": 47.7776
+      },
+      "long": {
+        "min": -122.519,
+        "max": -121.315,
+        "note": "Negative longitude is valid for Washington State."
+      }
+    },
+    "suspicious_bedroom_values": {
+      "zero_bedrooms": 13,
+      "bedrooms_gt_15": 1,
+      "max_bedrooms": 33
+    },
+    "suspicious_bathroom_values": {
+      "zero_bathrooms": 10,
+      "max_bathrooms": 8.0
+    }
+  },
+  "notes": [
+    "Regression target is the continuous sale price column price.",
+    "Column id should be treated as identifier and excluded from modeling features.",
+    "Date should be parsed into year/month or sale-age features in notebook phase.",
+    "Some values such as yr_renovated=0 and sqft_basement=0 encode no renovation/basement rather than numeric missing.",
+    "No model training performed in this phase.",
+    "Negative longitude values are valid geocoordinates and should not be treated as invalid."
+  ]
+}
