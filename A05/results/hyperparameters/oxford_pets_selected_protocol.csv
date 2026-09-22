@@ -1,0 +1,9 @@
+decision,selected_value,classification,evidence_or_reason
+image resolution,96x96 RGB,experimentally selected,"selected highest validation macro F1, with validation loss as tie-breaker"
+augmentation,none,experimentally selected,Conservative pet-photo augmentation kept only if validation evidence exceeded no augmentation.
+optimizer/protocol choice,Adam optimizer family; BasicCNN-only tuning; official test untouched,controlled protocol choice with theoretical rationale,One optimizer family is held fixed so architecture and selected scalar hyperparameters can be compared under a controlled protocol.
+learning rate,0.001,experimentally selected,Selected by Stage B full-train validation macro F1/loss after Stage A screening and boundary extension when needed.
+batch size,32,experimentally selected,Selected by validation macro F1/loss with runtime as final tie-breaker.
+regularization,none,experimentally selected,No dropout experiment: overfitting evidence did not exceed the preset inspection threshold.
+EarlyStopping,"monitor val_loss, patience 2, restore_best_weights",operational bound,Limits CPU time while selecting weights from validation loss only.
+max_epochs,5,operational bound,Upper bound for protocol-selection experiments; not claimed optimal.

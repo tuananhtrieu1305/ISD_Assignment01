@@ -1,0 +1,12 @@
+decision,selected_value,classification,evidence_or_reason
+feature order,original CSV predictor column order,data-determined,Primary experiment preserves documented dataset feature order; no arbitrary reordering is used.
+Conv1D input representation,"(21, 1)",architecture-determined,BasicCNN1D expects a short sequence with one channel per predictor value.
+train/validation/test split,"70/15/15 stratified, seed 42",operational bound,Creates isolated validation and test roles while preserving class proportions.
+preprocessing,standard,experimentally selected,No scaling and train-fitted standard scaling were compared with BasicCNN1D on validation data.
+optimizer/protocol choice,Adam optimizer family; BasicCNN1D-only protocol tuning; test untouched,controlled protocol choice with theoretical rationale,One optimizer family is held fixed while scalar protocol choices are selected by validation metrics.
+learning rate,0.01,experimentally selected,Selected from logarithmic candidates by validation macro F1/recall/loss; boundary extension applied if needed.
+batch size,512,experimentally selected,"Selected by validation macro F1/recall/loss, with runtime as final tie-breaker."
+class weighting,balanced_inverse_frequency,experimentally selected,No weighting and train-only inverse-frequency weighting were compared using macro and per-class recall metrics.
+regularization,none,experimentally selected,No dropout experiment: training-vs-validation gap did not exceed the preset inspection threshold.
+EarlyStopping,"monitor val_loss, patience 2, restore_best_weights",operational bound,Limits CPU time and selects weights by validation loss only.
+max_epochs,5,operational bound,Upper bound for protocol-selection experiments; not claimed optimal.
