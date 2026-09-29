@@ -1,0 +1,70 @@
+{
+  "task": "30 previous trading days x 5 features -> next trading day's Close",
+  "framework": "PyTorch",
+  "architecture": {
+    "recurrent_layer": "torch.nn.RNN",
+    "input_size": 5,
+    "hidden_size": 64,
+    "num_layers": 1,
+    "batch_first": true,
+    "nonlinearity": "tanh",
+    "head": "Linear(64, 1)"
+  },
+  "parameter_count": 4609,
+  "seed": 42,
+  "batch_size": 64,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "loss": "MSELoss on scaled target",
+  "max_epochs": 30,
+  "patience": 5,
+  "epochs": 14,
+  "epochs_actually_run": 14,
+  "best_epoch": 9,
+  "best_validation_loss": 0.0065248434345743225,
+  "best_validation_loss_space": "standardized target",
+  "device": "cpu",
+  "training_duration_seconds": 5.613410699999974,
+  "MAE": 20.339256857274822,
+  "RMSE": 23.57881412768672,
+  "R2": -0.026903235017200933,
+  "naive_MAE": 2.6177071920255335,
+  "naive_RMSE": 3.8789281161189058,
+  "naive_R2": 0.9722086869082393,
+  "test_metrics_real_scale": {
+    "mae": 20.339256857274822,
+    "rmse": 23.57881412768672,
+    "r2": -0.026903235017200933
+  },
+  "naive_test_metrics_real_scale": {
+    "mae": 2.6177071920255335,
+    "rmse": 3.8789281161189058,
+    "r2": 0.9722086869082393
+  },
+  "real_scale_units": {
+    "mae": "USD",
+    "rmse": "USD",
+    "r2": "unitless"
+  },
+  "test_evaluation_count": 1,
+  "test_samples": 410,
+  "target_date_range": {
+    "min": "2024-05-14",
+    "max": "2025-12-31"
+  },
+  "target_scaling": {
+    "type": "StandardScaler",
+    "fit_scope": "TRAIN y only",
+    "path": "models/preprocessing/stock_target_scaler.joblib",
+    "sha256": "153a0aa8ac97885b07d5fb0eacf461e5882ab1bb7fb6da9df53486116ff937cb",
+    "inverse_transformed_for_final_metrics": true
+  },
+  "input_artifact_sha256": {
+    "train": "e8db5505015f10d6dc3c1bb94d73be2f073b894522f53ac39e9b97b47b488a1b",
+    "val": "60ff02fd75699918115a8e81bebbf081e2ce7d329abf991c19be12175f6d81c6",
+    "test": "a71b70117ce1debbb7b7add44428f1e8f1453a6d5f44df90e0add8df7b084575"
+  },
+  "checkpoint": "models/pytorch/pytorch_stock_rnn_best.pt",
+  "predictions": "results/predictions/pytorch_stock_predictions.csv",
+  "comparison": "Naive có RMSE thấp hơn RNN trên TEST; không có bằng chứng để tuyên bố RNN tốt hơn baseline."
+}

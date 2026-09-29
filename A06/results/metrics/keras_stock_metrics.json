@@ -1,0 +1,150 @@
+{
+  "task": "30 previous trading days x 5 features -> next trading day's Close",
+  "framework": "Keras",
+  "framework_versions": {
+    "tensorflow": "2.21.0",
+    "keras": "3.15.1"
+  },
+  "architecture": {
+    "recurrent_layer": "keras.layers.SimpleRNN",
+    "input_size": 5,
+    "sequence_length": 30,
+    "hidden_units": 64,
+    "num_layers": 1,
+    "activation": "tanh",
+    "head": "Dense(1, activation='linear')"
+  },
+  "parameter_count": 4545,
+  "seed": 42,
+  "batch_size": 64,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "loss": "MSE on scaled target",
+  "max_epochs": 30,
+  "patience": 5,
+  "min_delta": 0.0001,
+  "restore_best_weights": true,
+  "epochs": 30,
+  "epochs_actually_run": 30,
+  "best_epoch": 30,
+  "best_validation_loss": 0.004865891300141811,
+  "best_validation_loss_space": "standardized target",
+  "device": "cpu",
+  "training_duration_seconds": 21.468527700000095,
+  "selection_scope": "validation loss only; TEST unused until final evaluation",
+  "training_history": {
+    "train_loss": [
+      0.06277468055486679,
+      0.00836250651627779,
+      0.005024542100727558,
+      0.004024086985737085,
+      0.0034939455799758434,
+      0.003137742867693305,
+      0.00281973066739738,
+      0.0025890313554555178,
+      0.0024455201346427202,
+      0.0023430832661688328,
+      0.0022633043117821217,
+      0.0021942402236163616,
+      0.00212671747431159,
+      0.002056863158941269,
+      0.0019865669310092926,
+      0.0019205937860533595,
+      0.0018631736747920513,
+      0.0018156624864786863,
+      0.0017767632380127907,
+      0.0017445983830839396,
+      0.0017177382251247764,
+      0.0016951479483395815,
+      0.001676054554991424,
+      0.0016598142683506012,
+      0.0016458381433039904,
+      0.001633548061363399,
+      0.0016223976854234934,
+      0.0016119020292535424,
+      0.0016016908921301365,
+      0.0015915314434096217
+    ],
+    "validation_loss": [
+      0.09938547015190125,
+      0.04973693564534187,
+      0.039205361157655716,
+      0.033596497029066086,
+      0.02969176322221756,
+      0.025396179407835007,
+      0.020797155797481537,
+      0.01817777007818222,
+      0.016068480908870697,
+      0.014292512089014053,
+      0.012679101899266243,
+      0.011238517239689827,
+      0.010036299005150795,
+      0.009099788032472134,
+      0.008395963348448277,
+      0.007860490120947361,
+      0.007427325006574392,
+      0.00705118989571929,
+      0.00671434635296464,
+      0.0064123934134840965,
+      0.006143289618194103,
+      0.005905425641685724,
+      0.005696964915841818,
+      0.005515886936336756,
+      0.005359959322959185,
+      0.005226690322160721,
+      0.005113414954394102,
+      0.005017349496483803,
+      0.004935691598802805,
+      0.004865891300141811
+    ]
+  },
+  "MAE": 23.194694469524947,
+  "RMSE": 27.87029613579468,
+  "R2": -0.4347253465981995,
+  "naive_MAE": 2.6177071920255335,
+  "naive_RMSE": 3.8789281161189058,
+  "naive_R2": 0.9722086869082393,
+  "test_metrics_real_scale": {
+    "mae": 23.194694469524947,
+    "rmse": 27.87029613579468,
+    "r2": -0.4347253465981995
+  },
+  "naive_test_metrics_real_scale": {
+    "mae": 2.6177071920255335,
+    "rmse": 3.8789281161189058,
+    "r2": 0.9722086869082393
+  },
+  "real_scale_units": {
+    "mae": "USD",
+    "rmse": "USD",
+    "r2": "unitless"
+  },
+  "test_evaluation_count": 1,
+  "test_samples": 410,
+  "target_date_range": {
+    "min": "2024-05-14",
+    "max": "2025-12-31"
+  },
+  "target_scaling": {
+    "type": "StandardScaler",
+    "fit_scope": "TRAIN y only",
+    "path": "models/preprocessing/stock_target_scaler.joblib",
+    "sha256": "153a0aa8ac97885b07d5fb0eacf461e5882ab1bb7fb6da9df53486116ff937cb",
+    "inverse_transformed_for_final_metrics": true
+  },
+  "input_artifact_sha256": {
+    "train": "e8db5505015f10d6dc3c1bb94d73be2f073b894522f53ac39e9b97b47b488a1b",
+    "val": "60ff02fd75699918115a8e81bebbf081e2ce7d329abf991c19be12175f6d81c6",
+    "test": "a71b70117ce1debbb7b7add44428f1e8f1453a6d5f44df90e0add8df7b084575"
+  },
+  "model": {
+    "path": "models/keras/keras_stock_rnn_best.keras",
+    "sha256": "a4476f2ae5371b9c3b29783032a95a882c51bbe24b52465baa7a593c9b32c488"
+  },
+  "predictions": {
+    "path": "results/predictions/keras_stock_predictions.csv",
+    "rows": 410,
+    "sha256": "1e044a298c17d55b43da3b713335a05fafdf08119dd035b0fc0fb653558ce676"
+  },
+  "comparison": "Naive có RMSE thấp hơn Keras RNN; không có bằng chứng để tuyên bố RNN tốt hơn baseline."
+}

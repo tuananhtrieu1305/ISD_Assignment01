@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "artifact_only_comparison": true,
+  "retraining_performed": false,
+  "source_metrics": {
+    "pytorch_customer": {
+      "path": "results/metrics/pytorch_customer_metrics.json",
+      "sha256": "2b2411172fffddd935ee8a4181f8e16d8ec15bc8b048f4c382a708290b9fa77d"
+    },
+    "keras_customer": {
+      "path": "results/metrics/keras_customer_metrics.json",
+      "sha256": "d7439f1daaea30e3158862089a5196e00f8626a706fcf55affc6caeba4efc90d"
+    },
+    "pytorch_stock": {
+      "path": "results/metrics/pytorch_stock_metrics.json",
+      "sha256": "a93ce9b90b3600a89310d8f9842a6dfaa171c1a116e778cf81a1baeb784dee8e"
+    },
+    "keras_stock": {
+      "path": "results/metrics/keras_stock_metrics.json",
+      "sha256": "1ca1b9114ae36b5a69d34355eb1c07238ac771091e182af2aa267dc5f05e71ea"
+    },
+    "preprocessing": {
+      "path": "results/metrics/preprocessing_metadata.json",
+      "sha256": "53f58342d527d022036982cd0dc35e84cfddf2bc1861d8541118b2c041b7af02"
+    }
+  },
+  "source_predictions": {
+    "pytorch_customer": {
+      "path": "results/predictions/pytorch_customer_predictions.csv",
+      "sha256": "39ef1e482e1d260e77c75ed2fab64b8e2099d7389498601651b604ee65275f0e",
+      "rows": 53052
+    },
+    "keras_customer": {
+      "path": "results/predictions/keras_customer_predictions.csv",
+      "sha256": "63fabc48e5c33025e23e270b5ce8cfd9096501fcc68f71a3aeaf87cd981facbb",
+      "rows": 53052
+    },
+    "pytorch_stock": {
+      "path": "results/predictions/pytorch_stock_predictions.csv",
+      "sha256": "65118b2c00ef6c7ed1b1b0a89fb84218d4e35851a7c4137e0a0bb5fb2ad9dc6f",
+      "rows": 410
+    },
+    "keras_stock": {
+      "path": "results/predictions/keras_stock_predictions.csv",
+      "sha256": "1e044a298c17d55b43da3b713335a05fafdf08119dd035b0fc0fb653558ce676",
+      "rows": 410
+    }
+  },
+  "preprocessing_contract": {
+    "seed": 42,
+    "customer_sequence_length": 8,
+    "customer_features": [
+      "total_spent",
+      "total_quantity",
+      "order_count",
+      "unique_products",
+      "active_flag"
+    ],
+    "customer_test_shape": [
+      53052,
+      8,
+      5
+    ],
+    "stock_sequence_length": 30,
+    "stock_features": [
+      "Open",
+      "High",
+      "Low",
+      "Close",
+      "Volume"
+    ],
+    "stock_test_shape": [
+      410,
+      30,
+      5
+    ],
+    "stock_target_scaler_sha256": "153a0aa8ac97885b07d5fb0eacf461e5882ab1bb7fb6da9df53486116ff937cb"
+  },
+  "customer": {
+    "same_test_keys_and_labels_verified": true,
+    "threshold": 0.5,
+    "models": {
+      "PyTorch RNN": {
+        "metrics": {
+          "accuracy": 0.7581618035135339,
+          "precision": 0.15869809203142538,
+          "recall": 0.5721607769085514,
+          "f1": 0.24847703842549204,
+          "roc_auc": 0.7009347868460704
+        },
+        "parameter_count": 4609,
+        "epochs_actually_run": 11,
+        "training_duration_seconds": 151.06363829999998,
+        "device": "cpu",
+        "confusion_matrix_tn_fp_fn_tp": {
+          "tn": 38101,
+          "fp": 11244,
+          "fn": 1586,
+          "tp": 2121
+        }
+      },
+      "Keras SimpleRNN": {
+        "metrics": {
+          "accuracy": 0.760046746588253,
+          "precision": 0.15943232429984147,
+          "recall": 0.56973293768546,
+          "f1": 0.24914474460304353,
+          "roc_auc": 0.7004916961425864
+        },
+        "parameter_count": 4545,
+        "epochs_actually_run": 18,
+        "training_duration_seconds": 86.00996199999997,
+        "device": "cpu",
+        "confusion_matrix_tn_fp_fn_tp": {
+          "tn": 38210,
+          "fp": 11135,
+          "fn": 1595,
+          "tp": 2112
+        }
+      }
+    },
+    "keras_minus_pytorch_metric_delta": {
+      "accuracy": 0.001884943074719092,
+      "precision": 0.0007342322684160962,
+      "recall": -0.0024278392230914214,
+      "f1": 0.0006677061775514914,
+      "roc_auc": -0.0004430907034839171
+    },
+    "probability_correlation": 0.9918622920093507,
+    "prediction_agreement_rate": 0.9925356254241122,
+    "prediction_disagreement_count": 396,
+    "interpretation": "Very similar ranking and threshold behavior; small metric trade-offs do not establish a universal framework winner.",
+    "training_duration_note": "Descriptive for this CPU run; framework implementation, runtime, callbacks, and epochs affect timing."
+  },
+  "stock": {
+    "same_dates_actual_and_naive_verified": true,
+    "baseline_values_identical_between_framework_csvs": true,
+    "models": {
+      "PyTorch RNN": {
+        "mae": 20.339256857274822,
+        "rmse": 23.57881412768672,
+        "r2": -0.026903235017200933
+      },
+      "Keras SimpleRNN": {
+        "mae": 23.194694469524947,
+        "rmse": 27.87029613579468,
+        "r2": -0.4347253465981995
+      },
+      "Naive last Close": {
+        "mae": 2.6177071920255335,
+        "rmse": 3.8789281161189058,
+        "r2": 0.9722086869082393
+      }
+    },
+    "mean_prediction_error_usd": {
+      "pytorch_mean_error": -20.16440403052631,
+      "keras_mean_error": -23.033888958820587
+    },
+    "rnn_beats_naive_baseline": false,
+    "interpretation": "Naive last-Close decisively outperformed both Vanilla RNNs on the identical TEST samples."
+  },
+  "framework_practice": {
+    "pytorch": [
+      "Dataset/DataLoader",
+      "explicit training loop",
+      "manual optimizer steps",
+      "explicit device handling"
+    ],
+    "keras": [
+      "NumPy input to model.fit()",
+      "callbacks",
+      "higher-level training API",
+      "concise model definition"
+    ],
+    "caveat": "Fewer lines of code do not imply better predictive quality."
+  },
+  "limitations": [
+    "Vanilla RNN vanishing gradients and limited long-term memory",
+    "strong customer class imbalance",
+    "non-stationary stock price level and omitted exogenous information",
+    "single chronological split and single seed",
+    "LSTM/GRU are future extensions and were not trained here"
+  ],
+  "figures": [
+    "results/figures/comparison/customer_metrics_comparison.png",
+    "results/figures/comparison/customer_confusion_matrices.png",
+    "results/figures/comparison/customer_roc_comparison.png",
+    "results/figures/comparison/customer_probability_behavior.png",
+    "results/figures/comparison/stock_metrics_comparison.png",
+    "results/figures/comparison/stock_actual_vs_predicted.png"
+  ]
+}

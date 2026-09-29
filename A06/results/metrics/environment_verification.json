@@ -1,0 +1,162 @@
+{
+  "generated_at_local": "2026-09-27T18:40:31+07:00",
+  "status": "PASS",
+  "errors": [],
+  "project_root": "C:\\DATA\\assign\\A06",
+  "environment": {
+    "name": "rnn312",
+    "interpreter": "C:\\Users\\anhca\\anaconda3\\envs\\rnn312\\python.exe",
+    "python_version": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "package_versions": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "matplotlib": "3.11.2",
+      "scikit-learn": "1.9.1",
+      "openpyxl": "3.1.5",
+      "jupyter": "1.1.1",
+      "ipykernel": "7.3.0",
+      "pytest": "9.1.1",
+      "joblib": "1.6.0",
+      "torch": "2.14.0",
+      "tensorflow": "2.21.0",
+      "keras": "3.15.1",
+      "yfinance": "1.7.0"
+    },
+    "import_status": {
+      "numpy": "PASS",
+      "pandas": "PASS",
+      "matplotlib": "PASS",
+      "scikit-learn": "PASS",
+      "openpyxl": "PASS",
+      "jupyter": "PASS",
+      "ipykernel": "PASS",
+      "pytest": "PASS",
+      "joblib": "PASS",
+      "torch": "PASS",
+      "tensorflow": "PASS",
+      "keras": "PASS",
+      "yfinance": "PASS"
+    }
+  },
+  "devices": {
+    "pytorch_cuda_available": false,
+    "pytorch_cuda_devices": [],
+    "tensorflow_physical_devices": [
+      {
+        "name": "/physical_device:CPU:0",
+        "type": "CPU"
+      }
+    ]
+  },
+  "directories": {
+    "datasets/customer": true,
+    "datasets/stock": true,
+    "datasets/processed": true,
+    "notebooks": true,
+    "src": true,
+    "tests": true,
+    "models/pytorch": true,
+    "models/keras": true,
+    "results/figures": true,
+    "results/metrics": true,
+    "results/predictions": true,
+    "report": true
+  },
+  "datasets": {
+    "customer": {
+      "path": "C:\\DATA\\assign\\A06\\datasets\\customer\\online_retail_II.xlsx",
+      "size_bytes": 45622278,
+      "sha256": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980",
+      "sheet_count": 2,
+      "total_data_rows": 1067371,
+      "sheets": [
+        {
+          "name": "Year 2009-2010",
+          "data_rows": 525461,
+          "columns": [
+            "Invoice",
+            "StockCode",
+            "Description",
+            "Quantity",
+            "InvoiceDate",
+            "Price",
+            "Customer ID",
+            "Country"
+          ],
+          "sample_dtypes": {
+            "Invoice": "object",
+            "StockCode": "object",
+            "Description": "str",
+            "Quantity": "int64",
+            "InvoiceDate": "datetime64[us]",
+            "Price": "float64",
+            "Customer ID": "int64",
+            "Country": "str"
+          }
+        },
+        {
+          "name": "Year 2010-2011",
+          "data_rows": 541910,
+          "columns": [
+            "Invoice",
+            "StockCode",
+            "Description",
+            "Quantity",
+            "InvoiceDate",
+            "Price",
+            "Customer ID",
+            "Country"
+          ],
+          "sample_dtypes": {
+            "Invoice": "object",
+            "StockCode": "object",
+            "Description": "str",
+            "Quantity": "int64",
+            "InvoiceDate": "datetime64[us]",
+            "Price": "float64",
+            "Customer ID": "int64",
+            "Country": "str"
+          }
+        }
+      ]
+    },
+    "stock": {
+      "path": "C:\\DATA\\assign\\A06\\datasets\\stock\\AAPL_2015_2025.csv",
+      "size_bytes": 305816,
+      "sha256": "2c8eef3c6a3836e2217bf3e99faaeec37d30e60298f7319e8f3748b71e5bd2b8",
+      "rows": 2766,
+      "columns": [
+        "Date",
+        "Open",
+        "High",
+        "Low",
+        "Close",
+        "Adj Close",
+        "Volume"
+      ],
+      "dtypes": {
+        "Date": "str",
+        "Open": "float64",
+        "High": "float64",
+        "Low": "float64",
+        "Close": "float64",
+        "Adj Close": "float64",
+        "Volume": "int64"
+      },
+      "first_trading_date": "2015-01-02",
+      "last_trading_date": "2025-12-31",
+      "dates_monotonic_increasing": true,
+      "duplicate_dates": 0,
+      "missing_values": {
+        "Date": 0,
+        "Open": 0,
+        "High": 0,
+        "Low": 0,
+        "Close": 0,
+        "Adj Close": 0,
+        "Volume": 0
+      }
+    }
+  }
+}
