@@ -1,10 +1,16 @@
 """Create internal QA contact sheets from artifact-tool page renders."""
 
+import argparse
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent
-SOURCE = ROOT / "docx_render_a06_final"
+parser = argparse.ArgumentParser()
+parser.add_argument("source", nargs="?", default="docx_render_a06_release2")
+args = parser.parse_args()
+SOURCE = Path(args.source)
+if not SOURCE.is_absolute():
+    SOURCE = ROOT / SOURCE
 OUTPUT = SOURCE / "contact_sheets"
 OUTPUT.mkdir(parents=True, exist_ok=True)
 

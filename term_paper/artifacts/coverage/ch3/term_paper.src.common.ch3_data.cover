@@ -1,0 +1,149 @@
+    1: """Reconstruct fixed Chapter 3 benchmark subsets from read-only A05 splits."""
+       
+    1: from pathlib import Path
+       
+    1: import numpy as np
+    1: import pandas as pd
+    1: from PIL import Image
+    1: from sklearn.model_selection import train_test_split
+    1: from sklearn.preprocessing import StandardScaler
+       
+    1: from term_paper.src.common.ch3_protocol import split_digest, validate_split_keys
+       
+       
+    1: WORKSPACE_ROOT = Path(__file__).resolve().parents[3]
+    1: A05_ROOT = WORKSPACE_ROOT / "A05"
+       
+       
+    1: def stratified_subset(keys, labels, size, seed):
+    8:     keys = np.asarray(keys)
+    8:     labels = np.asarray(labels, dtype=int)
+    8:     if len(keys) != len(labels):
+>>>>>>         raise ValueError("keys and labels must have equal length")
+    8:     if int(size) > len(keys) or int(size) <= 0:
+>>>>>>         raise ValueError("subset size must be within the source split")
+    8:     if int(size) == len(keys):
+>>>>>>         return np.arange(len(keys), dtype=int)
+   16:     selected, _ = train_test_split(
+    8:         np.arange(len(keys)),
+    8:         train_size=int(size),
+    8:         random_state=int(seed),
+    8:         stratify=labels,
+           )
+    8:     return np.asarray(sorted(selected), dtype=int)
+       
+       
+    1: def class_weights(labels):
+    2:     labels = np.asarray(labels, dtype=int).reshape(-1)
+    2:     classes, counts = np.unique(labels, return_counts=True)
+    2:     total = len(labels)
+    4:     return {
+    6:         int(label): float(total / (len(classes) * count))
+   10:         for label, count in zip(classes, counts)
+           }
+       
+       
+    1: def _load_eurosat_images(relative_paths):
+    3:     images = []
+   43:     for relative in relative_paths:
+               # Path accepts forward slashes on Windows; rebuilding from parts keeps this portable.
+   40:         path = A05_ROOT.joinpath(*Path(str(relative)).parts)
+   80:         with Image.open(path) as image:
+   40:             array = np.asarray(image.convert("RGB"), dtype=np.float32) / 255.0
+   40:         if array.shape != (64, 64, 3):
+>>>>>>             raise ValueError(f"unexpected EuroSAT shape {array.shape}: {path}")
+   40:         images.append(array)
+    3:     return np.asarray(images, dtype=np.float32)
+       
+       
+    1: def prepare_eurosat_benchmark(subset_sizes, seed=42):
+    1:     arrays = {}
+    1:     keys = {}
+    1:     labels = {}
+    1:     class_names = None
+    4:     for offset, split in enumerate(("train", "val", "test")):
+    3:         frame = pd.read_csv(A05_ROOT / "results" / "splits" / f"eurosat_{split}.csv")
+    6:         chosen = stratified_subset(
+    3:             frame["relative_path"].to_numpy(),
+    3:             frame["label"].to_numpy(),
+    3:             int(subset_sizes[split]),
+    3:             int(seed) + offset,
+               )
+    3:         subset = frame.iloc[chosen].reset_index(drop=True)
+    3:         keys[split] = subset["relative_path"].astype(str).to_numpy()
+    3:         labels[split] = subset["label"].to_numpy(dtype=np.int64)
+    3:         arrays[split] = _load_eurosat_images(keys[split])
+    3:         if class_names is None:
+    1:             class_names = (
+    2:                 frame[["label", "class_name"]]
+    1:                 .drop_duplicates()
+    1:                 .sort_values("label")["class_name"]
+    1:                 .astype(str)
+    1:                 .tolist()
+                   )
+    1:     validate_split_keys(keys)
+    1:     return {
+    1:         "dataset_id": "ch3_eurosat",
+    1:         "mode": "2d",
+    1:         "input_shape": (64, 64, 3),
+    1:         "num_classes": 10,
+    1:         "class_names": class_names,
+    1:         "x_train": arrays["train"],
+    1:         "x_val": arrays["val"],
+    1:         "x_test": arrays["test"],
+    1:         "y_train": labels["train"],
+    1:         "y_val": labels["val"],
+    1:         "y_test": labels["test"],
+    1:         "keys": keys,
+    1:         "class_weight": None,
+    1:         "preprocessor": {"scale": "divide_by_255", "fit_scope": "none"},
+    1:         "split_sha256": split_digest(keys),
+           }
+       
+       
+    1: def prepare_diabetes_benchmark(subset_sizes, seed=42):
+    2:     raw = pd.read_csv(
+    1:         A05_ROOT / "datasets" / "diabetes" / "diabetes_012_health_indicators_BRFSS2015.csv"
+           )
+    1:     target = "Diabetes_012"
+   23:     feature_names = [column for column in raw.columns if column != target]
+    1:     selected_rows = {}
+    1:     keys = {}
+    1:     labels = {}
+    4:     for offset, split in enumerate(("train", "val", "test")):
+    3:         frame = pd.read_csv(A05_ROOT / "results" / "splits" / f"diabetes_{split}.csv")
+    6:         chosen = stratified_subset(
+    3:             frame["row_index"].to_numpy(),
+    3:             frame[target].to_numpy(dtype=int),
+    3:             int(subset_sizes[split]),
+    3:             int(seed) + offset,
+               )
+    3:         subset = frame.iloc[chosen].reset_index(drop=True)
+    3:         row_indices = subset["row_index"].to_numpy(dtype=int)
+    3:         selected_rows[split] = raw.iloc[row_indices][feature_names].to_numpy(dtype=np.float32)
+  483:         keys[split] = np.asarray([f"row-{value}" for value in row_indices])
+    3:         labels[split] = subset[target].to_numpy(dtype=np.int64)
+    1:     validate_split_keys(keys)
+    1:     scaler = StandardScaler().fit(selected_rows["train"])
+    2:     arrays = {
+    3:         split: scaler.transform(selected_rows[split]).astype(np.float32)[..., None]
+    5:         for split in ("train", "val", "test")
+           }
+   17:     return {
+    1:         "dataset_id": "ch3_diabetes_012",
+    1:         "mode": "1d",
+    1:         "input_shape": (len(feature_names), 1),
+    1:         "num_classes": 3,
+    1:         "class_names": ["No diabetes", "Prediabetes", "Diabetes"],
+    1:         "feature_names": feature_names,
+    1:         "x_train": arrays["train"],
+    1:         "x_val": arrays["val"],
+    1:         "x_test": arrays["test"],
+    1:         "y_train": labels["train"],
+    1:         "y_val": labels["val"],
+    1:         "y_test": labels["test"],
+    1:         "keys": keys,
+    1:         "class_weight": class_weights(labels["train"]),
+    1:         "preprocessor": scaler,
+    1:         "split_sha256": split_digest(keys),
+           }

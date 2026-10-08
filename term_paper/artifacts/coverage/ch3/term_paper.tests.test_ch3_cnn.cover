@@ -1,0 +1,149 @@
+    1: import tempfile
+    1: import unittest
+    1: from pathlib import Path
+       
+    1: import numpy as np
+       
+    1: from term_paper.src.keras_impl.cnn import KerasCNN
+    1: from term_paper.src.pytorch_impl.cnn import TorchCNN
+    1: from term_paper.src.scratch.cnn import NumpyCNN
+       
+       
+    1: def image_toy(seed=42):
+           """Three easy image classes: vertical, horizontal and diagonal bars."""
+    5:     rng = np.random.default_rng(seed)
+    5:     images = []
+    5:     labels = []
+   20:     for label in range(3):
+  285:         for _ in range(18):
+  270:             image = rng.normal(0.0, 0.03, size=(8, 8, 1))
+  270:             if label == 0:
+   90:                 image[:, 1:3, 0] += 1.0
+  180:             elif label == 1:
+   90:                 image[5:7, :, 0] += 1.0
+                   else:
+   90:                 image[np.arange(8), np.arange(8), 0] += 1.0
+  270:             images.append(image)
+  270:             labels.append(label)
+    5:     order = rng.permutation(len(images))
+    5:     x = np.asarray(images, dtype=np.float32)[order]
+    5:     y = np.asarray(labels, dtype=np.int64)[order]
+    5:     return x[:42], y[:42], x[42:], y[42:]
+       
+       
+    1: def sequence_toy(seed=42):
+    2:     rng = np.random.default_rng(seed)
+    2:     x = rng.normal(size=(15, 9, 1)).astype(np.float32)
+    6:     y = np.argmax(
+    2:         np.stack([x[:, :3].mean((1, 2)), x[:, 3:6].mean((1, 2)), x[:, 6:].mean((1, 2))], axis=1),
+    2:         axis=1,
+    2:     ).astype(np.int64)
+    2:     return x, y
+       
+       
+    2: class NumpyCNNTests(unittest.TestCase):
+    1:     def test_conv2d_forward_shape_probability_and_parameter_count(self):
+    1:         model = NumpyCNN((8, 8, 1), 3, mode="2d", filters=(4, 5), seed=42)
+    1:         score = model.predict_proba(np.zeros((7, 8, 8, 1), dtype=np.float32))
+    1:         self.assertEqual(score.shape, (7, 3))
+    1:         self.assertTrue(np.isfinite(score).all())
+    1:         np.testing.assert_allclose(score.sum(axis=1), 1.0, atol=1e-7)
+    1:         self.assertEqual(model.parameter_count, (3 * 3 * 1 * 4 + 4) + (3 * 3 * 4 * 5 + 5) + (5 * 3 + 3))
+       
+    1:     def test_conv1d_forward_shape_probability(self):
+    1:         x, _ = sequence_toy()
+    1:         model = NumpyCNN((9, 1), 3, mode="1d", filters=(4, 5), seed=42)
+    1:         score = model.predict_proba(x)
+    1:         self.assertEqual(score.shape, (15, 3))
+    1:         np.testing.assert_allclose(score.sum(axis=1), 1.0, atol=1e-7)
+       
+    1:     def test_conv2d_numerical_gradient_matches_backpropagation(self):
+    1:         x, y, _, _ = image_toy()
+    1:         model = NumpyCNN((8, 8, 1), 3, mode="2d", filters=(2, 2), seed=42)
+    1:         loss, gradients = model.loss_and_gradients(x[:3], y[:3])
+    1:         self.assertTrue(np.isfinite(loss))
+    1:         key, index, epsilon = "W1", (1, 1, 0, 0), 1e-5
+    1:         original = float(model.params[key][index])
+    1:         model.params[key][index] = original + epsilon
+    1:         plus, _ = model.loss_and_gradients(x[:3], y[:3])
+    1:         model.params[key][index] = original - epsilon
+    1:         minus, _ = model.loss_and_gradients(x[:3], y[:3])
+    1:         model.params[key][index] = original
+    1:         numerical = (plus - minus) / (2 * epsilon)
+    1:         self.assertAlmostEqual(float(gradients[key][index]), float(numerical), places=4)
+       
+    1:     def test_conv1d_numerical_gradient_matches_backpropagation(self):
+    1:         x, y = sequence_toy()
+    1:         model = NumpyCNN((9, 1), 3, mode="1d", filters=(2, 2), seed=42)
+    1:         _, gradients = model.loss_and_gradients(x[:4], y[:4])
+    1:         key, index, epsilon = "W2", (1, 0, 1), 1e-5
+    1:         original = float(model.params[key][index])
+    1:         model.params[key][index] = original + epsilon
+    1:         plus, _ = model.loss_and_gradients(x[:4], y[:4])
+    1:         model.params[key][index] = original - epsilon
+    1:         minus, _ = model.loss_and_gradients(x[:4], y[:4])
+    1:         model.params[key][index] = original
+    1:         numerical = (plus - minus) / (2 * epsilon)
+    1:         self.assertAlmostEqual(float(gradients[key][index]), float(numerical), places=4)
+       
+    1:     def test_toy_loss_decreases_and_model_overfits(self):
+    1:         x_train, y_train, x_val, y_val = image_toy()
+    2:         model = NumpyCNN(
+    1:             (8, 8, 1), 3, mode="2d", filters=(4, 6), seed=42, learning_rate=0.02
+               )
+    2:         history = model.fit(
+    1:             x_train, y_train, x_val, y_val, epochs=80, batch_size=14, patience=20
+               )
+    1:         self.assertLess(history["train_loss"][-1], history["train_loss"][0])
+    1:         self.assertGreaterEqual(np.mean(model.predict(x_train) == y_train), 0.95)
+       
+    1:     def test_save_load_prediction_parity(self):
+    1:         x_train, y_train, x_val, y_val = image_toy()
+    1:         model = NumpyCNN((8, 8, 1), 3, mode="2d", filters=(3, 4), seed=42)
+    1:         model.fit(x_train, y_train, x_val, y_val, epochs=4, batch_size=14, patience=2)
+    1:         expected = model.predict_proba(x_val)
+    2:         with tempfile.TemporaryDirectory() as tmp:
+    1:             path = Path(tmp) / "cnn.npz"
+    1:             model.save(path)
+    1:             actual = NumpyCNN.load(path).predict_proba(x_val)
+    1:         np.testing.assert_allclose(expected, actual, atol=1e-7, rtol=0)
+       
+       
+    2: class FrameworkCNNTests(unittest.TestCase):
+    1:     def _exercise(self, model_class, suffix):
+    2:         x_train, y_train, x_val, y_val = image_toy()
+    4:         model = model_class(
+    2:             (8, 8, 1), 3, mode="2d", filters=(4, 5), seed=42, learning_rate=0.01
+               )
+    4:         history = model.fit(
+    2:             x_train, y_train, x_val, y_val, epochs=12, batch_size=14, patience=5
+               )
+    2:         score = model.predict_proba(x_val)
+    2:         self.assertEqual(score.shape, (12, 3))
+    2:         self.assertTrue(np.isfinite(score).all())
+    2:         self.assertLess(history["train_loss"][-1], history["train_loss"][0])
+    4:         with tempfile.TemporaryDirectory() as tmp:
+    2:             path = Path(tmp) / f"cnn{suffix}"
+    2:             model.save(path)
+    2:             loaded = model_class.load(path)
+    2:             np.testing.assert_allclose(score, loaded.predict_proba(x_val), atol=1e-6, rtol=0)
+       
+    1:     def test_keras_train_infer_and_save_load(self):
+    1:         self._exercise(KerasCNN, ".keras")
+       
+    1:     def test_pytorch_train_infer_and_save_load(self):
+    1:         self._exercise(TorchCNN, ".pt")
+       
+    1:     def test_parameter_count_matches_for_2d_and_1d(self):
+    3:         for input_shape, mode in [((8, 8, 1), "2d"), ((9, 1), "1d")]:
+    2:             models = [
+    2:                 NumpyCNN(input_shape, 3, mode=mode, filters=(4, 5), seed=42),
+    2:                 KerasCNN(input_shape, 3, mode=mode, filters=(4, 5), seed=42),
+    2:                 TorchCNN(input_shape, 3, mode=mode, filters=(4, 5), seed=42),
+                   ]
+    8:             counts = [model.parameter_count for model in models]
+    2:             self.assertEqual(counts, [counts[0]] * 3)
+       
+       
+    1: if __name__ == "__main__":
+>>>>>>     unittest.main()

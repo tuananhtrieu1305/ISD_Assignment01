@@ -1,0 +1,67 @@
+    1: import base64
+    1: import io
+    1: import unittest
+       
+    1: from PIL import Image
+       
+    1: from term_paper.deployment.app.schemas import (
+           ValidationError,
+           validate_diabetes,
+           validate_image_base64,
+           validate_sequence,
+       )
+       
+       
+    2: class DeploymentSchemaTests(unittest.TestCase):
+    1:     def setUp(self):
+   76:         self.diabetes = {
+   16:             "HighBP": 1, "HighChol": 0, "CholCheck": 1, "BMI": 26,
+   12:             "Smoker": 0, "Stroke": 0, "HeartDiseaseorAttack": 0,
+   12:             "PhysActivity": 1, "Fruits": 0, "Veggies": 1,
+   12:             "HvyAlcoholConsump": 0, "AnyHealthcare": 1, "NoDocbcCost": 0,
+   16:             "GenHlth": 3, "MentHlth": 5, "PhysHlth": 10, "DiffWalk": 0,
+    4:             "Sex": 1, "Age": 4, "Education": 6, "Income": 8,
+               }
+       
+    1:     def test_diabetes_accepts_exact_finite_schema(self):
+    1:         result = validate_diabetes(self.diabetes)
+    1:         self.assertEqual(list(result), list(self.diabetes))
+    1:         self.assertEqual(result["BMI"], 26.0)
+       
+    1:     def test_diabetes_rejects_missing_extra_and_out_of_range(self):
+    5:         for invalid in (
+   22:             {key: value for key, value in self.diabetes.items() if key != "BMI"},
+    1:             {**self.diabetes, "patient_name": "private"},
+    1:             {**self.diabetes, "Age": 14},
+    1:             {**self.diabetes, "BMI": float("nan")},
+               ):
+    8:             with self.assertRaises(ValidationError):
+    4:                 validate_diabetes(invalid)
+       
+    1:     def test_customer_and_stock_sequence_shape_and_domain(self):
+    9:         customer = [[0, 0, 0, 0, 0] for _ in range(8)]
+   31:         stock = [[100, 102, 99, 101, 1_000_000] for _ in range(30)]
+    1:         self.assertEqual(validate_sequence(customer, "customer").shape, (8, 5))
+    1:         self.assertEqual(validate_sequence(stock, "aapl").shape, (30, 5))
+    6:         for invalid, kind in ((customer[:-1], "customer"), (stock + [[1] * 5], "aapl"),
+    1:                               ([[0, 0, 0, 0, 2]] * 8, "customer"),
+    1:                               ([[100, 99, 102, 101, 10]] * 30, "aapl")):
+    8:             with self.assertRaises(ValidationError):
+    4:                 validate_sequence(invalid, kind)
+       
+    1:     def test_image_validation_accepts_png_and_rejects_non_image(self):
+    1:         image = Image.new("RGB", (32, 24), (30, 90, 140))
+    1:         buffer = io.BytesIO(); image.save(buffer, format="PNG")
+    1:         encoded = base64.b64encode(buffer.getvalue()).decode("ascii")
+    1:         loaded = validate_image_base64(encoded)
+    1:         self.assertEqual(loaded.mode, "RGB")
+    2:         with self.assertRaises(ValidationError):
+    1:             validate_image_base64(base64.b64encode(b"not-an-image").decode("ascii"))
+    1:         oversized = Image.new("1", (4_473, 4_473), 0)
+    1:         buffer = io.BytesIO(); oversized.save(buffer, format="PNG")
+    2:         with self.assertRaisesRegex(ValidationError, "20 triệu pixel"):
+    1:             validate_image_base64(base64.b64encode(buffer.getvalue()).decode("ascii"))
+       
+       
+    1: if __name__ == "__main__":
+>>>>>>     unittest.main()

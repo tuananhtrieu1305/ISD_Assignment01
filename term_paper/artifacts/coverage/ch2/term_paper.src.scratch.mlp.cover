@@ -1,0 +1,182 @@
+    1: """Two-hidden-layer MLP implemented only with NumPy."""
+       
+    1: import json
+    1: from pathlib import Path
+       
+    1: import numpy as np
+       
+       
+    2: class NumpyMLP:
+    1:     def __init__(
+               self,
+               input_dim,
+               task,
+    1:         hidden=(64, 32),
+    1:         seed=42,
+    1:         learning_rate=0.01,
+    1:         l2=0.0,
+           ):
+    7:         if task not in {"binary", "regression"}:
+>>>>>>             raise ValueError("task must be 'binary' or 'regression'")
+    7:         self.input_dim = int(input_dim)
+    7:         self.task = task
+   28:         self.hidden = tuple(int(v) for v in hidden)
+    7:         self.seed = int(seed)
+    7:         self.learning_rate = float(learning_rate)
+    7:         self.l2 = float(l2)
+    7:         rng = np.random.default_rng(self.seed)
+    7:         h1, h2 = self.hidden
+    7:         self.params = {
+    7:             "W1": rng.normal(0.0, np.sqrt(2.0 / self.input_dim), (self.input_dim, h1)),
+    7:             "b1": np.zeros((1, h1), dtype=float),
+    7:             "W2": rng.normal(0.0, np.sqrt(2.0 / h1), (h1, h2)),
+    7:             "b2": np.zeros((1, h2), dtype=float),
+    7:             "W3": rng.normal(0.0, np.sqrt(2.0 / h2), (h2, 1)),
+    7:             "b3": np.zeros((1, 1), dtype=float),
+               }
+       
+    2:     @property
+    2:     def parameter_count(self):
+    8:         return int(sum(value.size for value in self.params.values()))
+       
+    2:     @staticmethod
+    2:     def _sigmoid(logits):
+  707:         logits = np.clip(logits, -40.0, 40.0)
+  707:         return 1.0 / (1.0 + np.exp(-logits))
+       
+    1:     def _forward(self, x):
+ 1548:         x = np.asarray(x, dtype=float)
+ 1548:         z1 = x @ self.params["W1"] + self.params["b1"]
+ 1548:         h1 = np.maximum(z1, 0.0)
+ 1548:         z2 = h1 @ self.params["W2"] + self.params["b2"]
+ 1548:         h2 = np.maximum(z2, 0.0)
+ 1548:         output = h2 @ self.params["W3"] + self.params["b3"]
+ 1548:         score = self._sigmoid(output) if self.task == "binary" else output
+ 1548:         return score, {"x": x, "z1": z1, "h1": h1, "z2": z2, "h2": h2}
+       
+    1:     def _loss(self, score, y, class_weight=None):
+ 1543:         y = np.asarray(y, dtype=float).reshape(-1, 1)
+ 1543:         if self.task == "binary":
+  703:             clipped = np.clip(score, 1e-7, 1.0 - 1e-7)
+  703:             per_row = -(y * np.log(clipped) + (1.0 - y) * np.log(1.0 - clipped))
+  703:             if class_weight is not None:
+>>>>>>                 weights = np.where(y == 1.0, class_weight[1], class_weight[0])
+>>>>>>                 data_loss = float(np.sum(per_row * weights) / np.sum(weights))
+                   else:
+  703:                 data_loss = float(np.mean(per_row))
+               else:
+  840:             data_loss = float(np.mean((score - y) ** 2))
+ 6172:         penalty = 0.5 * self.l2 * sum(
+ 7715:             float(np.sum(self.params[key] ** 2)) for key in ("W1", "W2", "W3")
+ 1543:         ) / max(len(y), 1)
+ 1543:         return data_loss + penalty
+       
+    1:     def loss_and_gradients(self, x, y, class_weight=None):
+ 1103:         y = np.asarray(y, dtype=float).reshape(-1, 1)
+ 1103:         score, cache = self._forward(x)
+ 1103:         n = len(y)
+ 1103:         if self.task == "binary":
+  503:             if class_weight is None:
+  503:                 delta = (score - y) / n
+                   else:
+>>>>>>                 weights = np.where(y == 1.0, class_weight[1], class_weight[0])
+>>>>>>                 delta = (score - y) * weights / np.sum(weights)
+               else:
+  600:             delta = 2.0 * (score - y) / n
+ 1103:         gradients = {}
+ 1103:         gradients["W3"] = cache["h2"].T @ delta + self.l2 * self.params["W3"] / n
+ 1103:         gradients["b3"] = np.sum(delta, axis=0, keepdims=True)
+ 1103:         delta2 = (delta @ self.params["W3"].T) * (cache["z2"] > 0.0)
+ 1103:         gradients["W2"] = cache["h1"].T @ delta2 + self.l2 * self.params["W2"] / n
+ 1103:         gradients["b2"] = np.sum(delta2, axis=0, keepdims=True)
+ 1103:         delta1 = (delta2 @ self.params["W2"].T) * (cache["z1"] > 0.0)
+ 1103:         gradients["W1"] = cache["x"].T @ delta1 + self.l2 * self.params["W1"] / n
+ 1103:         gradients["b1"] = np.sum(delta1, axis=0, keepdims=True)
+ 1103:         return self._loss(score, y, class_weight=class_weight), gradients
+       
+    1:     def fit(
+               self,
+               x_train,
+               y_train,
+               x_val,
+               y_val,
+    1:         epochs=100,
+    1:         batch_size=512,
+    1:         patience=10,
+    1:         min_delta=1e-5,
+    1:         class_weight=None,
+           ):
+    3:         x_train = np.asarray(x_train, dtype=float)
+    3:         y_train = np.asarray(y_train, dtype=float).reshape(-1)
+    3:         x_val = np.asarray(x_val, dtype=float)
+    3:         y_val = np.asarray(y_val, dtype=float).reshape(-1)
+    3:         rng = np.random.default_rng(self.seed)
+   21:         first = {key: np.zeros_like(value) for key, value in self.params.items()}
+   21:         second = {key: np.zeros_like(value) for key, value in self.params.items()}
+    3:         beta1, beta2, epsilon = 0.9, 0.999, 1e-8
+    3:         step = 0
+    3:         best_val = np.inf
+   21:         best_params = {key: value.copy() for key, value in self.params.items()}
+    3:         wait = 0
+    3:         history = {"train_loss": [], "val_loss": []}
+  223:         for _ in range(int(epochs)):
+  220:             order = rng.permutation(len(x_train))
+ 1320:             for start in range(0, len(x_train), int(batch_size)):
+ 1100:                 batch_indices = order[start : start + int(batch_size)]
+ 1100:                 if len(batch_indices) == 0:
+>>>>>>                     continue
+ 2200:                 _, gradients = self.loss_and_gradients(
+ 1100:                     x_train[batch_indices], y_train[batch_indices], class_weight=class_weight
+                       )
+ 1100:                 step += 1
+ 7700:                 for key in self.params:
+ 6600:                     first[key] = beta1 * first[key] + (1.0 - beta1) * gradients[key]
+ 6600:                     second[key] = beta2 * second[key] + (1.0 - beta2) * gradients[key] ** 2
+ 6600:                     first_hat = first[key] / (1.0 - beta1**step)
+ 6600:                     second_hat = second[key] / (1.0 - beta2**step)
+13200:                     self.params[key] -= self.learning_rate * first_hat / (
+ 6600:                         np.sqrt(second_hat) + epsilon
+                           )
+  220:             train_score, _ = self._forward(x_train)
+  220:             val_score, _ = self._forward(x_val)
+  220:             train_loss = self._loss(train_score, y_train, class_weight=class_weight)
+  220:             val_loss = self._loss(val_score, y_val)
+  220:             history["train_loss"].append(train_loss)
+  220:             history["val_loss"].append(val_loss)
+  220:             if val_loss < best_val - float(min_delta):
+  149:                 best_val = val_loss
+ 1043:                 best_params = {key: value.copy() for key, value in self.params.items()}
+  149:                 wait = 0
+                   else:
+   71:                 wait += 1
+   71:                 if wait >= int(patience):
+>>>>>>                     break
+    3:         self.params = best_params
+    3:         return history
+       
+    1:     def predict_score(self, x):
+    5:         score, _ = self._forward(x)
+    5:         return score.reshape(-1)
+       
+    1:     def save(self, path):
+    1:         path = Path(path)
+    1:         path.parent.mkdir(parents=True, exist_ok=True)
+    2:         metadata = json.dumps(
+    1:             {
+    1:                 "input_dim": self.input_dim,
+    1:                 "task": self.task,
+    1:                 "hidden": list(self.hidden),
+    1:                 "seed": self.seed,
+    1:                 "learning_rate": self.learning_rate,
+    1:                 "l2": self.l2,
+                   }
+               )
+    1:         np.savez(path, metadata=np.array(metadata), **self.params)
+       
+    2:     @classmethod
+    2:     def load(cls, path):
+    2:         with np.load(Path(path), allow_pickle=False) as data:
+    1:             metadata = json.loads(str(data["metadata"].item()))
+    1:             model = cls(**metadata)
+    7:             model.params = {key: data[key].copy() for key in model.params}
+    1:         return model

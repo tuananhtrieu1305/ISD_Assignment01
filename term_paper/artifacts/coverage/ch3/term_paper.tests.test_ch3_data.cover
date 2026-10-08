@@ -1,0 +1,68 @@
+    1: import unittest
+       
+    1: import numpy as np
+       
+    1: from term_paper.src.common.ch3_data import (
+           class_weights,
+           prepare_diabetes_benchmark,
+           prepare_eurosat_benchmark,
+           stratified_subset,
+       )
+    1: from term_paper.src.common.ch3_protocol import split_digest, validate_split_keys
+       
+       
+    2: class Chapter3DataTests(unittest.TestCase):
+    1:     def test_stratified_subset_is_deterministic_and_bounded(self):
+  101:         keys = np.asarray([f"row-{index}" for index in range(100)])
+    1:         labels = np.asarray([0] * 50 + [1] * 30 + [2] * 20)
+    1:         first = stratified_subset(keys, labels, 30, seed=42)
+    1:         second = stratified_subset(keys, labels, 30, seed=42)
+    1:         np.testing.assert_array_equal(first, second)
+    1:         self.assertEqual(len(first), 30)
+    1:         self.assertEqual(len(np.unique(first)), 30)
+    1:         self.assertEqual(set(np.unique(labels[first])), {0, 1, 2})
+       
+    1:     def test_split_validation_and_digest(self):
+    1:         split = {
+    1:             "train": np.asarray(["a", "b", "c"]),
+    1:             "val": np.asarray(["d", "e"]),
+    1:             "test": np.asarray(["f", "g"]),
+               }
+    1:         validate_split_keys(split)
+    1:         self.assertEqual(split_digest(split), split_digest(split))
+    2:         with self.assertRaises(ValueError):
+    1:             validate_split_keys({"train": ["a"], "val": ["a"], "test": ["b"]})
+       
+    1:     def test_class_weights_are_inverse_frequency_normalized(self):
+    1:         weights = class_weights(np.asarray([0, 0, 0, 1, 2, 2]))
+    1:         self.assertGreater(weights[1], weights[2])
+    1:         self.assertGreater(weights[2], weights[0])
+    4:         weighted_counts = [weights[label] * count for label, count in enumerate([3, 1, 2])]
+    1:         np.testing.assert_allclose(weighted_counts, weighted_counts[0])
+       
+    1:     def test_eurosat_benchmark_uses_a05_splits_and_expected_shapes(self):
+    2:         prepared = prepare_eurosat_benchmark(
+    1:             subset_sizes={"train": 20, "val": 10, "test": 10}, seed=42
+               )
+    1:         self.assertEqual(prepared["x_train"].shape, (20, 64, 64, 3))
+    1:         self.assertEqual(prepared["x_val"].shape, (10, 64, 64, 3))
+    1:         self.assertEqual(prepared["x_test"].shape, (10, 64, 64, 3))
+    1:         self.assertTrue((prepared["x_train"] >= 0.0).all())
+    1:         self.assertTrue((prepared["x_train"] <= 1.0).all())
+    1:         validate_split_keys(prepared["keys"])
+       
+    1:     def test_diabetes_scaler_is_fit_only_on_benchmark_train(self):
+    2:         prepared = prepare_diabetes_benchmark(
+    1:             subset_sizes={"train": 300, "val": 90, "test": 90}, seed=42
+               )
+    1:         self.assertEqual(prepared["x_train"].shape, (300, 21, 1))
+    1:         self.assertEqual(prepared["x_val"].shape, (90, 21, 1))
+    1:         self.assertEqual(prepared["x_test"].shape, (90, 21, 1))
+    1:         np.testing.assert_allclose(prepared["x_train"].mean(axis=(0, 2)), 0.0, atol=1e-6)
+    1:         np.testing.assert_allclose(prepared["x_train"].std(axis=(0, 2)), 1.0, atol=1e-5)
+    1:         validate_split_keys(prepared["keys"])
+    1:         self.assertEqual(set(prepared["class_weight"]), {0, 1, 2})
+       
+       
+    1: if __name__ == "__main__":
+>>>>>>     unittest.main()

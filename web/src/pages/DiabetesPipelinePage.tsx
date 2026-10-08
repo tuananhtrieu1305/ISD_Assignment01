@@ -1,252 +1,256 @@
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useState } from "react";
 import {
-  DiabetesCompareResponse,
-  DiabetesRequest,
-  DiabetesResponse,
-  ModelOption,
-  compareDiabetesModels,
-  getModelOptions,
+  DiabetesInput,
+  DiabetesResult,
+  getDemo,
   predictDiabetes,
 } from "../api/predictionApi";
 import ErrorMessage from "../components/ErrorMessage";
-import FormField from "../components/FormField";
 import InfoBox from "../components/InfoBox";
-import InputAccordion from "../components/InputAccordion";
 import LoadingState from "../components/LoadingState";
+import ProbabilityBar from "../components/ProbabilityBar";
 import ResultCard from "../components/ResultCard";
-import SelectField from "../components/SelectField";
 
-type DiabetesField = Exclude<keyof DiabetesRequest, "model">;
-type Group = "Chỉ số sức khỏe" | "Thói quen và y tế" | "Đánh giá và nhân khẩu";
-type Field = { name: DiabetesField; label: string; group: Group; binary?: boolean; min?: number };
+type FeatureName = keyof DiabetesInput;
 
-const fields: Field[] = [
-  { name: "HighBP", label: "Huyết áp cao", group: "Chỉ số sức khỏe", binary: true },
-  { name: "HighChol", label: "Cholesterol cao", group: "Chỉ số sức khỏe", binary: true },
-  { name: "CholCheck", label: "Đã kiểm tra cholesterol", group: "Chỉ số sức khỏe", binary: true },
-  { name: "BMI", label: "BMI", group: "Chỉ số sức khỏe", min: 0 },
-  { name: "Stroke", label: "Tiền sử đột quỵ", group: "Chỉ số sức khỏe", binary: true },
-  { name: "HeartDiseaseorAttack", label: "Bệnh tim/heart attack", group: "Chỉ số sức khỏe", binary: true },
-  { name: "Smoker", label: "Từng hút thuốc", group: "Thói quen và y tế", binary: true },
-  { name: "PhysActivity", label: "Vận động thể chất", group: "Thói quen và y tế", binary: true },
-  { name: "Fruits", label: "Ăn trái cây hằng ngày", group: "Thói quen và y tế", binary: true },
-  { name: "Veggies", label: "Ăn rau hằng ngày", group: "Thói quen và y tế", binary: true },
-  { name: "HvyAlcoholConsump", label: "Uống rượu nhiều", group: "Thói quen và y tế", binary: true },
-  { name: "AnyHealthcare", label: "Có chăm sóc y tế", group: "Thói quen và y tế", binary: true },
-  { name: "NoDocbcCost", label: "Không khám vì chi phí", group: "Thói quen và y tế", binary: true },
-  { name: "GenHlth", label: "Sức khỏe tổng quát (1-5)", group: "Đánh giá và nhân khẩu", min: 1 },
-  { name: "MentHlth", label: "Ngày sức khỏe tinh thần kém", group: "Đánh giá và nhân khẩu", min: 0 },
-  { name: "PhysHlth", label: "Ngày sức khỏe thể chất kém", group: "Đánh giá và nhân khẩu", min: 0 },
-  { name: "DiffWalk", label: "Khó đi bộ/leo cầu thang", group: "Đánh giá và nhân khẩu", binary: true },
-  { name: "Sex", label: "Giới tính source code", group: "Đánh giá và nhân khẩu", binary: true },
-  { name: "Age", label: "Nhóm tuổi (1-13)", group: "Đánh giá và nhân khẩu", min: 1 },
-  { name: "Education", label: "Học vấn (1-6)", group: "Đánh giá và nhân khẩu", min: 1 },
-  { name: "Income", label: "Thu nhập (1-8)", group: "Đánh giá và nhân khẩu", min: 1 },
-];
-
-const groups: Group[] = ["Chỉ số sức khỏe", "Thói quen và y tế", "Đánh giá và nhân khẩu"];
-const initialForm: Record<DiabetesField, string> = {
-  HighBP: "1",
-  HighChol: "0",
-  CholCheck: "1",
-  BMI: "26",
-  Smoker: "0",
-  Stroke: "0",
-  HeartDiseaseorAttack: "0",
-  PhysActivity: "1",
-  Fruits: "0",
-  Veggies: "1",
-  HvyAlcoholConsump: "0",
-  AnyHealthcare: "1",
-  NoDocbcCost: "0",
-  GenHlth: "3",
-  MentHlth: "5",
-  PhysHlth: "30",
-  DiffWalk: "0",
-  Sex: "1",
-  Age: "4",
-  Education: "6",
-  Income: "8",
+type FeatureConfig = {
+  name: FeatureName;
+  label: string;
+  hint: string;
+  binary?: boolean;
+  min?: number;
+  max?: number;
 };
 
-const fallbackModelOptions: ModelOption[] = [{ id: "improved_dnn", name: "Improved DNN", recommended: true }];
-const COMPARE_ALL_MODELS_ID = "__compare_all_models__";
-const binaryOptions = [{ value: "0", label: "0 - Không" }, { value: "1", label: "1 - Có" }];
+type FeatureGroup = {
+  title: string;
+  description: string;
+  features: FeatureConfig[];
+};
 
-function formatPercent(value: number) {
-  return `${(value * 100).toFixed(2)}%`;
-}
+const featureGroups: FeatureGroup[] = [
+  {
+    title: "Chỉ số sức khỏe",
+    description: "Các chẩn đoán và tự đánh giá sức khỏe cơ bản.",
+    features: [
+      { name: "HighBP", label: "Huyết áp cao", hint: "Đã từng được chẩn đoán", binary: true },
+      { name: "HighChol", label: "Cholesterol cao", hint: "Đã từng được chẩn đoán", binary: true },
+      { name: "CholCheck", label: "Đã kiểm tra cholesterol", hint: "Trong 5 năm gần đây", binary: true },
+      { name: "BMI", label: "BMI", hint: "Chỉ số khối cơ thể", min: 10, max: 100 },
+      { name: "Stroke", label: "Tiền sử đột quỵ", hint: "Có hoặc không", binary: true },
+      { name: "HeartDiseaseorAttack", label: "Bệnh tim / nhồi máu", hint: "Có hoặc không", binary: true },
+      { name: "GenHlth", label: "Sức khỏe tổng quát", hint: "1 = rất tốt, 5 = kém", min: 1, max: 5 },
+    ],
+  },
+  {
+    title: "Thói quen và vận động",
+    description: "Các biến hành vi trong bảng hỏi CDC/BRFSS.",
+    features: [
+      { name: "Smoker", label: "Từng hút thuốc", hint: "≥ 100 điếu trong đời", binary: true },
+      { name: "PhysActivity", label: "Có vận động", hint: "Trong 30 ngày gần đây", binary: true },
+      { name: "Fruits", label: "Ăn trái cây hằng ngày", hint: "Có hoặc không", binary: true },
+      { name: "Veggies", label: "Ăn rau hằng ngày", hint: "Có hoặc không", binary: true },
+      { name: "HvyAlcoholConsump", label: "Uống rượu mức cao", hint: "Theo ngưỡng của khảo sát", binary: true },
+      { name: "MentHlth", label: "Ngày sức khỏe tinh thần kém", hint: "Trong 30 ngày", min: 0, max: 30 },
+      { name: "PhysHlth", label: "Ngày sức khỏe thể chất kém", hint: "Trong 30 ngày", min: 0, max: 30 },
+      { name: "DiffWalk", label: "Khó đi bộ", hint: "Có hoặc không", binary: true },
+    ],
+  },
+  {
+    title: "Tiếp cận y tế và nhân khẩu học",
+    description: "Thông tin bảo hiểm, giới tính và nhóm phân loại.",
+    features: [
+      { name: "AnyHealthcare", label: "Có bảo hiểm y tế", hint: "Có hoặc không", binary: true },
+      { name: "NoDocbcCost", label: "Không khám vì chi phí", hint: "Trong 12 tháng gần đây", binary: true },
+      { name: "Sex", label: "Giới tính mã hóa", hint: "0 = nữ, 1 = nam", binary: true },
+      { name: "Age", label: "Nhóm tuổi", hint: "Mã nhóm từ 1 đến 13", min: 1, max: 13 },
+      { name: "Education", label: "Nhóm học vấn", hint: "Mã nhóm từ 1 đến 6", min: 1, max: 6 },
+      { name: "Income", label: "Nhóm thu nhập", hint: "Mã nhóm từ 1 đến 8", min: 1, max: 8 },
+    ],
+  },
+];
 
-function labelFor(prediction: number) {
-  return prediction === 1 ? "Dương tính" : "Âm tính";
+const allFeatures = featureGroups.flatMap((group) => group.features);
+
+const emptyValues = Object.fromEntries(
+  allFeatures.map((feature) => [feature.name, ""]),
+) as Record<FeatureName, string>;
+
+function provenanceLabel(result: DiabetesResult) {
+  return `${result.provenance.version} · SHA ${result.provenance.model_sha256.slice(0, 12)}…`;
 }
 
 export default function DiabetesPipelinePage() {
-  const [form, setForm] = useState(initialForm);
-  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
-  const [loading, setLoading] = useState(false);
-  const [compareLoading, setCompareLoading] = useState(false);
+  const [values, setValues] = useState<Record<FeatureName, string>>(emptyValues);
+  const [result, setResult] = useState<DiabetesResult | null>(null);
   const [error, setError] = useState("");
-  const [result, setResult] = useState<DiabetesResponse | null>(null);
-  const [compareResult, setCompareResult] = useState<DiabetesCompareResponse | null>(null);
-  const [modelOptions, setModelOptions] = useState(fallbackModelOptions);
-  const [selectedModel, setSelectedModel] = useState("improved_dnn");
-  const userSelectedModelRef = useRef(false);
+  const [busy, setBusy] = useState(false);
+  const [sampleKey, setSampleKey] = useState("");
 
-  useEffect(() => {
-    let ignore = false;
-    getModelOptions()
-      .then((data) => {
-        if (ignore) return;
-        setModelOptions(data.diabetes.models);
-        if (!userSelectedModelRef.current) setSelectedModel(data.diabetes.default_model);
-      })
-      .catch(console.error);
-    return () => {
-      ignore = true;
-    };
-  }, []);
-
-  function buildPayload() {
-    const errors: Record<string, string> = {};
-    const payload = {} as DiabetesRequest;
-    const writablePayload = payload as Record<DiabetesField, number>;
-
-    for (const field of fields) {
-      const rawValue = form[field.name].trim();
-      const number = Number(rawValue);
-      if (!rawValue) errors[field.name] = `Vui lòng nhập ${field.label}.`;
-      else if (!Number.isFinite(number)) errors[field.name] = `${field.label} phải là số.`;
-      else writablePayload[field.name] = number;
-    }
-
-    setFieldErrors(errors);
-    payload.model = selectedModel;
-    return Object.keys(errors).length ? null : payload;
+  function updateValue(name: FeatureName, value: string) {
+    setValues((current) => ({ ...current, [name]: value }));
   }
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const payload = buildPayload();
-    if (!payload) return;
+  async function loadSample() {
+    setBusy(true);
+    setError("");
+    try {
+      const demo = await getDemo<DiabetesInput>("diabetes");
+      setValues(
+        Object.fromEntries(
+          Object.entries(demo.input).map(([key, value]) => [key, String(value)]),
+        ) as Record<FeatureName, string>,
+      );
+      setSampleKey(demo.sample_key ?? "Mẫu kiểm thử CDC/BRFSS");
+      setResult(null);
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Không thể nạp mẫu.");
+    } finally {
+      setBusy(false);
+    }
+  }
 
-    setLoading(selectedModel !== COMPARE_ALL_MODELS_ID);
-    setCompareLoading(selectedModel === COMPARE_ALL_MODELS_ID);
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     setError("");
     setResult(null);
-    setCompareResult(null);
 
+    if (Object.values(values).some((value) => value === "")) {
+      setError("Vui lòng điền đủ 21 trường hoặc sử dụng nút nạp mẫu.");
+      return;
+    }
+
+    const payload = Object.fromEntries(
+      allFeatures.map((feature) => [feature.name, Number(values[feature.name])]),
+    ) as DiabetesInput;
+
+    setBusy(true);
     try {
-      if (selectedModel === COMPARE_ALL_MODELS_ID) setCompareResult(await compareDiabetesModels(payload));
-      else setResult(await predictDiabetes(payload));
-    } catch (requestError) {
-      console.error(requestError);
-      setError("Không thể hoàn tất dự đoán. Vui lòng kiểm tra API và dữ liệu.");
+      setResult(await predictDiabetes(payload));
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Không thể dự đoán.");
     } finally {
-      setLoading(false);
-      setCompareLoading(false);
+      setBusy(false);
     }
   }
 
   return (
-    <section className="tool-page">
+    <section>
       <div className="page-intro compact">
-        <p className="eyebrow">CDC/BRFSS health indicators</p>
-        <h2>Dự đoán tiểu đường</h2>
-        <p>Theo dõi 21 feature CDC/BRFSS theo ba nhóm sức khỏe, thói quen và nhân khẩu.</p>
+        <p className="eyebrow">Chương 2 · Machine Learning</p>
+        <h1>Dự đoán nguy cơ tiểu đường</h1>
+        <p>
+          MLP viết bằng NumPy xử lý đúng 21 biến đầu vào của tập CDC/BRFSS.
+          Kết quả là xác suất của lớp dương và ngưỡng quyết định đã khóa.
+        </p>
       </div>
 
-      <div className="tool-grid">
-        <form className="form-panel" onSubmit={handleSubmit}>
-          <div className="form-grid">
-            <SelectField
-              id="diabetes-model"
-              label="Chọn model dự đoán"
-              value={selectedModel}
-              options={[
-                ...modelOptions.map((model) => ({
-                  value: model.id,
-                  label: `${model.name}${model.recommended ? " (khuyến nghị)" : ""}`,
-                })),
-                { value: COMPARE_ALL_MODELS_ID, label: "So sánh model đang triển khai" },
-              ]}
-              onChange={(value) => {
-                userSelectedModelRef.current = true;
-                setSelectedModel(value);
-              }}
-            />
-            {groups.map((group, index) => (
-              <InputAccordion title={group} defaultOpen={index === 0} key={group}>
-                <div className="form-grid nested">
-                  {fields.filter((field) => field.group === group).map((field) =>
-                    field.binary ? (
-                      <SelectField
-                        key={field.name}
-                        id={field.name}
-                        label={field.label}
-                        value={form[field.name]}
-                        options={binaryOptions}
-                        fullWidth={false}
-                        onChange={(value) => setForm((current) => ({ ...current, [field.name]: value }))}
-                      />
-                    ) : (
-                      <FormField
-                        key={field.name}
-                        id={field.name}
-                        label={field.label}
-                        min={field.min}
-                        value={form[field.name]}
-                        error={fieldErrors[field.name]}
-                        onChange={(value) => setForm((current) => ({ ...current, [field.name]: value }))}
-                      />
-                    ),
-                  )}
-                </div>
-              </InputAccordion>
-            ))}
-          </div>
-          <div className="button-row">
-            <button className="primary-button" type="submit" disabled={loading || compareLoading}>
-              {compareLoading ? "Đang so sánh..." : loading ? "Đang dự đoán..." : "Dự đoán"}
-            </button>
-            <button className="secondary-button" type="button" onClick={() => setForm(initialForm)}>
-              Demo input
+      <div className="tool-grid wide-form">
+        <form className="form-panel" onSubmit={submit}>
+          <div className="panel-heading">
+            <div>
+              <span className="step-label">Input / 21 features</span>
+              <h2>Thông tin đầu vào</h2>
+            </div>
+            <button
+              className="secondary-button"
+              type="button"
+              onClick={loadSample}
+              disabled={busy}
+            >
+              Nạp mẫu kiểm thử
             </button>
           </div>
-        </form>
 
-        <aside className="result-panel">
-          {loading && <LoadingState />}
-          {error && <ErrorMessage message={error} />}
-          {result && (
-            <ResultCard title="Kết quả dự đoán">
-              <p className="model-used">Model đã chọn: {result.model?.name ?? selectedModel}</p>
-              <div className={`result-status ${result.prediction === 1 ? "warning" : "success"}`}>
-                <span className="status-dot" aria-hidden="true" />
-                <p className="result-label">{labelFor(result.prediction)}</p>
-              </div>
-              {typeof result.probability === "number" ? (
-                <section className="result-section">
-                  <h3>Xác suất class 1</h3>
-                  <p className="probability-main">{formatPercent(result.probability)}</p>
-                </section>
-              ) : null}
-              <InfoBox title="Lưu ý" tone="warning">
-                Kết quả chỉ phục vụ học tập, không phải chẩn đoán y khoa.
-              </InfoBox>
-            </ResultCard>
-          )}
-          {compareResult && (
-            <ResultCard title="So sánh kết quả">
-              <div className="comparison-list">
-                {compareResult.results.map((item) => (
-                  <div className="comparison-row" key={item.model_id}>
-                    <strong>{item.model_name}</strong>
-                    <span>{labelFor(item.prediction)}</span>
-                    <span>{typeof item.probability === "number" ? formatPercent(item.probability) : "N/A"}</span>
+          {sampleKey && <p className="sample-note">Đã nạp: {sampleKey}</p>}
+
+          {featureGroups.map((group) => (
+            <fieldset className="feature-group" key={group.title}>
+              <legend>{group.title}</legend>
+              <p>{group.description}</p>
+              <div className="form-grid">
+                {group.features.map((feature) => (
+                  <div className="form-field" key={feature.name}>
+                    <label htmlFor={feature.name}>
+                      {feature.label}
+                      <span>{feature.name}</span>
+                    </label>
+                    {feature.binary ? (
+                      <select
+                        id={feature.name}
+                        value={values[feature.name]}
+                        required
+                        onChange={(event) =>
+                          updateValue(feature.name, event.target.value)
+                        }
+                      >
+                        <option value="">Chọn giá trị</option>
+                        <option value="0">0 — Không</option>
+                        <option value="1">1 — Có</option>
+                      </select>
+                    ) : (
+                      <input
+                        id={feature.name}
+                        type="number"
+                        min={feature.min}
+                        max={feature.max}
+                        step="1"
+                        value={values[feature.name]}
+                        required
+                        onChange={(event) =>
+                          updateValue(feature.name, event.target.value)
+                        }
+                      />
+                    )}
+                    <small>{feature.hint}</small>
                   </div>
                 ))}
               </div>
+            </fieldset>
+          ))}
+
+          {error && <ErrorMessage message={error} />}
+
+          <button className="primary-button submit-button" type="submit" disabled={busy}>
+            {busy ? "Đang xử lý..." : "Chạy mô hình ML"}
+          </button>
+        </form>
+
+        <aside className="result-panel sticky-result">
+          {busy && <LoadingState />}
+          {!busy && !result && !error && (
+            <div className="empty-result">
+              <span className="empty-icon" aria-hidden="true">01</span>
+              <h2>Kết quả sẽ xuất hiện ở đây</h2>
+              <p>Nạp mẫu hoặc điền đủ dữ liệu rồi chạy mô hình.</p>
+            </div>
+          )}
+          {!busy && result && (
+            <ResultCard title="Xác suất nguy cơ / MLP NumPy">
+              <p className="probability-main">
+                {(result.probability * 100).toFixed(1)}%
+              </p>
+              <ProbabilityBar
+                label="Xác suất lớp dương"
+                probability={result.probability}
+                tone={result.predicted_class ? "positive" : "negative"}
+              />
+              <p className="threshold-note">
+                Ngưỡng quyết định {(result.threshold * 100).toFixed(1)}%
+              </p>
+              <div className={`result-status ${result.predicted_class ? "warning" : "success"}`}>
+                <span className="status-dot" aria-hidden="true" />
+                <div>
+                  <p className="result-label">{result.label}</p>
+                  <p className="result-explanation">
+                    Lớp dự đoán: {result.predicted_class}
+                  </p>
+                </div>
+              </div>
+              <p className="model-used">{provenanceLabel(result)}</p>
+              <InfoBox title="Lưu ý sử dụng" tone="warning">
+                {result.warning}
+              </InfoBox>
             </ResultCard>
           )}
         </aside>

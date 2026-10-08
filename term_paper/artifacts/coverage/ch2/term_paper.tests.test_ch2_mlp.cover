@@ -1,0 +1,138 @@
+    1: import tempfile
+    1: import unittest
+    1: from pathlib import Path
+       
+    1: import numpy as np
+       
+    1: from term_paper.src.keras_impl.mlp import KerasMLP
+    1: from term_paper.src.pytorch_impl.mlp import TorchMLP
+    1: from term_paper.src.scratch.mlp import NumpyMLP
+       
+       
+    1: def binary_toy(seed=42):
+    6:     rng = np.random.default_rng(seed)
+    6:     negative = rng.normal(loc=-1.0, scale=0.35, size=(48, 4))
+    6:     positive = rng.normal(loc=1.0, scale=0.35, size=(48, 4))
+    6:     x = np.vstack([negative, positive]).astype(np.float32)
+    6:     y = np.concatenate([np.zeros(48), np.ones(48)]).astype(np.float32)
+    6:     order = rng.permutation(len(x))
+    6:     return x[order[:72]], y[order[:72]], x[order[72:]], y[order[72:]]
+       
+       
+    1: def regression_toy(seed=42):
+    1:     rng = np.random.default_rng(seed)
+    1:     x = rng.normal(size=(96, 3)).astype(np.float32)
+    1:     y = (1.5 * x[:, 0] - 0.7 * x[:, 1] + 0.2 * x[:, 2]).astype(np.float32)
+    1:     return x[:72], y[:72], x[72:], y[72:]
+       
+       
+    2: class NumpyMLPTests(unittest.TestCase):
+    1:     def test_forward_shape_and_probability_range(self):
+    1:         x_train, _, _, _ = binary_toy()
+    1:         model = NumpyMLP(4, task="binary", hidden=(8, 4), seed=42)
+    1:         score = model.predict_score(x_train[:7])
+    1:         self.assertEqual(score.shape, (7,))
+    1:         self.assertTrue(np.isfinite(score).all())
+    1:         self.assertTrue(((score >= 0.0) & (score <= 1.0)).all())
+       
+    1:     def test_binary_loss_decreases_on_toy_data(self):
+    1:         x_train, y_train, x_val, y_val = binary_toy()
+    1:         model = NumpyMLP(4, task="binary", hidden=(8, 4), seed=42, learning_rate=0.01)
+    2:         history = model.fit(
+    1:             x_train,
+    1:             y_train,
+    1:             x_val,
+    1:             y_val,
+    1:             epochs=80,
+    1:             batch_size=16,
+    1:             patience=20,
+               )
+    1:         self.assertLess(history["train_loss"][-1], history["train_loss"][0])
+    1:         self.assertGreater(np.mean((model.predict_score(x_val) >= 0.5) == y_val), 0.9)
+       
+    1:     def test_regression_loss_decreases_on_toy_data(self):
+    1:         x_train, y_train, x_val, y_val = regression_toy()
+    1:         model = NumpyMLP(3, task="regression", hidden=(8, 4), seed=42, learning_rate=0.01)
+    2:         history = model.fit(
+    1:             x_train,
+    1:             y_train,
+    1:             x_val,
+    1:             y_val,
+    1:             epochs=120,
+    1:             batch_size=16,
+    1:             patience=25,
+               )
+    1:         self.assertLess(history["val_loss"][-1], history["val_loss"][0])
+    1:         self.assertLess(np.mean((model.predict_score(x_val) - y_val) ** 2), 0.08)
+       
+    1:     def test_numerical_gradient_matches_backpropagation(self):
+    1:         x_train, y_train, _, _ = binary_toy()
+    1:         model = NumpyMLP(4, task="binary", hidden=(5, 3), seed=42, learning_rate=0.01)
+    1:         _, gradients = model.loss_and_gradients(x_train[:8], y_train[:8])
+    1:         key = "W3"
+    1:         index = (1, 0)
+    1:         original = float(model.params[key][index])
+    1:         epsilon = 1e-5
+    1:         model.params[key][index] = original + epsilon
+    1:         loss_plus, _ = model.loss_and_gradients(x_train[:8], y_train[:8])
+    1:         model.params[key][index] = original - epsilon
+    1:         loss_minus, _ = model.loss_and_gradients(x_train[:8], y_train[:8])
+    1:         model.params[key][index] = original
+    1:         numerical = (loss_plus - loss_minus) / (2 * epsilon)
+    1:         self.assertAlmostEqual(float(gradients[key][index]), float(numerical), places=4)
+       
+    1:     def test_save_load_prediction_parity(self):
+    1:         x_train, y_train, x_val, y_val = binary_toy()
+    1:         model = NumpyMLP(4, task="binary", hidden=(8, 4), seed=42)
+    1:         model.fit(x_train, y_train, x_val, y_val, epochs=20, batch_size=16, patience=5)
+    1:         expected = model.predict_score(x_val)
+    2:         with tempfile.TemporaryDirectory() as tmp:
+    1:             path = Path(tmp) / "model.npz"
+    1:             model.save(path)
+    1:             actual = NumpyMLP.load(path).predict_score(x_val)
+    1:         np.testing.assert_allclose(expected, actual, atol=1e-7, rtol=0)
+       
+       
+    2: class FrameworkMLPTests(unittest.TestCase):
+    1:     def _exercise_binary_model(self, model_class, suffix):
+    2:         x_train, y_train, x_val, y_val = binary_toy()
+    2:         model = model_class(4, task="binary", hidden=(8, 4), seed=42, learning_rate=0.01)
+    4:         history = model.fit(
+    2:             x_train,
+    2:             y_train,
+    2:             x_val,
+    2:             y_val,
+    2:             epochs=30,
+    2:             batch_size=16,
+    2:             patience=10,
+               )
+    2:         score = model.predict_score(x_val)
+    2:         self.assertEqual(score.shape, (24,))
+    2:         self.assertTrue(np.isfinite(score).all())
+    2:         self.assertLess(history["val_loss"][-1], history["val_loss"][0])
+    4:         with tempfile.TemporaryDirectory() as tmp:
+    2:             path = Path(tmp) / f"model{suffix}"
+    2:             model.save(path)
+    2:             loaded = model_class.load(path)
+    2:             np.testing.assert_allclose(score, loaded.predict_score(x_val), atol=1e-6, rtol=0)
+       
+    1:     def test_keras_train_infer_and_save_load(self):
+    1:         self._exercise_binary_model(KerasMLP, ".keras")
+       
+    1:     def test_pytorch_train_infer_and_save_load(self):
+    1:         self._exercise_binary_model(TorchMLP, ".pt")
+       
+    1:     def test_parameter_count_matches_across_frameworks(self):
+    1:         models = [
+    1:             NumpyMLP(6, task="binary", hidden=(8, 4), seed=42),
+    1:             KerasMLP(6, task="binary", hidden=(8, 4), seed=42),
+    1:             TorchMLP(6, task="binary", hidden=(8, 4), seed=42),
+               ]
+    4:         counts = [model.parameter_count for model in models]
+    1:         self.assertEqual(counts, [counts[0]] * 3)
+    1:         self.assertEqual(counts[0], (6 * 8 + 8) + (8 * 4 + 4) + (4 * 1 + 1))
+       
+       
+    1: if __name__ == "__main__":
+>>>>>>     unittest.main()
+       

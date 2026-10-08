@@ -1,0 +1,79 @@
+    1: import tempfile
+    1: import unittest
+    1: from pathlib import Path
+       
+    1: import numpy as np
+    1: import pandas as pd
+       
+    1: from term_paper.src.common.ch2_metrics import (
+           compute_classification_metrics,
+           compute_regression_metrics,
+           metrics_from_prediction_csv,
+       )
+    1: from term_paper.src.common.ch2_protocol import split_key_digest, validate_split_keys
+       
+       
+    2: class MetricReproductionTests(unittest.TestCase):
+    1:     def test_classification_metrics_reproduce_from_prediction_csv(self):
+    2:         frame = pd.DataFrame(
+    1:             {
+    1:                 "task": ["binary"] * 6,
+    1:                 "y_true": [0, 0, 1, 1, 1, 0],
+    1:                 "y_score": [0.1, 0.4, 0.8, 0.7, 0.2, 0.3],
+    1:                 "y_pred": [0, 0, 1, 1, 0, 0],
+                   }
+               )
+    2:         expected = compute_classification_metrics(
+    1:             frame["y_true"], frame["y_pred"], frame["y_score"]
+               )
+    2:         with tempfile.TemporaryDirectory() as tmp:
+    1:             path = Path(tmp) / "predictions.csv"
+    1:             frame.to_csv(path, index=False)
+    1:             actual = metrics_from_prediction_csv(path)
+    6:         for key, value in expected.items():
+    5:             self.assertAlmostEqual(value, actual[key], places=12)
+       
+    1:     def test_regression_metrics_reproduce_from_prediction_csv(self):
+    2:         frame = pd.DataFrame(
+    1:             {
+    1:                 "task": ["regression"] * 4,
+    1:                 "y_true": [1.0, 2.0, 3.0, 4.0],
+    1:                 "y_pred": [1.1, 1.8, 3.2, 3.9],
+                   }
+               )
+    1:         expected = compute_regression_metrics(frame["y_true"], frame["y_pred"])
+    2:         with tempfile.TemporaryDirectory() as tmp:
+    1:             path = Path(tmp) / "predictions.csv"
+    1:             frame.to_csv(path, index=False)
+    1:             actual = metrics_from_prediction_csv(path)
+    6:         for key, value in expected.items():
+    5:             self.assertAlmostEqual(value, actual[key], places=12)
+       
+       
+    2: class SplitProtocolTests(unittest.TestCase):
+    1:     def test_split_keys_are_disjoint_and_digest_is_deterministic(self):
+    1:         split_keys = {
+    1:             "train": np.array(["a", "b", "c"]),
+    1:             "val": np.array(["d", "e"]),
+    1:             "test": np.array(["f", "g"]),
+               }
+    1:         validate_split_keys(split_keys, expected_total=7)
+    1:         digest_1 = split_key_digest(split_keys)
+    4:         digest_2 = split_key_digest({key: values.copy() for key, values in split_keys.items()})
+    1:         self.assertEqual(digest_1, digest_2)
+    1:         self.assertEqual(len(digest_1), 64)
+       
+    1:     def test_split_overlap_is_rejected(self):
+    2:         with self.assertRaises(ValueError):
+    2:             validate_split_keys(
+    1:                 {
+    1:                     "train": np.array(["a", "b"]),
+    1:                     "val": np.array(["b", "c"]),
+    1:                     "test": np.array(["d"]),
+                       },
+    1:                 expected_total=5,
+                   )
+       
+       
+    1: if __name__ == "__main__":
+>>>>>>     unittest.main()

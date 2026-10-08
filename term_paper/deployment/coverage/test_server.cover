@@ -1,0 +1,73 @@
+    1: import json
+    1: import threading
+    1: import unittest
+    1: import urllib.error
+    1: import urllib.request
+    1: from pathlib import Path
+       
+    1: from term_paper.deployment.app.model_service import ModelService
+    1: from term_paper.deployment.app.server import create_server
+       
+       
+    1: ROOT = Path(__file__).resolve().parents[3]
+       
+       
+    2: class DeploymentServerTests(unittest.TestCase):
+    2:     @classmethod
+    2:     def setUpClass(cls):
+    1:         cls.server = create_server("127.0.0.1", 0, ModelService(ROOT))
+    1:         cls.thread = threading.Thread(target=cls.server.serve_forever, daemon=True)
+    1:         cls.thread.start()
+    1:         cls.base = f"http://127.0.0.1:{cls.server.server_port}"
+       
+    2:     @classmethod
+    2:     def tearDownClass(cls):
+    1:         cls.server.shutdown(); cls.server.server_close(); cls.thread.join(timeout=3)
+       
+    1:     def request(self, path, payload=None):
+   12:         data = None if payload is None else json.dumps(payload).encode("utf-8")
+   24:         request = urllib.request.Request(self.base + path, data=data,
+   12:                                          headers={"Content-Type": "application/json"} if data else {},
+   12:                                          method="POST" if data else "GET")
+   12:         return urllib.request.urlopen(request, timeout=10)
+       
+    1:     def test_health_static_ui_and_security_headers(self):
+    2:         with self.request("/health") as response:
+    1:             payload = json.load(response)
+    1:             self.assertEqual(payload["status"], "ok")
+    1:             self.assertEqual(response.headers["X-Content-Type-Options"], "nosniff")
+    1:             self.assertIn("default-src 'self'", response.headers["Content-Security-Policy"])
+    2:         with self.request("/") as response:
+    1:             html = response.read().decode("utf-8")
+    1:             self.assertIn("Phòng thí nghiệm mô hình", html)
+    1:             self.assertIn("data-tab=\"cnn\"", html)
+    1:             self.assertIn("không phải chẩn đoán y khoa", html.lower())
+       
+    1:     def test_demo_to_prediction_flow_for_every_use_case(self):
+    1:         expected_fields = {
+    1:             "diabetes": "probability", "eurosat": "top_classes",
+    1:             "customer": "probability", "aapl": "naive_last_close_usd",
+               }
+    5:         for use_case, expected_field in expected_fields.items():
+    8:             with self.subTest(use_case=use_case):
+    8:                 with self.request(f"/api/demo/{use_case}") as response:
+    4:                     demo = json.load(response)
+    8:                 with self.request(f"/api/predict/{use_case}", demo["input"]) as response:
+    4:                     result = json.load(response)
+    4:                     self.assertIn(expected_field, result)
+    4:                     self.assertTrue(result["request_id"].startswith("req_"))
+       
+    1:     def test_invalid_input_and_routes_return_friendly_errors(self):
+    2:         with self.assertRaises(urllib.error.HTTPError) as captured:
+    1:             self.request("/api/predict/customer", {"sequence": [[0] * 5]})
+    1:         self.assertEqual(captured.exception.code, 400)
+    1:         error = json.loads(captured.exception.read())
+    1:         self.assertEqual(error["error"]["code"], "invalid_input")
+    1:         self.assertNotIn("Traceback", json.dumps(error))
+    2:         with self.assertRaises(urllib.error.HTTPError) as missing:
+    1:             self.request("/not-found")
+    1:         self.assertEqual(missing.exception.code, 404)
+       
+       
+    1: if __name__ == "__main__":
+>>>>>>     unittest.main()

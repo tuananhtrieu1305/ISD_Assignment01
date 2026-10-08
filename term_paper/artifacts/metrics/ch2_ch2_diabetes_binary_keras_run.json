@@ -1,0 +1,57 @@
+{
+  "metric_row": {
+    "chapter": 2,
+    "dataset_id": "ch2_diabetes_binary",
+    "framework": "keras",
+    "seed": 42,
+    "split": "test",
+    "task": "binary",
+    "topology_id": "mlp_64_32_1",
+    "input_dim": 21,
+    "parameter_count": 3521,
+    "optimizer": "Adam",
+    "learning_rate": 0.003,
+    "batch_size": 512,
+    "epochs_run": 14,
+    "best_epoch": 4,
+    "training_seconds": 12.543634300000122,
+    "search_seconds": 16.73563230000036,
+    "inference_seconds": 0.3476303999996162,
+    "inference_ms_per_sample": 0.02516872284966813,
+    "sample_count": 13812,
+    "threshold": 0.39,
+    "prediction_path": "term_paper/artifacts/predictions/ch2_ch2_diabetes_binary_keras_test.csv",
+    "prediction_sha256": "716c56d63d7aac52f3a676ae4b7934efdb72c222301873fbd4803bb13782b948",
+    "model_path": "term_paper/artifacts/models/ch2/ch2_diabetes_binary_keras_seed42.keras",
+    "model_sha256": "2fb541265d33436a27b3e7d8b5cfc46237d425e22fc6589d5f252cf75b3d4403",
+    "preprocessor_sha256": "f7d520543655ea27d45d88d939c1458e2afc471a98c6038b67fe1bdc22b117f0",
+    "processed_sha256": "b57cf547e14f23df0f3378093465206f4a5770b4537f28f6faed58b5c6c187d8",
+    "split_sha256": "138c04fa519a96441560b250bf1fbdef2c6041439f654f230bb6ce4853fa5a3d",
+    "Accuracy": 0.7390674775557486,
+    "Precision": 0.6884793643787244,
+    "Recall": 0.8887464387464388,
+    "F1": 0.7758985200845666,
+    "ROC-AUC": 0.822102569975067
+  },
+  "learning_rate_candidates": [
+    {
+      "learning_rate": 0.01,
+      "measured_val_loss": 0.5122482543069048,
+      "history_best_val_loss": 0.5122482180595398,
+      "best_epoch": 2,
+      "epochs_run": 12,
+      "training_seconds": 2.5063906000004863
+    },
+    {
+      "learning_rate": 0.003,
+      "measured_val_loss": 0.5113981684107486,
+      "history_best_val_loss": 0.5113981366157532,
+      "best_epoch": 4,
+      "epochs_run": 14,
+      "training_seconds": 12.543634300000122
+    }
+  ],
+  "selected_candidate_index": 1,
+  "history_path": "term_paper/artifacts/metrics/ch2_ch2_diabetes_binary_keras_history.csv",
+  "threshold_path": "term_paper/artifacts/metrics/ch2_ch2_diabetes_binary_keras_threshold.csv"
+}

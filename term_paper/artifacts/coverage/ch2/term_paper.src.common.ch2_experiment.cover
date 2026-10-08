@@ -1,0 +1,77 @@
+    1: """Artifact helpers for the Chapter 2 matched-framework experiment."""
+       
+    1: import hashlib
+    1: from pathlib import Path
+       
+    1: import numpy as np
+    1: import pandas as pd
+    1: from sklearn.metrics import f1_score
+       
+       
+    1: def artifact_suffix(seed):
+    3:     return "" if int(seed) == 42 else f"_seed{int(seed)}"
+       
+       
+    1: def sha256_file(path):
+    2:     digest = hashlib.sha256()
+    4:     with Path(path).open("rb") as handle:
+    8:         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+    2:             digest.update(chunk)
+    2:     return digest.hexdigest()
+       
+       
+    1: def select_binary_threshold(y_true, y_score):
+    1:     y_true = np.asarray(y_true, dtype=int).reshape(-1)
+    1:     y_score = np.asarray(y_score, dtype=float).reshape(-1)
+    1:     rows = []
+   62:     for threshold in np.linspace(0.2, 0.8, 61):
+   61:         prediction = (y_score >= threshold).astype(int)
+  122:         rows.append(
+   61:             {
+   61:                 "threshold": float(threshold),
+   61:                 "F1": float(f1_score(y_true, prediction, zero_division=0)),
+                   }
+               )
+    1:     table = pd.DataFrame(rows)
+    1:     best = table.sort_values(["F1", "threshold"], ascending=[False, True]).iloc[0]
+    1:     return float(best["threshold"]), table
+       
+       
+    1: def build_prediction_frame(
+           dataset_id,
+           framework,
+           task,
+           keys,
+           y_true,
+           y_score,
+           y_pred,
+           threshold,
+           model_sha256,
+           preprocessor_sha256,
+           split_sha256,
+    1:     seed=42,
+       ):
+    1:     count = len(keys)
+    1:     scores = (
+    1:         np.asarray(y_score, dtype=float).reshape(-1)
+    1:         if y_score is not None
+>>>>>>         else np.full(count, np.nan)
+           )
+    2:     return pd.DataFrame(
+    1:         {
+    1:             "chapter": 2,
+    1:             "dataset_id": dataset_id,
+    1:             "framework": framework,
+    1:             "seed": int(seed),
+    1:             "split": "test",
+    1:             "sample_key": np.asarray(keys).astype(str),
+    1:             "task": task,
+    1:             "y_true": np.asarray(y_true).reshape(-1),
+    1:             "y_score": scores,
+    1:             "y_pred": np.asarray(y_pred).reshape(-1),
+    1:             "threshold": np.nan if threshold is None else float(threshold),
+    1:             "model_sha256": model_sha256,
+    1:             "preprocessor_sha256": preprocessor_sha256,
+    1:             "split_sha256": split_sha256,
+               }
+           )

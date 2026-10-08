@@ -1,0 +1,95 @@
+    1: """Load read-only A06 arrays and construct the fixed Chapter 4 benchmark."""
+       
+    1: from pathlib import Path
+       
+    1: import joblib
+    1: import numpy as np
+    1: from sklearn.model_selection import train_test_split
+       
+    1: from term_paper.src.common.ch4_protocol import (
+           split_digest,
+           validate_split_keys,
+           validate_temporal_splits,
+       )
+       
+       
+    1: WORKSPACE_ROOT = Path(__file__).resolve().parents[3]
+    1: A06_ROOT = WORKSPACE_ROOT / "A06"
+    1: PROCESSED_ROOT = A06_ROOT / "datasets" / "processed"
+       
+       
+    1: def stratified_subset(labels, size, seed):
+    5:     labels = np.asarray(labels, dtype=int).reshape(-1)
+    5:     if int(size) <= 0 or int(size) > len(labels):
+>>>>>>         raise ValueError("subset size must be within source split")
+    5:     if int(size) == len(labels):
+>>>>>>         return np.arange(len(labels), dtype=int)
+   10:     selected, _ = train_test_split(
+    5:         np.arange(len(labels)), train_size=int(size), random_state=int(seed), stratify=labels
+           )
+    5:     return np.asarray(sorted(selected), dtype=int)
+       
+       
+    1: def class_weights(labels):
+    2:     labels = np.asarray(labels, dtype=int).reshape(-1)
+    2:     classes, counts = np.unique(labels, return_counts=True)
+    2:     total = len(labels)
+    6:     return {int(label): float(total / (len(classes) * count)) for label, count in zip(classes, counts)}
+       
+       
+    1: def _customer_key(customer_id, target_week):
+    9:     return np.asarray([
+  500:         f"customer-{int(customer)}__week-{np.datetime_as_string(week, unit='D')}"
+  506:         for customer, week in zip(customer_id, target_week)
+           ])
+       
+       
+    1: def prepare_customer_benchmark(subset_sizes, seed=42):
+    1:     result = {}
+    1:     keys, dates = {}, {}
+    4:     for offset, split in enumerate(("train", "val", "test")):
+    3:         source = np.load(PROCESSED_ROOT / f"customer_{split}.npz", allow_pickle=False)
+    3:         chosen = stratified_subset(source["y"], int(subset_sizes[split]), int(seed) + offset)
+    3:         result[f"x_{split}"] = source["X"][chosen].astype(np.float32)
+    3:         result[f"y_{split}"] = source["y"][chosen].astype(np.float32)
+    3:         dates[split] = source["target_week"][chosen].astype("datetime64[D]")
+    3:         keys[split] = _customer_key(source["customer_id"][chosen], dates[split])
+    1:     validate_temporal_splits(dates)
+    1:     validate_split_keys(keys)
+    2:     result.update({
+    1:         "dataset_id": "ch4_online_retail_customer_week",
+    1:         "task": "binary", "input_size": 5, "sequence_length": 8,
+    1:         "keys": keys, "dates": dates,
+    1:         "class_weight": class_weights(result["y_train"]),
+    1:         "preprocessor_path": A06_ROOT / "models" / "preprocessing" / "customer_feature_scaler.joblib",
+    1:         "split_sha256": split_digest(keys),
+    1:         "source": "A06/datasets/processed/customer_{train,val,test}.npz",
+           })
+    1:     return result
+       
+       
+    1: def prepare_stock_benchmark():
+    1:     result = {}
+    1:     keys, dates = {}, {}
+    4:     for split in ("train", "val", "test"):
+    3:         source = np.load(PROCESSED_ROOT / f"stock_{split}.npz", allow_pickle=False)
+    3:         result[f"x_{split}"] = source["X"].astype(np.float32)
+    3:         result[f"y_{split}"] = source["y_scaled"].astype(np.float32)
+    3:         result[f"y_{split}_real"] = source["y"].astype(np.float32)
+    3:         result[f"naive_{split}"] = source["naive_last_close"].astype(np.float32)
+    3:         dates[split] = source["target_date"].astype("datetime64[D]")
+ 2739:         keys[split] = np.asarray([np.datetime_as_string(value, unit="D") for value in dates[split]])
+    1:     validate_temporal_splits(dates)
+    1:     validate_split_keys(keys)
+    1:     scaler_path = A06_ROOT / "models" / "preprocessing" / "stock_target_scaler.joblib"
+    2:     result.update({
+    1:         "dataset_id": "ch4_aapl_next_close", "task": "regression",
+    1:         "input_size": 5, "sequence_length": 30, "keys": keys, "dates": dates,
+    1:         "class_weight": None,
+    1:         "preprocessor_path": scaler_path,
+    1:         "feature_scaler_path": A06_ROOT / "models" / "preprocessing" / "stock_feature_scaler.joblib",
+    1:         "target_scaler": joblib.load(scaler_path),
+    1:         "split_sha256": split_digest(keys),
+    1:         "source": "A06/datasets/processed/stock_{train,val,test}.npz",
+           })
+    1:     return result

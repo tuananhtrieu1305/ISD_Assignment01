@@ -1,0 +1,126 @@
+    1: """Strict, allow-list input validation for deployment endpoints."""
+       
+    1: import base64
+    1: import binascii
+    1: import io
+    1: import math
+    1: import warnings
+       
+    1: import numpy as np
+    1: from PIL import Image, UnidentifiedImageError
+       
+       
+    1: MAX_IMAGE_BYTES = 5 * 1024 * 1024
+    1: Image.MAX_IMAGE_PIXELS = 20_000_000
+       
+    1: DIABETES_FEATURES = [
+           "HighBP", "HighChol", "CholCheck", "BMI", "Smoker", "Stroke",
+           "HeartDiseaseorAttack", "PhysActivity", "Fruits", "Veggies",
+           "HvyAlcoholConsump", "AnyHealthcare", "NoDocbcCost", "GenHlth",
+           "MentHlth", "PhysHlth", "DiffWalk", "Sex", "Age", "Education", "Income",
+       ]
+    1: BINARY_FEATURES = {
+           "HighBP", "HighChol", "CholCheck", "Smoker", "Stroke",
+           "HeartDiseaseorAttack", "PhysActivity", "Fruits", "Veggies",
+           "HvyAlcoholConsump", "AnyHealthcare", "NoDocbcCost", "DiffWalk", "Sex",
+       }
+    1: DIABETES_RANGES = {
+    1:     "BMI": (10, 100), "GenHlth": (1, 5), "MentHlth": (0, 30),
+    1:     "PhysHlth": (0, 30), "Age": (1, 13), "Education": (1, 6), "Income": (1, 8),
+       }
+       
+       
+    2: class ValidationError(ValueError):
+    1:     """A safe validation error whose message may be returned to the user."""
+       
+       
+    1: def _finite_number(value, label):
+  846:     if isinstance(value, bool) or not isinstance(value, (int, float, np.number)):
+>>>>>>         raise ValidationError(f"{label} phải là một số.")
+  846:     number = float(value)
+  846:     if not math.isfinite(number):
+    1:         raise ValidationError(f"{label} phải là số hữu hạn.")
+  845:     return number
+       
+       
+    1: def validate_diabetes(payload):
+    7:     if not isinstance(payload, dict):
+>>>>>>         raise ValidationError("Dữ liệu diabetes phải là một JSON object.")
+    7:     expected, received = set(DIABETES_FEATURES), set(payload)
+    7:     missing, extra = sorted(expected - received), sorted(received - expected)
+    7:     if missing:
+    1:         raise ValidationError(f"Thiếu trường bắt buộc: {', '.join(missing)}.")
+    6:     if extra:
+    1:         raise ValidationError(f"Trường không được hỗ trợ: {', '.join(extra)}.")
+    5:     result = {}
+   89:     for name in DIABETES_FEATURES:
+   86:         value = _finite_number(payload[name], name)
+   85:         if name in BINARY_FEATURES and value not in {0.0, 1.0}:
+>>>>>>             raise ValidationError(f"{name} chỉ nhận 0 hoặc 1.")
+   85:         if name in DIABETES_RANGES:
+   26:             lower, upper = DIABETES_RANGES[name]
+   26:             if value < lower or value > upper:
+    1:                 raise ValidationError(f"{name} phải nằm trong [{lower}, {upper}].")
+   84:         result[name] = value
+    3:     return result
+       
+       
+    1: def validate_sequence(sequence, kind):
+   11:     if kind not in {"customer", "aapl"}:
+>>>>>>         raise ValidationError("Loại sequence không được hỗ trợ.")
+   11:     expected_rows = 8 if kind == "customer" else 30
+   11:     if not isinstance(sequence, list) or len(sequence) != expected_rows:
+    3:         raise ValidationError(f"Sequence {kind} phải có đúng {expected_rows} hàng.")
+    8:     rows = []
+  160:     for row_index, row in enumerate(sequence):
+  152:         if not isinstance(row, list) or len(row) != 5:
+>>>>>>             raise ValidationError(f"Hàng {row_index + 1} phải có đúng 5 giá trị.")
+ 1216:         rows.append([_finite_number(value, f"hàng {row_index + 1}, cột {column + 1}")
+ 1064:                      for column, value in enumerate(row)])
+    8:     array = np.asarray(rows, dtype=np.float32)
+    8:     if kind == "customer":
+    4:         if np.any(array[:, :4] < 0) or np.any(array[:, :4] > 1e9):
+>>>>>>             raise ValidationError("Feature giao dịch phải nằm trong [0, 1e9].")
+    4:         if not np.isin(array[:, 4], [0.0, 1.0]).all():
+    1:             raise ValidationError("active_flag chỉ nhận 0 hoặc 1.")
+           else:
+    4:         if np.any(array[:, :4] <= 0) or np.any(array[:, 4] < 0):
+>>>>>>             raise ValidationError("OHLC phải dương và Volume không được âm.")
+   24:         open_price, high, low, close = (array[:, index] for index in range(4))
+    4:         if np.any(high < np.maximum(open_price, close)) or np.any(low > np.minimum(open_price, close)):
+    1:             raise ValidationError("Mỗi hàng phải thỏa Low ≤ Open/Close ≤ High.")
+    6:     return array
+       
+       
+    1: def validate_image_base64(encoded):
+    5:     if not isinstance(encoded, str) or not encoded:
+>>>>>>         raise ValidationError("Ảnh phải được gửi dưới dạng base64.")
+    5:     if encoded.startswith("data:"):
+>>>>>>         try:
+>>>>>>             encoded = encoded.split(",", 1)[1]
+>>>>>>         except IndexError as error:
+>>>>>>             raise ValidationError("Data URI ảnh không hợp lệ.") from error
+    5:     if len(encoded) > (MAX_IMAGE_BYTES * 4 // 3) + 16:
+>>>>>>         raise ValidationError("Ảnh vượt quá giới hạn 5 MB.")
+    5:     try:
+    5:         raw = base64.b64decode(encoded, validate=True)
+>>>>>>     except (binascii.Error, ValueError) as error:
+>>>>>>         raise ValidationError("Chuỗi base64 không hợp lệ.") from error
+    5:     if not raw or len(raw) > MAX_IMAGE_BYTES:
+>>>>>>         raise ValidationError("Ảnh rỗng hoặc vượt quá giới hạn 5 MB.")
+    5:     try:
+   10:         with warnings.catch_warnings():
+                   # We enforce the same pixel ceiling explicitly and return a safe
+                   # validation error instead of emitting a process-level warning.
+    5:             warnings.simplefilter("ignore", Image.DecompressionBombWarning)
+    9:             with Image.open(io.BytesIO(raw)) as probe:
+    4:                 if probe.format not in {"PNG", "JPEG"}:
+>>>>>>                     raise ValidationError("Chỉ chấp nhận ảnh PNG hoặc JPEG.")
+    4:                 if probe.width * probe.height > Image.MAX_IMAGE_PIXELS:
+    1:                     raise ValidationError("Ảnh vượt quá giới hạn 20 triệu pixel.")
+    3:                 probe.verify()
+    6:         with Image.open(io.BytesIO(raw)) as image:
+    3:             image.load()
+    3:             return image.convert("RGB")
+    2:     except (UnidentifiedImageError, OSError, Image.DecompressionBombError) as error:
+    1:         raise ValidationError("Nội dung upload không phải ảnh PNG/JPEG hợp lệ.") from error

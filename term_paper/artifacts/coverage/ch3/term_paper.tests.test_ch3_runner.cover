@@ -1,0 +1,29 @@
+    1: import unittest
+       
+    1: import pandas as pd
+       
+    1: from term_paper.src.common.run_ch3_experiments import validate_matched_prediction_keys
+       
+       
+    2: class Chapter3RunnerTests(unittest.TestCase):
+    1:     def test_matched_prediction_keys_accept_identical_ordered_samples(self):
+    2:         frames = {
+    6:             framework: pd.DataFrame(
+    3:                 {"sample_key": ["a", "b"], "y_true": [0, 1], "seed": [42, 42]}
+                   )
+    5:             for framework in ("numpy", "keras", "pytorch")
+               }
+    1:         validate_matched_prediction_keys(frames)
+       
+    1:     def test_matched_prediction_keys_reject_mismatch(self):
+    1:         frames = {
+    1:             "numpy": pd.DataFrame({"sample_key": ["a", "b"], "y_true": [0, 1]}),
+    1:             "keras": pd.DataFrame({"sample_key": ["a", "c"], "y_true": [0, 1]}),
+    1:             "pytorch": pd.DataFrame({"sample_key": ["a", "b"], "y_true": [0, 1]}),
+               }
+    2:         with self.assertRaises(ValueError):
+    1:             validate_matched_prediction_keys(frames)
+       
+       
+    1: if __name__ == "__main__":
+>>>>>>     unittest.main()

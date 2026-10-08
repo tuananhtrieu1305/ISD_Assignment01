@@ -28,18 +28,21 @@ export default function AppLayout({ children }: AppLayoutProps) {
   return (
     <div className="app-shell">
       <header className="app-header">
-        <div>
-          <p className="eyebrow">Intelligent Systems Development</p>
-          <h1>Assignment 03</h1>
-        </div>
-        <nav className="nav-links" aria-label="Primary navigation">
-          <NavLink to="/" end>
-            Trang chủ
-          </NavLink>
-          <NavLink to="/diabetes">Tiểu đường</NavLink>
-          <NavLink to="/house">Giá nhà</NavLink>
-          <NavLink to="/customer-behavior">Khách hàng</NavLink>
+        <NavLink to="/" className="brand-block" aria-label="AI Model Lab - Trang chủ">
+          <span className="brand-mark" aria-hidden="true">AI</span>
+          <span>
+            <span className="eyebrow">Tiểu luận môn học</span>
+            <strong>Model Lab</strong>
+          </span>
+        </NavLink>
+
+        <nav className="nav-links" aria-label="Điều hướng chính">
+          <NavLink to="/" end>Trang chủ</NavLink>
+          <NavLink to="/ml">ML</NavLink>
+          <NavLink to="/cnn">CNN</NavLink>
+          <NavLink to="/rnn">RNN</NavLink>
         </nav>
+
         <div
           className={`status-pill ${
             backendOnline === true
@@ -48,15 +51,23 @@ export default function AppLayout({ children }: AppLayoutProps) {
                 ? "offline"
                 : ""
           }`}
+          role="status"
         >
+          <span className="status-dot" aria-hidden="true" />
           {backendOnline === null
-            ? "Đang kiểm tra"
+            ? "Đang kiểm tra API"
             : backendOnline
-              ? "Hệ thống sẵn sàng"
-              : "Không thể kết nối hệ thống"}
+              ? "4 mô hình sẵn sàng"
+              : "API chưa kết nối"}
         </div>
       </header>
+
       <main className="page-wrap">{children}</main>
+
+      <footer className="app-footer">
+        <p>AI · Machine Learning · CNN · RNN</p>
+        <p>Ứng dụng minh họa học thuật — không thay thế tư vấn chuyên môn.</p>
+      </footer>
     </div>
   );
 }

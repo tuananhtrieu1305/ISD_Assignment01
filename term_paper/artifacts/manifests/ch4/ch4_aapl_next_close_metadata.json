@@ -1,0 +1,45 @@
+{
+  "dataset_id": "ch4_aapl_next_close",
+  "task": "regression",
+  "input_size": 5,
+  "sequence_length": 30,
+  "split_sizes": {
+    "train": 1915,
+    "val": 411,
+    "test": 410
+  },
+  "date_ranges": {
+    "train": [
+      "2015-02-17",
+      "2022-09-22"
+    ],
+    "val": [
+      "2022-09-23",
+      "2024-05-13"
+    ],
+    "test": [
+      "2024-05-14",
+      "2025-12-31"
+    ]
+  },
+  "class_distribution": null,
+  "class_weight": null,
+  "split_sha256": "32245f8c39a4dcd36ff7336641a462bdd5e5eaeff76cf0fbb791705ab8e614bf",
+  "processed_sha256": "538698d0cb43aecf45b0024c89c9fa5b82af31b0db209e77371152d33f4478bb",
+  "preprocessor_sha256": "23be195fd9324e50c5d05a7fff59dedbddc7d1043045a47a81c6d21d12d86655",
+  "split_manifest_sha256": "144913f460a52687d7cf4f458a8d49c17370e9ea57f03520c0b594dbc21a16d4",
+  "source_artifacts": [
+    {
+      "path": "A06/datasets/processed/stock_train.npz",
+      "sha256": "e8db5505015f10d6dc3c1bb94d73be2f073b894522f53ac39e9b97b47b488a1b"
+    },
+    {
+      "path": "A06/datasets/processed/stock_val.npz",
+      "sha256": "60ff02fd75699918115a8e81bebbf081e2ce7d329abf991c19be12175f6d81c6"
+    },
+    {
+      "path": "A06/datasets/processed/stock_test.npz",
+      "sha256": "a71b70117ce1debbb7b7add44428f1e8f1453a6d5f44df90e0add8df7b084575"
+    }
+  ]
+}

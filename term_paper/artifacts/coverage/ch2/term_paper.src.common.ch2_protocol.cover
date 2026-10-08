@@ -1,0 +1,42 @@
+    1: """Protocol checks shared by Chapter 2 data and experiment scripts."""
+       
+    1: import hashlib
+    1: import json
+       
+    1: import numpy as np
+       
+       
+    1: SPLIT_ORDER = ("train", "val", "test")
+       
+       
+    1: def validate_split_keys(split_keys, expected_total=None):
+   16:     missing = [name for name in SPLIT_ORDER if name not in split_keys]
+    4:     if missing:
+>>>>>>         raise ValueError(f"Missing split keys: {missing}")
+    8:     normalized = {
+   20:         name: np.asarray(split_keys[name]).astype(str).reshape(-1) for name in SPLIT_ORDER
+           }
+   16:     for name, values in normalized.items():
+   12:         if len(values) != len(set(values.tolist())):
+>>>>>>             raise ValueError(f"Duplicate sample key inside {name}")
+    4:     seen = set()
+   14:     for name in SPLIT_ORDER:
+   11:         current = set(normalized[name].tolist())
+   11:         overlap = seen.intersection(current)
+   11:         if overlap:
+    1:             raise ValueError(f"Split overlap found in {name}: {sorted(overlap)[:3]}")
+   10:         seen.update(current)
+    3:     if expected_total is not None and len(seen) != int(expected_total):
+>>>>>>         raise ValueError(f"Expected {expected_total} unique keys, found {len(seen)}")
+    3:     return normalized
+       
+       
+    1: def split_key_digest(split_keys):
+    2:     normalized = validate_split_keys(split_keys)
+    4:     payload = {
+    6:         name: normalized[name].tolist()
+   10:         for name in SPLIT_ORDER
+           }
+    2:     encoded = json.dumps(payload, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    2:     return hashlib.sha256(encoded).hexdigest()
+       

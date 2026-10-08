@@ -1,0 +1,738 @@
+{
+  "schema_version": 1,
+  "phase": 7,
+  "generated_on": "2026-10-07",
+  "manuscript": {
+    "path": "term_paper/report/manuscript.md",
+    "sha256": "ab4f7aff024a5ace4760454765aaeb9a80f8d889c095430750364c67fbd5d860",
+    "bytes": 193862,
+    "word_count": 29779
+  },
+  "sections": [
+    {
+      "path": "term_paper/report/front_matter.md",
+      "sha256": "f290630718df2ea1639d638c9e6bb5f49f145746c88aa7ca823fde1c59db70bc",
+      "word_count": 506,
+      "headings": [
+        "TÓM TẮT"
+      ]
+    },
+    {
+      "path": "term_paper/report/sections/00_mo_dau.md",
+      "sha256": "0e241129f27d54569aa4f051656e9cf28656d78f64d4dc8fd69777312768878c",
+      "word_count": 2134,
+      "headings": [
+        "MỞ ĐẦU",
+        "0.1. Bối cảnh và lý do chọn đề tài",
+        "0.2. Mục tiêu nghiên cứu",
+        "0.3. Đối tượng, phạm vi và câu hỏi nghiên cứu",
+        "0.4. Phương pháp và cấu trúc tiểu luận"
+      ]
+    },
+    {
+      "path": "term_paper/report/sections/01_lich_su_ai.md",
+      "sha256": "be97acd8334ed02b69e1508dede05224b776456f87c6fd9c03b9c5ade507dc2a",
+      "word_count": 4473,
+      "headings": [
+        "CHƯƠNG 1. LỊCH SỬ PHÁT TRIỂN TRÍ TUỆ NHÂN TẠO",
+        "1.1. Tiền đề lý thuyết trước khi AI thành ngành",
+        "1.1.1. Logic hình thức, tính toán và neuron nhân tạo",
+        "1.1.2. McCulloch–Pitts và mô hình hóa hoạt động thần kinh",
+        "1.2. Turing và câu hỏi về trí tuệ máy",
+        "1.2.1. Imitation Game năm 1950",
+        "1.2.2. Ý nghĩa và giới hạn của phép thử hành vi",
+        "1.3. Dartmouth 1955–1956 và sự hình thành tên gọi AI",
+        "1.3.1. Mục tiêu trong đề xuất Dartmouth",
+        "1.3.2. Kỳ vọng ban đầu và những hướng nghiên cứu chính",
+        "1.4. Từ AI biểu tượng đến các chu kỳ hưng thịnh–suy giảm",
+        "1.4.1. Tìm kiếm, biểu diễn tri thức và hệ chuyên gia",
+        "1.4.2. AI winter: giới hạn dữ liệu, tính toán và kỳ vọng",
+        "1.5. Sự trỗi dậy của machine learning và deep learning",
+        "1.5.1. Perceptron, backpropagation và học biểu diễn",
+        "1.5.2. CNN, ImageNet và bước ngoặt AlexNet",
+        "1.5.3. RNN, LSTM, attention và Transformer",
+        "1.6. Bài học lịch sử cho thực nghiệm hiện đại",
+        "1.6.1. Dữ liệu, compute, kiến trúc và protocol đánh giá",
+        "1.6.2. Tính tái lập, đạo đức và giới hạn suy diễn"
+      ]
+    },
+    {
+      "path": "term_paper/report/sections/02_ml_co_ban.md",
+      "sha256": "604eb5024ee42bc3c908fcd5d3dd0b626c6af2b83fbf1002c202b1ea315908d7",
+      "word_count": 6150,
+      "headings": [
+        "CHƯƠNG 2. CÁC KỸ THUẬT MACHINE LEARNING CƠ BẢN",
+        "2.1. Bài toán học máy có giám sát",
+        "2.1.1. Classification và regression",
+        "2.1.2. Train/validation/test và khái quát hóa",
+        "2.2. Các thuật toán nền tảng",
+        "2.2.1. Linear/logistic regression và hàm mất mát",
+        "2.2.2. k-nearest neighbors và support vector machine",
+        "2.2.3. Decision tree, random forest và boosting",
+        "2.2.4. Multilayer perceptron và backpropagation",
+        "2.3. Quy trình dữ liệu và kiểm soát leakage",
+        "2.3.1. Làm sạch, mã hóa, chuẩn hóa và fit scope",
+        "2.3.2. Split, seed, threshold và baseline",
+        "2.4. Datasets của Chương 2",
+        "2.4.1. CDC Diabetes Health Indicators — binary",
+        "2.4.2. Vietnam Housing Dataset 2024",
+        "2.4.3. Synthetic E-Commerce Customer Behavior",
+        "2.5. Ba cách cài đặt MLP",
+        "2.5.1. NumPy scratch: forward, loss, backpropagation và update",
+        "2.5.2. Keras Dense MLP",
+        "2.5.3. PyTorch MLP",
+        "2.6. Kết quả thực nghiệm và so sánh",
+        "2.6.1. So sánh trên diabetes classification",
+        "2.6.2. So sánh trên house-price regression",
+        "2.6.3. So sánh trên customer churn classification",
+        "2.7. Phân tích sai số và giới hạn",
+        "2.7.1. Imbalance, calibration và failure cases",
+        "2.7.2. Tác động của dữ liệu tổng hợp và tính đại diện",
+        "2.8. Tiểu kết chương"
+      ]
+    },
+    {
+      "path": "term_paper/report/sections/03_cnn.md",
+      "sha256": "22322db68c7c72ab8f4a1d7303022fbacea634241608ae317db074842c8d1ecb",
+      "word_count": 5921,
+      "headings": [
+        "CHƯƠNG 3. CONVOLUTIONAL NEURAL NETWORK",
+        "3.1. Động cơ và trực giác CNN",
+        "3.1.1. Local connectivity và weight sharing",
+        "3.1.2. Translation equivariance và receptive field",
+        "3.2. Thành phần toán học",
+        "3.2.1. Convolution/cross-correlation, padding và stride",
+        "3.2.2. Activation, pooling và classification head",
+        "3.2.3. Backpropagation qua lớp convolution",
+        "3.3. Thiết kế thực nghiệm",
+        "3.3.1. Split, chuẩn hóa ảnh/feature và class weighting",
+        "3.3.2. Matched topology, benchmark subset và fairness",
+        "3.4. Datasets của Chương 3",
+        "3.4.1. EuroSAT RGB",
+        "3.4.2. Oxford-IIIT Pet",
+        "3.4.3. CDC Diabetes Health Indicators — 3 lớp",
+        "3.5. Ba cách cài đặt CNN",
+        "3.5.1. NumPy scratch CNN có backward/update",
+        "3.5.2. Keras Conv2D/Conv1D",
+        "3.5.3. PyTorch Conv2d/Conv1d",
+        "3.6. Kết quả matched comparison",
+        "3.6.1. EuroSAT image classification",
+        "3.6.2. CDC Diabetes Conv1D adaptation",
+        "3.6.3. Oxford-IIIT Pet case study mở rộng",
+        "3.7. Ablation kiến trúc và phân tích failure",
+        "3.7.1. Basic, AlexNet-inspired, VGG-inspired, ResNet-inspired",
+        "3.7.2. Collapse, near-random result và giới hạn protocol",
+        "3.8. Tiểu kết chương"
+      ]
+    },
+    {
+      "path": "term_paper/report/sections/04_rnn.md",
+      "sha256": "bea40e757c8294aa4b8970a77078b270a4345fa5060a48cf563a8739f88dddf5",
+      "word_count": 6000,
+      "headings": [
+        "CHƯƠNG 4. RECURRENT NEURAL NETWORK",
+        "4.1. Dữ liệu tuần tự và trạng thái ẩn",
+        "4.1.1. Many-to-one sequence modeling",
+        "4.1.2. Quan hệ giữa thứ tự thời gian và split",
+        "4.2. Vanilla RNN và Backpropagation Through Time",
+        "4.2.1. Phương trình forward",
+        "4.2.2. BPTT, vanishing/exploding gradient và clipping",
+        "4.3. Từ Vanilla RNN đến LSTM/GRU và attention",
+        "4.3.1. Cơ chế cổng và long-term dependency",
+        "4.3.2. Giới hạn phạm vi: thực nghiệm chính dùng Vanilla RNN",
+        "4.4. Datasets của Chương 4",
+        "4.4.1. UCI Online Retail II — customer-week classification",
+        "4.4.2. AAPL 2015–2025 — next-day Close regression",
+        "4.5. Ba cách cài đặt Vanilla RNN",
+        "4.5.1. NumPy scratch với BPTT và gradient clipping",
+        "4.5.2. Keras SimpleRNN",
+        "4.5.3. PyTorch nn.RNN",
+        "4.6. Kết quả matched comparison",
+        "4.6.1. Customer next-week purchase",
+        "4.6.2. AAPL next-trading-day Close",
+        "4.6.3. Parameter count, thời gian và sai khác framework",
+        "4.7. Phân tích giới hạn",
+        "4.7.1. Imbalance và trade-off precision–recall",
+        "4.7.2. Distribution shift và naive last-Close baseline",
+        "4.8. Tiểu kết chương"
+      ]
+    },
+    {
+      "path": "term_paper/report/sections/05_trien_khai.md",
+      "sha256": "2b6ea58aa53bc92f32769d22766112ea833c6e39ddb517876bf2a2fd3b356aa9",
+      "word_count": 1945,
+      "headings": [
+        "PHẦN 5. TRIỂN KHAI MÔ HÌNH",
+        "5.1. Kiến trúc ứng dụng và provenance",
+        "5.1.1. Luồng input → validate → preprocess → model → response",
+        "5.1.2. Model/preprocessor version và SHA-256",
+        "5.2. Use case ML: diabetes risk",
+        "5.2.1. Form nhập liệu, output và cảnh báo y khoa",
+        "5.3. Use case CNN: EuroSAT",
+        "5.3.1. Upload ảnh, top classes và confidence",
+        "5.4. Use case RNN: customer/AAPL",
+        "5.4.1. Sequence input, RNN output, baseline và cảnh báo tài chính",
+        "5.5. Kiểm thử và tái lập",
+        "5.5.1. Health check, invalid input và smoke tests",
+        "5.5.2. Chạy local, Docker và trạng thái cloud",
+        "5.6. Hạn chế khi triển khai"
+      ]
+    },
+    {
+      "path": "term_paper/report/sections/06_ket_luan.md",
+      "sha256": "7f2dba6219cecb8f9eaabfd278c190943d0d4b0c99077303e4f6257a826f704d",
+      "word_count": 1575,
+      "headings": [
+        "KẾT LUẬN",
+        "K.1. Kết quả đạt được",
+        "K.2. Trả lời câu hỏi nghiên cứu",
+        "K.3. Hạn chế và hướng phát triển"
+      ]
+    }
+  ],
+  "page_budget": {
+    "overall_allowed_range": [
+      59,
+      69
+    ],
+    "estimated_total_before_appendices": 65,
+    "estimate_status": "IN_BUDGET_PENDING_DOCX_LAYOUT",
+    "basis": "section word counts, 18 figures, 16 native-table candidates and 44 references; exact count is deferred to Phase 8 render"
+  },
+  "citations": {
+    "style": "numeric_by_first_appearance",
+    "count": 44,
+    "order": [
+      "goodfellow2016deep",
+      "elman1990structure",
+      "hochreiter1997lstm",
+      "helber2019eurosat",
+      "helber2023eurosatdata",
+      "parkhi2012catsdogs",
+      "chen2012onlineretailii",
+      "mcculloch1943logical",
+      "turing1950computing",
+      "mccarthy1955dartmouth",
+      "newell1957logic",
+      "lindsay1993dendral",
+      "alpac1966language",
+      "lighthill1973survey",
+      "rosenblatt1958perceptron",
+      "minsky1969perceptrons",
+      "rumelhart1986backprop",
+      "cover1967nearest",
+      "cortes1995svm",
+      "breiman2001randomforests",
+      "lecun1998document",
+      "hinton2006fast",
+      "deng2009imagenet",
+      "krizhevsky2012imagenet",
+      "bengio1994longterm",
+      "vaswani2017attention",
+      "brown2020gpt3",
+      "bommasani2021foundation",
+      "ho2020diffusion",
+      "openai2022chatgpt",
+      "campbell2002deepblue",
+      "silver2016alphago",
+      "breiman1984cart",
+      "friedman2001gradient",
+      "kingma2014adam",
+      "teboul2019diabetes",
+      "nguyen2024housing",
+      "scaturchio2026ecommerce",
+      "simonyan2014verydeep",
+      "keras2026api",
+      "pytorch2026nn",
+      "he2015resnet",
+      "yfinance2026",
+      "yahoofinanceaapl"
+    ],
+    "map": {
+      "goodfellow2016deep": 1,
+      "elman1990structure": 2,
+      "hochreiter1997lstm": 3,
+      "helber2019eurosat": 4,
+      "helber2023eurosatdata": 5,
+      "parkhi2012catsdogs": 6,
+      "chen2012onlineretailii": 7,
+      "mcculloch1943logical": 8,
+      "turing1950computing": 9,
+      "mccarthy1955dartmouth": 10,
+      "newell1957logic": 11,
+      "lindsay1993dendral": 12,
+      "alpac1966language": 13,
+      "lighthill1973survey": 14,
+      "rosenblatt1958perceptron": 15,
+      "minsky1969perceptrons": 16,
+      "rumelhart1986backprop": 17,
+      "cover1967nearest": 18,
+      "cortes1995svm": 19,
+      "breiman2001randomforests": 20,
+      "lecun1998document": 21,
+      "hinton2006fast": 22,
+      "deng2009imagenet": 23,
+      "krizhevsky2012imagenet": 24,
+      "bengio1994longterm": 25,
+      "vaswani2017attention": 26,
+      "brown2020gpt3": 27,
+      "bommasani2021foundation": 28,
+      "ho2020diffusion": 29,
+      "openai2022chatgpt": 30,
+      "campbell2002deepblue": 31,
+      "silver2016alphago": 32,
+      "breiman1984cart": 33,
+      "friedman2001gradient": 34,
+      "kingma2014adam": 35,
+      "teboul2019diabetes": 36,
+      "nguyen2024housing": 37,
+      "scaturchio2026ecommerce": 38,
+      "simonyan2014verydeep": 39,
+      "keras2026api": 40,
+      "pytorch2026nn": 41,
+      "he2015resnet": 42,
+      "yfinance2026": 43,
+      "yahoofinanceaapl": 44
+    },
+    "missing": [],
+    "orphan": [],
+    "bibliography_source": "term_paper/sources/bibliography.bib",
+    "ordered_references": "term_paper/report/references_ordered.md"
+  },
+  "figures": [
+    {
+      "number": "1.1",
+      "caption": "Timeline các mốc phát triển chính của AI ![Hình 1.1. Timeline các mốc phát triển chính của AI](assets/ch1/ai_history_timeline.svg)",
+      "path": "assets/ch1/ai_history_timeline.svg",
+      "bytes": 7502,
+      "sha256": "1a8b4c4b59c646909f474cc231208d25b73b2a1c17a9709e5f8132d328d7ac14",
+      "viewBox": "0 0 1600 1050"
+    },
+    {
+      "number": "2.1",
+      "caption": "Phân bố target của ba dataset Chương 2 ![Hình 2.1. Phân bố target của ba dataset Chương 2](assets/ch2/ch2_dataset_distributions.png)",
+      "path": "assets/ch2/ch2_dataset_distributions.png",
+      "bytes": 106181,
+      "sha256": "ef387b4f1549a2dc66fbbebc395f829439a6bb6a63f0f058d5ce40e96e18f47e",
+      "width_px": 3060,
+      "height_px": 958
+    },
+    {
+      "number": "2.2",
+      "caption": "Metric chính của matched MLP trên TEST ![Hình 2.2. Metric chính của matched MLP trên TEST](assets/ch2/ch2_framework_primary_metrics.png)",
+      "path": "assets/ch2/ch2_framework_primary_metrics.png",
+      "bytes": 122433,
+      "sha256": "0aa9c133895a0e1fa7238772690f379e6176e255ba9b97733145466d87a05057",
+      "width_px": 3059,
+      "height_px": 982
+    },
+    {
+      "number": "2.3",
+      "caption": "Validation loss của learning rate được chọn ở seed 42 ![Hình 2.3. Validation loss của learning rate được chọn ở seed 42](assets/ch2/ch2_validation_loss_curves.png)",
+      "path": "assets/ch2/ch2_validation_loss_curves.png",
+      "bytes": 271736,
+      "sha256": "764d70ce931d79987f8964748e49ef2429d5b7e003579e35f8d9e1282a07ca1d",
+      "width_px": 3059,
+      "height_px": 981
+    },
+    {
+      "number": "2.4",
+      "caption": "Baseline cổ điển mạnh nhất và matched MLP ![Hình 2.4. Baseline cổ điển mạnh nhất và matched MLP](assets/ch2/ch2_classical_vs_mlp.png)",
+      "path": "assets/ch2/ch2_classical_vs_mlp.png",
+      "bytes": 126423,
+      "sha256": "bed3a5f93c344decbbf31a955670c7892c9eb71dbbf3dce5e5fb08af57ad9771",
+      "width_px": 3059,
+      "height_px": 975
+    },
+    {
+      "number": "3.1",
+      "caption": "Phân bố đầy đủ của ba dataset Chương 3 ![Hình 3.1. Phân bố đầy đủ của ba dataset Chương 3](assets/ch3/ch3_dataset_distributions.png)",
+      "path": "assets/ch3/ch3_dataset_distributions.png",
+      "bytes": 98332,
+      "sha256": "7dcc916b53ec45cedec1563dc0cf587b68a3d040a59b740a023e28d2d0e71c5c",
+      "width_px": 2700,
+      "height_px": 864
+    },
+    {
+      "number": "3.2",
+      "caption": "Macro-F1 matched CNN trên EuroSAT và CDC ![Hình 3.2. Macro-F1 matched CNN trên EuroSAT và CDC](assets/ch3/ch3_matched_macro_f1.png)",
+      "path": "assets/ch3/ch3_matched_macro_f1.png",
+      "bytes": 47140,
+      "sha256": "dfec2547cb1f4dd7285e42ec9747aaf9fa540855df179e4a21da1ec84194ee74",
+      "width_px": 2160,
+      "height_px": 864
+    },
+    {
+      "number": "3.3",
+      "caption": "Confusion matrix chuẩn hóa của framework mean tốt nhất ![Hình 3.3. Confusion matrix chuẩn hóa của framework mean tốt nhất](assets/ch3/ch3_matched_confusion_matrices.png)",
+      "path": "assets/ch3/ch3_matched_confusion_matrices.png",
+      "bytes": 63028,
+      "sha256": "25b83afb5e12cb2c3a0bab1860eb23f51581f254fd4c7fef573d4933595a382f",
+      "width_px": 1650,
+      "height_px": 761
+    },
+    {
+      "number": "3.4",
+      "caption": "Validation loss của matched CNN ở seed 42 ![Hình 3.4. Validation loss của matched CNN ở seed 42](assets/ch3/ch3_validation_loss_curves.png)",
+      "path": "assets/ch3/ch3_validation_loss_curves.png",
+      "bytes": 173850,
+      "sha256": "84b6e72b615f3978eaeeb60af1df7cd93fad7682f1c7d553618d68db8f1c84ac",
+      "width_px": 2160,
+      "height_px": 864
+    },
+    {
+      "number": "3.5",
+      "caption": "A05 full-data architecture ablation ![Hình 3.5. A05 full-data architecture ablation](assets/ch3/ch3_a05_architecture_ablation.png)",
+      "path": "assets/ch3/ch3_a05_architecture_ablation.png",
+      "bytes": 61775,
+      "sha256": "5f35fa145f99a40e04989bb45031453db6be53c43b933ac171cfba75763ad28e",
+      "width_px": 2160,
+      "height_px": 900
+    },
+    {
+      "number": "4.1",
+      "caption": "Phân bố nhãn Online Retail II TRAIN benchmark và actual/naive Close trên AAPL TEST",
+      "path": "assets/ch4/ch4_dataset_overview.png",
+      "bytes": 137277,
+      "sha256": "167b5dbc7b8e7dde9aeb1476e4db7a48ce900b2acf103ffceaada65fa6867332",
+      "width_px": 2160,
+      "height_px": 864
+    },
+    {
+      "number": "4.2",
+      "caption": "Customer metric mean ± sample SD qua seed 42, 52 và 62",
+      "path": "assets/ch4/ch4_customer_metrics.png",
+      "bytes": 44559,
+      "sha256": "0e379a4ea70dc9c6273974042a80c02bb1d22eb30c5fc5709b762336e06f4ccb",
+      "width_px": 1620,
+      "height_px": 900
+    },
+    {
+      "number": "4.3",
+      "caption": "ROC/PR curves trên cùng 8.000 customer-week TEST của seed 42",
+      "path": "assets/ch4/ch4_customer_roc_pr.png",
+      "bytes": 129642,
+      "sha256": "1604898669c96fd2fe6547ce4a1092b4227bdbfaa3aee31efe7c9e30b50c95ef",
+      "width_px": 1980,
+      "height_px": 864
+    },
+    {
+      "number": "4.4",
+      "caption": "Confusion matrices trên cùng TEST subset, seed 42 và threshold chọn từ VALIDATION",
+      "path": "assets/ch4/ch4_customer_confusion_matrices.png",
+      "bytes": 48369,
+      "sha256": "c8a4380b3367fe74e2db0464a5d4dd70232de159942d5ce552505d4705faa3d7",
+      "width_px": 1629,
+      "height_px": 546
+    },
+    {
+      "number": "4.5",
+      "caption": "AAPL TEST actual-vs-predicted của seed 42; naive bám sát actual hơn ba RNN",
+      "path": "assets/ch4/ch4_stock_actual_vs_predicted.png",
+      "bytes": 249189,
+      "sha256": "ab476b0ec0d25b1d344eff96c70e43589acaed3bd0f6d1e48b846ad7ada0b923",
+      "width_px": 2160,
+      "height_px": 900
+    },
+    {
+      "number": "4.6",
+      "caption": "RMSE mean ± SD so với naive và validation MSE của seed 42",
+      "path": "assets/ch4/ch4_stock_rmse_and_validation.png",
+      "bytes": 97947,
+      "sha256": "3f4a7a2bc22f43da944e088725ee30f5d508ffb345e1fbcf12ecef4fe98997f1",
+      "width_px": 2160,
+      "height_px": 864
+    },
+    {
+      "number": "5.1",
+      "caption": "Giao diện tổng quan với health indicator, ba use case và model registry đã xác minh hash. Nguồn: ảnh chụp ứng dụng Phase 6",
+      "path": "assets/deployment/phase6_overview.png",
+      "bytes": 96636,
+      "sha256": "70fa038b82e19fc917d26c4dd126103b26a3fa59af55c0fd97641d5e011fe986",
+      "width_px": 1440,
+      "height_px": 1000
+    },
+    {
+      "number": "5.2",
+      "caption": "Kết quả demo AAPL hiển thị đồng thời RNN, naive last-Close, chênh lệch và cảnh báo tài chính. Nguồn: ảnh chụp ứng dụng Phase 6",
+      "path": "assets/deployment/phase6_aapl_result.png",
+      "bytes": 140336,
+      "sha256": "5971c6097f612eb9e6e8ab1e6c62d04a6fa013b4417c4fe0d6fec1a7d8002ea7",
+      "width_px": 1440,
+      "height_px": 1200
+    }
+  ],
+  "tables": [
+    {
+      "number": "2.1",
+      "caption": "Quy mô dữ liệu và split khóa của Chương 2",
+      "source_artifacts": [
+        "term_paper/artifacts/metrics/ch2_dataset_summary.csv"
+      ]
+    },
+    {
+      "number": "2.2",
+      "caption": "Mẫu input/output rút gọn và phân bố target",
+      "source_artifacts": [
+        "term_paper/artifacts/manifests/ch2"
+      ]
+    },
+    {
+      "number": "2.3",
+      "caption": "Đối chiếu ba implementation MLP",
+      "source_artifacts": [
+        "term_paper/src/scratch/mlp.py",
+        "term_paper/src/keras_impl/mlp.py",
+        "term_paper/src/pytorch_impl/mlp.py"
+      ]
+    },
+    {
+      "number": "2.4",
+      "caption": "Matched MLP trên TEST, mean ± SD của ba seed",
+      "source_artifacts": [
+        "term_paper/artifacts/metrics/ch2_framework_summary.csv"
+      ]
+    },
+    {
+      "number": "2.5",
+      "caption": "Baseline cổ điển mạnh nhất so với matched MLP tốt nhất",
+      "source_artifacts": [
+        "term_paper/artifacts/metrics/ch2_best_vs_classical.csv"
+      ]
+    },
+    {
+      "number": "3.1",
+      "caption": "Quy mô, input và vai trò của ba dataset",
+      "source_artifacts": [
+        "term_paper/artifacts/metrics/ch3_dataset_summary.csv"
+      ]
+    },
+    {
+      "number": "3.2",
+      "caption": "Hợp đồng matched CNN",
+      "source_artifacts": [
+        "term_paper/config/ch3_experiment.json"
+      ]
+    },
+    {
+      "number": "3.3",
+      "caption": "Khác biệt implementation được quản lý",
+      "source_artifacts": [
+        "term_paper/src/scratch/cnn.py",
+        "term_paper/src/keras_impl/cnn.py",
+        "term_paper/src/pytorch_impl/cnn.py"
+      ]
+    },
+    {
+      "number": "3.4",
+      "caption": "Kết quả matched CNN, mean ± sample SD trên ba seed",
+      "source_artifacts": [
+        "term_paper/artifacts/metrics/ch3_framework_summary.csv"
+      ]
+    },
+    {
+      "number": "3.5",
+      "caption": "A05 architecture ablation theo macro-F1",
+      "source_artifacts": [
+        "term_paper/artifacts/metrics/ch3_a05_architecture_ablation.csv"
+      ]
+    },
+    {
+      "number": "4.1",
+      "caption": "Hai dataset và quy mô sử dụng",
+      "source_artifacts": [
+        "term_paper/artifacts/metrics/ch4_dataset_summary.csv"
+      ]
+    },
+    {
+      "number": "4.2",
+      "caption": "Hợp đồng matched và khác biệt implementation",
+      "source_artifacts": [
+        "term_paper/config/ch4_experiment.json"
+      ]
+    },
+    {
+      "number": "4.3",
+      "caption": "Customer TEST, mean ± sample SD qua ba seed",
+      "source_artifacts": [
+        "term_paper/artifacts/metrics/ch4_framework_summary.csv"
+      ]
+    },
+    {
+      "number": "4.4",
+      "caption": "AAPL TEST theo USD, mean ± sample SD qua ba seed",
+      "source_artifacts": [
+        "term_paper/artifacts/metrics/ch4_framework_summary.csv"
+      ]
+    },
+    {
+      "number": "4.5",
+      "caption": "Chi phí mô tả của matched track",
+      "source_artifacts": [
+        "term_paper/artifacts/metrics/ch4_framework_comparison.csv"
+      ]
+    },
+    {
+      "number": "K.1",
+      "caption": "Tổng hợp kết quả xuyên ba chương thực nghiệm",
+      "source_artifacts": [
+        "term_paper/artifacts/metrics/ch2_framework_summary.csv",
+        "term_paper/artifacts/metrics/ch2_best_vs_classical.csv",
+        "term_paper/artifacts/metrics/ch3_framework_summary.csv",
+        "term_paper/artifacts/metrics/ch3_a05_architecture_ablation.csv",
+        "term_paper/artifacts/metrics/ch4_framework_summary.csv"
+      ]
+    }
+  ],
+  "datasets": [
+    {
+      "dataset_id": "ch2_diabetes_binary",
+      "chapter": 2,
+      "canonical_name": "CDC Diabetes Health Indicators — BRFSS 2015 balanced",
+      "source_url": "https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset",
+      "license_status": "UNVERIFIED",
+      "license": "Not confirmed from accessible official metadata",
+      "local_path": "datasets/diabetes/diabetes.csv",
+      "physical_size_bytes": 6347570,
+      "logical_size": "70,692 rows × 22 columns raw; 69,057 rows after exact-duplicate removal; 21 predictors + binary target",
+      "citation_key": "teboul2019diabetes"
+    },
+    {
+      "dataset_id": "ch2_vietnam_housing",
+      "chapter": 2,
+      "canonical_name": "Vietnam Housing Dataset 2024",
+      "source_url": "https://www.kaggle.com/datasets/nguyentiennhan/vietnam-housing-dataset-2024",
+      "license_status": "UNVERIFIED",
+      "license": "Not confirmed from accessible official metadata",
+      "local_path": "datasets/housing_price/vietnam_housing_dataset.csv",
+      "physical_size_bytes": 3532685,
+      "logical_size": "30,229 rows × 12 raw columns; 30,223 rows after cleaning; model matrix 12 logical features and 154 transformed columns",
+      "citation_key": "nguyen2024housing"
+    },
+    {
+      "dataset_id": "ch2_ecommerce_behavior",
+      "chapter": 2,
+      "canonical_name": "Synthetic E-Commerce Customer Behavior Dataset",
+      "source_url": "https://www.kaggle.com/datasets/lorenzoscaturchio/ecommerce-behavior",
+      "license_status": "PARTIALLY_VERIFIED",
+      "license": "GPL-3.0",
+      "local_path": "datasets/customer_behavior",
+      "physical_size_bytes": 17139547,
+      "logical_size": "5 relational tables: customers 10,000×10; products 1,000×11; transactions 120,000×11; sessions 80,000×10; reviews 25,000×8",
+      "citation_key": "scaturchio2026ecommerce"
+    },
+    {
+      "dataset_id": "ch3_eurosat_rgb",
+      "chapter": 3,
+      "canonical_name": "EuroSAT RGB",
+      "source_url": "https://zenodo.org/records/7711097",
+      "license_status": "TERMS_IDENTIFIED",
+      "license": "No license value exposed in retrieved Zenodo metadata; Copernicus Sentinel Data Terms apply",
+      "local_path": "A05/datasets/eurosat/EuroSAT_RGB",
+      "physical_size_bytes": 91844360,
+      "logical_size": "27,000 RGB JPEG images, 64×64 pixels, 10 classes",
+      "citation_key": "helber2019eurosat"
+    },
+    {
+      "dataset_id": "ch3_oxford_pets",
+      "chapter": 3,
+      "canonical_name": "Oxford-IIIT Pet",
+      "source_url": "https://robots.ox.ac.uk/~vgg/data/pets/",
+      "license_status": "VERIFIED",
+      "license": "CC BY-SA 4.0",
+      "local_path": "A05/datasets/oxford_pets",
+      "physical_size_bytes": 821045236,
+      "logical_size": "7,349 annotated images, 37 breeds; official trainval 3,680 and test 3,669; local tree 25,864 files including images/annotations/trimaps",
+      "citation_key": "parkhi2012catsdogs"
+    },
+    {
+      "dataset_id": "ch3_diabetes_012",
+      "chapter": 3,
+      "canonical_name": "CDC Diabetes Health Indicators — BRFSS 2015 three-class",
+      "source_url": "https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset",
+      "license_status": "UNVERIFIED",
+      "license": "Not confirmed from accessible official metadata",
+      "local_path": "A05/datasets/diabetes/diabetes_012_health_indicators_BRFSS2015.csv",
+      "physical_size_bytes": 22738151,
+      "logical_size": "253,680 rows × 22 columns; 21 predictors + target classes 0/1/2",
+      "citation_key": "teboul2019diabetes"
+    },
+    {
+      "dataset_id": "ch4_online_retail_ii",
+      "chapter": 4,
+      "canonical_name": "UCI Online Retail II",
+      "source_url": "https://archive.ics.uci.edu/dataset/502/online+retail+ii",
+      "license_status": "VERIFIED",
+      "license": "CC BY 4.0",
+      "local_path": "A06/datasets/customer/online_retail_II.xlsx",
+      "physical_size_bytes": 45622278,
+      "logical_size": "1,067,371 transaction rows across 2 sheets and 8 columns; 779,425 cleaned rows; 5,878 customers; 350,864 customer-week sequences of shape 8×5",
+      "citation_key": "chen2012onlineretailii"
+    },
+    {
+      "dataset_id": "ch4_aapl",
+      "chapter": 4,
+      "canonical_name": "AAPL daily historical prices 2015–2025",
+      "source_url": "https://finance.yahoo.com/quote/AAPL/history/",
+      "license_status": "RESTRICTED_OR_UNVERIFIED",
+      "license": "No open dataset redistribution license verified",
+      "local_path": "A06/datasets/stock/AAPL_2015_2025.csv",
+      "physical_size_bytes": 305816,
+      "logical_size": "2,766 daily rows × 7 columns; date range 2015-01-02 to 2025-12-31; 2,736 supervised sequences of shape 30×5",
+      "citation_key": "yahoofinanceaapl"
+    }
+  ],
+  "code_excerpts": {
+    "count": 3,
+    "line_counts": [
+      10,
+      12,
+      10
+    ],
+    "allowed_lines_per_excerpt": [
+      10,
+      25
+    ]
+  },
+  "experiment_evidence": {
+    "matched_runs": {
+      "chapter_2": 27,
+      "chapter_3": 18,
+      "chapter_4": 18,
+      "total": 63
+    },
+    "test_prediction_rows": {
+      "chapter_2": 196713,
+      "chapter_3": 14850,
+      "chapter_4": 75690,
+      "total": 287253
+    },
+    "seeds": [
+      42,
+      52,
+      62
+    ],
+    "result_split": "TEST"
+  },
+  "terminology_policy": "term_paper/report/terminology.md",
+  "cover_metadata": {
+    "status": "PENDING_INPUT",
+    "allowed_placeholders_only_in_manifest": true,
+    "fields": [
+      "school",
+      "faculty",
+      "course",
+      "student_name",
+      "student_id",
+      "class",
+      "instructor",
+      "location"
+    ]
+  },
+  "quality_contract": {
+    "content_placeholders_allowed": false,
+    "absolute_machine_paths_allowed": false,
+    "negative_results_retained": true,
+    "all_figures_and_tables_cross_referenced": true
+  }
+}

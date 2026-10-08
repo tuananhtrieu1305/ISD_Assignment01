@@ -1,0 +1,57 @@
+{
+  "metric_row": {
+    "chapter": 2,
+    "dataset_id": "ch2_vietnam_housing",
+    "framework": "keras",
+    "seed": 62,
+    "split": "test",
+    "task": "regression",
+    "topology_id": "mlp_64_32_1",
+    "input_dim": 143,
+    "parameter_count": 11329,
+    "optimizer": "Adam",
+    "learning_rate": 0.003,
+    "batch_size": 512,
+    "epochs_run": 20,
+    "best_epoch": 10,
+    "training_seconds": 2.3981008999999176,
+    "search_seconds": 5.14033979999931,
+    "inference_seconds": 0.14847699999972974,
+    "inference_ms_per_sample": 0.024561952026423448,
+    "sample_count": 6045,
+    "threshold": null,
+    "prediction_path": "term_paper/artifacts/predictions/ch2_ch2_vietnam_housing_keras_seed62_test.csv",
+    "prediction_sha256": "a358c6dbd537305468f0e99c9811f7741c4771c55ddeabd32e2383075abf90dd",
+    "model_path": "term_paper/artifacts/models/ch2/ch2_vietnam_housing_keras_seed62.keras",
+    "model_sha256": "84c01e0e45d76666797d76b4bbc0a585317f5912b1edca1daf6117bb1ed2b447",
+    "preprocessor_sha256": "a06209a5e6155fc7a1824c41d7e71e72a699e76949232e39f367a9089612d344",
+    "processed_sha256": "07838beca401ecfa4a4e2148ac763cf0a7ef45015b82c879ad91a955613ea9c5",
+    "split_sha256": "8d8d69071704b7821d93facb431682530766f2dad2cb12ed4a59747ca487e30d",
+    "MAE": 1.0572381085978377,
+    "MSE": 1.9776900443787224,
+    "RMSE": 1.4063036814211654,
+    "R2": 0.586159997644242,
+    "MAPE": 21.240341400279753
+  },
+  "learning_rate_candidates": [
+    {
+      "learning_rate": 0.01,
+      "measured_val_loss": 0.3610355257987976,
+      "history_best_val_loss": 0.3610355257987976,
+      "best_epoch": 5,
+      "epochs_run": 15,
+      "training_seconds": 1.973872499999743
+    },
+    {
+      "learning_rate": 0.003,
+      "measured_val_loss": 0.35075318813323975,
+      "history_best_val_loss": 0.35075321793556213,
+      "best_epoch": 10,
+      "epochs_run": 20,
+      "training_seconds": 2.3981008999999176
+    }
+  ],
+  "selected_candidate_index": 1,
+  "history_path": "term_paper/artifacts/metrics/ch2_ch2_vietnam_housing_keras_seed62_history.csv",
+  "threshold_path": null
+}

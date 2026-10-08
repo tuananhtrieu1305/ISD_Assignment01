@@ -1,0 +1,26 @@
+    1: """Split identity and leakage checks for Chapter 3."""
+       
+    1: import hashlib
+       
+       
+    1: def validate_split_keys(split_keys):
+   10:     required = {"train", "val", "test"}
+   10:     if set(split_keys) != required:
+>>>>>>         raise ValueError(f"split keys must be exactly {sorted(required)}")
+ 1624:     normalized = {name: [str(value) for value in values] for name, values in split_keys.items()}
+   40:     for name, values in normalized.items():
+   30:         if len(values) != len(set(values)):
+>>>>>>             raise ValueError(f"duplicate keys within {name}")
+   37:     for left, right in (("train", "val"), ("train", "test"), ("val", "test")):
+   28:         if set(normalized[left]).intersection(normalized[right]):
+    1:             raise ValueError(f"split overlap between {left} and {right}")
+       
+       
+    1: def split_digest(split_keys):
+    4:     validate_split_keys(split_keys)
+    4:     digest = hashlib.sha256()
+   16:     for split in ("train", "val", "test"):
+   12:         digest.update(f"[{split}]\n".encode("utf-8"))
+  546:         for key in split_keys[split]:
+  534:             digest.update(f"{key}\n".encode("utf-8"))
+    4:     return digest.hexdigest()

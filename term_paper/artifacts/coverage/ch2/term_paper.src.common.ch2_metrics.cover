@@ -1,0 +1,61 @@
+    1: """Metric computation from prediction artifacts for Chapter 2."""
+       
+    1: from pathlib import Path
+       
+    1: import numpy as np
+    1: import pandas as pd
+    1: from sklearn.metrics import (
+           accuracy_score,
+           f1_score,
+           mean_absolute_error,
+           mean_squared_error,
+           precision_score,
+           r2_score,
+           recall_score,
+           roc_auc_score,
+       )
+       
+       
+    1: def compute_classification_metrics(y_true, y_pred, y_score):
+    2:     y_true = np.asarray(y_true, dtype=int).reshape(-1)
+    2:     y_pred = np.asarray(y_pred, dtype=int).reshape(-1)
+    2:     y_score = np.asarray(y_score, dtype=float).reshape(-1)
+    2:     metrics = {
+    2:         "Accuracy": float(accuracy_score(y_true, y_pred)),
+    2:         "Precision": float(precision_score(y_true, y_pred, zero_division=0)),
+    2:         "Recall": float(recall_score(y_true, y_pred, zero_division=0)),
+    2:         "F1": float(f1_score(y_true, y_pred, zero_division=0)),
+           }
+    2:     metrics["ROC-AUC"] = (
+    2:         float(roc_auc_score(y_true, y_score)) if np.unique(y_true).size == 2 else np.nan
+           )
+    2:     return metrics
+       
+       
+    1: def compute_regression_metrics(y_true, y_pred):
+    2:     y_true = np.asarray(y_true, dtype=float).reshape(-1)
+    2:     y_pred = np.asarray(y_pred, dtype=float).reshape(-1)
+    2:     mse = float(mean_squared_error(y_true, y_pred))
+    2:     denominator = np.maximum(np.abs(y_true), 1e-8)
+    2:     return {
+    2:         "MAE": float(mean_absolute_error(y_true, y_pred)),
+    2:         "MSE": mse,
+    2:         "RMSE": float(np.sqrt(mse)),
+    2:         "R2": float(r2_score(y_true, y_pred)),
+    2:         "MAPE": float(np.mean(np.abs((y_true - y_pred) / denominator)) * 100.0),
+           }
+       
+       
+    1: def metrics_from_prediction_csv(path):
+    2:     frame = pd.read_csv(Path(path))
+    2:     tasks = frame["task"].dropna().astype(str).unique()
+    2:     if len(tasks) != 1:
+>>>>>>         raise ValueError("Prediction artifact must contain exactly one task")
+    2:     if tasks[0] == "binary":
+    2:         return compute_classification_metrics(
+    1:             frame["y_true"], frame["y_pred"], frame["y_score"]
+               )
+    1:     if tasks[0] == "regression":
+    1:         return compute_regression_metrics(frame["y_true"], frame["y_pred"])
+>>>>>>     raise ValueError(f"Unsupported task: {tasks[0]}")
+       

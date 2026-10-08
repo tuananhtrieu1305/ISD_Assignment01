@@ -1,0 +1,144 @@
+    1: """PyTorch implementation of the matched Chapter 2 MLP."""
+       
+    1: import copy
+    1: from pathlib import Path
+       
+    1: import numpy as np
+    1: import torch
+    1: from torch import nn
+       
+       
+    2: class TorchMLP:
+    1:     def __init__(
+               self,
+               input_dim,
+               task,
+    1:         hidden=(64, 32),
+    1:         seed=42,
+    1:         learning_rate=0.01,
+    1:         l2=0.0,
+    1:         model=None,
+           ):
+    3:         if task not in {"binary", "regression"}:
+>>>>>>             raise ValueError("task must be 'binary' or 'regression'")
+    3:         self.input_dim = int(input_dim)
+    3:         self.task = task
+   12:         self.hidden = tuple(int(v) for v in hidden)
+    3:         self.seed = int(seed)
+    3:         self.learning_rate = float(learning_rate)
+    3:         self.l2 = float(l2)
+    3:         torch.manual_seed(self.seed)
+    6:         self.model = model or nn.Sequential(
+    3:             nn.Linear(self.input_dim, self.hidden[0]),
+    3:             nn.ReLU(),
+    3:             nn.Linear(self.hidden[0], self.hidden[1]),
+    3:             nn.ReLU(),
+    3:             nn.Linear(self.hidden[1], 1),
+               )
+       
+    2:     @property
+    2:     def parameter_count(self):
+    8:         return int(sum(parameter.numel() for parameter in self.model.parameters()))
+       
+    1:     def _loss(self, output, target, sample_weight=None):
+  210:         if self.task == "binary":
+  420:             per_row = nn.functional.binary_cross_entropy_with_logits(
+  210:                 output, target, reduction="none"
+                   )
+               else:
+>>>>>>             per_row = (output - target) ** 2
+  210:         if sample_weight is not None:
+>>>>>>             return torch.sum(per_row * sample_weight) / torch.sum(sample_weight)
+  210:         return torch.mean(per_row)
+       
+    1:     def fit(
+               self,
+               x_train,
+               y_train,
+               x_val,
+               y_val,
+    1:         epochs=100,
+    1:         batch_size=512,
+    1:         patience=10,
+    1:         min_delta=1e-5,
+    1:         class_weight=None,
+           ):
+    1:         x_train_tensor = torch.as_tensor(np.asarray(x_train), dtype=torch.float32)
+    1:         y_train_tensor = torch.as_tensor(np.asarray(y_train), dtype=torch.float32).reshape(-1, 1)
+    1:         x_val_tensor = torch.as_tensor(np.asarray(x_val), dtype=torch.float32)
+    1:         y_val_tensor = torch.as_tensor(np.asarray(y_val), dtype=torch.float32).reshape(-1, 1)
+    2:         optimizer = torch.optim.Adam(
+    1:             self.model.parameters(), lr=self.learning_rate, weight_decay=self.l2
+               )
+    1:         generator = torch.Generator().manual_seed(self.seed)
+    1:         best_val = float("inf")
+    1:         best_state = copy.deepcopy(self.model.state_dict())
+    1:         wait = 0
+    1:         history = {"train_loss": [], "val_loss": []}
+   31:         for _ in range(int(epochs)):
+   30:             self.model.train()
+   30:             order = torch.randperm(len(x_train_tensor), generator=generator)
+  180:             for start in range(0, len(order), int(batch_size)):
+  150:                 indices = order[start : start + int(batch_size)]
+  150:                 xb = x_train_tensor[indices]
+  150:                 yb = y_train_tensor[indices]
+  150:                 weights = None
+  150:                 if class_weight is not None:
+>>>>>>                     weights = torch.where(
+>>>>>>                         yb == 1.0,
+>>>>>>                         torch.tensor(float(class_weight[1])),
+>>>>>>                         torch.tensor(float(class_weight[0])),
+                           )
+  150:                 optimizer.zero_grad(set_to_none=True)
+  150:                 loss = self._loss(self.model(xb), yb, weights)
+  150:                 loss.backward()
+  150:                 optimizer.step()
+   30:             self.model.eval()
+   60:             with torch.no_grad():
+   30:                 train_loss = float(self._loss(self.model(x_train_tensor), y_train_tensor))
+   30:                 val_loss = float(self._loss(self.model(x_val_tensor), y_val_tensor))
+   30:             history["train_loss"].append(train_loss)
+   30:             history["val_loss"].append(val_loss)
+   30:             if val_loss < best_val - float(min_delta):
+   30:                 best_val = val_loss
+   30:                 best_state = copy.deepcopy(self.model.state_dict())
+   30:                 wait = 0
+                   else:
+>>>>>>                 wait += 1
+>>>>>>                 if wait >= int(patience):
+>>>>>>                     break
+    1:         self.model.load_state_dict(best_state)
+    1:         return history
+       
+    1:     def predict_score(self, x):
+    2:         self.model.eval()
+    4:         with torch.no_grad():
+    2:             raw = self.model(torch.as_tensor(np.asarray(x), dtype=torch.float32)).reshape(-1)
+    2:             if self.task == "binary":
+    2:                 raw = torch.sigmoid(raw)
+    2:         return raw.cpu().numpy()
+       
+    1:     def save(self, path):
+    1:         path = Path(path)
+    1:         path.parent.mkdir(parents=True, exist_ok=True)
+    2:         torch.save(
+    1:             {
+    1:                 "config": {
+    1:                     "input_dim": self.input_dim,
+    1:                     "task": self.task,
+    1:                     "hidden": list(self.hidden),
+    1:                     "seed": self.seed,
+    1:                     "learning_rate": self.learning_rate,
+    1:                     "l2": self.l2,
+                       },
+    1:                 "state_dict": self.model.state_dict(),
+                   },
+    1:             path,
+               )
+       
+    2:     @classmethod
+    2:     def load(cls, path):
+    1:         payload = torch.load(Path(path), map_location="cpu", weights_only=False)
+    1:         model = cls(**payload["config"])
+    1:         model.model.load_state_dict(payload["state_dict"])
+    1:         return model

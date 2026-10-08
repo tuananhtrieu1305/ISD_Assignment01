@@ -1,279 +1,234 @@
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, DragEvent, FormEvent, useState } from "react";
 import {
-  HouseCompareResponse,
-  HouseRequest,
-  HouseResponse,
-  ModelOption,
-  compareHouseModels,
-  getModelOptions,
-  predictHouse,
+  EuroSatInput,
+  EuroSatResult,
+  getDemo,
+  predictEuroSat,
 } from "../api/predictionApi";
 import ErrorMessage from "../components/ErrorMessage";
-import FormField from "../components/FormField";
 import InfoBox from "../components/InfoBox";
-import InputAccordion from "../components/InputAccordion";
 import LoadingState from "../components/LoadingState";
+import ProbabilityBar from "../components/ProbabilityBar";
 import ResultCard from "../components/ResultCard";
-import SelectField from "../components/SelectField";
 
-type HouseField = Exclude<keyof HouseRequest, "model">;
-type NumericField = { name: HouseField; label: string; optional?: boolean; min?: number };
-type TextField = { name: HouseField; label: string };
-type ChoiceField = { name: HouseField; label: string; options: string[] };
+const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
+const ACCEPTED_TYPES = new Set(["image/png", "image/jpeg"]);
 
-const numericFields: NumericField[] = [
-  { name: "Area_m2", label: "Diện tích (m2)", min: 1 },
-  { name: "Frontage_m", label: "Mặt tiền (m)", optional: true, min: 0 },
-  { name: "Access_Road_m", label: "Đường vào (m)", optional: true, min: 0 },
-  { name: "Floors", label: "Số tầng", min: 1 },
-  { name: "Bedrooms", label: "Phòng ngủ", optional: true, min: 0 },
-  { name: "Bathrooms", label: "Phòng tắm", optional: true, min: 0 },
-];
-
-const locationFields: TextField[] = [
-  { name: "city", label: "Tỉnh/thành phố" },
-  { name: "district", label: "Quận/huyện" },
-];
-
-const directionOptions = ["Unknown", "Bắc", "Nam", "Tây", "Đông", "Tây - Bắc", "Tây - Nam", "Đông - Bắc", "Đông - Nam"];
-const choiceFields: ChoiceField[] = [
-  { name: "Legal status", label: "Pháp lý", options: ["Unknown", "Have certificate", "Sale contract"] },
-  { name: "Furniture state", label: "Nội thất", options: ["Unknown", "Basic", "Full"] },
-  { name: "House direction", label: "Hướng nhà", options: directionOptions },
-  { name: "Balcony direction", label: "Hướng ban công", options: directionOptions },
-];
-
-const initialForm: Record<HouseField, string> = {
-  Area_m2: "84",
-  Frontage_m: "",
-  Access_Road_m: "",
-  Floors: "4",
-  Bedrooms: "",
-  Bathrooms: "",
-  city: "Hưng Yên",
-  district: "Văn Giang",
-  "Legal status": "Have certificate",
-  "Furniture state": "Unknown",
-  "House direction": "Unknown",
-  "Balcony direction": "Unknown",
-};
-
-const fallbackModelOptions: ModelOption[] = [{ id: "improved_dnn", name: "Improved DNN", recommended: true }];
-const COMPARE_ALL_MODELS_ID = "__compare_all_models__";
-const vndFormatter = new Intl.NumberFormat("vi-VN", { maximumFractionDigits: 0 });
-
-function formatBillionPriceAsVnd(priceInBillions: number) {
-  return `${vndFormatter.format(Math.round(priceInBillions * 1_000_000_000))} VND`;
-}
-
-function TextInputField({
-  id,
-  label,
-  value,
-  error,
-  onChange,
-}: {
-  id: string;
-  label: string;
-  value: string;
-  error?: string;
-  onChange: (value: string) => void;
-}) {
-  return (
-    <div className="form-field">
-      <label htmlFor={id}>{label}</label>
-      <input id={id} name={id} type="text" value={value} aria-invalid={Boolean(error)} onChange={(event) => onChange(event.target.value)} />
-      <p className="field-feedback">{error ?? " "}</p>
-    </div>
-  );
+function readImage(file: File): Promise<{ base64: string; preview: string }> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error("Không thể đọc tệp ảnh."));
+    reader.onload = () => {
+      if (typeof reader.result !== "string") {
+        reject(new Error("Không thể đọc tệp ảnh."));
+        return;
+      }
+      const comma = reader.result.indexOf(",");
+      resolve({
+        base64: reader.result.slice(comma + 1),
+        preview: reader.result,
+      });
+    };
+    reader.readAsDataURL(file);
+  });
 }
 
 export default function HousePricePipelinePage() {
-  const [form, setForm] = useState(initialForm);
-  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
-  const [loading, setLoading] = useState(false);
-  const [compareLoading, setCompareLoading] = useState(false);
+  const [imageBase64, setImageBase64] = useState("");
+  const [preview, setPreview] = useState("");
+  const [fileLabel, setFileLabel] = useState("");
+  const [result, setResult] = useState<EuroSatResult | null>(null);
   const [error, setError] = useState("");
-  const [result, setResult] = useState<HouseResponse | null>(null);
-  const [compareResult, setCompareResult] = useState<HouseCompareResponse | null>(null);
-  const [modelOptions, setModelOptions] = useState(fallbackModelOptions);
-  const [selectedModel, setSelectedModel] = useState("improved_dnn");
-  const userSelectedModelRef = useRef(false);
+  const [busy, setBusy] = useState(false);
+  const [dragging, setDragging] = useState(false);
 
-  useEffect(() => {
-    let ignore = false;
-    getModelOptions()
-      .then((data) => {
-        if (ignore) return;
-        setModelOptions(data.house.models);
-        if (!userSelectedModelRef.current) setSelectedModel(data.house.default_model);
-      })
-      .catch(console.error);
-    return () => {
-      ignore = true;
-    };
-  }, []);
-
-  function buildPayload() {
-    const errors: Record<string, string> = {};
-    const payload = {} as HouseRequest;
-    const writablePayload = payload as Record<HouseField, number | string | null>;
-
-    for (const field of numericFields) {
-      const rawValue = form[field.name].trim();
-      if (!rawValue && field.optional) {
-        writablePayload[field.name] = null;
-        continue;
-      }
-      const number = Number(rawValue);
-      if (!rawValue) errors[field.name] = `Vui lòng nhập ${field.label}.`;
-      else if (!Number.isFinite(number)) errors[field.name] = `${field.label} phải là số.`;
-      else writablePayload[field.name] = number;
-    }
-
-    for (const field of [...locationFields, ...choiceFields]) {
-      const rawValue = form[field.name].trim();
-      if (!rawValue) errors[field.name] = `Vui lòng nhập ${field.label}.`;
-      else writablePayload[field.name] = rawValue;
-    }
-
-    setFieldErrors(errors);
-    payload.model = selectedModel;
-    return Object.keys(errors).length ? null : payload;
-  }
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const payload = buildPayload();
-    if (!payload) return;
-
-    setLoading(selectedModel !== COMPARE_ALL_MODELS_ID);
-    setCompareLoading(selectedModel === COMPARE_ALL_MODELS_ID);
+  async function useFile(file?: File) {
+    if (!file) return;
     setError("");
     setResult(null);
-    setCompareResult(null);
+
+    if (!ACCEPTED_TYPES.has(file.type)) {
+      setError("Chỉ chấp nhận ảnh PNG hoặc JPEG.");
+      return;
+    }
+    if (file.size > MAX_IMAGE_BYTES) {
+      setError("Ảnh vượt quá giới hạn 5 MB.");
+      return;
+    }
 
     try {
-      if (selectedModel === COMPARE_ALL_MODELS_ID) setCompareResult(await compareHouseModels(payload));
-      else setResult(await predictHouse(payload));
-    } catch (requestError) {
-      console.error(requestError);
-      setError("Không thể hoàn tất dự đoán. Vui lòng kiểm tra API và dữ liệu.");
-    } finally {
-      setLoading(false);
-      setCompareLoading(false);
+      const image = await readImage(file);
+      setImageBase64(image.base64);
+      setPreview(image.preview);
+      setFileLabel(`${file.name} · ${(file.size / 1024).toFixed(1)} KB`);
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Không thể đọc ảnh.");
     }
+  }
+
+  async function loadSample() {
+    setBusy(true);
+    setError("");
+    setResult(null);
+    try {
+      const demo = await getDemo<EuroSatInput>("eurosat");
+      setImageBase64(demo.input.image_base64);
+      setPreview(`data:image/jpeg;base64,${demo.input.image_base64}`);
+      setFileLabel(demo.sample_key ?? "Ảnh EuroSAT kiểm thử");
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Không thể nạp mẫu.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!imageBase64) {
+      setError("Hãy chọn ảnh hoặc nạp mẫu kiểm thử.");
+      return;
+    }
+
+    setBusy(true);
+    setError("");
+    setResult(null);
+    try {
+      setResult(await predictEuroSat({ image_base64: imageBase64 }));
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Không thể phân loại.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  function handleDrop(event: DragEvent<HTMLLabelElement>) {
+    event.preventDefault();
+    setDragging(false);
+    void useFile(event.dataTransfer.files[0]);
   }
 
   return (
-    <section className="tool-page">
+    <section>
       <div className="page-intro compact">
-        <p className="eyebrow">Vietnam house price</p>
-        <h2>Dự đoán giá nhà</h2>
-        <p>Nhập 12 feature gồm thông số nhà, vị trí, pháp lý, nội thất và hướng.</p>
+        <p className="eyebrow">Chương 3 · Convolutional Neural Network</p>
+        <h1>Phân loại ảnh vệ tinh EuroSAT</h1>
+        <p>
+          Tải một ảnh RGB để CNN NumPy dự đoán lớp phủ bề mặt. Ảnh được
+          kiểm tra định dạng, giới hạn kích thước và resize về 64 × 64.
+        </p>
       </div>
 
       <div className="tool-grid">
-        <form className="form-panel" onSubmit={handleSubmit}>
-          <div className="form-grid">
-            <SelectField
-              id="house-model"
-              label="Chọn model dự đoán"
-              value={selectedModel}
-              options={[
-                ...modelOptions.map((model) => ({
-                  value: model.id,
-                  label: `${model.name}${model.recommended ? " (khuyến nghị)" : ""}`,
-                })),
-                { value: COMPARE_ALL_MODELS_ID, label: "So sánh model đang triển khai" },
-              ]}
-              onChange={(value) => {
-                userSelectedModelRef.current = true;
-                setSelectedModel(value);
-              }}
+        <form className="form-panel" onSubmit={submit}>
+          <div className="panel-heading">
+            <div>
+              <span className="step-label">Input / satellite image</span>
+              <h2>Ảnh đầu vào</h2>
+            </div>
+            <button
+              className="secondary-button"
+              type="button"
+              onClick={loadSample}
+              disabled={busy}
+            >
+              Nạp ảnh mẫu
+            </button>
+          </div>
+
+          <label
+            className={`image-dropzone ${dragging ? "dragging" : ""} ${preview ? "has-image" : ""}`}
+            onDragOver={(event) => {
+              event.preventDefault();
+              setDragging(true);
+            }}
+            onDragLeave={() => setDragging(false)}
+            onDrop={handleDrop}
+          >
+            <input
+              type="file"
+              accept="image/png,image/jpeg"
+              onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                void useFile(event.target.files?.[0])
+              }
             />
-            <InputAccordion title="Thông số nhà" defaultOpen>
-              <div className="form-grid nested">
-                {numericFields.map((field) => (
-                  <FormField
-                    key={field.name}
-                    id={field.name}
-                    label={field.label}
-                    min={field.min}
-                    value={form[field.name]}
-                    error={fieldErrors[field.name]}
-                    onChange={(value) => setForm((current) => ({ ...current, [field.name]: value }))}
-                  />
-                ))}
-              </div>
-            </InputAccordion>
-            <InputAccordion title="Vị trí">
-              <div className="form-grid nested">
-                {locationFields.map((field) => (
-                  <TextInputField
-                    key={field.name}
-                    id={field.name}
-                    label={field.label}
-                    value={form[field.name]}
-                    error={fieldErrors[field.name]}
-                    onChange={(value) => setForm((current) => ({ ...current, [field.name]: value }))}
-                  />
-                ))}
-              </div>
-            </InputAccordion>
-            <InputAccordion title="Pháp lý, nội thất và hướng">
-              <div className="form-grid nested">
-                {choiceFields.map((field) => (
-                  <SelectField
-                    key={field.name}
-                    id={field.name}
-                    label={field.label}
-                    value={form[field.name]}
-                    options={field.options.map((option) => ({ value: option, label: option }))}
-                    fullWidth={false}
-                    onChange={(value) => setForm((current) => ({ ...current, [field.name]: value }))}
-                  />
-                ))}
-              </div>
-            </InputAccordion>
-          </div>
-          <div className="button-row">
-            <button className="primary-button" type="submit" disabled={loading || compareLoading}>
-              {compareLoading ? "Đang so sánh..." : loading ? "Đang dự đoán..." : "Dự đoán"}
-            </button>
-            <button className="secondary-button" type="button" onClick={() => setForm(initialForm)}>
-              Demo input
-            </button>
-          </div>
+            {preview ? (
+              <>
+                <img src={preview} alt="Ảnh vệ tinh đã chọn" />
+                <span className="replace-image">Chọn ảnh khác</span>
+              </>
+            ) : (
+              <span className="dropzone-copy">
+                <strong>Kéo thả ảnh vào đây</strong>
+                <span>hoặc nhấn để chọn tệp PNG/JPEG, tối đa 5 MB</span>
+              </span>
+            )}
+          </label>
+
+          {fileLabel && <p className="sample-note">{fileLabel}</p>}
+          {error && <ErrorMessage message={error} />}
+
+          <button className="primary-button submit-button" type="submit" disabled={busy}>
+            {busy ? "Đang phân loại..." : "Chạy mô hình CNN"}
+          </button>
         </form>
 
         <aside className="result-panel">
-          {loading && <LoadingState />}
-          {error && <ErrorMessage message={error} />}
-          {result && (
-            <ResultCard title="Giá nhà ước tính">
-              <p className="model-used">Model đã chọn: {result.model?.name ?? selectedModel}</p>
-              <p className="result-value house-price">{formatBillionPriceAsVnd(result.predicted_price)}</p>
-              <p className="helper-text">Giá trị model trả về theo đơn vị tỷ VND trong pipeline mới.</p>
-              <InfoBox title="Lưu ý về kết quả" tone="warning">
-                Đây là giá ước tính từ model Machine Learning, không phải giá giao dịch thực tế.
-              </InfoBox>
-            </ResultCard>
+          {busy && <LoadingState />}
+          {!busy && !result && !error && (
+            <div className="empty-result">
+              <span className="empty-icon" aria-hidden="true">02</span>
+              <h2>Top-3 lớp sẽ hiển thị tại đây</h2>
+              <p>Mô hình trả về phân bố xác suất trên 10 lớp EuroSAT.</p>
+            </div>
           )}
-          {compareResult && (
-            <ResultCard title="So sánh kết quả">
-              <div className="comparison-list">
-                {compareResult.results.map((item) => (
-                  <div className="comparison-row" key={item.model_id}>
-                    <strong>{item.model_name}</strong>
-                    <span>{formatBillionPriceAsVnd(item.predicted_price)}</span>
+          {!busy && result && (
+            <ResultCard title="Top-3 / CNN NumPy">
+              <p className="result-value">{result.predicted_class}</p>
+              <div className="ranking-list">
+                {result.top_classes.map((item, index) => (
+                  <div className="ranking-row" key={item.class_index}>
+                    <div className="rank-heading">
+                      <span>0{index + 1}</span>
+                      <strong>{item.class_name}</strong>
+                      <b>{(item.confidence * 100).toFixed(1)}%</b>
+                    </div>
+                    <ProbabilityBar
+                      label="Độ tin cậy"
+                      probability={item.confidence}
+                      tone={index === 0 ? "positive" : "negative"}
+                    />
                   </div>
                 ))}
               </div>
+              <p className="model-used">
+                {result.provenance.version} · SHA{" "}
+                {result.provenance.model_sha256.slice(0, 12)}…
+              </p>
+              <InfoBox title="Phạm vi sử dụng" tone="warning">
+                {result.warning}
+              </InfoBox>
             </ResultCard>
           )}
         </aside>
       </div>
+
+      <section className="explain-grid" aria-label="Thông tin mô hình">
+        <article>
+          <span className="step-label">Preprocess</span>
+          <h3>64 × 64 RGB</h3>
+          <p>Ảnh được chuyển RGB, resize bilinear và chuẩn hóa về [0, 1].</p>
+        </article>
+        <article>
+          <span className="step-label">Output</span>
+          <h3>10 lớp phủ bề mặt</h3>
+          <p>Từ AnnualCrop, Forest đến Residential, River và SeaLake.</p>
+        </article>
+        <article>
+          <span className="step-label">Integrity</span>
+          <h3>Hash-verified artifact</h3>
+          <p>API từ chối khởi động nếu SHA-256 của model không khớp registry.</p>
+        </article>
+      </section>
     </section>
   );
 }

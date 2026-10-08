@@ -1,0 +1,61 @@
+{
+  "dataset_id": "ch4_online_retail_customer_week",
+  "task": "binary",
+  "input_size": 5,
+  "sequence_length": 8,
+  "split_sizes": {
+    "train": 30000,
+    "val": 8000,
+    "test": 8000
+  },
+  "date_ranges": {
+    "train": [
+      "2010-02-01",
+      "2011-07-11"
+    ],
+    "val": [
+      "2011-07-18",
+      "2011-09-19"
+    ],
+    "test": [
+      "2011-09-26",
+      "2011-11-28"
+    ]
+  },
+  "class_distribution": {
+    "train": {
+      "0": 28030,
+      "1": 1970
+    },
+    "val": {
+      "0": 7609,
+      "1": 391
+    },
+    "test": {
+      "0": 7441,
+      "1": 559
+    }
+  },
+  "class_weight": {
+    "0": 0.5351409204423832,
+    "1": 7.614213197969543
+  },
+  "split_sha256": "6b9854be5d7066df378c0a202255f86932b5ab2d1a2753ef431fbc4a84d16a5c",
+  "processed_sha256": "d225d24549b9083e2e7a3147d5c55a2d1cb6a7a1b1c2da9dc484435bcc8b6cf4",
+  "preprocessor_sha256": "7c89a86332bada141b8806cc51033af7f90dbc532c5f7e28085843884f2d2637",
+  "split_manifest_sha256": "7d1f91569f2b717819a7e8e20b82cfcd51f43d0d94b3c01384ee96b92b5576f5",
+  "source_artifacts": [
+    {
+      "path": "A06/datasets/processed/customer_train.npz",
+      "sha256": "1f3995f0b2c4295fd824ab1fba35ff6208dc954ceb2d091dc979fd4d71085051"
+    },
+    {
+      "path": "A06/datasets/processed/customer_val.npz",
+      "sha256": "93a417d8570ad087b6a814e1439eaf30ea0db8e932a89cadb5c9f8451c4e5d00"
+    },
+    {
+      "path": "A06/datasets/processed/customer_test.npz",
+      "sha256": "de8cbcec15e1ede07f374573b33bfc1c31816191fc69d83e9a1bfc062b0b0bef"
+    }
+  ]
+}

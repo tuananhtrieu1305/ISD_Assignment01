@@ -1,0 +1,170 @@
+    1: """PyTorch implementation of the matched Chapter 4 Vanilla RNN."""
+       
+    1: import copy
+    1: from pathlib import Path
+       
+    1: import numpy as np
+    1: import torch
+    1: from torch import nn
+       
+       
+    2: class _MatchedRNN(nn.Module):
+    1:     def __init__(self, input_size, hidden_size):
+    3:         super().__init__()
+    6:         self.rnn = nn.RNN(
+    3:             input_size=input_size,
+    3:             hidden_size=hidden_size,
+    3:             num_layers=1,
+    3:             nonlinearity="tanh",
+    3:             batch_first=True,
+    3:             bias=True,
+               )
+               # Keras/NumPy use one recurrent bias.  Keep PyTorch's second bias fixed at zero.
+    6:         with torch.no_grad():
+    3:             self.rnn.bias_hh_l0.zero_()
+    3:         self.rnn.bias_hh_l0.requires_grad_(False)
+    3:         self.head = nn.Linear(hidden_size, 1)
+       
+    1:     def forward(self, x):
+  177:         output, _ = self.rnn(x)
+  177:         return self.head(output[:, -1, :])
+       
+       
+    2: class TorchRNN:
+    1:     def __init__(
+               self,
+               input_size,
+    1:         hidden_size=32,
+    1:         task="binary",
+    1:         seed=42,
+    1:         learning_rate=0.003,
+    1:         gradient_clip_norm=1.0,
+    1:         model=None,
+           ):
+    3:         if task not in {"binary", "regression"}:
+>>>>>>             raise ValueError("task must be 'binary' or 'regression'")
+    3:         self.input_size = int(input_size)
+    3:         self.hidden_size = int(hidden_size)
+    3:         self.task = task
+    3:         self.seed = int(seed)
+    3:         self.learning_rate = float(learning_rate)
+    3:         self.gradient_clip_norm = float(gradient_clip_norm)
+    3:         torch.manual_seed(self.seed)
+    3:         self.model = model or _MatchedRNN(self.input_size, self.hidden_size)
+       
+    2:     @property
+    2:     def parameter_count(self):
+    8:         return int(sum(parameter.numel() for parameter in self.model.parameters() if parameter.requires_grad))
+       
+    1:     def _loss(self, output, target, class_weight=None):
+  175:         if self.task == "binary":
+  350:             row_loss = nn.functional.binary_cross_entropy_with_logits(
+  175:                 output, target, reduction="none"
+                   )
+  175:             if class_weight is not None:
+>>>>>>                 weights = torch.where(
+>>>>>>                     target == 1.0,
+>>>>>>                     torch.tensor(float(class_weight[1]), dtype=output.dtype),
+>>>>>>                     torch.tensor(float(class_weight[0]), dtype=output.dtype),
+                       )
+>>>>>>                 return torch.sum(row_loss * weights) / torch.sum(weights)
+  175:             return row_loss.mean()
+>>>>>>         return torch.mean((output - target) ** 2)
+       
+    1:     def fit(
+               self,
+               x_train,
+               y_train,
+               x_val,
+               y_val,
+    1:         epochs=30,
+    1:         batch_size=512,
+    1:         patience=5,
+    1:         min_delta=1e-4,
+    1:         class_weight=None,
+           ):
+    1:         x_train_tensor = torch.as_tensor(np.asarray(x_train), dtype=torch.float32)
+    1:         y_train_tensor = torch.as_tensor(np.array(y_train, copy=True), dtype=torch.float32).reshape(-1, 1)
+    1:         x_val_tensor = torch.as_tensor(np.asarray(x_val), dtype=torch.float32)
+    1:         y_val_tensor = torch.as_tensor(np.array(y_val, copy=True), dtype=torch.float32).reshape(-1, 1)
+    7:         parameters = [parameter for parameter in self.model.parameters() if parameter.requires_grad]
+    1:         optimizer = torch.optim.Adam(parameters, lr=self.learning_rate)
+    1:         generator = torch.Generator().manual_seed(self.seed)
+    1:         best_val, wait, best_epoch = float("inf"), 0, 0
+    1:         best_state = copy.deepcopy(self.model.state_dict())
+    1:         history = {"train_loss": [], "val_loss": []}
+   26:         for epoch in range(int(epochs)):
+   25:             self.model.train()
+   25:             order = torch.randperm(len(x_train_tensor), generator=generator)
+  150:             for start in range(0, len(order), int(batch_size)):
+  125:                 indices = order[start : start + int(batch_size)]
+  125:                 optimizer.zero_grad(set_to_none=True)
+  250:                 loss = self._loss(
+  125:                     self.model(x_train_tensor[indices]),
+  125:                     y_train_tensor[indices],
+  125:                     class_weight=class_weight,
+                       )
+  125:                 loss.backward()
+  125:                 nn.utils.clip_grad_norm_(parameters, self.gradient_clip_norm)
+  125:                 optimizer.step()
+   25:             self.model.eval()
+   50:             with torch.no_grad():
+   50:                 train_loss = float(
+   50:                     self._loss(
+   25:                         self.model(x_train_tensor),
+   25:                         y_train_tensor,
+   25:                         class_weight=class_weight,
+                           )
+                       )
+   25:                 val_loss = float(self._loss(self.model(x_val_tensor), y_val_tensor))
+   25:             history["train_loss"].append(train_loss)
+   25:             history["val_loss"].append(val_loss)
+   25:             if val_loss < best_val - float(min_delta):
+   25:                 best_val = val_loss
+   25:                 best_epoch = epoch + 1
+   25:                 best_state = copy.deepcopy(self.model.state_dict())
+   25:                 wait = 0
+                   else:
+>>>>>>                 wait += 1
+>>>>>>                 if wait >= int(patience):
+>>>>>>                     break
+    1:         self.model.load_state_dict(best_state)
+    1:         history["best_epoch"] = best_epoch
+    1:         return history
+       
+    1:     def predict_score(self, x, batch_size=2048):
+    2:         tensor = torch.as_tensor(np.asarray(x), dtype=torch.float32)
+    2:         outputs = []
+    2:         self.model.eval()
+    4:         with torch.no_grad():
+    4:             for start in range(0, len(tensor), int(batch_size)):
+    2:                 output = self.model(tensor[start : start + int(batch_size)]).reshape(-1)
+    2:                 if self.task == "binary":
+    2:                     output = torch.sigmoid(output)
+    2:                 outputs.append(output)
+    2:         return torch.cat(outputs).cpu().numpy() if outputs else np.empty(0)
+       
+    1:     def save(self, path):
+    1:         path = Path(path)
+    1:         path.parent.mkdir(parents=True, exist_ok=True)
+    2:         torch.save(
+    1:             {
+    1:                 "config": {
+    1:                     "input_size": self.input_size,
+    1:                     "hidden_size": self.hidden_size,
+    1:                     "task": self.task,
+    1:                     "seed": self.seed,
+    1:                     "learning_rate": self.learning_rate,
+    1:                     "gradient_clip_norm": self.gradient_clip_norm,
+                       },
+    1:                 "state_dict": self.model.state_dict(),
+                   },
+    1:             path,
+               )
+       
+    2:     @classmethod
+    2:     def load(cls, path):
+    1:         payload = torch.load(Path(path), map_location="cpu", weights_only=False)
+    1:         model = cls(**payload["config"])
+    1:         model.model.load_state_dict(payload["state_dict"])
+    1:         return model

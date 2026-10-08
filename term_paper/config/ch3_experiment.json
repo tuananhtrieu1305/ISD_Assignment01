@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "subset_seed": 42,
+  "model_seeds": [42, 52, 62],
+  "frameworks": ["numpy", "keras", "pytorch"],
+  "topology": {
+    "filters": [8, 16],
+    "kernel_size": 3,
+    "pool_size": 2,
+    "head": "global_average_pooling_softmax"
+  },
+  "optimizer": "Adam",
+  "learning_rate_candidates": [0.01, 0.003],
+  "min_delta": 0.0001,
+  "datasets": {
+    "ch3_eurosat": {
+      "subset_sizes": {"train": 500, "val": 150, "test": 150},
+      "batch_size": 50,
+      "max_epochs": 12,
+      "patience": 3,
+      "class_weight": false
+    },
+    "ch3_diabetes_012": {
+      "subset_sizes": {"train": 6000, "val": 1500, "test": 1500},
+      "batch_size": 256,
+      "max_epochs": 20,
+      "patience": 4,
+      "class_weight": true
+    }
+  }
+}

@@ -11,11 +11,19 @@
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
     "moduleResolution": "Node",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx"
   },
   "include": ["src"],
+  "exclude": [
+    "src/**/*.test.ts",
+    "src/pages/CustomerBehaviorPage.tsx",
+    "src/pages/DiabetesPage.tsx",
+    "src/pages/HomePage.tsx",
+    "src/pages/HousePricePage.tsx"
+  ],
   "references": []
 }

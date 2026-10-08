@@ -1,0 +1,39 @@
+    1: import unittest
+       
+    1: import numpy as np
+       
+    1: from term_paper.src.common.ch3_experiment import build_prediction_frame
+    1: from term_paper.src.common.ch3_metrics import multiclass_metrics
+       
+       
+    2: class Chapter3ArtifactTests(unittest.TestCase):
+    1:     def test_multiclass_metrics_match_known_values(self):
+    1:         y_true = np.asarray([0, 0, 1, 1, 2, 2])
+    1:         y_pred = np.asarray([0, 1, 1, 1, 2, 0])
+    1:         result = multiclass_metrics(y_true, y_pred, labels=[0, 1, 2])
+    1:         self.assertAlmostEqual(result["accuracy"], 4 / 6)
+    1:         self.assertIn("macro_f1", result)
+    1:         self.assertEqual(result["support_class_1"], 2)
+    1:         self.assertAlmostEqual(result["recall_class_1"], 1.0)
+       
+    1:     def test_prediction_frame_preserves_probabilities_and_provenance(self):
+    1:         probabilities = np.asarray([[0.7, 0.2, 0.1], [0.1, 0.3, 0.6]])
+    2:         frame = build_prediction_frame(
+    1:             dataset_id="toy",
+    1:             framework="numpy",
+    1:             keys=["a", "b"],
+    1:             y_true=[0, 2],
+    1:             probabilities=probabilities,
+    1:             model_sha256="model",
+    1:             preprocessor_sha256="prep",
+    1:             split_sha256="split",
+    1:             seed=42,
+               )
+    1:         self.assertEqual(frame["y_pred"].tolist(), [0, 2])
+    1:         self.assertEqual(frame["sample_key"].tolist(), ["a", "b"])
+    1:         self.assertEqual(frame["chapter"].unique().tolist(), [3])
+    1:         np.testing.assert_allclose(frame[["prob_0", "prob_1", "prob_2"]].sum(axis=1), 1.0)
+       
+       
+    1: if __name__ == "__main__":
+>>>>>>     unittest.main()

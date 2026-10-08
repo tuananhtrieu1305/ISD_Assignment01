@@ -1,0 +1,226 @@
+    1: """Many-to-one Vanilla RNN implemented with NumPy and explicit BPTT."""
+       
+    1: import json
+    1: from pathlib import Path
+       
+    1: import numpy as np
+       
+       
+    1: def clip_gradients(gradients, max_norm):
+           """Return globally norm-clipped copies and the original global norm."""
+ 5961:     total = float(np.sqrt(sum(np.sum(value**2) for value in gradients.values())))
+  852:     scale = min(1.0, float(max_norm) / (total + 1e-12))
+ 5109:     return {key: value * scale for key, value in gradients.items()}, total
+       
+       
+    2: class NumpyRNN:
+    1:     def __init__(
+               self,
+               input_size,
+    1:         hidden_size=32,
+    1:         task="binary",
+    1:         seed=42,
+    1:         learning_rate=0.003,
+    1:         gradient_clip_norm=1.0,
+           ):
+    9:         if task not in {"binary", "regression"}:
+>>>>>>             raise ValueError("task must be 'binary' or 'regression'")
+    9:         self.input_size = int(input_size)
+    9:         self.hidden_size = int(hidden_size)
+    9:         self.task = task
+    9:         self.seed = int(seed)
+    9:         self.learning_rate = float(learning_rate)
+    9:         self.gradient_clip_norm = float(gradient_clip_norm)
+    9:         rng = np.random.default_rng(self.seed)
+    9:         self.params = {
+   18:             "Wxh": rng.normal(
+    9:                 0.0, np.sqrt(1.0 / self.input_size), (self.input_size, self.hidden_size)
+                   ),
+   18:             "Whh": rng.normal(
+    9:                 0.0, np.sqrt(1.0 / self.hidden_size), (self.hidden_size, self.hidden_size)
+                   ),
+    9:             "bh": np.zeros((1, self.hidden_size), dtype=float),
+    9:             "Why": rng.normal(0.0, np.sqrt(1.0 / self.hidden_size), (self.hidden_size, 1)),
+    9:             "by": np.zeros((1, 1), dtype=float),
+               }
+       
+    2:     @property
+    2:     def parameter_count(self):
+   14:         return int(sum(value.size for value in self.params.values()))
+       
+    2:     @staticmethod
+    2:     def _sigmoid(logits):
+  848:         logits = np.clip(logits, -40.0, 40.0)
+  848:         return 1.0 / (1.0 + np.exp(-logits))
+       
+    1:     def _forward(self, x):
+ 2049:         x = np.asarray(x, dtype=float)
+ 2049:         if x.ndim != 3 or x.shape[2] != self.input_size:
+>>>>>>             raise ValueError("x must have shape (batch, sequence, input_size)")
+ 2049:         hidden = np.zeros((len(x), self.hidden_size), dtype=float)
+ 2049:         states = [hidden]
+11093:         for step in range(x.shape[1]):
+18088:             hidden = np.tanh(
+27132:                 x[:, step, :] @ self.params["Wxh"]
+ 9044:                 + hidden @ self.params["Whh"]
+ 9044:                 + self.params["bh"]
+                   )
+ 9044:             states.append(hidden)
+ 2049:         output = hidden @ self.params["Why"] + self.params["by"]
+ 2049:         score = self._sigmoid(output) if self.task == "binary" else output
+ 2049:         return score, {"x": x, "states": states}
+       
+    2:     @staticmethod
+    2:     def _row_weights(y, class_weight):
+ 1198:         if class_weight is None:
+ 1198:             return np.ones_like(y, dtype=float)
+>>>>>>         return np.where(y == 1.0, float(class_weight[1]), float(class_weight[0]))
+       
+    1:     def _loss(self, score, y, class_weight=None):
+  854:         y = np.asarray(y, dtype=float).reshape(-1, 1)
+  854:         if self.task == "binary":
+  354:             losses = -(y * np.log(np.clip(score, 1e-12, 1.0)) + (1.0 - y) * np.log(np.clip(1.0 - score, 1e-12, 1.0)))
+  354:             weights = self._row_weights(y, class_weight)
+  354:             return float(np.sum(losses * weights) / np.sum(weights))
+  500:         return float(np.mean((score - y) ** 2))
+       
+    1:     def loss_and_gradients(self, x, y, class_weight=None, clip_norm=None):
+  854:         y = np.asarray(y, dtype=float).reshape(-1, 1)
+  854:         score, cache = self._forward(x)
+  854:         if self.task == "binary":
+  354:             weights = self._row_weights(y, class_weight)
+  354:             grad_output = (score - y) * weights / np.sum(weights)
+               else:
+  500:             grad_output = 2.0 * (score - y) / len(y)
+  854:         states = cache["states"]
+  854:         gradients = {
+  854:             "Wxh": np.zeros_like(self.params["Wxh"]),
+  854:             "Whh": np.zeros_like(self.params["Whh"]),
+  854:             "bh": np.zeros_like(self.params["bh"]),
+  854:             "Why": states[-1].T @ grad_output,
+  854:             "by": grad_output.sum(axis=0, keepdims=True),
+               }
+  854:         grad_hidden = grad_output @ self.params["Why"].T
+ 4624:         for step in range(cache["x"].shape[1] - 1, -1, -1):
+ 3770:             current = states[step + 1]
+ 3770:             previous = states[step]
+ 3770:             grad_pre_activation = grad_hidden * (1.0 - current**2)
+ 3770:             gradients["Wxh"] += cache["x"][:, step, :].T @ grad_pre_activation
+ 3770:             gradients["Whh"] += previous.T @ grad_pre_activation
+ 3770:             gradients["bh"] += grad_pre_activation.sum(axis=0, keepdims=True)
+ 3770:             grad_hidden = grad_pre_activation @ self.params["Whh"].T
+  854:         if clip_norm is not None:
+  851:             gradients, _ = clip_gradients(gradients, clip_norm)
+  854:         return self._loss(score, y, class_weight=class_weight), gradients
+       
+    1:     def _dataset_loss(self, x, y, batch_size, class_weight=None):
+  340:         y = np.asarray(y, dtype=float).reshape(-1, 1)
+  340:         numerator = 0.0
+  340:         denominator = 0.0
+ 1530:         for start in range(0, len(y), int(batch_size)):
+ 1190:             batch_y = y[start : start + int(batch_size)]
+ 1190:             score, _ = self._forward(x[start : start + int(batch_size)])
+ 1190:             if self.task == "binary":
+  490:                 weights = self._row_weights(batch_y, class_weight)
+  490:                 losses = -(
+  980:                     batch_y * np.log(np.clip(score, 1e-12, 1.0))
+  490:                     + (1.0 - batch_y) * np.log(np.clip(1.0 - score, 1e-12, 1.0))
+                       )
+  490:                 numerator += float(np.sum(losses * weights))
+  490:                 denominator += float(np.sum(weights))
+                   else:
+  700:                 numerator += float(np.sum((score - batch_y) ** 2))
+  700:                 denominator += len(batch_y)
+  340:         return numerator / denominator
+       
+    1:     def fit(
+               self,
+               x_train,
+               y_train,
+               x_val,
+               y_val,
+    1:         epochs=30,
+    1:         batch_size=512,
+    1:         patience=5,
+    1:         min_delta=1e-4,
+    1:         class_weight=None,
+           ):
+    3:         x_train = np.asarray(x_train, dtype=float)
+    3:         y_train = np.asarray(y_train, dtype=float).reshape(-1)
+    3:         x_val = np.asarray(x_val, dtype=float)
+    3:         y_val = np.asarray(y_val, dtype=float).reshape(-1)
+    3:         rng = np.random.default_rng(self.seed)
+   18:         first = {key: np.zeros_like(value) for key, value in self.params.items()}
+   18:         second = {key: np.zeros_like(value) for key, value in self.params.items()}
+    3:         beta1, beta2, epsilon = 0.9, 0.999, 1e-8
+    3:         step_count, wait, best_epoch = 0, 0, 0
+    3:         best_val = np.inf
+   18:         best_params = {key: value.copy() for key, value in self.params.items()}
+    3:         history = {"train_loss": [], "val_loss": []}
+  173:         for epoch in range(int(epochs)):
+  170:             order = rng.permutation(len(x_train))
+ 1020:             for start in range(0, len(order), int(batch_size)):
+  850:                 indices = order[start : start + int(batch_size)]
+ 1700:                 _, gradients = self.loss_and_gradients(
+  850:                     x_train[indices],
+  850:                     y_train[indices],
+  850:                     class_weight=class_weight,
+  850:                     clip_norm=self.gradient_clip_norm,
+                       )
+  850:                 step_count += 1
+ 5100:                 for key in self.params:
+ 4250:                     first[key] = beta1 * first[key] + (1.0 - beta1) * gradients[key]
+ 4250:                     second[key] = beta2 * second[key] + (1.0 - beta2) * gradients[key] ** 2
+ 4250:                     first_hat = first[key] / (1.0 - beta1**step_count)
+ 4250:                     second_hat = second[key] / (1.0 - beta2**step_count)
+ 8500:                     self.params[key] -= self.learning_rate * first_hat / (
+ 4250:                         np.sqrt(second_hat) + epsilon
+                           )
+  340:             train_loss = self._dataset_loss(
+  170:                 x_train, y_train, batch_size, class_weight=class_weight
+                   )
+  170:             val_loss = self._dataset_loss(x_val, y_val, batch_size)
+  170:             history["train_loss"].append(float(train_loss))
+  170:             history["val_loss"].append(float(val_loss))
+  170:             if val_loss < best_val - float(min_delta):
+  100:                 best_val = val_loss
+  100:                 best_epoch = epoch + 1
+  600:                 best_params = {key: value.copy() for key, value in self.params.items()}
+  100:                 wait = 0
+                   else:
+   70:                 wait += 1
+   70:                 if wait >= int(patience):
+>>>>>>                     break
+    3:         self.params = best_params
+    3:         history["best_epoch"] = best_epoch
+    3:         return history
+       
+    1:     def predict_score(self, x, batch_size=2048):
+    5:         x = np.asarray(x, dtype=float)
+    5:         outputs = []
+   10:         for start in range(0, len(x), int(batch_size)):
+    5:             outputs.append(self._forward(x[start : start + int(batch_size)])[0].reshape(-1))
+    5:         return np.concatenate(outputs) if outputs else np.empty(0)
+       
+    1:     def save(self, path):
+    1:         path = Path(path)
+    1:         path.parent.mkdir(parents=True, exist_ok=True)
+    2:         metadata = json.dumps(
+    1:             {
+    1:                 "input_size": self.input_size,
+    1:                 "hidden_size": self.hidden_size,
+    1:                 "task": self.task,
+    1:                 "seed": self.seed,
+    1:                 "learning_rate": self.learning_rate,
+    1:                 "gradient_clip_norm": self.gradient_clip_norm,
+                   }
+               )
+    1:         np.savez(path, metadata=np.array(metadata), **self.params)
+       
+    2:     @classmethod
+    2:     def load(cls, path):
+    2:         with np.load(Path(path), allow_pickle=False) as data:
+    1:             metadata = json.loads(str(data["metadata"].item()))
+    1:             model = cls(**metadata)
+    6:             model.params = {key: data[key].copy() for key in model.params}
+    1:         return model

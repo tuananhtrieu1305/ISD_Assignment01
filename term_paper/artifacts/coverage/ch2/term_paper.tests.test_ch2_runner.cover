@@ -1,0 +1,75 @@
+    1: import tempfile
+    1: import unittest
+    1: from pathlib import Path
+       
+    1: import numpy as np
+       
+    1: from term_paper.src.common.ch2_experiment import (
+           artifact_suffix,
+           build_prediction_frame,
+           select_binary_threshold,
+           sha256_file,
+       )
+       
+       
+    2: class ExperimentArtifactTests(unittest.TestCase):
+    1:     def test_seed_suffix_preserves_primary_names_and_separates_repeats(self):
+    1:         self.assertEqual(artifact_suffix(42), "")
+    1:         self.assertEqual(artifact_suffix(52), "_seed52")
+    1:         self.assertEqual(artifact_suffix(62), "_seed62")
+       
+    1:     def test_threshold_is_selected_only_from_given_validation_values(self):
+    1:         y_true = np.array([0, 0, 1, 1, 1, 0])
+    1:         score = np.array([0.10, 0.20, 0.45, 0.55, 0.80, 0.40])
+    1:         threshold, table = select_binary_threshold(y_true, score)
+    1:         self.assertAlmostEqual(threshold, 0.41, places=12)
+    1:         self.assertEqual(len(table), 61)
+    1:         self.assertIn("F1", table.columns)
+       
+    1:     def test_prediction_frame_contains_provenance_columns(self):
+    2:         frame = build_prediction_frame(
+    1:             dataset_id="demo",
+    1:             framework="numpy",
+    1:             task="binary",
+    1:             keys=np.array(["a", "b"]),
+    1:             y_true=np.array([0, 1]),
+    1:             y_score=np.array([0.2, 0.8]),
+    1:             y_pred=np.array([0, 1]),
+    1:             threshold=0.5,
+    1:             model_sha256="m" * 64,
+    1:             preprocessor_sha256="p" * 64,
+    1:             split_sha256="s" * 64,
+               )
+    1:         required = {
+                   "chapter",
+                   "dataset_id",
+                   "framework",
+                   "seed",
+                   "split",
+                   "sample_key",
+                   "task",
+                   "y_true",
+                   "y_score",
+                   "y_pred",
+                   "threshold",
+                   "model_sha256",
+                   "preprocessor_sha256",
+                   "split_sha256",
+               }
+    1:         self.assertTrue(required.issubset(frame.columns))
+    1:         self.assertEqual(frame["sample_key"].tolist(), ["a", "b"])
+       
+    1:     def test_file_hash_changes_when_content_changes(self):
+    2:         with tempfile.TemporaryDirectory() as tmp:
+    1:             path = Path(tmp) / "artifact.bin"
+    1:             path.write_bytes(b"first")
+    1:             first = sha256_file(path)
+    1:             path.write_bytes(b"second")
+    1:             second = sha256_file(path)
+    1:         self.assertNotEqual(first, second)
+    1:         self.assertEqual(len(first), 64)
+    1:         self.assertEqual(len(second), 64)
+       
+       
+    1: if __name__ == "__main__":
+>>>>>>     unittest.main()

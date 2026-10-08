@@ -1,0 +1,160 @@
+    1: """Secure local HTTP server for the Phase 6 academic inference demo."""
+       
+    1: import argparse
+    1: import json
+    1: import logging
+    1: import secrets
+    1: import threading
+    1: import time
+    1: from collections import defaultdict, deque
+    1: from http import HTTPStatus
+    1: from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+    1: from pathlib import Path
+    1: from urllib.parse import urlparse
+       
+    1: from term_paper.deployment.app.model_service import ModelService
+    1: from term_paper.deployment.app.schemas import ValidationError
+       
+       
+    1: MAX_JSON_BYTES = 7 * 1024 * 1024
+    1: STATIC_ROOT = Path(__file__).resolve().parent / "static"
+    1: LOGGER = logging.getLogger("term_paper.deployment")
+       
+       
+    2: class RateLimiter:
+    1:     def __init__(self, limit=120, window_seconds=60):
+    1:         self.limit = int(limit); self.window = float(window_seconds)
+    1:         self.events = defaultdict(deque); self.lock = threading.Lock()
+       
+    1:     def allow(self, client):
+    5:         now = time.monotonic()
+   10:         with self.lock:
+    5:             events = self.events[client]
+    5:             while events and events[0] <= now - self.window:
+>>>>>>                 events.popleft()
+    5:             if len(events) >= self.limit:
+>>>>>>                 return False
+    5:             events.append(now); return True
+       
+       
+    1: def make_handler(service, rate_limiter=None):
+    1:     limiter = rate_limiter or RateLimiter()
+       
+    2:     class AppHandler(BaseHTTPRequestHandler):
+    1:         server_version = "AcademicModelLab/1.0"
+       
+    1:         def log_message(self, format_string, *args):
+   12:             LOGGER.info("%s - %s", self.client_address[0], format_string % args)
+       
+    1:         def _headers(self, content_type, length, status=200):
+   12:             self.send_response(status)
+   12:             self.send_header("Content-Type", content_type)
+   12:             self.send_header("Content-Length", str(length))
+   12:             self.send_header("X-Content-Type-Options", "nosniff")
+   12:             self.send_header("X-Frame-Options", "DENY")
+   12:             self.send_header("Referrer-Policy", "no-referrer")
+   12:             self.send_header("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
+   12:             self.send_header("Content-Security-Policy", "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'")
+   12:             if content_type.startswith("application/json"):
+   11:                 self.send_header("Cache-Control", "no-store")
+   12:             self.end_headers()
+       
+    1:         def _json(self, payload, status=200):
+   11:             body = json.dumps(payload, ensure_ascii=False, allow_nan=False).encode("utf-8")
+   11:             self._headers("application/json; charset=utf-8", len(body), status); self.wfile.write(body)
+       
+    1:         def _error(self, status, code, message, request_id=None):
+    2:             self._json({"error": {"code": code, "message": message}, "request_id": request_id}, status)
+       
+    1:         def _read_json(self):
+    5:             content_type = self.headers.get("Content-Type", "").split(";", 1)[0].strip().lower()
+    5:             if content_type != "application/json":
+>>>>>>                 raise ValidationError("Content-Type phải là application/json.")
+    5:             try:
+    5:                 length = int(self.headers.get("Content-Length", "0"))
+>>>>>>             except ValueError as error:
+>>>>>>                 raise ValidationError("Content-Length không hợp lệ.") from error
+    5:             if length <= 0 or length > MAX_JSON_BYTES:
+>>>>>>                 raise ValidationError("JSON rỗng hoặc vượt giới hạn 7 MB.")
+    5:             try:
+    5:                 return json.loads(self.rfile.read(length).decode("utf-8"))
+>>>>>>             except (UnicodeDecodeError, json.JSONDecodeError) as error:
+>>>>>>                 raise ValidationError("JSON không hợp lệ.") from error
+       
+    1:         def do_GET(self):
+    7:             path = urlparse(self.path).path
+    7:             if path == "/health":
+    1:                 self._json(service.health()); return
+    6:             if path == "/api/models":
+>>>>>>                 self._json({"models": service.public_registry()}); return
+    6:             if path.startswith("/api/demo/"):
+    4:                 use_case = path.rsplit("/", 1)[-1]
+    4:                 try:
+    4:                     self._json(service.demo(use_case))
+>>>>>>                 except KeyError:
+>>>>>>                     self._error(404, "not_found", "Demo không tồn tại.")
+    4:                 return
+    4:             static = {"/": ("index.html", "text/html; charset=utf-8"),
+    2:                       "/assets/styles.css": ("styles.css", "text/css; charset=utf-8"),
+    2:                       "/assets/app.js": ("app.js", "text/javascript; charset=utf-8")}
+    2:             if path in static:
+    1:                 filename, content_type = static[path]; body = (STATIC_ROOT / filename).read_bytes()
+    1:                 self._headers(content_type, len(body)); self.wfile.write(body); return
+    1:             self._error(404, "not_found", "Đường dẫn không tồn tại.")
+       
+    1:         def do_POST(self):
+    5:             request_id = "req_" + secrets.token_hex(6)
+    5:             if not limiter.allow(self.client_address[0]):
+>>>>>>                 self._error(429, "rate_limited", "Quá nhiều yêu cầu; vui lòng thử lại sau.", request_id); return
+    5:             path = urlparse(self.path).path
+    5:             try:
+    5:                 payload = self._read_json()
+    5:                 if path == "/api/predict/diabetes":
+    1:                     result = service.predict_diabetes(payload)
+    4:                 elif path == "/api/predict/eurosat":
+    1:                     if not isinstance(payload, dict) or set(payload) != {"image_base64"}:
+>>>>>>                         raise ValidationError("Payload ảnh phải chỉ có trường image_base64.")
+    1:                     result = service.predict_eurosat(payload["image_base64"])
+    3:                 elif path == "/api/predict/customer":
+    2:                     if not isinstance(payload, dict) or set(payload) != {"sequence"}:
+>>>>>>                         raise ValidationError("Payload customer phải chỉ có trường sequence.")
+    2:                     result = service.predict_customer(payload["sequence"])
+    1:                 elif path == "/api/predict/aapl":
+    1:                     if not isinstance(payload, dict) or set(payload) != {"sequence"}:
+>>>>>>                         raise ValidationError("Payload AAPL phải chỉ có trường sequence.")
+    1:                     result = service.predict_aapl(payload["sequence"])
+                       else:
+>>>>>>                     self._error(404, "not_found", "Endpoint không tồn tại.", request_id); return
+    4:                 result["request_id"] = request_id; self._json(result)
+    1:             except ValidationError as error:
+    1:                 self._error(400, "invalid_input", str(error), request_id)
+>>>>>>             except Exception:
+>>>>>>                 LOGGER.exception("Inference failure request_id=%s path=%s", request_id, path)
+>>>>>>                 self._error(500, "internal_error", "Không thể xử lý yêu cầu lúc này.", request_id)
+       
+    1:     return AppHandler
+       
+       
+    1: def create_server(host, port, service, rate_limiter=None):
+    1:     return ThreadingHTTPServer((host, int(port)), make_handler(service, rate_limiter))
+       
+       
+    1: def main(argv=None):
+>>>>>>     parser = argparse.ArgumentParser(description="Academic AI/ML/CNN/RNN inference demo")
+>>>>>>     parser.add_argument("--host", default="127.0.0.1")
+>>>>>>     parser.add_argument("--port", type=int, default=8000)
+>>>>>>     parser.add_argument("--workspace", type=Path, default=Path(__file__).resolve().parents[3])
+>>>>>>     args = parser.parse_args(argv)
+>>>>>>     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+>>>>>>     server = create_server(args.host, args.port, ModelService(args.workspace))
+>>>>>>     print(f"Model Lab running at http://{args.host}:{server.server_port}", flush=True)
+>>>>>>     try:
+>>>>>>         server.serve_forever()
+>>>>>>     except KeyboardInterrupt:
+>>>>>>         pass
+           finally:
+>>>>>>         server.server_close()
+       
+       
+    1: if __name__ == "__main__":
+>>>>>>     main()

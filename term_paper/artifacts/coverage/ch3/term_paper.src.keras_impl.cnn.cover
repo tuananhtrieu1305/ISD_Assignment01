@@ -1,0 +1,137 @@
+    1: """Keras implementation of the matched Chapter 3 CNN."""
+       
+    1: import json
+    1: from pathlib import Path
+       
+    1: import numpy as np
+    1: import tensorflow as tf
+    1: from tensorflow import keras
+       
+       
+    2: class KerasCNN:
+    1:     def __init__(
+               self,
+               input_shape,
+               num_classes,
+    1:         mode="2d",
+    1:         filters=(8, 16),
+    1:         kernel_size=3,
+    1:         seed=42,
+    1:         learning_rate=0.01,
+    1:         model=None,
+           ):
+    4:         if mode not in {"1d", "2d"}:
+>>>>>>             raise ValueError("mode must be '1d' or '2d'")
+   19:         self.input_shape = tuple(int(value) for value in input_shape)
+    4:         self.num_classes = int(num_classes)
+    4:         self.mode = mode
+   16:         self.filters = tuple(int(value) for value in filters)
+    4:         self.kernel_size = int(kernel_size)
+    4:         self.seed = int(seed)
+    4:         self.learning_rate = float(learning_rate)
+    4:         keras.utils.set_random_seed(self.seed)
+    4:         if model is None:
+    3:             first, second = self.filters
+    3:             if self.mode == "2d":
+    2:                 layers = [
+    2:                     keras.layers.Input(shape=self.input_shape),
+    2:                     keras.layers.Conv2D(first, self.kernel_size, padding="same", activation="relu"),
+    2:                     keras.layers.MaxPool2D(pool_size=2),
+    2:                     keras.layers.Conv2D(second, self.kernel_size, padding="same", activation="relu"),
+    2:                     keras.layers.GlobalAveragePooling2D(),
+    2:                     keras.layers.Dense(self.num_classes),
+                       ]
+                   else:
+    1:                 layers = [
+    1:                     keras.layers.Input(shape=self.input_shape),
+    1:                     keras.layers.Conv1D(first, self.kernel_size, padding="same", activation="relu"),
+    1:                     keras.layers.MaxPool1D(pool_size=2),
+    1:                     keras.layers.Conv1D(second, self.kernel_size, padding="same", activation="relu"),
+    1:                     keras.layers.GlobalAveragePooling1D(),
+    1:                     keras.layers.Dense(self.num_classes),
+                       ]
+    3:             self.model = keras.Sequential(layers)
+    6:             self.model.compile(
+    3:                 optimizer=keras.optimizers.Adam(self.learning_rate),
+    3:                 loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+                   )
+               else:
+    1:             self.model = model
+       
+    2:     @property
+    2:     def parameter_count(self):
+    2:         return int(self.model.count_params())
+       
+    1:     def fit(
+               self,
+               x_train,
+               y_train,
+               x_val,
+               y_val,
+    1:         epochs=20,
+    1:         batch_size=64,
+    1:         patience=4,
+    1:         min_delta=1e-5,
+    1:         class_weight=None,
+           ):
+    2:         callback = keras.callbacks.EarlyStopping(
+    1:             monitor="val_loss",
+    1:             patience=int(patience),
+    1:             min_delta=float(min_delta),
+    1:             restore_best_weights=True,
+               )
+    2:         result = self.model.fit(
+    1:             np.asarray(x_train, dtype=np.float32),
+    1:             np.asarray(y_train, dtype=np.int64),
+    1:             validation_data=(
+    1:                 np.asarray(x_val, dtype=np.float32),
+    1:                 np.asarray(y_val, dtype=np.int64),
+                   ),
+    1:             epochs=int(epochs),
+    1:             batch_size=int(batch_size),
+    1:             callbacks=[callback],
+    1:             class_weight=class_weight,
+    1:             verbose=0,
+    1:             shuffle=True,
+               )
+   13:         validation = [float(value) for value in result.history["val_loss"]]
+    1:         return {
+   13:             "train_loss": [float(value) for value in result.history["loss"]],
+    1:             "val_loss": validation,
+    1:             "best_epoch": int(np.argmin(validation) + 1),
+               }
+       
+    1:     def predict_proba(self, x, batch_size=128):
+    4:         logits = self.model.predict(
+    2:             np.asarray(x, dtype=np.float32), batch_size=int(batch_size), verbose=0
+               )
+    2:         return tf.nn.softmax(logits, axis=1).numpy()
+       
+    1:     def predict(self, x, batch_size=128):
+>>>>>>         return np.argmax(self.predict_proba(x, batch_size=batch_size), axis=1)
+       
+    1:     def save(self, path):
+    1:         path = Path(path)
+    1:         path.parent.mkdir(parents=True, exist_ok=True)
+    1:         self.model.save(path)
+    2:         Path(str(path) + ".metadata.json").write_text(
+    2:             json.dumps(
+    1:                 {
+    1:                     "input_shape": list(self.input_shape),
+    1:                     "num_classes": self.num_classes,
+    1:                     "mode": self.mode,
+    1:                     "filters": list(self.filters),
+    1:                     "kernel_size": self.kernel_size,
+    1:                     "seed": self.seed,
+    1:                     "learning_rate": self.learning_rate,
+                       },
+    1:                 indent=2,
+                   ),
+    1:             encoding="utf-8",
+               )
+       
+    2:     @classmethod
+    2:     def load(cls, path):
+    1:         path = Path(path)
+    1:         metadata = json.loads(Path(str(path) + ".metadata.json").read_text(encoding="utf-8"))
+    1:         return cls(model=keras.models.load_model(path), **metadata)

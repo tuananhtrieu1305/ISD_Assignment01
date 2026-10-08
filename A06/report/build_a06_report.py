@@ -38,16 +38,17 @@ ROOT = REPORT_DIR.parent
 OUTPUT_PATH = REPORT_DIR / "A06_Assignment_Report.docx"
 ASSETS_DIR = REPORT_DIR / "docx_assets"
 
-ACCENT = "17365D"
-ACCENT_2 = "2F75B5"
-LIGHT_BLUE = "D9EAF7"
-PALE_BLUE = "F3F8FC"
+ACCENT = "1F4E79"
+ACCENT_2 = "1F4E79"
+CAPTION_BLUE = "4F81BD"
+LIGHT_BLUE = "BDD7EE"
+PALE_BLUE = "F2F6FA"
 PALE_GOLD = "FFF4D6"
 PALE_GREEN = "EAF4EA"
 PALE_RED = "FCE8E6"
-GRID = "9EADBA"
-TEXT = "1F2933"
-MUTED = "5B6770"
+GRID = "8EA3B5"
+TEXT = "000000"
+MUTED = "404040"
 
 FIGURES: list[tuple[str, str]] = [
     ("2.1", "RNN được unroll qua ba bước thời gian với tham số dùng chung"),
@@ -185,7 +186,7 @@ def validate_metric_contract(pre: dict, ptc: dict, kc: dict, pts: dict, ks: dict
     assert comp["stock"]["rnn_beats_naive_baseline"] is False
 
 
-def set_run_font(run, name: str = "Times New Roman", size: float | None = None,
+def set_run_font(run, name: str = "Calibri", size: float | None = None,
                  bold: bool | None = None, italic: bool | None = None,
                  color: str | None = None) -> None:
     run.font.name = name
@@ -389,8 +390,8 @@ def render_table_image(number: str, headers: Sequence[str], rows: Sequence[Seque
     col_widths[-1] += usable - sum(col_widths)
     body_px = max(25, int(font_size * 3.45))
     header_px = body_px + 2
-    font_path = "C:/Windows/Fonts/arial.ttf"
-    bold_path = "C:/Windows/Fonts/arialbd.ttf"
+    font_path = "C:/Windows/Fonts/calibri.ttf"
+    bold_path = "C:/Windows/Fonts/calibrib.ttf"
     body_font = ImageFont.truetype(font_path, body_px)
     header_font = ImageFont.truetype(bold_path, header_px)
     line_gap = 7
@@ -417,9 +418,9 @@ def render_table_image(number: str, headers: Sequence[str], rows: Sequence[Seque
     all_rows = [wrapped_header, *wrapped_rows]
     for row_idx, (cells, height) in enumerate(zip(all_rows, heights)):
         x = outer
-        fill = "#D9EAF7" if row_idx == 0 else ("#F3F8FC" if row_idx % 2 == 0 else "#FFFFFF")
+        fill = "#BDD7EE" if row_idx == 0 else ("#F2F6FA" if row_idx % 2 == 0 else "#FFFFFF")
         font = header_font if row_idx == 0 else body_font
-        color = "#17365D" if row_idx == 0 else "#1F2933"
+        color = "#1F4E79" if row_idx == 0 else "#000000"
         for col_idx, (lines, width) in enumerate(zip(cells, col_widths)):
             draw.rectangle([x, y, x + width, y + height], fill=fill, outline="#7F8F9C", width=2)
             line_h = font.getbbox("Ag")[3] - font.getbbox("Ag")[1] + line_gap
@@ -450,14 +451,14 @@ def render_diagram_image(number: str, lines: Sequence[str]) -> Path:
     bold = ImageFont.truetype("C:/Windows/Fonts/consolab.ttf", 36)
     y = 12
     for idx, line in enumerate(lines):
-        fill = "#D9EAF7" if idx == 0 else ("#F3F8FC" if idx % 2 else "#FFFFFF")
+        fill = "#BDD7EE" if idx == 0 else ("#F2F6FA" if idx % 2 else "#FFFFFF")
         draw.rounded_rectangle([12, y, width - 12, y + row_h - 4], radius=12,
                                fill=fill, outline="#7F8F9C", width=2)
         font = bold if idx == 0 else regular
         x = (width - font.getlength(line)) / 2
         bbox = font.getbbox(line)
         text_y = y + (row_h - (bbox[3] - bbox[1])) / 2 - bbox[1] - 2
-        draw.text((x, text_y), line, font=font, fill="#17365D")
+        draw.text((x, text_y), line, font=font, fill="#1F4E79")
         y += row_h
     image.save(path, dpi=(300, 300))
     return path
@@ -467,31 +468,32 @@ def configure_document(doc: Document) -> None:
     section = doc.sections[0]
     section.page_width = Cm(21.0)
     section.page_height = Cm(29.7)
-    section.top_margin = Cm(2.25)
+    section.top_margin = Cm(2.2)
     section.bottom_margin = Cm(2.0)
-    section.left_margin = Cm(2.7)
-    section.right_margin = Cm(2.2)
-    section.header_distance = Cm(0.9)
-    section.footer_distance = Cm(0.8)
-    section.different_first_page_header_footer = True
+    section.left_margin = Cm(2.0)
+    section.right_margin = Cm(2.0)
+    section.header_distance = Cm(1.27)
+    section.footer_distance = Cm(1.27)
+    section.different_first_page_header_footer = False
 
     normal = doc.styles["Normal"]
-    normal.font.name = "Times New Roman"
-    normal._element.rPr.rFonts.set(qn("w:ascii"), "Times New Roman")
-    normal._element.rPr.rFonts.set(qn("w:hAnsi"), "Times New Roman")
-    normal._element.rPr.rFonts.set(qn("w:eastAsia"), "Times New Roman")
-    normal.font.size = Pt(11.5)
+    normal.font.name = "Calibri"
+    normal._element.rPr.rFonts.set(qn("w:ascii"), "Calibri")
+    normal._element.rPr.rFonts.set(qn("w:hAnsi"), "Calibri")
+    normal._element.rPr.rFonts.set(qn("w:eastAsia"), "Calibri")
+    normal.font.size = Pt(13)
     normal.font.color.rgb = RGBColor.from_string(TEXT)
     normal.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    normal.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
-    normal.paragraph_format.space_after = Pt(5)
+    normal.paragraph_format.line_spacing = 1.3
+    normal.paragraph_format.first_line_indent = Cm(0.8)
+    normal.paragraph_format.space_after = Pt(6)
     normal.paragraph_format.widow_control = True
 
     for style_name, size, color, before, after in [
-        ("Title", 21, ACCENT, 0, 12),
-        ("Heading 1", 15, ACCENT, 10, 7),
-        ("Heading 2", 13, ACCENT_2, 8, 5),
-        ("Heading 3", 11.5, ACCENT, 6, 3),
+        ("Title", 18, ACCENT, 10, 6),
+        ("Heading 1", 15, ACCENT, 10, 6),
+        ("Heading 2", 13.5, ACCENT, 10, 6),
+        ("Heading 3", 13, "365F91", 10, 6),
     ]:
         style = doc.styles[style_name]
         style.font.name = "Times New Roman"
@@ -511,7 +513,7 @@ def configure_document(doc: Document) -> None:
         style._element.rPr.rFonts.set(qn("w:ascii"), "Times New Roman")
         style._element.rPr.rFonts.set(qn("w:hAnsi"), "Times New Roman")
         style._element.rPr.rFonts.set(qn("w:eastAsia"), "Times New Roman")
-        style.font.size = Pt(16)
+        style.font.size = Pt(15)
         style.font.bold = True
         style.font.color.rgb = RGBColor.from_string(ACCENT)
         style.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -525,9 +527,10 @@ def configure_document(doc: Document) -> None:
     cap._element.rPr.rFonts.set(qn("w:ascii"), "Times New Roman")
     cap._element.rPr.rFonts.set(qn("w:hAnsi"), "Times New Roman")
     cap._element.rPr.rFonts.set(qn("w:eastAsia"), "Times New Roman")
-    cap.font.size = Pt(10)
+    cap.font.size = Pt(11)
+    cap.font.bold = True
     cap.font.italic = True
-    cap.font.color.rgb = RGBColor.from_string(MUTED)
+    cap.font.color.rgb = RGBColor.from_string(CAPTION_BLUE)
     cap.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
     cap.paragraph_format.space_before = Pt(3)
     cap.paragraph_format.space_after = Pt(8)
@@ -537,32 +540,21 @@ def configure_document(doc: Document) -> None:
     code.font.name = "Consolas"
     code._element.rPr.rFonts.set(qn("w:ascii"), "Consolas")
     code._element.rPr.rFonts.set(qn("w:hAnsi"), "Consolas")
-    code.font.size = Pt(8.5)
-    code.paragraph_format.left_indent = Cm(0.25)
-    code.paragraph_format.right_indent = Cm(0.25)
+    code.font.size = Pt(9)
+    code.paragraph_format.left_indent = Cm(0.5)
+    code.paragraph_format.right_indent = Cm(0)
     code.paragraph_format.space_after = Pt(0)
     code.paragraph_format.line_spacing = 1.0
 
     header = section.header
     hp = header.paragraphs[0]
-    hp.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-    run = hp.add_run("ASSIGNMENT 06  •  RECURRENT NEURAL NETWORK")
-    set_run_font(run, size=8.5, bold=True, color=MUTED)
-    p_pr = hp._p.get_or_add_pPr()
-    bottom = OxmlElement("w:pBdr")
-    edge = OxmlElement("w:bottom")
-    edge.set(qn("w:val"), "single")
-    edge.set(qn("w:sz"), "4")
-    edge.set(qn("w:space"), "1")
-    edge.set(qn("w:color"), "CAD6E0")
-    bottom.append(edge)
-    p_pr.append(bottom)
+    hp.text = ""
 
     footer = section.footer
     fp = footer.paragraphs[0]
     fp.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    fr = fp.add_run("A06 • Báo cáo RNN với PyTorch và Keras")
-    set_run_font(fr, size=8.5, color=MUTED)
+    fr = fp.add_run("Trang")
+    set_run_font(fr, name="Times New Roman", size=12, color="000000")
 
     # Tell Word to refresh fields when opened; the visible report is static and
     # does not depend on this setting, but the footer PAGE field benefits from it.
@@ -580,32 +572,34 @@ def add_body(doc: Document, text: str, *, bold_prefix: str | None = None) -> Non
     p = doc.add_paragraph()
     if bold_prefix and text.startswith(bold_prefix):
         r1 = p.add_run(bold_prefix)
-        set_run_font(r1, bold=True)
+        set_run_font(r1, name="Calibri", size=13, bold=True, color="000000")
         r2 = p.add_run(text[len(bold_prefix):])
-        set_run_font(r2)
+        set_run_font(r2, name="Calibri", size=13, color="000000")
     else:
         r = p.add_run(text)
-        set_run_font(r)
+        set_run_font(r, name="Calibri", size=13, color="000000")
 
 
 def add_bullets(doc: Document, items: Iterable[str]) -> None:
     for item in items:
-        p = doc.add_paragraph(style="List Bullet")
+        p = doc.add_paragraph()
         p.paragraph_format.left_indent = Cm(0.65)
-        p.paragraph_format.first_line_indent = Cm(-0.25)
-        p.paragraph_format.space_after = Pt(3)
+        p.paragraph_format.first_line_indent = Cm(-0.65)
+        p.paragraph_format.space_after = Pt(0)
+        p.paragraph_format.line_spacing = 1.3
         r = p.add_run(item)
-        set_run_font(r, size=11.2)
+        set_run_font(r, name="Times New Roman", size=13, color="000000")
 
 
 def add_numbered(doc: Document, items: Iterable[str]) -> None:
     for item in items:
-        p = doc.add_paragraph(style="List Number")
+        p = doc.add_paragraph()
         p.paragraph_format.left_indent = Cm(0.65)
-        p.paragraph_format.first_line_indent = Cm(-0.25)
-        p.paragraph_format.space_after = Pt(3)
+        p.paragraph_format.first_line_indent = Cm(-0.65)
+        p.paragraph_format.space_after = Pt(0)
+        p.paragraph_format.line_spacing = 1.3
         r = p.add_run(item)
-        set_run_font(r, size=11.2)
+        set_run_font(r, name="Times New Roman", size=13, color="000000")
 
 
 def add_equation(doc: Document, text: str) -> None:
@@ -615,37 +609,34 @@ def add_equation(doc: Document, text: str) -> None:
     p.paragraph_format.space_after = Pt(7)
     p.alignment = WD_ALIGN_PARAGRAPH.LEFT
     r = p.add_run(text)
-    set_run_font(r, name="Cambria Math", size=12.5, italic=True, color=ACCENT)
+    set_run_font(r, name="Cambria Math", size=13, italic=True, color="000000")
 
 
 def add_callout(doc: Document, title: str, text: str, fill: str = PALE_BLUE) -> None:
     p = doc.add_paragraph()
-    p.paragraph_format.left_indent = Cm(0.25)
-    p.paragraph_format.right_indent = Cm(0.25)
-    p.paragraph_format.space_before = Pt(5)
-    p.paragraph_format.space_after = Pt(7)
-    set_paragraph_box(p, fill)
     r = p.add_run(f"{title}: ")
-    set_run_font(r, bold=True, color=ACCENT)
+    set_run_font(r, name="Calibri", size=13, bold=True, color="000000")
     r2 = p.add_run(text)
-    set_run_font(r2, size=10.8)
+    set_run_font(r2, name="Calibri", size=13, color="000000")
 
 
 def add_code(doc: Document, title: str, code: str) -> None:
     p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p.paragraph_format.first_line_indent = Cm(0)
+    p.paragraph_format.space_after = Pt(8)
     p.paragraph_format.keep_with_next = True
     r = p.add_run(title)
-    set_run_font(r, size=10, bold=True, color=ACCENT_2)
+    set_run_font(r, name="Times New Roman", size=11, bold=True, italic=True, color=CAPTION_BLUE)
     lines = code.strip("\n").splitlines()
     for idx, line in enumerate(lines):
         paragraph = doc.add_paragraph()
         paragraph.style = doc.styles["CodeBlock"]
         paragraph.paragraph_format.keep_with_next = idx < len(lines) - 1
-        paragraph.paragraph_format.left_indent = Cm(0.3)
-        paragraph.paragraph_format.right_indent = Cm(0.3)
-        set_paragraph_box(paragraph, "F5F7F9", "D5DDE3")
+        paragraph.paragraph_format.left_indent = Cm(0.5)
+        paragraph.paragraph_format.right_indent = Cm(0)
         run = paragraph.add_run(line or " ")
-        set_run_font(run, name="Consolas", size=8.5, color="263238")
+        set_run_font(run, name="Consolas", size=9, color="000000")
     if lines:
         paragraph.paragraph_format.space_after = Pt(6)
 
@@ -654,9 +645,9 @@ def add_caption(doc: Document, prefix: str, number: str, text: str) -> None:
     p = doc.add_paragraph(style="Caption")
     p.paragraph_format.keep_with_next = False
     r1 = p.add_run(f"{prefix} {number}. ")
-    set_run_font(r1, size=10, bold=True, italic=True, color=ACCENT)
+    set_run_font(r1, name="Times New Roman", size=11, bold=True, italic=True, color=CAPTION_BLUE)
     r2 = p.add_run(text)
-    set_run_font(r2, size=10, italic=True, color=MUTED)
+    set_run_font(r2, name="Times New Roman", size=11, bold=True, italic=True, color=CAPTION_BLUE)
 
 
 def add_table(doc: Document, number: str, title: str, headers: Sequence[str],
@@ -665,17 +656,17 @@ def add_table(doc: Document, number: str, title: str, headers: Sequence[str],
     cap = doc.add_paragraph(style="Caption")
     cap.paragraph_format.keep_with_next = True
     r1 = cap.add_run(f"Bảng {number}. ")
-    set_run_font(r1, size=10, bold=True, italic=True, color=ACCENT)
+    set_run_font(r1, name="Times New Roman", size=11, bold=True, italic=True, color=CAPTION_BLUE)
     r2 = cap.add_run(title)
-    set_run_font(r2, size=10, italic=True, color=MUTED)
+    set_run_font(r2, name="Times New Roman", size=11, bold=True, italic=True, color=CAPTION_BLUE)
 
     if widths is None:
-        widths = [15.6 / len(headers)] * len(headers)
+        widths = [16.8 / len(headers)] * len(headers)
     path = render_table_image(number, headers, rows, widths, font_size)
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.space_after = Pt(7)
-    shape = p.add_run().add_picture(str(path), width=Cm(15.6))
+    shape = p.add_run().add_picture(str(path), width=Cm(16.8))
     set_alt_text(shape, f"Bảng {number}", title)
 
 
@@ -689,7 +680,8 @@ def add_figure(doc: Document, number: str, path: str, title: str,
     p.paragraph_format.keep_with_next = True
     p.paragraph_format.space_before = Pt(4)
     p.paragraph_format.space_after = Pt(0)
-    shape = p.add_run().add_picture(str(full_path), width=Cm(width_cm))
+    final_width = min(16.8, width_cm * 1.075)
+    shape = p.add_run().add_picture(str(full_path), width=Cm(final_width))
     set_alt_text(shape, f"Hình {number}", title)
     add_caption(doc, "Hình", number, title)
 
@@ -699,7 +691,7 @@ def add_diagram(doc: Document, number: str, title: str, lines: Sequence[str]) ->
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.keep_with_next = True
-    shape = p.add_run().add_picture(str(path), width=Cm(14.8))
+    shape = p.add_run().add_picture(str(path), width=Cm(16.0))
     set_alt_text(shape, f"Hình {number}", title)
     add_caption(doc, "Hình", number, title)
 
@@ -712,9 +704,10 @@ def add_front_list(doc: Document, title: str, items: Sequence[tuple[str, str]], 
             raise RuntimeError(f"Thiếu số trang cuối cho {prefix} {number}")
         p0 = doc.add_paragraph()
         p0.paragraph_format.space_after = Pt(3)
-        p0.paragraph_format.tab_stops.add_tab_stop(Cm(15.3), WD_TAB_ALIGNMENT.RIGHT, WD_TAB_LEADER.DOTS)
+        p0.paragraph_format.first_line_indent = Cm(0)
+        p0.paragraph_format.tab_stops.add_tab_stop(Cm(16.5), WD_TAB_ALIGNMENT.RIGHT, WD_TAB_LEADER.DOTS)
         r = p0.add_run(f"{prefix} {number}. {item}\t{pages[number]}")
-        set_run_font(r, size=10.5)
+        set_run_font(r, name="Calibri", size=11)
 
 
 def add_toc(doc: Document) -> None:
@@ -744,9 +737,10 @@ def add_toc(doc: Document) -> None:
         p0 = doc.add_paragraph()
         p0.paragraph_format.left_indent = Cm(0.6 * level)
         p0.paragraph_format.space_after = Pt(4)
-        p0.paragraph_format.tab_stops.add_tab_stop(Cm(15.3 - 0.6 * level), WD_TAB_ALIGNMENT.RIGHT, WD_TAB_LEADER.DOTS)
+        p0.paragraph_format.first_line_indent = Cm(0)
+        p0.paragraph_format.tab_stops.add_tab_stop(Cm(16.5 - 0.6 * level), WD_TAB_ALIGNMENT.RIGHT, WD_TAB_LEADER.DOTS)
         r = p0.add_run(f"{title}\t{page}")
-        set_run_font(r, size=10.8 if level else 11.2, bold=(level == 0), color=ACCENT if level == 0 else TEXT)
+        set_run_font(r, name="Times New Roman", size=11.5 if level else 12, bold=(level == 0), color=ACCENT if level == 0 else TEXT)
 
 
 def heading(doc: Document, level: int, text: str, *, new_page: bool = False) -> None:
@@ -779,42 +773,63 @@ def build_report() -> None:
     doc = Document()
     configure_document(doc)
 
-    # Cover
-    for _ in range(4):
-        doc.add_paragraph()
+    # Cover: reproduce the visual language of the user's A05 reference.
+    doc.add_paragraph()
+    for text in [
+        "HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG",
+        "KHOA CÔNG NGHỆ THÔNG TIN",
+    ]:
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p.paragraph_format.first_line_indent = Cm(0)
+        p.paragraph_format.space_after = Pt(0)
+        p.paragraph_format.line_spacing = 1.15
+        r = p.add_run(text)
+        set_run_font(r, name="Calibri", size=16, bold=True, color="000000")
+
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r = p.add_run("ASSIGNMENT 06")
-    set_run_font(r, size=16, bold=True, color=ACCENT_2)
-    p.paragraph_format.space_after = Pt(12)
-    p = doc.add_paragraph()
-    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p.paragraph_format.first_line_indent = Cm(0)
+    p.paragraph_format.space_before = Pt(20)
     p.paragraph_format.space_after = Pt(8)
-    r = p.add_run("MẠNG NƠ-RON HỒI QUY CHO DỮ LIỆU CHUỖI")
-    set_run_font(r, size=23, bold=True, color=ACCENT)
-    p = doc.add_paragraph()
-    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r = p.add_run("Phân tích hành vi khách hàng và dự báo giá đóng cửa AAPL\nbằng PyTorch và Keras")
-    set_run_font(r, size=14, italic=True, color=MUTED)
-    p.paragraph_format.space_after = Pt(28)
-    line = doc.add_paragraph()
-    line.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r = line.add_run("────────────────────────")
-    set_run_font(r, size=12, color=ACCENT_2)
-    p = doc.add_paragraph()
-    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r = p.add_run("BÁO CÁO HỌC THUẬT TỔNG KẾT DỰ ÁN A06")
-    set_run_font(r, size=12, bold=True, color=ACCENT)
-    p = doc.add_paragraph()
-    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r = p.add_run("Vanilla RNN • Binary Classification • Regression • Chronological Evaluation")
-    set_run_font(r, size=10.5, color=MUTED)
-    for _ in range(7):
+    logo = p.add_run().add_picture(str(ASSETS_DIR / "ptit_logo.png"), width=Cm(4.0))
+    set_alt_text(logo, "Logo PTIT", "Học viện Công nghệ Bưu chính Viễn thông")
+
+    for text, size in [
+        ("PHÁT TRIỂN CÁC HỆ THỐNG THÔNG MINH", 16),
+        ("ASSIGNMENT 06", 22),
+    ]:
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p.paragraph_format.first_line_indent = Cm(0)
+        p.paragraph_format.space_after = Pt(0)
+        p.paragraph_format.line_spacing = 1.15
+        r = p.add_run(text)
+        set_run_font(r, name="Calibri", size=size, bold=True, color="000000")
+
+    for _ in range(3):
         doc.add_paragraph()
-    p = doc.add_paragraph()
-    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r = p.add_run("Tháng 9 năm 2026")
-    set_run_font(r, size=11.5, bold=True, color=ACCENT)
+
+    cover_info = [
+        ("Lớp:", "D23CTPM01"),
+        ("Họ và tên:", "Triệu Tuấn Anh"),
+        ("Mã sinh viên:", "B23DCCN053"),
+        ("Giảng viên hướng dẫn:", "PGS.TS Trần Đình Quế"),
+        ("Học kỳ:", "Học kỳ 1 năm học 2026 – 2027"),
+    ]
+    for index, (label, value) in enumerate(cover_info):
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.LEFT
+        p.paragraph_format.left_indent = Cm(3.35)
+        p.paragraph_format.first_line_indent = Cm(0)
+        p.paragraph_format.space_before = Pt(0 if index == 0 else 9.15)
+        p.paragraph_format.space_after = Pt(0)
+        p.paragraph_format.line_spacing = 1.0
+        p.paragraph_format.tab_stops.add_tab_stop(Cm(4.3), WD_TAB_ALIGNMENT.LEFT)
+        r = p.add_run(f"{label}\t")
+        set_run_font(r, name="Calibri", size=12, bold=True, color="000000")
+        r = p.add_run(value)
+        set_run_font(r, name="Calibri", size=12, color="000000")
 
     # Front matter: fixed page breaks keep navigation deterministic.
     add_page_break(doc)
@@ -849,7 +864,7 @@ def build_report() -> None:
     ])
 
     # II
-    heading(doc, 1, "II. CƠ SỞ LÝ THUYẾT VỀ RNN", new_page=True)
+    heading(doc, 1, "II. CƠ SỞ LÝ THUYẾT VỀ RNN")
     heading(doc, 2, "2.1. Dữ liệu chuỗi và giới hạn của mạng feed-forward")
     add_body(doc, "Dữ liệu chuỗi là tập quan sát có thứ tự. Một mức giá chỉ có ý nghĩa khi đặt sau các phiên trước đó; một tuần khách hàng không mua cũng khác nhau tùy lịch sử hoạt động. Với văn bản, đổi thứ tự token có thể đổi toàn bộ nghĩa. Vì vậy, hoán vị các time step thường phá vỡ thông tin.")
     add_body(doc, "Mạng feed-forward chuẩn xử lý xₜ → NN → yₜ như từng quan sát độc lập. Nó không có biến trạng thái mang thông tin từ bước t−1 sang t. RNN bổ sung hidden state hₜ₋₁, biến phép tính hiện tại thành hàm của cả input mới và tóm tắt quá khứ.")
@@ -917,7 +932,7 @@ for t, x_t in enumerate(x, start=1):
     add_callout(doc, "Vì sao vẫn dùng Vanilla RNN?", "A06 ưu tiên hiểu đúng recurrence, sequence, hidden state và protocol đánh giá. LSTM/GRU là phần mở rộng hợp lý sau khi baseline và leakage controls đã rõ, không phải sự thay thế âm thầm cho kiến trúc được khóa.", PALE_GOLD)
 
     # III
-    heading(doc, 1, "III. PHÂN TÍCH DỮ LIỆU", new_page=True)
+    heading(doc, 1, "III. PHÂN TÍCH DỮ LIỆU")
     heading(doc, 2, "3.1. UCI Online Retail II")
     heading(doc, 3, "3.1.1. Nguồn, cấu trúc và thời gian")
     add_body(doc, "Online Retail II là dữ liệu transaction-level của một nhà bán lẻ trực tuyến tại Anh, ghi từng dòng sản phẩm trong hóa đơn từ 01/12/2009 đến 09/12/2011. Tính tuần tự của hành vi mua, cùng định danh khách hàng và thời điểm hóa đơn, cho phép tổng hợp một regular timeline theo customer-week.")
@@ -994,7 +1009,7 @@ for t, x_t in enumerate(x, start=1):
     add_callout(doc, "Task stock đã khóa", "Input = 30 phiên trước × 5 features [Open, High, Low, Close, Volume]. Target = unadjusted Close của phiên ngay sau cửa sổ. Đây là regression. Baseline = Close cuối cùng trong input window.", PALE_GOLD)
 
     # IV
-    heading(doc, 1, "IV. TIỀN XỬ LÝ VÀ THIẾT KẾ THÍ NGHIỆM", new_page=True)
+    heading(doc, 1, "IV. TIỀN XỬ LÝ VÀ THIẾT KẾ THÍ NGHIỆM")
     heading(doc, 2, "4.1. Tạo sequence đúng quan hệ thời gian")
     add_body(doc, "Customer sequence cho target tuần t chứa đúng các tuần t−8,…,t−1 của cùng CustomerID; y là active_flag ở t. Stock sequence cho target ngày giao dịch t chứa đúng 30 dòng ngay trước t; y là Close tại t. Audit đã inverse-transform và đối chiếu exhaustive 350.864 customer samples cùng 2.736 stock samples với nguồn raw.")
     add_equation(doc, "Customer: Xᵢ = [wₜ₋₈,…,wₜ₋₁]  →  yᵢ = active_flag(wₜ)")
@@ -1038,7 +1053,7 @@ naive = values[29:-1, close_position].copy()''')
               ], widths=[4.4, 8.2, 3.0], font_size=8.7)
 
     # V
-    heading(doc, 1, "V. THỰC NGHIỆM PYTORCH", new_page=True)
+    heading(doc, 1, "V. THỰC NGHIỆM PYTORCH")
     heading(doc, 2, "5.1. Customer classification")
     heading(doc, 3, "5.1.1. Model và training")
     add_body(doc, "CustomerRNN dùng nn.RNN(input_size=5, hidden_size=64, num_layers=1, batch_first=True). Tensor hidden có shape (1, batch, 64); hidden[-1] là representation cuối của 8 tuần và được đưa qua Linear(64, 1) để sinh một logit. Không có Sigmoid trong model vì BCEWithLogitsLoss gộp sigmoid và binary cross-entropy theo cách số học ổn định hơn.")
@@ -1093,7 +1108,7 @@ naive = values[29:-1, close_position].copy()''')
     add_figure(doc, "5.6", "results/figures/pytorch_stock/rnn_vs_naive_metrics.png", "So sánh PyTorch Stock RNN với naive baseline", 14.8)
 
     # VI
-    heading(doc, 1, "VI. THỰC NGHIỆM KERAS", new_page=True)
+    heading(doc, 1, "VI. THỰC NGHIỆM KERAS")
     heading(doc, 2, "6.1. Customer classification")
     heading(doc, 3, "6.1.1. SimpleRNN, fit() và callbacks")
     add_body(doc, "Keras nhận cùng input shape (8, 5). SimpleRNN(64, tanh) trả representation cuối, Dense(1, sigmoid) chuyển representation thành probability. binary_crossentropy là loss tương ứng. model.fit() quản lý batch loop; EarlyStopping monitor val_loss với patience 5 và restore_best_weights=True. TRAIN-derived class_weight được dùng nhất quán với PyTorch.")
@@ -1145,7 +1160,7 @@ model.compile(optimizer=keras.optimizers.Adam(1e-3),
     add_figure(doc, "6.6", "results/figures/keras_stock/rnn_vs_naive_metrics.png", "So sánh Keras Stock SimpleRNN với naive baseline", 14.8)
 
     # VII
-    heading(doc, 1, "VII. SO SÁNH HAI FRAMEWORK", new_page=True)
+    heading(doc, 1, "VII. SO SÁNH HAI FRAMEWORK")
     heading(doc, 2, "7.1. Customer: kết quả gần tương đương")
     add_table(doc, "7.1", "So sánh kết quả customer trên cùng TEST",
               ["Model", "Accuracy", "Precision", "Recall", "F1", "ROC-AUC", "Params", "Epochs", "Thời gian"], [
@@ -1181,7 +1196,7 @@ model.compile(optimizer=keras.optimizers.Adam(1e-3),
     add_body(doc, "Duration 151,06s so với 86,01s ở customer và 5,61s so với 21,47s ở stock chỉ là số đo mô tả của lần chạy CPU hiện tại. Khác biệt framework implementation, batch loop, callback và số epoch đều ảnh hưởng thời gian. Ít dòng code hơn cũng không đồng nghĩa predictive quality tốt hơn.")
 
     # VIII
-    heading(doc, 1, "VIII. HẠN CHẾ VÀ HƯỚNG PHÁT TRIỂN", new_page=True)
+    heading(doc, 1, "VIII. HẠN CHẾ VÀ HƯỚNG PHÁT TRIỂN")
     heading(doc, 2, "8.1. Hạn chế của nghiên cứu")
     add_numbered(doc, [
         "Vanilla RNN dễ gặp vanishing gradient và có năng lực lưu phụ thuộc dài hạn hạn chế; 8 tuần/30 ngày vẫn là một cửa sổ hữu hạn.",
@@ -1203,7 +1218,7 @@ model.compile(optimizer=keras.optimizers.Adam(1e-3),
     add_callout(doc, "Nguyên tắc mở rộng", "Mọi cải tiến phải giữ test set ngoài vòng tuning, fit preprocessing trên TRAIN và tái so sánh cùng naive baseline. Kiến trúc phức tạp hơn chỉ có ý nghĩa khi protocol vẫn công bằng.", PALE_GREEN)
 
     # IX
-    heading(doc, 1, "IX. KẾT LUẬN", new_page=True)
+    heading(doc, 1, "IX. KẾT LUẬN")
     add_body(doc, "A06 đã hoàn thành một pipeline RNN có thể kiểm chứng từ lý thuyết đến thực nghiệm. Phần customer cho thấy hai Vanilla RNN ở hai framework tạo behavior gần như tương đương trên dữ liệu mất cân bằng: ROC-AUC khoảng 0,70, recall khoảng 0,57 nhưng precision chỉ khoảng 0,16. Bài học chính là phải đánh giá nhiều metric và hiểu confusion matrix, không dựa vào accuracy.")
     add_body(doc, "Phần stock cho thấy một kết quả âm nhưng quan trọng: cả PyTorch và Keras RNN đều thua rõ naive last-Close baseline trên đúng 410 TEST dates. Kết luận này được giữ nguyên thay vì tìm cách hợp thức hóa RNN; nó minh họa vai trò bắt buộc của baseline và real-scale evaluation.")
     add_body(doc, "PyTorch làm rõ cơ chế training ở cấp thấp qua DataLoader, forward/backward, optimizer step và device handling. Keras diễn đạt cùng ý tưởng ở cấp API cao hơn qua SimpleRNN, model.fit() và callbacks. Sự khác nhau về cách viết và runtime không đồng nghĩa một framework có năng lực dự báo bẩm sinh tốt hơn.")
@@ -1266,8 +1281,8 @@ def validate_docx(path: Path, ptc: dict, kc: dict, pts: dict, ks: dict) -> None:
     for forbidden in ["TODO", "FIXME", "Lorem ipsum", "[[TOC]]", "TBD", "PLACEHOLDER"]:
         if forbidden in plain:
             raise RuntimeError(f"Placeholder leaked into report: {forbidden}")
-    if len(media) != 46:
-        # 24 saved analytical PNGs + 20 rendered tables + 2 report diagrams.
+    if len(media) != 47:
+        # PTIT logo + 24 saved analytical PNGs + 20 rendered tables + 2 report diagrams.
         raise RuntimeError(f"Unexpected embedded image count: {len(media)}")
     expected_metric_strings = [
         fmt4(ptc['evaluation']['metrics']['roc_auc']), fmt4(kc['evaluation']['metrics']['roc_auc']),
@@ -1280,7 +1295,7 @@ def validate_docx(path: Path, ptc: dict, kc: dict, pts: dict, ks: dict) -> None:
         if value not in normalized_plain and value.replace(".", ",") not in normalized_plain:
             raise RuntimeError(f"Metric missing from report: {value}")
     reopened = Document(path)
-    if len(reopened.paragraphs) < 250 or len(reopened.inline_shapes) != 46:
+    if len(reopened.paragraphs) < 250 or len(reopened.inline_shapes) != 47:
         raise RuntimeError("DOCX content count is unexpectedly low")
 
 

@@ -1,0 +1,37 @@
+    1: """Split validation and stable identifiers for the Chapter 4 benchmark."""
+       
+    1: import hashlib
+       
+    1: import numpy as np
+       
+       
+    1: SPLITS = ("train", "val", "test")
+       
+       
+    1: def split_digest(keys):
+    3:     digest = hashlib.sha256()
+   12:     for split in SPLITS:
+    9:         digest.update(split.encode("utf-8"))
+ 3745:         for key in np.asarray(keys[split]).astype(str):
+ 3736:             digest.update(key.encode("utf-8"))
+ 3736:             digest.update(b"\0")
+    3:     return digest.hexdigest()
+       
+       
+    1: def validate_temporal_splits(dates):
+   16:     for split in SPLITS:
+   12:         values = np.asarray(dates[split]).astype("datetime64[D]")
+   12:         if len(values) == 0 or np.any(values[1:] < values[:-1]):
+>>>>>>             raise ValueError(f"{split} dates must be non-empty and sorted")
+    4:     if np.max(dates["train"]) >= np.min(dates["val"]):
+>>>>>>         raise ValueError("train and validation periods overlap")
+    4:     if np.max(dates["val"]) >= np.min(dates["test"]):
+>>>>>>         raise ValueError("validation and test periods overlap")
+       
+       
+    1: def validate_split_keys(keys):
+    8:     sets = {split: set(np.asarray(keys[split]).astype(str)) for split in SPLITS}
+   10:     if any(len(sets[split]) != len(keys[split]) for split in SPLITS):
+>>>>>>         raise ValueError("sample keys must be unique within each split")
+    2:     if sets["train"] & sets["val"] or sets["train"] & sets["test"] or sets["val"] & sets["test"]:
+>>>>>>         raise ValueError("sample keys overlap across splits")

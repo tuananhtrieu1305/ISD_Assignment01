@@ -1,0 +1,362 @@
+    1: """Small matched CNN implemented from first principles with NumPy.
+       
+       Inputs use channels-last layout: ``(N, H, W, C)`` for Conv2D and
+       ``(N, L, C)`` for Conv1D.  The network is intentionally fixed to two
+       same-padded convolutions, one max-pool, global average pooling and a dense
+       softmax head so its parameterization can be matched exactly in Keras/PyTorch.
+       """
+       
+    1: import json
+    1: from pathlib import Path
+       
+    1: import numpy as np
+       
+       
+    1: def _conv2d_forward(x, weight, bias):
+ 1190:     kernel_h, kernel_w = weight.shape[:2]
+ 1190:     if kernel_h % 2 == 0 or kernel_w % 2 == 0:
+>>>>>>         raise ValueError("same padding requires odd kernels")
+ 1190:     pad_h, pad_w = kernel_h // 2, kernel_w // 2
+ 1190:     padded = np.pad(x, ((0, 0), (pad_h, pad_h), (pad_w, pad_w), (0, 0)))
+ 3570:     windows = np.lib.stride_tricks.sliding_window_view(
+ 1190:         padded, (kernel_h, kernel_w), axis=(1, 2)
+ 1190:     ).transpose(0, 1, 2, 4, 5, 3)
+ 1190:     output = np.tensordot(windows, weight, axes=([3, 4, 5], [0, 1, 2])) + bias
+ 1190:     return output, (x.shape, padded, windows, weight)
+       
+       
+    1: def _conv2d_backward(gradient, cache):
+  510:     input_shape, padded, windows, weight = cache
+  510:     kernel_h, kernel_w = weight.shape[:2]
+  510:     grad_weight = np.einsum("nhwklc,nhwo->klco", windows, gradient)
+  510:     grad_bias = gradient.sum(axis=(0, 1, 2))
+  510:     grad_padded = np.zeros_like(padded)
+  510:     height, width = gradient.shape[1:3]
+ 2040:     for row in range(kernel_h):
+ 6120:         for column in range(kernel_w):
+ 9180:             grad_padded[:, row : row + height, column : column + width, :] += np.einsum(
+ 4590:                 "nhwo,co->nhwc", gradient, weight[row, column]
+                   )
+  510:     pad_h, pad_w = kernel_h // 2, kernel_w // 2
+ 1020:     grad_input = grad_padded[
+  510:         :, pad_h : pad_h + input_shape[1], pad_w : pad_w + input_shape[2], :
+           ]
+  510:     return grad_input, grad_weight, grad_bias
+       
+       
+    1: def _conv1d_forward(x, weight, bias):
+    8:     kernel = weight.shape[0]
+    8:     if kernel % 2 == 0:
+>>>>>>         raise ValueError("same padding requires an odd kernel")
+    8:     pad = kernel // 2
+    8:     padded = np.pad(x, ((0, 0), (pad, pad), (0, 0)))
+   16:     windows = np.lib.stride_tricks.sliding_window_view(padded, kernel, axis=1).transpose(
+    8:         0, 1, 3, 2
+           )
+    8:     output = np.tensordot(windows, weight, axes=([2, 3], [0, 1])) + bias
+    8:     return output, (x.shape, padded, windows, weight)
+       
+       
+    1: def _conv1d_backward(gradient, cache):
+    6:     input_shape, padded, windows, weight = cache
+    6:     kernel = weight.shape[0]
+    6:     grad_weight = np.einsum("nlkc,nlo->kco", windows, gradient)
+    6:     grad_bias = gradient.sum(axis=(0, 1))
+    6:     grad_padded = np.zeros_like(padded)
+    6:     length = gradient.shape[1]
+   24:     for offset in range(kernel):
+   36:         grad_padded[:, offset : offset + length, :] += np.einsum(
+   18:             "nlo,co->nlc", gradient, weight[offset]
+               )
+    6:     pad = kernel // 2
+    6:     return grad_padded[:, pad : pad + input_shape[1], :], grad_weight, grad_bias
+       
+       
+    1: def _max_pool2d_forward(x):
+  595:     output_h, output_w = x.shape[1] // 2, x.shape[2] // 2
+  595:     cropped = x[:, : output_h * 2, : output_w * 2, :]
+  595:     blocks = cropped.reshape(x.shape[0], output_h, 2, output_w, 2, x.shape[3])
+  595:     output = blocks.max(axis=(2, 4))
+  595:     mask = blocks == output[:, :, None, :, None, :]
+  595:     return output, (x.shape, mask, mask.sum(axis=(2, 4), keepdims=True))
+       
+       
+    1: def _max_pool2d_backward(gradient, cache):
+  255:     input_shape, mask, ties = cache
+  255:     expanded = gradient[:, :, None, :, None, :] * mask / ties
+  510:     cropped_gradient = expanded.reshape(
+  255:         input_shape[0], (input_shape[1] // 2) * 2, (input_shape[2] // 2) * 2, input_shape[3]
+           )
+  255:     output = np.zeros(input_shape, dtype=gradient.dtype)
+  255:     output[:, : cropped_gradient.shape[1], : cropped_gradient.shape[2], :] = cropped_gradient
+  255:     return output
+       
+       
+    1: def _max_pool1d_forward(x):
+    4:     output_l = x.shape[1] // 2
+    4:     cropped = x[:, : output_l * 2, :]
+    4:     blocks = cropped.reshape(x.shape[0], output_l, 2, x.shape[2])
+    4:     output = blocks.max(axis=2)
+    4:     mask = blocks == output[:, :, None, :]
+    4:     return output, (x.shape, mask, mask.sum(axis=2, keepdims=True))
+       
+       
+    1: def _max_pool1d_backward(gradient, cache):
+    3:     input_shape, mask, ties = cache
+    6:     cropped_gradient = (gradient[:, :, None, :] * mask / ties).reshape(
+    3:         input_shape[0], (input_shape[1] // 2) * 2, input_shape[2]
+           )
+    3:     output = np.zeros(input_shape, dtype=gradient.dtype)
+    3:     output[:, : cropped_gradient.shape[1], :] = cropped_gradient
+    3:     return output
+       
+       
+    2: class NumpyCNN:
+    1:     """Two-convolution multiclass CNN with manual forward/backward and Adam."""
+       
+    1:     def __init__(
+               self,
+               input_shape,
+               num_classes,
+    1:         mode="2d",
+    1:         filters=(8, 16),
+    1:         kernel_size=3,
+    1:         seed=42,
+    1:         learning_rate=0.01,
+           ):
+    9:         if mode not in {"1d", "2d"}:
+>>>>>>             raise ValueError("mode must be '1d' or '2d'")
+    9:         expected_rank = 3 if mode == "2d" else 2
+    9:         if len(input_shape) != expected_rank:
+>>>>>>             raise ValueError(f"{mode} input_shape must have rank {expected_rank}")
+   42:         self.input_shape = tuple(int(value) for value in input_shape)
+    9:         self.num_classes = int(num_classes)
+    9:         self.mode = mode
+   36:         self.filters = tuple(int(value) for value in filters)
+    9:         self.kernel_size = int(kernel_size)
+    9:         self.seed = int(seed)
+    9:         self.learning_rate = float(learning_rate)
+    9:         rng = np.random.default_rng(self.seed)
+    9:         channels = self.input_shape[-1]
+    9:         first, second = self.filters
+    9:         if self.mode == "2d":
+    6:             first_shape = (self.kernel_size, self.kernel_size, channels, first)
+    6:             second_shape = (self.kernel_size, self.kernel_size, first, second)
+    6:             first_fan = self.kernel_size * self.kernel_size * channels
+    6:             second_fan = self.kernel_size * self.kernel_size * first
+               else:
+    3:             first_shape = (self.kernel_size, channels, first)
+    3:             second_shape = (self.kernel_size, first, second)
+    3:             first_fan = self.kernel_size * channels
+    3:             second_fan = self.kernel_size * first
+    9:         self.params = {
+    9:             "W1": rng.normal(0.0, np.sqrt(2.0 / first_fan), first_shape),
+    9:             "b1": np.zeros(first, dtype=float),
+    9:             "W2": rng.normal(0.0, np.sqrt(2.0 / second_fan), second_shape),
+    9:             "b2": np.zeros(second, dtype=float),
+    9:             "W3": rng.normal(0.0, np.sqrt(2.0 / second), (second, self.num_classes)),
+    9:             "b3": np.zeros(self.num_classes, dtype=float),
+               }
+       
+    2:     @property
+    2:     def parameter_count(self):
+   24:         return int(sum(value.size for value in self.params.values()))
+       
+    2:     @staticmethod
+    2:     def _softmax(logits):
+  599:         shifted = logits - logits.max(axis=1, keepdims=True)
+  599:         exponential = np.exp(shifted)
+  599:         return exponential / exponential.sum(axis=1, keepdims=True)
+       
+    1:     def _forward(self, x):
+  599:         x = np.asarray(x, dtype=float)
+  599:         if self.mode == "2d":
+  595:             z1, conv1_cache = _conv2d_forward(x, self.params["W1"], self.params["b1"])
+  595:             a1 = np.maximum(z1, 0.0)
+  595:             pooled, pool_cache = _max_pool2d_forward(a1)
+ 1190:             z2, conv2_cache = _conv2d_forward(
+  595:                 pooled, self.params["W2"], self.params["b2"]
+                   )
+  595:             a2 = np.maximum(z2, 0.0)
+  595:             features = a2.mean(axis=(1, 2))
+  595:             spatial_size = a2.shape[1] * a2.shape[2]
+               else:
+    4:             z1, conv1_cache = _conv1d_forward(x, self.params["W1"], self.params["b1"])
+    4:             a1 = np.maximum(z1, 0.0)
+    4:             pooled, pool_cache = _max_pool1d_forward(a1)
+    8:             z2, conv2_cache = _conv1d_forward(
+    4:                 pooled, self.params["W2"], self.params["b2"]
+                   )
+    4:             a2 = np.maximum(z2, 0.0)
+    4:             features = a2.mean(axis=1)
+    4:             spatial_size = a2.shape[1]
+  599:         logits = features @ self.params["W3"] + self.params["b3"]
+  599:         probabilities = self._softmax(logits)
+  599:         cache = {
+  599:             "z1": z1,
+  599:             "pool": pool_cache,
+  599:             "z2": z2,
+  599:             "a2": a2,
+  599:             "features": features,
+  599:             "conv1": conv1_cache,
+  599:             "conv2": conv2_cache,
+  599:             "spatial_size": spatial_size,
+               }
+  599:         return probabilities, cache
+       
+    2:     @staticmethod
+    2:     def _row_weights(y, class_weight):
+  852:         if class_weight is None:
+  852:             return np.ones(len(y), dtype=float)
+>>>>>>         return np.asarray([float(class_weight[int(label)]) for label in y], dtype=float)
+       
+    1:     def _loss_from_probabilities(self, probabilities, y, class_weight=None):
+  258:         y = np.asarray(y, dtype=int).reshape(-1)
+  258:         weights = self._row_weights(y, class_weight)
+  258:         losses = -np.log(np.clip(probabilities[np.arange(len(y)), y], 1e-12, 1.0))
+  258:         return float(np.sum(losses * weights) / np.sum(weights))
+       
+    1:     def loss_and_gradients(self, x, y, class_weight=None):
+  258:         y = np.asarray(y, dtype=int).reshape(-1)
+  258:         probabilities, cache = self._forward(x)
+  258:         weights = self._row_weights(y, class_weight)
+  258:         grad_logits = probabilities.copy()
+  258:         grad_logits[np.arange(len(y)), y] -= 1.0
+  258:         grad_logits *= weights[:, None] / np.sum(weights)
+  258:         gradients = {
+  258:             "W3": cache["features"].T @ grad_logits,
+  258:             "b3": grad_logits.sum(axis=0),
+               }
+  258:         grad_features = grad_logits @ self.params["W3"].T
+  258:         if self.mode == "2d":
+  255:             grad_a2 = grad_features[:, None, None, :] / cache["spatial_size"]
+               else:
+    3:             grad_a2 = grad_features[:, None, :] / cache["spatial_size"]
+  258:         grad_z2 = grad_a2 * (cache["z2"] > 0.0)
+  258:         if self.mode == "2d":
+  510:             grad_pool, gradients["W2"], gradients["b2"] = _conv2d_backward(
+  255:                 grad_z2, cache["conv2"]
+                   )
+  255:             grad_a1 = _max_pool2d_backward(grad_pool, cache["pool"])
+  255:             grad_z1 = grad_a1 * (cache["z1"] > 0.0)
+  510:             _, gradients["W1"], gradients["b1"] = _conv2d_backward(
+  255:                 grad_z1, cache["conv1"]
+                   )
+               else:
+    6:             grad_pool, gradients["W2"], gradients["b2"] = _conv1d_backward(
+    3:                 grad_z2, cache["conv2"]
+                   )
+    3:             grad_a1 = _max_pool1d_backward(grad_pool, cache["pool"])
+    3:             grad_z1 = grad_a1 * (cache["z1"] > 0.0)
+    6:             _, gradients["W1"], gradients["b1"] = _conv1d_backward(
+    3:                 grad_z1, cache["conv1"]
+                   )
+  258:         return self._loss_from_probabilities(probabilities, y, class_weight), gradients
+       
+    1:     def _dataset_loss(self, x, y, batch_size, class_weight=None):
+  168:         y = np.asarray(y, dtype=int).reshape(-1)
+  168:         numerator = 0.0
+  168:         denominator = 0.0
+  504:         for start in range(0, len(y), int(batch_size)):
+  336:             batch_y = y[start : start + int(batch_size)]
+  336:             probabilities, _ = self._forward(x[start : start + int(batch_size)])
+  336:             weights = self._row_weights(batch_y, class_weight)
+  672:             losses = -np.log(
+  336:                 np.clip(probabilities[np.arange(len(batch_y)), batch_y], 1e-12, 1.0)
+                   )
+  336:             numerator += float(np.sum(losses * weights))
+  336:             denominator += float(np.sum(weights))
+  168:         return numerator / denominator
+       
+    1:     def fit(
+               self,
+               x_train,
+               y_train,
+               x_val,
+               y_val,
+    1:         epochs=20,
+    1:         batch_size=64,
+    1:         patience=4,
+    1:         min_delta=1e-5,
+    1:         class_weight=None,
+           ):
+    2:         x_train = np.asarray(x_train, dtype=float)
+    2:         y_train = np.asarray(y_train, dtype=int).reshape(-1)
+    2:         x_val = np.asarray(x_val, dtype=float)
+    2:         y_val = np.asarray(y_val, dtype=int).reshape(-1)
+    2:         rng = np.random.default_rng(self.seed)
+   14:         first = {key: np.zeros_like(value) for key, value in self.params.items()}
+   14:         second = {key: np.zeros_like(value) for key, value in self.params.items()}
+    2:         beta1, beta2, epsilon = 0.9, 0.999, 1e-8
+    2:         step, wait, best_epoch = 0, 0, 0
+    2:         best_val = np.inf
+   14:         best_params = {key: value.copy() for key, value in self.params.items()}
+    2:         history = {"train_loss": [], "val_loss": []}
+   86:         for epoch in range(int(epochs)):
+   84:             order = rng.permutation(len(x_train))
+  336:             for start in range(0, len(order), int(batch_size)):
+  252:                 indices = order[start : start + int(batch_size)]
+  504:                 _, gradients = self.loss_and_gradients(
+  252:                     x_train[indices], y_train[indices], class_weight=class_weight
+                       )
+  252:                 step += 1
+ 1764:                 for key in self.params:
+ 1512:                     first[key] = beta1 * first[key] + (1.0 - beta1) * gradients[key]
+ 1512:                     second[key] = beta2 * second[key] + (1.0 - beta2) * gradients[key] ** 2
+ 1512:                     first_hat = first[key] / (1.0 - beta1**step)
+ 1512:                     second_hat = second[key] / (1.0 - beta2**step)
+ 3024:                     self.params[key] -= self.learning_rate * first_hat / (
+ 1512:                         np.sqrt(second_hat) + epsilon
+                           )
+  168:             train_loss = self._dataset_loss(
+   84:                 x_train, y_train, batch_size, class_weight=class_weight
+                   )
+   84:             val_loss = self._dataset_loss(x_val, y_val, batch_size)
+   84:             history["train_loss"].append(float(train_loss))
+   84:             history["val_loss"].append(float(val_loss))
+   84:             if val_loss < best_val - float(min_delta):
+   50:                 best_val = val_loss
+   50:                 best_epoch = epoch + 1
+  350:                 best_params = {key: value.copy() for key, value in self.params.items()}
+   50:                 wait = 0
+                   else:
+   34:                 wait += 1
+   34:                 if wait >= int(patience):
+>>>>>>                     break
+    2:         self.params = best_params
+    2:         history["best_epoch"] = best_epoch
+    2:         return history
+       
+    1:     def predict_proba(self, x, batch_size=128):
+    5:         x = np.asarray(x, dtype=float)
+    5:         outputs = []
+   10:         for start in range(0, len(x), int(batch_size)):
+    5:             outputs.append(self._forward(x[start : start + int(batch_size)])[0])
+    5:         return np.vstack(outputs) if outputs else np.empty((0, self.num_classes))
+       
+    1:     def predict(self, x, batch_size=128):
+    1:         return np.argmax(self.predict_proba(x, batch_size=batch_size), axis=1)
+       
+    1:     def save(self, path):
+    1:         path = Path(path)
+    1:         path.parent.mkdir(parents=True, exist_ok=True)
+    2:         metadata = json.dumps(
+    1:             {
+    1:                 "input_shape": list(self.input_shape),
+    1:                 "num_classes": self.num_classes,
+    1:                 "mode": self.mode,
+    1:                 "filters": list(self.filters),
+    1:                 "kernel_size": self.kernel_size,
+    1:                 "seed": self.seed,
+    1:                 "learning_rate": self.learning_rate,
+                   }
+               )
+    1:         np.savez(path, metadata=np.array(metadata), **self.params)
+       
+    2:     @classmethod
+    2:     def load(cls, path):
+    2:         with np.load(Path(path), allow_pickle=False) as data:
+    1:             metadata = json.loads(str(data["metadata"].item()))
+    1:             model = cls(**metadata)
+    7:             model.params = {key: data[key].copy() for key in model.params}
+    1:         return model

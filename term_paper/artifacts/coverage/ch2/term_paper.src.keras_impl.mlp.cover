@@ -1,0 +1,127 @@
+    1: """Keras implementation of the matched Chapter 2 MLP."""
+       
+    1: import json
+    1: from pathlib import Path
+       
+    1: import numpy as np
+    1: import tensorflow as tf
+    1: from tensorflow import keras
+       
+       
+    2: class KerasMLP:
+    1:     def __init__(
+               self,
+               input_dim,
+               task,
+    1:         hidden=(64, 32),
+    1:         seed=42,
+    1:         learning_rate=0.01,
+    1:         l2=0.0,
+    1:         model=None,
+           ):
+    3:         if task not in {"binary", "regression"}:
+>>>>>>             raise ValueError("task must be 'binary' or 'regression'")
+    3:         self.input_dim = int(input_dim)
+    3:         self.task = task
+   12:         self.hidden = tuple(int(v) for v in hidden)
+    3:         self.seed = int(seed)
+    3:         self.learning_rate = float(learning_rate)
+    3:         self.l2 = float(l2)
+    3:         keras.utils.set_random_seed(self.seed)
+    3:         if model is None:
+    2:             regularizer = keras.regularizers.L2(self.l2) if self.l2 else None
+    4:             self.model = keras.Sequential(
+    2:                 [
+    2:                     keras.layers.Input(shape=(self.input_dim,)),
+    4:                     keras.layers.Dense(
+    2:                         self.hidden[0], activation="relu", kernel_regularizer=regularizer
+                           ),
+    4:                     keras.layers.Dense(
+    2:                         self.hidden[1], activation="relu", kernel_regularizer=regularizer
+                           ),
+    2:                     keras.layers.Dense(1),
+                       ]
+                   )
+    2:             loss = (
+    2:                 keras.losses.BinaryCrossentropy(from_logits=True)
+    2:                 if self.task == "binary"
+>>>>>>                 else keras.losses.MeanSquaredError()
+                   )
+    2:             self.model.compile(optimizer=keras.optimizers.Adam(self.learning_rate), loss=loss)
+               else:
+    1:             self.model = model
+       
+    2:     @property
+    2:     def parameter_count(self):
+    1:         return int(self.model.count_params())
+       
+    1:     def fit(
+               self,
+               x_train,
+               y_train,
+               x_val,
+               y_val,
+    1:         epochs=100,
+    1:         batch_size=512,
+    1:         patience=10,
+    1:         min_delta=1e-5,
+    1:         class_weight=None,
+           ):
+    2:         callback = keras.callbacks.EarlyStopping(
+    1:             monitor="val_loss",
+    1:             patience=int(patience),
+    1:             min_delta=float(min_delta),
+    1:             restore_best_weights=True,
+               )
+    2:         history = self.model.fit(
+    1:             np.asarray(x_train, dtype=np.float32),
+    1:             np.asarray(y_train, dtype=np.float32),
+    1:             validation_data=(
+    1:                 np.asarray(x_val, dtype=np.float32),
+    1:                 np.asarray(y_val, dtype=np.float32),
+                   ),
+    1:             epochs=int(epochs),
+    1:             batch_size=int(batch_size),
+    1:             callbacks=[callback],
+    1:             class_weight=class_weight,
+    1:             verbose=0,
+    1:             shuffle=True,
+               )
+    1:         return {
+   31:             "train_loss": [float(v) for v in history.history["loss"]],
+   31:             "val_loss": [float(v) for v in history.history["val_loss"]],
+               }
+       
+    1:     def predict_score(self, x):
+    2:         raw = self.model.predict(np.asarray(x, dtype=np.float32), verbose=0).reshape(-1)
+    2:         if self.task == "binary":
+    2:             return tf.math.sigmoid(raw).numpy()
+>>>>>>         return raw
+       
+    1:     def save(self, path):
+    1:         path = Path(path)
+    1:         path.parent.mkdir(parents=True, exist_ok=True)
+    1:         self.model.save(path)
+    1:         metadata_path = Path(str(path) + ".metadata.json")
+    2:         metadata_path.write_text(
+    2:             json.dumps(
+    1:                 {
+    1:                     "input_dim": self.input_dim,
+    1:                     "task": self.task,
+    1:                     "hidden": list(self.hidden),
+    1:                     "seed": self.seed,
+    1:                     "learning_rate": self.learning_rate,
+    1:                     "l2": self.l2,
+                       },
+    1:                 indent=2,
+                   ),
+    1:             encoding="utf-8",
+               )
+       
+    2:     @classmethod
+    2:     def load(cls, path):
+    1:         path = Path(path)
+    1:         metadata = json.loads(Path(str(path) + ".metadata.json").read_text(encoding="utf-8"))
+    1:         model = keras.models.load_model(path)
+    1:         return cls(model=model, **metadata)
+       

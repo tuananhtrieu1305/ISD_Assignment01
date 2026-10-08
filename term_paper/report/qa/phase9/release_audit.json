@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "phase": 9,
+  "status": "PASS",
+  "document": "term_paper/report/Tieu_luan_AI_ML_CNN_RNN.docx",
+  "document_sha256": "0c82a1e90d394420a7143534ca2b06ebc912648b1c9ea17dd58784d095ce1e9d",
+  "document_bytes": 3218862,
+  "page_count": 73,
+  "checks": [
+    {
+      "name": "word_page_count",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "Word reports 73 pages"
+    },
+    {
+      "name": "navigation_targets",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "159/159 resolved"
+    },
+    {
+      "name": "required_page_budget",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "MỞ ĐẦU: 9–12 (4 trang); CHƯƠNG 1. LỊCH SỬ PHÁT TRIỂN TRÍ TUỆ NHÂN TẠO: 13–20 (8 trang); CHƯƠNG 2. CÁC KỸ THUẬT MACHINE LEARNING CƠ BẢN: 21–34 (14 trang); CHƯƠNG 3. CONVOLUTIONAL NEURAL NETWORK: 35–48 (14 trang); CHƯƠNG 4. RECURRENT NEURAL NETWORK: 49–62 (14 trang)"
+    },
+    {
+      "name": "metric_artifact_parity",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "24/24 grouped metric values found exactly in DOCX; missing={}"
+    },
+    {
+      "name": "prediction_row_manifest",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "287,253 TEST prediction rows"
+    },
+    {
+      "name": "a11y_no_high",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "0 high-severity findings"
+    },
+    {
+      "name": "a11y_medium_exceptions",
+      "status": "PASS",
+      "severity": "medium",
+      "detail": "3 one-cell code-layout containers intentionally have no semantic header row"
+    },
+    {
+      "name": "heading_hierarchy",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "H1=9, H2=43, H3=73"
+    },
+    {
+      "name": "package_integrity",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "ZIP test error=None"
+    },
+    {
+      "name": "internal_links",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "318 internal hyperlinks; 159 bookmarks"
+    },
+    {
+      "name": "external_link_targets",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "52 HTTPS bibliography/dataset/source targets"
+    },
+    {
+      "name": "citations_references",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "44 references and citation labels [1]–[44]"
+    },
+    {
+      "name": "clean_review_state",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "0 comments; 0 tracked changes"
+    },
+    {
+      "name": "release_metadata",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "creator=Triệu Tuấn Anh; lastModifiedBy=Triệu Tuấn Anh; custom=false; internal comment cleared"
+    },
+    {
+      "name": "release_content_scan",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "no tool tokens, placeholders, TODO/TBD, or absolute Windows paths"
+    },
+    {
+      "name": "release_visual_review",
+      "status": "PASS",
+      "severity": "high",
+      "detail": "73/73 Word-rendered pages reviewed in Phase 8; Phase 9 metadata/alt-text patch did not alter layout and was re-rendered"
+    }
+  ],
+  "documented_exceptions": [
+    "The installed artifact-tool build collapses native Word table columns; final authoritative visual QA uses Microsoft Word 16 PDF export while retaining editable native tables.",
+    "The a11y checker reports three medium table-header findings for one-cell code-layout containers; header semantics do not apply to these code blocks.",
+    "Raw URLs in the 44 bibliography entries remain as low-severity findings because explicit DOI/source addresses are appropriate in an academic reference list.",
+    "Style-lint direct-formatting findings are intentional for cover typography, inline emphasis, code and equations; global normalization would remove meaningful formatting.",
+    "The legacy Phase 3 manuscript verifier rejects any URL token, while the current teacher requirement explicitly requires dataset links. Its 20 unit tests pass; Phase 7 and Phase 9 supersede that obsolete text rule and validate all source links."
+  ],
+  "failures": []
+}

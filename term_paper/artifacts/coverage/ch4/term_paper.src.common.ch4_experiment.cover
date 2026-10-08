@@ -1,0 +1,45 @@
+    1: """Artifact helpers for the matched Chapter 4 RNN experiment."""
+       
+    1: import hashlib
+    1: from pathlib import Path
+       
+    1: import numpy as np
+    1: import pandas as pd
+       
+       
+    1: def artifact_suffix(seed):
+>>>>>>     return "" if int(seed) == 42 else f"_seed{int(seed)}"
+       
+       
+    1: def sha256_file(path):
+>>>>>>     digest = hashlib.sha256()
+>>>>>>     with Path(path).open("rb") as handle:
+>>>>>>         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+>>>>>>             digest.update(chunk)
+>>>>>>     return digest.hexdigest()
+       
+       
+    1: def build_prediction_frame(dataset_id, framework, keys, y_true, prediction, seed, task,
+                                  threshold, model_sha256, preprocessor_sha256, split_sha256,
+    1:                            baseline=None):
+    1:     y_true = np.asarray(y_true).reshape(-1)
+    1:     prediction = np.asarray(prediction).reshape(-1)
+    1:     if len(y_true) != len(prediction) or len(keys) != len(y_true):
+>>>>>>         raise ValueError("keys, targets and predictions must align")
+    2:     frame = pd.DataFrame({
+    1:         "chapter": 4, "dataset_id": dataset_id, "framework": framework,
+    1:         "seed": int(seed), "split": "test", "sample_key": np.asarray(keys).astype(str),
+    1:         "y_true": y_true, "score_or_prediction": prediction,
+    1:         "model_sha256": model_sha256, "preprocessor_sha256": preprocessor_sha256,
+    1:         "split_sha256": split_sha256,
+           })
+    1:     if task == "binary":
+>>>>>>         frame["threshold"] = float(threshold)
+>>>>>>         frame["y_pred"] = (prediction >= float(threshold)).astype(int)
+    1:     elif task == "regression":
+    1:         frame["y_pred"] = prediction
+    1:         if baseline is not None:
+    1:             frame["naive_last_close"] = np.asarray(baseline, dtype=float)
+           else:
+>>>>>>         raise ValueError(task)
+    1:     return frame

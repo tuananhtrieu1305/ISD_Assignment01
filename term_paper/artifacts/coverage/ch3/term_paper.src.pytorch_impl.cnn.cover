@@ -1,0 +1,192 @@
+    1: """PyTorch implementation of the matched Chapter 3 CNN."""
+       
+    1: import copy
+    1: from pathlib import Path
+       
+    1: import numpy as np
+    1: import torch
+    1: from torch import nn
+       
+       
+    2: class _MatchedCNN(nn.Module):
+    1:     def __init__(self, channels, num_classes, mode, filters, kernel_size):
+    4:         super().__init__()
+    4:         first, second = filters
+    4:         padding = kernel_size // 2
+    4:         if mode == "2d":
+    6:             self.network = nn.Sequential(
+    3:                 nn.Conv2d(channels, first, kernel_size, padding=padding),
+    3:                 nn.ReLU(),
+    3:                 nn.MaxPool2d(2),
+    3:                 nn.Conv2d(first, second, kernel_size, padding=padding),
+    3:                 nn.ReLU(),
+    3:                 nn.AdaptiveAvgPool2d((1, 1)),
+    3:                 nn.Flatten(),
+    3:                 nn.Linear(second, num_classes),
+                   )
+               else:
+    2:             self.network = nn.Sequential(
+    1:                 nn.Conv1d(channels, first, kernel_size, padding=padding),
+    1:                 nn.ReLU(),
+    1:                 nn.MaxPool1d(2),
+    1:                 nn.Conv1d(first, second, kernel_size, padding=padding),
+    1:                 nn.ReLU(),
+    1:                 nn.AdaptiveAvgPool1d(1),
+    1:                 nn.Flatten(),
+    1:                 nn.Linear(second, num_classes),
+                   )
+       
+    1:     def forward(self, x):
+   32:         return self.network(x)
+       
+       
+    2: class TorchCNN:
+    1:     def __init__(
+               self,
+               input_shape,
+               num_classes,
+    1:         mode="2d",
+    1:         filters=(8, 16),
+    1:         kernel_size=3,
+    1:         seed=42,
+    1:         learning_rate=0.01,
+    1:         model=None,
+           ):
+    4:         if mode not in {"1d", "2d"}:
+>>>>>>             raise ValueError("mode must be '1d' or '2d'")
+   19:         self.input_shape = tuple(int(value) for value in input_shape)
+    4:         self.num_classes = int(num_classes)
+    4:         self.mode = mode
+   16:         self.filters = tuple(int(value) for value in filters)
+    4:         self.kernel_size = int(kernel_size)
+    4:         self.seed = int(seed)
+    4:         self.learning_rate = float(learning_rate)
+    4:         torch.manual_seed(self.seed)
+    8:         self.model = model or _MatchedCNN(
+    4:             self.input_shape[-1],
+    4:             self.num_classes,
+    4:             self.mode,
+    4:             self.filters,
+    4:             self.kernel_size,
+               )
+       
+    2:     @property
+    2:     def parameter_count(self):
+   16:         return int(sum(parameter.numel() for parameter in self.model.parameters()))
+       
+    1:     def _tensor_x(self, x):
+    4:         tensor = torch.as_tensor(np.asarray(x), dtype=torch.float32)
+    4:         if self.mode == "2d":
+    4:             return tensor.permute(0, 3, 1, 2)
+>>>>>>         return tensor.permute(0, 2, 1)
+       
+    2:     @staticmethod
+    2:     def _loss(logits, targets, class_weight=None):
+   30:         row_loss = nn.functional.cross_entropy(logits, targets, reduction="none")
+   30:         if class_weight is None:
+   30:             return row_loss.mean()
+>>>>>>         weights = torch.as_tensor(
+>>>>>>             [float(class_weight[int(value)]) for value in targets.cpu().numpy()],
+>>>>>>             dtype=row_loss.dtype,
+>>>>>>             device=row_loss.device,
+               )
+>>>>>>         return torch.sum(row_loss * weights) / torch.sum(weights)
+       
+    1:     def fit(
+               self,
+               x_train,
+               y_train,
+               x_val,
+               y_val,
+    1:         epochs=20,
+    1:         batch_size=64,
+    1:         patience=4,
+    1:         min_delta=1e-5,
+    1:         class_weight=None,
+           ):
+    1:         x_train_tensor = self._tensor_x(x_train)
+    1:         y_train_tensor = torch.as_tensor(np.array(y_train, copy=True), dtype=torch.long)
+    1:         x_val_tensor = self._tensor_x(x_val)
+    1:         y_val_tensor = torch.as_tensor(np.array(y_val, copy=True), dtype=torch.long)
+    1:         optimizer = torch.optim.Adam(self.model.parameters(), lr=self.learning_rate)
+    1:         generator = torch.Generator().manual_seed(self.seed)
+    1:         best_val, wait, best_epoch = float("inf"), 0, 0
+    1:         best_state = copy.deepcopy(self.model.state_dict())
+    1:         history = {"train_loss": [], "val_loss": []}
+    6:         for epoch in range(int(epochs)):
+    6:             self.model.train()
+    6:             order = torch.randperm(len(x_train_tensor), generator=generator)
+   24:             for start in range(0, len(order), int(batch_size)):
+   18:                 indices = order[start : start + int(batch_size)]
+   18:                 optimizer.zero_grad(set_to_none=True)
+   36:                 loss = self._loss(
+   18:                     self.model(x_train_tensor[indices]),
+   18:                     y_train_tensor[indices],
+   18:                     class_weight=class_weight,
+                       )
+   18:                 loss.backward()
+   18:                 optimizer.step()
+    6:             self.model.eval()
+   12:             with torch.no_grad():
+   12:                 train_loss = float(
+   12:                     self._loss(
+    6:                         self.model(x_train_tensor),
+    6:                         y_train_tensor,
+    6:                         class_weight=class_weight,
+                           )
+                       )
+    6:                 val_loss = float(self._loss(self.model(x_val_tensor), y_val_tensor))
+    6:             history["train_loss"].append(train_loss)
+    6:             history["val_loss"].append(val_loss)
+    6:             if val_loss < best_val - float(min_delta):
+    1:                 best_val = val_loss
+    1:                 best_epoch = epoch + 1
+    1:                 best_state = copy.deepcopy(self.model.state_dict())
+    1:                 wait = 0
+                   else:
+    5:                 wait += 1
+    5:                 if wait >= int(patience):
+    1:                     break
+    1:         self.model.load_state_dict(best_state)
+    1:         history["best_epoch"] = best_epoch
+    1:         return history
+       
+    1:     def predict_proba(self, x, batch_size=128):
+    2:         tensor = self._tensor_x(x)
+    2:         outputs = []
+    2:         self.model.eval()
+    4:         with torch.no_grad():
+    4:             for start in range(0, len(tensor), int(batch_size)):
+    2:                 outputs.append(torch.softmax(self.model(tensor[start : start + int(batch_size)]), dim=1))
+    2:         if not outputs:
+>>>>>>             return np.empty((0, self.num_classes))
+    2:         return torch.cat(outputs).cpu().numpy()
+       
+    1:     def predict(self, x, batch_size=128):
+>>>>>>         return np.argmax(self.predict_proba(x, batch_size=batch_size), axis=1)
+       
+    1:     def save(self, path):
+    1:         path = Path(path)
+    1:         path.parent.mkdir(parents=True, exist_ok=True)
+    2:         torch.save(
+    1:             {
+    1:                 "config": {
+    1:                     "input_shape": list(self.input_shape),
+    1:                     "num_classes": self.num_classes,
+    1:                     "mode": self.mode,
+    1:                     "filters": list(self.filters),
+    1:                     "kernel_size": self.kernel_size,
+    1:                     "seed": self.seed,
+    1:                     "learning_rate": self.learning_rate,
+                       },
+    1:                 "state_dict": self.model.state_dict(),
+                   },
+    1:             path,
+               )
+       
+    2:     @classmethod
+    2:     def load(cls, path):
+    1:         payload = torch.load(Path(path), map_location="cpu", weights_only=False)
+    1:         model = cls(**payload["config"])
+    1:         model.model.load_state_dict(payload["state_dict"])
+    1:         return model
