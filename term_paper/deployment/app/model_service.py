@@ -62,8 +62,16 @@ EUROSAT_CLASSES = [
 
 
 def sha256_file(path):
+    path = Path(path)
+    if path.suffix.lower() == ".json":
+        # Git stores text with LF on Render/Linux while the original locked
+        # artifact was produced with CRLF on Windows. Hash JSON using the
+        # original CRLF representation so integrity checks are OS-stable.
+        data = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        return hashlib.sha256(data.replace(b"\n", b"\r\n")).hexdigest()
+
     digest = hashlib.sha256()
-    with Path(path).open("rb") as handle:
+    with path.open("rb") as handle:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()

@@ -1,5 +1,7 @@
 import base64
+import hashlib
 import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -7,7 +9,7 @@ import joblib
 import numpy as np
 import pandas as pd
 
-from term_paper.deployment.app.model_service import ModelService
+from term_paper.deployment.app.model_service import ModelService, sha256_file
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -23,6 +25,20 @@ class DeploymentServiceTests(unittest.TestCase):
         self.assertEqual(health["status"], "ok")
         self.assertEqual(set(health["models"]), {"diabetes", "eurosat", "customer_rnn", "aapl_rnn"})
         self.assertTrue(all(item["hash_verified"] for item in health["models"].values()))
+
+    def test_json_artifact_hash_is_stable_across_line_endings(self):
+        lf = b'{\n  "scale": "divide_by_255",\n  "fit_scope": "none"\n}'
+        crlf = lf.replace(b"\n", b"\r\n")
+        expected = hashlib.sha256(crlf).hexdigest()
+
+        with tempfile.TemporaryDirectory() as directory:
+            lf_path = Path(directory) / "lf.json"
+            crlf_path = Path(directory) / "crlf.json"
+            lf_path.write_bytes(lf)
+            crlf_path.write_bytes(crlf)
+
+            self.assertEqual(sha256_file(lf_path), expected)
+            self.assertEqual(sha256_file(crlf_path), expected)
 
     def test_diabetes_prediction_matches_saved_test_artifact(self):
         processed = np.load(ROOT / "term_paper/artifacts/manifests/ch2/ch2_diabetes_binary_processed.npz")
