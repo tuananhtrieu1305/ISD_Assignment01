@@ -1,0 +1,193 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch03_cnn/ch3_eurosat_cnn_keras_s42/best.npz",
+      "sha256": "1923b8bcd4af14996507171ba7db2fd805dbf99720eaa07a03dea4b9c195388e"
+    },
+    {
+      "path": "artifacts/models/v3/ch03_cnn/ch3_eurosat_cnn_keras_s42/best.json",
+      "sha256": "afaa342c90447e451713ed504562190530bb58dd8c5b55b9e5302365d9f832bd"
+    },
+    {
+      "path": "artifacts/predictions/phase27/validation/ch3_eurosat_cnn_keras_s42.jsonl.gz",
+      "sha256": "9aea01f642dc4830aa2db385528fb71f9da2fff6f1863a0ddf238f8683c1d8fb"
+    }
+  ],
+  "backend": "tensorflow",
+  "batch_size": 16,
+  "code": {
+    "dirty_tree_sha256": "01e3a9025202e8e5f047f10f0d0cb9add4a482642c39db3d4fbb5b96688fc2d6",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "0e9d6a5e1ef8f5bd14701bad1e1de451a78c516f709043a23dea1d60fac300ed",
+  "config_sha256": "c4d10cdf49b0865acd3326cb8f2465212be1f0a727a75bec3f886e92ab027518",
+  "dataset_id": "ch3_eurosat",
+  "dataset_sha256": "8b6306b317c8ef119144c9360da8c7c58a3180da3a564d8cadd21330bc9ffe22",
+  "device": "cuda:0",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 44842,
+    "inference_p50_ms": 1.388478000080795,
+    "inference_p95_ms": 2.3652831499475724,
+    "peak_ram_bytes": 1884119040,
+    "peak_vram_bytes": 69202944,
+    "timed_repeats": 30,
+    "train_seconds": 117.05218630699983,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "cnn",
+  "finished_at": "2026-10-18T00:00:34.515550+00:00",
+  "implementation": "keras",
+  "metrics": [
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "accuracy",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.7
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "macro_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.6806027680433766
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "weighted_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.6895627442139142
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "auroc",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.9569634685815067
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "average_precision",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.7580580007676548
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_0",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.8111111111111111
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.76
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_2",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.44
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_3",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.2693333333333333
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_4",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.9306666666666666
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_5",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.72
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_6",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.5226666666666666
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_7",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.86
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_8",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.7013333333333334
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_9",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.9288888888888889
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase27/runs/ch3_eurosat_cnn_keras_s42/model_contract.json",
+    "sha256": "6bb77a2dee617efab93a65961d9282e1c385187755d4392b251f990e02ce2014"
+  },
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch3_eurosat/preprocessing.json",
+    "sha256": "b4ea371485d86eda5fad7cd09ae93aa897aa4c8b65c8bca2fc0b21f7a0fbc542"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch3_eurosat_cnn_keras_s42",
+  "schema_version": "3.0.0",
+  "seed": 42,
+  "split": "validation",
+  "split_id": "ch3_eurosat_v3_seed42",
+  "split_sha256": "369ba3a92317273cad5340c6a723da12515c95ee545fb64e36fbf1d7d85a8e50",
+  "started_at": "2026-10-17T23:58:39.581543+00:00",
+  "status": "succeeded",
+  "subset_sha256": "f3b1bb18695870b08fd2aec5548a79b308df5688570f11a844eacd00680138ec",
+  "test_seal_id": null,
+  "track": "matched_subset",
+  "warnings": [
+    "Academic demonstration, not medical diagnosis",
+    "No verified patient/geographic independence",
+    "Matched subset and low resolution, not state-of-the-art full-data benchmark",
+    "RAM is process-lifetime RSS; VRAM is framework allocator",
+    "Train wall includes validation/checkpoint I/O; inference model+transfer only",
+    "TEST records inherit validation timing, not a new speed benchmark"
+  ]
+}

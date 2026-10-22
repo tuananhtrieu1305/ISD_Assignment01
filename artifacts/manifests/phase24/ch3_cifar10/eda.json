@@ -1,0 +1,198 @@
+{
+  "comments": [
+    "Giữ nguyên 10.000 ảnh official TEST, kể cả bản trùng trong chính TEST.",
+    "Ảnh official train trùng pixel với TEST phải quarantine, không được âm thầm chuyển/xóa TEST.",
+    "Đọc binary, không dùng pickle; test chỉ được đánh giá sau khi khóa release thí nghiệm."
+  ],
+  "dataset_id": "ch3_cifar10",
+  "distribution_summary": {
+    "class_by_partition": {
+      "test": {
+        "0": 1000,
+        "1": 1000,
+        "2": 1000,
+        "3": 1000,
+        "4": 1000,
+        "5": 1000,
+        "6": 1000,
+        "7": 1000,
+        "8": 1000,
+        "9": 1000
+      },
+      "train": {
+        "0": 4500,
+        "1": 4500,
+        "2": 4500,
+        "3": 4500,
+        "4": 4500,
+        "5": 4500,
+        "6": 4500,
+        "7": 4500,
+        "8": 4500,
+        "9": 4500
+      },
+      "validation": {
+        "0": 500,
+        "1": 500,
+        "2": 500,
+        "3": 500,
+        "4": 500,
+        "5": 500,
+        "6": 500,
+        "7": 500,
+        "8": 500,
+        "9": 500
+      }
+    },
+    "class_counts": {
+      "0": 6000,
+      "1": 6000,
+      "2": 6000,
+      "3": 6000,
+      "4": 6000,
+      "5": 6000,
+      "6": 6000,
+      "7": 6000,
+      "8": 6000,
+      "9": 6000
+    },
+    "decode_or_label_missing": 0,
+    "outlier_note": "IQR brightness/black fraction, no clinical quality claim or row deletion; feature_profile.json",
+    "pixel_duplicate_rows": 0,
+    "quarantine": 0
+  },
+  "figures": [
+    {
+      "path": "artifacts/figures/phase24/ch3_cifar10_samples.png",
+      "sha256": "52958b5ee4ebe372cf7e3ade70c9979dc4730119b015039192075ed38c91d789",
+      "size_bytes": 107428
+    },
+    {
+      "path": "artifacts/figures/phase24/ch3_cifar10_samples.svg",
+      "sha256": "8758f2a3c84ec828fcf15e8adc0b620e5ca40e947ac9d3c78ac0e1222403430c",
+      "size_bytes": 118886
+    },
+    {
+      "path": "artifacts/figures/phase24/ch3_cifar10_distribution.png",
+      "sha256": "803733e108a7927ac542361a44d56f8b62c5fb157b7cfe6ac273d2e48b0eb50b",
+      "size_bytes": 53682
+    },
+    {
+      "path": "artifacts/figures/phase24/ch3_cifar10_distribution.svg",
+      "sha256": "25ab52d3fe1ed61bc4f80aac507cc3420dc68b7405f7925bc355309ebc9d30bb",
+      "size_bytes": 36712
+    }
+  ],
+  "memory": {
+    "cache_all_images": false,
+    "input_batch_float32_bytes": 196608,
+    "note": "Stream/decode per image; input-only lower bound, no claim about GPU peak",
+    "one_native_decoded_rgb_bytes": 3072,
+    "vram_peak": null
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "sample_note": "Mẫu và hình chỉ lấy matched train. known_output là nhãn gốc, không phải dự đoán.",
+  "samples": [
+    {
+      "id": "data_batch_1.bin/00026",
+      "input": {
+        "member": "cifar-10-batches-bin/data_batch_1.bin",
+        "model_shape": [
+          32,
+          32,
+          3
+        ],
+        "native_shape": [
+          32,
+          32,
+          3
+        ]
+      },
+      "known_output": "3"
+    },
+    {
+      "id": "data_batch_1.bin/00028",
+      "input": {
+        "member": "cifar-10-batches-bin/data_batch_1.bin",
+        "model_shape": [
+          32,
+          32,
+          3
+        ],
+        "native_shape": [
+          32,
+          32,
+          3
+        ]
+      },
+      "known_output": "4"
+    },
+    {
+      "id": "data_batch_1.bin/00029",
+      "input": {
+        "member": "cifar-10-batches-bin/data_batch_1.bin",
+        "model_shape": [
+          32,
+          32,
+          3
+        ],
+        "native_shape": [
+          32,
+          32,
+          3
+        ]
+      },
+      "known_output": "0"
+    }
+  ],
+  "schema_version": "3.0.0",
+  "scope": "measured_image",
+  "size_and_schema": {
+    "classes": 10,
+    "counts": {
+      "test": 10000,
+      "train": 45000,
+      "validation": 5000
+    },
+    "images": 60000,
+    "label_mapping": {
+      "0": "airplane",
+      "1": "automobile",
+      "2": "bird",
+      "3": "cat",
+      "4": "deer",
+      "5": "dog",
+      "6": "frog",
+      "7": "horse",
+      "8": "ship",
+      "9": "truck"
+    },
+    "matched_subset": {
+      "path": "data/splits/v3/ch3_cifar10/matched_train.ids.jsonl.gz",
+      "sha256": "96bc6a3da4112ba292a6d2e95b999bede66bfdeefb5468af7ad277b8ec17579b",
+      "size_bytes": 13588
+    },
+    "matched_train_count": 5000,
+    "model_shape_hwc": [
+      32,
+      32,
+      3
+    ],
+    "native_shapes": [
+      [
+        32,
+        32
+      ]
+    ],
+    "quarantine_count": 0,
+    "split": {
+      "path": "data/splits/v3/ch3_cifar10/split_contract.json",
+      "sha256": "f7ac586f8cb07a23333d64c0fa238936c026b178c52add74299711111a7dd755",
+      "size_bytes": 1436
+    }
+  },
+  "source_manifest_sha256": "2c0a70d1f6e2291e57168a96b985f943547126988857528648484ed215026a04",
+  "split_note": "Gom trùng pixel gốc và sau resize. Nếu có official TEST: giữ nguyên TEST, loại bản trùng TEST khỏi development bằng quarantine; validation chỉ lấy official train. Các phép fit/class weight dùng train. Không có augmentation khác nhau giữa framework.",
+  "test_evaluation_executed": false,
+  "training_executed": false
+}

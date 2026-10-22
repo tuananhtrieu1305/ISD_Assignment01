@@ -1,0 +1,177 @@
+{
+  "diagnostics": {
+    "calibration": {
+      "bins": [
+        {
+          "bin": 0,
+          "count": 168,
+          "lower": 0.0,
+          "mean_probability": 0.07921897194777387,
+          "observed_rate": 0.017857142857142856,
+          "upper": 0.1
+        },
+        {
+          "bin": 1,
+          "count": 953,
+          "lower": 0.1,
+          "mean_probability": 0.15469750805506088,
+          "observed_rate": 0.03987408184679958,
+          "upper": 0.2
+        },
+        {
+          "bin": 2,
+          "count": 1487,
+          "lower": 0.2,
+          "mean_probability": 0.2519972116109275,
+          "observed_rate": 0.0531271015467384,
+          "upper": 0.3
+        },
+        {
+          "bin": 3,
+          "count": 1744,
+          "lower": 0.3,
+          "mean_probability": 0.3463861189335174,
+          "observed_rate": 0.051605504587155966,
+          "upper": 0.4
+        },
+        {
+          "bin": 4,
+          "count": 1004,
+          "lower": 0.4,
+          "mean_probability": 0.4447766924303832,
+          "observed_rate": 0.11155378486055777,
+          "upper": 0.5
+        },
+        {
+          "bin": 5,
+          "count": 547,
+          "lower": 0.5,
+          "mean_probability": 0.5473334243061582,
+          "observed_rate": 0.16819012797074953,
+          "upper": 0.6
+        },
+        {
+          "bin": 6,
+          "count": 369,
+          "lower": 0.6,
+          "mean_probability": 0.6480101436058527,
+          "observed_rate": 0.33062330623306235,
+          "upper": 0.7
+        },
+        {
+          "bin": 7,
+          "count": 302,
+          "lower": 0.7,
+          "mean_probability": 0.7505156061897224,
+          "observed_rate": 0.4304635761589404,
+          "upper": 0.8
+        },
+        {
+          "bin": 8,
+          "count": 110,
+          "lower": 0.8,
+          "mean_probability": 0.854211830231528,
+          "observed_rate": 0.5363636363636364,
+          "upper": 0.9
+        },
+        {
+          "bin": 9,
+          "count": 97,
+          "lower": 0.9,
+          "mean_probability": 0.9274588420291852,
+          "observed_rate": 0.7010309278350515,
+          "upper": 1.0
+        }
+      ],
+      "brier": 0.15867128870942265,
+      "ece": 0.25692349283393756,
+      "fit_calibrator": false
+    },
+    "groups": {
+      "age_ge60": {
+        "brier": 0.25774754198778105,
+        "count": 271,
+        "false_positive_rate": 0.6089385474860335,
+        "predicted_positive_rate": 0.7232472324723247,
+        "prevalence": 0.33948339483394835,
+        "recall": 0.9456521739130435,
+        "undefined_reason": null
+      },
+      "age_lt60": {
+        "brier": 0.15454691626112232,
+        "count": 6510,
+        "false_positive_rate": 0.14546393527285248,
+        "predicted_positive_rate": 0.18878648233486944,
+        "prevalence": 0.1076804915514593,
+        "recall": 0.5477888730385164,
+        "undefined_reason": null
+      }
+    },
+    "groups_are_descriptive_only": true
+  },
+  "inference_scope": "fixed TRAIN sample; model forward and host transfer, no preprocessing or inverse target",
+  "memory": {
+    "backend": "numpy",
+    "peak_vram_bytes": 0,
+    "peak_vram_reserved_bytes": 0,
+    "process_peak_ram_bytes": 251195392,
+    "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+    "requested_device": "cpu",
+    "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+    "wall_seconds": 0.996930491999592
+  },
+  "metrics": {
+    "accuracy": {
+      "undefined_reason": null,
+      "value": 0.8118271641350833
+    },
+    "auroc": {
+      "undefined_reason": null,
+      "value": 0.7758743632704669
+    },
+    "average_precision": {
+      "undefined_reason": null,
+      "value": 0.402747541165116
+    },
+    "brier": {
+      "undefined_reason": null,
+      "value": 0.15867128870942265
+    },
+    "confusion_matrix": [
+      [
+        5034,
+        954
+      ],
+      [
+        322,
+        471
+      ]
+    ],
+    "ece": {
+      "undefined_reason": null,
+      "value": 0.25692349283393756
+    },
+    "macro_f1": {
+      "undefined_reason": null,
+      "value": 0.6561122868287546
+    },
+    "per_class_recall": {
+      "0": {
+        "undefined_reason": null,
+        "value": 0.8406813627254509
+      },
+      "1": {
+        "undefined_reason": null,
+        "value": 0.5939470365699874
+      }
+    },
+    "weighted_f1": {
+      "undefined_reason": null,
+      "value": 0.8333945107179455
+    }
+  },
+  "numpy": "2.4.6",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "preprocessing_seconds": 0.023042066000016348,
+  "python": "3.11.17"
+}

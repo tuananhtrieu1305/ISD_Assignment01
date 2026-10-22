@@ -1,0 +1,46 @@
+{
+  "approved_run_ids": [
+    "ch3_cifar10_cnn_scratch_s17",
+    "ch3_cifar10_cnn_keras_s17",
+    "ch3_cifar10_cnn_pytorch_s17",
+    "ch3_cifar10_majority_s17",
+    "ch3_cifar10_cnn_scratch_s42",
+    "ch3_cifar10_cnn_keras_s42",
+    "ch3_cifar10_cnn_pytorch_s42",
+    "ch3_cifar10_majority_s42",
+    "ch3_cifar10_cnn_scratch_s73",
+    "ch3_cifar10_cnn_keras_s73",
+    "ch3_cifar10_cnn_pytorch_s73",
+    "ch3_cifar10_majority_s73"
+  ],
+  "created_at": "2026-10-18T01:40:48.673862+00:00",
+  "dataset_id": "ch3_cifar10",
+  "evaluation_count": 1,
+  "evaluator_sha256": "01e3a9025202e8e5f047f10f0d0cb9add4a482642c39db3d4fbb5b96688fc2d6",
+  "events": [
+    {
+      "actor": "phase27_offline_controller",
+      "at": "2026-10-18T01:40:48.673862+00:00",
+      "event": "lock",
+      "reason": "All CNN configurations/selections/evaluator frozen before TEST"
+    },
+    {
+      "actor": "phase27_offline_controller",
+      "at": "2026-10-18T01:47:53.725565+00:00",
+      "event": "start",
+      "reason": "One authorized evaluation batch; no retry or tuning"
+    },
+    {
+      "actor": "phase27_offline_controller",
+      "at": "2026-10-18T01:52:14.144141+00:00",
+      "event": "complete",
+      "reason": "All approved predictions and metrics saved once"
+    }
+  ],
+  "evidence_kind": "measured",
+  "locked_config_sha256": "60030b42a8ab30cb70b0da4295001932f409a5917a7655cf05ccb668340063ba",
+  "schema_version": "3.0.0",
+  "seal_id": "ch3_cifar10_phase27_test_v1",
+  "split_sha256": "f7ac586f8cb07a23333d64c0fa238936c026b178c52add74299711111a7dd755",
+  "state": "evaluated"
+}

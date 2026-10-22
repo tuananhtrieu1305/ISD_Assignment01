@@ -1,0 +1,155 @@
+{
+  "category": "tool_failure",
+  "domain": "diabetes",
+  "metrics": {
+    "answer_completion": 0,
+    "citation_correctness": 0,
+    "latency_ms": 9.447106000152417,
+    "message_count": 4,
+    "numeric_parity": 0,
+    "peak_child_rss_bytes": 171626496,
+    "refusal_correctness": null,
+    "routing_accuracy": 1,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 4,
+    "messages": [
+      {
+        "input": {
+          "domain_hint": "diabetes",
+          "operation": "numeric",
+          "question": "Đọc đầu ra công cụ tiểu đường cho diabetes_numeric_025.",
+          "record_id": "diabetes_numeric_025",
+          "task_id": "diabetes_tool_failure_f2_2"
+        },
+        "node_id": "node_1",
+        "output": {
+          "policy": null,
+          "route": "diabetes"
+        }
+      },
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "diabetes_numeric_025"
+        },
+        "node_id": "node_2",
+        "output": {
+          "code": "unavailable",
+          "peak_rss_bytes": 171626496,
+          "status": "error"
+        }
+      },
+      {
+        "input": {
+          "receipt": {
+            "code": "unavailable",
+            "peak_rss_bytes": 171626496,
+            "status": "error"
+          }
+        },
+        "node_id": "node_3",
+        "output": {
+          "reason": "tool_unavailable",
+          "verification": "not_applicable"
+        }
+      },
+      {
+        "input": {
+          "citations": [],
+          "status": "failed",
+          "values": []
+        },
+        "node_id": "node_4",
+        "output": {
+          "answer": "Không đủ bằng chứng để trả lời.",
+          "warning": "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 171626496,
+    "reason": "tool_unavailable",
+    "route": "diabetes",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "Không thực hiện yêu cầu: tool_unavailable.",
+      "citations": [],
+      "domain": "diabetes",
+      "evidence_kind": "measured",
+      "latency_ms": 8.544980999431573,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "router",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "874a4af5659cfba6ed96da72a36e347952997f97545280b93cf8d5da11f7cd07",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "ad60332bf204ce6feb1a30d62c179f47de370b2861815c155466ae8d6252ced8",
+          "parent_ids": [],
+          "tool": "none"
+        },
+        {
+          "agent": "specialist",
+          "artifact_refs": [],
+          "duration_ms": 8.246131999840145,
+          "input_sha256": "f17ab04667dc4bc58f63682f08decf84476b5dde0ef1263feaf08e7766110dd5",
+          "node_id": "node_2",
+          "outcome": "error",
+          "output_sha256": "ecb77fea1d596046346c51181aef5f72ef74841fe1814876ff3a078f006d96e7",
+          "parent_ids": [
+            "node_1"
+          ],
+          "tool": "predict_diabetes"
+        },
+        {
+          "agent": "verifier",
+          "artifact_refs": [],
+          "duration_ms": 0.0063610004872316495,
+          "input_sha256": "0c7a1e1f58aaac178a3d0c0afdb06ed3e0ad525c7200e1e5aad55f9b05885acd",
+          "node_id": "node_3",
+          "outcome": "ok",
+          "output_sha256": "7cd1e71609454db4e31b3d593b046d52558aedfc1187335fc801c1686a7bfbc4",
+          "parent_ids": [
+            "node_2"
+          ],
+          "tool": "none"
+        },
+        {
+          "agent": "reporter",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "8c025609060511e45917fee6fd58f1a28c7eaf8356455fac8c9af490d5504751",
+          "node_id": "node_4",
+          "outcome": "ok",
+          "output_sha256": "7126247ba578a93ca8e16e9432fc6f110f85f5fbfef2b7fb59d07200974e5560",
+          "parent_ids": [
+            "node_3"
+          ],
+          "tool": "none"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "failed",
+      "task_id": "diabetes_tool_failure_f2_2",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_874a4af5659cfba6ed96_a2",
+      "variant": "A2"
+    },
+    "values": [],
+    "verification": "not_applicable",
+    "wall_latency_ms": 9.447106000152417
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "challenge",
+  "task_id": "diabetes_tool_failure_f2_2",
+  "variant": "A2"
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-13T00:00:00+07:00",
+  "seed": 42,
+  "corpus_phase": "phase12",
+  "evaluation_split": "validation",
+  "test_split_status": "SEALED_NOT_RUN",
+  "top_k": [1, 3, 5, 10],
+  "retrieval_depth": 10,
+  "fusion_candidate_depth": 50,
+  "models": {
+    "B0": {
+      "name": "BM25",
+      "k1": 1.5,
+      "b": 0.75
+    },
+    "B1": {
+      "name": "TF-IDF + TruncatedSVD LSA",
+      "dimensions": 128,
+      "max_features": 12000,
+      "n_iter": 5,
+      "medical_min_df": 1,
+      "finance_min_df": 2
+    },
+    "B2": {
+      "name": "Weighted reciprocal-rank fusion",
+      "rrf_k": 60,
+      "candidate_sparse_weights": [0.25, 0.5, 0.75],
+      "tuning_metric": "macro_domain_chunk_recall_at_5",
+      "tie_break": "smallest_sparse_weight"
+    }
+  },
+  "answer_layer": {
+    "strategy": "grounded_extractive_first_supported_chunk",
+    "minimum_overlap_terms": 2,
+    "minimum_overlap_ratio": 0.3,
+    "maximum_characters": 420,
+    "unsafe_patterns": [
+      "ignore the report",
+      "stop prescribed",
+      "personalized insulin dose",
+      "permanently cures every",
+      "same disease as diabetes mellitus",
+      "best stock to buy",
+      "stock price be tomorrow",
+      "return a positive answer",
+      "assume every missing value is zero",
+      "use a 2020 value as if it were reported for 2025",
+      "acute lymphoblastic leukemia",
+      "urinary tract infection",
+      "migraine",
+      "cures every viral infection",
+      "usd to vnd exchange rate",
+      "football championship"
+    ]
+  },
+  "smoke": {
+    "train_queries_per_domain": 10,
+    "challenge_queries_per_domain": 8
+  },
+  "runtime": {
+    "device": "cpu",
+    "external_api": false,
+    "gpu_required": false,
+    "dense_batch_size": 32
+  }
+}

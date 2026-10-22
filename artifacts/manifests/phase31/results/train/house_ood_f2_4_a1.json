@@ -1,0 +1,100 @@
+{
+  "category": "ood",
+  "domain": "house",
+  "metrics": {
+    "answer_completion": 0,
+    "citation_correctness": null,
+    "latency_ms": 0.6706420008413261,
+    "message_count": 2,
+    "numeric_parity": null,
+    "peak_child_rss_bytes": 0,
+    "refusal_correctness": 1,
+    "routing_accuracy": 1,
+    "task_success": 1,
+    "tool_calls": 0,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 2,
+    "messages": [
+      {
+        "input": {
+          "domain_hint": "house",
+          "operation": "unsupported",
+          "question": "Hỏi giá nhà nhưng yêu cầu dịch ngôn ngữ hiếm. Mã yêu cầu 4.",
+          "record_id": "house_numeric_007",
+          "task_id": "house_ood_f2_4"
+        },
+        "node_id": "node_1",
+        "output": {
+          "policy": "unsupported_operation",
+          "route": "house"
+        }
+      },
+      {
+        "input": {
+          "request_sha256": "6e31aef732af51c294a7731c8a3e977a3ba271ec4d4f4356964cf86ed6bb1017"
+        },
+        "node_id": "node_2",
+        "output": {
+          "refusal": "unsupported_operation"
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 0,
+    "reason": "unsupported_operation",
+    "route": "house",
+    "tool_calls": 0,
+    "trace": {
+      "answer": "Không thực hiện yêu cầu: unsupported_operation.",
+      "citations": [],
+      "domain": "house",
+      "evidence_kind": "measured",
+      "latency_ms": 0.13835899881087244,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "router",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "6e31aef732af51c294a7731c8a3e977a3ba271ec4d4f4356964cf86ed6bb1017",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "057506c036c5f9be9daae4e4c5b4f12dd35d9c956d2385911ba7e076b443f9d6",
+          "parent_ids": [],
+          "tool": "none"
+        },
+        {
+          "agent": "specialist",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "b2185b0b708099787123f5ebb4abdd305c974d10114230b275cb189b22b45a3a",
+          "node_id": "node_2",
+          "outcome": "abstain",
+          "output_sha256": "79a833ead5c4d50caa28f3e6adfcbe32792f6e56cf90e979982b12fa14f59e36",
+          "parent_ids": [
+            "node_1"
+          ],
+          "tool": "none"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "abstained",
+      "task_id": "house_ood_f2_4",
+      "task_set_sha256": "bad7e9ef791528928971da69d47fe105ba5b24ae6918d9d831639526599ca23f",
+      "trace_id": "trace_6e31aef732af51c294a7_a1",
+      "variant": "A1"
+    },
+    "values": [],
+    "verification": "not_run",
+    "wall_latency_ms": 0.6706420008413261
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "challenge",
+  "task_id": "house_ood_f2_4",
+  "variant": "A1"
+}

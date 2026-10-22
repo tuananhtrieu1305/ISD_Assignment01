@@ -1,0 +1,130 @@
+{
+  "api_ui_implemented": false,
+  "chapter": {
+    "chapter": 6,
+    "dataset_ids": [
+      "ch6_diabetes_tasks",
+      "ch6_house_tasks",
+      "ch6_gold_tasks"
+    ],
+    "families": [
+      "multi_agent"
+    ],
+    "route": "/agents",
+    "sections": [
+      "data",
+      "theory",
+      "run",
+      "results",
+      "deployment"
+    ],
+    "title": "Hệ đa tác tử"
+  },
+  "datasets": [
+    {
+      "data_card": {
+        "path": "report/references/dataset_cards/v3_agent/ch6_diabetes_tasks.md",
+        "sha256": "59a3d1cd81c0f6d73702e63f988a178680d161ff61de931dbe7788b504c72b3c"
+      },
+      "dataset_id": "ch6_diabetes_tasks",
+      "domain": "diabetes",
+      "parent_dataset_ids": [
+        "ch2_cdc_diabetes",
+        "ch5_medquad_diabetes"
+      ],
+      "question_origin": "synthetic_template",
+      "raw_duplicated": false,
+      "source_manifest": [
+        {
+          "path": "artifacts/manifests/datasets/ch2_cdc_diabetes.json",
+          "sha256": "1e446b32f553e0af95f69b8e55372cdcf4acfc63180ad0e768c2f5f558dc95b6"
+        },
+        {
+          "path": "artifacts/manifests/datasets/ch5_medquad_diabetes.json",
+          "sha256": "f205a30da7fe1215d6a2f081160e8fae57c38bbd5f51f325cf56f23a1d19b328"
+        }
+      ],
+      "split_counts": {
+        "dev": 20,
+        "test": 20,
+        "train": 60
+      },
+      "status": "derived_ready",
+      "tasks": 100,
+      "taskset": {
+        "path": "artifacts/manifests/phase31/taskset_v2.json",
+        "sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab"
+      }
+    },
+    {
+      "data_card": {
+        "path": "report/references/dataset_cards/v3_agent/ch6_house_tasks.md",
+        "sha256": "92885ba5c4af048ef7a405262c0b4dc2d82dcaa09c685023bbd98d75cbd3fb08"
+      },
+      "dataset_id": "ch6_house_tasks",
+      "domain": "house",
+      "parent_dataset_ids": [
+        "ch2_ames_housing",
+        "ch4_bis_house_prices"
+      ],
+      "question_origin": "synthetic_template",
+      "raw_duplicated": false,
+      "source_manifest": [
+        {
+          "path": "artifacts/manifests/datasets/ch2_ames_housing.json",
+          "sha256": "7a9a39099db335cf14f759534ac4d1e29293b9c8392219e42dac1dd456ee4d4e"
+        },
+        {
+          "path": "artifacts/manifests/datasets/ch4_bis_house_prices.json",
+          "sha256": "85ea7713ea144922d757ee7b4a129e2b38d455a05852e0d8fe85adf621b41752"
+        }
+      ],
+      "split_counts": {
+        "dev": 20,
+        "test": 20,
+        "train": 60
+      },
+      "status": "derived_ready",
+      "tasks": 100,
+      "taskset": {
+        "path": "artifacts/manifests/phase31/taskset_v2.json",
+        "sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab"
+      }
+    },
+    {
+      "data_card": {
+        "path": "report/references/dataset_cards/v3_agent/ch6_gold_tasks.md",
+        "sha256": "b8d36f18be05b2887b1b8246d8bf7c432a9f4ac775e8ab9126d0e14a4b76a650"
+      },
+      "dataset_id": "ch6_gold_tasks",
+      "domain": "gold",
+      "parent_dataset_ids": [
+        "ch4_gold_pink_sheet"
+      ],
+      "question_origin": "synthetic_template",
+      "raw_duplicated": false,
+      "source_manifest": [
+        {
+          "path": "artifacts/manifests/datasets/ch4_gold_pink_sheet.json",
+          "sha256": "dfaba9c931ef045fa98ba4bd5d51e478f17cd7fb1b9911e1a3a07a1123bdbef3"
+        }
+      ],
+      "split_counts": {
+        "dev": 20,
+        "test": 20,
+        "train": 60
+      },
+      "status": "derived_ready",
+      "tasks": 100,
+      "taskset": {
+        "path": "artifacts/manifests/phase31/taskset_v2.json",
+        "sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab"
+      }
+    }
+  ],
+  "variants": [
+    "A0",
+    "A1",
+    "A2"
+  ]
+}

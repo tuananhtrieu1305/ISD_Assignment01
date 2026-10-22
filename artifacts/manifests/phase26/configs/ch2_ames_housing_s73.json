@@ -1,0 +1,209 @@
+{
+  "adapter": {
+    "path": "artifacts/manifests/phase26/adapters/ch2_ames_housing.json",
+    "sha256": "4b364beafff8be9a807257db3b34bd5ee9abead3734509e8ea4ce460e7f7fb1a"
+  },
+  "baselines": [
+    "median",
+    "ridge",
+    "random_forest"
+  ],
+  "calibration": {
+    "bins": 10,
+    "refit": false
+  },
+  "canonical_initial_weights_sha256": "cd7466d0a0adf7b853c1efdee87b7a9277d46aa8042738ec85b4a9e9824ef8a6",
+  "class_weights": null,
+  "classification_threshold": 0.5,
+  "code": {
+    "dirty_tree_sha256": "716908e33948f7786f4be6148fbb511c173f0b2f657dba0a5efa2ba030f313fb",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "dataset_id": "ch2_ames_housing",
+  "efficiency_policy": "Train wall includes validation/checkpoint progress I/O. Inference batch1/5warmup/30repeat includes host transfer; preprocessing reported separately. RAM is isolated process high-water RSS.",
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "execution_policy": {
+    "keras": "Keras/TensorFlow CUDA tf.function, canonical Adam, XLA disabled",
+    "pytorch": "native CUDA eager",
+    "scratch": "NumPy CPU eager"
+  },
+  "forest": {
+    "max_depth": 12,
+    "min_samples_leaf": 5,
+    "n_estimators": 200,
+    "n_jobs": 2
+  },
+  "group_diagnostics": "year_built <1980 versus >=1980, structural error analysis not protected-group fairness",
+  "logistic": {
+    "C": 1.0,
+    "max_iter": 1000,
+    "solver": "lbfgs"
+  },
+  "phase": 26,
+  "plan": {
+    "family": "mlp",
+    "input_shape": [
+      313
+    ],
+    "output_shape": [
+      1
+    ],
+    "plan_version": "phase25.1",
+    "steps": [
+      {
+        "id": "dense_1",
+        "input_shape": [
+          313
+        ],
+        "kind": "dense",
+        "output_shape": [
+          64
+        ]
+      },
+      {
+        "activation": "relu",
+        "id": "activation_2",
+        "input_shape": [
+          64
+        ],
+        "kind": "activation",
+        "output_shape": [
+          64
+        ]
+      },
+      {
+        "id": "dense_3",
+        "input_shape": [
+          64
+        ],
+        "kind": "dense",
+        "output_shape": [
+          64
+        ]
+      },
+      {
+        "activation": "relu",
+        "id": "activation_4",
+        "input_shape": [
+          64
+        ],
+        "kind": "activation",
+        "output_shape": [
+          64
+        ]
+      },
+      {
+        "id": "dense_5",
+        "input_shape": [
+          64
+        ],
+        "kind": "dense",
+        "output_shape": [
+          32
+        ]
+      },
+      {
+        "activation": "relu",
+        "id": "activation_6",
+        "input_shape": [
+          32
+        ],
+        "kind": "activation",
+        "output_shape": [
+          32
+        ]
+      },
+      {
+        "id": "dense_7",
+        "input_shape": [
+          32
+        ],
+        "kind": "dense",
+        "output_shape": [
+          32
+        ]
+      },
+      {
+        "activation": "relu",
+        "id": "activation_8",
+        "input_shape": [
+          32
+        ],
+        "kind": "activation",
+        "output_shape": [
+          32
+        ]
+      },
+      {
+        "id": "dense_9",
+        "input_shape": [
+          32
+        ],
+        "kind": "dense",
+        "output_shape": [
+          16
+        ]
+      },
+      {
+        "activation": "relu",
+        "id": "activation_10",
+        "input_shape": [
+          16
+        ],
+        "kind": "activation",
+        "output_shape": [
+          16
+        ]
+      },
+      {
+        "id": "dense_11",
+        "input_shape": [
+          16
+        ],
+        "kind": "dense",
+        "output_shape": [
+          1
+        ]
+      }
+    ],
+    "tiny_synthetic_only": false
+  },
+  "positive_when": "p > threshold, ties class 0; inherited Phase25 convention",
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "provenance": {
+    "adapter_sha256": "663e5521903811f2a72c35ee1d1d2dab705a13c502a626e194ed7abc9bacc357",
+    "dataset_sha256": "7a9a39099db335cf14f759534ac4d1e29293b9c8392219e42dac1dd456ee4d4e",
+    "preprocessing_sha256": "dc651db3cc84578a4fc9981ec1fbf3d14690c0d31efd7aa99651c715f8482e46",
+    "split_sha256": "3c0db0100706a3b725b7e7af50a8fc1c9ec4ab9cb37cd18e1e041686b80b6505",
+    "subset_sha256": "0542fa4ebf11a3bd430fb84850adf1b1d662be991f88c5ebb76a4c4ac611b5bd"
+  },
+  "ridge": {
+    "alpha": 1.0
+  },
+  "seed": 73,
+  "task": "mse",
+  "test_policy": "Only after every validation selection/checkpoint/config/code is frozen; all approved models evaluated once; no TEST tuning",
+  "track": "matched_subset",
+  "training": {
+    "batch_size": 32,
+    "checkpoint_selection": "minimum validation loss; never TEST",
+    "dtype": "float32",
+    "failure_policy": "Record timeout/OOM/NaN as failed, never silently reduce samples, architecture or epochs for one implementation.",
+    "gradient_clip_global_norm": 1,
+    "hyperparameter_search_trials": 1,
+    "initialization": "Generate canonical NumPy weights once per seed; convert layouts for each adapter; paired forward/gradient checks before training.",
+    "max_epochs": 40,
+    "min_delta": 1e-05,
+    "optimizer": {
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "epsilon": 1e-07,
+      "epsilon_convention": "denominator sqrt(v_hat)+epsilon; adapters must normalize or disclose numerical deviations",
+      "learning_rate": 0.001,
+      "name": "adam"
+    },
+    "patience": 6,
+    "shuffle_policy": "Saved common train batch order per seed; no split/time shuffle.",
+    "wall_time_limit_minutes": 120
+  }
+}

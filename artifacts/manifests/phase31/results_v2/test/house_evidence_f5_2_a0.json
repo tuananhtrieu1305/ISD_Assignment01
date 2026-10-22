@@ -1,0 +1,111 @@
+{
+  "category": "evidence",
+  "domain": "house",
+  "metrics": {
+    "answer_completion": 1,
+    "citation_correctness": 1,
+    "latency_ms": 6.259349998799735,
+    "message_count": 1,
+    "numeric_parity": 1,
+    "peak_child_rss_bytes": 172343296,
+    "refusal_correctness": null,
+    "routing_accuracy": null,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 1,
+    "messages": [
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "house_evidence_017"
+        },
+        "node_id": "node_1",
+        "output": {
+          "payload": {
+            "artifact_refs": [
+              {
+                "path": "data/processed/v3/ch4_bis_house_prices/series.csv.gz",
+                "sha256": "172b4e53b37e092c9a75876852c64b1deaa504eeafc92f44aecd0d8c7467b3d4"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "evidence_house_evidence_017",
+                "locator": "TRAIN_origin/Q.GB.N.628/2004-10-01T00:00:00;series=Q.GB.N.628",
+                "source_sha256": "172b4e53b37e092c9a75876852c64b1deaa504eeafc92f44aecd0d8c7467b3d4",
+                "source_url": "https://data.bis.org/topics/RPP"
+              }
+            ],
+            "text": "BIS series Q.GB.N.628; TRAIN origin 2004-10-01T00:00:00: 90.4728 index.",
+            "unit": "nominal house-price index",
+            "values": [
+              90.4728
+            ]
+          },
+          "peak_rss_bytes": 172343296,
+          "receipt_sha256": "853570a58648e0b69d4757b1ac5e751febb7ef98baa555b5a23f2ef9fd9c778f",
+          "status": "ok"
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 172343296,
+    "reason": null,
+    "route": "house",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "BIS series Q.GB.N.628; TRAIN origin 2004-10-01T00:00:00: 90.4728 index.",
+      "citations": [
+        {
+          "evidence_id": "evidence_house_evidence_017",
+          "locator": "TRAIN_origin/Q.GB.N.628/2004-10-01T00:00:00;series=Q.GB.N.628",
+          "source_sha256": "172b4e53b37e092c9a75876852c64b1deaa504eeafc92f44aecd0d8c7467b3d4",
+          "source_url": "https://data.bis.org/topics/RPP"
+        }
+      ],
+      "domain": "house",
+      "evidence_kind": "measured",
+      "latency_ms": 5.552319998969324,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "direct",
+          "artifact_refs": [
+            {
+              "path": "data/processed/v3/ch4_bis_house_prices/series.csv.gz",
+              "sha256": "172b4e53b37e092c9a75876852c64b1deaa504eeafc92f44aecd0d8c7467b3d4"
+            }
+          ],
+          "duration_ms": 5.435736000436009,
+          "input_sha256": "7c31e839614b4b54ca35447439c0314fe043347e52fd9a44198f131f9d869603",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "e9a05ed6d7a3ae6cf67f5c9322ea15ec7a9129c120de75843bf08ebb8fc193bf",
+          "parent_ids": [],
+          "tool": "lookup_series"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "succeeded",
+      "task_id": "house_evidence_f5_2",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_f5037e56c8c03ae4b286_a0",
+      "variant": "A0"
+    },
+    "values": [
+      90.4728
+    ],
+    "verification": "not_run",
+    "wall_latency_ms": 6.259349998799735
+  },
+  "parent_model_test_forward": false,
+  "split": "test",
+  "stratum": "benign",
+  "task_id": "house_evidence_f5_2",
+  "variant": "A0"
+}

@@ -1,0 +1,103 @@
+{
+  "scope": "TRAIN-only UI serving smoke; not historical TEST",
+  "job": {
+    "comparison_blockers": [],
+    "comparison_valid": true,
+    "created_at": "2026-10-22T00:46:45.898783+00:00",
+    "dataset_id": "ch4_gold_pink_sheet",
+    "expires_at": "2026-10-22T01:16:45.898783+00:00",
+    "family": "rnn",
+    "input_sha256": "e4dfde0ce15e265ff845f4ccc66a527f8f52ec0b28f04ee9756043b52533cb54",
+    "job_id": "job_00de7928be2717e760fc888a60eaf3d97c977ad6",
+    "metric_artifacts": [],
+    "request_id": "request_00de7928be2717e760fc888a60eaf3d97c977ad6",
+    "request_sha256": "a674d7ac98f426c0f0d97107d0286430b50d332e68e887b890509b334ff7222c",
+    "results": [
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "83fdf390623e3421744dac3c6fc543657ee34d833b01c0cc658040bb9b16975d",
+        "comparison_group_sha256": "97b6d53f760f289e6287c92d3e871d366b7837cdc51039eeeb124a906d86ed27",
+        "error": null,
+        "implementation": "scratch",
+        "inference_ms": 0.3934399992431281,
+        "input_sha256": "e4dfde0ce15e265ff845f4ccc66a527f8f52ec0b28f04ee9756043b52533cb54",
+        "model_id": "ch4_gold_pink_sheet_rnn_scratch_s42_main",
+        "prediction": {
+          "horizons": [
+            1,
+            3,
+            6
+          ],
+          "kind": "regression",
+          "unit": "USD/troy ounce",
+          "values": [
+            36.51909781858677,
+            34.96376895581574,
+            40.364948098887766
+          ]
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "71f63ae610b960e8cc4748c85d9eb247afa2c61228829f0e01ef6dd51f2b5969",
+        "comparison_group_sha256": "97b6d53f760f289e6287c92d3e871d366b7837cdc51039eeeb124a906d86ed27",
+        "error": null,
+        "implementation": "keras",
+        "inference_ms": 0.31001900060800835,
+        "input_sha256": "e4dfde0ce15e265ff845f4ccc66a527f8f52ec0b28f04ee9756043b52533cb54",
+        "model_id": "ch4_gold_pink_sheet_rnn_keras_s42_main",
+        "prediction": {
+          "horizons": [
+            1,
+            3,
+            6
+          ],
+          "kind": "regression",
+          "unit": "USD/troy ounce",
+          "values": [
+            36.51909781858677,
+            34.9637888210527,
+            40.364948098887766
+          ]
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "b9c7516bfcf06078545c9426d432b9982a30ab327dfbef1d4285bbef1dd0748e",
+        "comparison_group_sha256": "97b6d53f760f289e6287c92d3e871d366b7837cdc51039eeeb124a906d86ed27",
+        "error": null,
+        "implementation": "pytorch",
+        "inference_ms": 0.36104900027567055,
+        "input_sha256": "e4dfde0ce15e265ff845f4ccc66a527f8f52ec0b28f04ee9756043b52533cb54",
+        "model_id": "ch4_gold_pink_sheet_rnn_pytorch_s42_main",
+        "prediction": {
+          "horizons": [
+            1,
+            3,
+            6
+          ],
+          "kind": "regression",
+          "unit": "USD/troy ounce",
+          "values": [
+            34.544870703979655,
+            37.57570990740493,
+            36.279582656525434
+          ]
+        },
+        "status": "succeeded"
+      }
+    ],
+    "schema_version": "3.0.0",
+    "status": "succeeded",
+    "trace_ids": []
+  },
+  "input_split": "train",
+  "models_retrained": 0,
+  "source_sha256": null,
+  "historical_test_evaluation_executed": false
+}

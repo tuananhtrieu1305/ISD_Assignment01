@@ -1,0 +1,4320 @@
+{
+  "components": {
+    "responses": {
+      "Error400": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/api/$defs/error"
+            }
+          }
+        },
+        "description": "Structured error (400)"
+      },
+      "Error404": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/api/$defs/error"
+            }
+          }
+        },
+        "description": "Structured error (404)"
+      },
+      "Error409": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/api/$defs/error"
+            }
+          }
+        },
+        "description": "Structured error (409)"
+      },
+      "Error413": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/api/$defs/error"
+            }
+          }
+        },
+        "description": "Structured error (413)"
+      },
+      "Error415": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/api/$defs/error"
+            }
+          }
+        },
+        "description": "Structured error (415)"
+      },
+      "Error422": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/api/$defs/error"
+            }
+          }
+        },
+        "description": "Structured error (422)"
+      },
+      "Error429": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/api/$defs/error"
+            }
+          }
+        },
+        "description": "Structured error (429)"
+      },
+      "Error500": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/api/$defs/error"
+            }
+          }
+        },
+        "description": "Structured error (500)"
+      },
+      "Error503": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/api/$defs/error"
+            }
+          }
+        },
+        "description": "Structured error (503)"
+      }
+    },
+    "schemas": {
+      "agent": {
+        "additionalProperties": false,
+        "properties": {
+          "answer": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "citations": {
+            "items": {
+              "$ref": "#/components/schemas/common/$defs/citation"
+            },
+            "maxItems": 20,
+            "minItems": 0,
+            "type": "array"
+          },
+          "domain": {
+            "enum": [
+              "diabetes",
+              "house",
+              "gold"
+            ]
+          },
+          "evidence_kind": {
+            "enum": [
+              "measured",
+              "synthetic_fixture",
+              "historical_baseline"
+            ]
+          },
+          "latency_ms": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "limitations": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 20,
+            "minItems": 1,
+            "type": "array"
+          },
+          "nodes": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "agent": {
+                  "enum": [
+                    "direct",
+                    "router",
+                    "specialist",
+                    "verifier",
+                    "reporter"
+                  ]
+                },
+                "artifact_refs": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "path": {
+                        "$ref": "#/components/schemas/common/$defs/path"
+                      },
+                      "sha256": {
+                        "pattern": "^[a-f0-9]{64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "path",
+                      "sha256"
+                    ],
+                    "type": "object"
+                  },
+                  "maxItems": 20,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "duration_ms": {
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "input_sha256": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                },
+                "node_id": {
+                  "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                  "type": "string"
+                },
+                "outcome": {
+                  "enum": [
+                    "ok",
+                    "abstain",
+                    "error",
+                    "timeout"
+                  ]
+                },
+                "output_sha256": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                },
+                "parent_ids": {
+                  "items": {
+                    "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                    "type": "string"
+                  },
+                  "maxItems": 10,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "tool": {
+                  "enum": [
+                    "none",
+                    "predict_diabetes",
+                    "predict_house",
+                    "forecast_gold",
+                    "retrieve_medical",
+                    "retrieve_finance",
+                    "lookup_series"
+                  ]
+                }
+              },
+              "required": [
+                "node_id",
+                "agent",
+                "parent_ids",
+                "tool",
+                "input_sha256",
+                "output_sha256",
+                "artifact_refs",
+                "duration_ms",
+                "outcome"
+              ],
+              "type": "object"
+            },
+            "maxItems": 32,
+            "minItems": 1,
+            "type": "array"
+          },
+          "schema_version": {
+            "const": "3.0.0"
+          },
+          "status": {
+            "enum": [
+              "succeeded",
+              "abstained",
+              "failed",
+              "timeout"
+            ]
+          },
+          "task_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "task_set_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "trace_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "variant": {
+            "enum": [
+              "A0",
+              "A1",
+              "A2"
+            ]
+          }
+        },
+        "required": [
+          "schema_version",
+          "evidence_kind",
+          "trace_id",
+          "task_id",
+          "task_set_sha256",
+          "variant",
+          "domain",
+          "status",
+          "nodes",
+          "answer",
+          "citations",
+          "limitations",
+          "latency_ms"
+        ],
+        "title": "AI term paper V3 agent contract",
+        "type": "object"
+      },
+      "api": {
+        "$defs": {
+          "accepted": {
+            "additionalProperties": false,
+            "properties": {
+              "job_id": {
+                "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                "type": "string"
+              },
+              "poll_url": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "request_id": {
+                "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                "type": "string"
+              },
+              "schema_version": {
+                "const": "3.0.0"
+              }
+            },
+            "required": [
+              "schema_version",
+              "request_id",
+              "job_id",
+              "poll_url"
+            ],
+            "type": "object"
+          },
+          "agent_task": {
+            "additionalProperties": false,
+            "properties": {
+              "dataset_id": {
+                "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                "type": "string"
+              },
+              "question": {
+                "maxLength": 1000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "schema_version": {
+                "const": "3.0.0"
+              },
+              "variants": {
+                "const": [
+                  "A0",
+                  "A1",
+                  "A2"
+                ]
+              }
+            },
+            "required": [
+              "schema_version",
+              "dataset_id",
+              "question",
+              "variants"
+            ],
+            "type": "object"
+          },
+          "cancel_request": {
+            "additionalProperties": false,
+            "properties": {
+              "reason": {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "reason"
+            ],
+            "type": "object"
+          },
+          "chapter": {
+            "additionalProperties": false,
+            "properties": {
+              "chapter": {
+                "maximum": 6,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "dataset_ids": {
+                "items": {
+                  "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                  "type": "string"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "type": "array"
+              },
+              "families": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 4,
+                "minItems": 0,
+                "type": "array"
+              },
+              "route": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "sections": {
+                "items": {
+                  "enum": [
+                    "data",
+                    "theory",
+                    "run",
+                    "results",
+                    "deployment"
+                  ]
+                },
+                "maxItems": 5,
+                "minItems": 1,
+                "type": "array"
+              },
+              "title": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "chapter",
+              "title",
+              "route",
+              "dataset_ids",
+              "families",
+              "sections"
+            ],
+            "type": "object"
+          },
+          "error": {
+            "additionalProperties": false,
+            "properties": {
+              "error": {
+                "additionalProperties": false,
+                "properties": {
+                  "code": {
+                    "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                    "type": "string"
+                  },
+                  "details": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "code": {
+                          "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                          "type": "string"
+                        },
+                        "field": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "message": {
+                          "minLength": 1,
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "field",
+                        "code",
+                        "message"
+                      ],
+                      "type": "object"
+                    },
+                    "maxItems": 30,
+                    "minItems": 0,
+                    "type": "array"
+                  },
+                  "message": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "retryable": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "code",
+                  "message",
+                  "retryable",
+                  "details"
+                ],
+                "type": "object"
+              },
+              "request_id": {
+                "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                "type": "string"
+              },
+              "schema_version": {
+                "const": "3.0.0"
+              }
+            },
+            "required": [
+              "schema_version",
+              "request_id",
+              "error"
+            ],
+            "type": "object"
+          },
+          "health": {
+            "additionalProperties": false,
+            "properties": {
+              "components": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                      "type": "string"
+                    },
+                    "reason": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "status": {
+                      "enum": [
+                        "ready",
+                        "unavailable"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "status",
+                    "reason"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 50,
+                "minItems": 0,
+                "type": "array"
+              },
+              "schema_version": {
+                "const": "3.0.0"
+              },
+              "status": {
+                "enum": [
+                  "alive",
+                  "ready",
+                  "degraded",
+                  "not_ready"
+                ]
+              }
+            },
+            "required": [
+              "schema_version",
+              "status",
+              "components"
+            ],
+            "type": "object"
+          },
+          "job": {
+            "additionalProperties": false,
+            "properties": {
+              "comparison_blockers": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 10,
+                "minItems": 0,
+                "type": "array"
+              },
+              "comparison_valid": {
+                "type": "boolean"
+              },
+              "created_at": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "dataset_id": {
+                "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                "type": "string"
+              },
+              "expires_at": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "family": {
+                "enum": [
+                  "mlp",
+                  "cnn",
+                  "rnn",
+                  "lstm",
+                  "kg_rag",
+                  "multi_agent"
+                ]
+              },
+              "input_sha256": {
+                "$ref": "#/components/schemas/common/$defs/sha256"
+              },
+              "job_id": {
+                "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                "type": "string"
+              },
+              "metric_artifacts": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "path": {
+                      "$ref": "#/components/schemas/common/$defs/path"
+                    },
+                    "sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 20,
+                "minItems": 0,
+                "type": "array"
+              },
+              "request_id": {
+                "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                "type": "string"
+              },
+              "request_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "results": {
+                "items": {
+                  "$ref": "#/components/schemas/api/$defs/result"
+                },
+                "maxItems": 5,
+                "minItems": 0,
+                "type": "array"
+              },
+              "schema_version": {
+                "const": "3.0.0"
+              },
+              "status": {
+                "enum": [
+                  "queued",
+                  "running",
+                  "succeeded",
+                  "partial_failed",
+                  "failed",
+                  "cancelled",
+                  "expired"
+                ]
+              },
+              "trace_ids": {
+                "items": {
+                  "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                  "type": "string"
+                },
+                "maxItems": 5,
+                "minItems": 0,
+                "type": "array"
+              }
+            },
+            "required": [
+              "schema_version",
+              "request_id",
+              "job_id",
+              "request_sha256",
+              "status",
+              "dataset_id",
+              "family",
+              "created_at",
+              "expires_at",
+              "results",
+              "comparison_valid",
+              "comparison_blockers",
+              "trace_ids",
+              "metric_artifacts",
+              "input_sha256"
+            ],
+            "type": "object"
+          },
+          "model_summary": {
+            "additionalProperties": false,
+            "properties": {
+              "backend": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "contract": {
+                "additionalProperties": false,
+                "properties": {
+                  "path": {
+                    "$ref": "#/components/schemas/common/$defs/path"
+                  },
+                  "sha256": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "dataset_id": {
+                "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                "type": "string"
+              },
+              "family": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "implementation": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "model_id": {
+                "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                "type": "string"
+              },
+              "reason": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "ready",
+                  "unavailable"
+                ]
+              }
+            },
+            "required": [
+              "model_id",
+              "dataset_id",
+              "family",
+              "implementation",
+              "backend",
+              "contract",
+              "status",
+              "reason"
+            ],
+            "type": "object"
+          },
+          "prediction": {
+            "oneOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "const": "classification"
+                  },
+                  "label": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "probabilities": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "label": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "value": {
+                          "maximum": 1,
+                          "minimum": 0,
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "label",
+                        "value"
+                      ],
+                      "type": "object"
+                    },
+                    "maxItems": 100,
+                    "minItems": 2,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "label",
+                  "probabilities"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "horizons": {
+                    "items": {
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "maxItems": 24,
+                    "minItems": 1,
+                    "type": "array"
+                  },
+                  "kind": {
+                    "const": "regression"
+                  },
+                  "unit": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "values": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 24,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "values",
+                  "unit",
+                  "horizons"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "abstained": {
+                    "type": "boolean"
+                  },
+                  "citations": {
+                    "items": {
+                      "$ref": "#/components/schemas/common/$defs/citation"
+                    },
+                    "maxItems": 20,
+                    "minItems": 0,
+                    "type": "array"
+                  },
+                  "kind": {
+                    "const": "answer"
+                  },
+                  "text": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "text",
+                  "abstained",
+                  "citations"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "result": {
+            "additionalProperties": false,
+            "properties": {
+              "actual_backend": {
+                "enum": [
+                  "numpy",
+                  "tensorflow",
+                  "torch",
+                  "not_run"
+                ]
+              },
+              "actual_device": {
+                "enum": [
+                  "cpu",
+                  "cuda:0",
+                  "not_run"
+                ]
+              },
+              "artifact_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "comparison_group_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "error": {
+                "oneOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                        "type": "string"
+                      },
+                      "message": {
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "message"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "implementation": {
+                "enum": [
+                  "scratch",
+                  "keras",
+                  "pytorch",
+                  "B0",
+                  "B1",
+                  "B2",
+                  "B3",
+                  "B4",
+                  "A0",
+                  "A1",
+                  "A2"
+                ]
+              },
+              "inference_ms": {
+                "minimum": 0,
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "input_sha256": {
+                "$ref": "#/components/schemas/common/$defs/sha256"
+              },
+              "model_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "prediction": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/api/$defs/prediction"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "status": {
+                "enum": [
+                  "succeeded",
+                  "failed",
+                  "unavailable"
+                ]
+              }
+            },
+            "required": [
+              "implementation",
+              "status",
+              "model_id",
+              "actual_device",
+              "inference_ms",
+              "artifact_sha256",
+              "prediction",
+              "error",
+              "actual_backend",
+              "input_sha256",
+              "comparison_group_sha256"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "chapter": {
+            "maximum": 6,
+            "minimum": 2,
+            "type": "integer"
+          },
+          "dataset_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "family": {
+            "enum": [
+              "mlp",
+              "cnn",
+              "rnn",
+              "lstm",
+              "kg_rag",
+              "multi_agent"
+            ]
+          },
+          "implementations": {
+            "oneOf": [
+              {
+                "const": [
+                  "scratch",
+                  "keras",
+                  "pytorch"
+                ]
+              },
+              {
+                "const": [
+                  "B0",
+                  "B1",
+                  "B2",
+                  "B3",
+                  "B4"
+                ]
+              },
+              {
+                "const": [
+                  "A0",
+                  "A1",
+                  "A2"
+                ]
+              }
+            ]
+          },
+          "input": {
+            "$ref": "#/components/schemas/common/$defs/payload"
+          },
+          "schema_version": {
+            "const": "3.0.0"
+          }
+        },
+        "required": [
+          "schema_version",
+          "chapter",
+          "dataset_id",
+          "family",
+          "implementations",
+          "input"
+        ],
+        "title": "AI term paper V3 api contract",
+        "type": "object"
+      },
+      "artifact": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "cpu_loadable": {
+            "type": "boolean"
+          },
+          "evidence_kind": {
+            "enum": [
+              "measured",
+              "synthetic_fixture",
+              "historical_baseline"
+            ]
+          },
+          "kind": {
+            "enum": [
+              "checkpoint",
+              "preprocessor",
+              "model_contract",
+              "metric",
+              "predictions",
+              "figure",
+              "trace",
+              "report",
+              "dataset",
+              "split"
+            ]
+          },
+          "load_policy": {
+            "enum": [
+              "numpy_no_pickle",
+              "keras_safe_mode",
+              "torch_weights_only",
+              "data_only",
+              "legacy_allowlist"
+            ]
+          },
+          "parent_artifacts": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "$ref": "#/components/schemas/common/$defs/path"
+                },
+                "sha256": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256"
+              ],
+              "type": "object"
+            },
+            "maxItems": 20,
+            "minItems": 0,
+            "type": "array"
+          },
+          "path": {
+            "$ref": "#/components/schemas/common/$defs/path"
+          },
+          "producer_run_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "3.0.0"
+          },
+          "serialization": {
+            "enum": [
+              "npz",
+              "keras",
+              "torch_state_dict",
+              "json",
+              "jsonl",
+              "csv",
+              "png",
+              "svg",
+              "docx",
+              "pdf",
+              "legacy_trusted_joblib"
+            ]
+          },
+          "sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "schema_version",
+          "evidence_kind",
+          "artifact_id",
+          "kind",
+          "path",
+          "sha256",
+          "size_bytes",
+          "producer_run_id",
+          "serialization",
+          "load_policy",
+          "cpu_loadable",
+          "parent_artifacts"
+        ],
+        "title": "AI term paper V3 artifact contract",
+        "type": "object"
+      },
+      "common": {
+        "$defs": {
+          "artifact_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "$ref": "#/components/schemas/common/$defs/path"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "type": "object"
+          },
+          "citation": {
+            "additionalProperties": false,
+            "properties": {
+              "evidence_id": {
+                "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                "type": "string"
+              },
+              "locator": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "source_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "source_url": {
+                "format": "uri",
+                "pattern": "^https?://",
+                "type": "string"
+              }
+            },
+            "required": [
+              "evidence_id",
+              "source_url",
+              "locator",
+              "source_sha256"
+            ],
+            "type": "object"
+          },
+          "family": {
+            "enum": [
+              "mlp",
+              "cnn",
+              "rnn",
+              "lstm"
+            ]
+          },
+          "formula": {
+            "additionalProperties": false,
+            "properties": {
+              "example": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "expression": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "plain_explanation": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "symbols": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "meaning": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "symbol": {
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "symbol",
+                    "meaning"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 30,
+                "minItems": 1,
+                "type": "array"
+              },
+              "why_needed": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "expression",
+              "symbols",
+              "why_needed",
+              "plain_explanation",
+              "example"
+            ],
+            "type": "object"
+          },
+          "id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "implementation": {
+            "enum": [
+              "scratch",
+              "keras",
+              "pytorch"
+            ]
+          },
+          "path": {
+            "pattern": "^(data|artifacts|experiments|report)/(?!.*\\.\\.)[A-Za-z0-9_./-]+$",
+            "type": "string"
+          },
+          "payload": {
+            "oneOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "features": {
+                    "additionalProperties": {
+                      "type": [
+                        "number",
+                        "string",
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "maxProperties": 128,
+                    "minProperties": 1,
+                    "type": "object"
+                  },
+                  "kind": {
+                    "const": "tabular"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "features"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "data": {
+                    "maxLength": 6291456,
+                    "minLength": 4,
+                    "pattern": "^[A-Za-z0-9+/]+={0,2}$",
+                    "type": "string"
+                  },
+                  "encoding": {
+                    "const": "base64"
+                  },
+                  "kind": {
+                    "const": "image"
+                  },
+                  "media_type": {
+                    "enum": [
+                      "image/png",
+                      "image/jpeg"
+                    ]
+                  }
+                },
+                "required": [
+                  "kind",
+                  "encoding",
+                  "media_type",
+                  "data"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "as_of": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "kind": {
+                    "const": "sequence"
+                  },
+                  "values": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 64,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 720,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "values",
+                  "as_of"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "domain": {
+                    "enum": [
+                      "auto",
+                      "medical",
+                      "finance",
+                      "diabetes",
+                      "house",
+                      "gold"
+                    ]
+                  },
+                  "kind": {
+                    "const": "question"
+                  },
+                  "text": {
+                    "maxLength": 1000,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "text",
+                  "domain"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "shape": {
+            "items": {
+              "oneOf": [
+                {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                {
+                  "enum": [
+                    "batch",
+                    "time",
+                    "features",
+                    "classes"
+                  ]
+                }
+              ]
+            },
+            "maxItems": 6,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "title": "AI term paper V3 common contract"
+      },
+      "dataset": {
+        "additionalProperties": false,
+        "properties": {
+          "chapter": {
+            "maximum": 6,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "columns": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "dtype": {
+                  "enum": [
+                    "number",
+                    "integer",
+                    "category",
+                    "string",
+                    "datetime",
+                    "boolean"
+                  ]
+                },
+                "name": {
+                  "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                  "type": "string"
+                },
+                "role": {
+                  "enum": [
+                    "feature",
+                    "target",
+                    "id",
+                    "group",
+                    "time",
+                    "evidence"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "dtype",
+                "role"
+              ],
+              "type": "object"
+            },
+            "maxItems": 256,
+            "minItems": 0,
+            "type": "array"
+          },
+          "data_card_path": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/common/$defs/path"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "dataset_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "evidence_kind": {
+            "enum": [
+              "measured",
+              "synthetic_fixture",
+              "historical_baseline"
+            ]
+          },
+          "files": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "$ref": "#/components/schemas/common/$defs/path"
+                },
+                "sha256": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                },
+                "size_bytes": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "size_bytes"
+              ],
+              "type": "object"
+            },
+            "maxItems": 20000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "kind": {
+            "enum": [
+              "tabular",
+              "image",
+              "timeseries",
+              "qa",
+              "kg",
+              "metadata",
+              "task_view"
+            ]
+          },
+          "logical_size": {
+            "additionalProperties": false,
+            "properties": {
+              "features": {
+                "minimum": 0,
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "records": {
+                "minimum": 0,
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "unit": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "records",
+              "features",
+              "unit"
+            ],
+            "type": "object"
+          },
+          "parent_dataset_ids": {
+            "items": {
+              "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+              "type": "string"
+            },
+            "maxItems": 6,
+            "minItems": 0,
+            "type": "array"
+          },
+          "schema_version": {
+            "const": "3.0.0"
+          },
+          "source": {
+            "additionalProperties": false,
+            "properties": {
+              "accessed_at": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "citation": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "license_note": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "license_status": {
+                "enum": [
+                  "approved",
+                  "pending",
+                  "restricted"
+                ]
+              },
+              "url": {
+                "format": "uri",
+                "pattern": "^https?://",
+                "type": "string"
+              },
+              "version": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "url",
+              "version",
+              "accessed_at",
+              "citation",
+              "license_status",
+              "license_note"
+            ],
+            "type": "object"
+          },
+          "status": {
+            "enum": [
+              "declared",
+              "ready",
+              "pending_user_download",
+              "rejected"
+            ]
+          },
+          "target": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "schema_version",
+          "evidence_kind",
+          "dataset_id",
+          "chapter",
+          "kind",
+          "status",
+          "source",
+          "files",
+          "logical_size",
+          "target",
+          "columns",
+          "parent_dataset_ids",
+          "data_card_path"
+        ],
+        "title": "AI term paper V3 dataset contract",
+        "type": "object"
+      },
+      "function_contract": {
+        "properties": {
+          "composition": {
+            "type": "array"
+          },
+          "functions": {
+            "type": "array"
+          },
+          "schema_version": {
+            "enum": [
+              "phase30.retrieval_pipeline.1",
+              "phase31.agent_pipeline.1"
+            ]
+          }
+        },
+        "required": [
+          "schema_version",
+          "functions",
+          "composition"
+        ],
+        "type": "object"
+      },
+      "model": {
+        "additionalProperties": false,
+        "properties": {
+          "backend": {
+            "enum": [
+              "numpy",
+              "tensorflow",
+              "torch"
+            ]
+          },
+          "comparison_group_sha256": {
+            "$ref": "#/components/schemas/common/$defs/sha256"
+          },
+          "composition": {
+            "items": {
+              "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+              "type": "string"
+            },
+            "maxItems": 128,
+            "minItems": 1,
+            "type": "array"
+          },
+          "composition_plain": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "config_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "dataset_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "dataset_sha256": {
+            "$ref": "#/components/schemas/common/$defs/sha256"
+          },
+          "evidence_kind": {
+            "enum": [
+              "measured",
+              "synthetic_fixture",
+              "historical_baseline"
+            ]
+          },
+          "family": {
+            "$ref": "#/components/schemas/common/$defs/family"
+          },
+          "functions": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "corner_case": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "formula": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/common/$defs/formula"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "id": {
+                  "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                  "type": "string"
+                },
+                "input_shape": {
+                  "$ref": "#/components/schemas/common/$defs/shape"
+                },
+                "mapping": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "keras": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "pytorch": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "scratch": {
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "scratch",
+                    "keras",
+                    "pytorch"
+                  ],
+                  "type": "object"
+                },
+                "output_shape": {
+                  "$ref": "#/components/schemas/common/$defs/shape"
+                },
+                "parameters": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "role": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "signature": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "signature",
+                "role",
+                "input_shape",
+                "output_shape",
+                "parameters",
+                "corner_case",
+                "formula",
+                "mapping"
+              ],
+              "type": "object"
+            },
+            "maxItems": 128,
+            "minItems": 1,
+            "type": "array"
+          },
+          "implementation": {
+            "$ref": "#/components/schemas/common/$defs/implementation"
+          },
+          "input_shape": {
+            "$ref": "#/components/schemas/common/$defs/shape"
+          },
+          "layers": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "function_id": {
+                  "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                  "type": "string"
+                },
+                "id": {
+                  "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                  "type": "string"
+                },
+                "input_shape": {
+                  "$ref": "#/components/schemas/common/$defs/shape"
+                },
+                "kind": {
+                  "enum": [
+                    "dense",
+                    "conv1d",
+                    "conv2d",
+                    "rnn",
+                    "lstm",
+                    "input",
+                    "activation",
+                    "pooling",
+                    "dropout",
+                    "reshape",
+                    "normalization"
+                  ]
+                },
+                "output_shape": {
+                  "$ref": "#/components/schemas/common/$defs/shape"
+                },
+                "parameter_count": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "id",
+                "kind",
+                "parameter_count",
+                "input_shape",
+                "output_shape",
+                "function_id"
+              ],
+              "type": "object"
+            },
+            "maxItems": 64,
+            "minItems": 6,
+            "type": "array"
+          },
+          "model_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "output_shape": {
+            "$ref": "#/components/schemas/common/$defs/shape"
+          },
+          "parameter_count": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "preprocessing": {
+            "$ref": "#/components/schemas/common/$defs/artifact_ref"
+          },
+          "recurrent_unroll": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "schema_version": {
+            "const": "3.0.0"
+          }
+        },
+        "required": [
+          "schema_version",
+          "evidence_kind",
+          "model_id",
+          "dataset_id",
+          "family",
+          "implementation",
+          "backend",
+          "parameter_count",
+          "input_shape",
+          "output_shape",
+          "layers",
+          "functions",
+          "composition",
+          "composition_plain",
+          "recurrent_unroll",
+          "config_sha256",
+          "dataset_sha256",
+          "comparison_group_sha256",
+          "preprocessing"
+        ],
+        "title": "AI term paper V3 model contract",
+        "type": "object"
+      },
+      "run": {
+        "additionalProperties": false,
+        "properties": {
+          "artifacts": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "$ref": "#/components/schemas/common/$defs/path"
+                },
+                "sha256": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256"
+              ],
+              "type": "object"
+            },
+            "maxItems": 30,
+            "minItems": 0,
+            "type": "array"
+          },
+          "backend": {
+            "enum": [
+              "numpy",
+              "tensorflow",
+              "torch"
+            ]
+          },
+          "batch_size": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "code": {
+            "additionalProperties": false,
+            "properties": {
+              "dirty_tree_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "git_commit": {
+                "pattern": "^[a-f0-9]{40}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "git_commit",
+              "dirty_tree_sha256"
+            ],
+            "type": "object"
+          },
+          "comparison_group_sha256": {
+            "$ref": "#/components/schemas/common/$defs/sha256"
+          },
+          "config_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "dataset_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "dataset_sha256": {
+            "$ref": "#/components/schemas/common/$defs/sha256"
+          },
+          "device": {
+            "enum": [
+              "cpu",
+              "cuda:0"
+            ]
+          },
+          "dtype": {
+            "enum": [
+              "float32",
+              "float64"
+            ]
+          },
+          "efficiency": {
+            "additionalProperties": false,
+            "properties": {
+              "checkpoint_bytes": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "inference_p50_ms": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "inference_p95_ms": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "peak_ram_bytes": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "peak_vram_bytes": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "timed_repeats": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "train_seconds": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "warmup_batches": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "train_seconds",
+              "inference_p50_ms",
+              "inference_p95_ms",
+              "warmup_batches",
+              "timed_repeats",
+              "peak_ram_bytes",
+              "peak_vram_bytes",
+              "checkpoint_bytes"
+            ],
+            "type": "object"
+          },
+          "environment_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "evidence_kind": {
+            "enum": [
+              "measured",
+              "synthetic_fixture",
+              "historical_baseline"
+            ]
+          },
+          "family": {
+            "$ref": "#/components/schemas/common/$defs/family"
+          },
+          "finished_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "implementation": {
+            "$ref": "#/components/schemas/common/$defs/implementation"
+          },
+          "metrics": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "direction": {
+                  "enum": [
+                    "min",
+                    "max"
+                  ]
+                },
+                "horizon": {
+                  "minimum": 1,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "name": {
+                  "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+                  "type": "string"
+                },
+                "undefined_reason": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "unit": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "value": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "value",
+                "unit",
+                "direction",
+                "horizon",
+                "undefined_reason"
+              ],
+              "type": "object"
+            },
+            "maxItems": 64,
+            "minItems": 1,
+            "type": "array"
+          },
+          "model_contract": {
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "$ref": "#/components/schemas/common/$defs/path"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "type": "object"
+          },
+          "preprocessing": {
+            "$ref": "#/components/schemas/common/$defs/artifact_ref"
+          },
+          "protocol_sha256": {
+            "$ref": "#/components/schemas/common/$defs/sha256"
+          },
+          "run_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "3.0.0"
+          },
+          "seed": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "split": {
+            "enum": [
+              "validation",
+              "test"
+            ]
+          },
+          "split_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "split_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "started_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "succeeded",
+              "failed",
+              "cancelled"
+            ]
+          },
+          "subset_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "test_seal_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "track": {
+            "enum": [
+              "full_data",
+              "matched_subset"
+            ]
+          },
+          "warnings": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 30,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "schema_version",
+          "evidence_kind",
+          "run_id",
+          "dataset_id",
+          "split_id",
+          "split_sha256",
+          "config_sha256",
+          "code",
+          "environment_sha256",
+          "model_contract",
+          "implementation",
+          "backend",
+          "family",
+          "track",
+          "seed",
+          "subset_sha256",
+          "status",
+          "split",
+          "test_seal_id",
+          "device",
+          "dtype",
+          "batch_size",
+          "started_at",
+          "finished_at",
+          "metrics",
+          "efficiency",
+          "artifacts",
+          "warnings",
+          "dataset_sha256",
+          "comparison_group_sha256",
+          "protocol_sha256",
+          "preprocessing"
+        ],
+        "title": "AI term paper V3 run contract",
+        "type": "object"
+      },
+      "seal": {
+        "additionalProperties": false,
+        "properties": {
+          "approved_run_ids": {
+            "items": {
+              "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+              "type": "string"
+            },
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array"
+          },
+          "created_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "dataset_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "evaluation_count": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "evaluator_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "events": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "actor": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "at": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "event": {
+                  "enum": [
+                    "lock",
+                    "start",
+                    "complete",
+                    "fail"
+                  ]
+                },
+                "reason": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "at",
+                "event",
+                "actor",
+                "reason"
+              ],
+              "type": "object"
+            },
+            "maxItems": 10,
+            "minItems": 0,
+            "type": "array"
+          },
+          "evidence_kind": {
+            "enum": [
+              "measured",
+              "synthetic_fixture",
+              "historical_baseline"
+            ]
+          },
+          "locked_config_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "3.0.0"
+          },
+          "seal_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "split_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "draft",
+              "locked",
+              "evaluating",
+              "evaluated",
+              "failed_sealed"
+            ]
+          }
+        },
+        "required": [
+          "schema_version",
+          "evidence_kind",
+          "seal_id",
+          "dataset_id",
+          "split_sha256",
+          "locked_config_sha256",
+          "evaluator_sha256",
+          "state",
+          "evaluation_count",
+          "approved_run_ids",
+          "created_at",
+          "events"
+        ],
+        "title": "AI term paper V3 seal contract",
+        "type": "object"
+      },
+      "split": {
+        "additionalProperties": false,
+        "properties": {
+          "dataset_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "dataset_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "evidence_kind": {
+            "enum": [
+              "measured",
+              "synthetic_fixture",
+              "historical_baseline"
+            ]
+          },
+          "group_key": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "leakage_audit": {
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "$ref": "#/components/schemas/common/$defs/path"
+              },
+              "sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "type": "object"
+          },
+          "method": {
+            "enum": [
+              "stratified",
+              "group_stratified",
+              "official",
+              "temporal",
+              "benchmark_only"
+            ]
+          },
+          "partitions": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "count": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "ids": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "path": {
+                      "$ref": "#/components/schemas/common/$defs/path"
+                    },
+                    "sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "type": "object"
+                },
+                "name": {
+                  "enum": [
+                    "train",
+                    "validation",
+                    "test"
+                  ]
+                },
+                "target_end": {
+                  "format": "date-time",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "target_start": {
+                  "format": "date-time",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "count",
+                "ids",
+                "target_start",
+                "target_end"
+              ],
+              "type": "object"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "type": "array"
+          },
+          "schema_version": {
+            "const": "3.0.0"
+          },
+          "seed": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "split_id": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "train_only_preprocessing": {
+            "const": true
+          }
+        },
+        "required": [
+          "schema_version",
+          "evidence_kind",
+          "split_id",
+          "dataset_id",
+          "dataset_sha256",
+          "method",
+          "seed",
+          "train_only_preprocessing",
+          "group_key",
+          "partitions",
+          "leakage_audit"
+        ],
+        "title": "AI term paper V3 split contract",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "Phase32 extension of frozen Phase22. Public catalog, capability-owned jobs; no train/TEST endpoints. Body schema_version remains3.0.0.",
+    "title": "AI term paper V3 serving API",
+    "version": "3.1.0"
+  },
+  "openapi": "3.1.1",
+  "paths": {
+    "/api/v3/agent-tasks": {
+      "post": {
+        "operationId": "create_agent_task",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 8,
+              "type": "string"
+            }
+          },
+          {
+            "description": "Client-generated random capability >=128bits. Store only locally; server stores SHA256. Needed for own jobs/traces.",
+            "in": "header",
+            "name": "X-Client-Token",
+            "required": true,
+            "schema": {
+              "pattern": "^[A-Za-z0-9_-]{32,128}$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api/$defs/agent_task"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/accepted"
+                }
+              }
+            },
+            "description": "Success",
+            "headers": {
+              "Location": {
+                "description": "Poll this job URL",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "schema": {
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "create agent task"
+      }
+    },
+    "/api/v3/agent-traces/{trace_id}": {
+      "get": {
+        "operationId": "get_agent_trace",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "trace_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-z0-9_-]+$",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Client-generated random capability >=128bits. Store only locally; server stores SHA256. Needed for own jobs/traces.",
+            "in": "header",
+            "name": "X-Client-Token",
+            "required": true,
+            "schema": {
+              "pattern": "^[A-Za-z0-9_-]{32,128}$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/agent"
+                    },
+                    "request_id": {
+                      "type": "string"
+                    },
+                    "schema_version": {
+                      "const": "3.0.0"
+                    }
+                  },
+                  "required": [
+                    "schema_version",
+                    "request_id",
+                    "data"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "get agent trace"
+      }
+    },
+    "/api/v3/artifacts/{artifact_id}": {
+      "get": {
+        "operationId": "get_safe_artifact_metadata",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "artifact_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-z0-9_-]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "artifact_id": {
+                          "type": "string"
+                        },
+                        "content_url": {
+                          "type": "string"
+                        },
+                        "path": {
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "type": "string"
+                        },
+                        "size_bytes": {
+                          "minimum": 0,
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "artifact_id",
+                        "path",
+                        "sha256",
+                        "size_bytes",
+                        "content_url"
+                      ],
+                      "type": "object"
+                    },
+                    "request_id": {
+                      "type": "string"
+                    },
+                    "schema_version": {
+                      "const": "3.0.0"
+                    }
+                  },
+                  "required": [
+                    "schema_version",
+                    "request_id",
+                    "data"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "get safe artifact metadata"
+      }
+    },
+    "/api/v3/artifacts/{artifact_id}/content": {
+      "get": {
+        "operationId": "download_public_artifact",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "artifact_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Allowlisted data-only attachment"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (404)"
+          }
+        }
+      }
+    },
+    "/api/v3/chapters": {
+      "get": {
+        "operationId": "list_chapters",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "default": 1,
+              "maximum": 100000,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "default": 20,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/api/$defs/chapter"
+                      },
+                      "type": "array"
+                    },
+                    "page": {
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "page_size": {
+                      "maximum": 100,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "request_id": {
+                      "type": "string"
+                    },
+                    "schema_version": {
+                      "const": "3.0.0"
+                    },
+                    "total": {
+                      "minimum": 0,
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "schema_version",
+                    "request_id",
+                    "data",
+                    "page",
+                    "page_size",
+                    "total"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "list chapters"
+      }
+    },
+    "/api/v3/chapters/{chapter_id}": {
+      "get": {
+        "operationId": "get_chapter",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "chapter_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-z0-9_-]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/api/$defs/chapter"
+                    },
+                    "request_id": {
+                      "type": "string"
+                    },
+                    "schema_version": {
+                      "const": "3.0.0"
+                    }
+                  },
+                  "required": [
+                    "schema_version",
+                    "request_id",
+                    "data"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "get chapter"
+      }
+    },
+    "/api/v3/comparisons": {
+      "post": {
+        "operationId": "create_comparison",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 8,
+              "type": "string"
+            }
+          },
+          {
+            "description": "Client-generated random capability >=128bits. Store only locally; server stores SHA256. Needed for own jobs/traces.",
+            "in": "header",
+            "name": "X-Client-Token",
+            "required": true,
+            "schema": {
+              "pattern": "^[A-Za-z0-9_-]{32,128}$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/accepted"
+                }
+              }
+            },
+            "description": "Success",
+            "headers": {
+              "Location": {
+                "description": "Poll this job URL",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "schema": {
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "create comparison"
+      }
+    },
+    "/api/v3/datasets": {
+      "get": {
+        "operationId": "list_datasets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "default": 1,
+              "maximum": 100000,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "default": 20,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "chapter",
+            "schema": {
+              "maximum": 6,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/dataset"
+                      },
+                      "type": "array"
+                    },
+                    "page": {
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "page_size": {
+                      "maximum": 100,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "request_id": {
+                      "type": "string"
+                    },
+                    "schema_version": {
+                      "const": "3.0.0"
+                    },
+                    "total": {
+                      "minimum": 0,
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "schema_version",
+                    "request_id",
+                    "data",
+                    "page",
+                    "page_size",
+                    "total"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "list datasets"
+      }
+    },
+    "/api/v3/datasets/{dataset_id}": {
+      "get": {
+        "operationId": "get_dataset",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "dataset_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-z0-9_-]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/dataset"
+                    },
+                    "request_id": {
+                      "type": "string"
+                    },
+                    "schema_version": {
+                      "const": "3.0.0"
+                    }
+                  },
+                  "required": [
+                    "schema_version",
+                    "request_id",
+                    "data"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "get dataset"
+      }
+    },
+    "/api/v3/datasets/{dataset_id}/overview": {
+      "get": {
+        "operationId": "get_overview",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "dataset_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "type": "object"
+                    },
+                    "request_id": {
+                      "type": "string"
+                    },
+                    "schema_version": {
+                      "const": "3.0.0"
+                    }
+                  },
+                  "required": [
+                    "schema_version",
+                    "request_id",
+                    "data"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (404)"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (503)"
+          }
+        }
+      }
+    },
+    "/api/v3/datasets/{dataset_id}/results": {
+      "get": {
+        "operationId": "get_results",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "dataset_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "type": "object"
+                    },
+                    "request_id": {
+                      "type": "string"
+                    },
+                    "schema_version": {
+                      "const": "3.0.0"
+                    }
+                  },
+                  "required": [
+                    "schema_version",
+                    "request_id",
+                    "data"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (404)"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (503)"
+          }
+        }
+      }
+    },
+    "/api/v3/jobs/{job_id}": {
+      "get": {
+        "operationId": "get_job",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-z0-9_-]+$",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Client-generated random capability >=128bits. Store only locally; server stores SHA256. Needed for own jobs/traces.",
+            "in": "header",
+            "name": "X-Client-Token",
+            "required": true,
+            "schema": {
+              "pattern": "^[A-Za-z0-9_-]{32,128}$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/job"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "get job"
+      }
+    },
+    "/api/v3/jobs/{job_id}/cancellations": {
+      "post": {
+        "operationId": "cancel_job",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-z0-9_-]+$",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Client-generated random capability >=128bits. Store only locally; server stores SHA256. Needed for own jobs/traces.",
+            "in": "header",
+            "name": "X-Client-Token",
+            "required": true,
+            "schema": {
+              "pattern": "^[A-Za-z0-9_-]{32,128}$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api/$defs/cancel_request"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/accepted"
+                }
+              }
+            },
+            "description": "Success",
+            "headers": {
+              "Location": {
+                "description": "Poll this job URL",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "schema": {
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "cancel job"
+      }
+    },
+    "/api/v3/jobs/{job_id}/details": {
+      "get": {
+        "operationId": "get_details",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Client-generated random capability >=128bits. Store only locally; server stores SHA256. Needed for own jobs/traces.",
+            "in": "header",
+            "name": "X-Client-Token",
+            "required": true,
+            "schema": {
+              "pattern": "^[A-Za-z0-9_-]{32,128}$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "type": "object"
+                    },
+                    "request_id": {
+                      "type": "string"
+                    },
+                    "schema_version": {
+                      "const": "3.0.0"
+                    }
+                  },
+                  "required": [
+                    "schema_version",
+                    "request_id",
+                    "data"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (404)"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (503)"
+          }
+        }
+      }
+    },
+    "/api/v3/models": {
+      "get": {
+        "operationId": "list_models",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "default": 1,
+              "maximum": 100000,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "default": 20,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "chapter",
+            "schema": {
+              "maximum": 6,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "dataset_id",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/api/$defs/model_summary"
+                      },
+                      "type": "array"
+                    },
+                    "page": {
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "page_size": {
+                      "maximum": 100,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "request_id": {
+                      "type": "string"
+                    },
+                    "schema_version": {
+                      "const": "3.0.0"
+                    },
+                    "total": {
+                      "minimum": 0,
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "schema_version",
+                    "request_id",
+                    "data",
+                    "page",
+                    "page_size",
+                    "total"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "list models"
+      }
+    },
+    "/api/v3/models/{model_id}/contract": {
+      "get": {
+        "operationId": "get_model_contract",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "model_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-z0-9_-]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "oneOf": [
+                        {
+                          "$ref": "#/components/schemas/model"
+                        },
+                        {
+                          "$ref": "#/components/schemas/function_contract"
+                        }
+                      ]
+                    },
+                    "request_id": {
+                      "type": "string"
+                    },
+                    "schema_version": {
+                      "const": "3.0.0"
+                    }
+                  },
+                  "required": [
+                    "schema_version",
+                    "request_id",
+                    "data"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "get model contract"
+      }
+    },
+    "/api/v3/openapi.json": {
+      "get": {
+        "operationId": "get_openapi",
+        "responses": {
+          "200": {
+            "description": "Self-contained OpenAPI3.1.1"
+          }
+        }
+      }
+    },
+    "/api/v3/runs": {
+      "get": {
+        "operationId": "list_offline_runs",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "default": 1,
+              "maximum": 100000,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "default": 20,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "chapter",
+            "schema": {
+              "maximum": 6,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "dataset_id",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "chapter": {
+                            "type": "integer"
+                          },
+                          "dataset_id": {
+                            "type": "string"
+                          },
+                          "original_run_id": {
+                            "type": "string"
+                          },
+                          "record": {
+                            "$ref": "#/components/schemas/common/$defs/artifact_ref"
+                          },
+                          "run_id": {
+                            "type": "string"
+                          },
+                          "split": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "run_id",
+                          "original_run_id",
+                          "dataset_id",
+                          "chapter",
+                          "split",
+                          "record"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "page": {
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "page_size": {
+                      "maximum": 100,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "request_id": {
+                      "type": "string"
+                    },
+                    "schema_version": {
+                      "const": "3.0.0"
+                    },
+                    "total": {
+                      "minimum": 0,
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "schema_version",
+                    "request_id",
+                    "data",
+                    "page",
+                    "page_size",
+                    "total"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "list offline runs"
+      }
+    },
+    "/api/v3/runs/{run_id}": {
+      "get": {
+        "operationId": "get_offline_run",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-z0-9_-]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "required": [
+                        "run_id",
+                        "dataset_id",
+                        "metrics",
+                        "split"
+                      ],
+                      "type": "object"
+                    },
+                    "request_id": {
+                      "type": "string"
+                    },
+                    "schema_version": {
+                      "const": "3.0.0"
+                    }
+                  },
+                  "required": [
+                    "schema_version",
+                    "request_id",
+                    "data"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "get offline run"
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "get_liveness",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/health"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "get liveness"
+      }
+    },
+    "/ready": {
+      "get": {
+        "operationId": "get_readiness",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/health"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api/$defs/error"
+                }
+              }
+            },
+            "description": "Structured error (400)"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "409": {
+            "$ref": "#/components/responses/Error409"
+          },
+          "413": {
+            "$ref": "#/components/responses/Error413"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error415"
+          },
+          "422": {
+            "$ref": "#/components/responses/Error422"
+          },
+          "429": {
+            "$ref": "#/components/responses/Error429"
+          },
+          "500": {
+            "$ref": "#/components/responses/Error500"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error503"
+          }
+        },
+        "summary": "get readiness"
+      }
+    }
+  },
+  "security": [],
+  "servers": [
+    {
+      "url": "http://127.0.0.1:5000"
+    }
+  ]
+}

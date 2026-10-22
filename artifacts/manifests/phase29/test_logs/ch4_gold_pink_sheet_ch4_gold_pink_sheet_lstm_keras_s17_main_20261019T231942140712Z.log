@@ -1,0 +1,31 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792451994.698172    1569 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792451994.753633    1569 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792451998.617688    1569 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1792452000.466811    1569 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1792452000.479272    1569 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1792452000.609587    1569 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5262 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+I0000 00:00:1792452001.685160    1587 cuda_dnn.cc:461] Loaded cuDNN version 92700
+{
+  "status": "PASS",
+  "run_id": "ch4_gold_pink_sheet_lstm_keras_s17_main",
+  "metrics": {
+    "path": "artifacts/metrics/phase29/test/ch4_gold_pink_sheet_lstm_keras_s17_main.json",
+    "sha256": "63314befe0c9b344bb5cf7b8e3d578c59d0fe2e9aee1e00ed56bcf463e6a311d"
+  },
+  "predictions": {
+    "path": "artifacts/predictions/phase29/test/ch4_gold_pink_sheet_lstm_keras_s17_main.jsonl.gz",
+    "sha256": "334e9e058e38f64068f6b90e99957e355435c662ddb366e7f141c9443693d012"
+  },
+  "details": {
+    "path": "artifacts/manifests/phase29/test_details/ch4_gold_pink_sheet_lstm_keras_s17_main.json",
+    "sha256": "b4f69d1c13d756d592d9befdbf6eed2d43d7d7c3714cc60e57f0afca24a76e40"
+  },
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_keras_s17_main/best.npz",
+    "sha256": "ad4b21307a80ba2bb219063f8e8a336fe964dd0c2652c1ffb0a20f416677a5dc"
+  },
+  "optimizer_updates": 0
+}

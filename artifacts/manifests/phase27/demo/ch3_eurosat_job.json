@@ -1,0 +1,205 @@
+{
+  "comparison_blockers": [],
+  "comparison_valid": true,
+  "created_at": "2026-10-18T01:53:53.533908+00:00",
+  "dataset_id": "ch3_eurosat",
+  "expires_at": "2026-10-18T02:53:53.533908+00:00",
+  "family": "cnn",
+  "input_sha256": "1dfafe7cb6ede7e3a4311413dc49ee7f7f00e4e78bcb109f6104d9db721b9bb1",
+  "job_id": "cnn_demo_6673ae118ce6b1c7",
+  "metric_artifacts": [
+    {
+      "path": "artifacts/metrics/phase27/validation/ch3_eurosat_cnn_scratch_s42.json",
+      "sha256": "09bbf6f5918269c18f580ba14fd0ee74587e85fcf792b38ef57d2fad50239ab3"
+    },
+    {
+      "path": "artifacts/metrics/phase27/validation/ch3_eurosat_cnn_keras_s42.json",
+      "sha256": "4b3b815f8f2d232394dbb257a55a6fcbfc13db7042cb62bb161a2ac6335bdcf8"
+    },
+    {
+      "path": "artifacts/metrics/phase27/validation/ch3_eurosat_cnn_pytorch_s42.json",
+      "sha256": "67437bef5fe8a8829679815a5e3f2741a3bb8e05a848616114f288f012fdac01"
+    }
+  ],
+  "request_id": "cnn_request_6673ae118ce6b1c7",
+  "request_sha256": "6673ae118ce6b1c7ae525cf9580aec2fd879d031f23b45bfb6b9536c5af8c191",
+  "results": [
+    {
+      "actual_backend": "numpy",
+      "actual_device": "cpu",
+      "artifact_sha256": "81ac7acf1e5ce8fbab7f30ac63c6cf64ba206946d332519b3eb740f503adf990",
+      "comparison_group_sha256": "0e9d6a5e1ef8f5bd14701bad1e1de451a78c516f709043a23dea1d60fac300ed",
+      "error": null,
+      "implementation": "scratch",
+      "inference_ms": 2.0156079990556464,
+      "input_sha256": "1dfafe7cb6ede7e3a4311413dc49ee7f7f00e4e78bcb109f6104d9db721b9bb1",
+      "model_id": "ch3_eurosat_cnn_scratch_s42",
+      "prediction": {
+        "kind": "classification",
+        "label": "AnnualCrop",
+        "probabilities": [
+          {
+            "label": "AnnualCrop",
+            "value": 0.6176431179046631
+          },
+          {
+            "label": "Forest",
+            "value": 5.652558684232645e-06
+          },
+          {
+            "label": "HerbaceousVegetation",
+            "value": 0.27785924077033997
+          },
+          {
+            "label": "Highway",
+            "value": 0.02886102721095085
+          },
+          {
+            "label": "Industrial",
+            "value": 0.00126524711959064
+          },
+          {
+            "label": "Pasture",
+            "value": 0.000746481295209378
+          },
+          {
+            "label": "PermanentCrop",
+            "value": 0.06240217015147209
+          },
+          {
+            "label": "Residential",
+            "value": 5.095110827824101e-05
+          },
+          {
+            "label": "River",
+            "value": 0.0014043590053915977
+          },
+          {
+            "label": "SeaLake",
+            "value": 0.009761709719896317
+          }
+        ]
+      },
+      "status": "succeeded"
+    },
+    {
+      "actual_backend": "numpy",
+      "actual_device": "cpu",
+      "artifact_sha256": "1923b8bcd4af14996507171ba7db2fd805dbf99720eaa07a03dea4b9c195388e",
+      "comparison_group_sha256": "0e9d6a5e1ef8f5bd14701bad1e1de451a78c516f709043a23dea1d60fac300ed",
+      "error": null,
+      "implementation": "keras",
+      "inference_ms": 1.9929240006604232,
+      "input_sha256": "1dfafe7cb6ede7e3a4311413dc49ee7f7f00e4e78bcb109f6104d9db721b9bb1",
+      "model_id": "ch3_eurosat_cnn_keras_s42",
+      "prediction": {
+        "kind": "classification",
+        "label": "AnnualCrop",
+        "probabilities": [
+          {
+            "label": "AnnualCrop",
+            "value": 0.5416951179504395
+          },
+          {
+            "label": "Forest",
+            "value": 0.0017405322287231684
+          },
+          {
+            "label": "HerbaceousVegetation",
+            "value": 0.36587125062942505
+          },
+          {
+            "label": "Highway",
+            "value": 0.021368566900491714
+          },
+          {
+            "label": "Industrial",
+            "value": 0.00044093880569562316
+          },
+          {
+            "label": "Pasture",
+            "value": 0.0016185273416340351
+          },
+          {
+            "label": "PermanentCrop",
+            "value": 0.045908525586128235
+          },
+          {
+            "label": "Residential",
+            "value": 0.0005575347458943725
+          },
+          {
+            "label": "River",
+            "value": 0.0013054577866569161
+          },
+          {
+            "label": "SeaLake",
+            "value": 0.019493529573082924
+          }
+        ]
+      },
+      "status": "succeeded"
+    },
+    {
+      "actual_backend": "numpy",
+      "actual_device": "cpu",
+      "artifact_sha256": "5139fe6ca9135d5d5838db2bf477e78bf942446bc78f50cceb5fe64b89cf8f4f",
+      "comparison_group_sha256": "0e9d6a5e1ef8f5bd14701bad1e1de451a78c516f709043a23dea1d60fac300ed",
+      "error": null,
+      "implementation": "pytorch",
+      "inference_ms": 2.023404998908518,
+      "input_sha256": "1dfafe7cb6ede7e3a4311413dc49ee7f7f00e4e78bcb109f6104d9db721b9bb1",
+      "model_id": "ch3_eurosat_cnn_pytorch_s42",
+      "prediction": {
+        "kind": "classification",
+        "label": "HerbaceousVegetation",
+        "probabilities": [
+          {
+            "label": "AnnualCrop",
+            "value": 0.2839537262916565
+          },
+          {
+            "label": "Forest",
+            "value": 0.006748710758984089
+          },
+          {
+            "label": "HerbaceousVegetation",
+            "value": 0.4468074142932892
+          },
+          {
+            "label": "Highway",
+            "value": 0.052870046347379684
+          },
+          {
+            "label": "Industrial",
+            "value": 3.2439204460388282e-06
+          },
+          {
+            "label": "Pasture",
+            "value": 0.0021109641529619694
+          },
+          {
+            "label": "PermanentCrop",
+            "value": 0.0511806458234787
+          },
+          {
+            "label": "Residential",
+            "value": 4.6960289182607085e-05
+          },
+          {
+            "label": "River",
+            "value": 0.0019128030398860574
+          },
+          {
+            "label": "SeaLake",
+            "value": 0.15436547994613647
+          }
+        ]
+      },
+      "status": "succeeded"
+    }
+  ],
+  "schema_version": "3.0.0",
+  "status": "succeeded",
+  "trace_ids": []
+}

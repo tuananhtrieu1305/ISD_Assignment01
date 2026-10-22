@@ -1,0 +1,30 @@
+{
+  "phase": 21,
+  "date": "2026-10-17",
+  "status": "PASS",
+  "bootstrap_powershell": "PASS",
+  "doctor_powershell": "PASS",
+  "run_experiment_powershell": "PASS",
+  "active_keras_backend": "tensorflow",
+  "gpu_cpu_workloads": ["torch-gpu", "torch-cpu", "tensorflow-gpu", "tensorflow-cpu"],
+  "workloads_per_profile": ["matmul", "cnn_backward_update", "rnn_backward_update", "lstm_backward_update"],
+  "pytest": {"passed": 46, "failed": 0, "warnings": 4, "evidence": "tests.xml"},
+  "coverage": {"scope": "src.common.environment", "statements_percent": 100, "evidence": "coverage.json"},
+  "ruff_check": "PASS",
+  "ruff_format_check": "PASS",
+  "bash_syntax": "PASS",
+  "powershell_syntax": "PASS",
+  "python_ast_and_preservation": "PASS",
+  "kg_rag_demo_queries_passed": 2,
+  "ch5_test_run_count": 1,
+  "ch5_test_rerun": false,
+  "uv_lock_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "host_free_final_human_readable": "11 GiB (WSL df -h /mnt/c)",
+  "limitations": [
+    "TensorFlow uses PTX JIT rather than native sm_120 cubins; real training workloads require validation.",
+    "Four sklearn version warnings remain for legacy V2 preprocessors; immutable Ch5 artifacts were not rewritten.",
+    "Coverage figure applies only to environment contract validator, not the entire repository.",
+    "No separate static type checker configured in this phase.",
+    "No real training dataset was downloaded or evaluated."
+  ]
+}

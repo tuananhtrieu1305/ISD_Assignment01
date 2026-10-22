@@ -1,0 +1,67 @@
+{
+  "adapter": {
+    "path": "artifacts/manifests/phase25/adapters/ch3_idrid.json",
+    "sha256": "2b962c6d7ead608b22d8a72ee7a9072aea246ebda9e2748210a3f8082646f764",
+    "size_bytes": 901
+  },
+  "canonical_initial_weights_by_seed_sha256": {
+    "17": "2a8198d008adba1ff0fc9f6f9563be8637c92448cd83592b24ab046bd8a77d47",
+    "42": "2c110b83ae14e718b6aa6b93ab10f2ca3066e31f33f9b187f49f6084b065dc92",
+    "73": "8d5763e100a31944823b51af7af5826226b2f85d52b8ec88ef3546aff6ffe652"
+  },
+  "code_sha256": "3eb8df6c86ce045f6ad124d5a2d86aeae977ab88b29b1cb92dc57f2535c44b44",
+  "comparison_group_sha256": "646e7d40a3b463d14efb07f118153623e17897f2afa4e41be3cf17b2063d96bf",
+  "dataset_id": "ch3_idrid",
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "family": "cnn",
+  "inference_ready": false,
+  "lifecycle": "initialized_only",
+  "phase": 25,
+  "plan": {
+    "path": "artifacts/manifests/phase25/plans/ch3_idrid_cnn.json",
+    "sha256": "aa92de5a19067eadfe02515744f650f7d0ccec81859bf3c547a46cf418d659f9",
+    "size_bytes": 3685
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "provenance": {
+    "adapter_sha256": "f20642408529b82a35166fc2106dde6140df456d5a579a065e385d8e65bbe47b",
+    "dataset_sha256": "8d24ac9b9103feb4d06a7caace78b9658193ede0dd308faaf9a01e16c0ccf764",
+    "preprocessing_sha256": "dec79d2d31793701f1a4ef6b1653ff318138359ad344570dfb0b1e840e65b790",
+    "split_sha256": "e4ba938f293fca2787d6670e4f0c989299e90df2c5dbc91081be47ab5160946b",
+    "subset_sha256": "28328c2a0de708b03fd8022efcdaf88beb2c6966007b7c58776d4fe6d19f6847"
+  },
+  "real_dataset_training_executed": false,
+  "seeds": [
+    17,
+    42,
+    73
+  ],
+  "test_evaluation_executed": false,
+  "training": {
+    "batch_size": {
+      "cnn": 16,
+      "lstm": 32,
+      "mlp": 32,
+      "rnn": 32
+    },
+    "checkpoint_selection": "minimum validation loss; never TEST",
+    "dtype": "float32",
+    "failure_policy": "Record timeout/OOM/NaN as failed, never silently reduce samples, architecture or epochs for one implementation.",
+    "gradient_clip_global_norm": 1,
+    "hyperparameter_search_trials": 1,
+    "initialization": "Generate canonical NumPy weights once per seed; convert layouts for each adapter; paired forward/gradient checks before training.",
+    "max_epochs": 40,
+    "min_delta": 1e-05,
+    "optimizer": {
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "epsilon": 1e-07,
+      "epsilon_convention": "denominator sqrt(v_hat)+epsilon; adapters must normalize or disclose numerical deviations",
+      "learning_rate": 0.001,
+      "name": "adam"
+    },
+    "patience": 6,
+    "shuffle_policy": "Saved common train batch order per seed; no split/time shuffle.",
+    "wall_time_limit_minutes": 120
+  }
+}

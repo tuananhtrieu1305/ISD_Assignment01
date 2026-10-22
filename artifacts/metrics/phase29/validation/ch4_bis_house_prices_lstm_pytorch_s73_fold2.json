@@ -1,0 +1,175 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch04_lstm/ch4_bis_house_prices_lstm_pytorch_s73_fold2/best.npz",
+      "sha256": "37ab2053379f841d264239d586baafc6e2dd9048109f65bc5ce449dd2883f135"
+    },
+    {
+      "path": "artifacts/models/v3/ch04_lstm/ch4_bis_house_prices_lstm_pytorch_s73_fold2/best.json",
+      "sha256": "00ee4df62edbb18e8581010d3342648b3e3466cd54838e831fc1674675bd7954"
+    },
+    {
+      "path": "artifacts/predictions/phase29/validation/ch4_bis_house_prices_lstm_pytorch_s73_fold2.jsonl.gz",
+      "sha256": "5102e6130af11ea6e2a2b6f30f7ec00ab51912ad481efb065142a692e996e863"
+    }
+  ],
+  "backend": "torch",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "09340206e85ab9885292b48debce490f1d5fed9fa68f6826de2dc84109081c2a",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "94da4411ca05684f5cf2bc0a1cfab04c2cb16af324005bf22c467029cb2189dd",
+  "config_sha256": "93e7f66d41ad64ce69a890b4d82aba6b56ff947c5b6258faae2ea6a556ced6af",
+  "dataset_id": "ch4_bis_house_prices",
+  "dataset_sha256": "85ea7713ea144922d757ee7b4a129e2b38d455a05852e0d8fe85adf621b41752",
+  "device": "cuda:0",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 116086,
+    "inference_p50_ms": 1.6760339985921746,
+    "inference_p95_ms": 1.81982815010997,
+    "peak_ram_bytes": 1837654016,
+    "peak_vram_bytes": 78149632,
+    "timed_repeats": 30,
+    "train_seconds": 15.923576553999737,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "lstm",
+  "finished_at": "2026-10-19T10:36:54.208635+00:00",
+  "implementation": "pytorch",
+  "metrics": [
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 19.081735397619184
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 13.047126558936345
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 9.390331307824042
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "macro_series_rmse",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 13.881877859214105
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 17.134854586519747
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 11.863187373045227
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 8.620919940355671
+    },
+    {
+      "direction": "min",
+      "horizon": 2,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 18.68987243801113
+    },
+    {
+      "direction": "min",
+      "horizon": 2,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 12.760673396893791
+    },
+    {
+      "direction": "min",
+      "horizon": 2,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 9.176094735390322
+    },
+    {
+      "direction": "min",
+      "horizon": 4,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 21.199606220492733
+    },
+    {
+      "direction": "min",
+      "horizon": 4,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 14.51751890687002
+    },
+    {
+      "direction": "min",
+      "horizon": 4,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 10.373979247726131
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase29/runs/ch4_bis_house_prices_lstm_pytorch_s73_fold2/model_contract.json",
+    "sha256": "510e1d082fec9cdfae89e955aa36836eb531f18962eae7fae672a9f84a4f766a"
+  },
+  "preprocessing": {
+    "path": "data/splits/v3/ch4_bis_house_prices/rolling_fold_2/preprocessing.json",
+    "sha256": "9eb92f63f9c94a7e73b6c2dbe7bf8c5ae6a2f6986e54b5d870e34e102db95bbd"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch4_bis_house_prices_lstm_pytorch_s73_fold2",
+  "schema_version": "3.0.0",
+  "seed": 73,
+  "split": "validation",
+  "split_id": "ch4_bis_house_prices_phase29_fold2",
+  "split_sha256": "eb8ba32eaa9d0fcd540324d8693859ab912a3c303f5eca729c6c61b97506a4f6",
+  "started_at": "2026-10-19T10:36:30.470041+00:00",
+  "status": "succeeded",
+  "subset_sha256": "003d3241303d900c2b1daeb3d9e6322c28b4d7df2526f6bf531508567a8efcef",
+  "test_seal_id": null,
+  "track": "matched_subset",
+  "warnings": [
+    "Validation-selected; joint RNN/LSTM TEST belongs to a later, separately locked Phase29 batch",
+    "Latest revised snapshots, retrospective observation-origin forecast; no real-time publication/vintage claim or investment advice",
+    "Each rolling fold uses its frozen scaler; windows reset recurrent state",
+    "Train wall includes validation/progress I/O; RAM is process lifetime, VRAM allocator only; CPU/GPU and graph/eager differ"
+  ]
+}

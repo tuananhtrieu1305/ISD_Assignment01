@@ -1,0 +1,47 @@
+{
+  "dataset_id": "ch2_bank_marketing",
+  "dataset_sha256": "b34904856e0a4412109c99e7cf9556605ec78fa0910f3593aceac25f27f5e461",
+  "evidence_kind": "measured",
+  "group_key": "transitive_feature_or_pixel_or_verified_property_identity",
+  "leakage_audit": {
+    "path": "artifacts/manifests/phase24/ch2_bank_marketing/leakage_audit.json",
+    "sha256": "fa47917ec2b942c2accab9db48d4c25f78182333f0efe819e84d657c7d5365ec"
+  },
+  "method": "group_stratified",
+  "partitions": [
+    {
+      "count": 31648,
+      "ids": {
+        "path": "data/splits/v3/ch2_bank_marketing/train.ids.jsonl.gz",
+        "sha256": "7d5e6c7a3bccde47875268e7d7d4d7686ba4982e3e6558b17e66682df29ffcef"
+      },
+      "name": "train",
+      "target_end": null,
+      "target_start": null
+    },
+    {
+      "count": 6781,
+      "ids": {
+        "path": "data/splits/v3/ch2_bank_marketing/validation.ids.jsonl.gz",
+        "sha256": "f6c397fd0527694d69bc612ca869678e5d6500442459ac955124451a29b39d33"
+      },
+      "name": "validation",
+      "target_end": null,
+      "target_start": null
+    },
+    {
+      "count": 6782,
+      "ids": {
+        "path": "data/splits/v3/ch2_bank_marketing/test.ids.jsonl.gz",
+        "sha256": "da33fcd92f7a4d4da104ffebdeb31c4117ba77ef070e99f9d8e31aeb01d8735f"
+      },
+      "name": "test",
+      "target_end": null,
+      "target_start": null
+    }
+  ],
+  "schema_version": "3.0.0",
+  "seed": 42,
+  "split_id": "ch2_bank_marketing_v3_seed42",
+  "train_only_preprocessing": true
+}

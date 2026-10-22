@@ -1,0 +1,83 @@
+{
+  "canonical_series_cache": "data/processed/v3 is ignored and optional; verify cache hash when present, otherwise reconstruct canonical frame from frozen raw with load_series and stable sort. Never refit preprocessing.",
+  "estimates": {
+    "ch1_imagenet_history": null,
+    "ch1_iris_history": null,
+    "ch1_mnist_history": null,
+    "ch2_ames_housing": {
+      "eda_frame_bytes": 8068362,
+      "input_batch_float32_bytes": 40064,
+      "note": "Input-only planning bound, not measured GPU training peak; probe at Phase25",
+      "transformed_all_rows_bytes": 3668360,
+      "vram_peak": null
+    },
+    "ch2_bank_marketing": {
+      "eda_frame_bytes": 27581889,
+      "input_batch_float32_bytes": 6400,
+      "note": "Input-only planning bound, not measured GPU training peak; probe at Phase25",
+      "transformed_all_rows_bytes": 9042200,
+      "vram_peak": null
+    },
+    "ch2_cdc_diabetes": {
+      "eda_frame_bytes": 42618372,
+      "input_batch_float32_bytes": 2688,
+      "note": "Input-only planning bound, not measured GPU training peak; probe at Phase25",
+      "transformed_all_rows_bytes": 21309120,
+      "vram_peak": null
+    },
+    "ch3_cifar10": {
+      "cache_all_images": false,
+      "input_batch_float32_bytes": 196608,
+      "note": "Stream/decode per image; input-only lower bound, no claim about GPU peak",
+      "one_native_decoded_rgb_bytes": 3072,
+      "vram_peak": null
+    },
+    "ch3_eurosat": {
+      "cache_all_images": false,
+      "input_batch_float32_bytes": 196608,
+      "note": "Stream/decode per image; input-only lower bound, no claim about GPU peak",
+      "one_native_decoded_rgb_bytes": 12288,
+      "vram_peak": null
+    },
+    "ch3_idrid": {
+      "cache_all_images": false,
+      "input_batch_float32_bytes": 3145728,
+      "note": "Stream/decode per image; input-only lower bound, no claim about GPU peak",
+      "one_native_decoded_rgb_bytes": 36636672,
+      "vram_peak": null
+    },
+    "ch4_bis_house_prices": {
+      "all_windows_input_float32_bytes_if_materialized": 8959680,
+      "canonical_frame_bytes": 2302431,
+      "input_batch_float32_bytes": 78336,
+      "materialize_all_windows": false,
+      "note": "Lazily slice ranges; input-only bound, actual peak requires Phase25 probe",
+      "vram_peak": null
+    },
+    "ch4_gold_pink_sheet": {
+      "all_windows_input_float32_bytes_if_materialized": 292608,
+      "canonical_frame_bytes": 87441,
+      "input_batch_float32_bytes": 12288,
+      "materialize_all_windows": false,
+      "note": "Lazily slice ranges; input-only bound, actual peak requires Phase25 probe",
+      "vram_peak": null
+    },
+    "ch4_household_power": {
+      "all_windows_input_float32_bytes_if_materialized": 317435328,
+      "canonical_frame_bytes": 6710398,
+      "input_batch_float32_bytes": 301056,
+      "materialize_all_windows": false,
+      "note": "Lazily slice ranges; input-only bound, actual peak requires Phase25 probe",
+      "vram_peak": null
+    },
+    "ch5_finqa": null,
+    "ch5_medquad_diabetes": null,
+    "ch5_wikidata_subgraphs": null,
+    "ch6_diabetes_tasks": null,
+    "ch6_gold_tasks": null,
+    "ch6_house_tasks": null
+  },
+  "gpu_peak_measured_in_phase24": false,
+  "policy": "Exact input tensor/canonical frame byte counts, not total training peak. Stream images and lazily slice windows. CPU/GPU activations/optimizer/peak probes are acceptance gates in Phase25, with 8 GiB device limit and 5 GiB host disk reserve.",
+  "schema_version": "3.0.0"
+}

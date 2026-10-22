@@ -1,0 +1,153 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch03_cnn/ch3_idrid_cnn_pytorch_s17/best.npz",
+      "sha256": "76793f77ba11c653fd00a07771526cb820617962d45a9a38a20ffc42505706b6"
+    },
+    {
+      "path": "artifacts/models/v3/ch03_cnn/ch3_idrid_cnn_pytorch_s17/best.json",
+      "sha256": "fb9d51d2cc601acde9555322114a04fff7d210c48748a71e3176be9151ca3bfa"
+    },
+    {
+      "path": "artifacts/predictions/phase27/validation/ch3_idrid_cnn_pytorch_s17.jsonl.gz",
+      "sha256": "66619220497956665e838b6ac600d15b9cd3bcd1b5adfed479a69da3b7d63732"
+    }
+  ],
+  "backend": "torch",
+  "batch_size": 16,
+  "code": {
+    "dirty_tree_sha256": "01e3a9025202e8e5f047f10f0d0cb9add4a482642c39db3d4fbb5b96688fc2d6",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "01b92fb21470baaf633731d971cb01f52b07c4a1f6b4c35f984b3eb516afa308",
+  "config_sha256": "e89e12edbcf7fc387cc3ffb832b6e52019f991edb8eb4a4766358f3759c5d03a",
+  "dataset_id": "ch3_idrid",
+  "dataset_sha256": "8d24ac9b9103feb4d06a7caace78b9658193ede0dd308faaf9a01e16c0ccf764",
+  "device": "cuda:0",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 44182,
+    "inference_p50_ms": 0.9990045000449754,
+    "inference_p95_ms": 1.818624600309704,
+    "peak_ram_bytes": 2009128960,
+    "peak_vram_bytes": 126036992,
+    "timed_repeats": 30,
+    "train_seconds": 4.701093277999462,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "cnn",
+  "finished_at": "2026-10-17T15:28:37.663311+00:00",
+  "implementation": "pytorch",
+  "metrics": [
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "accuracy",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.4375
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "macro_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.21073013311819283
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "weighted_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.32926583299717627
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "auroc",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.5755536497045931
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "average_precision",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.3028595430165039
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_0",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.95
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.0
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_2",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.45
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_3",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.0
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_4",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.0
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase27/runs/ch3_idrid_cnn_pytorch_s17/model_contract.json",
+    "sha256": "bdc318e25693ccf906a962020cdc65deeee3f13e2448c183223084f6fb6a208b"
+  },
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch3_idrid/preprocessing.json",
+    "sha256": "dec79d2d31793701f1a4ef6b1653ff318138359ad344570dfb0b1e840e65b790"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch3_idrid_cnn_pytorch_s17",
+  "schema_version": "3.0.0",
+  "seed": 17,
+  "split": "validation",
+  "split_id": "ch3_idrid_v3_seed42",
+  "split_sha256": "e4ba938f293fca2787d6670e4f0c989299e90df2c5dbc91081be47ab5160946b",
+  "started_at": "2026-10-17T15:28:29.017501+00:00",
+  "status": "succeeded",
+  "subset_sha256": "28328c2a0de708b03fd8022efcdaf88beb2c6966007b7c58776d4fe6d19f6847",
+  "test_seal_id": null,
+  "track": "matched_subset",
+  "warnings": [
+    "Academic demonstration, not medical diagnosis",
+    "No verified patient/geographic independence",
+    "Matched subset and low resolution, not state-of-the-art full-data benchmark",
+    "RAM is process-lifetime RSS; VRAM is framework allocator",
+    "Train wall includes validation/checkpoint I/O; inference model+transfer only",
+    "TEST records inherit validation timing, not a new speed benchmark"
+  ]
+}

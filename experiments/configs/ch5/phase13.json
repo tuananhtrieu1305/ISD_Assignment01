@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "extractor_version": "phase13-deterministic-v1",
+  "generated_at": "2026-10-13T00:00:00+07:00",
+  "input_phase": "phase12",
+  "test_split_policy": "TEST remains sealed; graph construction uses metadata and gold structure only, never TEST outcomes.",
+  "medical": {
+    "linkable_node_types": ["MedicalEntity"],
+    "wikidata_rules": [
+      {
+        "qid": "Q12206",
+        "aliases": ["diabetes", "diabetes mellitus"],
+        "candidate_terms": ["diabetes", "diabetic"]
+      },
+      {
+        "qid": "Q124407",
+        "aliases": ["type 1 diabetes", "type-1 diabetes", "type i diabetes mellitus"],
+        "candidate_terms": ["type 1 diabetes", "type-1 diabetes", "type i diabetes"]
+      },
+      {
+        "qid": "Q3025883",
+        "aliases": ["type 2 diabetes", "type-2 diabetes", "type ii diabetes mellitus"],
+        "candidate_terms": ["type 2 diabetes", "type-2 diabetes", "type ii diabetes"]
+      },
+      {
+        "qid": "Q50265665",
+        "aliases": ["insulin"],
+        "candidate_terms": ["insulin"]
+      },
+      {
+        "qid": "Q271993",
+        "aliases": ["hyperglycemia", "hyperglycaemia"],
+        "candidate_terms": ["hyperglycemia", "hyperglycaemia"]
+      }
+    ]
+  },
+  "finance": {
+    "linkable_node_types": ["FinancialConcept", "Company"],
+    "concept_lexicon": {
+      "annual_report": ["annual report", "form 10-k", "10-k"],
+      "financial_statement": ["financial statement", "financial statements"],
+      "net_income": ["net income", "net earnings"],
+      "revenue": ["revenue", "revenues", "net sales"]
+    },
+    "concept_labels": {
+      "annual_report": "Annual report",
+      "financial_statement": "Financial statement",
+      "net_income": "Net income",
+      "revenue": "Revenue"
+    },
+    "wikidata_rules": [
+      {
+        "qid": "Q699735",
+        "aliases": ["annual report"],
+        "candidate_terms": ["annual report", "form 10-k", "10-k"]
+      },
+      {
+        "qid": "Q192907",
+        "aliases": ["financial statement", "financial statements"],
+        "candidate_terms": ["financial statement"]
+      },
+      {
+        "qid": "Q570938",
+        "aliases": ["net income", "net profit", "net earnings"],
+        "candidate_terms": ["net income", "net profit", "net earnings"]
+      },
+      {
+        "qid": "Q850210",
+        "aliases": ["revenue"],
+        "candidate_terms": ["revenue", "revenues"]
+      },
+      {
+        "qid": "Q312",
+        "aliases": ["apple inc.", "apple inc", "aapl"],
+        "candidate_terms": ["apple", "aapl"]
+      }
+    ],
+    "validated_company_aliases": {
+      "AAPL": "Apple Inc."
+    }
+  }
+}

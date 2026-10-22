@@ -1,0 +1,13 @@
+{
+  "phase": 28,
+  "date": "2026-10-18",
+  "scope": "Pre-declaration execution optimization; no selected/trained experiment run exists yet",
+  "initial_probe": "preflight_keras.json: TensorFlow graph, jit_compile=False",
+  "active_probe": "preflight_keras_xla_v1.json: TensorFlow graph, jit_compile=True",
+  "same": ["Keras/TensorFlow backend", "Phase25 model layers and canonical weights", "MSE and canonical Adam", "data, split, lookback, matched sample IDs", "batch32 and full validation", "dtype float32"],
+  "reason": "Initial 168-step Keras graph probe about 0.60 seconds/update; XLA warmed probe about 0.08–0.13 seconds/update on this laptop. Feasibility probes only, not a training benchmark or quality comparison.",
+  "assertions": "XLA may ignore TF Assert operators; input/weight finite/shape checks and returned loss/gradient finite checks are enforced at host boundary too",
+  "old_evidence_preserved": true,
+  "test_evaluation_executed": false,
+  "model_hyperparameters_changed": false
+}

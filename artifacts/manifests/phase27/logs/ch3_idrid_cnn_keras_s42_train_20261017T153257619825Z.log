@@ -1,0 +1,28 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792251186.070112   24829 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792251186.535863   24829 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792251190.046968   24829 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1792251192.282007   24829 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1792251192.421276   24829 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1792251193.035387   24829 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5262 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+I0000 00:00:1792251193.961910   25472 cuda_dnn.cc:461] Loaded cuDNN version 92700
+epoch=1 train_loss=1.611373 validation_loss=1.609088 best_epoch=1
+epoch=2 train_loss=1.605979 validation_loss=1.602438 best_epoch=2
+epoch=3 train_loss=1.591603 validation_loss=1.580160 best_epoch=3
+epoch=4 train_loss=1.568180 validation_loss=1.564112 best_epoch=4
+epoch=5 train_loss=1.546283 validation_loss=1.611219 best_epoch=4
+epoch=6 train_loss=1.511402 validation_loss=1.580868 best_epoch=4
+epoch=7 train_loss=1.530120 validation_loss=1.721497 best_epoch=4
+epoch=8 train_loss=1.503880 validation_loss=1.803881 best_epoch=4
+epoch=9 train_loss=1.692743 validation_loss=2.224004 best_epoch=4
+epoch=10 train_loss=1.527381 validation_loss=1.786999 best_epoch=4
+{
+  "run_id": "ch3_idrid_cnn_keras_s42",
+  "status": "succeeded",
+  "epochs": 10,
+  "best_epoch": 3,
+  "macro_f1": 0.2238993710691824,
+  "train_seconds": 7.67659347800145
+}

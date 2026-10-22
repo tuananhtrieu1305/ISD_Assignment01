@@ -1,0 +1,47 @@
+{
+  "dataset_id": "ch4_household_power",
+  "dataset_sha256": "db356f6739f2dbc8f493d383cface41cb84eed4ad572bbfd4b680519034539a1",
+  "evidence_kind": "measured",
+  "group_key": "global_target_time",
+  "leakage_audit": {
+    "path": "artifacts/manifests/phase24/ch4_household_power/leakage_audit.json",
+    "sha256": "614c211b51a119ca9f8688e2185851832e538a76228cb12aa3b28e7e45bf2682"
+  },
+  "method": "temporal",
+  "partitions": [
+    {
+      "count": 23797,
+      "ids": {
+        "path": "data/splits/v3/ch4_household_power/train.ids.jsonl.gz",
+        "sha256": "bf8e57c8b03bf962567824d9dff104e777c58715e81db9db9fe4ed5fb6c48bbf"
+      },
+      "name": "train",
+      "target_end": "2009-09-20T12:00:00+00:00",
+      "target_start": "2006-12-23T17:00:00+00:00"
+    },
+    {
+      "count": 5033,
+      "ids": {
+        "path": "data/splits/v3/ch4_household_power/validation.ids.jsonl.gz",
+        "sha256": "139766befb1d2b697a2398380b8ca5a03983482c442b4e277aa666f44f300c5c"
+      },
+      "name": "validation",
+      "target_end": "2010-04-24T16:00:00+00:00",
+      "target_start": "2009-09-20T13:00:00+00:00"
+    },
+    {
+      "count": 4911,
+      "ids": {
+        "path": "data/splits/v3/ch4_household_power/test.ids.jsonl.gz",
+        "sha256": "cd87baf2625bd32cefae41b79136e2152a50c9b63e58d20eb9c2c0f7dbde40ac"
+      },
+      "name": "test",
+      "target_end": "2010-11-26T20:00:00+00:00",
+      "target_start": "2010-04-24T17:00:00+00:00"
+    }
+  ],
+  "schema_version": "3.0.0",
+  "seed": 42,
+  "split_id": "ch4_household_power_v3_seed42",
+  "train_only_preprocessing": true
+}

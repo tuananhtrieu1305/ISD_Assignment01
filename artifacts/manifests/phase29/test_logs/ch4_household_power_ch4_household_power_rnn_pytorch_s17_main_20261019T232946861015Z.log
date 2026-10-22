@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/mnt/c/DATA/assign/scripts/phase29_joint_test.py", line 276, in <module>
+    main()
+  File "/mnt/c/DATA/assign/scripts/phase29_joint_test.py", line 270, in main
+    else model_worker(args.dataset, args.run_id, args.code)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/DATA/assign/scripts/phase29_joint_test.py", line 163, in model_worker
+    return evaluate_member(gate, code, run, cache)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/DATA/assign/src/ch04_rnn_lstm/phase29/joint_evaluation.py", line 225, in evaluate_member
+    validate_run(metric)
+  File "/mnt/c/DATA/assign/src/ch04_rnn_lstm/export_r2.py", line 136, in validate_run
+    raise ValueError("Recovery run schema: " + errors[0].message)
+ValueError: Recovery run schema: 'validation' was expected

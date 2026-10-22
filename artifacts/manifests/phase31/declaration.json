@@ -1,0 +1,132 @@
+{
+  "budgets": {
+    "deadline_seconds": 15,
+    "max_retries_per_tool": 1,
+    "max_tool_calls": 8
+  },
+  "created_at": "2026-10-20T09:28:17.569225+00:00",
+  "evidence": [
+    {
+      "path": "artifacts/manifests/phase31/pretest-tests.xml",
+      "sha256": "823bb3f7fe726a9a3ad4d4d7280b56c1a3a4044951f955030238a95a13a25e2c"
+    },
+    {
+      "path": "artifacts/manifests/phase31/pretest_coverage.json",
+      "sha256": "14569a0c01f58a9074eb9a4ec4b6f2bfd6bdb58594e4433be8a628c199b5d181"
+    },
+    {
+      "path": "artifacts/manifests/phase31/development_v2_complete.json",
+      "sha256": "cf56f2e7d68d872e3df11e1a3e79661f75bd2cff50ea9487323112130375b7c4"
+    },
+    {
+      "path": "artifacts/manifests/phase31/protected_snapshot.json",
+      "sha256": "7c2c7569303d63b349a7519307a172bdd56794b7bc51b4e23269bd637cb628e2"
+    },
+    {
+      "path": "artifacts/manifests/phase31/lint.json",
+      "sha256": "d4da2a3c1fe80f5ce11255134207d0ea3800f11158fe279b9c3d61043678695f"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "data/processed/v3/phase31/tool_catalog.json",
+      "sha256": "1dadab77ebc6b8d8ec481f2908f34035765d152fc6ab607216a578833d3907ad"
+    },
+    {
+      "path": "artifacts/manifests/phase31/taskset_v2.json",
+      "sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862"
+    },
+    {
+      "path": "experiments/configs/v3/protocol_v3.json",
+      "sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c"
+    }
+  ],
+  "old_model_test_forward_allowed": false,
+  "phase": 31,
+  "rubric": {
+    "answer_completion": "succeeded regardless of rubric; separately report correctness",
+    "challenge": "explicit synthetic OOD/unsafe/fault injection; never pooled as benign benefit",
+    "citation": "exact ordered citation list",
+    "numeric_atol": 1e-08,
+    "numeric_rtol": 1e-06,
+    "task_success": "locked status and, for answers, numeric/text/citation tool parity"
+  },
+  "runtime": {
+    "api_keys": false,
+    "execution": "numpy_cpu_local_process",
+    "llm": "none",
+    "python": "3.11.17"
+  },
+  "source_files": [
+    {
+      "path": "src/ch06_multi_agent/__init__.py",
+      "sha256": "ea355045565bbbe91c90656a2572ccbbd5999fd86537fc4aa91bfe065d13def0"
+    },
+    {
+      "path": "src/ch06_multi_agent/benchmark.py",
+      "sha256": "c20e68b5137648e8644a6977a488d92fc11d1c94779ebb871ef64e152be58b0e"
+    },
+    {
+      "path": "src/ch06_multi_agent/core.py",
+      "sha256": "523658bb6a7097a5eca7965b8835d2ef6a0ff31e42d5ed84f5e42fff7e1235d1"
+    },
+    {
+      "path": "src/ch06_multi_agent/executor.py",
+      "sha256": "34566ea95536dfc57e36dd1cac0ccbd3a91b4d70214710f5ec0dad18e3458d7d"
+    },
+    {
+      "path": "src/ch06_multi_agent/service.py",
+      "sha256": "a0bcd070348326228632c6e143abe6c1eac924ad5f42e720166c51b2b7daec5c"
+    },
+    {
+      "path": "src/ch06_multi_agent/tools.py",
+      "sha256": "80f8d562a78fc19a678934fe5957cd0c6ce92501dc425ec376e6b2aa49fa1b4e"
+    },
+    {
+      "path": "scripts/prepare_phase31.py",
+      "sha256": "ec8f32f07caedfee26f206894330dca4d832509aa87683b41c6fb680bc48e3e0"
+    },
+    {
+      "path": "scripts/phase31_benchmark.py",
+      "sha256": "e929ef63bdb310f81efc974da2bc743efa85aff02f1945e46cff09513cdb808c"
+    },
+    {
+      "path": "scripts/verify_phase31.py",
+      "sha256": "986d28905139aa80af06af900927569fa222a2fbdba743134d4316b5b8918182"
+    },
+    {
+      "path": "experiments/configs/v3/phase31_coverage.ini",
+      "sha256": "4f8b3d8a6d96e877e1998ccd7f09b96812f54cb444725031dffea1d49dae80ad"
+    },
+    {
+      "path": "docs/phase31_protocol.md",
+      "sha256": "5f5172ee06f3173ae637fa527df56b2f5af4427055e48af1629b774d5d2aaa52"
+    },
+    {
+      "path": "tests/agents31/test_benchmark.py",
+      "sha256": "bd54c2bd0d8335057532a372b1a3fcb23703287f43a06ccf91ab7eb204715e99"
+    },
+    {
+      "path": "tests/agents31/test_core.py",
+      "sha256": "7163671faa53d5b8ea81d3323c0cb3d560d1ddee86f577d9b758672f76e3d994"
+    },
+    {
+      "path": "tests/agents31/test_integration.py",
+      "sha256": "d2229b9de58e33cc968b5f3e2a62dba0ae6a05dda6b7c6a366f4724d12ca86eb"
+    },
+    {
+      "path": "tests/agents31/test_service.py",
+      "sha256": "198b44d22b7a43a396e8b698b41508aff4c9934f2e4f05a24ecc4b55146c6d77"
+    },
+    {
+      "path": "tests/agents31/test_tools.py",
+      "sha256": "153f4d5db209481febcae16ae0ba3a1c236c070e0e5dd20f8af17989dffdcb66"
+    }
+  ],
+  "task_count": 300,
+  "version": "phase31.declaration.1"
+}

@@ -1,0 +1,306 @@
+{
+  "challenge": {
+    "finance": {
+      "B0": {
+        "abstention_rate": 1.0,
+        "citation_validity": 1.0,
+        "query_count": 8
+      },
+      "B1": {
+        "abstention_rate": 1.0,
+        "citation_validity": 1.0,
+        "query_count": 8
+      },
+      "B2": {
+        "abstention_rate": 1.0,
+        "citation_validity": 1.0,
+        "query_count": 8
+      }
+    },
+    "medical": {
+      "B0": {
+        "abstention_rate": 1.0,
+        "citation_validity": 1.0,
+        "query_count": 8
+      },
+      "B1": {
+        "abstention_rate": 1.0,
+        "citation_validity": 1.0,
+        "query_count": 8
+      },
+      "B2": {
+        "abstention_rate": 1.0,
+        "citation_validity": 1.0,
+        "query_count": 8
+      }
+    }
+  },
+  "config_sha256": "ea5b3546a8e408648f5024d62bd0cb3584784ead2f594e126d2dea356240653d",
+  "corpus": {
+    "finance": {
+      "cache_reused": true,
+      "chunk_count": 86421,
+      "corpus_sha256": "78b31053ab2cd6426386fac4bc92356d6e8650b7539daef9525e49dd12a1358f",
+      "dense_dimensions": 128
+    },
+    "medical": {
+      "cache_reused": true,
+      "chunk_count": 762,
+      "corpus_sha256": "d472f4c5ed201208cea61f366c212522c620ea6998cbd64ed33b4f4e889e2a0f",
+      "dense_dimensions": 128
+    }
+  },
+  "generated_at": "2026-10-13T00:00:00+07:00",
+  "schema_version": 1,
+  "selected_sparse_weight": 0.75,
+  "test_split_status": "SEALED_NOT_RUN",
+  "train_smoke": {
+    "finance": {
+      "B0": {
+        "abstention_rate": 0.0,
+        "chunk_recall_at_1": 0.6,
+        "chunk_recall_at_10": 0.6,
+        "chunk_recall_at_3": 0.6,
+        "chunk_recall_at_5": 0.6,
+        "citation_gold_precision": 0.6,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.8,
+        "document_recall_at_10": 0.8,
+        "document_recall_at_3": 0.8,
+        "document_recall_at_5": 0.8,
+        "latency_ms_p50": 32.9607,
+        "latency_ms_p95": 44.047215,
+        "mrr_at_10": 0.6,
+        "normalized_exact_match": 0.0,
+        "query_count": 10,
+        "token_f1": 0.0
+      },
+      "B1": {
+        "abstention_rate": 0.1,
+        "chunk_recall_at_1": 0.3,
+        "chunk_recall_at_10": 0.6,
+        "chunk_recall_at_3": 0.5,
+        "chunk_recall_at_5": 0.5,
+        "citation_gold_precision": 0.333333,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.5,
+        "document_recall_at_10": 0.6,
+        "document_recall_at_3": 0.6,
+        "document_recall_at_5": 0.6,
+        "latency_ms_p50": 51.37914,
+        "latency_ms_p95": 51.37914,
+        "mrr_at_10": 0.397619,
+        "normalized_exact_match": 0.0,
+        "query_count": 10,
+        "token_f1": 0.0
+      },
+      "B2": {
+        "abstention_rate": 0.0,
+        "chunk_recall_at_1": 0.5,
+        "chunk_recall_at_10": 0.6,
+        "chunk_recall_at_3": 0.6,
+        "chunk_recall_at_5": 0.6,
+        "citation_gold_precision": 0.5,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.7,
+        "document_recall_at_10": 0.9,
+        "document_recall_at_3": 0.7,
+        "document_recall_at_5": 0.7,
+        "latency_ms_p50": 84.47904,
+        "latency_ms_p95": 95.50427,
+        "mrr_at_10": 0.55,
+        "normalized_exact_match": 0.0,
+        "query_count": 10,
+        "token_f1": 0.0
+      }
+    },
+    "medical": {
+      "B0": {
+        "abstention_rate": 0.0,
+        "chunk_recall_at_1": 0.1,
+        "chunk_recall_at_10": 0.7,
+        "chunk_recall_at_3": 0.3,
+        "chunk_recall_at_5": 0.5,
+        "citation_gold_precision": 0.1,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.1,
+        "document_recall_at_10": 0.7,
+        "document_recall_at_3": 0.3,
+        "document_recall_at_5": 0.5,
+        "latency_ms_p50": 0.95655,
+        "latency_ms_p95": 1.31429,
+        "mrr_at_10": 0.256111,
+        "normalized_exact_match": 0.0,
+        "query_count": 10,
+        "token_f1": 0.236267
+      },
+      "B1": {
+        "abstention_rate": 0.0,
+        "chunk_recall_at_1": 0.0,
+        "chunk_recall_at_10": 0.7,
+        "chunk_recall_at_3": 0.3,
+        "chunk_recall_at_5": 0.5,
+        "citation_gold_precision": 0.0,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.0,
+        "document_recall_at_10": 0.7,
+        "document_recall_at_3": 0.3,
+        "document_recall_at_5": 0.5,
+        "latency_ms_p50": 1.13074,
+        "latency_ms_p95": 1.13074,
+        "mrr_at_10": 0.182778,
+        "normalized_exact_match": 0.0,
+        "query_count": 10,
+        "token_f1": 0.235311
+      },
+      "B2": {
+        "abstention_rate": 0.0,
+        "chunk_recall_at_1": 0.2,
+        "chunk_recall_at_10": 0.7,
+        "chunk_recall_at_3": 0.3,
+        "chunk_recall_at_5": 0.5,
+        "citation_gold_precision": 0.2,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.2,
+        "document_recall_at_10": 0.7,
+        "document_recall_at_3": 0.3,
+        "document_recall_at_5": 0.5,
+        "latency_ms_p50": 2.15544,
+        "latency_ms_p95": 2.533815,
+        "mrr_at_10": 0.305119,
+        "normalized_exact_match": 0.0,
+        "query_count": 10,
+        "token_f1": 0.264544
+      }
+    }
+  },
+  "validation": {
+    "finance": {
+      "B0": {
+        "abstention_rate": 0.006795,
+        "chunk_recall_at_1": 0.335221,
+        "chunk_recall_at_10": 0.619479,
+        "chunk_recall_at_3": 0.483579,
+        "chunk_recall_at_5": 0.534541,
+        "citation_gold_precision": 0.334094,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.411099,
+        "document_recall_at_10": 0.763307,
+        "document_recall_at_3": 0.611552,
+        "document_recall_at_5": 0.674972,
+        "execution_accuracy": 0.0,
+        "latency_ms_p50": 30.9994,
+        "latency_ms_p95": 38.11706,
+        "mrr_at_10": 0.423176,
+        "normalized_exact_match": 0.0,
+        "program_accuracy": null,
+        "program_accuracy_note": "Not applicable: B0-B2 answer layer is extractive and does not generate programs.",
+        "query_count": 883,
+        "token_f1": 0.0
+      },
+      "B1": {
+        "abstention_rate": 0.091733,
+        "chunk_recall_at_1": 0.121178,
+        "chunk_recall_at_10": 0.293318,
+        "chunk_recall_at_3": 0.204983,
+        "chunk_recall_at_5": 0.244621,
+        "citation_gold_precision": 0.142145,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.150623,
+        "document_recall_at_10": 0.389581,
+        "document_recall_at_3": 0.259343,
+        "document_recall_at_5": 0.317101,
+        "execution_accuracy": 0.0,
+        "latency_ms_p50": 48.917728,
+        "latency_ms_p95": 48.917728,
+        "mrr_at_10": 0.17295,
+        "normalized_exact_match": 0.0,
+        "program_accuracy": null,
+        "program_accuracy_note": "Not applicable: B0-B2 answer layer is extractive and does not generate programs.",
+        "query_count": 883,
+        "token_f1": 0.000119
+      },
+      "B2": {
+        "abstention_rate": 0.007928,
+        "chunk_recall_at_1": 0.231031,
+        "chunk_recall_at_10": 0.561721,
+        "chunk_recall_at_3": 0.375991,
+        "chunk_recall_at_5": 0.449604,
+        "citation_gold_precision": 0.234018,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.284258,
+        "document_recall_at_10": 0.703284,
+        "document_recall_at_3": 0.485844,
+        "document_recall_at_5": 0.573046,
+        "execution_accuracy": 0.0,
+        "latency_ms_p50": 79.965628,
+        "latency_ms_p95": 87.088718,
+        "mrr_at_10": 0.325521,
+        "normalized_exact_match": 0.0,
+        "program_accuracy": null,
+        "program_accuracy_note": "Not applicable: B0-B2 answer layer is extractive and does not generate programs.",
+        "query_count": 883,
+        "token_f1": 0.000119
+      }
+    },
+    "medical": {
+      "B0": {
+        "abstention_rate": 0.0,
+        "chunk_recall_at_1": 0.181818,
+        "chunk_recall_at_10": 0.454545,
+        "chunk_recall_at_3": 0.30303,
+        "chunk_recall_at_5": 0.333333,
+        "citation_gold_precision": 0.181818,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.181818,
+        "document_recall_at_10": 0.454545,
+        "document_recall_at_3": 0.30303,
+        "document_recall_at_5": 0.333333,
+        "latency_ms_p50": 0.2125,
+        "latency_ms_p95": 0.28424,
+        "mrr_at_10": 0.255339,
+        "normalized_exact_match": 0.0,
+        "query_count": 33,
+        "token_f1": 0.20714
+      },
+      "B1": {
+        "abstention_rate": 0.0,
+        "chunk_recall_at_1": 0.151515,
+        "chunk_recall_at_10": 0.545455,
+        "chunk_recall_at_3": 0.30303,
+        "chunk_recall_at_5": 0.393939,
+        "citation_gold_precision": 0.151515,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.151515,
+        "document_recall_at_10": 0.545455,
+        "document_recall_at_3": 0.30303,
+        "document_recall_at_5": 0.393939,
+        "latency_ms_p50": 1.301091,
+        "latency_ms_p95": 1.301091,
+        "mrr_at_10": 0.266414,
+        "normalized_exact_match": 0.0,
+        "query_count": 33,
+        "token_f1": 0.216916
+      },
+      "B2": {
+        "abstention_rate": 0.0,
+        "chunk_recall_at_1": 0.181818,
+        "chunk_recall_at_10": 0.454545,
+        "chunk_recall_at_3": 0.333333,
+        "chunk_recall_at_5": 0.363636,
+        "citation_gold_precision": 0.181818,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.181818,
+        "document_recall_at_10": 0.454545,
+        "document_recall_at_3": 0.333333,
+        "document_recall_at_5": 0.363636,
+        "latency_ms_p50": 1.571291,
+        "latency_ms_p95": 1.686351,
+        "mrr_at_10": 0.261484,
+        "normalized_exact_match": 0.0,
+        "query_count": 33,
+        "token_f1": 0.207821
+      }
+    }
+  }
+}

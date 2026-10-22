@@ -1,0 +1,183 @@
+{
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_seasonal_naive_s42_main/best.npz",
+    "sha256": "9e4c56c568f3abd948e75661a271fecf3198ebe990e587cfec7efdeb8ccfad17"
+  },
+  "efficiency_scope": "Train/RAM/VRAM/5warmup30repeat TRAIN-input timing copied byte-value from locked validation metric; not claimed as TEST-only measurements",
+  "evaluator_sha256": "8a0c613037ef5360c683c865fd348ec69b113cfc9a106bdf577529313f981145",
+  "metrics": {
+    "by_horizon": {
+      "1": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 0.5123494641199139
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -0.1473087152482695
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 0.7646337145852767
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 49.137110296532306
+        }
+      },
+      "24": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 0.5098522474112397
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -0.13934592568124615
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 0.7589365869696352
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 49.11619089913862
+        }
+      },
+      "6": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 0.5129983043988697
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -0.15168105511788443
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 0.7641662892515935
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 49.2915102332603
+        }
+      }
+    },
+    "by_series": {
+      "HOUSEHOLD": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 0.5123494641199139
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.1473087152482695
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 0.7646337145852767
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 49.137110296532306
+            }
+          },
+          "24": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 0.5098522474112397
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.13934592568124615
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 0.7589365869696352
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 49.11619089913862
+            }
+          },
+          "6": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 0.5129983043988697
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.15168105511788443
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 0.7641662892515935
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 49.2915102332603
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 0.5117333386433411
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -0.14612058261804006
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 0.7625832365825489
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 49.18160380964374
+        }
+      }
+    },
+    "macro_series_rmse": {
+      "undefined_reason": null,
+      "value": 0.7625832365825489
+    },
+    "mae": {
+      "undefined_reason": null,
+      "value": 0.5117333386433411
+    },
+    "r2": {
+      "undefined_reason": null,
+      "value": -0.14612058261804006
+    },
+    "rmse": {
+      "undefined_reason": null,
+      "value": 0.7625832365825489
+    },
+    "smape": {
+      "undefined_reason": null,
+      "value": 49.18160380964374
+    }
+  },
+  "optimizer_updates": 0,
+  "output_dtype": "float64",
+  "run_id": "ch4_household_power_seasonal_naive_s42_main",
+  "test_count": 4911,
+  "test_forward_and_model_load_seconds": 0.0011648540003079688,
+  "test_forward_passes_per_window": 1,
+  "test_seal_manifest_sha256": "0ef57d11ed0ff159da751f60a4c36d19a1900e04ec9ef3a1d8e207a85fc54eeb",
+  "training_efficiency": {
+    "checkpoint_bytes": 288,
+    "inference_p50_ms": 0.047739998990437016,
+    "inference_p95_ms": 0.07609140011481938,
+    "peak_ram_bytes": 342999040,
+    "peak_vram_bytes": 0,
+    "timed_repeats": 30,
+    "train_seconds": 6.0969978221692145e-06,
+    "warmup_batches": 5
+  },
+  "training_selection": {
+    "path": "artifacts/manifests/phase28/runs/ch4_household_power_seasonal_naive_s42_main/selection.json",
+    "sha256": "c26a5d5dc23ce7b08b1d7ad20f849a4a9975002fa16cbf0b8eeca78a361ab4d1"
+  }
+}

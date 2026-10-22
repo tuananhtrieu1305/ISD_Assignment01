@@ -1,0 +1,184 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_rnn_pytorch_s42_main/best.npz",
+      "sha256": "365e3135f9a38b53c0b3ea004f3ebddc381533e510faf8694eedccf0b5887b0c"
+    },
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_rnn_pytorch_s42_main/best.json",
+      "sha256": "257bee5a14cfc0a8fe97b265ff783fdbdd86fa59658a7adfc96269cb26b277ee"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_household_power_rnn_pytorch_s42_main/selection.json",
+      "sha256": "76087f85cd414e8ee44a566ae203ae90d719039292bc567929feb714f3fa4e71"
+    },
+    {
+      "path": "artifacts/predictions/phase29/test/ch4_household_power_rnn_pytorch_s42_main.jsonl.gz",
+      "sha256": "77ccf79be67478d5a76bf036842dc26ec370783cef8407022baa345fb07aa273"
+    },
+    {
+      "path": "artifacts/manifests/phase29/test_details/ch4_household_power_rnn_pytorch_s42_main.json",
+      "sha256": "d0c4533e20c6b618c272db485058f42d3c6773d0ddbe2a7666e91e55052d85c5"
+    }
+  ],
+  "backend": "torch",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "c7aaafbe11688e15bbc33da23c0bc5558a42ed3662504a5ae018b4d4eb556c70",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "0e4e2a43c7ebc500128e440ba34209ae91adcb5a89b33b2cbc59bc1129871857",
+  "config_sha256": "4e8e3d51a901df12bc9b6154bdcc6d98db586f5eb5c12fb23ac81af64ad5d530",
+  "dataset_id": "ch4_household_power",
+  "dataset_sha256": "db356f6739f2dbc8f493d383cface41cb84eed4ad572bbfd4b680519034539a1",
+  "device": "cuda:0",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 29156,
+    "inference_p50_ms": 0.9411985010956414,
+    "inference_p95_ms": 4.3754203008575105,
+    "peak_ram_bytes": 1915179008,
+    "peak_vram_bytes": 92462080,
+    "timed_repeats": 30,
+    "train_seconds": 68.25130596000236,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "rnn",
+  "finished_at": "2026-10-20T00:10:49.224418+00:00",
+  "implementation": "pytorch",
+  "metrics": [
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.5864226183191462
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.4115960596009755
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 43.60785051310634
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "macro_series_rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.5864226183191462
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.4996664444959219
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.34572168337478737
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 37.97049985894286
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.6276553502124314
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.4451558817361003
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 46.57499738314214
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.6229419454679246
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.4439106136920389
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 46.278054297234014
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase28/runs/ch4_household_power_rnn_pytorch_s42_main/model_contract.json",
+    "sha256": "847b160020aeca3e560d96267f02e7fb87ee1fbaf451e84ea4ff89e06d1c6f41"
+  },
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch4_household_power/preprocessing.json",
+    "sha256": "1940ded15fe9e51147e5dc0b4ec3dba661ef70a0462dabcec3875b011ca0909e"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch4_household_power_rnn_pytorch_s42_main",
+  "schema_version": "3.0.0",
+  "seed": 42,
+  "split": "test",
+  "split_id": "ch4_household_power_phase28_main",
+  "split_sha256": "90053761ae0a15d0faa3323fb1a1261425d5204ab0e74416c225613e68f498b8",
+  "started_at": "2026-10-20T00:10:40.610862+00:00",
+  "status": "succeeded",
+  "subset_sha256": "f6de2e1df1ddc0a78130d7bd5ccfe432dc94f143f295d176076ddd3049750a72",
+  "test_seal_id": "ch4_household_power_phase29_joint_test_v1",
+  "track": "matched_subset",
+  "warnings": [
+    "Latest revised snapshots, retrospective observation-origin forecast; no real-time publication/vintage claim or investment advice",
+    "Each rolling fold uses its frozen scaler; windows reset recurrent state",
+    "Train wall includes validation/progress I/O; RAM is process lifetime, VRAM allocator only; CPU/GPU and graph/eager differ",
+    "Joint RNN/LSTM main TEST once after frozen validation selection; no optimizer updates or TEST-input timing repeats",
+    "Train/RAM/VRAM/5warmup30repeat TRAIN-input timing copied byte-value from locked validation metric; not claimed as TEST-only measurements"
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_rnn_keras_s17_fold1/best.npz",
+      "sha256": "d354e743d37c5327ea5162a7fdef59e03b1c7b4f70c2c6ff38ab8391bde6476b"
+    },
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_rnn_keras_s17_fold1/best.json",
+      "sha256": "380cbf9d23b625bff827b671033ec98f80c2889f9811deb9e7f90692552604ad"
+    },
+    {
+      "path": "artifacts/predictions/phase28/validation/ch4_household_power_rnn_keras_s17_fold1.jsonl.gz",
+      "sha256": "dd1a2c10a8e141bebace36bf9f3d2d08f03ba75b6ab0cca486706e8fb3a31bd0"
+    }
+  ],
+  "backend": "tensorflow",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "c7aaafbe11688e15bbc33da23c0bc5558a42ed3662504a5ae018b4d4eb556c70",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "1b433a851bc32e742b80a49dee375b072b2b3e318ca9920d7dd98b003287e077",
+  "config_sha256": "f934247c46c5383e1906b85c9f2696abb4d7cb5a7aa5540df52cb1d5d2a3e857",
+  "dataset_id": "ch4_household_power",
+  "dataset_sha256": "db356f6739f2dbc8f493d383cface41cb84eed4ad572bbfd4b680519034539a1",
+  "device": "cuda:0",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 29156,
+    "inference_p50_ms": 9.717953000290436,
+    "inference_p95_ms": 14.344862601319619,
+    "peak_ram_bytes": 1672065024,
+    "peak_vram_bytes": 17170688,
+    "timed_repeats": 30,
+    "train_seconds": 463.6056801980012,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "rnn",
+  "finished_at": "2026-10-18T11:40:55.705881+00:00",
+  "implementation": "keras",
+  "metrics": [
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.7618585719453301
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.5638155747853308
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 48.49905548490449
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "macro_series_rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.7618585719453301
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.6238417324960654
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.4481312801575944
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 39.26605812726426
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.8347867387059517
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.6317255075692555
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 53.081881047688526
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.8094677539079133
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.6115899366291428
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 53.149227279760666
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase28/runs/ch4_household_power_rnn_keras_s17_fold1/model_contract.json",
+    "sha256": "45146412b23c8f7983d3037d2848917d956145c4bdd5dc5c66a0ea0738a6798f"
+  },
+  "preprocessing": {
+    "path": "data/splits/v3/ch4_household_power/rolling_fold_1/preprocessing.json",
+    "sha256": "da58ce61fc03c037b3911412278ccfd0d76eaed2e5256b8d10f1caee3e14ac7a"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch4_household_power_rnn_keras_s17_fold1",
+  "schema_version": "3.0.0",
+  "seed": 17,
+  "split": "validation",
+  "split_id": "ch4_household_power_phase28_fold1",
+  "split_sha256": "53c6452c5964ba561d1ff55a54220fbd6f5addb498087f522cc54134573c1278",
+  "started_at": "2026-10-18T11:33:20.993982+00:00",
+  "status": "succeeded",
+  "subset_sha256": "4460668d0820cb480e98d5699b3b18800b1fde0f02fc7bcb83f981522f141708",
+  "test_seal_id": null,
+  "track": "matched_subset",
+  "warnings": [
+    "Validation only; no TEST evaluation in Phase28",
+    "Latest revised snapshots, retrospective observation-origin forecast; no real-time publication/vintage claim or investment advice",
+    "Each rolling fold uses its frozen scaler; windows reset recurrent state",
+    "Train wall includes validation/progress I/O; RAM is process lifetime, VRAM allocator only; CPU/GPU and graph/eager differ"
+  ]
+}

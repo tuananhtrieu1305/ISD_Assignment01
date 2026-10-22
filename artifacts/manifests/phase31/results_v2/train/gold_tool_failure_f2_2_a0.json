@@ -1,0 +1,76 @@
+{
+  "category": "tool_failure",
+  "domain": "gold",
+  "metrics": {
+    "answer_completion": 0,
+    "citation_correctness": 0,
+    "latency_ms": 11.33727100022952,
+    "message_count": 1,
+    "numeric_parity": 0,
+    "peak_child_rss_bytes": 171847680,
+    "refusal_correctness": null,
+    "routing_accuracy": null,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 1,
+    "messages": [
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "gold_numeric_025"
+        },
+        "node_id": "node_1",
+        "output": {
+          "code": "unavailable",
+          "peak_rss_bytes": 171847680,
+          "status": "error"
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 171847680,
+    "reason": "tool_unavailable",
+    "route": "gold",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "Không thực hiện yêu cầu: tool_unavailable.",
+      "citations": [],
+      "domain": "gold",
+      "evidence_kind": "measured",
+      "latency_ms": 10.435778000100981,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "direct",
+          "artifact_refs": [],
+          "duration_ms": 10.22447600007581,
+          "input_sha256": "4f148fcababd9daaf83023b0360b256db17f9873889dbe48b33fbb9db0916067",
+          "node_id": "node_1",
+          "outcome": "error",
+          "output_sha256": "687140c810d4079e711f82a2f7cb93b7d2103c8a02e55b8506b2adc789181ed0",
+          "parent_ids": [],
+          "tool": "forecast_gold"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "failed",
+      "task_id": "gold_tool_failure_f2_2",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_20df0004bc39ab299360_a0",
+      "variant": "A0"
+    },
+    "values": [],
+    "verification": "not_run",
+    "wall_latency_ms": 11.33727100022952
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "challenge",
+  "task_id": "gold_tool_failure_f2_2",
+  "variant": "A0"
+}

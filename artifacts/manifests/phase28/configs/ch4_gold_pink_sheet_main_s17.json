@@ -1,0 +1,172 @@
+{
+  "adapter": {
+    "path": "artifacts/manifests/phase28/adapters/ch4_gold_pink_sheet_main.json",
+    "sha256": "a58688f2ffa5f463dbb56b7faca3d001583c4efa711e05bf0e06f0c4c6ae2d2b"
+  },
+  "baseline_policy": "Observed target history at/before origin; missing seasonal source falls back to last observed within lookback; no target imputation",
+  "canonical_initial_weights_sha256": "430c3008ad6101bbc5850f278c1728f9cf7f09cd638d356dacf413c56b18a488",
+  "code": {
+    "dirty_tree_sha256": "c7aaafbe11688e15bbc33da23c0bc5558a42ed3662504a5ae018b4d4eb556c70",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "data_contract": {
+    "path": "artifacts/manifests/phase28/data/ch4_gold_pink_sheet_main.json",
+    "sha256": "9c000e24f9546b23710065173f2909d24dc32111a0422e952f6b1dd1c5322221"
+  },
+  "dataset_id": "ch4_gold_pink_sheet",
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "execution_policy": {
+    "keras": "Keras TensorFlow GPU tf.function with XLA JIT; host validation plus canonical Adam",
+    "pytorch": "PyTorch GPU eager, frozen zero second recurrent bias",
+    "scratch": "NumPy CPU manual BPTT/Adam"
+  },
+  "fold": null,
+  "gradient_diagnostic_policy": "first four fixed TRAIN IDs, selected weights, normalized MSE input gradient; no causal/TEST claims",
+  "horizons": [
+    1,
+    3,
+    6
+  ],
+  "phase": 28,
+  "plan": {
+    "family": "rnn",
+    "input_shape": [
+      24,
+      4
+    ],
+    "output_shape": [
+      3
+    ],
+    "plan_version": "phase25.1",
+    "steps": [
+      {
+        "id": "rnn_1",
+        "input_shape": [
+          24,
+          4
+        ],
+        "kind": "rnn",
+        "output_shape": [
+          24,
+          32
+        ],
+        "return_sequences": true
+      },
+      {
+        "id": "rnn_2",
+        "input_shape": [
+          24,
+          32
+        ],
+        "kind": "rnn",
+        "output_shape": [
+          24,
+          32
+        ],
+        "return_sequences": true
+      },
+      {
+        "id": "rnn_3",
+        "input_shape": [
+          24,
+          32
+        ],
+        "kind": "rnn",
+        "output_shape": [
+          32
+        ],
+        "return_sequences": false
+      },
+      {
+        "id": "dense_4",
+        "input_shape": [
+          32
+        ],
+        "kind": "dense",
+        "output_shape": [
+          16
+        ]
+      },
+      {
+        "activation": "relu",
+        "id": "activation_5",
+        "input_shape": [
+          16
+        ],
+        "kind": "activation",
+        "output_shape": [
+          16
+        ]
+      },
+      {
+        "id": "dense_6",
+        "input_shape": [
+          16
+        ],
+        "kind": "dense",
+        "output_shape": [
+          8
+        ]
+      },
+      {
+        "activation": "relu",
+        "id": "activation_7",
+        "input_shape": [
+          8
+        ],
+        "kind": "activation",
+        "output_shape": [
+          8
+        ]
+      },
+      {
+        "id": "dense_8",
+        "input_shape": [
+          8
+        ],
+        "kind": "dense",
+        "output_shape": [
+          3
+        ]
+      }
+    ],
+    "tiny_synthetic_only": false
+  },
+  "primary_metric": "rmse",
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "provenance": {
+    "adapter_sha256": "3e4e234cc5d79b6468921af477b514733c4a67751be37f6a5df35fa22b50e839",
+    "dataset_sha256": "dfaba9c931ef045fa98ba4bd5d51e478f17cd7fb1b9911e1a3a07a1123bdbef3",
+    "preprocessing_sha256": "82dcdf6733898fc2b818ef6aac3ee19dd299c65a4803cdb601a2204a28e4729e",
+    "split_sha256": "91a1fb8d745b1017b056636d2d90c6ec3da35ce27b7c046a8045cf8d29f51ddb",
+    "subset_sha256": "c9b193cc6d8d16d76c4d1343fbf7aa71723a01bbdbb0bf0e861a6f3a3ceab60a"
+  },
+  "seed": 17,
+  "task": "mse",
+  "test_policy": "NO TEST in Phase28; joint RNN/LSTM TEST only in Phase29 after both families locked",
+  "track": "matched_subset",
+  "training": {
+    "batch_size": 32,
+    "checkpoint_selection": "minimum validation loss; never TEST",
+    "dtype": "float32",
+    "failure_policy": "Record timeout/OOM/NaN as failed, never silently reduce samples, architecture or epochs for one implementation.",
+    "gradient_clip_global_norm": 1,
+    "hyperparameter_search_trials": 1,
+    "initialization": "Generate canonical NumPy weights once per seed; convert layouts for each adapter; paired forward/gradient checks before training.",
+    "max_epochs": 40,
+    "min_delta": 1e-05,
+    "optimizer": {
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "epsilon": 1e-07,
+      "epsilon_convention": "denominator sqrt(v_hat)+epsilon; adapters must normalize or disclose numerical deviations",
+      "learning_rate": 0.001,
+      "name": "adam"
+    },
+    "patience": 6,
+    "shuffle_policy": "Saved common train batch order per seed; no split/time shuffle.",
+    "wall_time_limit_minutes": 120
+  },
+  "unit": "USD/troy ounce",
+  "validation_policy": "Every origin uses only observed history; all horizons within partition; rolling folds use their own frozen scaler and matched IDs"
+}

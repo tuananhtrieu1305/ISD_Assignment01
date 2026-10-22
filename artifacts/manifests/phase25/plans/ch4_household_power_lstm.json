@@ -1,0 +1,104 @@
+{
+  "family": "lstm",
+  "input_shape": [
+    168,
+    14
+  ],
+  "output_shape": [
+    3
+  ],
+  "plan_version": "phase25.1",
+  "steps": [
+    {
+      "id": "lstm_1",
+      "input_shape": [
+        168,
+        14
+      ],
+      "kind": "lstm",
+      "output_shape": [
+        168,
+        32
+      ],
+      "return_sequences": true
+    },
+    {
+      "id": "lstm_2",
+      "input_shape": [
+        168,
+        32
+      ],
+      "kind": "lstm",
+      "output_shape": [
+        168,
+        32
+      ],
+      "return_sequences": true
+    },
+    {
+      "id": "lstm_3",
+      "input_shape": [
+        168,
+        32
+      ],
+      "kind": "lstm",
+      "output_shape": [
+        32
+      ],
+      "return_sequences": false
+    },
+    {
+      "id": "dense_4",
+      "input_shape": [
+        32
+      ],
+      "kind": "dense",
+      "output_shape": [
+        16
+      ]
+    },
+    {
+      "activation": "relu",
+      "id": "activation_5",
+      "input_shape": [
+        16
+      ],
+      "kind": "activation",
+      "output_shape": [
+        16
+      ]
+    },
+    {
+      "id": "dense_6",
+      "input_shape": [
+        16
+      ],
+      "kind": "dense",
+      "output_shape": [
+        8
+      ]
+    },
+    {
+      "activation": "relu",
+      "id": "activation_7",
+      "input_shape": [
+        8
+      ],
+      "kind": "activation",
+      "output_shape": [
+        8
+      ]
+    },
+    {
+      "id": "dense_8",
+      "input_shape": [
+        8
+      ],
+      "kind": "dense",
+      "output_shape": [
+        3
+      ]
+    }
+  ],
+  "tiny_synthetic_only": false
+}

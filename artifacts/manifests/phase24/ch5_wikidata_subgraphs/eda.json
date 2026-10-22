@@ -1,0 +1,100 @@
+{
+  "comments": [
+    "KG hỗ trợ với 10 entity/2.056 claim, không phải benchmark QA thứ ba.",
+    "Giữ revision/hash nguồn, chỉ audit cấu trúc; không thực hiện truy vấn web mới."
+  ],
+  "dataset_id": "ch5_wikidata_subgraphs",
+  "distribution_summary": {
+    "Q12206": 186,
+    "Q124407": 125,
+    "Q192907": 70,
+    "Q271993": 62,
+    "Q3025883": 161,
+    "Q312": 1219,
+    "Q50265665": 125,
+    "Q570938": 18,
+    "Q699735": 51,
+    "Q850210": 39
+  },
+  "figures": [
+    {
+      "path": "artifacts/figures/phase24/ch5_wikidata_subgraphs_distribution.png",
+      "sha256": "7bd37dadf631cd98573958b707a29423b777d33a2f356f38640cefb77f0dacc6",
+      "size_bytes": 99149
+    },
+    {
+      "path": "artifacts/figures/phase24/ch5_wikidata_subgraphs_distribution.svg",
+      "sha256": "50abbd4bc8278116ff80c14e7d136c2e9ced890e39c614f4d2ca5a41d8375048",
+      "size_bytes": 37695
+    }
+  ],
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "sample_note": "FinQA: raw official train. MedQuAD: ánh xạ ID -> trích đoạn corpus retrieval công khai đã đóng gói, không gán train/test vì bundle không có split, không phải QA gold hay output mô hình. Wikidata: cấu trúc snapshot. Không đọc lại TEST query/prediction để tạo ví dụ hay tính metric.",
+  "samples": [
+    {
+      "input": "Q12206",
+      "known_output": {
+        "claim_count": 186,
+        "property_ids": [
+          "P10283",
+          "P1036",
+          "P10376",
+          "P1051",
+          "P10565"
+        ],
+        "revision": 2554502707
+      }
+    },
+    {
+      "input": "Q124407",
+      "known_output": {
+        "claim_count": 125,
+        "property_ids": [
+          "P10283",
+          "P10376",
+          "P10380",
+          "P11143",
+          "P11196"
+        ],
+        "revision": 2556005597
+      }
+    },
+    {
+      "input": "Q192907",
+      "known_output": {
+        "claim_count": 70,
+        "property_ids": [
+          "P1014",
+          "P10283",
+          "P1036",
+          "P10376",
+          "P10565"
+        ],
+        "revision": 2556173446
+      }
+    }
+  ],
+  "schema_version": "3.0.0",
+  "scope": "historical_baseline_READ_ONLY",
+  "size_and_schema": {
+    "features": null,
+    "frozen_slice": {
+      "checks": [
+        "revision_snapshot_hashes",
+        "all_raw_files_match_phase20_baseline"
+      ],
+      "claims": 2056,
+      "columns": [],
+      "deferred": "Structural/provenance audit only; not an invented third QA TEST dataset.",
+      "features": null,
+      "records": 10,
+      "unit": "narrow entity snapshots, not a QA benchmark"
+    },
+    "records": 10,
+    "unit": "narrow entity snapshots, not a QA benchmark"
+  },
+  "source_manifest_sha256": "4db3bda40dbfc8cdfb3b9ce9f906c722794d1dae06977f74bd611d8fb14da0ee",
+  "split_note": "Kế thừa manifest Phase12 và audit đã khóa; không chia lại, fit lại hay chạy TEST. Ch5 run_count vẫn 1; Wikidata chỉ structural audit.",
+  "test_evaluation_executed": false,
+  "training_executed": false
+}

@@ -1,0 +1,184 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_bis_house_prices_rnn_keras_s42_main/best.npz",
+      "sha256": "914ddec75ca5221c5a2a770aa370054f93b074f7990bb31f6d2a965b4642eb7e"
+    },
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_bis_house_prices_rnn_keras_s42_main/best.json",
+      "sha256": "bc80e132181d34f5fab2b56a1318b445a05a68bafd29c12b45e96b16995d11bc"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s42_main/selection.json",
+      "sha256": "155cb227af4ff0a29e55ed0be8f15c66b3245ef9c8b4709acfb7d6939cbaa4ea"
+    },
+    {
+      "path": "artifacts/predictions/phase29/test/ch4_bis_house_prices_rnn_keras_s42_main.jsonl.gz",
+      "sha256": "7841936e47ceacb047b9eebc5bb94f3b84affd8ba666f5f30880345b6589a8b3"
+    },
+    {
+      "path": "artifacts/manifests/phase29/test_details/ch4_bis_house_prices_rnn_keras_s42_main.json",
+      "sha256": "98f7919fb9dda971d62bc921180f066ee75de0cbaaf457622527eba4e200de00"
+    }
+  ],
+  "backend": "tensorflow",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "c7aaafbe11688e15bbc33da23c0bc5558a42ed3662504a5ae018b4d4eb556c70",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "73b648c0ac2563de86fa88e995e6abe5b88c88962c7d7ff655406c1b8116e622",
+  "config_sha256": "dc4de012f0639486bbc8cb57a49952e98df6638aca275a216371bcc11caa91d9",
+  "dataset_id": "ch4_bis_house_prices",
+  "dataset_sha256": "85ea7713ea144922d757ee7b4a129e2b38d455a05852e0d8fe85adf621b41752",
+  "device": "cuda:0",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 33892,
+    "inference_p50_ms": 1.8905739998444915,
+    "inference_p95_ms": 3.3455237999078187,
+    "peak_ram_bytes": 1598083072,
+    "peak_vram_bytes": 2043648,
+    "timed_repeats": 30,
+    "train_seconds": 33.66420733999985,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "rnn",
+  "finished_at": "2026-10-19T23:24:16.357746+00:00",
+  "implementation": "keras",
+  "metrics": [
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 40.75351156647919
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 24.534015882090948
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 11.160406510887645
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "macro_series_rmse",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 26.221841648187823
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 38.96592291113495
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 22.93258479376925
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 10.460598540779117
+    },
+    {
+      "direction": "min",
+      "horizon": 2,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 40.19458888355382
+    },
+    {
+      "direction": "min",
+      "horizon": 2,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 24.19743777282731
+    },
+    {
+      "direction": "min",
+      "horizon": 2,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 11.064465010980411
+    },
+    {
+      "direction": "min",
+      "horizon": 4,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 42.995325224529225
+    },
+    {
+      "direction": "min",
+      "horizon": 4,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "index 2010=100",
+      "value": 26.47202507967629
+    },
+    {
+      "direction": "min",
+      "horizon": 4,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 11.956155980903407
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s42_main/model_contract.json",
+    "sha256": "1ea555cbe9397530a1885e1c38c719614c88e6a3995c32a79c636d532152fdaf"
+  },
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch4_bis_house_prices/preprocessing.json",
+    "sha256": "2799f34bac4b10cda1b1a6a0d6ec06f4d734f93ab054dd7c9e3f1fca1a4e05a8"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch4_bis_house_prices_rnn_keras_s42_main",
+  "schema_version": "3.0.0",
+  "seed": 42,
+  "split": "test",
+  "split_id": "ch4_bis_house_prices_phase28_main",
+  "split_sha256": "0525c25465cff66163dacd4d764c15707e216a3739762d28be08c0c222651e34",
+  "started_at": "2026-10-19T23:24:07.937785+00:00",
+  "status": "succeeded",
+  "subset_sha256": "5860881735bf9b4e2d4864cce30c2f44313c635fdd4ce335a60c3512c4bca65e",
+  "test_seal_id": "ch4_bis_house_prices_phase29_joint_test_v1",
+  "track": "matched_subset",
+  "warnings": [
+    "Latest revised snapshots, retrospective observation-origin forecast; no real-time publication/vintage claim or investment advice",
+    "Each rolling fold uses its frozen scaler; windows reset recurrent state",
+    "Train wall includes validation/progress I/O; RAM is process lifetime, VRAM allocator only; CPU/GPU and graph/eager differ",
+    "Joint RNN/LSTM main TEST once after frozen validation selection; no optimizer updates or TEST-input timing repeats",
+    "Train/RAM/VRAM/5warmup30repeat TRAIN-input timing copied byte-value from locked validation metric; not claimed as TEST-only measurements"
+  ]
+}

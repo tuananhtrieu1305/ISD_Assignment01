@@ -1,0 +1,30 @@
+{
+  "forward": "PASS",
+  "gradient": {
+    "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+    "max_abs_error": 2.4586915969848633e-07,
+    "max_relative_l2_error": 4.896559550939972e-07,
+    "per_tensor_relative_l2_error": {
+      "conv2d_1/b": 2.137804132107223e-07,
+      "conv2d_1/w": 3.052663400791283e-07,
+      "conv2d_11/b": 4.896559550939972e-07,
+      "conv2d_11/w": 9.085726604433323e-08,
+      "conv2d_3/b": 4.2551551593305406e-07,
+      "conv2d_3/w": 3.325369254765443e-07,
+      "conv2d_6/b": 2.4203490350128554e-07,
+      "conv2d_6/w": 2.8856358202871315e-07,
+      "conv2d_8/b": 1.8134117337134756e-07,
+      "conv2d_8/w": 1.6254458525847584e-07,
+      "dense_14/b": 5.137075828307509e-08,
+      "dense_14/w": 9.563184611351545e-08,
+      "dense_16/b": 3.885173019145793e-08,
+      "dense_16/w": 1.3411012525581272e-07
+    },
+    "tolerance": 0.001
+  },
+  "ids": [
+    "data_batch_1.bin/00026",
+    "data_batch_1.bin/00028"
+  ],
+  "input_split": "train"
+}

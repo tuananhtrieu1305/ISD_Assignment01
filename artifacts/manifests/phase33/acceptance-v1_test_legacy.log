@@ -1,0 +1,74 @@
+
+> ai-term-paper-web@3.0.0 test:legacy
+> node --experimental-strip-types --test src/api/sequence.test.ts src/api/apiUrl.test.ts src/api/knowledgeApi.test.ts
+
+TAP version 13
+# Subtest: normaliseApiBaseUrl keeps explicit http protocols
+ok 1 - normaliseApiBaseUrl keeps explicit http protocols
+  ---
+  duration_ms: 0.6536
+  type: 'test'
+  ...
+# Subtest: normaliseApiBaseUrl converts a Render hostname to https
+ok 2 - normaliseApiBaseUrl converts a Render hostname to https
+  ---
+  duration_ms: 0.1313
+  type: 'test'
+  ...
+# Subtest: normaliseApiBaseUrl uses the local API when unset
+ok 3 - normaliseApiBaseUrl uses the local API when unset
+  ---
+  duration_ms: 0.0936
+  type: 'test'
+  ...
+# Subtest: validateAgentQuestion trims repeated whitespace
+ok 4 - validateAgentQuestion trims repeated whitespace
+  ---
+  duration_ms: 0.7076
+  type: 'test'
+  ...
+# Subtest: validateAgentQuestion enforces the backend 3-500 character contract
+ok 5 - validateAgentQuestion enforces the backend 3-500 character contract
+  ---
+  duration_ms: 0.2077
+  type: 'test'
+  ...
+# Subtest: buildAgentPayload exposes only allowlisted fields
+ok 6 - buildAgentPayload exposes only allowlisted fields
+  ---
+  duration_ms: 0.5314
+  type: 'test'
+  ...
+# Subtest: parseSequenceText reads comma-separated rows
+ok 7 - parseSequenceText reads comma-separated rows
+  ---
+  duration_ms: 1.2398
+  type: 'test'
+  ...
+# Subtest: parseSequenceText rejects the wrong number of rows or columns
+ok 8 - parseSequenceText rejects the wrong number of rows or columns
+  ---
+  duration_ms: 0.3354
+  type: 'test'
+  ...
+# Subtest: parseSequenceText rejects non-finite values
+ok 9 - parseSequenceText rejects non-finite values
+  ---
+  duration_ms: 0.0984
+  type: 'test'
+  ...
+# Subtest: formatSequence can be parsed without losing numeric values
+ok 10 - formatSequence can be parsed without losing numeric values
+  ---
+  duration_ms: 0.1875
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 112.4003

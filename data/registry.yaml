@@ -1,0 +1,309 @@
+schema_version: 3.0.0
+status: phase23_sources_verified
+source_catalog: experiments/configs/v3/acquisition_sources.json
+source_catalog_sha256: b1d8b1b3499c2ad506cbbac3e6e9c8d2eb92e4ba16d07c7977c3e315bfffd815
+policy: All physical sources verified, including user-provided IDRiD original grading
+  ZIP. Archives remain unextracted; Ch5/Ch6 raw not duplicated. Initial Phase23 metadata
+  snapshot and lock preserved.
+datasets:
+- id: ch1_iris_history
+  chapter: 1
+  kind: tabular
+  status: ready
+  source_url: https://archive.ics.uci.edu/static/public/53/iris.zip
+  revision: UCI 53 original Iris snapshot; sha256:d11fe30213d36434a0879aab7cb00ce3c812eb7ba2495874438abff7b7b762e9
+  local_path: data/raw/ch1/iris
+  manifest: artifacts/manifests/datasets/ch1_iris_history.json
+  manifest_sha256: ee70dd1d725f1caac7b880ae218433374a93df2a7c82413209b9627d18c18b3a
+  byte_size: 3738
+  logical_size:
+    records: 150
+    features: 4
+    unit: raw rows
+  parent_dataset_ids: []
+  preservation: null
+- id: ch1_mnist_history
+  chapter: 1
+  kind: image
+  status: ready
+  source_url: https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
+  revision: Keras sanctioned MNIST NPZ; original 60000/10000 split; sha256:731c5ac602752760c8e48fbffcf8c3b850d9dc2a2aedcf2cc48468fc17b673d1
+  local_path: data/raw/ch1/mnist
+  manifest: artifacts/manifests/datasets/ch1_mnist_history.json
+  manifest_sha256: e611fe447119dd1260c591d131ba3aa6a7a5e85e2ee9d628ba4b4d5134e192e9
+  byte_size: 11490434
+  logical_size:
+    records: 70000
+    features: 784
+    unit: images (official 60000 train + 10000 test)
+  parent_dataset_ids: []
+  preservation: null
+- id: ch1_imagenet_history
+  chapter: 1
+  kind: metadata
+  status: ready
+  source_url: https://www.image-net.org/challenges/LSVRC/2012/index.php
+  revision: ILSVRC 2012 official challenge metadata only; sha256:9d63dd697cceeeb640da708183bbbd6f4c35f98175d4cbec0439c3f3ea4373cc
+  local_path: data/raw/ch1/imagenet
+  manifest: artifacts/manifests/datasets/ch1_imagenet_history.json
+  manifest_sha256: 402977fbf43ff9b074eac4d7007e8468a609f5abd69eab481718deae096e69f2
+  byte_size: 18582
+  logical_size:
+    records: 1
+    features: null
+    unit: official metadata webpage, ZERO local images
+  parent_dataset_ids: []
+  preservation: null
+- id: ch2_cdc_diabetes
+  chapter: 2
+  kind: tabular
+  status: ready
+  source_url: https://archive.ics.uci.edu/static/public/891/data.csv
+  revision: UCI 891 / CDC BRFSS 2015 binary diabetes; sha256:9f71fda9d4ae5f4878c99b9233b6a16accfa9a17c194116a6b78100540934964
+  local_path: data/raw/ch2/cdc_diabetes
+  manifest: artifacts/manifests/datasets/ch2_cdc_diabetes.json
+  manifest_sha256: 1e446b32f553e0af95f69b8e55372cdcf4acfc63180ad0e768c2f5f558dc95b6
+  byte_size: 13494568
+  logical_size:
+    records: 253680
+    features: 21
+    unit: raw rows
+  parent_dataset_ids: []
+  preservation: null
+- id: ch2_ames_housing
+  chapter: 2
+  kind: tabular
+  status: ready
+  source_url: https://jse.amstat.org/v19n3/decock/AmesHousing.txt
+  revision: De Cock JSE 2011 original 2930-row tab-delimited release; sha256:6cfe6cb525ba437de428653a1040e2aed7d696640bf75203786a6d7a0e67cfcc
+  local_path: data/raw/ch2/ames
+  manifest: artifacts/manifests/datasets/ch2_ames_housing.json
+  manifest_sha256: 7a9a39099db335cf14f759534ac4d1e29293b9c8392219e42dac1dd456ee4d4e
+  byte_size: 960807
+  logical_size:
+    records: 2930
+    features: 79
+    unit: raw rows
+  parent_dataset_ids: []
+  preservation: null
+- id: ch2_bank_marketing
+  chapter: 2
+  kind: tabular
+  status: ready
+  source_url: https://archive.ics.uci.edu/static/public/222/bank+marketing.zip
+  revision: UCI 222; bank.zip/bank-full.csv, original 45211-row variant; sha256:e0bf5f5de5b846e2f18e9d90606637267d46dfa260e0f17bb12e605db5efbeb4
+  local_path: data/raw/ch2/bank
+  manifest: artifacts/manifests/datasets/ch2_bank_marketing.json
+  manifest_sha256: b34904856e0a4412109c99e7cf9556605ec78fa0910f3593aceac25f27f5e461
+  byte_size: 1023843
+  logical_size:
+    records: 45211
+    features: 15
+    unit: raw rows
+  parent_dataset_ids: []
+  preservation: null
+- id: ch3_idrid
+  chapter: 3
+  kind: image
+  status: ready
+  source_url: https://ieee-dataport.org/open-access/indian-diabetic-retinopathy-image-dataset-idrid
+  revision: IDRiD original B. Disease Grading ZIP; sha256:8a9f4752b35d74cc35ff48b21ad44f295a6f800110ec218fc2d1c264803e4d8c
+  local_path: data/raw/ch3/idrid/manual
+  manifest: artifacts/manifests/datasets/ch3_idrid.json
+  manifest_sha256: 8d24ac9b9103feb4d06a7caace78b9658193ede0dd308faaf9a01e16c0ccf764
+  byte_size: 212405123
+  logical_size:
+    records: 516
+    features: null
+    unit: fundus RGB images; official 413 train + 103 test
+  parent_dataset_ids: []
+  preservation: null
+- id: ch3_eurosat
+  chapter: 3
+  kind: image
+  status: ready
+  source_url: https://zenodo.org/records/7711810/files/EuroSAT_RGB.zip?download=1
+  revision: Zenodo 7711810 v2; RGB only; sha256:b4f5b234ecb7d7ff9c6cddb046543b4717c53fd6e9815be6c0e80cc614f51b90
+  local_path: data/raw/ch3/eurosat
+  manifest: artifacts/manifests/datasets/ch3_eurosat.json
+  manifest_sha256: 8b6306b317c8ef119144c9360da8c7c58a3180da3a564d8cadd21330bc9ffe22
+  byte_size: 94658721
+  logical_size:
+    records: 27000
+    features: 12288
+    unit: RGB image patches
+  parent_dataset_ids: []
+  preservation: null
+- id: ch3_cifar10
+  chapter: 3
+  kind: image
+  status: ready
+  source_url: https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz
+  revision: CIFAR-10 original binary release 2009; not Python pickle; sha256:c4a38c50a1bc5f3a1c5537f2155ab9d68f9f25eb1ed8d9ddda3db29a59bca1dd
+  local_path: data/raw/ch3/cifar10
+  manifest: artifacts/manifests/datasets/ch3_cifar10.json
+  manifest_sha256: 2c0a70d1f6e2291e57168a96b985f943547126988857528648484ed215026a04
+  byte_size: 170052171
+  logical_size:
+    records: 60000
+    features: 3072
+    unit: images (50000 train + 10000 test)
+  parent_dataset_ids: []
+  preservation: null
+- id: ch4_gold_pink_sheet
+  chapter: 4
+  kind: timeseries
+  status: ready
+  source_url: https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx
+  revision: Pink Sheet October 2026 historical monthly workbook; latest revised vintage;
+    sha256:ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154
+  local_path: data/raw/ch4/gold
+  manifest: artifacts/manifests/datasets/ch4_gold_pink_sheet.json
+  manifest_sha256: dfaba9c931ef045fa98ba4bd5d51e478f17cd7fb1b9911e1a3a07a1123bdbef3
+  byte_size: 586099
+  logical_size:
+    records: 801
+    features: 4
+    unit: monthly observations, latest revised vintage
+  parent_dataset_ids: []
+  preservation: null
+- id: ch4_bis_house_prices
+  chapter: 4
+  kind: timeseries
+  status: ready
+  source_url: https://data.bis.org/static/bulk/WS_SPP_csv_col.zip
+  revision: BIS WS_SPP selected residential property prices bulk snapshot; sha256:2ef20238c23983100a3ded6c1398a6026b3a18fe6b898520df2738c80d1aaebd
+  local_path: data/raw/ch4/bis
+  manifest: artifacts/manifests/datasets/ch4_bis_house_prices.json
+  manifest_sha256: 85ea7713ea144922d757ee7b4a129e2b38d455a05852e0d8fe85adf621b41752
+  byte_size: 135216
+  logical_size:
+    records: 35780
+    features: null
+    unit: nonmissing quarterly series-observations in entire raw bulk (not selected
+      nominal panel)
+  parent_dataset_ids: []
+  preservation: null
+- id: ch4_household_power
+  chapter: 4
+  kind: timeseries
+  status: ready
+  source_url: https://archive.ics.uci.edu/static/public/235/individual+household+electric+power+consumption.zip
+  revision: UCI 235 original minute-resolution household power release; sha256:9f84b46ade8a2d8e1286ec4b2b6c2987a45a755c59f263be3b3b3d10dfbda3ff
+  local_path: data/raw/ch4/power
+  manifest: artifacts/manifests/datasets/ch4_household_power.json
+  manifest_sha256: db356f6739f2dbc8f493d383cface41cb84eed4ad572bbfd4b680519034539a1
+  byte_size: 20640916
+  logical_size:
+    records: 2075259
+    features: 7
+    unit: raw minute rows, NOT hourly training windows
+  parent_dataset_ids: []
+  preservation: null
+- id: ch5_medquad_diabetes
+  chapter: 5
+  kind: qa
+  status: ready
+  source_url: https://github.com/abachaa/MedQuAD
+  revision: 577bd37b96c02d1833b2c9eed2de9f96964e96cb
+  local_path: data/raw/ch5/medquad/10_MPlus_ADAM_QA
+  manifest: artifacts/manifests/datasets/ch5_medquad_diabetes.json
+  manifest_sha256: f205a30da7fe1215d6a2f081160e8fae57c38bbd5f51f325cf56f23a1d19b328
+  byte_size: 37183352
+  logical_size:
+    records: 47441
+    features: null
+    unit: QA pairs in entire preserved upstream corpus, NOT diabetes-only split
+  parent_dataset_ids: []
+  preservation: locked_v2_preserved
+- id: ch5_finqa
+  chapter: 5
+  kind: qa
+  status: ready
+  source_url: https://github.com/czyssrs/FinQA
+  revision: 0f16e2867befa6840783e58be38c9efb9229d742
+  local_path: data/raw/ch5/finqa
+  manifest: artifacts/manifests/datasets/ch5_finqa.json
+  manifest_sha256: 4d11d416b3694d54a41e4ab417c6b2d0f45d8623f408c40e9a43e6447c29c6a7
+  byte_size: 122256362
+  logical_size:
+    records: 9200
+    features: null
+    unit: raw QA records including private_test
+  parent_dataset_ids: []
+  preservation: locked_v2_preserved
+- id: ch5_wikidata_subgraphs
+  chapter: 5
+  kind: kg
+  status: ready
+  source_url: https://www.wikidata.org/wiki/Wikidata:Data_access
+  revision: Phase11 exact Wikidata revision IDs
+  local_path: data/raw/ch5/wikidata/entities
+  manifest: artifacts/manifests/datasets/ch5_wikidata_subgraphs.json
+  manifest_sha256: 4db3bda40dbfc8cdfb3b9ce9f906c722794d1dae06977f74bd611d8fb14da0ee
+  byte_size: 3528666
+  logical_size:
+    records: 10
+    features: null
+    unit: narrow entity snapshots, not a QA benchmark
+  parent_dataset_ids: []
+  preservation: locked_v2_preserved
+- id: ch6_diabetes_tasks
+  chapter: 6
+  kind: task_view
+  status: declared
+  source_url: https://archive.ics.uci.edu/static/public/891/data.csv
+  revision: Declared task view over pinned parent sources; tasks generated Phase31
+  local_path: null
+  manifest: artifacts/manifests/datasets/ch6_diabetes_tasks.json
+  manifest_sha256: fecaa086a12299aa054374b0b2557c5381b0fbf05ff6dfbc4f9732b9a6215ac5
+  byte_size: 0
+  logical_size:
+    records: null
+    features: null
+    unit: agent task view, not generated yet
+  parent_dataset_ids:
+  - ch2_cdc_diabetes
+  - ch5_medquad_diabetes
+  preservation: null
+- id: ch6_house_tasks
+  chapter: 6
+  kind: task_view
+  status: declared
+  source_url: https://jse.amstat.org/v19n3/decock/AmesHousing.txt
+  revision: Declared task view over pinned parent sources; tasks generated Phase31
+  local_path: null
+  manifest: artifacts/manifests/datasets/ch6_house_tasks.json
+  manifest_sha256: 465084e5d17a461dc23ad69ee29fde3349657787f7815b9457ed0f4577b28144
+  byte_size: 0
+  logical_size:
+    records: null
+    features: null
+    unit: agent task view, not generated yet
+  parent_dataset_ids:
+  - ch2_ames_housing
+  - ch4_bis_house_prices
+  preservation: null
+- id: ch6_gold_tasks
+  chapter: 6
+  kind: task_view
+  status: declared
+  source_url: https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx
+  revision: Declared task view over pinned parent sources; tasks generated Phase31
+  local_path: null
+  manifest: artifacts/manifests/datasets/ch6_gold_tasks.json
+  manifest_sha256: f2259259788a4071d03833fabf8b18940b683aead2dbe3cc6c38f5dc9051cdf8
+  byte_size: 0
+  logical_size:
+    records: null
+    features: null
+    unit: agent task view, not generated yet
+  parent_dataset_ids:
+  - ch4_gold_pink_sheet
+  preservation: null
+provenance_revision: idrid_20261017_8a9f4752b35d
+provenance_lock: artifacts/manifests/phase23/updates/idrid_20261017_8a9f4752b35d/dataset_lock.json
+provenance_evidence_paths:
+- artifacts/manifests/phase23/updates/idrid_20261017_8a9f4752b35d/import_receipt.json
+- artifacts/manifests/phase23/updates/idrid_20261017_8a9f4752b35d/canonical_import_receipt.json
+- artifacts/manifests/phase23/updates/idrid_20261017_8a9f4752b35d/image_index.json

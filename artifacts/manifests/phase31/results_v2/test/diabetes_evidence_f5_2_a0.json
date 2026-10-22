@@ -1,0 +1,107 @@
+{
+  "category": "evidence",
+  "domain": "diabetes",
+  "metrics": {
+    "answer_completion": 1,
+    "citation_correctness": 1,
+    "latency_ms": 15.182818999164738,
+    "message_count": 1,
+    "numeric_parity": null,
+    "peak_child_rss_bytes": 172470272,
+    "refusal_correctness": null,
+    "routing_accuracy": null,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 1,
+    "messages": [
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "diabetes_evidence_017"
+        },
+        "node_id": "node_1",
+        "output": {
+          "payload": {
+            "artifact_refs": [
+              {
+                "path": "artifacts/manifests/phase30/preserved_snapshot.json",
+                "sha256": "481071f65b2c01b8d132532bdaccaa08ff760b153b908bbf1906e72d2f1c310a"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "evidence_diabetes_evidence_017",
+                "locator": "kg_chunks.jsonl.gz#med-chunk-0fc2a05dc1afb7f4cc03;document=med-doc-164ba92ed66a923f9498",
+                "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+                "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb"
+              }
+            ],
+            "text": "supplies such as glucose monitors, test strips, and lancets - insulin pumps and insulin if used with an insulin pump - counseling to help people who are obese lose weight - flu and pneumonia shots - foot exams and treatment for people with diabetes - eye exams to check for glaucoma and diabetic retinopathy - medical nutrition therapy services for people with diabetes or kidney disease, when referred by a health care provider - therapeutic shoes or inserts, in some cases Medicare Part D helps pay for - diabetes medications - insulin, excluding insulin used with an insulin pump - diabetes supplies such as needles and syringes for injecting insulin People who are in a Medicare Advantage Plan or other",
+            "unit": "excerpt",
+            "values": []
+          },
+          "peak_rss_bytes": 172470272,
+          "receipt_sha256": "dee4d86c4e30cb563890f58990af74007a569847b2aafc1a47a4fe478644c62b",
+          "status": "ok"
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 172470272,
+    "reason": null,
+    "route": "diabetes",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "supplies such as glucose monitors, test strips, and lancets - insulin pumps and insulin if used with an insulin pump - counseling to help people who are obese lose weight - flu and pneumonia shots - foot exams and treatment for people with diabetes - eye exams to check for glaucoma and diabetic retinopathy - medical nutrition therapy services for people with diabetes or kidney disease, when referred by a health care provider - therapeutic shoes or inserts, in some cases Medicare Part D helps pay for - diabetes medications - insulin, excluding insulin used with an insulin pump - diabetes supplies such as needles and syringes for injecting insulin People who are in a Medicare Advantage Plan or other",
+      "citations": [
+        {
+          "evidence_id": "evidence_diabetes_evidence_017",
+          "locator": "kg_chunks.jsonl.gz#med-chunk-0fc2a05dc1afb7f4cc03;document=med-doc-164ba92ed66a923f9498",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb"
+        }
+      ],
+      "domain": "diabetes",
+      "evidence_kind": "measured",
+      "latency_ms": 14.412982000067132,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "direct",
+          "artifact_refs": [
+            {
+              "path": "artifacts/manifests/phase30/preserved_snapshot.json",
+              "sha256": "481071f65b2c01b8d132532bdaccaa08ff760b153b908bbf1906e72d2f1c310a"
+            }
+          ],
+          "duration_ms": 14.288303000284941,
+          "input_sha256": "1e23fa73f40da8f52749c76f62171d50a1a25830535715bd8f46446db234fb71",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "e3f2cdb84924606da125f9263b5051ef747766bd7c2177f6dd752f7a77b5e47b",
+          "parent_ids": [],
+          "tool": "retrieve_medical"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "succeeded",
+      "task_id": "diabetes_evidence_f5_2",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_b6fc4fe8ec57942041f9_a0",
+      "variant": "A0"
+    },
+    "values": [],
+    "verification": "not_run",
+    "wall_latency_ms": 15.182818999164738
+  },
+  "parent_model_test_forward": false,
+  "split": "test",
+  "stratum": "benign",
+  "task_id": "diabetes_evidence_f5_2",
+  "variant": "A0"
+}

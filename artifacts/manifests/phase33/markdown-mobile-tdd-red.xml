@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="59" failures="1" errors="0" time="1.4635423">
+    <testsuite name="src/v3/App.test.tsx" timestamp="2026-10-21T12:54:55.464Z" hostname="LaptopVJP" tests="9" failures="0" errors="0" skipped="0" time="0.5413418">
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; has six knowledge links and three CNN datasets" time="0.1566261">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; shows a useful invalid URL message, not a blank page" time="0.0127698">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; renders all dataset data, theory and deployment panels at /ml" time="0.1073431">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; renders all dataset data, theory and deployment panels at /cnn" time="0.0793628">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; renders all dataset data, theory and deployment panels at /rnn" time="0.0685381">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; renders all dataset data, theory and deployment panels at /rag" time="0.0482236">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; renders all dataset data, theory and deployment panels at /agents" time="0.0397897">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; keeps original null costs in display" time="0.0253418">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="cancel contract regression &gt; posts only the cancellation body allowed by frozen OpenAPI" time="0.0019647">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/v3/core.test.ts" timestamp="2026-10-21T12:54:55.470Z" hostname="LaptopVJP" tests="18" failures="0" errors="0" skipped="0" time="0.0470269">
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; matches all18dataset IDs and six chapters from the frozen serving registry" time="0.0095006">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /ml" time="0.0009567">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /cnn" time="0.000283">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /rnn" time="0.0003587">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /rag" time="0.0002519">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /agents" time="0.0001821">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps RNN/LSTM and rejects cross-chapter datasets instead of silent fallback" time="0.0001911">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="safe presentation and comparable historical rows &gt; preserves missing cost, zero, arrays and text without invented metrics" time="0.0123068">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="safe presentation and comparable historical rows &gt; parses quoted CSV and filters before comparing" time="0.0013431">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="safe presentation and comparable historical rows &gt; does not accept javascript URLs or probability bars over 100 percent" time="0.0010158">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; verifies downloaded artifact SHA and rejects mismatched bytes/non-public artifacts" time="0.0112286">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; handles invalid JSON, generic HTTP errors, abort and malformed IDs" time="0.0018359">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; calls fetch with the global receiver required by native Window.fetch" time="0.000653">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; matches cancel schema and hashes public artifact bytes" time="0.0008421">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; normalizes only http/https API origins without embedded credentials" time="0.0004751">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; stores 24 random bytes in session storage only and isolates API origins" time="0.0006785">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; uses owner and idempotency headers without leaking tokens in the URL" time="0.0019513">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; keeps structured retryable errors and refuses external polling" time="0.0014471">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/v3/hooks.test.tsx" timestamp="2026-10-21T12:54:55.473Z" hostname="LaptopVJP" tests="3" failures="0" errors="0" skipped="0" time="0.1693184">
+        <testcase classname="src/v3/hooks.test.tsx" name="request identity, cancellation and retry &gt; ignores a stale response when the dataset identity changed" time="0.0121034">
+        </testcase>
+        <testcase classname="src/v3/hooks.test.tsx" name="request identity, cancellation and retry &gt; reports errors and retries only the GET load, never a POST job" time="0.1532396">
+        </testcase>
+        <testcase classname="src/v3/hooks.test.tsx" name="request identity, cancellation and retry &gt; does not surface an AbortError as an API failure" time="0.0023855">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/v3/widgets.test.tsx" timestamp="2026-10-21T12:54:55.474Z" hostname="LaptopVJP" tests="29" failures="1" errors="0" skipped="0" time="0.7058552">
+        <testcase classname="src/v3/widgets.test.tsx" name="runner structured input and async lifecycle &gt; runs all slots and details from ch2_ames_housing" time="0.2123089">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="runner structured input and async lifecycle &gt; runs all slots and details from ch3_idrid" time="0.0341936">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="runner structured input and async lifecycle &gt; runs all slots and details from ch4_gold_pink_sheet" time="0.0341986">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="runner structured input and async lifecycle &gt; runs all slots and details from ch5_medquad_diabetes" time="0.0447641">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="runner structured input and async lifecycle &gt; runs all slots and details from ch6_diabetes_tasks" time="0.04125">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="runner structured input and async lifecycle &gt; runs all slots and details from ch5_wikidata_subgraphs" time="0.035437">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="runner structured input and async lifecycle &gt; rejects malformed sequence JSON before submit" time="0.0130731">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="runner structured input and async lifecycle &gt; rejects SVG/oversized upload and accepts PNG without HTML rendering" time="0.0142916">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="runner structured input and async lifecycle &gt; polls queued/running and cancels the owned job" time="0.0161975">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="runner structured input and async lifecycle &gt; resumes GET-only after refresh and recovers polling errors" time="0.0283812">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="runner structured input and async lifecycle &gt; reports a missing demo or rejected submit" time="0.0184877">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="comparison and trace truthfulness &gt; renders outputs/citations/status ch2_ames_housing" time="0.0040424">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="comparison and trace truthfulness &gt; renders outputs/citations/status ch2_cdc_diabetes" time="0.0043282">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="comparison and trace truthfulness &gt; renders outputs/citations/status ch3_idrid" time="0.0058204">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="comparison and trace truthfulness &gt; renders outputs/citations/status ch5_finqa" time="0.0047995">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="comparison and trace truthfulness &gt; renders outputs/citations/status ch5_wikidata_subgraphs" time="0.0037131">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="comparison and trace truthfulness &gt; renders outputs/citations/status ch6_diabetes_tasks" time="0.0030745">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="comparison and trace truthfulness &gt; shows unavailable slots and invalid group without pretending to rank" time="0.0104728">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="comparison and trace truthfulness &gt; renders actual parent IDs, zero node instrumentation and switches variants" time="0.0090499">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="comparison and trace truthfulness &gt; handles an empty trace" time="0.0007869">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="historical results keep original metrics and null cost &gt; loads saved output ch2_cdc_diabetes" time="0.0647024">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="historical results keep original metrics and null cost &gt; loads saved output ch4_household_power" time="0.047949">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="historical results keep original metrics and null cost &gt; loads saved output ch5_finqa" time="0.0165839">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="historical results keep original metrics and null cost &gt; loads saved output ch5_wikidata_subgraphs" time="0.0057952">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="historical results keep original metrics and null cost &gt; loads saved output ch6_gold_tasks" time="0.0060675">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="presentation boundaries &gt; groups fenced JSON into an expandable structured example" time="0.0042325">
+            <failure message="Unable to find an element with the text: Ví dụ có cấu trúc · json. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+&lt;body&gt;
+  &lt;div&gt;
+    &lt;div
+      class=&quot;v3-prose&quot;
+    &gt;
+      &lt;p
+        class=&quot;&quot;
+      &gt;
+        &lt;code&gt;
+          ``jso
+        &lt;/code&gt;
+      &lt;/p&gt;
+      &lt;p
+        class=&quot;&quot;
+      &gt;
+        {&quot;known_output&quot;:&quot;iris-setosa&quot;}
+      &lt;/p&gt;
+      &lt;p
+        class=&quot;&quot;
+      &gt;
+        &lt;code&gt;
+          `
+        &lt;/code&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;" type="TestingLibraryElementError">
+TestingLibraryElementError: Unable to find an element with the text: Ví dụ có cấu trúc · json. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+&lt;body&gt;
+  &lt;div&gt;
+    &lt;div
+      class=&quot;v3-prose&quot;
+    &gt;
+      &lt;p
+        class=&quot;&quot;
+      &gt;
+        &lt;code&gt;
+          ``jso
+        &lt;/code&gt;
+      &lt;/p&gt;
+      &lt;p
+        class=&quot;&quot;
+      &gt;
+        {&quot;known_output&quot;:&quot;iris-setosa&quot;}
+      &lt;/p&gt;
+      &lt;p
+        class=&quot;&quot;
+      &gt;
+        &lt;code&gt;
+          `
+        &lt;/code&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/v3/widgets.test.tsx:362:19
+            </failure>
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="presentation boundaries &gt; renders markdown as escaped text and only safe links, tables, details" time="0.0046668">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="presentation boundaries &gt; handles empty and long tables, no-number chart, flat fields and safe errors" time="0.0080639">
+        </testcase>
+        <testcase classname="src/v3/widgets.test.tsx" name="presentation boundaries &gt; catches render failure without echoing source stack" time="0.0072757">
+        </testcase>
+    </testsuite>
+</testsuites>

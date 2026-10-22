@@ -1,0 +1,103 @@
+{
+  "scope": "TRAIN-only UI serving smoke; not historical TEST",
+  "job": {
+    "comparison_blockers": [],
+    "comparison_valid": true,
+    "created_at": "2026-10-22T00:46:31.916291+00:00",
+    "dataset_id": "ch2_bank_marketing",
+    "expires_at": "2026-10-22T01:16:31.916291+00:00",
+    "family": "mlp",
+    "input_sha256": "99389aed745e2352dce517774d1d75c90aacec35cdf17ce0d3d3f6e273605975",
+    "job_id": "job_c012554c1a4b10a7798ae2761c252d32732d33f8",
+    "metric_artifacts": [],
+    "request_id": "request_c012554c1a4b10a7798ae2761c252d32732d33f8",
+    "request_sha256": "f3059d5cad1808922945c60cc65f632e99f3c6eb1ceb8c528f696005225667ee",
+    "results": [
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "8b793b1b51caaaa0be4e277092f31a9754ae7375f9c5aa40b85cc78d9d96d1a4",
+        "comparison_group_sha256": "c561dc3081fd5d255d97199e59c96a6f2dc7bc8a8b70636c346ca3978b5b76a4",
+        "error": null,
+        "implementation": "scratch",
+        "inference_ms": 0.06988600034674164,
+        "input_sha256": "99389aed745e2352dce517774d1d75c90aacec35cdf17ce0d3d3f6e273605975",
+        "model_id": "ch2_bank_marketing_mlp_scratch_s42",
+        "prediction": {
+          "kind": "classification",
+          "label": "no",
+          "probabilities": [
+            {
+              "label": "no",
+              "value": 0.7316338255866806
+            },
+            {
+              "label": "yes",
+              "value": 0.26836617441331945
+            }
+          ]
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "45840e16d3295cb2c32d268d435f8901742bc4ffc0b13fdddcc3bb28f322ff8a",
+        "comparison_group_sha256": "c561dc3081fd5d255d97199e59c96a6f2dc7bc8a8b70636c346ca3978b5b76a4",
+        "error": null,
+        "implementation": "keras",
+        "inference_ms": 0.04301999979361426,
+        "input_sha256": "99389aed745e2352dce517774d1d75c90aacec35cdf17ce0d3d3f6e273605975",
+        "model_id": "ch2_bank_marketing_mlp_keras_s42",
+        "prediction": {
+          "kind": "classification",
+          "label": "no",
+          "probabilities": [
+            {
+              "label": "no",
+              "value": 0.7353617281901197
+            },
+            {
+              "label": "yes",
+              "value": 0.2646382718098803
+            }
+          ]
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "70355014372e2131d9413e340ba9a23e47bd0253c88c900ceda2a17d2983e894",
+        "comparison_group_sha256": "c561dc3081fd5d255d97199e59c96a6f2dc7bc8a8b70636c346ca3978b5b76a4",
+        "error": null,
+        "implementation": "pytorch",
+        "inference_ms": 0.03944800118915737,
+        "input_sha256": "99389aed745e2352dce517774d1d75c90aacec35cdf17ce0d3d3f6e273605975",
+        "model_id": "ch2_bank_marketing_mlp_pytorch_s42",
+        "prediction": {
+          "kind": "classification",
+          "label": "no",
+          "probabilities": [
+            {
+              "label": "no",
+              "value": 0.7382908826483501
+            },
+            {
+              "label": "yes",
+              "value": 0.26170911735165
+            }
+          ]
+        },
+        "status": "succeeded"
+      }
+    ],
+    "schema_version": "3.0.0",
+    "status": "succeeded",
+    "trace_ids": []
+  },
+  "input_split": "train",
+  "models_retrained": 0,
+  "source_sha256": null,
+  "historical_test_evaluation_executed": false
+}

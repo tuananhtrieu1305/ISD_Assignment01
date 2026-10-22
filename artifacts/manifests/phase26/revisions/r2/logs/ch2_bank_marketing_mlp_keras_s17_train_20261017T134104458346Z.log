@@ -1,0 +1,27 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792244471.901188   42322 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792244471.942937   42322 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792244473.306896   42322 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1792244474.317879   42322 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1792244474.412736   42322 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1792244474.617670   42322 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5262 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+epoch=1 train_loss=0.610913 validation_loss=0.613098 best_epoch=1
+epoch=2 train_loss=0.558380 validation_loss=0.587759 best_epoch=2
+epoch=3 train_loss=0.546105 validation_loss=0.573528 best_epoch=3
+epoch=4 train_loss=0.531435 validation_loss=0.570755 best_epoch=4
+epoch=5 train_loss=0.526339 validation_loss=0.616750 best_epoch=4
+epoch=6 train_loss=0.513576 validation_loss=0.591983 best_epoch=4
+epoch=7 train_loss=0.500679 validation_loss=0.596314 best_epoch=4
+epoch=8 train_loss=0.489920 validation_loss=0.617084 best_epoch=4
+epoch=9 train_loss=0.482408 validation_loss=0.638434 best_epoch=4
+epoch=10 train_loss=0.473396 validation_loss=0.719002 best_epoch=4
+{
+  "run_id": "ch2_bank_marketing_mlp_keras_s17",
+  "status": "succeeded",
+  "epochs": 10,
+  "best_epoch": 3,
+  "primary_metric": 0.641414423696678,
+  "train_seconds": 30.8702575669995
+}

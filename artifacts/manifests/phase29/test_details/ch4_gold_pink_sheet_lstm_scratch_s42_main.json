@@ -1,0 +1,183 @@
+{
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_scratch_s42_main/best.npz",
+    "sha256": "084062b50b6bc52a36b73c5e04474952fad4bbd51b9871477ed61455c78b6721"
+  },
+  "efficiency_scope": "Train/RAM/VRAM/5warmup30repeat TRAIN-input timing copied byte-value from locked validation metric; not claimed as TEST-only measurements",
+  "evaluator_sha256": "d57fe9be8d8a075525a30f2d7693d77080a79cc3c7f96a50960641995c2ae32c",
+  "metrics": {
+    "by_horizon": {
+      "1": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 1499.0258890946527
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -3.154307325163556
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 1735.5864092137701
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 114.9633836801409
+        }
+      },
+      "3": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 1548.303490404408
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -2.977798409547373
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 1802.591824804522
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 115.65886155615215
+        }
+      },
+      "6": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 1660.5229986612692
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -3.023970940532699
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 1926.9893031327292
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 122.06283710096054
+        }
+      }
+    },
+    "by_series": {
+      "GOLD": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 1499.0258890946527
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -3.154307325163556
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 1735.5864092137701
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 114.9633836801409
+            }
+          },
+          "3": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 1548.303490404408
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -2.977798409547373
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 1802.591824804522
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 115.65886155615215
+            }
+          },
+          "6": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 1660.5229986612692
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -3.023970940532699
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 1926.9893031327292
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 122.06283710096054
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 1569.284126053443
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -3.04701144298208
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 1823.4477640893735
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 117.56169411241785
+        }
+      }
+    },
+    "macro_series_rmse": {
+      "undefined_reason": null,
+      "value": 1823.4477640893735
+    },
+    "mae": {
+      "undefined_reason": null,
+      "value": 1569.284126053443
+    },
+    "r2": {
+      "undefined_reason": null,
+      "value": -3.04701144298208
+    },
+    "rmse": {
+      "undefined_reason": null,
+      "value": 1823.4477640893735
+    },
+    "smape": {
+      "undefined_reason": null,
+      "value": 117.56169411241785
+    }
+  },
+  "optimizer_updates": 0,
+  "output_dtype": "float64",
+  "run_id": "ch4_gold_pink_sheet_lstm_scratch_s42_main",
+  "test_count": 116,
+  "test_forward_and_model_load_seconds": 0.028728630000841804,
+  "test_forward_passes_per_window": 1,
+  "test_seal_manifest_sha256": "597bff62544f81cd9021c8567899734be5bb33a2a9ad1f97ed10c716e693dff9",
+  "training_efficiency": {
+    "checkpoint_bytes": 92022,
+    "inference_p50_ms": 1.6912625014811056,
+    "inference_p95_ms": 2.859322601398162,
+    "peak_ram_bytes": 239091712,
+    "peak_vram_bytes": 0,
+    "timed_repeats": 30,
+    "train_seconds": 6.987626294998336,
+    "warmup_batches": 5
+  },
+  "training_selection": {
+    "path": "artifacts/manifests/phase29/runs/ch4_gold_pink_sheet_lstm_scratch_s42_main/selection.json",
+    "sha256": "54b6e340f42bcc75c7d3f87e329a459c40518ef79a713c868b2730e4ca1efad5"
+  }
+}

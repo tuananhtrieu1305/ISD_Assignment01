@@ -1,0 +1,185 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_last_value_s42_main/best.npz",
+      "sha256": "34085f7b90804837cd96abc1cfe955abe4c503f2471f559fb84ccd5c13459db2"
+    },
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_last_value_s42_main/best.json",
+      "sha256": "c1f51781d79de35485a86b48b416fdc36ebd2aa00158d5ac265242c462055200"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_household_power_last_value_s42_main/selection.json",
+      "sha256": "bb5e525785dab0f61160bcaa42811a45c69fb0a31bff5eace4ba35cd1e97e058"
+    },
+    {
+      "path": "artifacts/predictions/phase29/test/ch4_household_power_last_value_s42_main.jsonl.gz",
+      "sha256": "53cda3f09060aa468df618b890b697584775cf9b1177c77789262049160810d1"
+    },
+    {
+      "path": "artifacts/manifests/phase29/test_details/ch4_household_power_last_value_s42_main.json",
+      "sha256": "c348960c8c62e2df4eaca9ebfdf976d908dabc2b7eb292d76de4f571c59104a0"
+    }
+  ],
+  "backend": "numpy",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "c7aaafbe11688e15bbc33da23c0bc5558a42ed3662504a5ae018b4d4eb556c70",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "0e4e2a43c7ebc500128e440ba34209ae91adcb5a89b33b2cbc59bc1129871857",
+  "config_sha256": "4e8e3d51a901df12bc9b6154bdcc6d98db586f5eb5c12fb23ac81af64ad5d530",
+  "dataset_id": "ch4_household_power",
+  "dataset_sha256": "db356f6739f2dbc8f493d383cface41cb84eed4ad572bbfd4b680519034539a1",
+  "device": "cpu",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 288,
+    "inference_p50_ms": 0.04714250098913908,
+    "inference_p95_ms": 0.0647352515443344,
+    "peak_ram_bytes": 341921792,
+    "peak_vram_bytes": 0,
+    "timed_repeats": 30,
+    "train_seconds": 7.24300007277634e-05,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "classical",
+  "finished_at": "2026-10-20T00:11:10.540078+00:00",
+  "implementation": "numpy",
+  "method": "last_value",
+  "metrics": [
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.809156817429
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.5559327666278848
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 53.886837805720845
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "macro_series_rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.809156817429
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.5889806158273696
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.38909057564051147
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 38.88929704986357
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 1.0204515455003134
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.768855476831903
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 73.65502546816033
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.7589365869696352
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.5098522474112397
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 49.11619089913862
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase28/runs/ch4_household_power_last_value_s42_main/model_contract.json",
+    "sha256": "b617845b4f1ada8b0579657d0c865560f5220a4d5f6de8452554165f08cd47aa"
+  },
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch4_household_power/preprocessing.json",
+    "sha256": "1940ded15fe9e51147e5dc0b4ec3dba661ef70a0462dabcec3875b011ca0909e"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch4_household_power_last_value_s42_main",
+  "schema_version": "phase29.causal_baseline_test_run.1",
+  "seed": 42,
+  "split": "test",
+  "split_id": "ch4_household_power_phase28_main",
+  "split_sha256": "90053761ae0a15d0faa3323fb1a1261425d5204ab0e74416c225613e68f498b8",
+  "started_at": "2026-10-20T00:11:10.116696+00:00",
+  "status": "succeeded",
+  "subset_sha256": "f6de2e1df1ddc0a78130d7bd5ccfe432dc94f143f295d176076ddd3049750a72",
+  "test_seal_id": "ch4_household_power_phase29_joint_test_v1",
+  "track": "matched_subset",
+  "warnings": [
+    "Latest revised snapshots, retrospective observation-origin forecast; no real-time publication/vintage claim or investment advice",
+    "Each rolling fold uses its frozen scaler; windows reset recurrent state",
+    "Train wall includes validation/progress I/O; RAM is process lifetime, VRAM allocator only; CPU/GPU and graph/eager differ",
+    "Joint RNN/LSTM main TEST once after frozen validation selection; no optimizer updates or TEST-input timing repeats",
+    "Train/RAM/VRAM/5warmup30repeat TRAIN-input timing copied byte-value from locked validation metric; not claimed as TEST-only measurements"
+  ]
+}

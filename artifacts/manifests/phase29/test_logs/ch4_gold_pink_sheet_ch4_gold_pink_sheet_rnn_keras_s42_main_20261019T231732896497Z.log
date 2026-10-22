@@ -1,0 +1,35 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792451864.493586    1233 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792451864.623890    1233 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792451868.601371    1233 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1792451870.841028    1233 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1792451870.852448    1233 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1792451870.961760    1233 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5262 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+I0000 00:00:1792451871.961152    1233 service.cc:153] XLA service 0x5c04b783caa0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1792451871.961651    1233 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5050 Laptop GPU, Compute Capability 12.0a (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+I0000 00:00:1792451871.980717    1233 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1792451872.051715    1233 cuda_dnn.cc:461] Loaded cuDNN version 92700
+I0000 00:00:1792451872.256962    1233 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+{
+  "status": "PASS",
+  "run_id": "ch4_gold_pink_sheet_rnn_keras_s42_main",
+  "metrics": {
+    "path": "artifacts/metrics/phase29/test/ch4_gold_pink_sheet_rnn_keras_s42_main.json",
+    "sha256": "0dc9d0ccc2ab556c75b7a8ea1e3b4a18988ea3293e9159d41e861473b9622891"
+  },
+  "predictions": {
+    "path": "artifacts/predictions/phase29/test/ch4_gold_pink_sheet_rnn_keras_s42_main.jsonl.gz",
+    "sha256": "fdbe43f3c20062c11938ac11be8612fbc8630361d8dbd1e38ebf92f0e3fc8acb"
+  },
+  "details": {
+    "path": "artifacts/manifests/phase29/test_details/ch4_gold_pink_sheet_rnn_keras_s42_main.json",
+    "sha256": "a4b9fac7607a176a9156264f287b209495ee97a15068a4974899ca55c5c9292b"
+  },
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_rnn_keras_s42_main/best.npz",
+    "sha256": "71f63ae610b960e8cc4748c85d9eb247afa2c61228829f0e01ef6dd51f2b5969"
+  },
+  "optimizer_updates": 0
+}

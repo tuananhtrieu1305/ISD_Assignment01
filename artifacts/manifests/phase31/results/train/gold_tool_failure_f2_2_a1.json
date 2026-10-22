@@ -1,0 +1,103 @@
+{
+  "category": "tool_failure",
+  "domain": "gold",
+  "metrics": {
+    "answer_completion": 0,
+    "citation_correctness": 0,
+    "latency_ms": 6.562938000570284,
+    "message_count": 2,
+    "numeric_parity": 0,
+    "peak_child_rss_bytes": 175415296,
+    "refusal_correctness": null,
+    "routing_accuracy": 1,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 2,
+    "messages": [
+      {
+        "input": {
+          "domain_hint": "gold",
+          "operation": "numeric",
+          "question": "Đọc đầu ra công cụ giá vàng cho gold_numeric_025.",
+          "record_id": "gold_numeric_025",
+          "task_id": "gold_tool_failure_f2_2"
+        },
+        "node_id": "node_1",
+        "output": {
+          "policy": null,
+          "route": "gold"
+        }
+      },
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "gold_numeric_025"
+        },
+        "node_id": "node_2",
+        "output": {
+          "code": "unavailable",
+          "peak_rss_bytes": 175415296,
+          "status": "error"
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 175415296,
+    "reason": "tool_unavailable",
+    "route": "gold",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "Không thực hiện yêu cầu: tool_unavailable.",
+      "citations": [],
+      "domain": "gold",
+      "evidence_kind": "measured",
+      "latency_ms": 5.884273999981815,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "router",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "20df0004bc39ab299360776f41e74030ae80a6f7efcab7f47ff9b5ce6ca9ef2a",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "72dc706c738bf00d701f71cd39899a4124e263d5ae510cbe081339e730aa83cb",
+          "parent_ids": [],
+          "tool": "none"
+        },
+        {
+          "agent": "specialist",
+          "artifact_refs": [],
+          "duration_ms": 5.688028000804479,
+          "input_sha256": "4f148fcababd9daaf83023b0360b256db17f9873889dbe48b33fbb9db0916067",
+          "node_id": "node_2",
+          "outcome": "error",
+          "output_sha256": "decbcc546168a5c3e1d47d36763de733ce44b21532ff63997b55e7965f8863ac",
+          "parent_ids": [
+            "node_1"
+          ],
+          "tool": "forecast_gold"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "failed",
+      "task_id": "gold_tool_failure_f2_2",
+      "task_set_sha256": "bad7e9ef791528928971da69d47fe105ba5b24ae6918d9d831639526599ca23f",
+      "trace_id": "trace_20df0004bc39ab299360_a1",
+      "variant": "A1"
+    },
+    "values": [],
+    "verification": "not_run",
+    "wall_latency_ms": 6.562938000570284
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "challenge",
+  "task_id": "gold_tool_failure_f2_2",
+  "variant": "A1"
+}

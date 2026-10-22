@@ -1,0 +1,142 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_mlp_keras_s73/best.npz",
+      "sha256": "51e33b5eaf9341cc80a18c0c050b26bf51d013576c03401ea451d733409c1774"
+    },
+    {
+      "path": "artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_mlp_keras_s73/best.json",
+      "sha256": "88f56980746d259de0c077776a31cafd3e8ccb7d9d228534cc7861769fa67fd4"
+    },
+    {
+      "path": "artifacts/predictions/phase26/validation/ch2_cdc_diabetes_mlp_keras_s73.jsonl.gz",
+      "sha256": "d2c9ddd252e83625964c66c2beade34579d6fda7f575d9b8dc976f044cd863c9"
+    }
+  ],
+  "backend": "tensorflow",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "f5d5e981628bd99982dcd833a5ec3e67a0eabb3fb0918ef687b64b9e7d4950ea",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "3389cc2ce9c78e6027f3a3ea4515869c55692ab5ae27c5a6a38daffb5357ef80",
+  "config_sha256": "cebdf9dbef4c273bf62886990f9d8d1e1708c45a1457ac1c047a644ed08549be",
+  "dataset_id": "ch2_cdc_diabetes",
+  "dataset_sha256": "1e446b32f553e0af95f69b8e55372cdcf4acfc63180ad0e768c2f5f558dc95b6",
+  "device": "cuda:0",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 40022,
+    "inference_p50_ms": 1.469983499873706,
+    "inference_p95_ms": 4.06161399996563,
+    "peak_ram_bytes": 1545625600,
+    "peak_vram_bytes": 3015680,
+    "timed_repeats": 30,
+    "train_seconds": 60.986958461000086,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "mlp",
+  "finished_at": "2026-10-17T13:35:15.246006+00:00",
+  "implementation": "keras",
+  "metrics": [
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "accuracy",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.7087746038420099
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "macro_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.6195396130587794
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "weighted_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.7523922063692952
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "auroc",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.8249588948789388
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "average_precision",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.4142578713958717
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "brier",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.17486897190743708
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "ece",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.23500613904497744
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_0",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.6932356084898458
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.8046345139412208
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase26/revisions/r2/runs/ch2_cdc_diabetes_mlp_keras_s73/model_contract.json",
+    "sha256": "95e7c3dc6def7c313eaf44c6128f30d82dcffd5c7d7fa966f8af6843d6e786d0"
+  },
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch2_cdc_diabetes/preprocessing.json",
+    "sha256": "6bdfa497095f3b88eec51c979c13810becb7ab955d6b87daa7467747848a31ae"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch2_cdc_diabetes_mlp_keras_s73",
+  "schema_version": "3.0.0",
+  "seed": 73,
+  "split": "validation",
+  "split_id": "ch2_cdc_diabetes_v3_seed42",
+  "split_sha256": "557c1b646bf0259b9d475c2f0d25bf5bde33b8c4d8ed93d17fc4af2c1f813df4",
+  "started_at": "2026-10-17T13:34:14.691390+00:00",
+  "status": "succeeded",
+  "subset_sha256": "5319b90adc4a6ae52918700506ae66054de74640f4012cb09b71f2a79d8c3759",
+  "test_seal_id": null,
+  "track": "matched_subset",
+  "warnings": [
+    "Retrospective group split; no clinical or market-deployment claim",
+    "RAM is process-lifetime peak RSS; VRAM is framework allocator only",
+    "Inference includes transfer; TensorFlow graph versus PyTorch/NumPy eager"
+  ]
+}

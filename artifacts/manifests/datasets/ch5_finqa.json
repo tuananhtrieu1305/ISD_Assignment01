@@ -1,0 +1,279 @@
+{
+  "contract": {
+    "schema_version": "3.0.0",
+    "evidence_kind": "historical_baseline",
+    "dataset_id": "ch5_finqa",
+    "chapter": 5,
+    "kind": "qa",
+    "status": "ready",
+    "source": {
+      "url": "https://github.com/czyssrs/FinQA",
+      "version": "0f16e2867befa6840783e58be38c9efb9229d742",
+      "accessed_at": "2026-10-12T09:55:27+00:00",
+      "citation": "Chen, Z. et al. (2021). FinQA: A Dataset of Numerical Reasoning over Financial Data. EMNLP. https://aclanthology.org/2021.emnlp-main.300/",
+      "license_status": "approved",
+      "license_note": "MIT; original license evidence and bytes preserved; do not re-download. Follow original restrictions and source attribution."
+    },
+    "files": [
+      {
+        "path": "data/raw/ch5/finqa/LICENSE",
+        "sha256": "9fb6bcbd96512e5d238bb02f8e1aeb2c94e8a870a1881f9a0183c0f5d464ae2d",
+        "size_bytes": 1088
+      },
+      {
+        "path": "data/raw/ch5/finqa/README.md",
+        "sha256": "abb8043361595ff9f2c2857ad552625d59c2dc13c368ae46081fdcbc8ca58faf",
+        "size_bytes": 6670
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/evaluate/evaluate.py",
+        "sha256": "0a2c24c81b2ce01146a0fd3d7438631200731cc886aa9478303d36a542567321",
+        "size_bytes": 14822
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/evaluate/example_predictions.json",
+        "sha256": "c2cb389eafb0c0a3e7195ba1e6c6ebe93fa75d8a3f2ee78e77d6948ae3d969ea",
+        "size_bytes": 251529
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/evaluate/test.json",
+        "sha256": "05d30884299070580209fc3ed6d632a6ad599b1330c270eb19512ba813beccae",
+        "size_bytes": 9944101
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/Convert.py",
+        "sha256": "dda75212743586a1b19cbd90ce04c860afff9e5f0d6a24c0edabecc34a747eba",
+        "size_bytes": 12075
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/Main.py",
+        "sha256": "6628a1095725377a6a205b21d93402d4ba654630e512d0cc888b08cb7c22de21",
+        "size_bytes": 11326
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/Model_new.py",
+        "sha256": "f80687ce449bbb01b97fb919b3615d9aa8128cff42077cba7d51abbcc596d03a",
+        "size_bytes": 13892
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/Test.py",
+        "sha256": "76a986d6f4bbd66f3761742129747b52e5a969d408f6e7e53bbcc415ddf75bbf",
+        "size_bytes": 7056
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/__pycache__/DataLoader.cpython-37.pyc",
+        "sha256": "9a4eb4f9dbf50524a1201abd8b4360450ff109fee408078b2c71ba7aa09a50dc",
+        "size_bytes": 7136
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/__pycache__/Model.cpython-37.pyc",
+        "sha256": "94afb30d6cab53480310ea95f11d53e34f8709d3cff30275845c08bf41ba1cd8",
+        "size_bytes": 5404
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/__pycache__/Model_new.cpython-37.pyc",
+        "sha256": "1825d6bd6089421fdcd4cd9c42f11299775522ef57ceb63d02f785cf4bad103e",
+        "size_bytes": 6165
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/__pycache__/config.cpython-37.pyc",
+        "sha256": "7436d39ce5e7483d0f737ef394c57d18ebbb38b1236f51dff62e42a28a387886",
+        "size_bytes": 1412
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/__pycache__/finqa_utils.cpython-37.pyc",
+        "sha256": "566a9b12109ee5bb57bec8aaabb04aa22c4ea52b5ad634195ba92fc02dbc74cb",
+        "size_bytes": 7922
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/__pycache__/mathqa_utils.cpython-37.pyc",
+        "sha256": "e2022ff6d3d316ae1db60821cfb684e102e7dd8c07857bb3df23804d268d5a87",
+        "size_bytes": 6516
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/__pycache__/utils.cpython-37.pyc",
+        "sha256": "2248e4fada3e2032b37410cf0ba55daf2fa98a21cb72941fb30178f4302fb811",
+        "size_bytes": 16185
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/config.py",
+        "sha256": "46719f77d131d8f851994f7dea4fc2ce8c30e1f991f865012048e61dca01912c",
+        "size_bytes": 2057
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/constant_list.txt",
+        "sha256": "b107ecc0a96d46ddf6d41c0468b874cff3a9673e638a208b1ea7737b2e6e3379",
+        "size_bytes": 249
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/finqa_utils.py",
+        "sha256": "6bc341e731fc2d6e79301602a8f7502e39551f4434ea6d70e310d7da92fbac8b",
+        "size_bytes": 13079
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/operation_list.txt",
+        "sha256": "cd16ebdf96bcb05b94e1bf85e084ef86a54f361e264b57eec26f3260703ff7b7",
+        "size_bytes": 93
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/run_model.sh",
+        "sha256": "b6810e0e617e54c0e6fb86233d8c8db64c5e7fa5c42e0fd6f4c629daf280f709",
+        "size_bytes": 70
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/generator/utils.py",
+        "sha256": "9072139d1d19787f2ec97789b15815606f5417b5c8ac960fef20e3c39c938182",
+        "size_bytes": 26226
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/Main.py",
+        "sha256": "398da94648f225693e5363236794340be70c6133f7214a16397fb02371b294a5",
+        "size_bytes": 8507
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/Model.py",
+        "sha256": "feda067beb055bc27ca2f837e1a35c523f0ddb753ea081e1ea1ecbdffae76a27",
+        "size_bytes": 1553
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/Test.py",
+        "sha256": "4de06ce4db1ecc5b52ce9e79449eff6a6ca8d5db00c2787516c4651df9265c75",
+        "size_bytes": 4732
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/__pycache__/DataLoader.cpython-37.pyc",
+        "sha256": "9a4eb4f9dbf50524a1201abd8b4360450ff109fee408078b2c71ba7aa09a50dc",
+        "size_bytes": 7136
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/__pycache__/Model.cpython-37.pyc",
+        "sha256": "2184d8fbecacba9093c76f356142310e2f2a79bb20cc1c1f46bc7f323bdaa2ba",
+        "size_bytes": 1583
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/__pycache__/config.cpython-37.pyc",
+        "sha256": "855abf77de52e17be653a26205488e0141dff5abfdcd18a277af8587d905b87b",
+        "size_bytes": 1369
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/__pycache__/finqa_utils.cpython-37.pyc",
+        "sha256": "aa2d37c2a6b6f1486a064113cbeca6af8662a4f041cb769ed3412a31d9680081",
+        "size_bytes": 7512
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/__pycache__/mathqa_utils.cpython-37.pyc",
+        "sha256": "e2022ff6d3d316ae1db60821cfb684e102e7dd8c07857bb3df23804d268d5a87",
+        "size_bytes": 6516
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/__pycache__/utils.cpython-37.pyc",
+        "sha256": "22fb3c8383bf3356639862c0e85a713ccd1b5dca8291c62d797e76001106177f",
+        "size_bytes": 9732
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/config.py",
+        "sha256": "ef082fd93fc2347d7ff5961ca2fab2f4d2f15c13a9cdc5a3036b64853213a870",
+        "size_bytes": 1420
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/constant_list.txt",
+        "sha256": "b107ecc0a96d46ddf6d41c0468b874cff3a9673e638a208b1ea7737b2e6e3379",
+        "size_bytes": 249
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/finqa_utils.py",
+        "sha256": "496440a99270c875bc78a93fc69091f639b1f58d264fb71b5878bcf30e9d2578",
+        "size_bytes": 12096
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/operation_list.txt",
+        "sha256": "cd16ebdf96bcb05b94e1bf85e084ef86a54f361e264b57eec26f3260703ff7b7",
+        "size_bytes": 93
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/run_model.sh",
+        "sha256": "2d5231a17858db89da3c379f9d3daed1428b7a2a5647eab8b24e557dab0634d7",
+        "size_bytes": 69
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/retriever/utils.py",
+        "sha256": "88e494fedb39a6a2e6cf2646ad6e8d0c771aa0cd8927192c75b331a37f854e66",
+        "size_bytes": 13658
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/utils/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/utils/__pycache__/general_utils.cpython-37.pyc",
+        "sha256": "5da5da151fa5486dda1dd9a9e6846de980dd4af0f325fb14b4210cff67e27f93",
+        "size_bytes": 822
+      },
+      {
+        "path": "data/raw/ch5/finqa/code/utils/general_utils.py",
+        "sha256": "65f81c20f1276582321a3a881cbf4f2653d31a75d59cecfcc8820744462a548f",
+        "size_bytes": 640
+      },
+      {
+        "path": "data/raw/ch5/finqa/dataset/dev.json",
+        "sha256": "27cc6c57487bbaba73041f93dba831a39b1cabe999c2ec0ddebc6f1200ff85bd",
+        "size_bytes": 11222546
+      },
+      {
+        "path": "data/raw/ch5/finqa/dataset/private_test.json",
+        "sha256": "aaf304a789d21d8451bf3281decdb495f9f9ddde9ce71c866bc177b6bd2a7d5a",
+        "size_bytes": 5697753
+      },
+      {
+        "path": "data/raw/ch5/finqa/dataset/test.json",
+        "sha256": "37a6e6e198b7821dc080f079d43a4a7a9d3a7b562803b7e97875bf70cd61fb08",
+        "size_bytes": 14750900
+      },
+      {
+        "path": "data/raw/ch5/finqa/dataset/train.json",
+        "sha256": "9862301c1a28f78bfb59050203bf66b13719c4720cd18291a069331b21c63352",
+        "size_bytes": 80120075
+      },
+      {
+        "path": "data/raw/ch5/finqa/eg-intro.png",
+        "sha256": "717e9548f7b9bcd848ce8f3e5c2940ee0f8f17eaf9a08a82bd4e1b23efcd332c",
+        "size_bytes": 32077
+      },
+      {
+        "path": "data/raw/ch5/finqa/source_snapshot.json",
+        "sha256": "70b6786e91758054c2a731e587bced2f22db09fcf75e42b37e40d7e4d646af05",
+        "size_bytes": 251
+      }
+    ],
+    "logical_size": {
+      "records": 9200,
+      "features": null,
+      "unit": "raw QA records including private_test"
+    },
+    "target": "gold_evidence_program",
+    "columns": [],
+    "parent_dataset_ids": [],
+    "data_card_path": "report/references/dataset_cards/v3/ch5_finqa.md"
+  },
+  "inspection": {
+    "records": 9200,
+    "features": null,
+    "unit": "raw QA records including private_test",
+    "columns": [],
+    "official_split_counts": {
+      "dev": 883,
+      "private_test": 919,
+      "test": 1147,
+      "train": 6251
+    },
+    "deferred": "No evaluation; private/public label policies remain the locked Ch5 protocol.",
+    "checks": [
+      "all_raw_files_match_phase20_baseline"
+    ]
+  },
+  "archive_inventory": null,
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "training_executed": false,
+  "test_evaluation_executed": false
+}

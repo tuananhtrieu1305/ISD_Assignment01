@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "framework": "tensorflow",
+  "device": "gpu",
+  "python": "3.11.17 (main, Oct 14 2026, 01:05:33) [Clang 23.1.3 ]",
+  "python_minor": "3.11",
+  "checks": [
+    {
+      "name": "matmul",
+      "passed": true,
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0"
+    },
+    {
+      "name": "cnn",
+      "passed": true,
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "gradients_finite": true,
+      "weight_updated": true,
+      "loss": 1.096038579940796,
+      "learnable_layers": 7,
+      "parameters": 771
+    },
+    {
+      "name": "rnn",
+      "passed": true,
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "gradients_finite": true,
+      "weight_updated": true,
+      "loss": 1.1455519199371338,
+      "learnable_layers": 6,
+      "parameters": 547
+    },
+    {
+      "name": "lstm",
+      "passed": true,
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "gradients_finite": true,
+      "weight_updated": true,
+      "loss": 1.1046206951141357,
+      "learnable_layers": 6,
+      "parameters": 1675
+    }
+  ],
+  "peak_vram_bytes": 67608064,
+  "framework_versions": {
+    "keras": "3.15.1",
+    "backend": "tensorflow",
+    "tensorflow": "2.21.0"
+  },
+  "tensorflow_build": {
+    "cpu_compiler": "clang",
+    "cuda_compute_capabilities": [
+      "sm_60",
+      "sm_70",
+      "sm_80",
+      "sm_89",
+      "compute_90"
+    ],
+    "cuda_version": "12.5.1",
+    "cudnn_version": "9",
+    "is_cuda_build": true,
+    "is_rocm_build": false,
+    "is_tensorrt_build": false
+  },
+  "gpu": "[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]",
+  "shared_packages": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.0",
+    "joblib": "1.6.0",
+    "pillow": "12.3.0",
+    "keras": "3.15.1",
+    "h5py": "3.14.0"
+  },
+  "validation_errors": [],
+  "elapsed_seconds": 16.607,
+  "peak_process_ram_bytes": 1907871744
+}

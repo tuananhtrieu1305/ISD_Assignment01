@@ -1,0 +1,158 @@
+{
+  "category": "numeric",
+  "domain": "gold",
+  "metrics": {
+    "answer_completion": 1,
+    "citation_correctness": 1,
+    "latency_ms": 13.84452399906877,
+    "message_count": 2,
+    "numeric_parity": 1,
+    "peak_child_rss_bytes": 179527680,
+    "refusal_correctness": null,
+    "routing_accuracy": 1,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 2,
+    "messages": [
+      {
+        "input": {
+          "domain_hint": "gold",
+          "operation": "numeric",
+          "question": "giá vàng: tính đầu ra checkpoint cho bản ghi gold_numeric_003.",
+          "record_id": "gold_numeric_003",
+          "task_id": "gold_numeric_f1_4"
+        },
+        "node_id": "node_1",
+        "output": {
+          "policy": null,
+          "route": "gold"
+        }
+      },
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "gold_numeric_003"
+        },
+        "node_id": "node_2",
+        "output": {
+          "payload": {
+            "artifact_refs": [
+              {
+                "path": "data/processed/v3/ch4_gold_pink_sheet/series.csv.gz",
+                "sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee"
+              },
+              {
+                "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_scratch_s42_main/best.npz",
+                "sha256": "084062b50b6bc52a36b73c5e04474952fad4bbd51b9871477ed61455c78b6721"
+              },
+              {
+                "path": "artifacts/manifests/phase29/configs/ch4_gold_pink_sheet_main_s42.json",
+                "sha256": "d6b0fee5f9de30a7d56556946a46a82c0382793c1930c40411d639c6470c38b4"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "evidence_gold_numeric_003",
+                "locator": "parent_train/GOLD/1962-03-01T00:00:00",
+                "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+                "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+              }
+            ],
+            "text": "Frozen NumPy CPU tool output: 34.144427, 32.710336, 35.292459",
+            "unit": "USD/troy oz; horizons1/3/6month",
+            "values": [
+              34.1444272572821,
+              32.71033593569547,
+              35.29245916660341
+            ]
+          },
+          "peak_rss_bytes": 179527680,
+          "receipt_sha256": "b315966a02beb32e1d0e8c64ee3c02e64359f0a6b4de89c29af81d054687c190",
+          "status": "ok"
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 179527680,
+    "reason": null,
+    "route": "gold",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "Frozen NumPy CPU tool output: 34.144427, 32.710336, 35.292459",
+      "citations": [
+        {
+          "evidence_id": "evidence_gold_numeric_003",
+          "locator": "parent_train/GOLD/1962-03-01T00:00:00",
+          "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+          "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+        }
+      ],
+      "domain": "gold",
+      "evidence_kind": "measured",
+      "latency_ms": 12.961660000655684,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "router",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "b85fab0407d7d77a4beaa02b7124d7405171d6a14bb0791ed12ce059d7edd364",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "72dc706c738bf00d701f71cd39899a4124e263d5ae510cbe081339e730aa83cb",
+          "parent_ids": [],
+          "tool": "none"
+        },
+        {
+          "agent": "specialist",
+          "artifact_refs": [
+            {
+              "path": "data/processed/v3/ch4_gold_pink_sheet/series.csv.gz",
+              "sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee"
+            },
+            {
+              "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_scratch_s42_main/best.npz",
+              "sha256": "084062b50b6bc52a36b73c5e04474952fad4bbd51b9871477ed61455c78b6721"
+            },
+            {
+              "path": "artifacts/manifests/phase29/configs/ch4_gold_pink_sheet_main_s42.json",
+              "sha256": "d6b0fee5f9de30a7d56556946a46a82c0382793c1930c40411d639c6470c38b4"
+            }
+          ],
+          "duration_ms": 12.712502000795212,
+          "input_sha256": "520504f90fca7a226d422f045f1566a74187951d789673287b208fdbab60fb11",
+          "node_id": "node_2",
+          "outcome": "ok",
+          "output_sha256": "b63fe3d5e380032fa29596a1f5ae803070258c3ed9473aa4f17749a9d6e72538",
+          "parent_ids": [
+            "node_1"
+          ],
+          "tool": "forecast_gold"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "succeeded",
+      "task_id": "gold_numeric_f1_4",
+      "task_set_sha256": "bad7e9ef791528928971da69d47fe105ba5b24ae6918d9d831639526599ca23f",
+      "trace_id": "trace_b85fab0407d7d77a4bea_a1",
+      "variant": "A1"
+    },
+    "values": [
+      34.1444272572821,
+      32.71033593569547,
+      35.29245916660341
+    ],
+    "verification": "not_run",
+    "wall_latency_ms": 13.84452399906877
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "benign",
+  "task_id": "gold_numeric_f1_4",
+  "variant": "A1"
+}

@@ -1,0 +1,104 @@
+{
+  "scope": "TRAIN-only UI serving smoke; not historical TEST",
+  "job": {
+    "comparison_blockers": [],
+    "comparison_valid": true,
+    "created_at": "2026-10-22T00:37:12.956153+00:00",
+    "dataset_id": "ch6_house_tasks",
+    "expires_at": "2026-10-22T01:07:12.956153+00:00",
+    "family": "multi_agent",
+    "input_sha256": "c8325c3e46797fc5a7ef71860be0bcd70002e08c23ada4affd49d9fd7b377be3",
+    "job_id": "job_0b2692cef2e0565a1bd31edff3f2c3de1b1c57a3",
+    "metric_artifacts": [],
+    "request_id": "request_0b2692cef2e0565a1bd31edff3f2c3de1b1c57a3",
+    "request_sha256": "f05f615409d9d45708985fcb5baea39d033913f687081f4452ccfc0487eac032",
+    "results": [
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "1dadab77ebc6b8d8ec481f2908f34035765d152fc6ab607216a578833d3907ad",
+        "comparison_group_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+        "error": null,
+        "implementation": "A0",
+        "inference_ms": 15.620846001183963,
+        "input_sha256": "c8325c3e46797fc5a7ef71860be0bcd70002e08c23ada4affd49d9fd7b377be3",
+        "model_id": "ch6_house_tasks_a0",
+        "prediction": {
+          "abstained": false,
+          "citations": [
+            {
+              "evidence_id": "evidence_house_numeric_000",
+              "locator": "parent_train/row_0000001",
+              "source_sha256": "c6a9010960cc01cff51b663af8f744144c07f427b6c9a3b26a97eaaa60da687f",
+              "source_url": "https://jse.amstat.org/v19n3/decock.pdf"
+            }
+          ],
+          "kind": "answer",
+          "text": "Frozen NumPy CPU tool output: 118115.72"
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "1dadab77ebc6b8d8ec481f2908f34035765d152fc6ab607216a578833d3907ad",
+        "comparison_group_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+        "error": null,
+        "implementation": "A1",
+        "inference_ms": 4.62545099981071,
+        "input_sha256": "c8325c3e46797fc5a7ef71860be0bcd70002e08c23ada4affd49d9fd7b377be3",
+        "model_id": "ch6_house_tasks_a1",
+        "prediction": {
+          "abstained": false,
+          "citations": [
+            {
+              "evidence_id": "evidence_house_numeric_000",
+              "locator": "parent_train/row_0000001",
+              "source_sha256": "c6a9010960cc01cff51b663af8f744144c07f427b6c9a3b26a97eaaa60da687f",
+              "source_url": "https://jse.amstat.org/v19n3/decock.pdf"
+            }
+          ],
+          "kind": "answer",
+          "text": "Frozen NumPy CPU tool output: 118115.72"
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "1dadab77ebc6b8d8ec481f2908f34035765d152fc6ab607216a578833d3907ad",
+        "comparison_group_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+        "error": null,
+        "implementation": "A2",
+        "inference_ms": 4.632607000530697,
+        "input_sha256": "c8325c3e46797fc5a7ef71860be0bcd70002e08c23ada4affd49d9fd7b377be3",
+        "model_id": "ch6_house_tasks_a2",
+        "prediction": {
+          "abstained": false,
+          "citations": [
+            {
+              "evidence_id": "evidence_house_numeric_000",
+              "locator": "parent_train/row_0000001",
+              "source_sha256": "c6a9010960cc01cff51b663af8f744144c07f427b6c9a3b26a97eaaa60da687f",
+              "source_url": "https://jse.amstat.org/v19n3/decock.pdf"
+            }
+          ],
+          "kind": "answer",
+          "text": "Frozen NumPy CPU tool output: 118115.72"
+        },
+        "status": "succeeded"
+      }
+    ],
+    "schema_version": "3.0.0",
+    "status": "succeeded",
+    "trace_ids": [
+      "trace_0b2692cef2e0565a1bd31edff3f2c3de1b1c57a3_a0",
+      "trace_0b2692cef2e0565a1bd31edff3f2c3de1b1c57a3_a1",
+      "trace_0b2692cef2e0565a1bd31edff3f2c3de1b1c57a3_a2"
+    ]
+  },
+  "input_split": "parent_train",
+  "models_retrained": 0,
+  "source_sha256": null,
+  "historical_test_evaluation_executed": false
+}

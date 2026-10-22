@@ -1,0 +1,104 @@
+{
+  "scope": "TRAIN-only UI serving smoke; not historical TEST",
+  "job": {
+    "comparison_blockers": [],
+    "comparison_valid": true,
+    "created_at": "2026-10-21T13:07:56.563080+00:00",
+    "dataset_id": "ch6_diabetes_tasks",
+    "expires_at": "2026-10-21T13:37:56.563080+00:00",
+    "family": "multi_agent",
+    "input_sha256": "088bb2be11c3b6501789a12f8d1efcc9de6e2b39125bae40f0dc0cd18ee55dc1",
+    "job_id": "job_e48b1b1500620e0b184ccb827c3bde42ace6fb7b",
+    "metric_artifacts": [],
+    "request_id": "request_e48b1b1500620e0b184ccb827c3bde42ace6fb7b",
+    "request_sha256": "21e20efd1a7aebebfd9cb1f1d283e2f007848875116ec316f5ff6b0407d90d4a",
+    "results": [
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "1dadab77ebc6b8d8ec481f2908f34035765d152fc6ab607216a578833d3907ad",
+        "comparison_group_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+        "error": null,
+        "implementation": "A0",
+        "inference_ms": 11.357674000464613,
+        "input_sha256": "088bb2be11c3b6501789a12f8d1efcc9de6e2b39125bae40f0dc0cd18ee55dc1",
+        "model_id": "ch6_diabetes_tasks_a0",
+        "prediction": {
+          "abstained": false,
+          "citations": [
+            {
+              "evidence_id": "evidence_diabetes_numeric_000",
+              "locator": "parent_train/row_0000015",
+              "source_sha256": "c53fa5ef792a32926b3b59803bae50159d802c9a67445822aecf0880cb6fbe8e",
+              "source_url": "https://archive.ics.uci.edu/dataset/891/cdc+diabetes+health+indicators"
+            }
+          ],
+          "kind": "answer",
+          "text": "Frozen NumPy CPU tool output: 0.25386871"
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "1dadab77ebc6b8d8ec481f2908f34035765d152fc6ab607216a578833d3907ad",
+        "comparison_group_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+        "error": null,
+        "implementation": "A1",
+        "inference_ms": 4.253665998476208,
+        "input_sha256": "088bb2be11c3b6501789a12f8d1efcc9de6e2b39125bae40f0dc0cd18ee55dc1",
+        "model_id": "ch6_diabetes_tasks_a1",
+        "prediction": {
+          "abstained": false,
+          "citations": [
+            {
+              "evidence_id": "evidence_diabetes_numeric_000",
+              "locator": "parent_train/row_0000015",
+              "source_sha256": "c53fa5ef792a32926b3b59803bae50159d802c9a67445822aecf0880cb6fbe8e",
+              "source_url": "https://archive.ics.uci.edu/dataset/891/cdc+diabetes+health+indicators"
+            }
+          ],
+          "kind": "answer",
+          "text": "Frozen NumPy CPU tool output: 0.25386871"
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "1dadab77ebc6b8d8ec481f2908f34035765d152fc6ab607216a578833d3907ad",
+        "comparison_group_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+        "error": null,
+        "implementation": "A2",
+        "inference_ms": 4.236364000462345,
+        "input_sha256": "088bb2be11c3b6501789a12f8d1efcc9de6e2b39125bae40f0dc0cd18ee55dc1",
+        "model_id": "ch6_diabetes_tasks_a2",
+        "prediction": {
+          "abstained": false,
+          "citations": [
+            {
+              "evidence_id": "evidence_diabetes_numeric_000",
+              "locator": "parent_train/row_0000015",
+              "source_sha256": "c53fa5ef792a32926b3b59803bae50159d802c9a67445822aecf0880cb6fbe8e",
+              "source_url": "https://archive.ics.uci.edu/dataset/891/cdc+diabetes+health+indicators"
+            }
+          ],
+          "kind": "answer",
+          "text": "Frozen NumPy CPU tool output: 0.25386871"
+        },
+        "status": "succeeded"
+      }
+    ],
+    "schema_version": "3.0.0",
+    "status": "succeeded",
+    "trace_ids": [
+      "trace_e48b1b1500620e0b184ccb827c3bde42ace6fb7b_a0",
+      "trace_e48b1b1500620e0b184ccb827c3bde42ace6fb7b_a1",
+      "trace_e48b1b1500620e0b184ccb827c3bde42ace6fb7b_a2"
+    ]
+  },
+  "input_split": "parent_train",
+  "models_retrained": 0,
+  "source_sha256": "622536a29e86a67dd5f149d1c1f252f7b236e98cb625a7dfd2d3eeb2fda3fb50",
+  "historical_test_evaluation_executed": false
+}

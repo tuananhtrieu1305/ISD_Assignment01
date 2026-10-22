@@ -1,0 +1,40 @@
+{
+  "phase": 35,
+  "date": "2026-10-22",
+  "status": "PASS",
+  "source": "native_powershell_hash_check",
+  "recorded_from": "Completed read-only tool execution; exit_code=0",
+  "mode": "read_only_no_inference",
+  "unique_protected_files": 31848,
+  "parent_locks": 12,
+  "parent_reference_source": "artifacts/manifests/phase34/preserve_after.json",
+  "additional_lock": {
+    "path": "artifacts/manifests/phase34/experiment_lock.json",
+    "sha256": "e4ba90714b4cd42a46eca8702f3c6b3dc2e0ddf1a11141e1df3944c56af8ebbc"
+  },
+  "checks": [
+    "All 11 parent lock hashes match Phase34 preserve_after references",
+    "Additional Phase34 lock hash matches its released SHA-256",
+    "Duplicate member references agree on expected SHA-256",
+    "All resolved member paths stay within C:/DATA/assign",
+    "Member files are not reparse points",
+    "All 31848 unique member SHA-256 values match the frozen manifests",
+    "A06 and manuscript hashes independently rechecked after the full audit"
+  ],
+  "duplicate_attempt": {
+    "runtime": "locked WSL Python 3.11; hash-only, no artifact authoring",
+    "status": "CANCELLED_DUPLICATE_READ_ONLY_AUDIT",
+    "reason": "Windows audit already checks the same 12 locks; avoid duplicate I/O while waiting for runtime decision",
+    "termination": "SIGTERM of the single own Python process selected by the unique Phase35 audit source markers",
+    "wrapper_exit_code": 1,
+    "not_a_full_pass": true,
+    "hash_mismatch_reported": false,
+    "process_exited": true
+  },
+  "all_owned_audit_processes_exited": true,
+  "model_construction": false,
+  "models_retrained": 0,
+  "historical_test_evaluation_executed": false,
+  "docx_authored": false,
+  "scope": "Frozen-file preservation only; not final release, rendering, tests or deployment evidence"
+}

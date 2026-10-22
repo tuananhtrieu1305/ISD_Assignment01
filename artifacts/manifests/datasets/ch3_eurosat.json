@@ -1,0 +1,74 @@
+{
+  "contract": {
+    "schema_version": "3.0.0",
+    "evidence_kind": "measured",
+    "dataset_id": "ch3_eurosat",
+    "chapter": 3,
+    "kind": "image",
+    "status": "ready",
+    "source": {
+      "url": "https://zenodo.org/records/7711810/files/EuroSAT_RGB.zip?download=1",
+      "version": "Zenodo 7711810 v2; RGB only; sha256:b4f5b234ecb7d7ff9c6cddb046543b4717c53fd6e9815be6c0e80cc614f51b90",
+      "citation": "Helber, P., Bischke, B., Dengel, A., and Borth, D. (2019). EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification. IEEE JSTARS. DOI:10.1109/JSTARS.2019.2918242.",
+      "license_status": "approved",
+      "license_note": "MIT confirmed by Zenodo record metadata; also respect Copernicus Sentinel data terms as noted by authors. https://github.com/phelber/EuroSAT ; https://zenodo.org/records/7711810 . Multispectral 2.1 GB package deliberately not downloaded.",
+      "accessed_at": "2026-10-17T01:19:42.751580+00:00"
+    },
+    "files": [
+      {
+        "path": "data/raw/ch3/eurosat/EuroSAT_RGB.zip",
+        "sha256": "b4f5b234ecb7d7ff9c6cddb046543b4717c53fd6e9815be6c0e80cc614f51b90",
+        "size_bytes": 94658721
+      }
+    ],
+    "logical_size": {
+      "records": 27000,
+      "features": 12288,
+      "unit": "RGB image patches"
+    },
+    "target": "land_cover",
+    "columns": [],
+    "parent_dataset_ids": [],
+    "data_card_path": "report/references/dataset_cards/v3/ch3_eurosat.md"
+  },
+  "inspection": {
+    "records": 27000,
+    "features": 12288,
+    "unit": "RGB image patches",
+    "columns": [],
+    "native_shape": [
+      64,
+      64,
+      3
+    ],
+    "class_names": [
+      "AnnualCrop",
+      "Forest",
+      "HerbaceousVegetation",
+      "Highway",
+      "Industrial",
+      "Pasture",
+      "PermanentCrop",
+      "Residential",
+      "River",
+      "SeaLake"
+    ],
+    "checks": [
+      "all_images_decode",
+      "image_count",
+      "class_count",
+      "native_shape"
+    ]
+  },
+  "archive_inventory": {
+    "path": "artifacts/manifests/datasets/ch3_eurosat/archive_members.jsonl",
+    "sha256": "36ee4212781077af4d33fc5ca6bffacc4548cc0edab761467cee87f40f9aa7a2",
+    "size_bytes": 4106928,
+    "members": 27000,
+    "expanded_bytes": 91844360,
+    "extracted": false
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "training_executed": false,
+  "test_evaluation_executed": false
+}

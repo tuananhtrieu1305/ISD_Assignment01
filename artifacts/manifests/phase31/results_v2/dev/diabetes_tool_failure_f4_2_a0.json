@@ -1,0 +1,76 @@
+{
+  "category": "tool_failure",
+  "domain": "diabetes",
+  "metrics": {
+    "answer_completion": 0,
+    "citation_correctness": 0,
+    "latency_ms": 19.361201999345212,
+    "message_count": 1,
+    "numeric_parity": 0,
+    "peak_child_rss_bytes": 171646976,
+    "refusal_correctness": null,
+    "routing_accuracy": null,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 1,
+    "messages": [
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "diabetes_numeric_033"
+        },
+        "node_id": "node_1",
+        "output": {
+          "code": "unavailable",
+          "peak_rss_bytes": 171646976,
+          "status": "error"
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 171646976,
+    "reason": "tool_unavailable",
+    "route": "diabetes",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "Không thực hiện yêu cầu: tool_unavailable.",
+      "citations": [],
+      "domain": "diabetes",
+      "evidence_kind": "measured",
+      "latency_ms": 17.166941999676055,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "direct",
+          "artifact_refs": [],
+          "duration_ms": 16.79847699961101,
+          "input_sha256": "6fad693a0e1865884b9d420802a3049da119684a7b1e126b8b31e7c460c2395a",
+          "node_id": "node_1",
+          "outcome": "error",
+          "output_sha256": "5b30521d35f7a5a7498ae5950cbf302aafba4b152567bb9956f490d3c4aaec8a",
+          "parent_ids": [],
+          "tool": "predict_diabetes"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "failed",
+      "task_id": "diabetes_tool_failure_f4_2",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_e44f1ac59cf257b6a506_a0",
+      "variant": "A0"
+    },
+    "values": [],
+    "verification": "not_run",
+    "wall_latency_ms": 19.361201999345212
+  },
+  "parent_model_test_forward": false,
+  "split": "dev",
+  "stratum": "challenge",
+  "task_id": "diabetes_tool_failure_f4_2",
+  "variant": "A0"
+}

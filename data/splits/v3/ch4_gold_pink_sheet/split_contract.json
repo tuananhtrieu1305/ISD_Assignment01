@@ -1,0 +1,47 @@
+{
+  "dataset_id": "ch4_gold_pink_sheet",
+  "dataset_sha256": "dfaba9c931ef045fa98ba4bd5d51e478f17cd7fb1b9911e1a3a07a1123bdbef3",
+  "evidence_kind": "measured",
+  "group_key": "global_target_time",
+  "leakage_audit": {
+    "path": "artifacts/manifests/phase24/ch4_gold_pink_sheet/leakage_audit.json",
+    "sha256": "817cf178b2d7bc36b98c8512a862de288222919781d7515be7137da4664349bc"
+  },
+  "method": "temporal",
+  "partitions": [
+    {
+      "count": 531,
+      "ids": {
+        "path": "data/splits/v3/ch4_gold_pink_sheet/train.ids.jsonl.gz",
+        "sha256": "c9b193cc6d8d16d76c4d1343fbf7aa71723a01bbdbb0bf0e861a6f3a3ceab60a"
+      },
+      "name": "train",
+      "target_end": "2006-08-01T00:00:00+00:00",
+      "target_start": "1962-01-01T00:00:00+00:00"
+    },
+    {
+      "count": 115,
+      "ids": {
+        "path": "data/splits/v3/ch4_gold_pink_sheet/validation.ids.jsonl.gz",
+        "sha256": "8956a5f08d8946e33f906706eac29f0f385d01e328806dfe1a43e21c73875ed4"
+      },
+      "name": "validation",
+      "target_end": "2016-08-01T00:00:00+00:00",
+      "target_start": "2006-09-01T00:00:00+00:00"
+    },
+    {
+      "count": 116,
+      "ids": {
+        "path": "data/splits/v3/ch4_gold_pink_sheet/test.ids.jsonl.gz",
+        "sha256": "8c5da759e24880aae1633903001e74e878e76eb1a6ae6c2a442509107a4a155a"
+      },
+      "name": "test",
+      "target_end": "2026-09-01T00:00:00+00:00",
+      "target_start": "2016-09-01T00:00:00+00:00"
+    }
+  ],
+  "schema_version": "3.0.0",
+  "seed": 42,
+  "split_id": "ch4_gold_pink_sheet_v3_seed42",
+  "train_only_preprocessing": true
+}

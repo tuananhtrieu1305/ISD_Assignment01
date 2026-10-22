@@ -1,0 +1,151 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch03_cnn/ch3_idrid_majority_s42/best.npz",
+      "sha256": "9f77833782b8883bdea3395d8538558127dcf483ee6277f33dabd699d3e47c1b"
+    },
+    {
+      "path": "artifacts/predictions/phase27/test/ch3_idrid_majority_s42.jsonl.gz",
+      "sha256": "b73af1e3a6079a1000372189dcb2a2f63545edc0ec4e64a9bbc6c2de91eb199d"
+    }
+  ],
+  "backend": "numpy",
+  "batch_size": 16,
+  "code": {
+    "dirty_tree_sha256": "01e3a9025202e8e5f047f10f0d0cb9add4a482642c39db3d4fbb5b96688fc2d6",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "9781ad59ac32eb1644fdcc85691891dc23bfdd60a54449ce66fc47ed428d609a",
+  "config_sha256": "98a75dbc9363ac2b45aa21ed3d1f4ac3aa6b95d67622698325a7e4a35fb25700",
+  "dataset_id": "ch3_idrid",
+  "dataset_sha256": "8d24ac9b9103feb4d06a7caace78b9658193ede0dd308faaf9a01e16c0ccf764",
+  "device": "cpu",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 312,
+    "inference_p50_ms": 0.0021135001588845626,
+    "inference_p95_ms": 0.0024202999156841543,
+    "peak_ram_bytes": 234532864,
+    "peak_vram_bytes": 0,
+    "timed_repeats": 30,
+    "train_seconds": 0.00023840299945732113,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "classical",
+  "finished_at": "2026-10-18T01:43:13.972697+00:00",
+  "implementation": "numpy",
+  "layer_count_applicable": false,
+  "method": "majority",
+  "metrics": [
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "accuracy",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.3106796116504854
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "macro_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.09481481481481482
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "weighted_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.1472851492268968
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "auroc",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.5
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "average_precision",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.2
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_0",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.0
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.0
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_2",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 1.0
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_3",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.0
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_4",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.0
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase27/runs/ch3_idrid_majority_s42/model_contract.json",
+    "sha256": "3921edd0c7692a2eb440c5f808d85694ee1a06e0c6e18bf84d901d1d30eaa4de"
+  },
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch3_idrid/preprocessing.json",
+    "sha256": "dec79d2d31793701f1a4ef6b1653ff318138359ad344570dfb0b1e840e65b790"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch3_idrid_majority_s42",
+  "schema_version": "phase27.majority_run.1",
+  "seed": 42,
+  "split": "test",
+  "split_id": "ch3_idrid_v3_seed42",
+  "split_sha256": "e4ba938f293fca2787d6670e4f0c989299e90df2c5dbc91081be47ab5160946b",
+  "started_at": "2026-10-18T01:43:13.827394+00:00",
+  "status": "succeeded",
+  "subset_sha256": "28328c2a0de708b03fd8022efcdaf88beb2c6966007b7c58776d4fe6d19f6847",
+  "test_seal_id": "ch3_idrid_phase27_test_v1",
+  "track": "matched_subset",
+  "warnings": [
+    "Academic demonstration, not medical diagnosis",
+    "No verified patient/geographic independence",
+    "Matched subset and low resolution, not state-of-the-art full-data benchmark",
+    "RAM is process-lifetime RSS; VRAM is framework allocator",
+    "Train wall includes validation/checkpoint I/O; inference model+transfer only",
+    "TEST records inherit validation timing, not a new speed benchmark"
+  ]
+}

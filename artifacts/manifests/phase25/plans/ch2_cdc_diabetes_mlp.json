@@ -1,0 +1,128 @@
+{
+  "family": "mlp",
+  "input_shape": [
+    21
+  ],
+  "output_shape": [
+    1
+  ],
+  "plan_version": "phase25.1",
+  "steps": [
+    {
+      "id": "dense_1",
+      "input_shape": [
+        21
+      ],
+      "kind": "dense",
+      "output_shape": [
+        64
+      ]
+    },
+    {
+      "activation": "relu",
+      "id": "activation_2",
+      "input_shape": [
+        64
+      ],
+      "kind": "activation",
+      "output_shape": [
+        64
+      ]
+    },
+    {
+      "id": "dense_3",
+      "input_shape": [
+        64
+      ],
+      "kind": "dense",
+      "output_shape": [
+        64
+      ]
+    },
+    {
+      "activation": "relu",
+      "id": "activation_4",
+      "input_shape": [
+        64
+      ],
+      "kind": "activation",
+      "output_shape": [
+        64
+      ]
+    },
+    {
+      "id": "dense_5",
+      "input_shape": [
+        64
+      ],
+      "kind": "dense",
+      "output_shape": [
+        32
+      ]
+    },
+    {
+      "activation": "relu",
+      "id": "activation_6",
+      "input_shape": [
+        32
+      ],
+      "kind": "activation",
+      "output_shape": [
+        32
+      ]
+    },
+    {
+      "id": "dense_7",
+      "input_shape": [
+        32
+      ],
+      "kind": "dense",
+      "output_shape": [
+        32
+      ]
+    },
+    {
+      "activation": "relu",
+      "id": "activation_8",
+      "input_shape": [
+        32
+      ],
+      "kind": "activation",
+      "output_shape": [
+        32
+      ]
+    },
+    {
+      "id": "dense_9",
+      "input_shape": [
+        32
+      ],
+      "kind": "dense",
+      "output_shape": [
+        16
+      ]
+    },
+    {
+      "activation": "relu",
+      "id": "activation_10",
+      "input_shape": [
+        16
+      ],
+      "kind": "activation",
+      "output_shape": [
+        16
+      ]
+    },
+    {
+      "id": "dense_11",
+      "input_shape": [
+        16
+      ],
+      "kind": "dense",
+      "output_shape": [
+        1
+      ]
+    }
+  ],
+  "tiny_synthetic_only": false
+}

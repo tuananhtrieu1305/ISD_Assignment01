@@ -1,0 +1,529 @@
+{
+  "schema_version": 1,
+  "phase": 10,
+  "captured_at": "2026-10-12T16:02:09+07:00",
+  "git_head": "e7cf49bce94ac9081a19f3cbee3657f027b21986",
+  "git_status_at_capture": [
+    "M TIEU_LUAN_AI_EXECUTION_PLAN.md",
+    " M term_paper/README.md",
+    "?? .coverage",
+    "?? CHUONG_5_KNOWLEDGE_RAG_EXECUTION_PLAN.md",
+    "?? term_paper/knowledge_rag/",
+    "?? term_paper/tests/test_phase10_verifier.py",
+    "?? term_paper/tools/build_phase10_baseline.py",
+    "?? term_paper/tools/verify_phase10.py"
+  ],
+  "protected_release": {
+    "path": "term_paper/report/Tieu_luan_AI_ML_CNN_RNN.docx",
+    "sha256": "0c82a1e90d394420a7143534ca2b06ebc912648b1c9ea17dd58784d095ce1e9d",
+    "size_bytes": 3218862,
+    "page_count": 73,
+    "policy": "READ_ONLY_PHASE_10_TO_18"
+  },
+  "content_counts": {
+    "headings": 125,
+    "heading_levels": {
+      "1": 9,
+      "2": 43,
+      "3": 73
+    },
+    "figures": 18,
+    "tables": 16,
+    "deployment_use_cases": 8
+  },
+  "record_count": 82,
+  "records": [
+    {
+      "path": "RENDER_DEPLOY.md",
+      "role": "deployment_documentation",
+      "size_bytes": 3456,
+      "sha256": "5b11acec1fc1558e6e1c0585c0aeb7fad53d964067cf6184e0adcde39f5d91d0"
+    },
+    {
+      "path": "backend/.env.example",
+      "role": "backend_source",
+      "size_bytes": 69,
+      "sha256": "babe756d2872d17a433c71f7bbf19d59c4388124ece8b8b075e58efecfa14aa5"
+    },
+    {
+      "path": "backend/__init__.py",
+      "role": "backend_source",
+      "size_bytes": 70,
+      "sha256": "6dad27b37dfbadb64ecc3cb5dd75347520eab5eb9d5c70a856ab314e5563db73"
+    },
+    {
+      "path": "backend/app.py",
+      "role": "backend_source",
+      "size_bytes": 9385,
+      "sha256": "fe423731bb520ae4af3627857d8d8a2496ea1e939102e53a1434ce32d45d59da"
+    },
+    {
+      "path": "backend/models/diabetes_pipeline.joblib",
+      "role": "backend_source",
+      "size_bytes": 2177,
+      "sha256": "1676a814e885f63f21386d15c153907fe287b186313dfe3995eafe5c4c5f2eea"
+    },
+    {
+      "path": "backend/models/house_pipeline.joblib",
+      "role": "backend_source",
+      "size_bytes": 169713,
+      "sha256": "f94d9bfd5fde512898a93f940418a333ef76f35714d3117344af473c48325e0c"
+    },
+    {
+      "path": "backend/requirements-dev.txt",
+      "role": "backend_source",
+      "size_bytes": 52,
+      "sha256": "9b3f6095551ffccb1adced531b6c3318b649cfe494cb11d0ac305a823bd35bb1"
+    },
+    {
+      "path": "backend/requirements.txt",
+      "role": "backend_source",
+      "size_bytes": 124,
+      "sha256": "4c19e7d4e3e37524eda9ec7cba7b7f72a2516ae1587851a4cd191f394e18a1cb"
+    },
+    {
+      "path": "backend/tests/test_api.py",
+      "role": "backend_source",
+      "size_bytes": 423,
+      "sha256": "d6442f312dedf29fc7d11a4fda9023edf5c6a1ac6ce7188560c7e06b8be6190a"
+    },
+    {
+      "path": "backend/tests/test_term_paper_api.py",
+      "role": "backend_source",
+      "size_bytes": 5217,
+      "sha256": "e16a70521a0d9468f965af92df488df2d076cff19bd11968b33e02b54cc79872"
+    },
+    {
+      "path": "neo4j_scripts/diabetes_knowledge_graph.cypher",
+      "role": "neo4j_prototype",
+      "size_bytes": 712,
+      "sha256": "8c1cc8d462fb5d753fa3e4795e34b9054a1189b47eb7c0d1c89e7517021fd848"
+    },
+    {
+      "path": "neo4j_scripts/house_knowledge_graph.cypher",
+      "role": "neo4j_prototype",
+      "size_bytes": 691,
+      "sha256": "c82d01fe705f0649865024f5c5566b56305710253adbb8c65abefb629393c227"
+    },
+    {
+      "path": "render.yaml",
+      "role": "render_config",
+      "size_bytes": 1370,
+      "sha256": "f01ba4aef07f4a3f46e5ca79e03ac2ac75064c42ea2f2c27a121d26ec0395f20"
+    },
+    {
+      "path": "term_paper/deployment/.dockerignore",
+      "role": "legacy_deployment_source",
+      "size_bytes": 69,
+      "sha256": "da3bc367724d8f20abf0dad81771bd930b84e7ea6dda2f29c6fa711da38c0765"
+    },
+    {
+      "path": "term_paper/deployment/Dockerfile",
+      "role": "legacy_deployment_source",
+      "size_bytes": 1643,
+      "sha256": "d9aa6d21046040fb2451b1a51233877bce0df15439cac7301ea304ce33400dfc"
+    },
+    {
+      "path": "term_paper/deployment/README.md",
+      "role": "legacy_deployment_source",
+      "size_bytes": 4515,
+      "sha256": "9141a33baf58d964a55f8af1e86fa75afbd68725c3eb9c4f585d95317476b1f1"
+    },
+    {
+      "path": "term_paper/deployment/__init__.py",
+      "role": "legacy_deployment_source",
+      "size_bytes": 58,
+      "sha256": "89a00e1e664cc77b2794021e99acd97bd6ae37b9d44a5838e339b58c3d7e5395"
+    },
+    {
+      "path": "term_paper/deployment/app/__init__.py",
+      "role": "legacy_deployment_source",
+      "size_bytes": 61,
+      "sha256": "165cb9504d8f485e216b414c34363a3e95f300ea8d3050c20babf0d627d965d2"
+    },
+    {
+      "path": "term_paper/deployment/app/model_service.py",
+      "role": "legacy_deployment_source",
+      "size_bytes": 11283,
+      "sha256": "a86979b25785acad117e79f21bec90b1e379306d64f046bcbf39bb0c6cbf9e10"
+    },
+    {
+      "path": "term_paper/deployment/app/schemas.py",
+      "role": "legacy_deployment_source",
+      "size_bytes": 5777,
+      "sha256": "610985a193f97799341ded5855e8d2a4d4d06f57d1b8661ddc0248891c881915"
+    },
+    {
+      "path": "term_paper/deployment/app/server.py",
+      "role": "legacy_deployment_source",
+      "size_bytes": 7697,
+      "sha256": "53565a3e0dce9435ec68969991f5da389476c047a47599cabc4e5700fef8bc29"
+    },
+    {
+      "path": "term_paper/deployment/app/static/app.js",
+      "role": "legacy_deployment_source",
+      "size_bytes": 8888,
+      "sha256": "f20f5e87c53bb7698cba068b14ce30a8056c6ede7ad53bd545b9600481f4787e"
+    },
+    {
+      "path": "term_paper/deployment/app/static/index.html",
+      "role": "legacy_deployment_source",
+      "size_bytes": 6381,
+      "sha256": "46026e37529e3d567f474d91793d97e4213b3e5bde75660f2f2fe49f1ac7a656"
+    },
+    {
+      "path": "term_paper/deployment/app/static/styles.css",
+      "role": "legacy_deployment_source",
+      "size_bytes": 9151,
+      "sha256": "ca5878b70c78e0bb222bd04f720e9522f95b2e830dc48345ff80d22d8efcd0ae"
+    },
+    {
+      "path": "term_paper/deployment/coverage_summary.md",
+      "role": "legacy_deployment_source",
+      "size_bytes": 653,
+      "sha256": "af8a2d0508a692a18014024aa9dc7612fd667f2d92548110fc3b503a582f182c"
+    },
+    {
+      "path": "term_paper/deployment/docker_smoke_test.json",
+      "role": "legacy_deployment_source",
+      "size_bytes": 559,
+      "sha256": "83db456477a8f973bf76fac49b9873005026d3a07fbf6305a490e9ceb8285229"
+    },
+    {
+      "path": "term_paper/deployment/model_registry.json",
+      "role": "legacy_deployment_source",
+      "size_bytes": 1644,
+      "sha256": "b60ecef21fb7f94d083e579f2b75fbbee6eacde091f3f825487be190da1f284d"
+    },
+    {
+      "path": "term_paper/deployment/requirements.txt",
+      "role": "legacy_deployment_source",
+      "size_bytes": 76,
+      "sha256": "d2c67a32ade6b2b95f4763eb50cf13a19cedc5699ebdb50d50a5a6d3e0bb8431"
+    },
+    {
+      "path": "term_paper/deployment/tests/__init__.py",
+      "role": "legacy_deployment_source",
+      "size_bytes": 36,
+      "sha256": "e75c080b795e553c3ef08e155a81673221e2ba72c7b423de0e6f6a4e5afebf8e"
+    },
+    {
+      "path": "term_paper/deployment/tests/test_schemas.py",
+      "role": "legacy_deployment_source",
+      "size_bytes": 2857,
+      "sha256": "6c9db8e9d694f1f0e1ebeebc6332d1480513b39d7befd2dd5a29d12cdcd6ec76"
+    },
+    {
+      "path": "term_paper/deployment/tests/test_server.py",
+      "role": "legacy_deployment_source",
+      "size_bytes": 3254,
+      "sha256": "51beaae1d47e8e752913a15090ac306059a66aa11d68d2ceae6ea67ae1f967cb"
+    },
+    {
+      "path": "term_paper/deployment/tests/test_service.py",
+      "role": "legacy_deployment_source",
+      "size_bytes": 4868,
+      "sha256": "5929a2c74c702ae86f204276f15f46607b069c4f51837833d525dc36ae23ea84"
+    },
+    {
+      "path": "term_paper/report/Tieu_luan_AI_ML_CNN_RNN.docx",
+      "role": "protected_release",
+      "size_bytes": 3218862,
+      "sha256": "0c82a1e90d394420a7143534ca2b06ebc912648b1c9ea17dd58784d095ce1e9d"
+    },
+    {
+      "path": "term_paper/report/build_report.py",
+      "role": "report_build_or_verifier",
+      "size_bytes": 47097,
+      "sha256": "1b74909aa8fc5c27eacfa28a1f79bb4e95c308b90dd64d16964f89ace190eaba"
+    },
+    {
+      "path": "term_paper/report/derive_page_map.py",
+      "role": "report_build_or_verifier",
+      "size_bytes": 2626,
+      "sha256": "b1c0f8c88c057c261c632e7523027922f7adea318ec6588bbcfb26db9bd467db"
+    },
+    {
+      "path": "term_paper/report/finalize_release_metadata.py",
+      "role": "report_build_or_verifier",
+      "size_bytes": 2557,
+      "sha256": "e89e3810e5b15e6bb587b92a9a7d8835ab2f05624ccff811a6277ae7395ccc8e"
+    },
+    {
+      "path": "term_paper/report/front_matter.md",
+      "role": "manuscript_source",
+      "size_bytes": 3215,
+      "sha256": "f290630718df2ea1639d638c9e6bb5f49f145746c88aa7ca823fde1c59db70bc"
+    },
+    {
+      "path": "term_paper/report/make_contact_sheets.py",
+      "role": "report_build_or_verifier",
+      "size_bytes": 2382,
+      "sha256": "eca79f62b1154178a468cc919792b6fe8b8bb02c82464353d8ecf5a1ea4123de"
+    },
+    {
+      "path": "term_paper/report/manuscript.md",
+      "role": "manuscript",
+      "size_bytes": 193862,
+      "sha256": "ab4f7aff024a5ace4760454765aaeb9a80f8d889c095430750364c67fbd5d860"
+    },
+    {
+      "path": "term_paper/report/render_pdf_winrt.ps1",
+      "role": "report_build_or_verifier",
+      "size_bytes": 2700,
+      "sha256": "bf9c89891dacb684f9115beca87d3e74fa6e7650aef8e40e09c8494131cd1beb"
+    },
+    {
+      "path": "term_paper/report/sections/00_mo_dau.md",
+      "role": "manuscript_section",
+      "size_bytes": 13566,
+      "sha256": "0e241129f27d54569aa4f051656e9cf28656d78f64d4dc8fd69777312768878c"
+    },
+    {
+      "path": "term_paper/report/sections/01_lich_su_ai.md",
+      "role": "manuscript_section",
+      "size_bytes": 28166,
+      "sha256": "be97acd8334ed02b69e1508dede05224b776456f87c6fd9c03b9c5ade507dc2a"
+    },
+    {
+      "path": "term_paper/report/sections/02_ml_co_ban.md",
+      "role": "manuscript_section",
+      "size_bytes": 40814,
+      "sha256": "604eb5024ee42bc3c908fcd5d3dd0b626c6af2b83fbf1002c202b1ea315908d7"
+    },
+    {
+      "path": "term_paper/report/sections/03_cnn.md",
+      "role": "manuscript_section",
+      "size_bytes": 37614,
+      "sha256": "22322db68c7c72ab8f4a1d7303022fbacea634241608ae317db074842c8d1ecb"
+    },
+    {
+      "path": "term_paper/report/sections/04_rnn.md",
+      "role": "manuscript_section",
+      "size_bytes": 37824,
+      "sha256": "bea40e757c8294aa4b8970a77078b270a4345fa5060a48cf563a8739f88dddf5"
+    },
+    {
+      "path": "term_paper/report/sections/05_trien_khai.md",
+      "role": "manuscript_section",
+      "size_bytes": 12413,
+      "sha256": "2b6ea58aa53bc92f32769d22766112ea833c6e39ddb517876bf2a2fd3b356aa9"
+    },
+    {
+      "path": "term_paper/report/sections/06_ket_luan.md",
+      "role": "manuscript_section",
+      "size_bytes": 10294,
+      "sha256": "7f2dba6219cecb8f9eaabfd278c190943d0d4b0c99077303e4f6257a826f704d"
+    },
+    {
+      "path": "term_paper/report/validate_report.py",
+      "role": "report_build_or_verifier",
+      "size_bytes": 9504,
+      "sha256": "8184fd3dacf96aa5a4ca42b10b8ec995c2fd9e090ec62e194cc56a5778f43150"
+    },
+    {
+      "path": "term_paper/report/verify_phase9.py",
+      "role": "report_build_or_verifier",
+      "size_bytes": 12124,
+      "sha256": "b65371fba18121f9c9239a7e77d3f69c2a38f7610021b24e1841e8bee3299e43"
+    },
+    {
+      "path": "term_paper/report/word_paginate_export.ps1",
+      "role": "report_build_or_verifier",
+      "size_bytes": 3955,
+      "sha256": "1c8f46ae22d49bc1c1b643284872e0255b9753d5cf972d6dc2b72fb3bb2a8c52"
+    },
+    {
+      "path": "web/.env.example",
+      "role": "web_source",
+      "size_bytes": 40,
+      "sha256": "14411ace81cdc02acd9218db3a5c7969c2aaa1bd3c8ff6c56829ed93d7ffea61"
+    },
+    {
+      "path": "web/index.html",
+      "role": "web_source",
+      "size_bytes": 514,
+      "sha256": "606da5a70791582f2a3d09c94bae0b64474e73670444b006723b77614a32f92b"
+    },
+    {
+      "path": "web/package-lock.json",
+      "role": "web_source",
+      "size_bytes": 60154,
+      "sha256": "289cc4612922c0b2d4fcffb58477788be2b246b5f483790691496d5183c66e29"
+    },
+    {
+      "path": "web/package.json",
+      "role": "web_source",
+      "size_bytes": 648,
+      "sha256": "f0dcaf89b4bb22e0bf217a9da01ea91e8321e2a5a8df6a1f8f150fabda3da076"
+    },
+    {
+      "path": "web/src/App.tsx",
+      "role": "web_source",
+      "size_bytes": 756,
+      "sha256": "4db9459d413e4724b1afb2a496e03e2ba5463b8bb0c69f116a7ce30d880f50dc"
+    },
+    {
+      "path": "web/src/api/apiUrl.test.ts",
+      "role": "web_source",
+      "size_bytes": 645,
+      "sha256": "9de23e717643b0dd87de3c0569b4c1502e20805ec829bc9bde915543c1418bee"
+    },
+    {
+      "path": "web/src/api/predictionApi.ts",
+      "role": "web_source",
+      "size_bytes": 4317,
+      "sha256": "12880dcf21b9587c133e9fcfc42e56cf0342d0d326b3fdc72892a2e13a4edfd8"
+    },
+    {
+      "path": "web/src/api/sequence.test.ts",
+      "role": "web_source",
+      "size_bytes": 1095,
+      "sha256": "e8ff90a1bcddedc032589ce0bf85e339a91b7d71d83d543d024dbb5ede94d485"
+    },
+    {
+      "path": "web/src/api/sequence.ts",
+      "role": "web_source",
+      "size_bytes": 750,
+      "sha256": "459ff4c885c320e02c9c98a3b5a3fecd0669f2f1141e5e87d050b231fafec8ae"
+    },
+    {
+      "path": "web/src/components/AppLayout.tsx",
+      "role": "web_source",
+      "size_bytes": 2088,
+      "sha256": "10c46d514ce837edbe63c5dc54b8de58b1125ca3eb431b4605bf8d9474c731c6"
+    },
+    {
+      "path": "web/src/components/ErrorMessage.tsx",
+      "role": "web_source",
+      "size_bytes": 215,
+      "sha256": "1db168994d29ae98c2c4c85568de69bcdb68e3c3b5ec1ed86fde1387cd48b4c0"
+    },
+    {
+      "path": "web/src/components/FormField.tsx",
+      "role": "web_source",
+      "size_bytes": 779,
+      "sha256": "cce4a55a6b7297da98159acf1535f3e6ea4774ae0351c1bfc26d8194da91ff4a"
+    },
+    {
+      "path": "web/src/components/InfoBox.tsx",
+      "role": "web_source",
+      "size_bytes": 353,
+      "sha256": "b06dfab5eae8b4f1b97148faca5640beaa776af73b786773d8601c65257d9a2f"
+    },
+    {
+      "path": "web/src/components/InputAccordion.tsx",
+      "role": "web_source",
+      "size_bytes": 868,
+      "sha256": "1d64c36613f7e557a854becdc29bd3b31e593e0d7413c43a06b008255611bef3"
+    },
+    {
+      "path": "web/src/components/InputSummary.tsx",
+      "role": "web_source",
+      "size_bytes": 523,
+      "sha256": "2cf313ce42251c77aae2a9b9fd5b5b922c26cdc61c986a2b42749d4a06230c78"
+    },
+    {
+      "path": "web/src/components/LoadingState.tsx",
+      "role": "web_source",
+      "size_bytes": 107,
+      "sha256": "3a68b30c0b66bad92f7749a72d4251b4a5b106b68cdbb6e2e7aea8fefc0cdc23"
+    },
+    {
+      "path": "web/src/components/ProbabilityBar.tsx",
+      "role": "web_source",
+      "size_bytes": 852,
+      "sha256": "718c806301973d8f2b7af0c22825109a07c6fb4df15bde3f047120f942a10aea"
+    },
+    {
+      "path": "web/src/components/ResultCard.tsx",
+      "role": "web_source",
+      "size_bytes": 310,
+      "sha256": "779333565d02ee89e467fcc2e731950ffe960803bcdbb75b7d62e8443015de41"
+    },
+    {
+      "path": "web/src/components/SelectField.tsx",
+      "role": "web_source",
+      "size_bytes": 840,
+      "sha256": "36add9963187ff655c9dd51c612b88d106955666a05787f68c0226c9172fb3d7"
+    },
+    {
+      "path": "web/src/main.tsx",
+      "role": "web_source",
+      "size_bytes": 352,
+      "sha256": "51fb05693ac67d0a7506f3edbebadad9435ef81786d3ecf36db00775cf8708b3"
+    },
+    {
+      "path": "web/src/pages/CustomerBehaviorPage.tsx",
+      "role": "web_source",
+      "size_bytes": 25511,
+      "sha256": "63568cfa4a2c6a8b6cb1cd70914f0ae08ac0a7113e4660e51c03f3357455248e"
+    },
+    {
+      "path": "web/src/pages/CustomerBehaviorPipelinePage.tsx",
+      "role": "web_source",
+      "size_bytes": 10259,
+      "sha256": "22e77b05e33a569fb2141020f6cfb16887a5b049846a64e58706cfac1ffaf4ee"
+    },
+    {
+      "path": "web/src/pages/DiabetesPage.tsx",
+      "role": "web_source",
+      "size_bytes": 19643,
+      "sha256": "abd1f1bdaa876219105a77f9736b91ba62674fc58daf097e89cedc79782332e3"
+    },
+    {
+      "path": "web/src/pages/DiabetesPipelinePage.tsx",
+      "role": "web_source",
+      "size_bytes": 10376,
+      "sha256": "04879c9c920d07d685e55342162083e94bb6e8b9e4757693c13f87cdad408619"
+    },
+    {
+      "path": "web/src/pages/HomePage.tsx",
+      "role": "web_source",
+      "size_bytes": 1417,
+      "sha256": "d1b6d1d5f834d62c4b472a3d86e5dc487d9a997b9ba02ff1efc8ae1064c82360"
+    },
+    {
+      "path": "web/src/pages/HomePipelinePage.tsx",
+      "role": "web_source",
+      "size_bytes": 4649,
+      "sha256": "b15a2d961ddad3ae733f4ab66eada07fb23b129e3a8936ac57f50821467900a4"
+    },
+    {
+      "path": "web/src/pages/HousePricePage.tsx",
+      "role": "web_source",
+      "size_bytes": 16675,
+      "sha256": "8b412a5751355c4e7d36ca2068e428c90d0beb060cbc64a957d8acb93e21fe8c"
+    },
+    {
+      "path": "web/src/pages/HousePricePipelinePage.tsx",
+      "role": "web_source",
+      "size_bytes": 8165,
+      "sha256": "4fc3adbcf289e480afad533be23c9ca9612f1d397f5099ccaddb748f722ba2fa"
+    },
+    {
+      "path": "web/src/styles/global.css",
+      "role": "web_source",
+      "size_bytes": 26140,
+      "sha256": "9a47ce93b370aa6203532d252e759d885f954b84036a1fe584714d5784c6296c"
+    },
+    {
+      "path": "web/src/vite-env.d.ts",
+      "role": "web_source",
+      "size_bytes": 38,
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "path": "web/tsconfig.json",
+      "role": "web_source",
+      "size_bytes": 749,
+      "sha256": "ba0e6a08541f0eec8cc4026189e8e2b00a04c85659162d8b8a4f8defe47b80c0"
+    },
+    {
+      "path": "web/vite.config.ts",
+      "role": "web_source",
+      "size_bytes": 190,
+      "sha256": "195dfb00f8809d2d060f5fcd78d545a6159c96bd145b92bce9dfea8f53e74acd"
+    }
+  ]
+}

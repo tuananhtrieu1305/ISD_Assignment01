@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "phase": 10,
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "baseline_hashes",
+      "status": "PASS",
+      "detail": "82 records; failures=[]"
+    },
+    {
+      "name": "baseline_roles",
+      "status": "PASS",
+      "detail": "roles=['backend_source', 'deployment_documentation', 'legacy_deployment_source', 'manuscript', 'manuscript_section', 'manuscript_source', 'neo4j_prototype', 'protected_release', 'render_config', 'report_build_or_verifier', 'web_source']"
+    },
+    {
+      "name": "protected_release",
+      "status": "PASS",
+      "detail": "path=term_paper/report/Tieu_luan_AI_ML_CNN_RNN.docx; pages=73; sha256=0c82a1e90d394420a7143534ca2b06ebc912648b1c9ea17dd58784d095ce1e9d"
+    },
+    {
+      "name": "migration_schema",
+      "status": "PASS",
+      "detail": "167 rows; failures=[]"
+    },
+    {
+      "name": "migration_coverage",
+      "status": "PASS",
+      "detail": "actual={'heading': 125, 'figure': 18, 'table': 16, 'deployment_use_case': 8}; expected={'heading': 125, 'figure': 18, 'table': 16, 'deployment_use_case': 8}"
+    },
+    {
+      "name": "rnn_stays_chapter4",
+      "status": "PASS",
+      "detail": "[{'source_kind': 'heading', 'source_id': 'heading-082', 'source_path': 'term_paper/report/manuscript.md', 'source_line': '856', 'source_label': 'CHƯƠNG 4. RECURRENT NEURAL NETWORK', 'action': 'KEEP', 'destination': 'Chương 4 — RNN', 'status': 'LOCKED', 'notes': 'Giữ nguyên numbering RNN; thêm mục deploy ngắn ở cuối chương.'}]"
+    },
+    {
+      "name": "standalone_deployment_removed_safely",
+      "status": "PASS",
+      "detail": "[{'source_kind': 'heading', 'source_id': 'heading-107', 'source_path': 'term_paper/report/manuscript.md', 'source_line': '1146', 'source_label': 'PHẦN 5. TRIỂN KHAI MÔ HÌNH', 'action': 'DISTRIBUTE', 'destination': 'Chương 2–5 và Phụ lục PL.D', 'status': 'LOCKED', 'notes': 'Bỏ Heading 1 deployment sau khi mọi nội dung có đích mới.'}]"
+    },
+    {
+      "name": "environment_contract",
+      "status": "PASS",
+      "detail": "failures=[]"
+    },
+    {
+      "name": "render_free_budget",
+      "status": "PASS",
+      "detail": "{'runtime': 'python', 'plan': 'free', 'region': 'singapore', 'cpu': 0.1, 'ram_bytes': 536870912, 'idle_spin_down_minutes': 15, 'filesystem': 'ephemeral', 'source_urls': ['https://render.com/docs/compute-plans', 'https://render.com/docs/free'], 'accessed_at': '2026-10-12'}"
+    },
+    {
+      "name": "cpu_portable_stack",
+      "status": "PASS",
+      "detail": "{'sparse_retriever': 'pure_python_bm25', 'dense_retriever': 'scikit_learn_tfidf_truncated_svd_lsa_128d', 'optional_multilingual_embedding': 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 (offline experiment only)', 'vector_search': 'numpy_cosine_on_precomputed_float32_matrix', 'graph_runtime': 'pure_python_adjacency_primary_networkx_optional_offline', 'answer_mode': 'extractive_grounded_with_citations_and_abstention', 'calculator': 'allowlisted_finance_program_interpreter_no_eval', 'external_api_required': False}"
+    },
+    {
+      "name": "smoke_retrieval",
+      "status": "PASS",
+      "detail": "{'status': 'PASS', 'document_count': 6, 'query_count': 3, 'cpu_only': True, 'bm25': {'implementation': 'pure_python_bm25_smoke', 'top1_correct': 3, 'query_ms_total': 5.038, 'rankings': [[1, 0, 2, 3, 4, 5], [3, 1, 5, 0, 2, 4], [2, 0, 1, 3, 4, 5]]}, 'tfidf_svd_lsa': {'dimensions': 4, 'top1_correct': 3, 'build_ms': 206.89, 'query_ms_total': 85.446, 'serialized_bytes': 3502, 'rankings': [[1, 0, 4, 5, 3, 2], [3, 4, 2, 5, 1, 0], [2, 0, 3, 5, 1, 4]]}, 'python_peak_traced_bytes': 311780, 'note': 'Micro-smoke validates code path and CPU portability only; it is not a quality result for MedQuAD or FinQA.'}"
+    },
+    {
+      "name": "readme_decisions",
+      "status": "PASS",
+      "detail": "markers=['Chương 4 — RNN', 'Chương 5 — Knowledge', 'pure_python_bm25', 'TruncatedSVD', '0c82a1e90d394420a7143534ca2b06ebc912648b1c9ea17dd58784d095ce1e9d']"
+    }
+  ],
+  "failures": [],
+  "protected_release_sha256": "0c82a1e90d394420a7143534ca2b06ebc912648b1c9ea17dd58784d095ce1e9d",
+  "baseline_record_count": 82,
+  "migration_row_count": 167
+}

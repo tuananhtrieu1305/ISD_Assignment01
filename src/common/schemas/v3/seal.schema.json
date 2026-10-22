@@ -1,0 +1,117 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "3.0.0"
+    },
+    "evidence_kind": {
+      "enum": [
+        "measured",
+        "synthetic_fixture",
+        "historical_baseline"
+      ]
+    },
+    "seal_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+    },
+    "dataset_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+    },
+    "split_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "locked_config_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "evaluator_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "state": {
+      "enum": [
+        "draft",
+        "locked",
+        "evaluating",
+        "evaluated",
+        "failed_sealed"
+      ]
+    },
+    "evaluation_count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "approved_run_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+      },
+      "minItems": 1,
+      "maxItems": 100
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "event": {
+            "enum": [
+              "lock",
+              "start",
+              "complete",
+              "fail"
+            ]
+          },
+          "actor": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "at",
+          "event",
+          "actor",
+          "reason"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 10
+    }
+  },
+  "required": [
+    "schema_version",
+    "evidence_kind",
+    "seal_id",
+    "dataset_id",
+    "split_sha256",
+    "locked_config_sha256",
+    "evaluator_sha256",
+    "state",
+    "evaluation_count",
+    "approved_run_ids",
+    "created_at",
+    "events"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-paper:v3:seal",
+  "title": "AI term paper V3 seal contract"
+}

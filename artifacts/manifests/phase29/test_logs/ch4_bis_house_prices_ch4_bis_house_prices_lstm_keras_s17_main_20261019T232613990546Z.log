@@ -1,0 +1,31 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792452386.238884    2878 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792452386.286675    2878 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792452389.724496    2878 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1792452391.203967    2878 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1792452391.215108    2878 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1792452391.370233    2878 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5262 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+I0000 00:00:1792452392.376857    2896 cuda_dnn.cc:461] Loaded cuDNN version 92700
+{
+  "status": "PASS",
+  "run_id": "ch4_bis_house_prices_lstm_keras_s17_main",
+  "metrics": {
+    "path": "artifacts/metrics/phase29/test/ch4_bis_house_prices_lstm_keras_s17_main.json",
+    "sha256": "5d3f9c4d5ebb818f0858b52914698e4ef5cf8911c6b3f79e19336a85feba58b1"
+  },
+  "predictions": {
+    "path": "artifacts/predictions/phase29/test/ch4_bis_house_prices_lstm_keras_s17_main.jsonl.gz",
+    "sha256": "d1c4ed4b9c53b8522064c30146682f6b46e47306ee14ef26c6c6c630bc1ea7bf"
+  },
+  "details": {
+    "path": "artifacts/manifests/phase29/test_details/ch4_bis_house_prices_lstm_keras_s17_main.json",
+    "sha256": "8157d89e44b8038b7e8dc4579aea03ee96c747337e8be29bc3bc07034ac04539"
+  },
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_lstm/ch4_bis_house_prices_lstm_keras_s17_main/best.npz",
+    "sha256": "386061cb24766235e6892324e7cbfa27c0a2fbb2eccab7ae138361cc619c69cd"
+  },
+  "optimizer_updates": 0
+}

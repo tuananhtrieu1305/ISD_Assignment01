@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "framework": "tensorflow",
+  "device": "gpu",
+  "python": "3.11.17 (main, Oct 14 2026, 01:05:33) [Clang 23.1.3 ]",
+  "python_minor": "3.11",
+  "checks": [
+    {
+      "name": "matmul",
+      "passed": true,
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0"
+    },
+    {
+      "name": "cnn",
+      "passed": true,
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "gradients_finite": true,
+      "weight_updated": true,
+      "loss": 1.096038579940796,
+      "learnable_layers": 7,
+      "parameters": 771
+    },
+    {
+      "name": "rnn",
+      "passed": true,
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "gradients_finite": true,
+      "weight_updated": true,
+      "loss": 1.1455519199371338,
+      "learnable_layers": 6,
+      "parameters": 547
+    },
+    {
+      "name": "lstm",
+      "passed": true,
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "gradients_finite": true,
+      "weight_updated": true,
+      "loss": 1.1046206951141357,
+      "learnable_layers": 6,
+      "parameters": 1675
+    }
+  ],
+  "peak_vram_bytes": 67608064,
+  "framework_versions": {
+    "keras": "3.15.1",
+    "backend": "tensorflow",
+    "tensorflow": "2.21.0"
+  },
+  "tensorflow_build": {
+    "cpu_compiler": "clang",
+    "cuda_compute_capabilities": [
+      "sm_60",
+      "sm_70",
+      "sm_80",
+      "sm_89",
+      "compute_90"
+    ],
+    "cuda_version": "12.5.1",
+    "cudnn_version": "9",
+    "is_cuda_build": true,
+    "is_rocm_build": false,
+    "is_tensorrt_build": false
+  },
+  "gpu": "[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]",
+  "shared_packages": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.0",
+    "joblib": "1.6.0",
+    "pillow": "12.3.0",
+    "keras": "3.15.1",
+    "h5py": "3.14.0"
+  },
+  "validation_errors": [],
+  "elapsed_seconds": 16.607,
+  "peak_process_ram_bytes": 1907871744
+}
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792196925.397381    4022 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792196926.094742    4022 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792196931.099333    4022 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1792196935.635882    4022 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1792196935.638451    4022 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1792196935.804276    4022 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5262 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+I0000 00:00:1792196936.994244    4022 cuda_dnn.cc:461] Loaded cuDNN version 92700

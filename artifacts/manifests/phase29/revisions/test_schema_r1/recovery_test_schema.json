@@ -1,0 +1,321 @@
+{
+  "$id": "urn:ai-paper:phase29:recovery-test:1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "$ref": "urn:ai-paper:v3:common#/$defs/path"
+          },
+          "sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "maxItems": 30,
+      "minItems": 0,
+      "type": "array"
+    },
+    "backend": {
+      "enum": [
+        "numpy",
+        "tensorflow",
+        "torch"
+      ]
+    },
+    "batch_size": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "code": {
+      "additionalProperties": false,
+      "properties": {
+        "dirty_tree_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "git_commit": {
+          "pattern": "^[a-f0-9]{40}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "git_commit",
+        "dirty_tree_sha256"
+      ],
+      "type": "object"
+    },
+    "comparison_group_sha256": {
+      "$ref": "urn:ai-paper:v3:common#/$defs/sha256"
+    },
+    "config_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "dataset_id": {
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+      "type": "string"
+    },
+    "dataset_sha256": {
+      "$ref": "urn:ai-paper:v3:common#/$defs/sha256"
+    },
+    "device": {
+      "const": "cuda:0"
+    },
+    "dtype": {
+      "enum": [
+        "float32",
+        "float64"
+      ]
+    },
+    "efficiency": {
+      "additionalProperties": false,
+      "properties": {
+        "checkpoint_bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "inference_p50_ms": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "inference_p95_ms": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "peak_ram_bytes": {
+          "type": "null"
+        },
+        "peak_vram_bytes": {
+          "type": "null"
+        },
+        "timed_repeats": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "train_seconds": {
+          "type": "null"
+        },
+        "warmup_batches": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "train_seconds",
+        "inference_p50_ms",
+        "inference_p95_ms",
+        "warmup_batches",
+        "timed_repeats",
+        "peak_ram_bytes",
+        "peak_vram_bytes",
+        "checkpoint_bytes"
+      ],
+      "type": "object"
+    },
+    "environment_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "evidence_kind": {
+      "enum": [
+        "measured",
+        "synthetic_fixture",
+        "historical_baseline"
+      ]
+    },
+    "family": {
+      "$ref": "urn:ai-paper:v3:common#/$defs/family"
+    },
+    "finished_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "implementation": {
+      "const": "pytorch"
+    },
+    "metrics": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "direction": {
+            "enum": [
+              "min",
+              "max"
+            ]
+          },
+          "horizon": {
+            "minimum": 1,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "name": {
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+            "type": "string"
+          },
+          "undefined_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "unit": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "value",
+          "unit",
+          "direction",
+          "horizon",
+          "undefined_reason"
+        ],
+        "type": "object"
+      },
+      "maxItems": 64,
+      "minItems": 1,
+      "type": "array"
+    },
+    "model_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "$ref": "urn:ai-paper:v3:common#/$defs/path"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "preprocessing": {
+      "$ref": "urn:ai-paper:v3:common#/$defs/artifact_ref"
+    },
+    "protocol_sha256": {
+      "$ref": "urn:ai-paper:v3:common#/$defs/sha256"
+    },
+    "run_id": {
+      "const": "ch4_household_power_rnn_pytorch_s17_main"
+    },
+    "schema_version": {
+      "const": "phase29.recovery_test_run.1"
+    },
+    "seed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "split": {
+      "const": "test"
+    },
+    "split_id": {
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$",
+      "type": "string"
+    },
+    "split_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "started_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "succeeded",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "subset_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "test_seal_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "track": {
+      "enum": [
+        "full_data",
+        "matched_subset"
+      ]
+    },
+    "warnings": {
+      "contains": {
+        "const": "Original training wall/RAM/VRAM telemetry lost before export failure; null, excluded from cost aggregates. Recovery process measurements are not original training measurements."
+      },
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 30,
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "evidence_kind",
+    "run_id",
+    "dataset_id",
+    "split_id",
+    "split_sha256",
+    "config_sha256",
+    "code",
+    "environment_sha256",
+    "model_contract",
+    "implementation",
+    "backend",
+    "family",
+    "track",
+    "seed",
+    "subset_sha256",
+    "status",
+    "split",
+    "test_seal_id",
+    "device",
+    "dtype",
+    "batch_size",
+    "started_at",
+    "finished_at",
+    "metrics",
+    "efficiency",
+    "artifacts",
+    "warnings",
+    "dataset_sha256",
+    "comparison_group_sha256",
+    "protocol_sha256",
+    "preprocessing"
+  ],
+  "title": "Exact Phase28 orphan TEST record, missing original cost kept null",
+  "type": "object"
+}

@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-12T09:55:27+00:00",
+  "medquad": {
+    "xml_files": 11274,
+    "parsed_xml_files": 11274,
+    "parse_errors": [],
+    "qa_pairs": 47441,
+    "answers_present": 16407,
+    "answers_missing": 31034,
+    "duplicate_question_ids": 17355,
+    "focus_present": 47427,
+    "cui_present": 31417,
+    "semantic_type_present": 31375,
+    "question_type_distribution": {
+      "brand names": 1238,
+      "brand names of combination products": 230,
+      "causes": 2436,
+      "complications": 1120,
+      "considerations": 772,
+      "contraindication": 20,
+      "dietary": 1092,
+      "dose": 101,
+      "emergency or overdose": 1140,
+      "exams and tests": 2058,
+      "forget a dose": 1098,
+      "frequency": 1120,
+      "genetic changes": 1087,
+      "how can i learn more": 25,
+      "how does it work": 99,
+      "how effective is it": 99,
+      "important warning": 468,
+      "indication": 1258,
+      "information": 9214,
+      "inheritance": 1446,
+      "interactions with foods": 99,
+      "interactions with herbs and supplements": 99,
+      "interactions with medications": 99,
+      "other information": 1280,
+      "outlook": 2232,
+      "precautions": 1413,
+      "prevention": 1239,
+      "research": 399,
+      "severe reaction": 24,
+      "side effects": 1301,
+      "stages": 80,
+      "storage and disposal": 1117,
+      "support groups": 221,
+      "susceptibility": 475,
+      "symptoms": 4338,
+      "treatment": 3906,
+      "usage": 1244,
+      "when to contact a medical professional": 1738,
+      "why get vaccinated": 16
+    },
+    "source_distribution": {
+      "10_MPlus_ADAM_QA": 17348,
+      "11_MPlusDrugs_QA": 12889,
+      "12_MPlusHerbsSupplements_QA": 792,
+      "1_CancerGov_QA": 729,
+      "2_GARD_QA": 5394,
+      "3_GHR_QA": 5430,
+      "4_MPlus_Health_Topics_QA": 981,
+      "5_NIDDK_QA": 1192,
+      "6_NINDS_QA": 1088,
+      "7_SeniorHealth_QA": 769,
+      "8_NHLBI_QA_XML": 559,
+      "9_CDC_QA": 270
+    },
+    "diabetes_candidate_qa": 1285,
+    "removed_answers_recovered": false,
+    "answer_recovery_policy": "Never crawl or reconstruct answers removed by the upstream MedQuAD maintainers.",
+    "examples": [
+      {
+        "source_file": "1_CancerGov_QA/0000001_1.xml",
+        "question": "What is (are) Adult Acute Lymphoblastic Leukemia ?",
+        "answer_excerpt": "Key Points - Adult acute lymphoblastic leukemia (ALL) is a type of cancer in which the bone marrow makes too many lymphocytes (a type of white blood cell). - Leukemia may affect red blood cells, white blood cells, and platelets. - Previous ",
+        "focus": "Adult Acute Lymphoblastic Leukemia",
+        "question_type": "information"
+      },
+      {
+        "source_file": "1_CancerGov_QA/0000001_1.xml",
+        "question": "What are the symptoms of Adult Acute Lymphoblastic Leukemia ?",
+        "answer_excerpt": "Signs and symptoms of adult ALL include fever, feeling tired, and easy bruising or bleeding. The early signs and symptoms of ALL may be like the flu or other common diseases. Check with your doctor if you have any of the following: - Weakne",
+        "focus": "Adult Acute Lymphoblastic Leukemia",
+        "question_type": "symptoms"
+      }
+    ]
+  },
+  "finqa": {
+    "files": {
+      "train": "C:/DATA/assign/term_paper/knowledge_rag/data/raw/finqa/dataset/train.json",
+      "dev": "C:/DATA/assign/term_paper/knowledge_rag/data/raw/finqa/dataset/dev.json",
+      "test": "C:/DATA/assign/term_paper/knowledge_rag/data/raw/finqa/dataset/test.json",
+      "private_test": "C:/DATA/assign/term_paper/knowledge_rag/data/raw/finqa/dataset/private_test.json"
+    },
+    "reports": 9200,
+    "examples": [
+      {
+        "id": "ADI/2009/page_49.pdf-1",
+        "question": "what is the the interest expense in 2009?",
+        "answer": 3.8,
+        "program": "divide(100, 100), divide(3.8, #0)",
+        "gold_evidence_count": 1
+      },
+      {
+        "id": "ABMD/2012/page_75.pdf-1",
+        "question": "during the 2012 year , did the equity awards in which the prescribed performance milestones were achieved exceed the equity award compensation expense for equity granted during the year?",
+        "answer": "yes",
+        "program": "multiply(607, 18.13), multiply(#0, const_1000), multiply(3.3, const_1000000), greater(#1, #2)",
+        "gold_evidence_count": 2
+      }
+    ],
+    "unique_financial_reports": 799,
+    "public_unique_financial_reports": 799,
+    "qa_pairs": 9200,
+    "programs_present": 8281,
+    "table_rows": 58322,
+    "text_segments": 223354,
+    "missing_questions": 0,
+    "missing_answers": 993,
+    "duplicate_report_ids_within_split": 0,
+    "split_distribution": {
+      "dev": 883,
+      "private_test": 919,
+      "test": 1147,
+      "train": 6251
+    },
+    "qa_split_distribution": {
+      "dev": 883,
+      "private_test": 919,
+      "test": 1147,
+      "train": 6251
+    },
+    "program_operation_distribution": {
+      "add": 1140,
+      "divide": 3029,
+      "greater": 138,
+      "multiply": 488,
+      "subtract": 3214,
+      "table_average": 127,
+      "table_max": 64,
+      "table_min": 35,
+      "table_sum": 46
+    }
+  },
+  "wikidata": {
+    "acquisition_mode": "narrow_entity_snapshots",
+    "full_dump_used": false,
+    "entity_count": 10,
+    "domain_distribution": {
+      "finance": 5,
+      "medical": 5
+    },
+    "revision_ids": {
+      "Q12206": 2554502707,
+      "Q124407": 2556005597,
+      "Q3025883": 2549752035,
+      "Q50265665": 2555721146,
+      "Q271993": 2549698902,
+      "Q192907": 2556173446,
+      "Q699735": 2551742693,
+      "Q850210": 2547192660,
+      "Q570938": 2551809219,
+      "Q312": 2548367127
+    },
+    "claim_count": 2056,
+    "property_count": 785,
+    "claim_count_by_entity": {
+      "Q12206": 186,
+      "Q124407": 125,
+      "Q3025883": 161,
+      "Q50265665": 125,
+      "Q271993": 62,
+      "Q192907": 70,
+      "Q699735": 51,
+      "Q850210": 39,
+      "Q570938": 18,
+      "Q312": 1219
+    },
+    "entities": [
+      {
+        "domain": "medical",
+        "search_term": "diabetes mellitus",
+        "selected_qid": "Q12206",
+        "label_en": "diabetes",
+        "description_en": "group of metabolic disorders characterized by high blood sugar levels over a prolonged period",
+        "revision_id": 2554502707,
+        "modified": "2026-10-07T11:21:27Z",
+        "claim_count": 186
+      },
+      {
+        "domain": "medical",
+        "search_term": "type-1 diabetes",
+        "selected_qid": "Q124407",
+        "label_en": "type-1 diabetes",
+        "description_en": "autoimmune disease, a form of diabetes mellitus that occurs when insulin-producing cells are destroyed by the immune system",
+        "revision_id": 2556005597,
+        "modified": "2026-10-11T21:37:45Z",
+        "claim_count": 125
+      },
+      {
+        "domain": "medical",
+        "search_term": "type 2 diabetes",
+        "selected_qid": "Q3025883",
+        "label_en": "type 2 diabetes",
+        "description_en": "type of diabetes mellitus with high blood sugar and insulin resistance",
+        "revision_id": 2549752035,
+        "modified": "2026-09-26T18:59:17Z",
+        "claim_count": 161
+      },
+      {
+        "domain": "medical",
+        "search_term": "insulin",
+        "selected_qid": "Q50265665",
+        "label_en": "insulin",
+        "description_en": "pancreas hormone",
+        "revision_id": 2555721146,
+        "modified": "2026-10-10T23:26:53Z",
+        "claim_count": 125
+      },
+      {
+        "domain": "medical",
+        "search_term": "hyperglycemia",
+        "selected_qid": "Q271993",
+        "label_en": "hyperglycemia",
+        "description_en": "human disease",
+        "revision_id": 2549698902,
+        "modified": "2026-09-26T15:54:29Z",
+        "claim_count": 62
+      },
+      {
+        "domain": "finance",
+        "search_term": "financial statement",
+        "selected_qid": "Q192907",
+        "label_en": "financial statement",
+        "description_en": "formal record of the financial activities and position of a business, person, or other entity",
+        "revision_id": 2556173446,
+        "modified": "2026-10-12T07:31:15Z",
+        "claim_count": 70
+      },
+      {
+        "domain": "finance",
+        "search_term": "annual report",
+        "selected_qid": "Q699735",
+        "label_en": "annual report",
+        "description_en": "yearly report on a company or other organization's activities; publication type",
+        "revision_id": 2551742693,
+        "modified": "2026-10-01T11:21:55Z",
+        "claim_count": 51
+      },
+      {
+        "domain": "finance",
+        "search_term": "revenue",
+        "selected_qid": "Q850210",
+        "label_en": "revenue",
+        "description_en": "income that a business has from its normal business activities",
+        "revision_id": 2547192660,
+        "modified": "2026-09-17T23:52:35Z",
+        "claim_count": 39
+      },
+      {
+        "domain": "finance",
+        "search_term": "net income",
+        "selected_qid": "Q570938",
+        "label_en": "net income",
+        "description_en": "measure of the profitability of a business venture",
+        "revision_id": 2551809219,
+        "modified": "2026-10-01T15:05:06Z",
+        "claim_count": 18
+      },
+      {
+        "domain": "finance",
+        "search_term": "Apple Inc.",
+        "selected_qid": "Q312",
+        "label_en": "Apple Inc.",
+        "description_en": "American multinational technology company based in Cupertino, California",
+        "revision_id": 2548367127,
+        "modified": "2026-09-22T09:50:30Z",
+        "claim_count": 1219
+      }
+    ]
+  }
+}

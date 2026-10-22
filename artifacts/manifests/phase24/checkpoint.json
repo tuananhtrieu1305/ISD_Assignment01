@@ -1,0 +1,53 @@
+{
+  "schema_version": "3.0.0",
+  "phase": 24,
+  "status": "COMPLETE",
+  "accepted_on": "2026-10-17",
+  "acceptance_evidence": "artifacts/manifests/phase24/verification.json",
+  "data_lock": "artifacts/manifests/phase24/data_lock.json",
+  "data_lock_sha256": "5ae1091892262b0b2e52a570e19963005da6724a736447bd11b4e9be3b60e37e",
+  "locked_files": 294,
+  "data_tests": {"passed": 142, "skipped": 0},
+  "regression_tests": {"passed": 121, "warnings": 4, "reason": "Known sklearn V2 1.9.1/1.9.0 artifact warning"},
+  "coverage_percent": 97.5825946817083,
+  "minimum_module_coverage_percent_approx": 95,
+  "figures_reviewed": 19,
+  "csv_tables": 55,
+  "rolling_folds": 9,
+  "temporal_windows_verified": 38163,
+  "reproducibility_files_unchanged": 81,
+  "producer_and_exporter_rerun_after_lock": "PASS; no lock/data overwrite",
+  "catalog": "data/catalog_v3.json",
+  "started_on": "2026-10-17",
+  "dependency": "Phase23 COMPLETE including IDRiD; verify source/protocol locks before EDA",
+  "steps": [
+    "Verify dependencies, protected baselines and available disk",
+    "TDD grouped splits, causal windows and train-only preprocessing",
+    "Load canonical tabular/image/time-series records directly from frozen raw",
+    "Measure missing, duplicates, outliers and distributions; preserve official TEST",
+    "Freeze grouped/time splits, matched subsets, rolling folds and preprocessing contracts",
+    "Generate 18 evidence-backed cards with scope labels; Ch5 read-only, Ch6 deferred views",
+    "Generate and visually verify figures and examples",
+    "Run data/regression/integrity tests, lock Phase24 artifacts and document acceptance"
+  ],
+  "training_executed": false,
+  "test_evaluation_executed": false,
+  "next_phase_started": false,
+  "progress": {
+    "eda_and_cards_generated": 18,
+    "split_contracts_generated": 9,
+    "unit_policy_tests_passed": 45,
+    "initial_real_pipeline_exit_code": 0,
+    "critical_findings": [
+      "CDC 25772 duplicate feature rows, 1566 conflicting-target feature groups; all linked before split",
+      "IDRiD 6 duplicate-pixel rows, 1 official train image quarantined for overlap with fixed official TEST",
+      "BIS 49 nominal-index national series; coverage-based common history starts 2002Q1",
+      "Household power 34589 hourly timestamps, 438 missing labels never imputed"
+    ],
+    "pending_acceptance": [],
+    "active_modules": []
+  },
+  "next_action": "Wait for 'làm phase 25'; read docs/phase24_report.md and frozen data catalog, build canonical-order tensor adapters/model contract/function composition; no automatic next phase",
+  "phase25_handoff": "Named preprocessing statistics are valid. Define output_feature_names and serialization-roundtrip invariant tensor order in NEW adapters; frozen EDA transform iterates dict insertion order while JSON writer sorts keys. No dense model input tensors were stored or trained in Phase24. Do not refactor locked modules without a revision.",
+  "remaining_as_planned": ["Ch6 benchmark generated at Phase31", "Actual model GPU peak probes at Phase25; current estimates are input/frame bytes only"]
+}

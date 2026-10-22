@@ -1,0 +1,212 @@
+{
+  "category": "evidence",
+  "domain": "diabetes",
+  "metrics": {
+    "answer_completion": 1,
+    "citation_correctness": 1,
+    "latency_ms": 17.222856999069336,
+    "message_count": 4,
+    "numeric_parity": null,
+    "peak_child_rss_bytes": 176164864,
+    "refusal_correctness": null,
+    "routing_accuracy": 1,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 4,
+    "messages": [
+      {
+        "input": {
+          "domain_hint": "diabetes",
+          "operation": "evidence",
+          "question": "tiểu đường: tìm bằng chứng snapshot cho mã diabetes_evidence_003.",
+          "record_id": "diabetes_evidence_003",
+          "task_id": "diabetes_evidence_f1_4"
+        },
+        "node_id": "node_1",
+        "output": {
+          "policy": null,
+          "route": "diabetes"
+        }
+      },
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "diabetes_evidence_003"
+        },
+        "node_id": "node_2",
+        "output": {
+          "payload": {
+            "artifact_refs": [
+              {
+                "path": "artifacts/manifests/phase30/preserved_snapshot.json",
+                "sha256": "481071f65b2c01b8d132532bdaccaa08ff760b153b908bbf1906e72d2f1c310a"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "evidence_diabetes_evidence_003",
+                "locator": "kg_chunks.jsonl.gz#med-chunk-7e762d71f9f0b0d1cc67;document=med-doc-04cd0fcd62f781dbe251",
+                "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+                "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb"
+              }
+            ],
+            "text": "If you have diabetes, your blood glucose, or blood sugar, levels are too high. Over time, this can damage your nerves or blood vessels. Nerve damage from diabetes can cause you to lose feeling in your feet. You may not feel a cut, a blister or a sore. Foot injuries such as these can cause ulcers and infections. Serious cases may even lead to amputation. Damage to the blood vessels can also mean that your feet do not get enough blood and oxygen. It is harder for your foot to heal, if you do get a sore or infection. You can help avoid foot problems. First, control your blood sugar levels. Good foot hygiene is also crucial: - Check your",
+            "unit": "excerpt",
+            "values": []
+          },
+          "peak_rss_bytes": 176164864,
+          "receipt_sha256": "4d36857a14a14b546c1ec5699d250b0a281a6fd650ec519d20af55acb896a1c4",
+          "status": "ok"
+        }
+      },
+      {
+        "input": {
+          "receipt": {
+            "payload": {
+              "artifact_refs": [
+                {
+                  "path": "artifacts/manifests/phase30/preserved_snapshot.json",
+                  "sha256": "481071f65b2c01b8d132532bdaccaa08ff760b153b908bbf1906e72d2f1c310a"
+                }
+              ],
+              "citations": [
+                {
+                  "evidence_id": "evidence_diabetes_evidence_003",
+                  "locator": "kg_chunks.jsonl.gz#med-chunk-7e762d71f9f0b0d1cc67;document=med-doc-04cd0fcd62f781dbe251",
+                  "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+                  "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb"
+                }
+              ],
+              "text": "If you have diabetes, your blood glucose, or blood sugar, levels are too high. Over time, this can damage your nerves or blood vessels. Nerve damage from diabetes can cause you to lose feeling in your feet. You may not feel a cut, a blister or a sore. Foot injuries such as these can cause ulcers and infections. Serious cases may even lead to amputation. Damage to the blood vessels can also mean that your feet do not get enough blood and oxygen. It is harder for your foot to heal, if you do get a sore or infection. You can help avoid foot problems. First, control your blood sugar levels. Good foot hygiene is also crucial: - Check your",
+              "unit": "excerpt",
+              "values": []
+            },
+            "peak_rss_bytes": 176164864,
+            "receipt_sha256": "4d36857a14a14b546c1ec5699d250b0a281a6fd650ec519d20af55acb896a1c4",
+            "status": "ok"
+          }
+        },
+        "node_id": "node_3",
+        "output": {
+          "reason": null,
+          "verification": "passed"
+        }
+      },
+      {
+        "input": {
+          "citations": [
+            {
+              "evidence_id": "evidence_diabetes_evidence_003",
+              "locator": "kg_chunks.jsonl.gz#med-chunk-7e762d71f9f0b0d1cc67;document=med-doc-04cd0fcd62f781dbe251",
+              "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+              "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb"
+            }
+          ],
+          "status": "succeeded",
+          "values": []
+        },
+        "node_id": "node_4",
+        "output": {
+          "answer": "If you have diabetes, your blood glucose, or blood sugar, levels are too high. Over time, this can damage your nerves or blood vessels. Nerve damage from diabetes can cause you to lose feeling in your feet. You may not feel a cut, a blister or a sore. Foot injuries such as these can cause ulcers and infections. Serious cases may even lead to amputation. Damage to the blood vessels can also mean that your feet do not get enough blood and oxygen. It is harder for your foot to heal, if you do get a sore or infection. You can help avoid foot problems. First, control your blood sugar levels. Good foot hygiene is also crucial: - Check your",
+          "warning": "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 176164864,
+    "reason": null,
+    "route": "diabetes",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "If you have diabetes, your blood glucose, or blood sugar, levels are too high. Over time, this can damage your nerves or blood vessels. Nerve damage from diabetes can cause you to lose feeling in your feet. You may not feel a cut, a blister or a sore. Foot injuries such as these can cause ulcers and infections. Serious cases may even lead to amputation. Damage to the blood vessels can also mean that your feet do not get enough blood and oxygen. It is harder for your foot to heal, if you do get a sore or infection. You can help avoid foot problems. First, control your blood sugar levels. Good foot hygiene is also crucial: - Check your",
+      "citations": [
+        {
+          "evidence_id": "evidence_diabetes_evidence_003",
+          "locator": "kg_chunks.jsonl.gz#med-chunk-7e762d71f9f0b0d1cc67;document=med-doc-04cd0fcd62f781dbe251",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb"
+        }
+      ],
+      "domain": "diabetes",
+      "evidence_kind": "measured",
+      "latency_ms": 16.301376999763306,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "router",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "f18269429b8e47c87401c3b57cfa3bfa0575fe42585f829e2efbd694334a9356",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "ad60332bf204ce6feb1a30d62c179f47de370b2861815c155466ae8d6252ced8",
+          "parent_ids": [],
+          "tool": "none"
+        },
+        {
+          "agent": "specialist",
+          "artifact_refs": [
+            {
+              "path": "artifacts/manifests/phase30/preserved_snapshot.json",
+              "sha256": "481071f65b2c01b8d132532bdaccaa08ff760b153b908bbf1906e72d2f1c310a"
+            }
+          ],
+          "duration_ms": 15.974163999999291,
+          "input_sha256": "bbebf8ec1a5eaea5f18919feb9d8c1718f0640ed61367ef001622d0ba2ef06d5",
+          "node_id": "node_2",
+          "outcome": "ok",
+          "output_sha256": "6b76bc5def0f22d83ce61a5294cdd9b91cde713722bd6d1eb2bf00c8ddda8b03",
+          "parent_ids": [
+            "node_1"
+          ],
+          "tool": "retrieve_medical"
+        },
+        {
+          "agent": "verifier",
+          "artifact_refs": [],
+          "duration_ms": 0.05540100028156303,
+          "input_sha256": "455adba278c37ae4fcaa9e2f25c837c8b0079c98b5291e9837e29b131b01a593",
+          "node_id": "node_3",
+          "outcome": "ok",
+          "output_sha256": "74b85fef6af3e54336cd24c01d554053e29c98a538f68e7ce9e1fc671d05e382",
+          "parent_ids": [
+            "node_2"
+          ],
+          "tool": "none"
+        },
+        {
+          "agent": "reporter",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "1a63856a88d691842acfe2b6969e87266d7f821f58470f9dda1c1e7647e88454",
+          "node_id": "node_4",
+          "outcome": "ok",
+          "output_sha256": "6b521d3fc3fccf15481ade0d9b497a24eb21b1c311d1c0b22529fae6f8e77d97",
+          "parent_ids": [
+            "node_3"
+          ],
+          "tool": "none"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "succeeded",
+      "task_id": "diabetes_evidence_f1_4",
+      "task_set_sha256": "bad7e9ef791528928971da69d47fe105ba5b24ae6918d9d831639526599ca23f",
+      "trace_id": "trace_f18269429b8e47c87401_a2",
+      "variant": "A2"
+    },
+    "values": [],
+    "verification": "passed",
+    "wall_latency_ms": 17.222856999069336
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "benign",
+  "task_id": "diabetes_evidence_f1_4",
+  "variant": "A2"
+}

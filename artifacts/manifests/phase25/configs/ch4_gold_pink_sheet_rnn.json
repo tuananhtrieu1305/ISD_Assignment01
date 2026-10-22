@@ -1,0 +1,67 @@
+{
+  "adapter": {
+    "path": "artifacts/manifests/phase25/adapters/ch4_gold_pink_sheet.json",
+    "sha256": "a58688f2ffa5f463dbb56b7faca3d001583c4efa711e05bf0e06f0c4c6ae2d2b",
+    "size_bytes": 678
+  },
+  "canonical_initial_weights_by_seed_sha256": {
+    "17": "430c3008ad6101bbc5850f278c1728f9cf7f09cd638d356dacf413c56b18a488",
+    "42": "4a8972b64e460e60e7cba8d782778cdfa3695f2b391ea336ae0768524c164dc3",
+    "73": "42007c310565e94949d0f5e510e09e3d4015a160a80742d1b6ba402c0bbdac1b"
+  },
+  "code_sha256": "3eb8df6c86ce045f6ad124d5a2d86aeae977ab88b29b1cb92dc57f2535c44b44",
+  "comparison_group_sha256": "7867b860ef481101ab037c2587a30cdf03da58e7cf790c3b9251c775160c775f",
+  "dataset_id": "ch4_gold_pink_sheet",
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "family": "rnn",
+  "inference_ready": false,
+  "lifecycle": "initialized_only",
+  "phase": 25,
+  "plan": {
+    "path": "artifacts/manifests/phase25/plans/ch4_gold_pink_sheet_rnn.json",
+    "sha256": "24b238a4b1c1e2eb959f22c818c8ebd29d32829f71a8589ea634854a89254a70",
+    "size_bytes": 1546
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "provenance": {
+    "adapter_sha256": "3e4e234cc5d79b6468921af477b514733c4a67751be37f6a5df35fa22b50e839",
+    "dataset_sha256": "dfaba9c931ef045fa98ba4bd5d51e478f17cd7fb1b9911e1a3a07a1123bdbef3",
+    "preprocessing_sha256": "82dcdf6733898fc2b818ef6aac3ee19dd299c65a4803cdb601a2204a28e4729e",
+    "split_sha256": "91a1fb8d745b1017b056636d2d90c6ec3da35ce27b7c046a8045cf8d29f51ddb",
+    "subset_sha256": "c9b193cc6d8d16d76c4d1343fbf7aa71723a01bbdbb0bf0e861a6f3a3ceab60a"
+  },
+  "real_dataset_training_executed": false,
+  "seeds": [
+    17,
+    42,
+    73
+  ],
+  "test_evaluation_executed": false,
+  "training": {
+    "batch_size": {
+      "cnn": 16,
+      "lstm": 32,
+      "mlp": 32,
+      "rnn": 32
+    },
+    "checkpoint_selection": "minimum validation loss; never TEST",
+    "dtype": "float32",
+    "failure_policy": "Record timeout/OOM/NaN as failed, never silently reduce samples, architecture or epochs for one implementation.",
+    "gradient_clip_global_norm": 1,
+    "hyperparameter_search_trials": 1,
+    "initialization": "Generate canonical NumPy weights once per seed; convert layouts for each adapter; paired forward/gradient checks before training.",
+    "max_epochs": 40,
+    "min_delta": 1e-05,
+    "optimizer": {
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "epsilon": 1e-07,
+      "epsilon_convention": "denominator sqrt(v_hat)+epsilon; adapters must normalize or disclose numerical deviations",
+      "learning_rate": 0.001,
+      "name": "adam"
+    },
+    "patience": 6,
+    "shuffle_policy": "Saved common train batch order per seed; no split/time shuffle.",
+    "wall_time_limit_minutes": 120
+  }
+}

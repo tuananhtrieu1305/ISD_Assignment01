@@ -1,0 +1,183 @@
+{
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_rnn_keras_s42_main/best.npz",
+    "sha256": "0e58caad391769d9d72e9fced6456be8cf0ea0e349bc769a54a3bbdecd0722a0"
+  },
+  "efficiency_scope": "Train/RAM/VRAM/5warmup30repeat TRAIN-input timing copied byte-value from locked validation metric; not claimed as TEST-only measurements",
+  "evaluator_sha256": "8a0c613037ef5360c683c865fd348ec69b113cfc9a106bdf577529313f981145",
+  "metrics": {
+    "by_horizon": {
+      "1": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 0.3534072073099167
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.504004675619166
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 0.5027500103150175
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 37.964135180907604
+        }
+      },
+      "24": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 0.4634724575426879
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.23965730635180627
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 0.6199867050141213
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 49.7177052243763
+        }
+      },
+      "6": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 0.47178658784789784
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.20836364538108565
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 0.633555446580647
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 50.100999759008005
+        }
+      }
+    },
+    "by_series": {
+      "HOUSEHOLD": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 0.3534072073099167
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.504004675619166
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 0.5027500103150175
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 37.964135180907604
+            }
+          },
+          "24": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 0.4634724575426879
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.23965730635180627
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 0.6199867050141213
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 49.7177052243763
+            }
+          },
+          "6": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 0.47178658784789784
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.20836364538108565
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 0.633555446580647
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 50.100999759008005
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 0.42955541756683413
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.3177318512087849
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 0.5883688160663685
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 45.92761338809731
+        }
+      }
+    },
+    "macro_series_rmse": {
+      "undefined_reason": null,
+      "value": 0.5883688160663685
+    },
+    "mae": {
+      "undefined_reason": null,
+      "value": 0.42955541756683413
+    },
+    "r2": {
+      "undefined_reason": null,
+      "value": 0.3177318512087849
+    },
+    "rmse": {
+      "undefined_reason": null,
+      "value": 0.5883688160663685
+    },
+    "smape": {
+      "undefined_reason": null,
+      "value": 45.92761338809731
+    }
+  },
+  "optimizer_updates": 0,
+  "output_dtype": "float64",
+  "run_id": "ch4_household_power_rnn_keras_s42_main",
+  "test_count": 4911,
+  "test_forward_and_model_load_seconds": 5.41579267599991,
+  "test_forward_passes_per_window": 1,
+  "test_seal_manifest_sha256": "0ef57d11ed0ff159da751f60a4c36d19a1900e04ec9ef3a1d8e207a85fc54eeb",
+  "training_efficiency": {
+    "checkpoint_bytes": 29156,
+    "inference_p50_ms": 19.47652800117794,
+    "inference_p95_ms": 30.621375550981607,
+    "peak_ram_bytes": 1675038720,
+    "peak_vram_bytes": 17170688,
+    "timed_repeats": 30,
+    "train_seconds": 485.46008574400184,
+    "warmup_batches": 5
+  },
+  "training_selection": {
+    "path": "artifacts/manifests/phase28/runs/ch4_household_power_rnn_keras_s42_main/selection.json",
+    "sha256": "1890ae208eac208daf90151febc4b1c9f5c31ed0a1375082df843b13cb4e59b3"
+  }
+}

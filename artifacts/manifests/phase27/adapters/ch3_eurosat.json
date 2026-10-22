@@ -1,0 +1,55 @@
+{
+  "adapter_version": "phase25.1",
+  "canonical_layout": "NHWC",
+  "class_names": {
+    "0": "AnnualCrop",
+    "1": "Forest",
+    "2": "HerbaceousVegetation",
+    "3": "Highway",
+    "4": "Industrial",
+    "5": "Pasture",
+    "6": "PermanentCrop",
+    "7": "Residential",
+    "8": "River",
+    "9": "SeaLake"
+  },
+  "class_weights_by_id": {
+    "0": 0.8982035928143712,
+    "1": 0.9009009009009009,
+    "2": 0.9009009009009009,
+    "3": 1.079136690647482,
+    "4": 1.079136690647482,
+    "5": 1.3513513513513513,
+    "6": 1.079136690647482,
+    "7": 0.9009009009009009,
+    "8": 1.079136690647482,
+    "9": 0.9009009009009009
+  },
+  "dataset_id": "ch3_eurosat",
+  "dtype": "float32",
+  "feature_order_policy": "numeric input_columns order; then categorical input_columns/vocabulary order",
+  "fold": null,
+  "kind": "image",
+  "output_feature_names": [
+    "red",
+    "green",
+    "blue"
+  ],
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch3_eurosat/preprocessing.json",
+    "sha256": "b4ea371485d86eda5fad7cd09ae93aa897aa4c8b65c8bca2fc0b21f7a0fbc542"
+  },
+  "pytorch_image_layout": "NCHW",
+  "source_label_to_id": {
+    "AnnualCrop": 0,
+    "Forest": 1,
+    "HerbaceousVegetation": 2,
+    "Highway": 3,
+    "Industrial": 4,
+    "Pasture": 5,
+    "PermanentCrop": 6,
+    "Residential": 7,
+    "River": 8,
+    "SeaLake": 9
+  }
+}

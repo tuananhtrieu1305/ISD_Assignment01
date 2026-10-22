@@ -1,0 +1,106 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch02_ml/ch2_ames_housing_mlp_pytorch_s17/best.npz",
+      "sha256": "9c4aafc8899848b6f72361f02d6a10984ef9d8c96672fe52da1ef98541f22127"
+    },
+    {
+      "path": "artifacts/predictions/phase26/test/ch2_ames_housing_mlp_pytorch_s17.jsonl.gz",
+      "sha256": "c9325a56e63fc6f1cd08e93fcf3111c0972694ff05f682e9e328be0efb994c2f"
+    }
+  ],
+  "backend": "torch",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "f5d5e981628bd99982dcd833a5ec3e67a0eabb3fb0918ef687b64b9e7d4950ea",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "9fe7b26b68e74515daf5f20125891a6bc44a0192a5cd065b41fbf18ad709e84c",
+  "config_sha256": "c7725db93026918d70685731464bbed7b6139da788779f048a31b4140b763aba",
+  "dataset_id": "ch2_ames_housing",
+  "dataset_sha256": "7a9a39099db335cf14f759534ac4d1e29293b9c8392219e42dac1dd456ee4d4e",
+  "device": "cuda:0",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 114774,
+    "inference_p50_ms": 0.4856650000419904,
+    "inference_p95_ms": 1.6261162498949484,
+    "peak_ram_bytes": 1752248320,
+    "peak_vram_bytes": 68230144,
+    "timed_repeats": 30,
+    "train_seconds": 6.87646078600028,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "mlp",
+  "finished_at": "2026-10-17T14:12:05.509663+00:00",
+  "implementation": "pytorch",
+  "metrics": [
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "USD",
+      "value": 15370.692724422992
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "USD",
+      "value": 34335.922603887055
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 8.308881089087906
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "r2",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.8558169755068243
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 9.203882627002073
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase26/revisions/r2/runs/ch2_ames_housing_mlp_pytorch_s17/model_contract.json",
+    "sha256": "12ce2bcb9fa34b05a19f71be0efc47a3e64f01b2bea895e9aa99d0eda580b7ce"
+  },
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch2_ames_housing/preprocessing.json",
+    "sha256": "dc651db3cc84578a4fc9981ec1fbf3d14690c0d31efd7aa99651c715f8482e46"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch2_ames_housing_mlp_pytorch_s17",
+  "schema_version": "3.0.0",
+  "seed": 17,
+  "split": "test",
+  "split_id": "ch2_ames_housing_v3_seed42",
+  "split_sha256": "3c0db0100706a3b725b7e7af50a8fc1c9ec4ab9cb37cd18e1e041686b80b6505",
+  "started_at": "2026-10-17T14:12:04.417840+00:00",
+  "status": "succeeded",
+  "subset_sha256": "0542fa4ebf11a3bd430fb84850adf1b1d662be991f88c5ebb76a4c4ac611b5bd",
+  "test_seal_id": "ch2_ames_housing_phase26_test_v1",
+  "track": "matched_subset",
+  "warnings": [
+    "Retrospective group split; no clinical or market-deployment claim",
+    "RAM is process-lifetime peak RSS; VRAM is framework allocator only",
+    "Inference includes transfer; TensorFlow graph versus PyTorch/NumPy eager"
+  ]
+}

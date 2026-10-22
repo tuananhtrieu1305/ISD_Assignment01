@@ -1,0 +1,47 @@
+{
+  "dataset_id": "ch2_ames_housing",
+  "dataset_sha256": "7a9a39099db335cf14f759534ac4d1e29293b9c8392219e42dac1dd456ee4d4e",
+  "evidence_kind": "measured",
+  "group_key": "transitive_feature_or_pixel_or_verified_property_identity",
+  "leakage_audit": {
+    "path": "artifacts/manifests/phase24/ch2_ames_housing/leakage_audit.json",
+    "sha256": "bed88878900be68603ad8d47983bf957d552dc1e1a97f161c3cb54ec2808188d"
+  },
+  "method": "group_stratified",
+  "partitions": [
+    {
+      "count": 2051,
+      "ids": {
+        "path": "data/splits/v3/ch2_ames_housing/train.ids.jsonl.gz",
+        "sha256": "0542fa4ebf11a3bd430fb84850adf1b1d662be991f88c5ebb76a4c4ac611b5bd"
+      },
+      "name": "train",
+      "target_end": null,
+      "target_start": null
+    },
+    {
+      "count": 439,
+      "ids": {
+        "path": "data/splits/v3/ch2_ames_housing/validation.ids.jsonl.gz",
+        "sha256": "b283cd05af3e0a6b98ae237fa56b8fc04821316e547f480e23e61e950d5ebd36"
+      },
+      "name": "validation",
+      "target_end": null,
+      "target_start": null
+    },
+    {
+      "count": 440,
+      "ids": {
+        "path": "data/splits/v3/ch2_ames_housing/test.ids.jsonl.gz",
+        "sha256": "8bfecac8f78d4674e586bab82fe4869f22574f758a6414b862cf902500e6c338"
+      },
+      "name": "test",
+      "target_end": null,
+      "target_start": null
+    }
+  ],
+  "schema_version": "3.0.0",
+  "seed": 42,
+  "split_id": "ch2_ames_housing_v3_seed42",
+  "train_only_preprocessing": true
+}

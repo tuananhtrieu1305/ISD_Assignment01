@@ -1,0 +1,107 @@
+{
+  "category": "evidence",
+  "domain": "diabetes",
+  "metrics": {
+    "answer_completion": 1,
+    "citation_correctness": 1,
+    "latency_ms": 19.041473000470432,
+    "message_count": 1,
+    "numeric_parity": null,
+    "peak_child_rss_bytes": 172613632,
+    "refusal_correctness": null,
+    "routing_accuracy": null,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 1,
+    "messages": [
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "diabetes_evidence_012"
+        },
+        "node_id": "node_1",
+        "output": {
+          "payload": {
+            "artifact_refs": [
+              {
+                "path": "artifacts/manifests/phase30/preserved_snapshot.json",
+                "sha256": "481071f65b2c01b8d132532bdaccaa08ff760b153b908bbf1906e72d2f1c310a"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "evidence_diabetes_evidence_012",
+                "locator": "kg_chunks.jsonl.gz#med-chunk-bf650f503c4d6c9cd091;document=med-doc-10200696cf398626b9fe",
+                "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+                "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb"
+              }
+            ],
+            "text": "The four stages of diabetic retinopathy are - mild nonproliferative retinopathy - moderate nonproliferative retinopathy - severe nonproliferative retinopathy - proliferative retinopathy mild nonproliferative retinopathy moderate nonproliferative retinopathy severe nonproliferative retinopathy proliferative retinopathy Nonproliferative retinopathy. At this earliest stage, microaneurysms occur. They are small areas of balloon-like swelling in the retina's tiny blood vessels. Moderate nonproliferative retinopathy. As the disease progresses, some blood vessels that nourish the retina are blocked. Severe nonproliferative retinopathy. Many more blood vessels are blocked, depriving several areas of the retina of their blood supply. These areas of the retina send signals to the body to grow new blood vessels for nourishment. Proliferative retinopathy. At this advanced stage, the signals sent by the retina for nourishment",
+            "unit": "excerpt",
+            "values": []
+          },
+          "peak_rss_bytes": 172613632,
+          "receipt_sha256": "8a6796594441a064f08c0dab3510901f4b8dd9f59a9e63a51773524b30a431ce",
+          "status": "ok"
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 172613632,
+    "reason": null,
+    "route": "diabetes",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "The four stages of diabetic retinopathy are - mild nonproliferative retinopathy - moderate nonproliferative retinopathy - severe nonproliferative retinopathy - proliferative retinopathy mild nonproliferative retinopathy moderate nonproliferative retinopathy severe nonproliferative retinopathy proliferative retinopathy Nonproliferative retinopathy. At this earliest stage, microaneurysms occur. They are small areas of balloon-like swelling in the retina's tiny blood vessels. Moderate nonproliferative retinopathy. As the disease progresses, some blood vessels that nourish the retina are blocked. Severe nonproliferative retinopathy. Many more blood vessels are blocked, depriving several areas of the retina of their blood supply. These areas of the retina send signals to the body to grow new blood vessels for nourishment. Proliferative retinopathy. At this advanced stage, the signals sent by the retina for nourishment",
+      "citations": [
+        {
+          "evidence_id": "evidence_diabetes_evidence_012",
+          "locator": "kg_chunks.jsonl.gz#med-chunk-bf650f503c4d6c9cd091;document=med-doc-10200696cf398626b9fe",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb"
+        }
+      ],
+      "domain": "diabetes",
+      "evidence_kind": "measured",
+      "latency_ms": 18.21879599992826,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "direct",
+          "artifact_refs": [
+            {
+              "path": "artifacts/manifests/phase30/preserved_snapshot.json",
+              "sha256": "481071f65b2c01b8d132532bdaccaa08ff760b153b908bbf1906e72d2f1c310a"
+            }
+          ],
+          "duration_ms": 18.069243000354618,
+          "input_sha256": "3e5b7d02edecf840f271ca42c25a3c58e9061e167540483acc8fbd432f49082b",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "e6947fa0d1a7ed2037ae78b9fbb5cbc5b2927c198fb08dcfe82ce1a240699404",
+          "parent_ids": [],
+          "tool": "retrieve_medical"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "succeeded",
+      "task_id": "diabetes_evidence_f4_1",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_1b2fe6c687b7f225fb1e_a0",
+      "variant": "A0"
+    },
+    "values": [],
+    "verification": "not_run",
+    "wall_latency_ms": 19.041473000470432
+  },
+  "parent_model_test_forward": false,
+  "split": "dev",
+  "stratum": "benign",
+  "task_id": "diabetes_evidence_f4_1",
+  "variant": "A0"
+}

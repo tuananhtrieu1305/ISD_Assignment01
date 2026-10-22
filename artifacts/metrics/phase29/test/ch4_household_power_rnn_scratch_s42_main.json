@@ -1,0 +1,184 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_rnn_scratch_s42_main/best.npz",
+      "sha256": "4b72359c381a7ef8e6e68e4db8e12fa135f9140dafcce8c7c8abbe0a9249d821"
+    },
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_rnn_scratch_s42_main/best.json",
+      "sha256": "4338f2430c3beb47c5459bf2076b18f637753032da105b289891266e8a48c410"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_household_power_rnn_scratch_s42_main/selection.json",
+      "sha256": "87392f4b862953b5b8d52835d4b791da511fa4d63011c5240e354d1a7d3e517f"
+    },
+    {
+      "path": "artifacts/predictions/phase29/test/ch4_household_power_rnn_scratch_s42_main.jsonl.gz",
+      "sha256": "dfccd6f360507721e8facc558707715529f795e8efbcab371c6cfa834bf0ba82"
+    },
+    {
+      "path": "artifacts/manifests/phase29/test_details/ch4_household_power_rnn_scratch_s42_main.json",
+      "sha256": "905e79a693dfe2fed0bc1550e2f4ad5226888d85c6c2c319e6ffffbe74506b29"
+    }
+  ],
+  "backend": "numpy",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "c7aaafbe11688e15bbc33da23c0bc5558a42ed3662504a5ae018b4d4eb556c70",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "0e4e2a43c7ebc500128e440ba34209ae91adcb5a89b33b2cbc59bc1129871857",
+  "config_sha256": "4e8e3d51a901df12bc9b6154bdcc6d98db586f5eb5c12fb23ac81af64ad5d530",
+  "dataset_id": "ch4_household_power",
+  "dataset_sha256": "db356f6739f2dbc8f493d383cface41cb84eed4ad572bbfd4b680519034539a1",
+  "device": "cpu",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 29156,
+    "inference_p50_ms": 2.041172499957611,
+    "inference_p95_ms": 2.4660827994011925,
+    "peak_ram_bytes": 342777856,
+    "peak_vram_bytes": 0,
+    "timed_repeats": 30,
+    "train_seconds": 81.1736520250015,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "rnn",
+  "finished_at": "2026-10-20T00:09:55.588086+00:00",
+  "implementation": "scratch",
+  "metrics": [
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.5854150996268453
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.4121603317207034
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 43.600029626031386
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "macro_series_rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.5854150996268453
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.5046102443984998
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.34972401205420933
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 38.27362258093266
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.6254335624395523
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.4444429421383792
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 46.44256738015645
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.6183315266388936
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.44231404096952154
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 46.08389891700506
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase28/runs/ch4_household_power_rnn_scratch_s42_main/model_contract.json",
+    "sha256": "59503a8fac11d762ba249a012f812f5cf542a1c27d1c1722893119d0f4abc701"
+  },
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch4_household_power/preprocessing.json",
+    "sha256": "1940ded15fe9e51147e5dc0b4ec3dba661ef70a0462dabcec3875b011ca0909e"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch4_household_power_rnn_scratch_s42_main",
+  "schema_version": "3.0.0",
+  "seed": 42,
+  "split": "test",
+  "split_id": "ch4_household_power_phase28_main",
+  "split_sha256": "90053761ae0a15d0faa3323fb1a1261425d5204ab0e74416c225613e68f498b8",
+  "started_at": "2026-10-20T00:09:54.601879+00:00",
+  "status": "succeeded",
+  "subset_sha256": "f6de2e1df1ddc0a78130d7bd5ccfe432dc94f143f295d176076ddd3049750a72",
+  "test_seal_id": "ch4_household_power_phase29_joint_test_v1",
+  "track": "matched_subset",
+  "warnings": [
+    "Latest revised snapshots, retrospective observation-origin forecast; no real-time publication/vintage claim or investment advice",
+    "Each rolling fold uses its frozen scaler; windows reset recurrent state",
+    "Train wall includes validation/progress I/O; RAM is process lifetime, VRAM allocator only; CPU/GPU and graph/eager differ",
+    "Joint RNN/LSTM main TEST once after frozen validation selection; no optimizer updates or TEST-input timing repeats",
+    "Train/RAM/VRAM/5warmup30repeat TRAIN-input timing copied byte-value from locked validation metric; not claimed as TEST-only measurements"
+  ]
+}

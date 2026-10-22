@@ -1,0 +1,47 @@
+{
+  "dataset_id": "ch2_cdc_diabetes",
+  "dataset_sha256": "1e446b32f553e0af95f69b8e55372cdcf4acfc63180ad0e768c2f5f558dc95b6",
+  "evidence_kind": "measured",
+  "group_key": "transitive_feature_or_pixel_or_verified_property_identity",
+  "leakage_audit": {
+    "path": "artifacts/manifests/phase24/ch2_cdc_diabetes/leakage_audit.json",
+    "sha256": "ebe3b4bf1151db1c82d2fe2817b6de53a81942c5bab9be7fa4ab78a93228b43d"
+  },
+  "method": "group_stratified",
+  "partitions": [
+    {
+      "count": 177505,
+      "ids": {
+        "path": "data/splits/v3/ch2_cdc_diabetes/train.ids.jsonl.gz",
+        "sha256": "f9b342cf33b29e646b5e29777b2cebe5d1ad27eec15e805d52f4b03b1511ff52"
+      },
+      "name": "train",
+      "target_end": null,
+      "target_start": null
+    },
+    {
+      "count": 38053,
+      "ids": {
+        "path": "data/splits/v3/ch2_cdc_diabetes/validation.ids.jsonl.gz",
+        "sha256": "283071c9d538dfb7aa890bcccfa46abc3a78e6b4dcd126aea134cef8d2e74ca1"
+      },
+      "name": "validation",
+      "target_end": null,
+      "target_start": null
+    },
+    {
+      "count": 38122,
+      "ids": {
+        "path": "data/splits/v3/ch2_cdc_diabetes/test.ids.jsonl.gz",
+        "sha256": "1f361675716418be67590b69df72825354f5d0422880ce2ed25510b5350faeba"
+      },
+      "name": "test",
+      "target_end": null,
+      "target_start": null
+    }
+  ],
+  "schema_version": "3.0.0",
+  "seed": 42,
+  "split_id": "ch2_cdc_diabetes_v3_seed42",
+  "train_only_preprocessing": true
+}

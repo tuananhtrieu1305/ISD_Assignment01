@@ -1,0 +1,160 @@
+{
+  "calibration": {
+    "bins": [
+      {
+        "bin": 0,
+        "count": 123,
+        "lower": 0.0,
+        "mean_probability": 0.07519233971834183,
+        "observed_rate": 0.016260162601626018,
+        "upper": 0.1
+      },
+      {
+        "bin": 1,
+        "count": 932,
+        "lower": 0.1,
+        "mean_probability": 0.1578657180070877,
+        "observed_rate": 0.033261802575107295,
+        "upper": 0.2
+      },
+      {
+        "bin": 2,
+        "count": 1062,
+        "lower": 0.2,
+        "mean_probability": 0.25061333179473877,
+        "observed_rate": 0.054613935969868174,
+        "upper": 0.3
+      },
+      {
+        "bin": 3,
+        "count": 1383,
+        "lower": 0.3,
+        "mean_probability": 0.35166481137275696,
+        "observed_rate": 0.0549530007230658,
+        "upper": 0.4
+      },
+      {
+        "bin": 4,
+        "count": 1415,
+        "lower": 0.4,
+        "mean_probability": 0.44881415367126465,
+        "observed_rate": 0.09540636042402827,
+        "upper": 0.5
+      },
+      {
+        "bin": 5,
+        "count": 901,
+        "lower": 0.5,
+        "mean_probability": 0.5461063981056213,
+        "observed_rate": 0.12097669256381798,
+        "upper": 0.6
+      },
+      {
+        "bin": 6,
+        "count": 396,
+        "lower": 0.6,
+        "mean_probability": 0.6403486728668213,
+        "observed_rate": 0.23737373737373738,
+        "upper": 0.7
+      },
+      {
+        "bin": 7,
+        "count": 135,
+        "lower": 0.7,
+        "mean_probability": 0.747248649597168,
+        "observed_rate": 0.4074074074074074,
+        "upper": 0.8
+      },
+      {
+        "bin": 8,
+        "count": 216,
+        "lower": 0.8,
+        "mean_probability": 0.8544085621833801,
+        "observed_rate": 0.4351851851851852,
+        "upper": 0.9
+      },
+      {
+        "bin": 9,
+        "count": 219,
+        "lower": 0.9,
+        "mean_probability": 0.9457282423973083,
+        "observed_rate": 0.639269406392694,
+        "upper": 1.0
+      }
+    ],
+    "brier": 0.18287845775113482,
+    "ece": 0.2931466482258922,
+    "fit_calibrator": false
+  },
+  "diagnostic_only_no_tuning": true,
+  "groups": {
+    "age_ge60": {
+      "brier": 0.24813060210442467,
+      "count": 272,
+      "false_positive_rate": 0.45977011494252873,
+      "predicted_positive_rate": 0.5698529411764706,
+      "prevalence": 0.3602941176470588,
+      "recall": 0.7653061224489796,
+      "undefined_reason": null
+    },
+    "age_lt60": {
+      "brier": 0.18015210087492972,
+      "count": 6510,
+      "false_positive_rate": 0.22273821809425526,
+      "predicted_positive_rate": 0.2629800307219662,
+      "prevalence": 0.10691244239631337,
+      "recall": 0.5991379310344828,
+      "undefined_reason": null
+    }
+  },
+  "metrics": {
+    "accuracy": {
+      "undefined_reason": null,
+      "value": 0.7527278089059275
+    },
+    "auroc": {
+      "undefined_reason": null,
+      "value": 0.763558393024504
+    },
+    "average_precision": {
+      "undefined_reason": null,
+      "value": 0.4054999887002166
+    },
+    "brier": {
+      "undefined_reason": null,
+      "value": 0.18287845775113482
+    },
+    "confusion_matrix": [
+      [
+        4613,
+        1375
+      ],
+      [
+        302,
+        492
+      ]
+    ],
+    "ece": {
+      "undefined_reason": null,
+      "value": 0.2931466482258922
+    },
+    "macro_f1": {
+      "undefined_reason": null,
+      "value": 0.6079874585369541
+    },
+    "per_class_recall": {
+      "0": {
+        "undefined_reason": null,
+        "value": 0.770374081496326
+      },
+      "1": {
+        "undefined_reason": null,
+        "value": 0.6196473551637279
+      }
+    },
+    "weighted_f1": {
+      "undefined_reason": null,
+      "value": 0.790414388849123
+    }
+  }
+}

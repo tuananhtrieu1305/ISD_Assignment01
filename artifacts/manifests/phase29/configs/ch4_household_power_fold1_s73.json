@@ -1,0 +1,179 @@
+{
+  "adapter": {
+    "path": "artifacts/manifests/phase29/adapters/ch4_household_power_fold1.json",
+    "sha256": "521e09ffdad9b581da34437880e8bf60cc5aaff1307f816f62604fdde75f0333"
+  },
+  "baseline_policy": "Observed target history at/before origin; missing seasonal source falls back to last observed within lookback; no target imputation",
+  "canonical_initial_weights_sha256": "32256c529d03fe549cf49acab5617a66ffa70cc644188433fc12f5654bb938d2",
+  "code": {
+    "dirty_tree_sha256": "09340206e85ab9885292b48debce490f1d5fed9fa68f6826de2dc84109081c2a",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "data_contract": {
+    "path": "artifacts/manifests/phase29/data/ch4_household_power_fold1.json",
+    "sha256": "d198f43e672cfceabdca50b47b8f3c43e901c62df8745dea54bd24e795bc6129"
+  },
+  "dataset_id": "ch4_household_power",
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "execution_policy": {
+    "keras": "Keras TensorFlow GPU tf.function without XLA; native LSTM/cuDNN dispatch, host checks and canonical Adam",
+    "pytorch": "PyTorch GPU eager, frozen zero second recurrent bias",
+    "scratch": "NumPy CPU manual BPTT/Adam"
+  },
+  "export_policy": {
+    "atol": 1e-05,
+    "gpu_comparison": "retained diagnostic, not CPU deployment gate",
+    "portable": "numpy_cpu",
+    "reference": "native_cpu",
+    "rtol": 0.0001
+  },
+  "fold": 1,
+  "gradient_diagnostic_policy": "first four fixed TRAIN IDs, selected weights, normalized MSE input gradient; no causal/TEST claims",
+  "horizons": [
+    1,
+    6,
+    24
+  ],
+  "phase": 29,
+  "plan": {
+    "family": "lstm",
+    "input_shape": [
+      168,
+      14
+    ],
+    "output_shape": [
+      3
+    ],
+    "plan_version": "phase25.1",
+    "steps": [
+      {
+        "id": "lstm_1",
+        "input_shape": [
+          168,
+          14
+        ],
+        "kind": "lstm",
+        "output_shape": [
+          168,
+          32
+        ],
+        "return_sequences": true
+      },
+      {
+        "id": "lstm_2",
+        "input_shape": [
+          168,
+          32
+        ],
+        "kind": "lstm",
+        "output_shape": [
+          168,
+          32
+        ],
+        "return_sequences": true
+      },
+      {
+        "id": "lstm_3",
+        "input_shape": [
+          168,
+          32
+        ],
+        "kind": "lstm",
+        "output_shape": [
+          32
+        ],
+        "return_sequences": false
+      },
+      {
+        "id": "dense_4",
+        "input_shape": [
+          32
+        ],
+        "kind": "dense",
+        "output_shape": [
+          16
+        ]
+      },
+      {
+        "activation": "relu",
+        "id": "activation_5",
+        "input_shape": [
+          16
+        ],
+        "kind": "activation",
+        "output_shape": [
+          16
+        ]
+      },
+      {
+        "id": "dense_6",
+        "input_shape": [
+          16
+        ],
+        "kind": "dense",
+        "output_shape": [
+          8
+        ]
+      },
+      {
+        "activation": "relu",
+        "id": "activation_7",
+        "input_shape": [
+          8
+        ],
+        "kind": "activation",
+        "output_shape": [
+          8
+        ]
+      },
+      {
+        "id": "dense_8",
+        "input_shape": [
+          8
+        ],
+        "kind": "dense",
+        "output_shape": [
+          3
+        ]
+      }
+    ],
+    "tiny_synthetic_only": false
+  },
+  "primary_metric": "rmse",
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "provenance": {
+    "adapter_sha256": "b0527a8f0c545035a9c25ab2aeb6199b54cdaec10e04114fb15b4cbdc36afe53",
+    "dataset_sha256": "db356f6739f2dbc8f493d383cface41cb84eed4ad572bbfd4b680519034539a1",
+    "preprocessing_sha256": "da58ce61fc03c037b3911412278ccfd0d76eaed2e5256b8d10f1caee3e14ac7a",
+    "split_sha256": "53c6452c5964ba561d1ff55a54220fbd6f5addb498087f522cc54134573c1278",
+    "subset_sha256": "4460668d0820cb480e98d5699b3b18800b1fde0f02fc7bcb83f981522f141708"
+  },
+  "seed": 73,
+  "task": "mse",
+  "test_policy": "No TEST during selection; joint RNN/LSTM main TEST only after both families/evaluator/approved IDs locked",
+  "track": "matched_subset",
+  "training": {
+    "batch_size": 32,
+    "checkpoint_selection": "minimum validation loss; never TEST",
+    "dtype": "float32",
+    "failure_policy": "Record timeout/OOM/NaN as failed, never silently reduce samples, architecture or epochs for one implementation.",
+    "gradient_clip_global_norm": 1,
+    "hyperparameter_search_trials": 1,
+    "initialization": "Generate canonical NumPy weights once per seed; convert layouts for each adapter; paired forward/gradient checks before training.",
+    "max_epochs": 40,
+    "min_delta": 1e-05,
+    "optimizer": {
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "epsilon": 1e-07,
+      "epsilon_convention": "denominator sqrt(v_hat)+epsilon; adapters must normalize or disclose numerical deviations",
+      "learning_rate": 0.001,
+      "name": "adam"
+    },
+    "patience": 6,
+    "shuffle_policy": "Saved common train batch order per seed; no split/time shuffle.",
+    "wall_time_limit_minutes": 120
+  },
+  "unit": "kW",
+  "validation_policy": "Every origin uses only observed history; all horizons within partition; rolling folds use their own frozen scaler and matched IDs"
+}

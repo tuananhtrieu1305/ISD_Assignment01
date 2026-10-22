@@ -1,0 +1,57 @@
+{
+  "metric_row": {
+    "chapter": 2,
+    "dataset_id": "ch2_vietnam_housing",
+    "framework": "pytorch",
+    "seed": 62,
+    "split": "test",
+    "task": "regression",
+    "topology_id": "mlp_64_32_1",
+    "input_dim": 143,
+    "parameter_count": 11329,
+    "optimizer": "Adam",
+    "learning_rate": 0.003,
+    "batch_size": 512,
+    "epochs_run": 24,
+    "best_epoch": 14,
+    "training_seconds": 4.349128100000598,
+    "search_seconds": 8.140075100000104,
+    "inference_seconds": 0.0036886999996568193,
+    "inference_ms_per_sample": 0.000610206782408076,
+    "sample_count": 6045,
+    "threshold": null,
+    "prediction_path": "term_paper/artifacts/predictions/ch2_ch2_vietnam_housing_pytorch_seed62_test.csv",
+    "prediction_sha256": "babce340315bc248bbc2361660b32195c4590c6b03a0c79ce45ca2a37c5d19a5",
+    "model_path": "term_paper/artifacts/models/ch2/ch2_vietnam_housing_pytorch_seed62.pt",
+    "model_sha256": "75f47b0ce8ff36d8c567b4bd5bc455170582d535048c9ab5474ddab7707865ff",
+    "preprocessor_sha256": "a06209a5e6155fc7a1824c41d7e71e72a699e76949232e39f367a9089612d344",
+    "processed_sha256": "07838beca401ecfa4a4e2148ac763cf0a7ef45015b82c879ad91a955613ea9c5",
+    "split_sha256": "8d8d69071704b7821d93facb431682530766f2dad2cb12ed4a59747ca487e30d",
+    "MAE": 1.050875068007061,
+    "MSE": 1.9573102962517086,
+    "RMSE": 1.399039061731912,
+    "R2": 0.5904245460940182,
+    "MAPE": 21.001056104132378
+  },
+  "learning_rate_candidates": [
+    {
+      "learning_rate": 0.01,
+      "measured_val_loss": 0.34736812114715576,
+      "history_best_val_loss": 0.34736812114715576,
+      "best_epoch": 9,
+      "epochs_run": 19,
+      "training_seconds": 3.5495663000001514
+    },
+    {
+      "learning_rate": 0.003,
+      "measured_val_loss": 0.34605899453163147,
+      "history_best_val_loss": 0.3460589349269867,
+      "best_epoch": 14,
+      "epochs_run": 24,
+      "training_seconds": 4.349128100000598
+    }
+  ],
+  "selected_candidate_index": 1,
+  "history_path": "term_paper/artifacts/metrics/ch2_ch2_vietnam_housing_pytorch_seed62_history.csv",
+  "threshold_path": null
+}

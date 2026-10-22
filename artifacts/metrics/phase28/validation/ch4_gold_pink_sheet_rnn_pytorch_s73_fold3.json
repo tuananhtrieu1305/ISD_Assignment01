@@ -1,0 +1,175 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_rnn_pytorch_s73_fold3/best.npz",
+      "sha256": "314c3e344383df9cb28368662abff4841d4fd682e0c2ad81a8b740710975b4fc"
+    },
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_rnn_pytorch_s73_fold3/best.json",
+      "sha256": "8b93613664cd9be262c508ebfbdc9cad82c85482527ead5e7c330f8498d872a1"
+    },
+    {
+      "path": "artifacts/predictions/phase28/validation/ch4_gold_pink_sheet_rnn_pytorch_s73_fold3.jsonl.gz",
+      "sha256": "4c4e2011348e2757a683c42735cfad484ef88057e8c70a234e99007358e452e8"
+    }
+  ],
+  "backend": "torch",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "c7aaafbe11688e15bbc33da23c0bc5558a42ed3662504a5ae018b4d4eb556c70",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "5f8d38eed4df538934defd85bc9a3a37da694d9ec908ddcffcd7b54a75c76453",
+  "config_sha256": "004278fbddcf3f3dd71d36fcc8aa39f07510f48afe9c9a4a47764b374fb304a8",
+  "dataset_id": "ch4_gold_pink_sheet",
+  "dataset_sha256": "dfaba9c931ef045fa98ba4bd5d51e478f17cd7fb1b9911e1a3a07a1123bdbef3",
+  "device": "cuda:0",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 27876,
+    "inference_p50_ms": 0.7865624993428355,
+    "inference_p95_ms": 1.1455653004304622,
+    "peak_ram_bytes": 1832951808,
+    "peak_vram_bytes": 78013440,
+    "timed_repeats": 30,
+    "train_seconds": 16.2855766699995,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "rnn",
+  "finished_at": "2026-10-18T07:37:12.304258+00:00",
+  "implementation": "pytorch",
+  "metrics": [
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 635.9452442518623
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 573.2234712203721
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 55.12694454087024
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "macro_series_rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 635.9452442518623
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 654.7096637035673
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 596.3574552276438
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 58.52419465531605
+    },
+    {
+      "direction": "min",
+      "horizon": 3,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 601.5117911912241
+    },
+    {
+      "direction": "min",
+      "horizon": 3,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 537.0214204515445
+    },
+    {
+      "direction": "min",
+      "horizon": 3,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 50.57976228169618
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 650.2444789237113
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 586.2915379819281
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 56.276876685598445
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s73_fold3/model_contract.json",
+    "sha256": "dbbf3f8a3014474c90cbfd42c4b4528799d3af2d70172024d8e4f23278be8339"
+  },
+  "preprocessing": {
+    "path": "data/splits/v3/ch4_gold_pink_sheet/rolling_fold_3/preprocessing.json",
+    "sha256": "c943667fbc6b0e49c046278762addf52d7764adb0ee2b2b7471e05f50a2b49eb"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch4_gold_pink_sheet_rnn_pytorch_s73_fold3",
+  "schema_version": "3.0.0",
+  "seed": 73,
+  "split": "validation",
+  "split_id": "ch4_gold_pink_sheet_phase28_fold3",
+  "split_sha256": "b77566539a5892466998387053cbaf39abcf4933dddfcb732c35bdadb0f36cab",
+  "started_at": "2026-10-18T07:36:51.557672+00:00",
+  "status": "succeeded",
+  "subset_sha256": "25217dd7bdf55b4e7f0d1414f303fa36b5c6ba9f6709d60af8ba82a284a26c38",
+  "test_seal_id": null,
+  "track": "matched_subset",
+  "warnings": [
+    "Validation only; no TEST evaluation in Phase28",
+    "Latest revised snapshots, retrospective observation-origin forecast; no real-time publication/vintage claim or investment advice",
+    "Each rolling fold uses its frozen scaler; windows reset recurrent state",
+    "Train wall includes validation/progress I/O; RAM is process lifetime, VRAM allocator only; CPU/GPU and graph/eager differ"
+  ]
+}

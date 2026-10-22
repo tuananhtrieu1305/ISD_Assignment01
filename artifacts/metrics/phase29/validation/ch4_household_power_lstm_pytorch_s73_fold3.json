@@ -1,0 +1,175 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch04_lstm/ch4_household_power_lstm_pytorch_s73_fold3/best.npz",
+      "sha256": "88028991e5f33989363e2ba882273af372839c16f6d5aa1af64d8b2a147b0f1b"
+    },
+    {
+      "path": "artifacts/models/v3/ch04_lstm/ch4_household_power_lstm_pytorch_s73_fold3/best.json",
+      "sha256": "a0a438a172b35b4010b8b0456093080d76aff863f6d4e63bad7d654a5b223d05"
+    },
+    {
+      "path": "artifacts/predictions/phase29/validation/ch4_household_power_lstm_pytorch_s73_fold3.jsonl.gz",
+      "sha256": "c978aa1df60b744b24c886147559673c21a3d37b2eb426b4a16855dbdea3c73f"
+    }
+  ],
+  "backend": "torch",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "09340206e85ab9885292b48debce490f1d5fed9fa68f6826de2dc84109081c2a",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "35935f0461090fdb74ff5157193b138032ee8442ecc058c53b7fc2c28af8d227",
+  "config_sha256": "81412ecadd6a06ff515a4ef2801624a768afee0446055953d29b9c16aaf3fcfd",
+  "dataset_id": "ch4_household_power",
+  "dataset_sha256": "db356f6739f2dbc8f493d383cface41cb84eed4ad572bbfd4b680519034539a1",
+  "device": "cuda:0",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 97142,
+    "inference_p50_ms": 1.7700440002954565,
+    "inference_p95_ms": 4.9060429500968885,
+    "peak_ram_bytes": 1922310144,
+    "peak_vram_bytes": 105791488,
+    "timed_repeats": 30,
+    "train_seconds": 41.95376956300606,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "lstm",
+  "finished_at": "2026-10-19T13:02:54.343033+00:00",
+  "implementation": "pytorch",
+  "metrics": [
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.6895410884863867
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.5063414302010774
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 43.60472635897048
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "macro_series_rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.6895410884863867
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.5785013008135909
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.41918688286333977
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 36.443320071041654
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.7526086715646233
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.5559793348113455
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 47.39887287627679
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.7247876727536755
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.5438580729285464
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 46.97198612959301
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase29/runs/ch4_household_power_lstm_pytorch_s73_fold3/model_contract.json",
+    "sha256": "f3157491562a3e9769b910544ccb2ab01323b4be3f565e60ac853e7dabab05d4"
+  },
+  "preprocessing": {
+    "path": "data/splits/v3/ch4_household_power/rolling_fold_3/preprocessing.json",
+    "sha256": "4c16b2a57c9ab80395d7994b51daeae5dab20b4a4a9c877de4357ca87016ae68"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch4_household_power_lstm_pytorch_s73_fold3",
+  "schema_version": "3.0.0",
+  "seed": 73,
+  "split": "validation",
+  "split_id": "ch4_household_power_phase29_fold3",
+  "split_sha256": "415273e3d3c7826961ae0e4574f7d6ca17f4c403c1bd08346577f8d39c4dd4d5",
+  "started_at": "2026-10-19T13:02:02.406802+00:00",
+  "status": "succeeded",
+  "subset_sha256": "ac05b4080d002becec0eb5f99188da153cebd7abee31d2a0b6e3cf77c3e6b6f3",
+  "test_seal_id": null,
+  "track": "matched_subset",
+  "warnings": [
+    "Validation-selected; joint RNN/LSTM TEST belongs to a later, separately locked Phase29 batch",
+    "Latest revised snapshots, retrospective observation-origin forecast; no real-time publication/vintage claim or investment advice",
+    "Each rolling fold uses its frozen scaler; windows reset recurrent state",
+    "Train wall includes validation/progress I/O; RAM is process lifetime, VRAM allocator only; CPU/GPU and graph/eager differ"
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "scope": "TRAIN-only UI serving smoke; not historical TEST",
+  "job": {
+    "comparison_blockers": [],
+    "comparison_valid": true,
+    "created_at": "2026-10-22T00:33:02.733292+00:00",
+    "dataset_id": "ch3_idrid",
+    "expires_at": "2026-10-22T01:03:02.733292+00:00",
+    "family": "cnn",
+    "input_sha256": "af86a61d8364946d691dac00248833d84a9f99aab9302d05a95a4c473d9acad9",
+    "job_id": "job_da4ec465ab8ec2ccc2409c3af6f1eb647ca56c76",
+    "metric_artifacts": [],
+    "request_id": "request_da4ec465ab8ec2ccc2409c3af6f1eb647ca56c76",
+    "request_sha256": "803206e3863bf5549609d888ce550027351e34a7a4de24745807f0463ab34409",
+    "results": [
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "1ae8fe723040c34c99e882d3054e14654ff7bd3ed6c131697290e19a45b2a1cc",
+        "comparison_group_sha256": "9781ad59ac32eb1644fdcc85691891dc23bfdd60a54449ce66fc47ed428d609a",
+        "error": null,
+        "implementation": "scratch",
+        "inference_ms": 25.623303999964264,
+        "input_sha256": "af86a61d8364946d691dac00248833d84a9f99aab9302d05a95a4c473d9acad9",
+        "model_id": "ch3_idrid_cnn_scratch_s42",
+        "prediction": {
+          "kind": "classification",
+          "label": "DR grade 4",
+          "probabilities": [
+            {
+              "label": "DR grade 0",
+              "value": 0.1153090179812883
+            },
+            {
+              "label": "DR grade 1",
+              "value": 0.17357559367598555
+            },
+            {
+              "label": "DR grade 2",
+              "value": 0.25361608154032084
+            },
+            {
+              "label": "DR grade 3",
+              "value": 0.20335621683480332
+            },
+            {
+              "label": "DR grade 4",
+              "value": 0.254143089967602
+            }
+          ]
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "6de5dcc0c5b173a19efe21eec05708be3650a9a893740a8546cb506b5b06ec28",
+        "comparison_group_sha256": "9781ad59ac32eb1644fdcc85691891dc23bfdd60a54449ce66fc47ed428d609a",
+        "error": null,
+        "implementation": "keras",
+        "inference_ms": 26.430559000800713,
+        "input_sha256": "af86a61d8364946d691dac00248833d84a9f99aab9302d05a95a4c473d9acad9",
+        "model_id": "ch3_idrid_cnn_keras_s42",
+        "prediction": {
+          "kind": "classification",
+          "label": "DR grade 2",
+          "probabilities": [
+            {
+              "label": "DR grade 0",
+              "value": 0.11598081714097348
+            },
+            {
+              "label": "DR grade 1",
+              "value": 0.17366217649547575
+            },
+            {
+              "label": "DR grade 2",
+              "value": 0.2552740871551468
+            },
+            {
+              "label": "DR grade 3",
+              "value": 0.2039556226583298
+            },
+            {
+              "label": "DR grade 4",
+              "value": 0.2511272965500742
+            }
+          ]
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "460ba7a5d53ad340f00f748f8cf51a664d171c6604af7fe7b7300d82a3be9c44",
+        "comparison_group_sha256": "9781ad59ac32eb1644fdcc85691891dc23bfdd60a54449ce66fc47ed428d609a",
+        "error": null,
+        "implementation": "pytorch",
+        "inference_ms": 26.48958300051163,
+        "input_sha256": "af86a61d8364946d691dac00248833d84a9f99aab9302d05a95a4c473d9acad9",
+        "model_id": "ch3_idrid_cnn_pytorch_s42",
+        "prediction": {
+          "kind": "classification",
+          "label": "DR grade 2",
+          "probabilities": [
+            {
+              "label": "DR grade 0",
+              "value": 0.09916566789757673
+            },
+            {
+              "label": "DR grade 1",
+              "value": 0.17047271034282366
+            },
+            {
+              "label": "DR grade 2",
+              "value": 0.3085922408506506
+            },
+            {
+              "label": "DR grade 3",
+              "value": 0.22802204690316982
+            },
+            {
+              "label": "DR grade 4",
+              "value": 0.19374733400577923
+            }
+          ]
+        },
+        "status": "succeeded"
+      }
+    ],
+    "schema_version": "3.0.0",
+    "status": "succeeded",
+    "trace_ids": []
+  },
+  "input_split": "train",
+  "models_retrained": 0,
+  "source_sha256": null,
+  "historical_test_evaluation_executed": false
+}

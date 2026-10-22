@@ -1,0 +1,177 @@
+{
+  "diagnostics": {
+    "calibration": {
+      "bins": [
+        {
+          "bin": 0,
+          "count": 6781,
+          "lower": 0.0,
+          "mean_probability": 0.0,
+          "observed_rate": 0.11694440348031264,
+          "upper": 0.1
+        },
+        {
+          "bin": 1,
+          "count": 0,
+          "lower": 0.1,
+          "mean_probability": null,
+          "observed_rate": null,
+          "upper": 0.2
+        },
+        {
+          "bin": 2,
+          "count": 0,
+          "lower": 0.2,
+          "mean_probability": null,
+          "observed_rate": null,
+          "upper": 0.3
+        },
+        {
+          "bin": 3,
+          "count": 0,
+          "lower": 0.3,
+          "mean_probability": null,
+          "observed_rate": null,
+          "upper": 0.4
+        },
+        {
+          "bin": 4,
+          "count": 0,
+          "lower": 0.4,
+          "mean_probability": null,
+          "observed_rate": null,
+          "upper": 0.5
+        },
+        {
+          "bin": 5,
+          "count": 0,
+          "lower": 0.5,
+          "mean_probability": null,
+          "observed_rate": null,
+          "upper": 0.6
+        },
+        {
+          "bin": 6,
+          "count": 0,
+          "lower": 0.6,
+          "mean_probability": null,
+          "observed_rate": null,
+          "upper": 0.7
+        },
+        {
+          "bin": 7,
+          "count": 0,
+          "lower": 0.7,
+          "mean_probability": null,
+          "observed_rate": null,
+          "upper": 0.8
+        },
+        {
+          "bin": 8,
+          "count": 0,
+          "lower": 0.8,
+          "mean_probability": null,
+          "observed_rate": null,
+          "upper": 0.9
+        },
+        {
+          "bin": 9,
+          "count": 0,
+          "lower": 0.9,
+          "mean_probability": null,
+          "observed_rate": null,
+          "upper": 1.0
+        }
+      ],
+      "brier": 0.11694440348031264,
+      "ece": 0.11694440348031264,
+      "fit_calibrator": false
+    },
+    "groups": {
+      "age_ge60": {
+        "brier": 0.33948339483394835,
+        "count": 271,
+        "false_positive_rate": 0.0,
+        "predicted_positive_rate": 0.0,
+        "prevalence": 0.33948339483394835,
+        "recall": 0.0,
+        "undefined_reason": null
+      },
+      "age_lt60": {
+        "brier": 0.1076804915514593,
+        "count": 6510,
+        "false_positive_rate": 0.0,
+        "predicted_positive_rate": 0.0,
+        "prevalence": 0.1076804915514593,
+        "recall": 0.0,
+        "undefined_reason": null
+      }
+    },
+    "groups_are_descriptive_only": true
+  },
+  "inference_scope": "fixed TRAIN sample; model forward and host transfer, no preprocessing or inverse target",
+  "memory": {
+    "backend": "numpy",
+    "peak_vram_bytes": 0,
+    "peak_vram_reserved_bytes": 0,
+    "process_peak_ram_bytes": 239243264,
+    "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+    "requested_device": "cpu",
+    "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+    "wall_seconds": 0.015613768000548589
+  },
+  "metrics": {
+    "accuracy": {
+      "undefined_reason": null,
+      "value": 0.8830555965196873
+    },
+    "auroc": {
+      "undefined_reason": null,
+      "value": 0.5
+    },
+    "average_precision": {
+      "undefined_reason": null,
+      "value": 0.11694440348031264
+    },
+    "brier": {
+      "undefined_reason": null,
+      "value": 0.11694440348031264
+    },
+    "confusion_matrix": [
+      [
+        5988,
+        0
+      ],
+      [
+        793,
+        0
+      ]
+    ],
+    "ece": {
+      "undefined_reason": null,
+      "value": 0.11694440348031264
+    },
+    "macro_f1": {
+      "undefined_reason": null,
+      "value": 0.46894823400422897
+    },
+    "per_class_recall": {
+      "0": {
+        "undefined_reason": null,
+        "value": 1.0
+      },
+      "1": {
+        "undefined_reason": null,
+        "value": 0.0
+      }
+    },
+    "weighted_f1": {
+      "undefined_reason": null,
+      "value": 0.8282147250309166
+    }
+  },
+  "numpy": "2.4.6",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "preprocessing_seconds": 0.05663340099999914,
+  "python": "3.11.17"
+}

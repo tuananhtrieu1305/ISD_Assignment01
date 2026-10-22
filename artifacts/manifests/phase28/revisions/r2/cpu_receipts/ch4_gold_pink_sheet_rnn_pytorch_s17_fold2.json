@@ -1,0 +1,94 @@
+{
+  "canonical_x_sha256": "169db466a660aa50baa3e8ce8b9e74ce274a52bf3ab247a693148b5d0d4ad89b",
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_rnn_pytorch_s17_fold2/best.npz",
+    "sha256": "63feb61a2bc7b05f4cc8ae9b4c380950f3477f63ed090217a32d707c0b67c0ab"
+  },
+  "checkpoint_metadata": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_rnn_pytorch_s17_fold2/best.json",
+    "sha256": "a47aeedc9b60f9f1d28e0800899e2b56b423bb8e5b9ec818a8b7512fbc2e4d90"
+  },
+  "comparisons": {
+    "atol": 1e-05,
+    "cpu_reference": {
+      "max_absolute_error": 2.384185791015625e-07,
+      "output": [
+        [
+          -1.164917230606079,
+          -1.1672648191452026,
+          -1.1468768119812012
+        ],
+        [
+          -1.1644108295440674,
+          -1.1650364398956299,
+          -1.145660400390625
+        ],
+        [
+          -1.16433584690094,
+          -1.1635223627090454,
+          -1.1451002359390259
+        ],
+        [
+          -1.164369821548462,
+          -1.163652777671814,
+          -1.1456793546676636
+        ]
+      ],
+      "status": "PASS"
+    },
+    "original_gpu_cpu_gate": {
+      "max_absolute_error": 5.9604644775390625e-06,
+      "output": null,
+      "source": {
+        "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s17_fold2/cpu_demo.json",
+        "sha256": "c157ba7cb2705581c1ac6faa97bb63a7cb85f88d8c2f8dc7ec765318b770f297"
+      },
+      "status": "PASS"
+    },
+    "rtol": 0.0001
+  },
+  "ids": [
+    "GOLD/1961-12-01T00:00:00",
+    "GOLD/1962-01-01T00:00:00",
+    "GOLD/1962-02-01T00:00:00",
+    "GOLD/1962-03-01T00:00:00"
+  ],
+  "input_split": "train",
+  "native_cpu_device": "cpu",
+  "native_cpu_engine": "torch",
+  "portable_cpu_output": [
+    [
+      -1.164917230606079,
+      -1.1672648191452026,
+      -1.1468768119812012
+    ],
+    [
+      -1.1644110679626465,
+      -1.1650364398956299,
+      -1.145660400390625
+    ],
+    [
+      -1.16433584690094,
+      -1.1635222434997559,
+      -1.1450999975204468
+    ],
+    [
+      -1.1643699407577515,
+      -1.163652777671814,
+      -1.1456793546676636
+    ]
+  ],
+  "revision": {
+    "path": "artifacts/manifests/phase28/revisions/r2/revision.json",
+    "sha256": "11c7251f5dd092ba7c109f4ea512d3062de3cc6dd1514f683dd7aa06bbc771b7"
+  },
+  "run_id": "ch4_gold_pink_sheet_rnn_pytorch_s17_fold2",
+  "selection": {
+    "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s17_fold2/selection.json",
+    "sha256": "918087f1f9b589c23343a7f1eef30c0d7e7c8fdaf9d57ab634f814a74f7842ac"
+  },
+  "status": "PASS",
+  "test_executed": false,
+  "validation_executed": false,
+  "weights_updated": false
+}

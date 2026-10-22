@@ -1,0 +1,67 @@
+{
+  "adapter": {
+    "path": "artifacts/manifests/phase25/adapters/ch2_cdc_diabetes.json",
+    "sha256": "67abb4d387aeb846d9be76c08423a411eb6a76d2901929454c19463074e70e6d",
+    "size_bytes": 1100
+  },
+  "canonical_initial_weights_by_seed_sha256": {
+    "17": "fb321e1aba2ac1b1632393026c0e945e961eb495f8d7e22fce84416f3d61ff9f",
+    "42": "39f5c9296a4aee8663d407284293a367469359f363fd30f3f64d79963e716323",
+    "73": "84d6f9d8dbdac901cf9a4a7b8783dd8febc1169b625001e55543c77127d8ee49"
+  },
+  "code_sha256": "3eb8df6c86ce045f6ad124d5a2d86aeae977ab88b29b1cb92dc57f2535c44b44",
+  "comparison_group_sha256": "b2ac014db3ae337737b20c660aa6305f9357f0f244535178893bd50a15fa9842",
+  "dataset_id": "ch2_cdc_diabetes",
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "family": "mlp",
+  "inference_ready": false,
+  "lifecycle": "initialized_only",
+  "phase": 25,
+  "plan": {
+    "path": "artifacts/manifests/phase25/plans/ch2_cdc_diabetes_mlp.json",
+    "sha256": "9050d54eeabf1b799d3cbc52e2250fce146a614e58cf663fb4ebdb9322823af0",
+    "size_bytes": 1950
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "provenance": {
+    "adapter_sha256": "e195766127428d31637039a8445782f982660668de5e94071a77593139679a78",
+    "dataset_sha256": "1e446b32f553e0af95f69b8e55372cdcf4acfc63180ad0e768c2f5f558dc95b6",
+    "preprocessing_sha256": "6bdfa497095f3b88eec51c979c13810becb7ab955d6b87daa7467747848a31ae",
+    "split_sha256": "557c1b646bf0259b9d475c2f0d25bf5bde33b8c4d8ed93d17fc4af2c1f813df4",
+    "subset_sha256": "5319b90adc4a6ae52918700506ae66054de74640f4012cb09b71f2a79d8c3759"
+  },
+  "real_dataset_training_executed": false,
+  "seeds": [
+    17,
+    42,
+    73
+  ],
+  "test_evaluation_executed": false,
+  "training": {
+    "batch_size": {
+      "cnn": 16,
+      "lstm": 32,
+      "mlp": 32,
+      "rnn": 32
+    },
+    "checkpoint_selection": "minimum validation loss; never TEST",
+    "dtype": "float32",
+    "failure_policy": "Record timeout/OOM/NaN as failed, never silently reduce samples, architecture or epochs for one implementation.",
+    "gradient_clip_global_norm": 1,
+    "hyperparameter_search_trials": 1,
+    "initialization": "Generate canonical NumPy weights once per seed; convert layouts for each adapter; paired forward/gradient checks before training.",
+    "max_epochs": 40,
+    "min_delta": 1e-05,
+    "optimizer": {
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "epsilon": 1e-07,
+      "epsilon_convention": "denominator sqrt(v_hat)+epsilon; adapters must normalize or disclose numerical deviations",
+      "learning_rate": 0.001,
+      "name": "adam"
+    },
+    "patience": 6,
+    "shuffle_policy": "Saved common train batch order per seed; no split/time shuffle.",
+    "wall_time_limit_minutes": 120
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "3.0.0"
+    },
+    "evidence_kind": {
+      "enum": [
+        "measured",
+        "synthetic_fixture",
+        "historical_baseline"
+      ]
+    },
+    "model_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+    },
+    "dataset_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+    },
+    "family": {
+      "$ref": "urn:ai-paper:v3:common#/$defs/family"
+    },
+    "implementation": {
+      "$ref": "urn:ai-paper:v3:common#/$defs/implementation"
+    },
+    "backend": {
+      "enum": [
+        "numpy",
+        "tensorflow",
+        "torch"
+      ]
+    },
+    "parameter_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "input_shape": {
+      "$ref": "urn:ai-paper:v3:common#/$defs/shape"
+    },
+    "output_shape": {
+      "$ref": "urn:ai-paper:v3:common#/$defs/shape"
+    },
+    "layers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+          },
+          "kind": {
+            "enum": [
+              "dense",
+              "conv1d",
+              "conv2d",
+              "rnn",
+              "lstm",
+              "input",
+              "activation",
+              "pooling",
+              "dropout",
+              "reshape",
+              "normalization"
+            ]
+          },
+          "parameter_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "input_shape": {
+            "$ref": "urn:ai-paper:v3:common#/$defs/shape"
+          },
+          "output_shape": {
+            "$ref": "urn:ai-paper:v3:common#/$defs/shape"
+          },
+          "function_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "parameter_count",
+          "input_shape",
+          "output_shape",
+          "function_id"
+        ]
+      },
+      "minItems": 6,
+      "maxItems": 64
+    },
+    "functions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+          },
+          "signature": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "input_shape": {
+            "$ref": "urn:ai-paper:v3:common#/$defs/shape"
+          },
+          "output_shape": {
+            "$ref": "urn:ai-paper:v3:common#/$defs/shape"
+          },
+          "parameters": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "corner_case": {
+            "type": "string",
+            "minLength": 1
+          },
+          "formula": {
+            "oneOf": [
+              {
+                "$ref": "urn:ai-paper:v3:common#/$defs/formula"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "mapping": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "scratch": {
+                "type": "string",
+                "minLength": 1
+              },
+              "keras": {
+                "type": "string",
+                "minLength": 1
+              },
+              "pytorch": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "scratch",
+              "keras",
+              "pytorch"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "signature",
+          "role",
+          "input_shape",
+          "output_shape",
+          "parameters",
+          "corner_case",
+          "formula",
+          "mapping"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 128
+    },
+    "composition": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+      },
+      "minItems": 1,
+      "maxItems": 128
+    },
+    "composition_plain": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recurrent_unroll": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "config_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "dataset_sha256": {
+      "$ref": "urn:ai-paper:v3:common#/$defs/sha256"
+    },
+    "comparison_group_sha256": {
+      "$ref": "urn:ai-paper:v3:common#/$defs/sha256"
+    },
+    "preprocessing": {
+      "$ref": "urn:ai-paper:v3:common#/$defs/artifact_ref"
+    }
+  },
+  "required": [
+    "schema_version",
+    "evidence_kind",
+    "model_id",
+    "dataset_id",
+    "family",
+    "implementation",
+    "backend",
+    "parameter_count",
+    "input_shape",
+    "output_shape",
+    "layers",
+    "functions",
+    "composition",
+    "composition_plain",
+    "recurrent_unroll",
+    "config_sha256",
+    "dataset_sha256",
+    "comparison_group_sha256",
+    "preprocessing"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-paper:v3:model",
+  "title": "AI term paper V3 model contract"
+}

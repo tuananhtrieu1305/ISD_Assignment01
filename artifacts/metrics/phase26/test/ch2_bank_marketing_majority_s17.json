@@ -1,0 +1,134 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch02_ml/ch2_bank_marketing_majority_s17/best.npz",
+      "sha256": "7b7c27b5dbe695344f35d0ae7c9ba9b2004ecd1dff9c63137a5fa8f9c769f9bc"
+    },
+    {
+      "path": "artifacts/predictions/phase26/test/ch2_bank_marketing_majority_s17.jsonl.gz",
+      "sha256": "667b89057f24630b8c2499513febb453e51c2d1f5634b71b655e436a28f2a693"
+    }
+  ],
+  "backend": "sklearn_fit_numpy_portable_predict",
+  "code": {
+    "dirty_tree_sha256": "f5d5e981628bd99982dcd833a5ec3e67a0eabb3fb0918ef687b64b9e7d4950ea",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "config": {
+    "path": "artifacts/manifests/phase26/revisions/r2/configs/ch2_bank_marketing_s17.json",
+    "sha256": "d9eb19e1e5d6a5b9d9df92a8fd97fbda0ac783be1bd956046247203362761445"
+  },
+  "dataset_id": "ch2_bank_marketing",
+  "device": "cpu",
+  "efficiency": {
+    "checkpoint_bytes": 274,
+    "inference_p50_ms": 0.007882500085543143,
+    "inference_p95_ms": 0.009032149910126464,
+    "peak_ram_bytes": 239243264,
+    "peak_vram_bytes": 0,
+    "timed_repeats": 30,
+    "train_seconds": 0.014936580000721733,
+    "warmup_batches": 5
+  },
+  "family": "classical",
+  "finished_at": "2026-10-17T14:16:40.507304+00:00",
+  "implementation": "scikit_learn",
+  "method": "majority",
+  "metrics": [
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "accuracy",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.8829253907401946
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "macro_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.4689115113547377
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "weighted_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.828027758770914
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "auroc",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.5
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "average_precision",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.11707460925980537
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "brier",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.11707460925980537
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "ece",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.11707460925980537
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_0",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 1.0
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.0
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase26/revisions/r2/runs/ch2_bank_marketing_majority_s17/model_contract.json",
+    "sha256": "d78755fd153ccd025749011832fb86f3ae20593d15c5dcf077f055506fea4b76"
+  },
+  "provenance": {
+    "adapter_sha256": "6c8c7f0fb3465b0af66b93774a4e101da4a9cdae6cee80d288e08f84350b1c7d",
+    "code_sha256": "f5d5e981628bd99982dcd833a5ec3e67a0eabb3fb0918ef687b64b9e7d4950ea",
+    "config_sha256": "d9eb19e1e5d6a5b9d9df92a8fd97fbda0ac783be1bd956046247203362761445",
+    "dataset_sha256": "b34904856e0a4412109c99e7cf9556605ec78fa0910f3593aceac25f27f5e461",
+    "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+    "model_contract_sha256": "d78755fd153ccd025749011832fb86f3ae20593d15c5dcf077f055506fea4b76",
+    "preprocessing_sha256": "1bf39f9cc012b04bb0b46fa2eee7cbd4d3bb2ae6d3f6abaed5977ca89ad89ea7",
+    "split_sha256": "72136591aca9bb338d59aab29106974f1cdf1103624a46074782c3b0182c9035",
+    "subset_sha256": "b271747e61b6dcdfc4cf3f5b29b8a28643aaf82760b1efa5b14f3fdec3de811d"
+  },
+  "run_id": "ch2_bank_marketing_majority_s17",
+  "schema_version": "phase26.classical_run.1",
+  "seed": 17,
+  "split": "test",
+  "started_at": "2026-10-17T14:16:39.981076+00:00",
+  "status": "succeeded",
+  "test_seal_id": "ch2_bank_marketing_phase26_test_v1",
+  "track": "matched_subset"
+}

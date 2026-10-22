@@ -1,0 +1,22 @@
+flowchart LR
+    subgraph Offline[Offline WSL2 - only authorized experiment workflow]
+      Sources[Official sources and read-only Ch5 snapshot] --> Registry[Dataset registry - license and SHA256]
+      Registry --> Data[EDA - group/time split - train-only preprocessing]
+      Data --> Train[Paired scratch / Keras TF / PyTorch runners]
+      Train --> Gate{Frozen config and TEST seal}
+      Gate --> Evidence[Metrics - predictions - checkpoints]
+    end
+    Contracts[Versioned JSON Schemas and model function contracts] -. validates .-> Registry
+    Contracts -. validates .-> Train
+    Contracts -. validates .-> Evidence
+    Evidence --> Artifacts[Hash-verified artifact registry - CPU-safe load]
+    Artifacts --> API[Python Flask - bounded jobs - isolated framework adapters]
+    API --> Agents[Router - specialist - verifier - reporter]
+    Agents --> API
+    API --> UI[React knowledge tabs - 3 dataset subtabs - compare and trace]
+    Contracts --> UI
+    Evidence --> Report[Report builder - outline and formula-minimal style]
+    Contracts --> Report
+    Report --> Release[DOCX V3 - render QA - release hashes]
+    Baseline[Read-only releases/v2 and sealed Ch5 TEST] -. hash regression only .-> Evidence
+    UI -. no training or TEST access .-> API

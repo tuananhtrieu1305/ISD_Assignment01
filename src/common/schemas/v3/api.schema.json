@@ -1,0 +1,748 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "3.0.0"
+    },
+    "chapter": {
+      "type": "integer",
+      "minimum": 2,
+      "maximum": 6
+    },
+    "dataset_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+    },
+    "family": {
+      "enum": [
+        "mlp",
+        "cnn",
+        "rnn",
+        "lstm",
+        "kg_rag",
+        "multi_agent"
+      ]
+    },
+    "implementations": {
+      "oneOf": [
+        {
+          "const": [
+            "scratch",
+            "keras",
+            "pytorch"
+          ]
+        },
+        {
+          "const": [
+            "B0",
+            "B1",
+            "B2",
+            "B3",
+            "B4"
+          ]
+        },
+        {
+          "const": [
+            "A0",
+            "A1",
+            "A2"
+          ]
+        }
+      ]
+    },
+    "input": {
+      "$ref": "urn:ai-paper:v3:common#/$defs/payload"
+    }
+  },
+  "required": [
+    "schema_version",
+    "chapter",
+    "dataset_id",
+    "family",
+    "implementations",
+    "input"
+  ],
+  "$defs": {
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "3.0.0"
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+        },
+        "error": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+            },
+            "message": {
+              "type": "string",
+              "minLength": 1
+            },
+            "retryable": {
+              "type": "boolean"
+            },
+            "details": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "field": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+                  },
+                  "message": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "field",
+                  "code",
+                  "message"
+                ]
+              },
+              "minItems": 0,
+              "maxItems": 30
+            }
+          },
+          "required": [
+            "code",
+            "message",
+            "retryable",
+            "details"
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "request_id",
+        "error"
+      ]
+    },
+    "prediction": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "classification"
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "probabilities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "value": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "required": [
+                  "label",
+                  "value"
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 100
+            }
+          },
+          "required": [
+            "kind",
+            "label",
+            "probabilities"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "regression"
+            },
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 1,
+              "maxItems": 24
+            },
+            "unit": {
+              "type": "string",
+              "minLength": 1
+            },
+            "horizons": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "minItems": 1,
+              "maxItems": 24
+            }
+          },
+          "required": [
+            "kind",
+            "values",
+            "unit",
+            "horizons"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "answer"
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            },
+            "abstained": {
+              "type": "boolean"
+            },
+            "citations": {
+              "type": "array",
+              "items": {
+                "$ref": "urn:ai-paper:v3:common#/$defs/citation"
+              },
+              "minItems": 0,
+              "maxItems": 20
+            }
+          },
+          "required": [
+            "kind",
+            "text",
+            "abstained",
+            "citations"
+          ]
+        }
+      ]
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "implementation": {
+          "enum": [
+            "scratch",
+            "keras",
+            "pytorch",
+            "B0",
+            "B1",
+            "B2",
+            "B3",
+            "B4",
+            "A0",
+            "A1",
+            "A2"
+          ]
+        },
+        "status": {
+          "enum": [
+            "succeeded",
+            "failed",
+            "unavailable"
+          ]
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "actual_device": {
+          "enum": [
+            "cpu",
+            "cuda:0",
+            "not_run"
+          ]
+        },
+        "inference_ms": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "artifact_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "prediction": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/prediction"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "error": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+                },
+                "message": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "actual_backend": {
+          "enum": [
+            "numpy",
+            "tensorflow",
+            "torch",
+            "not_run"
+          ]
+        },
+        "input_sha256": {
+          "$ref": "urn:ai-paper:v3:common#/$defs/sha256"
+        },
+        "comparison_group_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "implementation",
+        "status",
+        "model_id",
+        "actual_device",
+        "inference_ms",
+        "artifact_sha256",
+        "prediction",
+        "error",
+        "actual_backend",
+        "input_sha256",
+        "comparison_group_sha256"
+      ]
+    },
+    "job": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "3.0.0"
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+        },
+        "job_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+        },
+        "request_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "status": {
+          "enum": [
+            "queued",
+            "running",
+            "succeeded",
+            "partial_failed",
+            "failed",
+            "cancelled",
+            "expired"
+          ]
+        },
+        "dataset_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+        },
+        "family": {
+          "enum": [
+            "mlp",
+            "cnn",
+            "rnn",
+            "lstm",
+            "kg_rag",
+            "multi_agent"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/result"
+          },
+          "minItems": 0,
+          "maxItems": 5
+        },
+        "comparison_valid": {
+          "type": "boolean"
+        },
+        "comparison_blockers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "maxItems": 10
+        },
+        "trace_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+          },
+          "minItems": 0,
+          "maxItems": 5
+        },
+        "metric_artifacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "$ref": "urn:ai-paper:v3:common#/$defs/path"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 20
+        },
+        "input_sha256": {
+          "$ref": "urn:ai-paper:v3:common#/$defs/sha256"
+        }
+      },
+      "required": [
+        "schema_version",
+        "request_id",
+        "job_id",
+        "request_sha256",
+        "status",
+        "dataset_id",
+        "family",
+        "created_at",
+        "expires_at",
+        "results",
+        "comparison_valid",
+        "comparison_blockers",
+        "trace_ids",
+        "metric_artifacts",
+        "input_sha256"
+      ]
+    },
+    "chapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "chapter": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "route": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dataset_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "families": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "maxItems": 4
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "data",
+              "theory",
+              "run",
+              "results",
+              "deployment"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 5
+        }
+      },
+      "required": [
+        "chapter",
+        "title",
+        "route",
+        "dataset_ids",
+        "families",
+        "sections"
+      ]
+    },
+    "health": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "3.0.0"
+        },
+        "status": {
+          "enum": [
+            "alive",
+            "ready",
+            "degraded",
+            "not_ready"
+          ]
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+              },
+              "status": {
+                "enum": [
+                  "ready",
+                  "unavailable"
+                ]
+              },
+              "reason": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "status",
+              "reason"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 50
+        }
+      },
+      "required": [
+        "schema_version",
+        "status",
+        "components"
+      ]
+    },
+    "model_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "model_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+        },
+        "dataset_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+        },
+        "family": {
+          "type": "string",
+          "minLength": 1
+        },
+        "implementation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "backend": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contract": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "$ref": "urn:ai-paper:v3:common#/$defs/path"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ]
+        },
+        "status": {
+          "enum": [
+            "ready",
+            "unavailable"
+          ]
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "model_id",
+        "dataset_id",
+        "family",
+        "implementation",
+        "backend",
+        "contract",
+        "status",
+        "reason"
+      ]
+    },
+    "accepted": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "3.0.0"
+        },
+        "request_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+        },
+        "job_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+        },
+        "poll_url": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "schema_version",
+        "request_id",
+        "job_id",
+        "poll_url"
+      ]
+    },
+    "cancel_request": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        }
+      },
+      "required": [
+        "reason"
+      ]
+    },
+    "agent_task": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "3.0.0"
+        },
+        "dataset_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "variants": {
+          "const": [
+            "A0",
+            "A1",
+            "A2"
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "dataset_id",
+        "question",
+        "variants"
+      ]
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-paper:v3:api",
+  "title": "AI term paper V3 api contract"
+}

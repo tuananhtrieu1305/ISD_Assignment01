@@ -1,0 +1,217 @@
+{
+  "comments": [
+    "Đích là kW trung bình giờ, không phải kWh. Một giờ cần >=45 phút quan sát.",
+    "Không điền nhãn thiếu. Chỉ input ffill tối đa 6 giờ, sau đó imputer fit train và kèm cờ thiếu.",
+    "Một hộ gia đình, không bảo đảm tổng quát hóa cho hộ khác; không shuffle thời gian."
+  ],
+  "dataset_id": "ch4_household_power",
+  "distribution_summary": {
+    "calendar_boundaries": [
+      "2009-09-20T12:00:00",
+      "2010-04-24T16:00:00"
+    ],
+    "excluded_windows": {
+      "cross_boundary": 46,
+      "missing_target": 611,
+      "unresolved_input": 0
+    },
+    "missing_target_rows": 438,
+    "per_series_counts": {
+      "HOUSEHOLD": 34151
+    },
+    "selected_series_count": 1,
+    "selection": {
+      "input_ffill_hours": 6,
+      "observed_minute_threshold": 45,
+      "raw_minute_rows": 2075259,
+      "sensor_units": {
+        "Global_active_power": "kW",
+        "Global_intensity": "A",
+        "Global_reactive_power": "kVAR",
+        "Sub_metering_1/2/3": "Wh/min observations, hourly mean not summed kWh",
+        "Voltage": "V"
+      },
+      "target_imputation": "never"
+    },
+    "target_observed_summary": {
+      "25%": 0.3419,
+      "50%": 0.8026666666666666,
+      "75%": 1.5792666666666666,
+      "count": 34151.0,
+      "max": 6.560533333333334,
+      "mean": 1.0916107761526015,
+      "min": 0.12400000000000001,
+      "std": 0.8975997510598066
+    }
+  },
+  "figures": [
+    {
+      "path": "artifacts/figures/phase24/ch4_household_power_time.png",
+      "sha256": "eb26b9d307b996adc77b4612ea7ca9f59e80f5e2b3e051d8ac96192dbd04ab92",
+      "size_bytes": 225668
+    },
+    {
+      "path": "artifacts/figures/phase24/ch4_household_power_time.svg",
+      "sha256": "b908d7ab1b421edb7ed8a6a7ff8fef849b96c1cf2deb28151217bbaf81bc39db",
+      "size_bytes": 58747
+    }
+  ],
+  "memory": {
+    "all_windows_input_float32_bytes_if_materialized": 317435328,
+    "canonical_frame_bytes": 6710398,
+    "input_batch_float32_bytes": 301056,
+    "materialize_all_windows": false,
+    "note": "Lazily slice ranges; input-only bound, actual peak requires Phase25 probe",
+    "vram_peak": null
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "sample_note": "Mẫu window thuộc matched train; known_output là giá trị tương lai đã có trong nguồn train, không phải dự đoán. Target thiếu không bao giờ được điền.",
+  "samples": [
+    {
+      "id": "HOUSEHOLD/2006-12-23T20:00:00",
+      "input": {
+        "context_end": "2006-12-23T20:00:00",
+        "context_start": "2006-12-16T21:00:00",
+        "last_values": {
+          "Global_active_power": 4.1814,
+          "Global_active_power_missing": 0.0,
+          "Global_reactive_power": 0.12476666666666666,
+          "Global_reactive_power_missing": 0.0
+        }
+      },
+      "known_output": {
+        "horizons": [
+          1,
+          6,
+          24
+        ],
+        "target_times": [
+          "2006-12-23T21:00:00",
+          "2006-12-24T02:00:00",
+          "2006-12-24T20:00:00"
+        ],
+        "values": [
+          3.2884333333333333,
+          2.303033333333333,
+          0.4741
+        ]
+      }
+    },
+    {
+      "id": "HOUSEHOLD/2006-12-23T23:00:00",
+      "input": {
+        "context_end": "2006-12-23T23:00:00",
+        "context_start": "2006-12-17T00:00:00",
+        "last_values": {
+          "Global_active_power": 5.5624666666666664,
+          "Global_active_power_missing": 0.0,
+          "Global_reactive_power": 0.12806666666666666,
+          "Global_reactive_power_missing": 0.0
+        }
+      },
+      "known_output": {
+        "horizons": [
+          1,
+          6,
+          24
+        ],
+        "target_times": [
+          "2006-12-24T00:00:00",
+          "2006-12-24T05:00:00",
+          "2006-12-24T23:00:00"
+        ],
+        "values": [
+          4.0280000000000005,
+          1.6319000000000001,
+          0.48633333333333334
+        ]
+      }
+    },
+    {
+      "id": "HOUSEHOLD/2006-12-24T00:00:00",
+      "input": {
+        "context_end": "2006-12-24T00:00:00",
+        "context_start": "2006-12-17T01:00:00",
+        "last_values": {
+          "Global_active_power": 4.0280000000000005,
+          "Global_active_power_missing": 0.0,
+          "Global_reactive_power": 0.09066666666666667,
+          "Global_reactive_power_missing": 0.0
+        }
+      },
+      "known_output": {
+        "horizons": [
+          1,
+          6,
+          24
+        ],
+        "target_times": [
+          "2006-12-24T01:00:00",
+          "2006-12-24T06:00:00",
+          "2006-12-25T00:00:00"
+        ],
+        "values": [
+          3.2757,
+          1.8952,
+          0.9995666666666667
+        ]
+      }
+    }
+  ],
+  "schema_version": "3.0.0",
+  "scope": "measured_timeseries",
+  "size_and_schema": {
+    "canonical_time_rows": 34589,
+    "contract_time_encoding": "+00:00 is a normalized calendar coordinate for schema/ordering, NOT a claim that source measurements were timestamped in UTC",
+    "counts": {
+      "test": 4911,
+      "train": 23797,
+      "validation": 5033
+    },
+    "features": [
+      "Global_active_power",
+      "Global_active_power_missing",
+      "Global_reactive_power",
+      "Global_reactive_power_missing",
+      "Voltage",
+      "Voltage_missing",
+      "Global_intensity",
+      "Global_intensity_missing",
+      "Sub_metering_1",
+      "Sub_metering_1_missing",
+      "Sub_metering_2",
+      "Sub_metering_2_missing",
+      "Sub_metering_3",
+      "Sub_metering_3_missing"
+    ],
+    "horizons": [
+      1,
+      6,
+      24
+    ],
+    "lookback": 168,
+    "matched_subset": {
+      "path": "data/splits/v3/ch4_household_power/matched_train.ids.jsonl.gz",
+      "sha256": "f6de2e1df1ddc0a78130d7bd5ccfe432dc94f143f295d176076ddd3049750a72",
+      "size_bytes": 30872
+    },
+    "matched_train_count": 12000,
+    "quarantine_count": 0,
+    "range": [
+      "2006-12-16 17:00:00",
+      "2010-11-26 21:00:00"
+    ],
+    "series": 1,
+    "source_clock": "calendar markers; power civil clock as recorded, timezone/DST not reconstructed",
+    "split": {
+      "path": "data/splits/v3/ch4_household_power/split_contract.json",
+      "sha256": "90053761ae0a15d0faa3323fb1a1261425d5204ab0e74416c225613e68f498b8",
+      "size_bytes": 1582
+    },
+    "valid_windows": 33741
+  },
+  "source_manifest_sha256": "db356f6739f2dbc8f493d383cface41cb84eed4ad572bbfd4b680519034539a1",
+  "split_note": "Split 70/15/15 theo lịch target chung. Mọi horizon của window phải ở cùng partition; context chỉ dùng quan sát trước target. Scaler/imputer chính fit prefix train, riêng từng rolling fold fit prefix của chính fold; không fit validation/test. Matched cap chỉ áp dụng train; giữ full validation/test. TEST RNN/LSTM mở chung ở Phase29 sau khóa cả hai họ.",
+  "test_evaluation_executed": false,
+  "training_executed": false
+}

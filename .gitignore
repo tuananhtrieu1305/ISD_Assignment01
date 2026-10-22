@@ -1,25 +1,42 @@
+# Private local settings
 .env
 .env.*
 !.env.example
+.local/
 
-backend/.venv/
+# Environments, package caches, and generated builds
+**/.venv*/
+**/node_modules/
 **/__pycache__/
-.pytest_cache/
-
-web/node_modules/
-web/dist/
-
-mobile/node_modules/
-mobile/.expo/
-mobile/dist/
-
-*.pyc
+**/.pytest_cache/
+**/.ruff_cache/
+**/.ipynb_checkpoints/
+**/.expo/
+.uv-cache/
+.ipython/
+**/dist/
+*.py[cod]
 .DS_Store
 
-# Large local datasets / archives
-datasets/cifar10/
-datasets/mnist/
-datasets/customer_behavior/a04/olist_geolocation_dataset.csv
+# Data are downloaded/verified by registry; do not commit raw snapshots.
+data/raw/
+data/interim/
+data/processed/*
+!data/processed/v2/
+data/processed/v2/*
+!data/processed/v2/demos/
 
-# Large model artifacts
-artifacts/house_models/random_forest_regressor.joblib
+# New checkpoints are local; retain only the small active V2 demo bundle.
+artifacts/models/*
+!artifacts/models/v2/
+
+# Rendered page QA and intermediate report builds are reproducible.
+report/build/
+report/qa*/
+*.cover
+.coverage*
+
+# Compressed inventories are versioned; expanded CSVs are local audit products.
+artifacts/manifests/phase20/*-files.csv
+artifacts/manifests/phase20/keep-list-before.csv
+artifacts/manifests/phase20/file-outcomes.csv

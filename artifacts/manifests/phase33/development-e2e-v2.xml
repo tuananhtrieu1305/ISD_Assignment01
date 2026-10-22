@@ -1,0 +1,209 @@
+<testsuites id="" name="" tests="22" failures="1" skipped="0" errors="0" time="258.40545199999997">
+<testsuite name="lab.spec.ts" timestamp="2026-10-21T12:22:55.386Z" hostname="" tests="22" failures="1" skipped="0" time="254.98" errors="0">
+<testcase name="live TRAIN comparison ch2_cdc_diabetes/mlp" classname="lab.spec.ts" time="9.116">
+</testcase>
+<testcase name="live TRAIN comparison ch2_ames_housing/mlp" classname="lab.spec.ts" time="8.042">
+</testcase>
+<testcase name="live TRAIN comparison ch2_bank_marketing/mlp" classname="lab.spec.ts" time="8.964">
+</testcase>
+<testcase name="live TRAIN comparison ch3_idrid/cnn" classname="lab.spec.ts" time="7.719">
+</testcase>
+<testcase name="live TRAIN comparison ch3_eurosat/cnn" classname="lab.spec.ts" time="8.047">
+</testcase>
+<testcase name="live TRAIN comparison ch3_cifar10/cnn" classname="lab.spec.ts" time="8.089">
+</testcase>
+<testcase name="live TRAIN comparison ch4_gold_pink_sheet/rnn" classname="lab.spec.ts" time="8.229">
+</testcase>
+<testcase name="live TRAIN comparison ch4_gold_pink_sheet/lstm" classname="lab.spec.ts" time="8.293">
+</testcase>
+<testcase name="live TRAIN comparison ch4_bis_house_prices/rnn" classname="lab.spec.ts" time="8.573">
+</testcase>
+<testcase name="live TRAIN comparison ch4_bis_house_prices/lstm" classname="lab.spec.ts" time="9.099">
+</testcase>
+<testcase name="live TRAIN comparison ch4_household_power/rnn" classname="lab.spec.ts" time="11.084">
+</testcase>
+<testcase name="live TRAIN comparison ch4_household_power/lstm" classname="lab.spec.ts" time="13.179">
+</testcase>
+<testcase name="live TRAIN comparison ch5_medquad_diabetes/kg_rag" classname="lab.spec.ts" time="11.383">
+</testcase>
+<testcase name="live TRAIN comparison ch5_finqa/kg_rag" classname="lab.spec.ts" time="11.633">
+</testcase>
+<testcase name="live TRAIN comparison ch5_wikidata_subgraphs/kg_rag" classname="lab.spec.ts" time="12.098">
+</testcase>
+<testcase name="live TRAIN comparison ch6_diabetes_tasks/multi_agent" classname="lab.spec.ts" time="8.326">
+</testcase>
+<testcase name="live TRAIN comparison ch6_house_tasks/multi_agent" classname="lab.spec.ts" time="10.076">
+</testcase>
+<testcase name="live TRAIN comparison ch6_gold_tasks/multi_agent" classname="lab.spec.ts" time="8.057">
+</testcase>
+<testcase name="deep link, back/forward, RNN toggle and refresh keep selections" classname="lab.spec.ts" time="8.156">
+</testcase>
+<testcase name="all18dataset cards, function contracts, historical panels and deployment load" classname="lab.spec.ts" time="72.897">
+</testcase>
+<testcase name="offline API and invalid deep link show recoverable errors" classname="lab.spec.ts" time="3.194">
+</testcase>
+<testcase name="mobile layout, keyboard and WCAG checks on home and CNN" classname="lab.spec.ts" time="0.726">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|development-e2e-v2-artifacts\lab-mobile-layout-keyboard-and-WCAG-checks-on-home-and-CNN\test-failed-1.png]]
+
+[[ATTACHMENT|development-e2e-v2-artifacts\lab-mobile-layout-keyboard-and-WCAG-checks-on-home-and-CNN\error-context.md]]
+]]>
+</system-out>
+<failure message="expect(received).toEqual(expected) // deep equality" type="expect.toEqual">
+<![CDATA[  lab.spec.ts:79:1 › mobile layout, keyboard and WCAG checks on home and CNN ───────────────────────
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 128
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#f0f5ff",
+    +               "contrastRatio": 3.43,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#577fe7",
+    +               "fontSize": "8.2pt (10.88px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 3.43 (foreground color: #577fe7, background color: #f0f5ff, font size: 8.2pt (10.88px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<a aria-current=\"page\" href=\"/?dataset=ch1_iris_history&amp;family=history&amp;section=data\" data-discover=\"true\"><span>01</span>Iris</a>",
+    +                 "target": Array [
+    +                   ".v3-dataset-nav > a[aria-current=\"page\"][data-discover=\"true\"]",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 3.43 (foreground color: #577fe7, background color: #f0f5ff, font size: 8.2pt (10.88px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<span>01</span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".v3-dataset-nav > a[aria-current=\"page\"][data-discover=\"true\"] > span",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#ffffff",
+    +               "contrastRatio": 3.45,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#7e8b9e",
+    +               "fontSize": "8.2pt (10.88px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 3.45 (foreground color: #7e8b9e, background color: #ffffff, font size: 8.2pt (10.88px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<a href=\"/?dataset=ch1_mnist_history&amp;family=history&amp;section=data\" data-discover=\"true\"><span>02</span>MNIST</a>",
+    +                 "target": Array [
+    +                   ".v3-dataset-nav > a[data-discover=\"true\"]:nth-child(2)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 3.45 (foreground color: #7e8b9e, background color: #ffffff, font size: 8.2pt (10.88px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<span>02</span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".v3-dataset-nav > a[data-discover=\"true\"]:nth-child(2) > span",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#ffffff",
+    +               "contrastRatio": 3.45,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#7e8b9e",
+    +               "fontSize": "8.2pt (10.88px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 3.45 (foreground color: #7e8b9e, background color: #ffffff, font size: 8.2pt (10.88px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<a href=\"/?dataset=ch1_imagenet_history&amp;family=history&amp;section=data\" data-discover=\"true\"><span>03</span>ImageNet</a>",
+    +                 "target": Array [
+    +                   ".v3-dataset-nav > a[data-discover=\"true\"]:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 3.45 (foreground color: #7e8b9e, background color: #ffffff, font size: 8.2pt (10.88px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<span>03</span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".v3-dataset-nav > a[data-discover=\"true\"]:nth-child(3) > span",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      83 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBeTruthy();
+      84 |     const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+    > 85 |     expect(axe.violations).toEqual([]);
+         |                            ^
+      86 |     await page.keyboard.press('Tab'); await expect(page.locator(':focus')).toBeVisible();
+      87 |     await page.screenshot({ path: `${shots}/${name}.png`, fullPage: true });
+      88 |   }
+        at C:\DATA\assign\apps\web\tests\v3\lab.spec.ts:85:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\..\..\artifacts\manifests\phase33\development-e2e-v2-artifacts\lab-mobile-layout-keyboard-and-WCAG-checks-on-home-and-CNN\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\..\..\artifacts\manifests\phase33\development-e2e-v2-artifacts\lab-mobile-layout-keyboard-and-WCAG-checks-on-home-and-CNN\error-context.md
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

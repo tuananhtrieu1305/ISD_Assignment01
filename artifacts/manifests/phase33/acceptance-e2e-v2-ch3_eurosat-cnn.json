@@ -1,0 +1,199 @@
+{
+  "scope": "TRAIN-only UI serving smoke; not historical TEST",
+  "job": {
+    "comparison_blockers": [],
+    "comparison_valid": true,
+    "created_at": "2026-10-21T12:58:15.472441+00:00",
+    "dataset_id": "ch3_eurosat",
+    "expires_at": "2026-10-21T13:28:15.472441+00:00",
+    "family": "cnn",
+    "input_sha256": "8352621b538134e18d465e9d8c8c766e647002f47aac2c4dcdab8589870f37b5",
+    "job_id": "job_127b1ecf68a8dee7ebbec95633b48d107020d849",
+    "metric_artifacts": [],
+    "request_id": "request_127b1ecf68a8dee7ebbec95633b48d107020d849",
+    "request_sha256": "6673ae118ce6b1c7ae525cf9580aec2fd879d031f23b45bfb6b9536c5af8c191",
+    "results": [
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "81ac7acf1e5ce8fbab7f30ac63c6cf64ba206946d332519b3eb740f503adf990",
+        "comparison_group_sha256": "0e9d6a5e1ef8f5bd14701bad1e1de451a78c516f709043a23dea1d60fac300ed",
+        "error": null,
+        "implementation": "scratch",
+        "inference_ms": 2.2167070001160027,
+        "input_sha256": "8352621b538134e18d465e9d8c8c766e647002f47aac2c4dcdab8589870f37b5",
+        "model_id": "ch3_eurosat_cnn_scratch_s42",
+        "prediction": {
+          "kind": "classification",
+          "label": "AnnualCrop",
+          "probabilities": [
+            {
+              "label": "AnnualCrop",
+              "value": 0.6176431245989286
+            },
+            {
+              "label": "Forest",
+              "value": 0.000005652561059673374
+            },
+            {
+              "label": "HerbaceousVegetation",
+              "value": 0.27785927060465127
+            },
+            {
+              "label": "Highway",
+              "value": 0.028861028653410836
+            },
+            {
+              "label": "Industrial",
+              "value": 0.0012652470412212998
+            },
+            {
+              "label": "Pasture",
+              "value": 0.0007464811817019071
+            },
+            {
+              "label": "PermanentCrop",
+              "value": 0.06240217729127935
+            },
+            {
+              "label": "Residential",
+              "value": 0.000050951125650283554
+            },
+            {
+              "label": "River",
+              "value": 0.0014043587124680495
+            },
+            {
+              "label": "SeaLake",
+              "value": 0.00976170822962872
+            }
+          ]
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "1923b8bcd4af14996507171ba7db2fd805dbf99720eaa07a03dea4b9c195388e",
+        "comparison_group_sha256": "0e9d6a5e1ef8f5bd14701bad1e1de451a78c516f709043a23dea1d60fac300ed",
+        "error": null,
+        "implementation": "keras",
+        "inference_ms": 1.9953240007453132,
+        "input_sha256": "8352621b538134e18d465e9d8c8c766e647002f47aac2c4dcdab8589870f37b5",
+        "model_id": "ch3_eurosat_cnn_keras_s42",
+        "prediction": {
+          "kind": "classification",
+          "label": "AnnualCrop",
+          "probabilities": [
+            {
+              "label": "AnnualCrop",
+              "value": 0.5416951597714268
+            },
+            {
+              "label": "Forest",
+              "value": 0.0017405323875855719
+            },
+            {
+              "label": "HerbaceousVegetation",
+              "value": 0.36587123206466393
+            },
+            {
+              "label": "Highway",
+              "value": 0.021368565158138134
+            },
+            {
+              "label": "Industrial",
+              "value": 0.0004409388113320781
+            },
+            {
+              "label": "Pasture",
+              "value": 0.0016185274620916308
+            },
+            {
+              "label": "PermanentCrop",
+              "value": 0.04590852279835251
+            },
+            {
+              "label": "Residential",
+              "value": 0.0005575347202075012
+            },
+            {
+              "label": "River",
+              "value": 0.0013054578244316739
+            },
+            {
+              "label": "SeaLake",
+              "value": 0.01949352900177017
+            }
+          ]
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "5139fe6ca9135d5d5838db2bf477e78bf942446bc78f50cceb5fe64b89cf8f4f",
+        "comparison_group_sha256": "0e9d6a5e1ef8f5bd14701bad1e1de451a78c516f709043a23dea1d60fac300ed",
+        "error": null,
+        "implementation": "pytorch",
+        "inference_ms": 2.049177001026692,
+        "input_sha256": "8352621b538134e18d465e9d8c8c766e647002f47aac2c4dcdab8589870f37b5",
+        "model_id": "ch3_eurosat_cnn_pytorch_s42",
+        "prediction": {
+          "kind": "classification",
+          "label": "HerbaceousVegetation",
+          "probabilities": [
+            {
+              "label": "AnnualCrop",
+              "value": 0.2839537334489105
+            },
+            {
+              "label": "Forest",
+              "value": 0.006748711254942552
+            },
+            {
+              "label": "HerbaceousVegetation",
+              "value": 0.44680740720714157
+            },
+            {
+              "label": "Highway",
+              "value": 0.05287005282666964
+            },
+            {
+              "label": "Industrial",
+              "value": 0.0000032439200364485694
+            },
+            {
+              "label": "Pasture",
+              "value": 0.002110963911490907
+            },
+            {
+              "label": "PermanentCrop",
+              "value": 0.051180641227002444
+            },
+            {
+              "label": "Residential",
+              "value": 0.00004696028150682027
+            },
+            {
+              "label": "River",
+              "value": 0.0019128027178947063
+            },
+            {
+              "label": "SeaLake",
+              "value": 0.15436548320440446
+            }
+          ]
+        },
+        "status": "succeeded"
+      }
+    ],
+    "schema_version": "3.0.0",
+    "status": "succeeded",
+    "trace_ids": []
+  },
+  "input_split": "train",
+  "models_retrained": 0,
+  "source_sha256": "4c02cf8f3e0a2e660c11f087e99627e53dbc6d89146a756a4c1a9e0e59e7afa0",
+  "historical_test_evaluation_executed": false
+}

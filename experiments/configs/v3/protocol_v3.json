@@ -1,0 +1,688 @@
+{
+  "schema_version": "3.0.0",
+  "spec_id": "ai_v3_protocol_2026_10_17",
+  "status": "locked_specification",
+  "scope": "Prospective policy, not measured dataset sizes or trained-model results. Existing Ch5 protocol overrides this file for Ch5.",
+  "implementation_order": [
+    "scratch",
+    "keras",
+    "pytorch"
+  ],
+  "seeds": {
+    "primary": 42,
+    "stability": [
+      17,
+      42,
+      73
+    ],
+    "required_comparison_track": "matched_subset",
+    "single_seed_claim_policy": "No mean/std or superiority claim without completed multi-seed runs."
+  },
+  "families": {
+    "mlp": {
+      "chapter": 2,
+      "implementation_phase": 26,
+      "minimum_learnable_layers": 6,
+      "blocks": [
+        "dense",
+        "dense",
+        "dense",
+        "dense",
+        "dense",
+        "dense"
+      ],
+      "hidden_units": [
+        64,
+        64,
+        32,
+        32,
+        16
+      ]
+    },
+    "cnn": {
+      "chapter": 3,
+      "implementation_phase": 27,
+      "minimum_learnable_layers": 7,
+      "blocks": [
+        "conv2d",
+        "conv2d",
+        "conv2d",
+        "conv2d",
+        "conv2d",
+        "dense",
+        "dense"
+      ],
+      "channels": [
+        8,
+        8,
+        16,
+        16,
+        32
+      ],
+      "dense_hidden": 32,
+      "kernel_size": 3,
+      "padding": "same",
+      "pool_after_convolutions": [
+        1,
+        3
+      ],
+      "global_average_pool": true
+    },
+    "rnn": {
+      "chapter": 4,
+      "implementation_phase": 28,
+      "minimum_learnable_layers": 6,
+      "blocks": [
+        "rnn",
+        "rnn",
+        "rnn",
+        "dense",
+        "dense",
+        "dense"
+      ],
+      "hidden_units": [
+        32,
+        32,
+        32
+      ],
+      "dense_hidden": [
+        16,
+        8
+      ],
+      "state_policy": "Reset between windows; return full sequence from first two recurrent layers."
+    },
+    "lstm": {
+      "chapter": 4,
+      "implementation_phase": 29,
+      "minimum_learnable_layers": 6,
+      "blocks": [
+        "lstm",
+        "lstm",
+        "lstm",
+        "dense",
+        "dense",
+        "dense"
+      ],
+      "hidden_units": [
+        32,
+        32,
+        32
+      ],
+      "dense_hidden": [
+        16,
+        8
+      ],
+      "gate_order": [
+        "input",
+        "forget",
+        "candidate",
+        "output"
+      ],
+      "state_policy": "Reset h/c between windows; sigmoid gates, tanh candidate; single canonical bias, forget bias 1."
+    }
+  },
+  "layer_policy": {
+    "counted_kinds": [
+      "dense",
+      "conv1d",
+      "conv2d",
+      "rnn",
+      "lstm"
+    ],
+    "excluded_kinds": [
+      "input",
+      "reshape",
+      "activation",
+      "pooling",
+      "dropout",
+      "normalization",
+      "container",
+      "time_step"
+    ],
+    "rule": "Count distinct parameterized logical layers, not recurrent time steps, gates, or containers; each counted layer must have trainable parameters."
+  },
+  "training": {
+    "dtype": "float32",
+    "optimizer": {
+      "name": "adam",
+      "learning_rate": 0.001,
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "epsilon": 1e-7,
+      "epsilon_convention": "denominator sqrt(v_hat)+epsilon; adapters must normalize or disclose numerical deviations"
+    },
+    "max_epochs": 40,
+    "patience": 6,
+    "min_delta": 0.00001,
+    "checkpoint_selection": "minimum validation loss; never TEST",
+    "hyperparameter_search_trials": 1,
+    "shuffle_policy": "Saved common train batch order per seed; no split/time shuffle.",
+    "batch_size": {
+      "mlp": 32,
+      "cnn": 16,
+      "rnn": 32,
+      "lstm": 32
+    },
+    "gradient_clip_global_norm": 1,
+    "initialization": "Generate canonical NumPy weights once per seed; convert layouts for each adapter; paired forward/gradient checks before training.",
+    "wall_time_limit_minutes": 120,
+    "failure_policy": "Record timeout/OOM/NaN as failed, never silently reduce samples, architecture or epochs for one implementation."
+  },
+  "comparison": {
+    "main": "Three implementations on exactly the same matched train IDs, full validation IDs and full TEST IDs, same resolution/windows/config/seed.",
+    "full_data": "Supplemental only unless all three complete the full-data track; never rank across tracks.",
+    "matched_subset_selection": "After split, stable SHA-256 ordering seeded by 42 within class/group or series; all available train rows if below cap; save selected ID hash.",
+    "training_runs_required": 108,
+    "training_runs_formula": "4 families x 3 datasets x 3 implementations x 3 seeds; classical baselines and optional full-data runs are additional.",
+    "recurrent_bias_policy": "One canonical learned bias per recurrent layer/gate; PyTorch second bias must be zero/frozen or deviation explicitly invalidates parameter-parity claims.",
+    "numeric_parity": {
+      "forward_rtol": 0.0001,
+      "forward_atol": 0.00001,
+      "gradient_relative_error": 0.001
+    },
+    "inference_timing": {
+      "warmup_batches": 5,
+      "repeats": 30,
+      "batch_size": 1,
+      "gpu_synchronize": true,
+      "include_preprocessing_separately": true
+    }
+  },
+  "split_policy": {
+    "tabular": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "temporal": "Global ordered target-time partitions; every forecast horizon target must lie within the same partition; context may precede validation/test boundary but never include future observations.",
+    "official_test_preserved": true,
+    "preprocessing_fit": "train only, including imputers, scaler, encoder, target transform and class weights",
+    "duplicates": "Compute identity/hash before split; assign exact duplicate/group as one unit; do not inspect TEST metrics to adjust filters.",
+    "rolling_validation": "Three expanding-window folds inside pre-TEST training/validation region; TEST remains sealed; preprocess fit independently per fold.",
+    "test_policy": "Freeze split/config/code/evaluator and all approved seed/implementation run IDs before one authorized evaluation batch. Save each prediction/metric once. No seed/config selection by TEST."
+  },
+  "metrics": {
+    "classification": {
+      "primary": "macro_f1",
+      "secondary": [
+        "accuracy",
+        "weighted_f1",
+        "per_class_recall",
+        "confusion_matrix",
+        "auroc",
+        "average_precision"
+      ],
+      "binary_threshold": 0.5,
+      "undefined": "null with reason; no fabricated 0; AUROC/PR require valid class support"
+    },
+    "regression": {
+      "primary": "rmse",
+      "secondary": [
+        "mae",
+        "r2"
+      ],
+      "units": "original target units after inverse transform"
+    },
+    "forecast": {
+      "primary": "rmse",
+      "secondary": [
+        "mae",
+        "smape"
+      ],
+      "breakdown": [
+        "horizon",
+        "series"
+      ],
+      "zero_policy": "MAPE excluded when zeros/near-zeros; sMAPE zero/zero=0 declared; never average different target units"
+    },
+    "efficiency": [
+      "train_seconds",
+      "inference_p50_ms",
+      "inference_p95_ms",
+      "peak_ram_bytes",
+      "peak_vram_bytes",
+      "checkpoint_bytes",
+      "parameter_count"
+    ],
+    "agent": [
+      "task_success",
+      "routing_accuracy",
+      "numeric_parity",
+      "citation_correctness",
+      "unsupported_claim_rate",
+      "refusal_correctness",
+      "latency_ms",
+      "message_count",
+      "peak_ram_bytes"
+    ]
+  },
+  "datasets": [
+    {
+      "dataset_id": "ch1_iris_history",
+      "chapter": 1,
+      "kind": "tabular",
+      "task": "historical_case",
+      "target": "none",
+      "primary_metric": "none",
+      "split_method": "benchmark_only",
+      "matched_train_cap": null,
+      "baselines": [],
+      "source_url": "https://archive.ics.uci.edu/dataset/53/iris",
+      "parent_dataset_ids": []
+    },
+    {
+      "dataset_id": "ch1_mnist_history",
+      "chapter": 1,
+      "kind": "image",
+      "task": "historical_case",
+      "target": "none",
+      "primary_metric": "none",
+      "split_method": "benchmark_only",
+      "matched_train_cap": null,
+      "baselines": [],
+      "source_url": "https://yann.lecun.com/exdb/mnist/",
+      "parent_dataset_ids": []
+    },
+    {
+      "dataset_id": "ch1_imagenet_history",
+      "chapter": 1,
+      "kind": "metadata",
+      "task": "historical_case",
+      "target": "none",
+      "primary_metric": "none",
+      "split_method": "metadata_only",
+      "matched_train_cap": null,
+      "baselines": [],
+      "source_url": "https://www.image-net.org/challenges/LSVRC/",
+      "parent_dataset_ids": []
+    },
+    {
+      "dataset_id": "ch2_cdc_diabetes",
+      "chapter": 2,
+      "kind": "tabular",
+      "task": "binary_classification",
+      "target": "diabetes_binary",
+      "primary_metric": "macro_f1",
+      "split_method": "group_stratified",
+      "matched_train_cap": 20000,
+      "baselines": [
+        "majority",
+        "logistic_regression",
+        "random_forest"
+      ],
+      "source_url": "https://archive.ics.uci.edu/dataset/891/cdc%2Bdiabetes%2Bhealth%2Bindicators",
+      "parent_dataset_ids": [],
+      "raw_target_policy": "Use UCI Diabetes_binary with labels 0=no diabetes, 1=prediabetes or diabetes; reject unexpected schema rather than silently switching to 3 classes.",
+      "exclude_features": [
+        "id",
+        "target"
+      ],
+      "group_policy": "Exact feature duplicates share one group; patient grouping only if an upstream patient key is available; do not claim patient independence otherwise."
+    },
+    {
+      "dataset_id": "ch2_ames_housing",
+      "chapter": 2,
+      "kind": "tabular",
+      "task": "regression",
+      "target": "sale_price",
+      "primary_metric": "rmse",
+      "split_method": "group_stratified",
+      "matched_train_cap": null,
+      "baselines": [
+        "median",
+        "ridge",
+        "random_forest"
+      ],
+      "source_url": "https://github.com/topepo/AmesHousing",
+      "parent_dataset_ids": [],
+      "raw_target_policy": "Map SalePrice/Sale_Price explicitly after schema inspection; report inverse-transformed USD errors.",
+      "exclude_features": [
+        "pid",
+        "order",
+        "target"
+      ],
+      "group_policy": "Property identifier when available plus exact duplicate linkage; quantile target bins for split only; IDs never features."
+    },
+    {
+      "dataset_id": "ch2_bank_marketing",
+      "chapter": 2,
+      "kind": "tabular",
+      "task": "binary_classification",
+      "target": "subscription",
+      "primary_metric": "macro_f1",
+      "split_method": "group_stratified",
+      "matched_train_cap": 10000,
+      "baselines": [
+        "majority",
+        "logistic_regression",
+        "random_forest"
+      ],
+      "source_url": "https://archive.ics.uci.edu/dataset/222/bank%2Bmarketing",
+      "parent_dataset_ids": [],
+      "raw_target_policy": "Use bank-full.csv from bank.zip, 45211 publication count not a local measurement; y yes/no mapping recorded.",
+      "exclude_features": [
+        "duration",
+        "target"
+      ],
+      "group_policy": "Exact feature duplicate linkage; unknown client identity prevents a claim of client-independent split.",
+      "reason": "Prediction before the call: duration is unavailable and must not be used."
+    },
+    {
+      "dataset_id": "ch3_idrid",
+      "chapter": 3,
+      "kind": "image",
+      "task": "multiclass_classification",
+      "target": "dr_grade",
+      "primary_metric": "macro_f1",
+      "split_method": "official_test_group_train_validation",
+      "matched_train_cap": null,
+      "baselines": [
+        "majority"
+      ],
+      "source_url": "https://idrid.grand-challenge.org/Data/",
+      "parent_dataset_ids": [],
+      "resolution": [
+        128,
+        128
+      ],
+      "class_count": 5,
+      "official_test": "Preserve upstream grading test; no tuning on its labels. Validation from official training only; patient/group key if published, otherwise hash groups and explicit limitation.",
+      "access": "manual_drop_if_required"
+    },
+    {
+      "dataset_id": "ch3_eurosat",
+      "chapter": 3,
+      "kind": "image",
+      "task": "multiclass_classification",
+      "target": "land_cover",
+      "primary_metric": "macro_f1",
+      "split_method": "group_stratified",
+      "matched_train_cap": 3000,
+      "baselines": [
+        "majority"
+      ],
+      "source_url": "https://github.com/phelber/EuroSAT",
+      "parent_dataset_ids": [],
+      "resolution": [
+        32,
+        32
+      ],
+      "class_count": 10,
+      "group_policy": "Image byte/pixel duplicate groups; spatial grouping only if verified metadata exists. Do not claim geographic independence without it."
+    },
+    {
+      "dataset_id": "ch3_cifar10",
+      "chapter": 3,
+      "kind": "image",
+      "task": "multiclass_classification",
+      "target": "object_class",
+      "primary_metric": "macro_f1",
+      "split_method": "official_test_group_train_validation",
+      "matched_train_cap": 5000,
+      "baselines": [
+        "majority"
+      ],
+      "source_url": "https://www.cs.toronto.edu/~kriz/cifar.html",
+      "parent_dataset_ids": [],
+      "resolution": [
+        32,
+        32
+      ],
+      "class_count": 10,
+      "official_test": "Preserve official 10000-image test; reserve 10% of official training for validation; duplicate audit and lineage must be retained."
+    },
+    {
+      "dataset_id": "ch4_gold_pink_sheet",
+      "chapter": 4,
+      "kind": "timeseries",
+      "task": "multihorizon_forecast",
+      "target": "gold_usd_per_troy_ounce",
+      "primary_metric": "rmse",
+      "split_method": "temporal",
+      "matched_train_cap": null,
+      "baselines": [
+        "last_value",
+        "seasonal_naive"
+      ],
+      "source_url": "https://www.worldbank.org/en/research/commodity-markets",
+      "parent_dataset_ids": [],
+      "frequency": "monthly",
+      "lookback": 24,
+      "horizons": [
+        1,
+        3,
+        6
+      ],
+      "seasonality": 12,
+      "features": [
+        "gold",
+        "silver",
+        "platinum",
+        "crude_oil"
+      ],
+      "publication_policy": "One-period lag for explanatory commodities; latest revised snapshot means retrospective evaluation, not a claim of real-time tradability."
+    },
+    {
+      "dataset_id": "ch4_bis_house_prices",
+      "chapter": 4,
+      "kind": "timeseries",
+      "task": "multihorizon_forecast",
+      "target": "nominal_house_price_index",
+      "primary_metric": "macro_series_rmse",
+      "split_method": "temporal",
+      "matched_train_cap": 8000,
+      "baselines": [
+        "last_value",
+        "seasonal_naive"
+      ],
+      "source_url": "https://data.bis.org/bulkdownload",
+      "parent_dataset_ids": [],
+      "frequency": "quarterly",
+      "lookback": 12,
+      "horizons": [
+        1,
+        2,
+        4
+      ],
+      "seasonality": 4,
+      "features": [
+        "lagged_house_price_index",
+        "causal_index_change",
+        "country_encoding"
+      ],
+      "series_policy": "One nominal national total-residential series per economy; at least 80 observations; exact series IDs and admissible history frozen in Phase 24 using schema/coverage rules, not TEST values.",
+      "publication_policy": "Use lagged published index; latest revised snapshot, no vintage/real-time forecast claim."
+    },
+    {
+      "dataset_id": "ch4_household_power",
+      "chapter": 4,
+      "kind": "timeseries",
+      "task": "multihorizon_forecast",
+      "target": "global_active_power_kw_hourly",
+      "primary_metric": "rmse",
+      "split_method": "temporal",
+      "matched_train_cap": 12000,
+      "baselines": [
+        "last_value",
+        "seasonal_naive"
+      ],
+      "source_url": "https://archive.ics.uci.edu/dataset/235/individual%2Bhousehold%2Belectric%2Bpower%2Bconsumption",
+      "parent_dataset_ids": [],
+      "frequency": "hourly",
+      "lookback": 168,
+      "horizons": [
+        1,
+        6,
+        24
+      ],
+      "seasonality": 24,
+      "features": [
+        "causal_hourly_sensor_aggregates"
+      ],
+      "aggregation": "Hourly mean only with >=45 observed minutes; never impute missing labels; input ffill max 6 hours then train-fit imputation, record flags and exclude unresolved windows."
+    },
+    {
+      "dataset_id": "ch5_medquad_diabetes",
+      "chapter": 5,
+      "kind": "qa",
+      "task": "frozen_retrieval_qa",
+      "target": "gold_evidence_answer",
+      "primary_metric": "frozen_phase15",
+      "split_method": "frozen_v2",
+      "matched_train_cap": null,
+      "baselines": [],
+      "source_url": null,
+      "parent_dataset_ids": []
+    },
+    {
+      "dataset_id": "ch5_finqa",
+      "chapter": 5,
+      "kind": "qa",
+      "task": "frozen_retrieval_qa",
+      "target": "gold_evidence_program",
+      "primary_metric": "frozen_phase15",
+      "split_method": "frozen_v2",
+      "matched_train_cap": null,
+      "baselines": [],
+      "source_url": null,
+      "parent_dataset_ids": []
+    },
+    {
+      "dataset_id": "ch5_wikidata_subgraphs",
+      "chapter": 5,
+      "kind": "kg",
+      "task": "frozen_supporting_graph",
+      "target": "claims",
+      "primary_metric": "structural_audit_only",
+      "split_method": "frozen_v2",
+      "matched_train_cap": null,
+      "baselines": [],
+      "source_url": null,
+      "parent_dataset_ids": [],
+      "evaluation_role": "Supporting KG with structural/provenance audit; not an invented third QA test set."
+    },
+    {
+      "dataset_id": "ch6_diabetes_tasks",
+      "chapter": 6,
+      "kind": "task_view",
+      "task": "agent_benchmark",
+      "target": "verified_response",
+      "primary_metric": "task_success",
+      "split_method": "task_family_group_split",
+      "matched_train_cap": null,
+      "baselines": [],
+      "source_url": null,
+      "parent_dataset_ids": [
+        "ch2_cdc_diabetes",
+        "ch5_medquad_diabetes"
+      ]
+    },
+    {
+      "dataset_id": "ch6_house_tasks",
+      "chapter": 6,
+      "kind": "task_view",
+      "task": "agent_benchmark",
+      "target": "verified_response",
+      "primary_metric": "task_success",
+      "split_method": "task_family_group_split",
+      "matched_train_cap": null,
+      "baselines": [],
+      "source_url": null,
+      "parent_dataset_ids": [
+        "ch2_ames_housing",
+        "ch4_bis_house_prices"
+      ]
+    },
+    {
+      "dataset_id": "ch6_gold_tasks",
+      "chapter": 6,
+      "kind": "task_view",
+      "task": "agent_benchmark",
+      "target": "verified_response",
+      "primary_metric": "task_success",
+      "split_method": "task_family_group_split",
+      "matched_train_cap": null,
+      "baselines": [],
+      "source_url": null,
+      "parent_dataset_ids": [
+        "ch4_gold_pink_sheet"
+      ]
+    }
+  ],
+  "ch5": {
+    "mode": "read_only_baseline",
+    "evaluation_contract": "docs/ch5/evaluation_contract.md",
+    "test_seal": "artifacts/manifests/ch5/phase15_test_run.json",
+    "test_run_count": 1,
+    "test_config_sha256": "560c671a3920bd6bde9f7fc005f3c952f857c55969c989bb6109932623210c9e",
+    "new_test_evaluation_allowed": false
+  },
+  "ch6": {
+    "variants": [
+      "A0",
+      "A1",
+      "A2"
+    ],
+    "core": "Deterministic local tools without API keys; optional LLM adapter not part of the core benchmark.",
+    "split": "Group paraphrases by originating record/question/template family; inherited source TEST IDs stay sealed; use disjoint agent task-family holdout, not model tuning.",
+    "taskset_lock_phase": 31,
+    "per_domain_minimum_tasks": 60,
+    "split_ratio": [
+      0.6,
+      0.2,
+      0.2
+    ],
+    "coverage": [
+      "numeric",
+      "evidence",
+      "ood",
+      "unsafe",
+      "tool_failure"
+    ],
+    "max_tool_calls": 8,
+    "max_retries_per_tool": 1,
+    "max_deadline_seconds": 15,
+    "log_private_chain_of_thought": false
+  },
+  "deferred_measurements": [
+    {
+      "phase": 23,
+      "items": [
+        "exact bytes/counts/hashes",
+        "source licenses",
+        "raw column aliases",
+        "BIS source schema",
+        "IDRiD authorized access"
+      ]
+    },
+    {
+      "phase": 24,
+      "items": [
+        "split IDs/group rules supported by real metadata",
+        "temporal cut dates",
+        "BIS retained series IDs",
+        "missing/duplicate/imbalance distributions"
+      ]
+    },
+    {
+      "phase": 25,
+      "items": [
+        "exact feature widths/parameter counts",
+        "canonical initialization parity",
+        "measured memory budget"
+      ]
+    },
+    {
+      "phase": 31,
+      "items": [
+        "exact grouped agent task set and gold rubric"
+      ]
+    },
+    {
+      "phase": 32,
+      "items": [
+        "measured Render memory and service plan feasibility; paid hosting requires user approval"
+      ]
+    }
+  ]
+}

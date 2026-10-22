@@ -1,0 +1,1091 @@
+{
+  "backend": "tensorflow",
+  "code_sha256": "3eb8df6c86ce045f6ad124d5a2d86aeae977ab88b29b1cb92dc57f2535c44b44",
+  "device": "gpu",
+  "dtype": "float32",
+  "framework_version": "Keras 3.15.1/TensorFlow 2.21.0",
+  "implementation": "keras",
+  "memory_probes": [
+    {
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "backend": "tensorflow",
+      "batch_size": 32,
+      "dataset_id": "ch2_cdc_diabetes",
+      "dtype": "float32",
+      "evidence_kind": "synthetic_fixture",
+      "family": "mlp",
+      "inference_p50_ms": 8.247520500844985,
+      "inference_p95_ms": 8.901674700427975,
+      "input_shape": [
+        32,
+        21
+      ],
+      "parameter_count": 9249,
+      "peak_vram_bytes": 290816,
+      "peak_vram_reserved_bytes": 0,
+      "process_peak_ram_bytes": 1833533440,
+      "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+      "repeats": 30,
+      "requested_device": "gpu",
+      "shape_source": "locked Phase24 dimensions, synthetic values (not real samples)",
+      "status": "PASS",
+      "step": {
+        "gradient_global_norm_before_clip": 0.5129887461662292,
+        "loss": 0.025008883327245712
+      },
+      "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+      "wall_seconds": 0.18145037400063302,
+      "warmup": 5
+    },
+    {
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "backend": "tensorflow",
+      "batch_size": 32,
+      "dataset_id": "ch2_ames_housing",
+      "dtype": "float32",
+      "evidence_kind": "synthetic_fixture",
+      "family": "mlp",
+      "inference_p50_ms": 7.535273500252515,
+      "inference_p95_ms": 9.144674300296172,
+      "input_shape": [
+        32,
+        313
+      ],
+      "parameter_count": 27937,
+      "peak_vram_bytes": 993024,
+      "peak_vram_reserved_bytes": 0,
+      "process_peak_ram_bytes": 1834319872,
+      "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+      "repeats": 30,
+      "requested_device": "gpu",
+      "shape_source": "locked Phase24 dimensions, synthetic values (not real samples)",
+      "status": "PASS",
+      "step": {
+        "gradient_global_norm_before_clip": 1.6079734563827515,
+        "loss": 0.10408701747655869
+      },
+      "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+      "wall_seconds": 0.16346949400031008,
+      "warmup": 5
+    },
+    {
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "backend": "tensorflow",
+      "batch_size": 32,
+      "dataset_id": "ch2_bank_marketing",
+      "dtype": "float32",
+      "evidence_kind": "synthetic_fixture",
+      "family": "mlp",
+      "inference_p50_ms": 7.435385999997379,
+      "inference_p95_ms": 8.397270400655541,
+      "input_shape": [
+        32,
+        50
+      ],
+      "parameter_count": 11105,
+      "peak_vram_bytes": 330496,
+      "peak_vram_reserved_bytes": 0,
+      "process_peak_ram_bytes": 1834319872,
+      "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+      "repeats": 30,
+      "requested_device": "gpu",
+      "shape_source": "locked Phase24 dimensions, synthetic values (not real samples)",
+      "status": "PASS",
+      "step": {
+        "gradient_global_norm_before_clip": 0.5916032791137695,
+        "loss": 0.02765529230237007
+      },
+      "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+      "wall_seconds": 0.16439949599953252,
+      "warmup": 5
+    },
+    {
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "backend": "tensorflow",
+      "batch_size": 16,
+      "dataset_id": "ch3_idrid",
+      "dtype": "float32",
+      "evidence_kind": "synthetic_fixture",
+      "family": "cnn",
+      "inference_p50_ms": 12.150596000537917,
+      "inference_p95_ms": 12.676979499428853,
+      "input_shape": [
+        16,
+        128,
+        128,
+        3
+      ],
+      "parameter_count": 10157,
+      "peak_vram_bytes": 134422272,
+      "peak_vram_reserved_bytes": 0,
+      "process_peak_ram_bytes": 1834319872,
+      "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+      "repeats": 30,
+      "requested_device": "gpu",
+      "shape_source": "locked Phase24 dimensions, synthetic values (not real samples)",
+      "status": "PASS",
+      "step": {
+        "gradient_global_norm_before_clip": 0.20842666923999786,
+        "loss": 0.004126538056880236
+      },
+      "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+      "wall_seconds": 0.28341563400135783,
+      "warmup": 5
+    },
+    {
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "backend": "tensorflow",
+      "batch_size": 16,
+      "dataset_id": "ch3_eurosat",
+      "dtype": "float32",
+      "evidence_kind": "synthetic_fixture",
+      "family": "cnn",
+      "inference_p50_ms": 11.924088499654317,
+      "inference_p95_ms": 13.067183650218794,
+      "input_shape": [
+        16,
+        32,
+        32,
+        3
+      ],
+      "parameter_count": 10322,
+      "peak_vram_bytes": 68080384,
+      "peak_vram_reserved_bytes": 0,
+      "process_peak_ram_bytes": 1834319872,
+      "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+      "repeats": 30,
+      "requested_device": "gpu",
+      "shape_source": "locked Phase24 dimensions, synthetic values (not real samples)",
+      "status": "PASS",
+      "step": {
+        "gradient_global_norm_before_clip": 0.17422893643379211,
+        "loss": 0.010286581702530384
+      },
+      "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+      "wall_seconds": 0.24795000399899436,
+      "warmup": 5
+    },
+    {
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "backend": "tensorflow",
+      "batch_size": 16,
+      "dataset_id": "ch3_cifar10",
+      "dtype": "float32",
+      "evidence_kind": "synthetic_fixture",
+      "family": "cnn",
+      "inference_p50_ms": 12.548173999675782,
+      "inference_p95_ms": 14.055617249596253,
+      "input_shape": [
+        16,
+        32,
+        32,
+        3
+      ],
+      "parameter_count": 10322,
+      "peak_vram_bytes": 4164096,
+      "peak_vram_reserved_bytes": 0,
+      "process_peak_ram_bytes": 1837117440,
+      "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+      "repeats": 30,
+      "requested_device": "gpu",
+      "shape_source": "locked Phase24 dimensions, synthetic values (not real samples)",
+      "status": "PASS",
+      "step": {
+        "gradient_global_norm_before_clip": 0.17422893643379211,
+        "loss": 0.010286581702530384
+      },
+      "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+      "wall_seconds": 0.21606803500071692,
+      "warmup": 5
+    },
+    {
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "backend": "tensorflow",
+      "batch_size": 32,
+      "dataset_id": "ch4_gold_pink_sheet",
+      "dtype": "float32",
+      "evidence_kind": "synthetic_fixture",
+      "family": "rnn",
+      "inference_p50_ms": 175.6803514990679,
+      "inference_p95_ms": 183.2681753999168,
+      "input_shape": [
+        32,
+        24,
+        4
+      ],
+      "parameter_count": 6035,
+      "peak_vram_bytes": 1470976,
+      "peak_vram_reserved_bytes": 0,
+      "process_peak_ram_bytes": 1837248512,
+      "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+      "repeats": 30,
+      "requested_device": "gpu",
+      "shape_source": "locked Phase24 dimensions, synthetic values (not real samples)",
+      "status": "PASS",
+      "step": {
+        "gradient_global_norm_before_clip": 1.918082594871521,
+        "loss": 0.2419367879629135
+      },
+      "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+      "wall_seconds": 0.42616185000042606,
+      "warmup": 5
+    },
+    {
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "backend": "tensorflow",
+      "batch_size": 32,
+      "dataset_id": "ch4_gold_pink_sheet",
+      "dtype": "float32",
+      "evidence_kind": "synthetic_fixture",
+      "family": "lstm",
+      "inference_p50_ms": 20.46692899966729,
+      "inference_p95_ms": 22.577916349382576,
+      "input_shape": [
+        32,
+        24,
+        4
+      ],
+      "parameter_count": 22067,
+      "peak_vram_bytes": 12363520,
+      "peak_vram_reserved_bytes": 0,
+      "process_peak_ram_bytes": 1837248512,
+      "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+      "repeats": 30,
+      "requested_device": "gpu",
+      "shape_source": "locked Phase24 dimensions, synthetic values (not real samples)",
+      "status": "PASS",
+      "step": {
+        "gradient_global_norm_before_clip": 0.25085389614105225,
+        "loss": 0.018335290253162384
+      },
+      "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+      "wall_seconds": 0.2650381479998032,
+      "warmup": 5
+    },
+    {
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "backend": "tensorflow",
+      "batch_size": 32,
+      "dataset_id": "ch4_bis_house_prices",
+      "dtype": "float32",
+      "evidence_kind": "synthetic_fixture",
+      "family": "rnn",
+      "inference_p50_ms": 95.21190699979343,
+      "inference_p95_ms": 124.75728060062465,
+      "input_shape": [
+        32,
+        12,
+        51
+      ],
+      "parameter_count": 7539,
+      "peak_vram_bytes": 1080064,
+      "peak_vram_reserved_bytes": 0,
+      "process_peak_ram_bytes": 1837248512,
+      "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+      "repeats": 30,
+      "requested_device": "gpu",
+      "shape_source": "locked Phase24 dimensions, synthetic values (not real samples)",
+      "status": "PASS",
+      "step": {
+        "gradient_global_norm_before_clip": 1.7071601152420044,
+        "loss": 0.18663746118545532
+      },
+      "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+      "wall_seconds": 0.3235170560001279,
+      "warmup": 5
+    },
+    {
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "backend": "tensorflow",
+      "batch_size": 32,
+      "dataset_id": "ch4_bis_house_prices",
+      "dtype": "float32",
+      "evidence_kind": "synthetic_fixture",
+      "family": "lstm",
+      "inference_p50_ms": 17.710238499603292,
+      "inference_p95_ms": 19.96136009993279,
+      "input_shape": [
+        32,
+        12,
+        51
+      ],
+      "parameter_count": 28083,
+      "peak_vram_bytes": 10901504,
+      "peak_vram_reserved_bytes": 0,
+      "process_peak_ram_bytes": 1837248512,
+      "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+      "repeats": 30,
+      "requested_device": "gpu",
+      "shape_source": "locked Phase24 dimensions, synthetic values (not real samples)",
+      "status": "PASS",
+      "step": {
+        "gradient_global_norm_before_clip": 0.03149448335170746,
+        "loss": 0.0016637113876640797
+      },
+      "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+      "wall_seconds": 0.2109204469998076,
+      "warmup": 5
+    },
+    {
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "backend": "tensorflow",
+      "batch_size": 32,
+      "dataset_id": "ch4_household_power",
+      "dtype": "float32",
+      "evidence_kind": "synthetic_fixture",
+      "family": "rnn",
+      "inference_p50_ms": 1122.4615094988621,
+      "inference_p95_ms": 1159.9066135503563,
+      "input_shape": [
+        32,
+        168,
+        14
+      ],
+      "parameter_count": 6355,
+      "peak_vram_bytes": 9829376,
+      "peak_vram_reserved_bytes": 0,
+      "process_peak_ram_bytes": 1837248512,
+      "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+      "repeats": 30,
+      "requested_device": "gpu",
+      "shape_source": "locked Phase24 dimensions, synthetic values (not real samples)",
+      "status": "PASS",
+      "step": {
+        "gradient_global_norm_before_clip": 0.4666981101036072,
+        "loss": 0.060082871466875076
+      },
+      "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+      "wall_seconds": 1.6699857210005575,
+      "warmup": 5
+    },
+    {
+      "actual_device": "/job:localhost/replica:0/task:0/device:GPU:0",
+      "backend": "tensorflow",
+      "batch_size": 32,
+      "dataset_id": "ch4_household_power",
+      "dtype": "float32",
+      "evidence_kind": "synthetic_fixture",
+      "family": "lstm",
+      "inference_p50_ms": 27.301764999720035,
+      "inference_p95_ms": 40.05499569984745,
+      "input_shape": [
+        32,
+        168,
+        14
+      ],
+      "parameter_count": 23347,
+      "peak_vram_bytes": 33934848,
+      "peak_vram_reserved_bytes": 0,
+      "process_peak_ram_bytes": 1837248512,
+      "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+      "repeats": 30,
+      "requested_device": "gpu",
+      "shape_source": "locked Phase24 dimensions, synthetic values (not real samples)",
+      "status": "PASS",
+      "step": {
+        "gradient_global_norm_before_clip": 0.14924192428588867,
+        "loss": 0.00543920136988163
+      },
+      "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+      "wall_seconds": 0.25374503700004425,
+      "warmup": 5
+    }
+  ],
+  "parity": [
+    {
+      "canonical_initial_weights_sha256": "abb76590331e322815b2ed695e3eb0c91fb50647ae3ad325d7fd809f1b6bc6c1",
+      "evidence_kind": "synthetic_fixture",
+      "family": "mlp",
+      "forward_max_abs_error": 1.1920928955078125e-07,
+      "gradient_parity": {
+        "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+        "max_abs_error": 1.1920928955078125e-07,
+        "max_relative_l2_error": 1.3652446317659528e-07,
+        "per_tensor_relative_l2_error": {
+          "dense_1/b": 1.2467515055234673e-07,
+          "dense_1/w": 1.3652446317659528e-07,
+          "dense_11/b": 4.218122912902069e-08,
+          "dense_11/w": 1.122500741496311e-07,
+          "dense_3/b": 9.674904356641376e-08,
+          "dense_3/w": 9.406682990510646e-08,
+          "dense_5/b": 5.965280315410938e-08,
+          "dense_5/w": 8.706016682589084e-08,
+          "dense_7/b": 3.70387994850499e-08,
+          "dense_7/w": 8.261210472490855e-08,
+          "dense_9/b": 6.027558322434773e-08,
+          "dense_9/w": 8.846520761915369e-08
+        },
+        "tolerance": 0.001
+      },
+      "input_sha256": "acd64bc33fe01349a54b43fdce73b85aea0fa244b476b9f3f87dee6d1783297f",
+      "output_shape": [
+        2,
+        2
+      ],
+      "parameter_count": 8178,
+      "status": "PASS",
+      "three_updates_max_abs_error": 2.9802322387695312e-08,
+      "trace": [
+        {
+          "id": "dense_1",
+          "input_shape": [
+            2,
+            4
+          ],
+          "output_shape": [
+            2,
+            64
+          ]
+        },
+        {
+          "id": "activation_2",
+          "input_shape": [
+            2,
+            64
+          ],
+          "output_shape": [
+            2,
+            64
+          ]
+        },
+        {
+          "id": "dense_3",
+          "input_shape": [
+            2,
+            64
+          ],
+          "output_shape": [
+            2,
+            64
+          ]
+        },
+        {
+          "id": "activation_4",
+          "input_shape": [
+            2,
+            64
+          ],
+          "output_shape": [
+            2,
+            64
+          ]
+        },
+        {
+          "id": "dense_5",
+          "input_shape": [
+            2,
+            64
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "activation_6",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "dense_7",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "activation_8",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "dense_9",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            16
+          ]
+        },
+        {
+          "id": "activation_10",
+          "input_shape": [
+            2,
+            16
+          ],
+          "output_shape": [
+            2,
+            16
+          ]
+        },
+        {
+          "id": "dense_11",
+          "input_shape": [
+            2,
+            16
+          ],
+          "output_shape": [
+            2,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "canonical_initial_weights_sha256": "ae8c92f76a3bd61c92f9352822bc9c230bf50db9b5c39d41b27dae031d3a1e7c",
+      "evidence_kind": "synthetic_fixture",
+      "family": "cnn",
+      "forward_max_abs_error": 8.940696716308594e-08,
+      "gradient_parity": {
+        "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+        "max_abs_error": 1.1175870895385742e-07,
+        "max_relative_l2_error": 1.9573442145590113e-07,
+        "per_tensor_relative_l2_error": {
+          "conv2d_1/b": 1.5348029990320904e-07,
+          "conv2d_1/w": 1.9573442145590113e-07,
+          "conv2d_11/b": 9.943227835369212e-08,
+          "conv2d_11/w": 1.3847187130432055e-07,
+          "conv2d_3/b": 1.474052837757009e-07,
+          "conv2d_3/w": 1.6935046236749223e-07,
+          "conv2d_6/b": 1.192122384194935e-07,
+          "conv2d_6/w": 1.432905593402638e-07,
+          "conv2d_8/b": 1.6460656293114095e-07,
+          "conv2d_8/w": 1.9460302221519294e-07,
+          "dense_14/b": 5.6872077771277705e-08,
+          "dense_14/w": 1.2065784006587896e-07,
+          "dense_16/b": 4.227364811377703e-08,
+          "dense_16/w": 1.0714858591279873e-07
+        },
+        "tolerance": 0.001
+      },
+      "input_sha256": "dca30d1d794d0138521f2a73ed086d60227ae0ec6ad9b15cfed633e64619d66c",
+      "output_shape": [
+        2,
+        3
+      ],
+      "parameter_count": 10091,
+      "status": "PASS",
+      "three_updates_max_abs_error": 1.816079020500183e-07,
+      "trace": [
+        {
+          "id": "conv2d_1",
+          "input_shape": [
+            2,
+            8,
+            8,
+            3
+          ],
+          "output_shape": [
+            2,
+            8,
+            8,
+            8
+          ]
+        },
+        {
+          "id": "activation_2",
+          "input_shape": [
+            2,
+            8,
+            8,
+            8
+          ],
+          "output_shape": [
+            2,
+            8,
+            8,
+            8
+          ]
+        },
+        {
+          "id": "conv2d_3",
+          "input_shape": [
+            2,
+            8,
+            8,
+            8
+          ],
+          "output_shape": [
+            2,
+            8,
+            8,
+            8
+          ]
+        },
+        {
+          "id": "activation_4",
+          "input_shape": [
+            2,
+            8,
+            8,
+            8
+          ],
+          "output_shape": [
+            2,
+            8,
+            8,
+            8
+          ]
+        },
+        {
+          "id": "pooling_5",
+          "input_shape": [
+            2,
+            8,
+            8,
+            8
+          ],
+          "output_shape": [
+            2,
+            4,
+            4,
+            8
+          ]
+        },
+        {
+          "id": "conv2d_6",
+          "input_shape": [
+            2,
+            4,
+            4,
+            8
+          ],
+          "output_shape": [
+            2,
+            4,
+            4,
+            16
+          ]
+        },
+        {
+          "id": "activation_7",
+          "input_shape": [
+            2,
+            4,
+            4,
+            16
+          ],
+          "output_shape": [
+            2,
+            4,
+            4,
+            16
+          ]
+        },
+        {
+          "id": "conv2d_8",
+          "input_shape": [
+            2,
+            4,
+            4,
+            16
+          ],
+          "output_shape": [
+            2,
+            4,
+            4,
+            16
+          ]
+        },
+        {
+          "id": "activation_9",
+          "input_shape": [
+            2,
+            4,
+            4,
+            16
+          ],
+          "output_shape": [
+            2,
+            4,
+            4,
+            16
+          ]
+        },
+        {
+          "id": "pooling_10",
+          "input_shape": [
+            2,
+            4,
+            4,
+            16
+          ],
+          "output_shape": [
+            2,
+            2,
+            2,
+            16
+          ]
+        },
+        {
+          "id": "conv2d_11",
+          "input_shape": [
+            2,
+            2,
+            2,
+            16
+          ],
+          "output_shape": [
+            2,
+            2,
+            2,
+            32
+          ]
+        },
+        {
+          "id": "activation_12",
+          "input_shape": [
+            2,
+            2,
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            2,
+            2,
+            32
+          ]
+        },
+        {
+          "id": "pooling_13",
+          "input_shape": [
+            2,
+            2,
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "dense_14",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "activation_15",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "dense_16",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "canonical_initial_weights_sha256": "b6d794dd53044fc8330c731c04347b8350cd0b846d4cfb5f02c0b5943c2766c5",
+      "evidence_kind": "synthetic_fixture",
+      "family": "rnn",
+      "forward_max_abs_error": 4.470348358154297e-07,
+      "gradient_parity": {
+        "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+        "max_abs_error": 3.5762786865234375e-07,
+        "max_relative_l2_error": 3.6425980522792994e-07,
+        "per_tensor_relative_l2_error": {
+          "dense_4/b": 1.4745017409622563e-07,
+          "dense_4/w": 1.97511131841293e-07,
+          "dense_6/b": 8.925672823929215e-08,
+          "dense_6/w": 1.7250732023302392e-07,
+          "dense_8/b": 1.0655538167325159e-07,
+          "dense_8/w": 1.691150888077553e-07,
+          "rnn_1/b": 2.482479477141129e-07,
+          "rnn_1/u": 2.9450205663458156e-07,
+          "rnn_1/w": 2.8029292699570407e-07,
+          "rnn_2/b": 3.6425980522792994e-07,
+          "rnn_2/u": 3.1099313288422096e-07,
+          "rnn_2/w": 3.0251556282440407e-07,
+          "rnn_3/b": 2.707220054733168e-07,
+          "rnn_3/u": 2.407795623032384e-07,
+          "rnn_3/w": 2.559151311488117e-07
+        },
+        "tolerance": 0.001
+      },
+      "input_sha256": "84290d853af62d0f219985c0063468cf286d4a56f2547fc61f9fafd679954176",
+      "output_shape": [
+        2,
+        3
+      ],
+      "parameter_count": 5971,
+      "status": "PASS",
+      "three_updates_max_abs_error": 1.2665987014770508e-07,
+      "trace": [
+        {
+          "id": "rnn_1",
+          "input_shape": [
+            2,
+            4,
+            2
+          ],
+          "output_shape": [
+            2,
+            4,
+            32
+          ]
+        },
+        {
+          "id": "rnn_2",
+          "input_shape": [
+            2,
+            4,
+            32
+          ],
+          "output_shape": [
+            2,
+            4,
+            32
+          ]
+        },
+        {
+          "id": "rnn_3",
+          "input_shape": [
+            2,
+            4,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "dense_4",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            16
+          ]
+        },
+        {
+          "id": "activation_5",
+          "input_shape": [
+            2,
+            16
+          ],
+          "output_shape": [
+            2,
+            16
+          ]
+        },
+        {
+          "id": "dense_6",
+          "input_shape": [
+            2,
+            16
+          ],
+          "output_shape": [
+            2,
+            8
+          ]
+        },
+        {
+          "id": "activation_7",
+          "input_shape": [
+            2,
+            8
+          ],
+          "output_shape": [
+            2,
+            8
+          ]
+        },
+        {
+          "id": "dense_8",
+          "input_shape": [
+            2,
+            8
+          ],
+          "output_shape": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "canonical_initial_weights_sha256": "4d4405554eba15079739205140ee346da0ac6cf169d190d95cc08ab19e8b1e93",
+      "evidence_kind": "synthetic_fixture",
+      "family": "lstm",
+      "forward_max_abs_error": 5.960464477539063e-08,
+      "gradient_parity": {
+        "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+        "max_abs_error": 1.043081283569336e-07,
+        "max_relative_l2_error": 2.5482724622563335e-07,
+        "per_tensor_relative_l2_error": {
+          "dense_4/b": 4.101019133434319e-08,
+          "dense_4/w": 2.2103604294381436e-07,
+          "dense_6/b": 2.9626175129119998e-08,
+          "dense_6/w": 7.0024848575576e-08,
+          "dense_8/b": 2.8778112753898817e-08,
+          "dense_8/w": 7.037442718841719e-08,
+          "lstm_1/b": 1.7901031902038335e-07,
+          "lstm_1/u": 2.1673651826102574e-07,
+          "lstm_1/w": 1.861398551857095e-07,
+          "lstm_2/b": 1.6557669196169873e-07,
+          "lstm_2/u": 2.5482724622563335e-07,
+          "lstm_2/w": 1.9141840834432524e-07,
+          "lstm_3/b": 1.3521843212774024e-07,
+          "lstm_3/u": 2.4110498636121994e-07,
+          "lstm_3/w": 2.0571117692341535e-07
+        },
+        "tolerance": 0.001
+      },
+      "input_sha256": "84290d853af62d0f219985c0063468cf286d4a56f2547fc61f9fafd679954176",
+      "output_shape": [
+        2,
+        3
+      ],
+      "parameter_count": 21811,
+      "status": "PASS",
+      "three_updates_max_abs_error": 1.33514404296875e-05,
+      "trace": [
+        {
+          "id": "lstm_1",
+          "input_shape": [
+            2,
+            4,
+            2
+          ],
+          "output_shape": [
+            2,
+            4,
+            32
+          ]
+        },
+        {
+          "id": "lstm_2",
+          "input_shape": [
+            2,
+            4,
+            32
+          ],
+          "output_shape": [
+            2,
+            4,
+            32
+          ]
+        },
+        {
+          "id": "lstm_3",
+          "input_shape": [
+            2,
+            4,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "dense_4",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            16
+          ]
+        },
+        {
+          "id": "activation_5",
+          "input_shape": [
+            2,
+            16
+          ],
+          "output_shape": [
+            2,
+            16
+          ]
+        },
+        {
+          "id": "dense_6",
+          "input_shape": [
+            2,
+            16
+          ],
+          "output_shape": [
+            2,
+            8
+          ]
+        },
+        {
+          "id": "activation_7",
+          "input_shape": [
+            2,
+            8
+          ],
+          "output_shape": [
+            2,
+            8
+          ]
+        },
+        {
+          "id": "dense_8",
+          "input_shape": [
+            2,
+            8
+          ],
+          "output_shape": [
+            2,
+            3
+          ]
+        }
+      ]
+    }
+  ],
+  "phase": 25,
+  "phase24_lock_sha256": "5ae1091892262b0b2e52a570e19963005da6724a736447bd11b4e9be3b60e37e",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "probe_code_sha256": "99df8347808d22ec59dc73443c9ffca203d2f427f28788ca74ce526ae8930cb7",
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "python": "3.11.17",
+  "real_dataset_training_executed": false,
+  "seed": 42,
+  "status": "PASS",
+  "test_evaluation_executed": false
+}

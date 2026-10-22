@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="4" time="5.324" timestamp="2026-10-19T14:12:55.895140+07:00" hostname="LaptopVJP"><testcase classname="tests.lstm29.test_protocol" name="test_complete_lstm_matrix_and_separate_paths" time="0.202" /><testcase classname="tests.lstm29.test_protocol" name="test_artifact_paths_cannot_escape_or_change" time="0.003" /><testcase classname="tests.lstm29.test_protocol" name="test_controller_never_reports_finished_after_worker_failure" time="0.015" /><testcase classname="tests.lstm29.test_protocol" name="test_pretraining_declaration_reuses_no_test_and_cpu_gate_policy" time="0.007"><failure message="assert '&quot;baseline_runs&quot;: 24' not in '&quot;&quot;&quot;Declare ...indent=2))\n'&#10;  &#10;  '&quot;baseline_runs&quot;: 24' is contained here:&#10;    ,&#10;            &quot;baseline_runs&quot;: 24,&#10;            &quot;test_executed&quot;: False,&#10;        }&#10;    ...&#10;  &#10;  ...Full output truncated (3 lines hidden), use '-vv' to show">def test_pretraining_declaration_reuses_no_test_and_cpu_gate_policy():
+        source = (protocol.ROOT / "scripts/prepare_phase29.py").read_text()
+        assert "methods = IMPLEMENTATIONS" in source
+        assert '"reference": "native_cpu"' in source
+        assert '"baseline_runs": 0' in source
+&gt;       assert '"baseline_runs": 24' not in source
+E       assert '"baseline_runs": 24' not in '"""Declare ...indent=2))\n'
+E         
+E         '"baseline_runs": 24' is contained here:
+E           ,
+E                   "baseline_runs": 24,
+E                   "test_executed": False,
+E               }
+E           ...
+E         
+E         ...Full output truncated (3 lines hidden), use '-vv' to show
+
+tests/lstm29/test_protocol.py:44: AssertionError</failure></testcase></testsuite></testsuites>

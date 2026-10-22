@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canonical computational plan, Phase25",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["plan_version", "family", "input_shape", "output_shape", "steps", "tiny_synthetic_only"],
+  "properties": {
+    "plan_version": {"const": "phase25.1"},
+    "family": {"enum": ["mlp", "cnn", "rnn", "lstm"]},
+    "input_shape": {"$ref": "#/$defs/shape"},
+    "output_shape": {"$ref": "#/$defs/shape"},
+    "tiny_synthetic_only": {"type": "boolean"},
+    "steps": {"type": "array", "minItems": 6, "maxItems": 64, "items": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "input_shape", "output_shape"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]+$"},
+        "kind": {"enum": ["dense", "conv2d", "activation", "pooling", "rnn", "lstm"]},
+        "input_shape": {"$ref": "#/$defs/shape"},
+        "output_shape": {"$ref": "#/$defs/shape"},
+        "activation": {"const": "relu"},
+        "pool": {"enum": ["max2", "global_average"]},
+        "kernel_size": {"const": 3},
+        "padding": {"const": "same"},
+        "return_sequences": {"type": "boolean"}
+      }
+    }}
+  },
+  "$defs": {"shape": {"type": "array", "minItems": 1, "maxItems": 3, "items": {"type": "integer", "minimum": 1}}}
+}

@@ -1,0 +1,42 @@
+{
+  "comments": [
+    "Chỉ metadata/citation lịch sử. Không bịa ảnh mẫu, phân bố ảnh hay thí nghiệm trên full ImageNet.",
+    "Quy mô ảnh công bố trong source card không phải số mẫu đo trên máy."
+  ],
+  "dataset_id": "ch1_imagenet_history",
+  "distribution_summary": {
+    "local_images": 0,
+    "local_metadata_page": 1
+  },
+  "figures": [
+    {
+      "path": "artifacts/figures/phase24/ch1_imagenet_history_distribution.png",
+      "sha256": "23f0ebe26839d36cb972f52eaa0daa26be087227b57f97d8089ff5f8c98cfc7a",
+      "size_bytes": 64888
+    },
+    {
+      "path": "artifacts/figures/phase24/ch1_imagenet_history_distribution.svg",
+      "sha256": "74cc5dda774acafa0f77e6f7f3ab4805f7c204133be3807642f26781463d107d",
+      "size_bytes": 35208
+    }
+  ],
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "sample_note": "Mẫu nguồn phục vụ lịch sử, không phải output của mô hình được train trong Phase24.",
+  "samples": [
+    {
+      "input": "Trang metadata ILSVRC2012 đã lưu",
+      "known_output": "1000 categories công bố; không có ảnh local"
+    }
+  ],
+  "schema_version": "3.0.0",
+  "scope": "historical_case_metadata_only",
+  "size_and_schema": {
+    "features": null,
+    "records": 1,
+    "unit": "official metadata webpage, ZERO local images"
+  },
+  "source_manifest_sha256": "402977fbf43ff9b074eac4d7007e8468a609f5abd69eab481718deae096e69f2",
+  "split_note": "Ch1 không huấn luyện. Giữ official split nếu có; không tạo TEST hay preprocessing fit cho chương lịch sử.",
+  "test_evaluation_executed": false,
+  "training_executed": false
+}

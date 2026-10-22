@@ -1,0 +1,151 @@
+{
+  "datasets": [
+    {
+      "dataset": "ch4_gold_pink_sheet",
+      "last_loss": 1.5535173416137695,
+      "memory": {
+        "backend": "torch",
+        "peak_vram_bytes": 78013440,
+        "peak_vram_reserved_bytes": 90177536,
+        "process_peak_ram_bytes": 1812844544,
+        "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+        "requested_device": "gpu",
+        "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+        "wall_seconds": 0.31461128600039956
+      },
+      "parity": {
+        "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+        "max_abs_error": 2.0489096641540527e-06,
+        "max_relative_l2_error": 1.3410247054842564e-05,
+        "per_tensor_relative_l2_error": {
+          "dense_4/b": 3.5515270502214294e-07,
+          "dense_4/w": 4.545607226396446e-06,
+          "dense_6/b": 4.0271822046891135e-07,
+          "dense_6/w": 2.125184264530655e-06,
+          "dense_8/b": 1.1306275679685212e-07,
+          "dense_8/w": 3.015030772429374e-07,
+          "rnn_1/b": 8.557252963907533e-06,
+          "rnn_1/u": 8.731752296188062e-06,
+          "rnn_1/w": 8.558517962752031e-06,
+          "rnn_2/b": 8.94212433006955e-06,
+          "rnn_2/u": 1.0382719462274936e-05,
+          "rnn_2/w": 9.149500576585242e-06,
+          "rnn_3/b": 1.2364481784347108e-05,
+          "rnn_3/u": 1.330016141780841e-05,
+          "rnn_3/w": 1.3410247054842564e-05
+        },
+        "tolerance": 0.001
+      },
+      "shape": [
+        32,
+        24,
+        4
+      ],
+      "step_seconds": [
+        0.30119077100061986,
+        0.006728534999638214,
+        0.006489188000159629
+      ],
+      "test_windows_materialized": false
+    },
+    {
+      "dataset": "ch4_bis_house_prices",
+      "last_loss": 0.1427534818649292,
+      "memory": {
+        "backend": "torch",
+        "peak_vram_bytes": 76918272,
+        "peak_vram_reserved_bytes": 90177536,
+        "process_peak_ram_bytes": 1833816064,
+        "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+        "requested_device": "gpu",
+        "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+        "wall_seconds": 0.019454936000329326
+      },
+      "parity": {
+        "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+        "max_abs_error": 1.8142163753509521e-06,
+        "max_relative_l2_error": 7.829047550128385e-06,
+        "per_tensor_relative_l2_error": {
+          "dense_4/b": 5.668962389348674e-07,
+          "dense_4/w": 3.0950886477381983e-06,
+          "dense_6/b": 6.170439424226762e-07,
+          "dense_6/w": 3.857034243730209e-06,
+          "dense_8/b": 4.885078130977475e-07,
+          "dense_8/w": 7.829047550128385e-06,
+          "rnn_1/b": 2.8467954896487786e-06,
+          "rnn_1/u": 3.1714936618338847e-06,
+          "rnn_1/w": 2.927259144543649e-06,
+          "rnn_2/b": 2.995968415849552e-06,
+          "rnn_2/u": 3.3430874923800003e-06,
+          "rnn_2/w": 3.3548351463537276e-06,
+          "rnn_3/b": 3.7613204385445356e-06,
+          "rnn_3/u": 4.458556353239001e-06,
+          "rnn_3/w": 4.249536506954742e-06
+        },
+        "tolerance": 0.001
+      },
+      "shape": [
+        32,
+        12,
+        51
+      ],
+      "step_seconds": [
+        0.007184406999840576,
+        0.006106565000663977,
+        0.00596569599929353
+      ],
+      "test_windows_materialized": false
+    },
+    {
+      "dataset": "ch4_household_power",
+      "last_loss": 2.2960500717163086,
+      "memory": {
+        "backend": "torch",
+        "peak_vram_bytes": 92462080,
+        "peak_vram_reserved_bytes": 96468992,
+        "process_peak_ram_bytes": 1932283904,
+        "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+        "requested_device": "gpu",
+        "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+        "wall_seconds": 0.038490046999868355
+      },
+      "parity": {
+        "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+        "max_abs_error": 6.560236215591431e-06,
+        "max_relative_l2_error": 5.424862765100095e-06,
+        "per_tensor_relative_l2_error": {
+          "dense_4/b": 7.53055062314999e-07,
+          "dense_4/w": 3.674909581235757e-06,
+          "dense_6/b": 7.286940641873684e-07,
+          "dense_6/w": 5.424862765100095e-06,
+          "dense_8/b": 5.622444081731233e-07,
+          "dense_8/w": 4.200569767633401e-06,
+          "rnn_1/b": 4.530219659438762e-06,
+          "rnn_1/u": 5.31735918540698e-06,
+          "rnn_1/w": 4.783567543426165e-06,
+          "rnn_2/b": 3.1562779977269036e-06,
+          "rnn_2/u": 4.103226088979103e-06,
+          "rnn_2/w": 3.609810787974852e-06,
+          "rnn_3/b": 2.7991455220727133e-06,
+          "rnn_3/u": 3.923061495505678e-06,
+          "rnn_3/w": 3.630842262653728e-06
+        },
+        "tolerance": 0.001
+      },
+      "shape": [
+        32,
+        168,
+        14
+      ],
+      "step_seconds": [
+        0.020094554999559477,
+        0.009953626999958942,
+        0.008270137999716098
+      ],
+      "test_windows_materialized": false
+    }
+  ],
+  "implementation": "pytorch",
+  "status": "PASS",
+  "test_evaluation_executed": false
+}

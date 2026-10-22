@@ -1,0 +1,230 @@
+{
+  "category": "tool_failure",
+  "domain": "gold",
+  "metrics": {
+    "answer_completion": 0,
+    "citation_correctness": 0,
+    "latency_ms": 11.747172000468709,
+    "message_count": 4,
+    "numeric_parity": 0,
+    "peak_child_rss_bytes": 176058368,
+    "refusal_correctness": 1,
+    "routing_accuracy": 1,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 4,
+    "messages": [
+      {
+        "input": {
+          "domain_hint": "gold",
+          "operation": "numeric",
+          "question": "Sử dụng checkpoint giá vàng trên mẫu gold_numeric_034.",
+          "record_id": "gold_numeric_034",
+          "task_id": "gold_tool_failure_f4_3"
+        },
+        "node_id": "node_1",
+        "output": {
+          "policy": null,
+          "route": "gold"
+        }
+      },
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "gold_numeric_034"
+        },
+        "node_id": "node_2",
+        "output": {
+          "payload": {
+            "artifact_refs": [
+              {
+                "path": "data/processed/v3/ch4_gold_pink_sheet/series.csv.gz",
+                "sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee"
+              },
+              {
+                "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_scratch_s42_main/best.npz",
+                "sha256": "084062b50b6bc52a36b73c5e04474952fad4bbd51b9871477ed61455c78b6721"
+              },
+              {
+                "path": "artifacts/manifests/phase29/configs/ch4_gold_pink_sheet_main_s42.json",
+                "sha256": "d6b0fee5f9de30a7d56556946a46a82c0382793c1930c40411d639c6470c38b4"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "evidence_gold_numeric_034",
+                "locator": "parent_train/GOLD/1964-10-01T00:00:00",
+                "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+                "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+              }
+            ],
+            "text": "Frozen NumPy CPU tool output: 35.459387, 35.25247, 37.008319",
+            "unit": "USD/troy oz; horizons1/3/6month",
+            "values": [
+              36.4593867528024,
+              35.25247044459715,
+              37.00831900927142
+            ]
+          },
+          "peak_rss_bytes": 176058368,
+          "receipt_sha256": "f8f04c6906e62cdb5bed483bcb0ebead53a01db504c9aa1867f3be69126f6e7b",
+          "status": "ok"
+        }
+      },
+      {
+        "input": {
+          "receipt": {
+            "payload": {
+              "artifact_refs": [
+                {
+                  "path": "data/processed/v3/ch4_gold_pink_sheet/series.csv.gz",
+                  "sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee"
+                },
+                {
+                  "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_scratch_s42_main/best.npz",
+                  "sha256": "084062b50b6bc52a36b73c5e04474952fad4bbd51b9871477ed61455c78b6721"
+                },
+                {
+                  "path": "artifacts/manifests/phase29/configs/ch4_gold_pink_sheet_main_s42.json",
+                  "sha256": "d6b0fee5f9de30a7d56556946a46a82c0382793c1930c40411d639c6470c38b4"
+                }
+              ],
+              "citations": [
+                {
+                  "evidence_id": "evidence_gold_numeric_034",
+                  "locator": "parent_train/GOLD/1964-10-01T00:00:00",
+                  "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+                  "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+                }
+              ],
+              "text": "Frozen NumPy CPU tool output: 35.459387, 35.25247, 37.008319",
+              "unit": "USD/troy oz; horizons1/3/6month",
+              "values": [
+                36.4593867528024,
+                35.25247044459715,
+                37.00831900927142
+              ]
+            },
+            "peak_rss_bytes": 176058368,
+            "receipt_sha256": "f8f04c6906e62cdb5bed483bcb0ebead53a01db504c9aa1867f3be69126f6e7b",
+            "status": "ok"
+          }
+        },
+        "node_id": "node_3",
+        "output": {
+          "reason": "invalid_tool_evidence",
+          "verification": "rejected"
+        }
+      },
+      {
+        "input": {
+          "citations": [],
+          "status": "abstained",
+          "values": []
+        },
+        "node_id": "node_4",
+        "output": {
+          "answer": "Bằng chứng công cụ không hợp lệ; từ chối suy diễn.",
+          "warning": "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 176058368,
+    "reason": "invalid_tool_evidence",
+    "route": "gold",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "Không thực hiện yêu cầu: invalid_tool_evidence.",
+      "citations": [],
+      "domain": "gold",
+      "evidence_kind": "measured",
+      "latency_ms": 10.779258998809382,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "router",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "b8a94531c16bfedf8a29b32f96f9f82a7d8427776822bb11132cb8254c0d51bf",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "72dc706c738bf00d701f71cd39899a4124e263d5ae510cbe081339e730aa83cb",
+          "parent_ids": [],
+          "tool": "none"
+        },
+        {
+          "agent": "specialist",
+          "artifact_refs": [
+            {
+              "path": "data/processed/v3/ch4_gold_pink_sheet/series.csv.gz",
+              "sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee"
+            },
+            {
+              "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_scratch_s42_main/best.npz",
+              "sha256": "084062b50b6bc52a36b73c5e04474952fad4bbd51b9871477ed61455c78b6721"
+            },
+            {
+              "path": "artifacts/manifests/phase29/configs/ch4_gold_pink_sheet_main_s42.json",
+              "sha256": "d6b0fee5f9de30a7d56556946a46a82c0382793c1930c40411d639c6470c38b4"
+            }
+          ],
+          "duration_ms": 10.523836999709602,
+          "input_sha256": "15d172a30026140e44702d7fc1b2d740553d126fd49faf168661d3c0d127f066",
+          "node_id": "node_2",
+          "outcome": "ok",
+          "output_sha256": "e3351eec54df71d4339d74bfac884be7a284e8c014111372ecfe06c2548c1748",
+          "parent_ids": [
+            "node_1"
+          ],
+          "tool": "forecast_gold"
+        },
+        {
+          "agent": "verifier",
+          "artifact_refs": [],
+          "duration_ms": 0.023237998902914114,
+          "input_sha256": "df0bcfad2562e5f755d8930641f8091c0a8c43d906ff9002b5a2ab7dd7f79795",
+          "node_id": "node_3",
+          "outcome": "abstain",
+          "output_sha256": "4c373cacb6f52e2472d9a692c1bcff79e853fc979b7ac269623bfbaef382c557",
+          "parent_ids": [
+            "node_2"
+          ],
+          "tool": "none"
+        },
+        {
+          "agent": "reporter",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "4a82b0b7d65e015b370b2fba8cd28be62abd6b97dcb555ea411f0989301f1380",
+          "node_id": "node_4",
+          "outcome": "ok",
+          "output_sha256": "ca0375ec5a225a2748b8ff80b538b36ab5d2ca431521e83ed7bf495363c8c3e0",
+          "parent_ids": [
+            "node_3"
+          ],
+          "tool": "none"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "abstained",
+      "task_id": "gold_tool_failure_f4_3",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_b8a94531c16bfedf8a29_a2",
+      "variant": "A2"
+    },
+    "values": [],
+    "verification": "rejected",
+    "wall_latency_ms": 11.747172000468709
+  },
+  "parent_model_test_forward": false,
+  "split": "dev",
+  "stratum": "challenge",
+  "task_id": "gold_tool_failure_f4_3",
+  "variant": "A2"
+}

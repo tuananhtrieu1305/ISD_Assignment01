@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="5.824" timestamp="2026-10-19T17:04:30.566302+07:00" hostname="LaptopVJP"><testcase classname="tests.lstm29.test_holdout_cache" name="test_cache_hash_is_checked_on_the_exact_loaded_bytes" time="0.007"><failure message="Failed: DID NOT RAISE ValueError">source = (&lt;tests.lstm29.test_holdout_cache.source.&lt;locals&gt;.Data object at 0x72a8ab14f450&gt;, PosixPath('/tmp/pytest-of-tuananh/pytest-1/test_cache_hash_is_checked_on_0'))
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x72a8aaa5d510&gt;
+
+    def test_cache_hash_is_checked_on_the_exact_loaded_bytes(source, monkeypatch):
+        data, root = source
+        reference = holdout_cache.write_cache(data, root / "cache", "a" * 64)
+        path = root / "cache/arrays.npz"
+        with np.load(path, allow_pickle=False) as archive:
+            arrays = {k: archive[k] for k in archive.files}
+        arrays["features"] = arrays["features"] + 100
+        packed = io.BytesIO()
+        np.savez_compressed(packed, **arrays)
+        original = Path.read_bytes
+        monkeypatch.setattr(Path, "read_bytes", lambda self: packed.getvalue() if self == path else original(self))
+&gt;       with pytest.raises(ValueError, match="changed while loading"):
+E       Failed: DID NOT RAISE ValueError
+
+tests/lstm29/test_holdout_cache.py:109: Failed</failure></testcase></testsuite></testsuites>

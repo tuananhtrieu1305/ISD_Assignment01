@@ -1,0 +1,47 @@
+{
+  "dataset_id": "ch4_bis_house_prices",
+  "dataset_sha256": "85ea7713ea144922d757ee7b4a129e2b38d455a05852e0d8fe85adf621b41752",
+  "evidence_kind": "measured",
+  "group_key": "global_target_time",
+  "leakage_audit": {
+    "path": "artifacts/manifests/phase24/ch4_bis_house_prices/leakage_audit.json",
+    "sha256": "f114e6c2d30da51a93e8933f618220d887a00251cce0cf91814329d1f44ffc53"
+  },
+  "method": "temporal",
+  "partitions": [
+    {
+      "count": 2504,
+      "ids": {
+        "path": "data/splits/v3/ch4_bis_house_prices/train.ids.jsonl.gz",
+        "sha256": "5860881735bf9b4e2d4864cce30c2f44313c635fdd4ce335a60c3512c4bca65e"
+      },
+      "name": "train",
+      "target_end": "2018-10-01T00:00:00+00:00",
+      "target_start": "2005-01-01T00:00:00+00:00"
+    },
+    {
+      "count": 588,
+      "ids": {
+        "path": "data/splits/v3/ch4_bis_house_prices/validation.ids.jsonl.gz",
+        "sha256": "fc65122286bc46734a9f1c316a3a536534e14dc093388aefb5315ecdfe09c689"
+      },
+      "name": "validation",
+      "target_end": "2022-07-01T00:00:00+00:00",
+      "target_start": "2019-01-01T00:00:00+00:00"
+    },
+    {
+      "count": 568,
+      "ids": {
+        "path": "data/splits/v3/ch4_bis_house_prices/test.ids.jsonl.gz",
+        "sha256": "41f10217cd22f3793a9dec5b6a61292de5dfede6c630dfeb401fb6107f819331"
+      },
+      "name": "test",
+      "target_end": "2026-04-01T00:00:00+00:00",
+      "target_start": "2022-10-01T00:00:00+00:00"
+    }
+  ],
+  "schema_version": "3.0.0",
+  "seed": 42,
+  "split_id": "ch4_bis_house_prices_v3_seed42",
+  "train_only_preprocessing": true
+}

@@ -1,0 +1,124 @@
+{
+  "allowed_tools": [
+    "finance_retriever",
+    "medical_retriever"
+  ],
+  "answer_layer": {
+    "maximum_characters": 420,
+    "minimum_overlap_ratio": 0.3,
+    "minimum_overlap_terms": 2,
+    "strategy": "grounded_extractive_first_supported_chunk",
+    "unsafe_patterns": [
+      "ignore the report",
+      "stop prescribed",
+      "personalized insulin dose",
+      "permanently cures every",
+      "same disease as diabetes mellitus",
+      "best stock to buy",
+      "stock price be tomorrow",
+      "return a positive answer",
+      "assume every missing value is zero",
+      "use a 2020 value as if it were reported for 2025",
+      "acute lymphoblastic leukemia",
+      "urinary tract infection",
+      "migraine",
+      "cures every viral infection",
+      "usd to vnd exchange rate",
+      "football championship"
+    ]
+  },
+  "artifact_budget_bytes": 201326592,
+  "artifact_version": "phase16-b4-560c671a3920",
+  "chunks_file": "kg_chunks.jsonl.gz",
+  "counts": {
+    "chunks": {
+      "finance": 86421,
+      "medical": 762
+    },
+    "graph_anchors": {
+      "finance": 141,
+      "medical": 62
+    }
+  },
+  "external_api_required": false,
+  "files": [
+    {
+      "path": "kg_chunks.jsonl.gz",
+      "sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+      "size_bytes": 7082594
+    },
+    {
+      "path": "kg_finance_bm25.joblib",
+      "sha256": "002805ca504de3a5b59267e8cfa15689409d24e479998b27f7ebc25447ace0ad",
+      "size_bytes": 4370718
+    },
+    {
+      "path": "kg_finance_dense_lsa.joblib",
+      "sha256": "b8eacf200bb41d84cda459d3ca57b86e67f2d0fc47ada33c5374a49ecaffd06b",
+      "size_bytes": 51624131
+    },
+    {
+      "path": "kg_graph_anchors.json.gz",
+      "sha256": "09d55e54f30b9657a692be6ae713608f825e19e038088361c1225b42b0019f09",
+      "size_bytes": 1217627
+    },
+    {
+      "path": "kg_medical_bm25.joblib",
+      "sha256": "63705962bea49667c1d6db724c968640b8cbb0d0c986c2e13c8ec3e0707bf6bf",
+      "size_bytes": 142342
+    },
+    {
+      "path": "kg_medical_dense_lsa.joblib",
+      "sha256": "d32a33a2ae7e3db9c5d24726937406134f094bd11ae24ef7d324d97bd0b3ae6a",
+      "size_bytes": 3956275
+    }
+  ],
+  "generated_at": "2026-10-13T00:00:00+07:00",
+  "graph_file": "kg_graph_anchors.json.gz",
+  "indexes": {
+    "finance": {
+      "dense": "kg_finance_dense_lsa.joblib",
+      "sparse": "kg_finance_bm25.joblib"
+    },
+    "medical": {
+      "dense": "kg_medical_dense_lsa.joblib",
+      "sparse": "kg_medical_bm25.joblib"
+    }
+  },
+  "package_bytes": 68393687,
+  "phase15_locked_config_sha256": "560c671a3920bd6bde9f7fc005f3c952f857c55969c989bb6109932623210c9e",
+  "phase15_test_run_sha256": "64f4167eb039903d9a70f56cf6c24a761ec59ad6986faa03f866b97856c7b929",
+  "private_test_included": false,
+  "retrieval": {
+    "candidate_depth": 100,
+    "max_hops": 2,
+    "model": "B4",
+    "rrf_k": 60,
+    "top_k": 10,
+    "weights": {
+      "dense": 0.1,
+      "graph": 0.3,
+      "sparse": 0.6
+    }
+  },
+  "runtime_contract": {
+    "compatibility_note": "Indexes are read-only; deploy smoke is required across the pinned minor version.",
+    "deploy_scikit_learn": "1.9.1",
+    "index_serialization_versions": {
+      "finance": {
+        "numpy": "2.5.3",
+        "python": "3.12.3",
+        "scikit_learn": "1.9.0",
+        "scipy": "1.18.1"
+      },
+      "medical": {
+        "numpy": "2.5.3",
+        "python": "3.12.3",
+        "scikit_learn": "1.9.0",
+        "scipy": "1.18.1"
+      }
+    },
+    "python_builder": "3.12.3"
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "best_epoch": 3,
+  "class_names": {
+    "0": "DR grade 0",
+    "1": "DR grade 1",
+    "2": "DR grade 2",
+    "3": "DR grade 3",
+    "4": "DR grade 4"
+  },
+  "memory": {
+    "backend": "tensorflow",
+    "peak_vram_bytes": 130289408,
+    "peak_vram_reserved_bytes": 0,
+    "process_peak_ram_bytes": 1890459648,
+    "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+    "requested_device": "gpu",
+    "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+    "wall_seconds": 9.97304095599975
+  },
+  "metrics": {
+    "accuracy": {
+      "undefined_reason": null,
+      "value": 0.453125
+    },
+    "auroc": {
+      "undefined_reason": null,
+      "value": 0.6204264341528493
+    },
+    "average_precision": {
+      "undefined_reason": null,
+      "value": 0.35201332864645507
+    },
+    "confusion_matrix": [
+      [
+        17,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        8,
+        0,
+        12,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        8,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        7,
+        0,
+        0
+      ]
+    ],
+    "macro_f1": {
+      "undefined_reason": null,
+      "value": 0.2238993710691824
+    },
+    "per_class_recall": {
+      "0": {
+        "undefined_reason": null,
+        "value": 0.85
+      },
+      "1": {
+        "undefined_reason": null,
+        "value": 0.0
+      },
+      "2": {
+        "undefined_reason": null,
+        "value": 0.6
+      },
+      "3": {
+        "undefined_reason": null,
+        "value": 0.0
+      },
+      "4": {
+        "undefined_reason": null,
+        "value": 0.0
+      }
+    },
+    "weighted_f1": {
+      "undefined_reason": null,
+      "value": 0.3498427672955975
+    }
+  },
+  "no_augmentation": true,
+  "numpy": "2.4.6",
+  "output_dtype": "float32",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "preprocessing_seconds": 0.13743919099943014,
+  "python": "3.11.17",
+  "train_count": 348,
+  "validation_count": 64
+}

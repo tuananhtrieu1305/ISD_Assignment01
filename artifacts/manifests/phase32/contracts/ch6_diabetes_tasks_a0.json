@@ -1,0 +1,67 @@
+{
+  "actual_backend": "numpy_cpu_deterministic",
+  "api_key_required": false,
+  "budget": {
+    "deadline_seconds": 15,
+    "max_tool_calls": 8,
+    "retry_per_tool": 1
+  },
+  "composition": [
+    "validate",
+    "policy",
+    "direct_tool",
+    "emit"
+  ],
+  "composition_plain": "Kiểm tra đầu vào → Áp dụng an toàn chung → Gọi tool theo miền đã chọn → Đóng gói trace V3",
+  "domain": "diabetes",
+  "functions": [
+    {
+      "corner_case": "Sai ID/độ dài/trường lạ: từ chối",
+      "formula": null,
+      "id": "validate",
+      "input": "JSON5 trường",
+      "learned_parameters": null,
+      "output": "task hợp lệ",
+      "role": "Kiểm tra đầu vào",
+      "signature": "validate_task(task)",
+      "source": "src/ch06_multi_agent/core.py"
+    },
+    {
+      "corner_case": "Rule hữu hạn, không chứng nhận an toàn toàn diện",
+      "formula": null,
+      "id": "policy",
+      "input": "question + operation",
+      "learned_parameters": null,
+      "output": "reason hoặc null",
+      "role": "Áp dụng an toàn chung",
+      "signature": "policy_reason(question, operation)",
+      "source": "src/ch06_multi_agent/core.py"
+    },
+    {
+      "corner_case": "Không chạy shell/URL/path từ câu hỏi",
+      "formula": null,
+      "id": "direct_tool",
+      "input": "allowlisted record",
+      "learned_parameters": null,
+      "output": "payload + provenance",
+      "role": "Gọi tool theo miền đã chọn",
+      "signature": "ToolCatalog.call(tool, record_id)",
+      "source": "src/ch06_multi_agent/tools.py"
+    },
+    {
+      "corner_case": "Không ghi chain-of-thought; DAG phải topo",
+      "formula": null,
+      "id": "emit",
+      "input": "DAG + action messages",
+      "learned_parameters": null,
+      "output": "agent.schema3.0.0",
+      "role": "Đóng gói trace V3",
+      "signature": "validate_document('agent', trace)",
+      "source": "src/ch06_multi_agent/core.py"
+    }
+  ],
+  "learnable_layers": null,
+  "parameter_count": null,
+  "schema_version": "phase31.agent_pipeline.1",
+  "variant": "A0"
+}

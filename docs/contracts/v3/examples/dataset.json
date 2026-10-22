@@ -1,0 +1,38 @@
+{
+  "schema_version": "3.0.0",
+  "evidence_kind": "synthetic_fixture",
+  "dataset_id": "ch2_cdc_diabetes",
+  "chapter": 2,
+  "kind": "tabular",
+  "status": "ready",
+  "source": {
+    "url": "https://example.org/synthetic-fixture",
+    "version": "fixture-v1",
+    "accessed_at": "2026-10-17T00:00:00Z",
+    "citation": "Synthetic contract fixture, not real CDC records",
+    "license_status": "approved",
+    "license_note": "Generated synthetic example only"
+  },
+  "files": [
+    {
+      "path": "data/raw/fixtures/synthetic.csv",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "size_bytes": 100
+    }
+  ],
+  "logical_size": {
+    "records": 20,
+    "features": 4,
+    "unit": "rows"
+  },
+  "target": "diabetes_binary",
+  "columns": [
+    {
+      "name": "diabetes_binary",
+      "dtype": "integer",
+      "role": "target"
+    }
+  ],
+  "parent_dataset_ids": [],
+  "data_card_path": "report/references/dataset_cards/fixture.md"
+}

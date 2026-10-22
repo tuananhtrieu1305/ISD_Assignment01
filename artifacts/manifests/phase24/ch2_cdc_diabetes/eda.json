@@ -1,0 +1,165 @@
+{
+  "comments": [
+    "CDC bản nhị phân: 1 gộp tiền tiểu đường/tiểu đường, không diễn giải thành ba lớp.",
+    "Khảo sát tự báo cáo, quan sát chứ không chứng minh quan hệ nhân quả; không dùng để chẩn đoán.",
+    "Không có patient ID được xác minh. Gom trùng feature không chứng minh độc lập bệnh nhân."
+  ],
+  "dataset_id": "ch2_cdc_diabetes",
+  "distribution_summary": {
+    "duplicate_rows": 25772,
+    "missing_by_feature": {
+      "age": 0,
+      "any_healthcare": 0,
+      "bmi": 0,
+      "chol_check": 0,
+      "diff_walk": 0,
+      "education": 0,
+      "fruits": 0,
+      "gen_hlth": 0,
+      "heart_diseaseor_attack": 0,
+      "high_bp": 0,
+      "high_chol": 0,
+      "hvy_alcohol_consump": 0,
+      "income": 0,
+      "ment_hlth": 0,
+      "no_docbc_cost": 0,
+      "phys_activity": 0,
+      "phys_hlth": 0,
+      "sex": 0,
+      "smoker": 0,
+      "stroke": 0,
+      "veggies": 0
+    },
+    "outliers": "feature_profile.json, ngưỡng IQR từ train",
+    "target_by_partition": {
+      "test": {
+        "0": 32829,
+        "1": 5293
+      },
+      "train": {
+        "0": 152760,
+        "1": 24745
+      },
+      "validation": {
+        "0": 32745,
+        "1": 5308
+      }
+    }
+  },
+  "figures": [
+    {
+      "path": "artifacts/figures/phase24/ch2_cdc_diabetes_distribution.png",
+      "sha256": "056304f7fcc00be1744fda4db6794b2f2eab75b10d67af570a70ed663da2f52c",
+      "size_bytes": 42887
+    },
+    {
+      "path": "artifacts/figures/phase24/ch2_cdc_diabetes_distribution.svg",
+      "sha256": "875a6b0d37bc72acf7631fdceb591ebacdbc211aa244ee0fec7e831a5513817f",
+      "size_bytes": 30167
+    }
+  ],
+  "memory": {
+    "eda_frame_bytes": 42618372,
+    "input_batch_float32_bytes": 2688,
+    "note": "Input-only planning bound, not measured GPU training peak; probe at Phase25",
+    "transformed_all_rows_bytes": 21309120,
+    "vram_peak": null
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "sample_note": "Ba mẫu thuộc matched train, output là nhãn/giá nguồn, không phải dự đoán. Input hiển thị tối đa 8 biến; samples.json chứa đủ biến.",
+  "samples": [
+    {
+      "id": "row_0048946",
+      "input": {
+        "bmi": 24,
+        "chol_check": 1,
+        "heart_diseaseor_attack": 0,
+        "high_bp": 1,
+        "high_chol": 1,
+        "phys_activity": 1,
+        "smoker": 0,
+        "stroke": 0
+      },
+      "known_output": 0
+    },
+    {
+      "id": "row_0129953",
+      "input": {
+        "bmi": 21,
+        "chol_check": 1,
+        "heart_diseaseor_attack": 0,
+        "high_bp": 0,
+        "high_chol": 0,
+        "phys_activity": 1,
+        "smoker": 0,
+        "stroke": 0
+      },
+      "known_output": 0
+    },
+    {
+      "id": "row_0216399",
+      "input": {
+        "bmi": 22,
+        "chol_check": 1,
+        "heart_diseaseor_attack": 0,
+        "high_bp": 0,
+        "high_chol": 0,
+        "phys_activity": 1,
+        "smoker": 0,
+        "stroke": 0
+      },
+      "known_output": 0
+    }
+  ],
+  "schema_version": "3.0.0",
+  "scope": "measured_tabular",
+  "size_and_schema": {
+    "counts": {
+      "test": 38122,
+      "train": 177505,
+      "validation": 38053
+    },
+    "features": [
+      "high_bp",
+      "high_chol",
+      "chol_check",
+      "bmi",
+      "smoker",
+      "stroke",
+      "heart_diseaseor_attack",
+      "phys_activity",
+      "fruits",
+      "veggies",
+      "hvy_alcohol_consump",
+      "any_healthcare",
+      "no_docbc_cost",
+      "gen_hlth",
+      "ment_hlth",
+      "phys_hlth",
+      "diff_walk",
+      "sex",
+      "age",
+      "education",
+      "income"
+    ],
+    "matched_subset": {
+      "path": "data/splits/v3/ch2_cdc_diabetes/matched_train.ids.jsonl.gz",
+      "sha256": "5319b90adc4a6ae52918700506ae66054de74640f4012cb09b71f2a79d8c3759",
+      "size_bytes": 53576
+    },
+    "matched_train_count": 20000,
+    "model_input_width": 21,
+    "quarantine_count": 0,
+    "rows": 253680,
+    "split": {
+      "path": "data/splits/v3/ch2_cdc_diabetes/split_contract.json",
+      "sha256": "557c1b646bf0259b9d475c2f0d25bf5bde33b8c4d8ed93d17fc4af2c1f813df4",
+      "size_bytes": 1476
+    },
+    "target": "diabetes_binary"
+  },
+  "source_manifest_sha256": "1e446b32f553e0af95f69b8e55372cdcf4acfc63180ad0e768c2f5f558dc95b6",
+  "split_note": "Gom exact feature duplicates và PID nếu có, rồi stratify theo nhóm 70/15/15 (xấp xỉ theo số dòng). Imputer/scaler/vocabulary/target scaler/class weight chỉ fit matched train; unknown category -> all-zero. Không tự xóa outlier.",
+  "test_evaluation_executed": false,
+  "training_executed": false
+}

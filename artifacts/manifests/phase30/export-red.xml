@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="1.603" timestamp="2026-10-20T14:53:23.374051+07:00" hostname="LaptopVJP"><testcase classname="tests.kg30.test_real_exports" name="test_three_real_notebook_exports_and_ten_qa_slots" time="0.001"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/DATA/assign/artifacts/manifests/phase30/export.json'">def test_three_real_notebook_exports_and_ten_qa_slots():
+&gt;       export = read_json(BASE / "export.json")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/kg30/test_real_exports.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/common/contracts.py:32: in read_json
+    return json.loads(path.read_text(encoding="utf-8-sig"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/tuananh/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/c/DATA/assign/artifacts/manifests/phase30/export.json')
+mode = 'r', buffering = -1, encoding = 'utf-8-sig', errors = None
+newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/DATA/assign/artifacts/manifests/phase30/export.json'
+
+/home/tuananh/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1044: FileNotFoundError</failure></testcase><testcase classname="tests.kg30.test_real_exports" name="test_real_catalog_fifteen_contracts_and_non_benchmark_wikidata" time="0.001"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/DATA/assign/artifacts/manifests/phase30/reused_registry.json'">def test_real_catalog_fifteen_contracts_and_non_benchmark_wikidata():
+&gt;       registry = read_json(BASE / "reused_registry.json")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/kg30/test_real_exports.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/common/contracts.py:32: in read_json
+    return json.loads(path.read_text(encoding="utf-8-sig"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/tuananh/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/c/DATA/assign/artifacts/manifests/phase30/reused_registry.json')
+mode = 'r', buffering = -1, encoding = 'utf-8-sig', errors = None
+newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/DATA/assign/artifacts/manifests/phase30/reused_registry.json'
+
+/home/tuananh/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1044: FileNotFoundError</failure></testcase></testsuite></testsuites>

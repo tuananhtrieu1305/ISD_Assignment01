@@ -1,0 +1,52 @@
+{
+  "categories": {},
+  "columns": [
+    "gold",
+    "silver_lag1",
+    "platinum_lag1",
+    "crude_oil_lag1"
+  ],
+  "frame_memory_bytes": 25764,
+  "missing": {
+    "crude_oil_lag1": 1,
+    "gold": 0,
+    "platinum_lag1": 1,
+    "silver_lag1": 1
+  },
+  "numeric": {
+    "crude_oil_lag1": {
+      "iqr_lower_train": -35.349999999999994,
+      "iqr_upper_train": 63.449999999999996,
+      "max": 132.8,
+      "median": 23.9,
+      "min": 1.2,
+      "outlier_count_full_source": 164
+    },
+    "gold": {
+      "iqr_lower_train": -468.5,
+      "iqr_upper_train": 895.5,
+      "max": 5020,
+      "median": 379.0,
+      "min": 35,
+      "outlier_count_full_source": 215
+    },
+    "platinum_lag1": {
+      "iqr_lower_train": -369.5,
+      "iqr_upper_train": 970.5,
+      "max": 2434.0,
+      "median": 435.0,
+      "min": 79.0,
+      "outlier_count_full_source": 170
+    },
+    "silver_lag1": {
+      "iqr_lower_train": -4.1,
+      "iqr_upper_train": 11.9,
+      "max": 92.1,
+      "median": 5.6,
+      "min": 0.9,
+      "outlier_count_full_source": 262
+    }
+  },
+  "outlier_policy": "1.5 IQR bounds from train only; descriptive flags, no automatic row deletion",
+  "records": 801
+}

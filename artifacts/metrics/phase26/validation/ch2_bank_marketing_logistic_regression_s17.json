@@ -1,0 +1,138 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch02_ml/ch2_bank_marketing_logistic_regression_s17/best.npz",
+      "sha256": "bce93991d8cc72162971443ada8eb3ff083aa950f72d7225a62794ded1144dc7"
+    },
+    {
+      "path": "artifacts/models/v3/ch02_ml/ch2_bank_marketing_logistic_regression_s17/best.json",
+      "sha256": "3d642d038628884e6d4c182deaf1c9c1033490af83aa5ea6686642d8b34b5d08"
+    },
+    {
+      "path": "artifacts/predictions/phase26/validation/ch2_bank_marketing_logistic_regression_s17.jsonl.gz",
+      "sha256": "810d8e34580708d687434dc179da8788b7f80a40b47749ea52bc96450fb396a0"
+    }
+  ],
+  "backend": "sklearn_fit_numpy_portable_predict",
+  "code": {
+    "dirty_tree_sha256": "f5d5e981628bd99982dcd833a5ec3e67a0eabb3fb0918ef687b64b9e7d4950ea",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "config": {
+    "path": "artifacts/manifests/phase26/revisions/r2/configs/ch2_bank_marketing_s17.json",
+    "sha256": "d9eb19e1e5d6a5b9d9df92a8fd97fbda0ac783be1bd956046247203362761445"
+  },
+  "dataset_id": "ch2_bank_marketing",
+  "device": "cpu",
+  "efficiency": {
+    "checkpoint_bytes": 716,
+    "inference_p50_ms": 0.010377500075264834,
+    "inference_p95_ms": 0.014945650218578514,
+    "peak_ram_bytes": 239161344,
+    "peak_vram_bytes": 0,
+    "timed_repeats": 30,
+    "train_seconds": 0.033007531000293966,
+    "warmup_batches": 5
+  },
+  "family": "classical",
+  "finished_at": "2026-10-17T13:42:35.891085+00:00",
+  "implementation": "scikit_learn",
+  "method": "logistic_regression",
+  "metrics": [
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "accuracy",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.7460551541070638
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "macro_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.5975681525237974
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "weighted_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.7848441838967202
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "auroc",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.7447083111157161
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "average_precision",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.35781970331270396
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "brier",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.1852388745538109
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "ece",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.29133020178562524
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_0",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.7663660654642619
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.592686002522068
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase26/revisions/r2/runs/ch2_bank_marketing_logistic_regression_s17/model_contract.json",
+    "sha256": "35b89088382b571f3a0acdf175e9955812f5852353775a565ad5cb87154ed337"
+  },
+  "provenance": {
+    "adapter_sha256": "6c8c7f0fb3465b0af66b93774a4e101da4a9cdae6cee80d288e08f84350b1c7d",
+    "code_sha256": "f5d5e981628bd99982dcd833a5ec3e67a0eabb3fb0918ef687b64b9e7d4950ea",
+    "config_sha256": "d9eb19e1e5d6a5b9d9df92a8fd97fbda0ac783be1bd956046247203362761445",
+    "dataset_sha256": "b34904856e0a4412109c99e7cf9556605ec78fa0910f3593aceac25f27f5e461",
+    "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+    "model_contract_sha256": "35b89088382b571f3a0acdf175e9955812f5852353775a565ad5cb87154ed337",
+    "preprocessing_sha256": "1bf39f9cc012b04bb0b46fa2eee7cbd4d3bb2ae6d3f6abaed5977ca89ad89ea7",
+    "split_sha256": "72136591aca9bb338d59aab29106974f1cdf1103624a46074782c3b0182c9035",
+    "subset_sha256": "b271747e61b6dcdfc4cf3f5b29b8a28643aaf82760b1efa5b14f3fdec3de811d"
+  },
+  "run_id": "ch2_bank_marketing_logistic_regression_s17",
+  "schema_version": "phase26.classical_run.1",
+  "seed": 17,
+  "split": "validation",
+  "started_at": "2026-10-17T13:42:35.422889+00:00",
+  "status": "succeeded",
+  "test_seal_id": null,
+  "track": "matched_subset"
+}

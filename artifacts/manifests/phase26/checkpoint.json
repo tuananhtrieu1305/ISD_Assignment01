@@ -1,0 +1,71 @@
+{
+  "phase": 26,
+  "status": "COMPLETE",
+  "stage": "accepted_and_locked",
+  "completed": [
+    "read_full_plan",
+    "verify_phase25_pass",
+    "scratch_and_native_resume_implementation",
+    "torch_cpu_gpu_update_parity",
+    "keras_cpu_gpu_graph_update_parity",
+    "early_stop_resume_fix",
+    "baseline_numeric_export_parity",
+    "sealed_test_controller_implementation",
+    "declared_r2_54_runs",
+    "trained_27_neural_27_classical",
+    "pretest_audit_pass",
+    "test_three_batches_one_shot",
+    "report_figures_cpu_demo_notebook_qa",
+    "299_tests_pass",
+    "lock_1032_files_readback_pass"
+  ],
+  "remaining": [],
+  "test_evaluation_executed": true,
+  "active_runner": null,
+  "active_auditor": "scripts/verify_phase26_roundtrip_v1.py",
+  "audit_revision_reason": "Restore original probability dtype for ECE round-trip; keep 1e-10 tolerance and all trained artifacts unchanged",
+  "revision": "r2",
+  "preflight_v1_preserved": true,
+  "r2_tests": {
+    "torch": 29,
+    "keras": 4
+  },
+  "pretest_audit_status": "PASS",
+  "pretest_coverage_percent": 87.63736263736264,
+  "completed_training_runs": 54,
+  "neural_runs": 27,
+  "classical_runs": 27,
+  "first_completed_run": "ch2_cdc_diabetes_mlp_scratch_s17",
+  "test_counts": {
+    "phase26": 33,
+    "regression": 263,
+    "preservation": 1,
+    "report_notebooks": 2,
+    "total": 299,
+    "skipped": 0
+  },
+  "coverage_final_percent": 92.12454212454213,
+  "lock": {
+    "path": "artifacts/manifests/phase26/revisions/r2/experiment_lock.json",
+    "files": 1032,
+    "sha256": "dcf18106ea7ccdd75843cd44f2061ccab492b9e274eaea9e63900a6125198d1c",
+    "status": "PASS"
+  },
+  "test_seals": {
+    "ch2_cdc_diabetes": {
+      "state": "evaluated",
+      "evaluation_count": 1
+    },
+    "ch2_ames_housing": {
+      "state": "evaluated",
+      "evaluation_count": 1
+    },
+    "ch2_bank_marketing": {
+      "state": "evaluated",
+      "evaluation_count": 1
+    }
+  },
+  "chapter_source": "report/sections/v3/ch02_ml.md",
+  "next_phase": 27,
+  "completed_date": "2026-10-17"
+}

@@ -1,0 +1,53 @@
+* text=auto
+*.py text eol=lf
+*.ps1 text eol=crlf
+*.sh text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.css text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.csv text eol=lf
+*.mmd text eol=lf
+*.ipynb text eol=lf
+*.svg text eol=lf
+*.toml text eol=lf
+uv.lock text eol=lf
+experiments/configs/v3/phase25_coverage.ini text eol=lf
+artifacts/manifests/phase25/*.xml -text
+experiments/configs/v3/phase26_coverage.ini text eol=lf
+artifacts/manifests/phase26/*.xml -text
+artifacts/manifests/phase26/revisions/r2/*.xml -text
+artifacts/manifests/phase26/preflight_v1_source/** -text
+scripts/check_phase26.ps1 text eol=lf
+scripts/finish_phase26.ps1 text eol=lf
+experiments/configs/v3/phase27_coverage.ini text eol=lf
+artifacts/manifests/phase27/*.xml -text
+artifacts/manifests/phase27/attempts/*.xml -text
+artifacts/manifests/phase27/revisions/r2/*.xml -text
+scripts/finish_phase27.ps1 text eol=lf
+scripts/check_phase27.ps1 text eol=lf
+experiments/configs/v3/phase28_coverage.ini text eol=lf
+artifacts/manifests/phase28/*.xml -text
+artifacts/manifests/phase28/attempts/*.xml -text
+scripts/finish_phase28.ps1 text eol=lf
+scripts/check_phase28.ps1 text eol=lf
+
+# Locked artifacts retain exact bytes across Windows/Linux.
+apps/api/models/** -text
+artifacts/models/** -text
+artifacts/manifests/ch5/** -text
+artifacts/metrics/ch5/** -text
+artifacts/predictions/ch5/** -text
+experiments/configs/ch5/** -text
+data/processed/v2/demos/** -text
+releases/v2/** -text
+*.docx binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.npz binary
+*.joblib binary

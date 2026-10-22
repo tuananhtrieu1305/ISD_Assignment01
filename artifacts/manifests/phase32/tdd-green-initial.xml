@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="2.256" timestamp="2026-10-20T20:31:27.664282+07:00" hostname="LaptopVJP"><testcase classname="tests.serving32.test_contract_first" name="test_missing_registry_keeps_liveness" time="0.179" /><testcase classname="tests.serving32.test_contract_first" name="test_registry_rejects_unpinned_document" time="0.002" /><testcase classname="tests.serving32.test_contract_first" name="test_job_idempotency_and_owner_isolation" time="0.033"><failure message="sqlite3.OperationalError: table jobs has 10 columns but 11 values were supplied">tmp_path = PosixPath('/tmp/pytest-of-tuananh/pytest-0/test_job_idempotency_and_owner0')
+
+    def test_job_idempotency_and_owner_isolation(tmp_path):
+        store = JobStore(tmp_path / "jobs.db")
+        request = {"dataset_id": "ch2_cdc_diabetes", "family": "mlp", "input": {}}
+&gt;       first = store.create(request, "idempotent-key", "owner-a")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/serving32/test_contract_first.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;apps.api.v3.jobs.JobStore object at 0x73f5d4cffe10&gt;
+request = {'dataset_id': 'ch2_cdc_diabetes', 'family': 'mlp', 'input': {}}
+key = 'idempotent-key', owner = 'owner-a'
+
+    def create(self, request, key, owner):
+        digest, now = canonical_sha256(request), time.time()
+        with self.connection() as db:
+            db.execute("BEGIN IMMEDIATE")
+            db.execute("DELETE FROM jobs WHERE expires &lt; ?", (now,))
+            row = db.execute("SELECT * FROM jobs WHERE owner=? AND idem=?", (owner_hash(owner), key)).fetchone()
+            if row:
+                if row["digest"] != digest:
+                    raise JobError("idempotency_conflict", 409)
+                return self._view(row)
+            if db.execute("SELECT count(*) FROM jobs").fetchone()[0] &gt;= self.capacity:
+                raise JobError("queue_full", 503)
+            identity = "job_" + secrets.token_hex(20)
+&gt;           db.execute("INSERT INTO jobs VALUES (?,?,?,?,?,?,?,?,?,?,?)", (
+                identity, owner_hash(owner), key, digest, json.dumps(request, allow_nan=False),
+                "queued", now, now + self.ttl, None, None,
+            ))
+E           sqlite3.OperationalError: table jobs has 10 columns but 11 values were supplied
+
+apps/api/v3/jobs.py:68: OperationalError</failure></testcase><testcase classname="tests.serving32.test_contract_first" name="test_errors_are_structured[/no-such-route]" time="0.040" /><testcase classname="tests.serving32.test_contract_first" name="test_errors_are_structured[/api/v3/jobs/unknown]" time="0.039" /></testsuite></testsuites>

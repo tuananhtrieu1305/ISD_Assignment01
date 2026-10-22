@@ -1,0 +1,220 @@
+{
+  "category": "evidence",
+  "domain": "gold",
+  "metrics": {
+    "answer_completion": 1,
+    "citation_correctness": 1,
+    "latency_ms": 7.05154999923252,
+    "message_count": 4,
+    "numeric_parity": 1,
+    "peak_child_rss_bytes": 172834816,
+    "refusal_correctness": null,
+    "routing_accuracy": 1,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 4,
+    "messages": [
+      {
+        "input": {
+          "domain_hint": "gold",
+          "operation": "evidence",
+          "question": "Trích nguồn giá vàng theo bản ghi gold_evidence_006.",
+          "record_id": "gold_evidence_006",
+          "task_id": "gold_evidence_f2_3"
+        },
+        "node_id": "node_1",
+        "output": {
+          "policy": null,
+          "route": "gold"
+        }
+      },
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "gold_evidence_006"
+        },
+        "node_id": "node_2",
+        "output": {
+          "payload": {
+            "artifact_refs": [
+              {
+                "path": "data/processed/v3/ch4_gold_pink_sheet/series.csv.gz",
+                "sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "evidence_gold_evidence_006",
+                "locator": "TRAIN_origin/GOLD/1965-10-01T00:00:00",
+                "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+                "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+              }
+            ],
+            "text": "TRAIN origin 1965-10-01T00:00:00: 35 USD/troy oz.",
+            "unit": "USD/troy oz",
+            "values": [
+              35.0
+            ]
+          },
+          "peak_rss_bytes": 172834816,
+          "receipt_sha256": "28f9b217a8d0a799de07172cd0c7f462da2f5a4af6d5708ddb3f9826b0ba2494",
+          "status": "ok"
+        }
+      },
+      {
+        "input": {
+          "receipt": {
+            "payload": {
+              "artifact_refs": [
+                {
+                  "path": "data/processed/v3/ch4_gold_pink_sheet/series.csv.gz",
+                  "sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee"
+                }
+              ],
+              "citations": [
+                {
+                  "evidence_id": "evidence_gold_evidence_006",
+                  "locator": "TRAIN_origin/GOLD/1965-10-01T00:00:00",
+                  "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+                  "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+                }
+              ],
+              "text": "TRAIN origin 1965-10-01T00:00:00: 35 USD/troy oz.",
+              "unit": "USD/troy oz",
+              "values": [
+                35.0
+              ]
+            },
+            "peak_rss_bytes": 172834816,
+            "receipt_sha256": "28f9b217a8d0a799de07172cd0c7f462da2f5a4af6d5708ddb3f9826b0ba2494",
+            "status": "ok"
+          }
+        },
+        "node_id": "node_3",
+        "output": {
+          "reason": null,
+          "verification": "passed"
+        }
+      },
+      {
+        "input": {
+          "citations": [
+            {
+              "evidence_id": "evidence_gold_evidence_006",
+              "locator": "TRAIN_origin/GOLD/1965-10-01T00:00:00",
+              "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+              "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+            }
+          ],
+          "status": "succeeded",
+          "values": [
+            35.0
+          ]
+        },
+        "node_id": "node_4",
+        "output": {
+          "answer": "TRAIN origin 1965-10-01T00:00:00: 35 USD/troy oz.",
+          "warning": "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 172834816,
+    "reason": null,
+    "route": "gold",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "TRAIN origin 1965-10-01T00:00:00: 35 USD/troy oz.",
+      "citations": [
+        {
+          "evidence_id": "evidence_gold_evidence_006",
+          "locator": "TRAIN_origin/GOLD/1965-10-01T00:00:00",
+          "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+          "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+        }
+      ],
+      "domain": "gold",
+      "evidence_kind": "measured",
+      "latency_ms": 6.07341999966593,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "router",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "2a0c72b34e6ce2bd57575986818cb424546d78dfb20af2cb17d71e7e2c3d3bd3",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "72dc706c738bf00d701f71cd39899a4124e263d5ae510cbe081339e730aa83cb",
+          "parent_ids": [],
+          "tool": "none"
+        },
+        {
+          "agent": "specialist",
+          "artifact_refs": [
+            {
+              "path": "data/processed/v3/ch4_gold_pink_sheet/series.csv.gz",
+              "sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee"
+            }
+          ],
+          "duration_ms": 5.816188000608236,
+          "input_sha256": "bf5fe53c22910c117d5d60a5c9418bfa79c6368d9673a3d4bfcdc73044c38861",
+          "node_id": "node_2",
+          "outcome": "ok",
+          "output_sha256": "7fb5b9d703e242c63f664d538499f8b218ba45ccf4ba4a1e98d336f6d90262f5",
+          "parent_ids": [
+            "node_1"
+          ],
+          "tool": "lookup_series"
+        },
+        {
+          "agent": "verifier",
+          "artifact_refs": [],
+          "duration_ms": 0.04170399915892631,
+          "input_sha256": "717d5d141832b75fed8648c12e22d3654af87bfc7d397d28a94594f498db61ba",
+          "node_id": "node_3",
+          "outcome": "ok",
+          "output_sha256": "74b85fef6af3e54336cd24c01d554053e29c98a538f68e7ce9e1fc671d05e382",
+          "parent_ids": [
+            "node_2"
+          ],
+          "tool": "none"
+        },
+        {
+          "agent": "reporter",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "10f4580e9e2e48b6575ba859bf0da2b8e96ed53f4d0e4fd9f51a963fdfb3d01b",
+          "node_id": "node_4",
+          "outcome": "ok",
+          "output_sha256": "98f932efecdc4eb6e25253166fdd0aa90807ac0457cfbe404b5a3d6a2ff3cf4c",
+          "parent_ids": [
+            "node_3"
+          ],
+          "tool": "none"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "succeeded",
+      "task_id": "gold_evidence_f2_3",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_2a0c72b34e6ce2bd5757_a2",
+      "variant": "A2"
+    },
+    "values": [
+      35.0
+    ],
+    "verification": "passed",
+    "wall_latency_ms": 7.05154999923252
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "benign",
+  "task_id": "gold_evidence_f2_3",
+  "variant": "A2"
+}

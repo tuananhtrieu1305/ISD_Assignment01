@@ -1,0 +1,752 @@
+{
+  "contracts": [
+    {
+      "actual_backend": "numpy_cpu_deterministic",
+      "api_key_required": false,
+      "budget": {
+        "deadline_seconds": 15,
+        "max_tool_calls": 8,
+        "retry_per_tool": 1
+      },
+      "composition": [
+        "validate",
+        "policy",
+        "direct_tool",
+        "emit"
+      ],
+      "composition_plain": "Kiểm tra đầu vào → Áp dụng an toàn chung → Gọi tool theo miền đã chọn → Đóng gói trace V3",
+      "domain": "diabetes",
+      "functions": [
+        {
+          "corner_case": "Sai ID/độ dài/trường lạ: từ chối",
+          "formula": null,
+          "id": "validate",
+          "input": "JSON5 trường",
+          "learned_parameters": null,
+          "output": "task hợp lệ",
+          "role": "Kiểm tra đầu vào",
+          "signature": "validate_task(task)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Rule hữu hạn, không chứng nhận an toàn toàn diện",
+          "formula": null,
+          "id": "policy",
+          "input": "question + operation",
+          "learned_parameters": null,
+          "output": "reason hoặc null",
+          "role": "Áp dụng an toàn chung",
+          "signature": "policy_reason(question, operation)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không chạy shell/URL/path từ câu hỏi",
+          "formula": null,
+          "id": "direct_tool",
+          "input": "allowlisted record",
+          "learned_parameters": null,
+          "output": "payload + provenance",
+          "role": "Gọi tool theo miền đã chọn",
+          "signature": "ToolCatalog.call(tool, record_id)",
+          "source": "src/ch06_multi_agent/tools.py"
+        },
+        {
+          "corner_case": "Không ghi chain-of-thought; DAG phải topo",
+          "formula": null,
+          "id": "emit",
+          "input": "DAG + action messages",
+          "learned_parameters": null,
+          "output": "agent.schema3.0.0",
+          "role": "Đóng gói trace V3",
+          "signature": "validate_document('agent', trace)",
+          "source": "src/ch06_multi_agent/core.py"
+        }
+      ],
+      "learnable_layers": null,
+      "parameter_count": null,
+      "schema_version": "phase31.agent_pipeline.1",
+      "variant": "A0"
+    },
+    {
+      "actual_backend": "numpy_cpu_deterministic",
+      "api_key_required": false,
+      "budget": {
+        "deadline_seconds": 15,
+        "max_tool_calls": 8,
+        "retry_per_tool": 1
+      },
+      "composition": [
+        "validate",
+        "policy",
+        "route",
+        "specialist",
+        "emit"
+      ],
+      "composition_plain": "Kiểm tra đầu vào → Áp dụng an toàn chung → Chọn một miền → Thực hiện tool trong process có hạn giờ → Đóng gói trace V3",
+      "domain": "diabetes",
+      "functions": [
+        {
+          "corner_case": "Sai ID/độ dài/trường lạ: từ chối",
+          "formula": null,
+          "id": "validate",
+          "input": "JSON5 trường",
+          "learned_parameters": null,
+          "output": "task hợp lệ",
+          "role": "Kiểm tra đầu vào",
+          "signature": "validate_task(task)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Rule hữu hạn, không chứng nhận an toàn toàn diện",
+          "formula": null,
+          "id": "policy",
+          "input": "question + operation",
+          "learned_parameters": null,
+          "output": "reason hoặc null",
+          "role": "Áp dụng an toàn chung",
+          "signature": "policy_reason(question, operation)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không biết hoặc trộn miền: abstain",
+          "formula": null,
+          "id": "route",
+          "input": "text tối đa500 ký tự",
+          "learned_parameters": null,
+          "output": "diabetes/house/gold hoặc null",
+          "role": "Chọn một miền",
+          "signature": "route(question)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Retry transient1 lần; terminate/join khi timeout",
+          "formula": null,
+          "id": "specialist",
+          "input": "tool + record + deadline",
+          "learned_parameters": null,
+          "output": "receipt hoặc lỗi",
+          "role": "Thực hiện tool trong process có hạn giờ",
+          "signature": "ProcessExecutor.execute(...)",
+          "source": "src/ch06_multi_agent/executor.py"
+        },
+        {
+          "corner_case": "Không ghi chain-of-thought; DAG phải topo",
+          "formula": null,
+          "id": "emit",
+          "input": "DAG + action messages",
+          "learned_parameters": null,
+          "output": "agent.schema3.0.0",
+          "role": "Đóng gói trace V3",
+          "signature": "validate_document('agent', trace)",
+          "source": "src/ch06_multi_agent/core.py"
+        }
+      ],
+      "learnable_layers": null,
+      "parameter_count": null,
+      "schema_version": "phase31.agent_pipeline.1",
+      "variant": "A1"
+    },
+    {
+      "actual_backend": "numpy_cpu_deterministic",
+      "api_key_required": false,
+      "budget": {
+        "deadline_seconds": 15,
+        "max_tool_calls": 8,
+        "retry_per_tool": 1
+      },
+      "composition": [
+        "validate",
+        "policy",
+        "route",
+        "specialist",
+        "verify",
+        "report",
+        "emit"
+      ],
+      "composition_plain": "Kiểm tra đầu vào → Áp dụng an toàn chung → Chọn một miền → Thực hiện tool trong process có hạn giờ → Kiểm chứng bằng chứng → Tổng hợp phản hồi có giới hạn → Đóng gói trace V3",
+      "domain": "diabetes",
+      "functions": [
+        {
+          "corner_case": "Sai ID/độ dài/trường lạ: từ chối",
+          "formula": null,
+          "id": "validate",
+          "input": "JSON5 trường",
+          "learned_parameters": null,
+          "output": "task hợp lệ",
+          "role": "Kiểm tra đầu vào",
+          "signature": "validate_task(task)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Rule hữu hạn, không chứng nhận an toàn toàn diện",
+          "formula": null,
+          "id": "policy",
+          "input": "question + operation",
+          "learned_parameters": null,
+          "output": "reason hoặc null",
+          "role": "Áp dụng an toàn chung",
+          "signature": "policy_reason(question, operation)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không biết hoặc trộn miền: abstain",
+          "formula": null,
+          "id": "route",
+          "input": "text tối đa500 ký tự",
+          "learned_parameters": null,
+          "output": "diabetes/house/gold hoặc null",
+          "role": "Chọn một miền",
+          "signature": "route(question)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Retry transient1 lần; terminate/join khi timeout",
+          "formula": null,
+          "id": "specialist",
+          "input": "tool + record + deadline",
+          "learned_parameters": null,
+          "output": "receipt hoặc lỗi",
+          "role": "Thực hiện tool trong process có hạn giờ",
+          "signature": "ProcessExecutor.execute(...)",
+          "source": "src/ch06_multi_agent/executor.py"
+        },
+        {
+          "corner_case": "Kiểm integrity/finite/citation, không xác nhận chuyên môn",
+          "formula": null,
+          "id": "verify",
+          "input": "payload + receipt hash",
+          "learned_parameters": null,
+          "output": "pass hoặc từ chối",
+          "role": "Kiểm chứng bằng chứng",
+          "signature": "verify_payload(payload, receipt_sha256)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không tự thêm lời khuyên hoặc con số",
+          "formula": null,
+          "id": "report",
+          "input": "status + values + citations",
+          "learned_parameters": null,
+          "output": "answer + cảnh báo",
+          "role": "Tổng hợp phản hồi có giới hạn",
+          "signature": "Orchestrator.run(...): reporter",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không ghi chain-of-thought; DAG phải topo",
+          "formula": null,
+          "id": "emit",
+          "input": "DAG + action messages",
+          "learned_parameters": null,
+          "output": "agent.schema3.0.0",
+          "role": "Đóng gói trace V3",
+          "signature": "validate_document('agent', trace)",
+          "source": "src/ch06_multi_agent/core.py"
+        }
+      ],
+      "learnable_layers": null,
+      "parameter_count": null,
+      "schema_version": "phase31.agent_pipeline.1",
+      "variant": "A2"
+    },
+    {
+      "actual_backend": "numpy_cpu_deterministic",
+      "api_key_required": false,
+      "budget": {
+        "deadline_seconds": 15,
+        "max_tool_calls": 8,
+        "retry_per_tool": 1
+      },
+      "composition": [
+        "validate",
+        "policy",
+        "direct_tool",
+        "emit"
+      ],
+      "composition_plain": "Kiểm tra đầu vào → Áp dụng an toàn chung → Gọi tool theo miền đã chọn → Đóng gói trace V3",
+      "domain": "house",
+      "functions": [
+        {
+          "corner_case": "Sai ID/độ dài/trường lạ: từ chối",
+          "formula": null,
+          "id": "validate",
+          "input": "JSON5 trường",
+          "learned_parameters": null,
+          "output": "task hợp lệ",
+          "role": "Kiểm tra đầu vào",
+          "signature": "validate_task(task)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Rule hữu hạn, không chứng nhận an toàn toàn diện",
+          "formula": null,
+          "id": "policy",
+          "input": "question + operation",
+          "learned_parameters": null,
+          "output": "reason hoặc null",
+          "role": "Áp dụng an toàn chung",
+          "signature": "policy_reason(question, operation)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không chạy shell/URL/path từ câu hỏi",
+          "formula": null,
+          "id": "direct_tool",
+          "input": "allowlisted record",
+          "learned_parameters": null,
+          "output": "payload + provenance",
+          "role": "Gọi tool theo miền đã chọn",
+          "signature": "ToolCatalog.call(tool, record_id)",
+          "source": "src/ch06_multi_agent/tools.py"
+        },
+        {
+          "corner_case": "Không ghi chain-of-thought; DAG phải topo",
+          "formula": null,
+          "id": "emit",
+          "input": "DAG + action messages",
+          "learned_parameters": null,
+          "output": "agent.schema3.0.0",
+          "role": "Đóng gói trace V3",
+          "signature": "validate_document('agent', trace)",
+          "source": "src/ch06_multi_agent/core.py"
+        }
+      ],
+      "learnable_layers": null,
+      "parameter_count": null,
+      "schema_version": "phase31.agent_pipeline.1",
+      "variant": "A0"
+    },
+    {
+      "actual_backend": "numpy_cpu_deterministic",
+      "api_key_required": false,
+      "budget": {
+        "deadline_seconds": 15,
+        "max_tool_calls": 8,
+        "retry_per_tool": 1
+      },
+      "composition": [
+        "validate",
+        "policy",
+        "route",
+        "specialist",
+        "emit"
+      ],
+      "composition_plain": "Kiểm tra đầu vào → Áp dụng an toàn chung → Chọn một miền → Thực hiện tool trong process có hạn giờ → Đóng gói trace V3",
+      "domain": "house",
+      "functions": [
+        {
+          "corner_case": "Sai ID/độ dài/trường lạ: từ chối",
+          "formula": null,
+          "id": "validate",
+          "input": "JSON5 trường",
+          "learned_parameters": null,
+          "output": "task hợp lệ",
+          "role": "Kiểm tra đầu vào",
+          "signature": "validate_task(task)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Rule hữu hạn, không chứng nhận an toàn toàn diện",
+          "formula": null,
+          "id": "policy",
+          "input": "question + operation",
+          "learned_parameters": null,
+          "output": "reason hoặc null",
+          "role": "Áp dụng an toàn chung",
+          "signature": "policy_reason(question, operation)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không biết hoặc trộn miền: abstain",
+          "formula": null,
+          "id": "route",
+          "input": "text tối đa500 ký tự",
+          "learned_parameters": null,
+          "output": "diabetes/house/gold hoặc null",
+          "role": "Chọn một miền",
+          "signature": "route(question)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Retry transient1 lần; terminate/join khi timeout",
+          "formula": null,
+          "id": "specialist",
+          "input": "tool + record + deadline",
+          "learned_parameters": null,
+          "output": "receipt hoặc lỗi",
+          "role": "Thực hiện tool trong process có hạn giờ",
+          "signature": "ProcessExecutor.execute(...)",
+          "source": "src/ch06_multi_agent/executor.py"
+        },
+        {
+          "corner_case": "Không ghi chain-of-thought; DAG phải topo",
+          "formula": null,
+          "id": "emit",
+          "input": "DAG + action messages",
+          "learned_parameters": null,
+          "output": "agent.schema3.0.0",
+          "role": "Đóng gói trace V3",
+          "signature": "validate_document('agent', trace)",
+          "source": "src/ch06_multi_agent/core.py"
+        }
+      ],
+      "learnable_layers": null,
+      "parameter_count": null,
+      "schema_version": "phase31.agent_pipeline.1",
+      "variant": "A1"
+    },
+    {
+      "actual_backend": "numpy_cpu_deterministic",
+      "api_key_required": false,
+      "budget": {
+        "deadline_seconds": 15,
+        "max_tool_calls": 8,
+        "retry_per_tool": 1
+      },
+      "composition": [
+        "validate",
+        "policy",
+        "route",
+        "specialist",
+        "verify",
+        "report",
+        "emit"
+      ],
+      "composition_plain": "Kiểm tra đầu vào → Áp dụng an toàn chung → Chọn một miền → Thực hiện tool trong process có hạn giờ → Kiểm chứng bằng chứng → Tổng hợp phản hồi có giới hạn → Đóng gói trace V3",
+      "domain": "house",
+      "functions": [
+        {
+          "corner_case": "Sai ID/độ dài/trường lạ: từ chối",
+          "formula": null,
+          "id": "validate",
+          "input": "JSON5 trường",
+          "learned_parameters": null,
+          "output": "task hợp lệ",
+          "role": "Kiểm tra đầu vào",
+          "signature": "validate_task(task)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Rule hữu hạn, không chứng nhận an toàn toàn diện",
+          "formula": null,
+          "id": "policy",
+          "input": "question + operation",
+          "learned_parameters": null,
+          "output": "reason hoặc null",
+          "role": "Áp dụng an toàn chung",
+          "signature": "policy_reason(question, operation)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không biết hoặc trộn miền: abstain",
+          "formula": null,
+          "id": "route",
+          "input": "text tối đa500 ký tự",
+          "learned_parameters": null,
+          "output": "diabetes/house/gold hoặc null",
+          "role": "Chọn một miền",
+          "signature": "route(question)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Retry transient1 lần; terminate/join khi timeout",
+          "formula": null,
+          "id": "specialist",
+          "input": "tool + record + deadline",
+          "learned_parameters": null,
+          "output": "receipt hoặc lỗi",
+          "role": "Thực hiện tool trong process có hạn giờ",
+          "signature": "ProcessExecutor.execute(...)",
+          "source": "src/ch06_multi_agent/executor.py"
+        },
+        {
+          "corner_case": "Kiểm integrity/finite/citation, không xác nhận chuyên môn",
+          "formula": null,
+          "id": "verify",
+          "input": "payload + receipt hash",
+          "learned_parameters": null,
+          "output": "pass hoặc từ chối",
+          "role": "Kiểm chứng bằng chứng",
+          "signature": "verify_payload(payload, receipt_sha256)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không tự thêm lời khuyên hoặc con số",
+          "formula": null,
+          "id": "report",
+          "input": "status + values + citations",
+          "learned_parameters": null,
+          "output": "answer + cảnh báo",
+          "role": "Tổng hợp phản hồi có giới hạn",
+          "signature": "Orchestrator.run(...): reporter",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không ghi chain-of-thought; DAG phải topo",
+          "formula": null,
+          "id": "emit",
+          "input": "DAG + action messages",
+          "learned_parameters": null,
+          "output": "agent.schema3.0.0",
+          "role": "Đóng gói trace V3",
+          "signature": "validate_document('agent', trace)",
+          "source": "src/ch06_multi_agent/core.py"
+        }
+      ],
+      "learnable_layers": null,
+      "parameter_count": null,
+      "schema_version": "phase31.agent_pipeline.1",
+      "variant": "A2"
+    },
+    {
+      "actual_backend": "numpy_cpu_deterministic",
+      "api_key_required": false,
+      "budget": {
+        "deadline_seconds": 15,
+        "max_tool_calls": 8,
+        "retry_per_tool": 1
+      },
+      "composition": [
+        "validate",
+        "policy",
+        "direct_tool",
+        "emit"
+      ],
+      "composition_plain": "Kiểm tra đầu vào → Áp dụng an toàn chung → Gọi tool theo miền đã chọn → Đóng gói trace V3",
+      "domain": "gold",
+      "functions": [
+        {
+          "corner_case": "Sai ID/độ dài/trường lạ: từ chối",
+          "formula": null,
+          "id": "validate",
+          "input": "JSON5 trường",
+          "learned_parameters": null,
+          "output": "task hợp lệ",
+          "role": "Kiểm tra đầu vào",
+          "signature": "validate_task(task)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Rule hữu hạn, không chứng nhận an toàn toàn diện",
+          "formula": null,
+          "id": "policy",
+          "input": "question + operation",
+          "learned_parameters": null,
+          "output": "reason hoặc null",
+          "role": "Áp dụng an toàn chung",
+          "signature": "policy_reason(question, operation)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không chạy shell/URL/path từ câu hỏi",
+          "formula": null,
+          "id": "direct_tool",
+          "input": "allowlisted record",
+          "learned_parameters": null,
+          "output": "payload + provenance",
+          "role": "Gọi tool theo miền đã chọn",
+          "signature": "ToolCatalog.call(tool, record_id)",
+          "source": "src/ch06_multi_agent/tools.py"
+        },
+        {
+          "corner_case": "Không ghi chain-of-thought; DAG phải topo",
+          "formula": null,
+          "id": "emit",
+          "input": "DAG + action messages",
+          "learned_parameters": null,
+          "output": "agent.schema3.0.0",
+          "role": "Đóng gói trace V3",
+          "signature": "validate_document('agent', trace)",
+          "source": "src/ch06_multi_agent/core.py"
+        }
+      ],
+      "learnable_layers": null,
+      "parameter_count": null,
+      "schema_version": "phase31.agent_pipeline.1",
+      "variant": "A0"
+    },
+    {
+      "actual_backend": "numpy_cpu_deterministic",
+      "api_key_required": false,
+      "budget": {
+        "deadline_seconds": 15,
+        "max_tool_calls": 8,
+        "retry_per_tool": 1
+      },
+      "composition": [
+        "validate",
+        "policy",
+        "route",
+        "specialist",
+        "emit"
+      ],
+      "composition_plain": "Kiểm tra đầu vào → Áp dụng an toàn chung → Chọn một miền → Thực hiện tool trong process có hạn giờ → Đóng gói trace V3",
+      "domain": "gold",
+      "functions": [
+        {
+          "corner_case": "Sai ID/độ dài/trường lạ: từ chối",
+          "formula": null,
+          "id": "validate",
+          "input": "JSON5 trường",
+          "learned_parameters": null,
+          "output": "task hợp lệ",
+          "role": "Kiểm tra đầu vào",
+          "signature": "validate_task(task)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Rule hữu hạn, không chứng nhận an toàn toàn diện",
+          "formula": null,
+          "id": "policy",
+          "input": "question + operation",
+          "learned_parameters": null,
+          "output": "reason hoặc null",
+          "role": "Áp dụng an toàn chung",
+          "signature": "policy_reason(question, operation)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không biết hoặc trộn miền: abstain",
+          "formula": null,
+          "id": "route",
+          "input": "text tối đa500 ký tự",
+          "learned_parameters": null,
+          "output": "diabetes/house/gold hoặc null",
+          "role": "Chọn một miền",
+          "signature": "route(question)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Retry transient1 lần; terminate/join khi timeout",
+          "formula": null,
+          "id": "specialist",
+          "input": "tool + record + deadline",
+          "learned_parameters": null,
+          "output": "receipt hoặc lỗi",
+          "role": "Thực hiện tool trong process có hạn giờ",
+          "signature": "ProcessExecutor.execute(...)",
+          "source": "src/ch06_multi_agent/executor.py"
+        },
+        {
+          "corner_case": "Không ghi chain-of-thought; DAG phải topo",
+          "formula": null,
+          "id": "emit",
+          "input": "DAG + action messages",
+          "learned_parameters": null,
+          "output": "agent.schema3.0.0",
+          "role": "Đóng gói trace V3",
+          "signature": "validate_document('agent', trace)",
+          "source": "src/ch06_multi_agent/core.py"
+        }
+      ],
+      "learnable_layers": null,
+      "parameter_count": null,
+      "schema_version": "phase31.agent_pipeline.1",
+      "variant": "A1"
+    },
+    {
+      "actual_backend": "numpy_cpu_deterministic",
+      "api_key_required": false,
+      "budget": {
+        "deadline_seconds": 15,
+        "max_tool_calls": 8,
+        "retry_per_tool": 1
+      },
+      "composition": [
+        "validate",
+        "policy",
+        "route",
+        "specialist",
+        "verify",
+        "report",
+        "emit"
+      ],
+      "composition_plain": "Kiểm tra đầu vào → Áp dụng an toàn chung → Chọn một miền → Thực hiện tool trong process có hạn giờ → Kiểm chứng bằng chứng → Tổng hợp phản hồi có giới hạn → Đóng gói trace V3",
+      "domain": "gold",
+      "functions": [
+        {
+          "corner_case": "Sai ID/độ dài/trường lạ: từ chối",
+          "formula": null,
+          "id": "validate",
+          "input": "JSON5 trường",
+          "learned_parameters": null,
+          "output": "task hợp lệ",
+          "role": "Kiểm tra đầu vào",
+          "signature": "validate_task(task)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Rule hữu hạn, không chứng nhận an toàn toàn diện",
+          "formula": null,
+          "id": "policy",
+          "input": "question + operation",
+          "learned_parameters": null,
+          "output": "reason hoặc null",
+          "role": "Áp dụng an toàn chung",
+          "signature": "policy_reason(question, operation)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không biết hoặc trộn miền: abstain",
+          "formula": null,
+          "id": "route",
+          "input": "text tối đa500 ký tự",
+          "learned_parameters": null,
+          "output": "diabetes/house/gold hoặc null",
+          "role": "Chọn một miền",
+          "signature": "route(question)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Retry transient1 lần; terminate/join khi timeout",
+          "formula": null,
+          "id": "specialist",
+          "input": "tool + record + deadline",
+          "learned_parameters": null,
+          "output": "receipt hoặc lỗi",
+          "role": "Thực hiện tool trong process có hạn giờ",
+          "signature": "ProcessExecutor.execute(...)",
+          "source": "src/ch06_multi_agent/executor.py"
+        },
+        {
+          "corner_case": "Kiểm integrity/finite/citation, không xác nhận chuyên môn",
+          "formula": null,
+          "id": "verify",
+          "input": "payload + receipt hash",
+          "learned_parameters": null,
+          "output": "pass hoặc từ chối",
+          "role": "Kiểm chứng bằng chứng",
+          "signature": "verify_payload(payload, receipt_sha256)",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không tự thêm lời khuyên hoặc con số",
+          "formula": null,
+          "id": "report",
+          "input": "status + values + citations",
+          "learned_parameters": null,
+          "output": "answer + cảnh báo",
+          "role": "Tổng hợp phản hồi có giới hạn",
+          "signature": "Orchestrator.run(...): reporter",
+          "source": "src/ch06_multi_agent/core.py"
+        },
+        {
+          "corner_case": "Không ghi chain-of-thought; DAG phải topo",
+          "formula": null,
+          "id": "emit",
+          "input": "DAG + action messages",
+          "learned_parameters": null,
+          "output": "agent.schema3.0.0",
+          "role": "Đóng gói trace V3",
+          "signature": "validate_document('agent', trace)",
+          "source": "src/ch06_multi_agent/core.py"
+        }
+      ],
+      "learnable_layers": null,
+      "parameter_count": null,
+      "schema_version": "phase31.agent_pipeline.1",
+      "variant": "A2"
+    }
+  ],
+  "schema_version": "phase31.agent_pipeline.1"
+}

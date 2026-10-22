@@ -1,0 +1,63 @@
+{
+  "schema_version": "3.0.0",
+  "evidence_kind": "synthetic_fixture",
+  "run_id": "fixture_run",
+  "dataset_id": "ch2_cdc_diabetes",
+  "split_id": "fixture_split",
+  "split_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "config_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "code": {
+    "git_commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "dirty_tree_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "environment_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "model_contract": {
+    "path": "artifacts/manifests/fixture/model_contract.json",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "implementation": "scratch",
+  "backend": "numpy",
+  "family": "mlp",
+  "track": "matched_subset",
+  "seed": 42,
+  "subset_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "status": "succeeded",
+  "split": "validation",
+  "test_seal_id": null,
+  "device": "cpu",
+  "dtype": "float32",
+  "batch_size": 8,
+  "started_at": "2026-10-17T00:00:00Z",
+  "finished_at": "2026-10-17T00:00:01Z",
+  "metrics": [
+    {
+      "name": "macro_f1",
+      "value": 0.5,
+      "unit": "fraction",
+      "direction": "max",
+      "horizon": null,
+      "undefined_reason": null
+    }
+  ],
+  "efficiency": {
+    "train_seconds": 1,
+    "inference_p50_ms": 1,
+    "inference_p95_ms": 2,
+    "warmup_batches": 5,
+    "timed_repeats": 30,
+    "peak_ram_bytes": 100,
+    "peak_vram_bytes": 0,
+    "checkpoint_bytes": 100
+  },
+  "artifacts": [],
+  "warnings": [
+    "Synthetic example: do not cite as an experimental result"
+  ],
+  "dataset_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "comparison_group_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "protocol_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "preprocessing": {
+    "path": "artifacts/manifests/fixture/preprocessing.json",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  }
+}

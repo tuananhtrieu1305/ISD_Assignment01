@@ -1,0 +1,333 @@
+{
+  "contract": {
+    "schema_version": "3.0.0",
+    "evidence_kind": "measured",
+    "dataset_id": "ch2_cdc_diabetes",
+    "chapter": 2,
+    "kind": "tabular",
+    "status": "ready",
+    "source": {
+      "url": "https://archive.ics.uci.edu/static/public/891/data.csv",
+      "version": "UCI 891 / CDC BRFSS 2015 binary diabetes; sha256:9f71fda9d4ae5f4878c99b9233b6a16accfa9a17c194116a6b78100540934964",
+      "citation": "Teboul, A. (2021). Diabetes Health Indicators Dataset, derived from CDC BRFSS 2015. UCI dataset 891. DOI:10.24432/C53919.",
+      "license_status": "approved",
+      "license_note": "UCI directs licensing to upstream Kaggle; public Kaggle API confirms CC0: Public Domain. https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset . Not assumed to inherit UCI's default CC BY license.",
+      "accessed_at": "2026-10-17T01:15:52.984993+00:00"
+    },
+    "files": [
+      {
+        "path": "data/raw/ch2/cdc_diabetes/data.csv",
+        "sha256": "9f71fda9d4ae5f4878c99b9233b6a16accfa9a17c194116a6b78100540934964",
+        "size_bytes": 13494568
+      }
+    ],
+    "logical_size": {
+      "records": 253680,
+      "features": 21,
+      "unit": "raw rows"
+    },
+    "target": "diabetes_binary",
+    "columns": [
+      {
+        "name": "id",
+        "dtype": "integer",
+        "role": "id"
+      },
+      {
+        "name": "diabetes_binary",
+        "dtype": "integer",
+        "role": "target"
+      },
+      {
+        "name": "high_bp",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "high_chol",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "chol_check",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "bmi",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "smoker",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "stroke",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "heart_diseaseor_attack",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "phys_activity",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "fruits",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "veggies",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "hvy_alcohol_consump",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "any_healthcare",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "no_docbc_cost",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "gen_hlth",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "ment_hlth",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "phys_hlth",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "diff_walk",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "sex",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "age",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "education",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "income",
+        "dtype": "integer",
+        "role": "feature"
+      }
+    ],
+    "parent_dataset_ids": [],
+    "data_card_path": "report/references/dataset_cards/v3/ch2_cdc_diabetes.md"
+  },
+  "inspection": {
+    "records": 253680,
+    "features": 21,
+    "unit": "raw rows",
+    "columns": [
+      {
+        "name": "id",
+        "dtype": "integer",
+        "role": "id"
+      },
+      {
+        "name": "diabetes_binary",
+        "dtype": "integer",
+        "role": "target"
+      },
+      {
+        "name": "high_bp",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "high_chol",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "chol_check",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "bmi",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "smoker",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "stroke",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "heart_diseaseor_attack",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "phys_activity",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "fruits",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "veggies",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "hvy_alcohol_consump",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "any_healthcare",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "no_docbc_cost",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "gen_hlth",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "ment_hlth",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "phys_hlth",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "diff_walk",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "sex",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "age",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "education",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "income",
+        "dtype": "integer",
+        "role": "feature"
+      }
+    ],
+    "observed_columns": [
+      "ID",
+      "Diabetes_binary",
+      "HighBP",
+      "HighChol",
+      "CholCheck",
+      "BMI",
+      "Smoker",
+      "Stroke",
+      "HeartDiseaseorAttack",
+      "PhysActivity",
+      "Fruits",
+      "Veggies",
+      "HvyAlcoholConsump",
+      "AnyHealthcare",
+      "NoDocbcCost",
+      "GenHlth",
+      "MentHlth",
+      "PhysHlth",
+      "DiffWalk",
+      "Sex",
+      "Age",
+      "Education",
+      "Income"
+    ],
+    "raw_to_contract_aliases": {
+      "ID": "id",
+      "Diabetes_binary": "diabetes_binary",
+      "HighBP": "high_bp",
+      "HighChol": "high_chol",
+      "CholCheck": "chol_check",
+      "BMI": "bmi",
+      "Smoker": "smoker",
+      "Stroke": "stroke",
+      "HeartDiseaseorAttack": "heart_diseaseor_attack",
+      "PhysActivity": "phys_activity",
+      "Fruits": "fruits",
+      "Veggies": "veggies",
+      "HvyAlcoholConsump": "hvy_alcohol_consump",
+      "AnyHealthcare": "any_healthcare",
+      "NoDocbcCost": "no_docbc_cost",
+      "GenHlth": "gen_hlth",
+      "MentHlth": "ment_hlth",
+      "PhysHlth": "phys_hlth",
+      "DiffWalk": "diff_walk",
+      "Sex": "sex",
+      "Age": "age",
+      "Education": "education",
+      "Income": "income"
+    },
+    "excluded_feature_columns": [
+      "id"
+    ],
+    "checks": [
+      "row_count",
+      "column_schema"
+    ]
+  },
+  "archive_inventory": null,
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "training_executed": false,
+  "test_evaluation_executed": false
+}

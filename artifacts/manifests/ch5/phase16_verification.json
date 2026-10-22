@@ -1,0 +1,60 @@
+{
+  "phase": 16,
+  "status": "PASS",
+  "checks_passed": 8,
+  "checks_total": 8,
+  "checks": [
+    {
+      "name": "runtime_manifest_contract",
+      "status": "PASS",
+      "detail": "safe portable contract"
+    },
+    {
+      "name": "runtime_artifact_integrity",
+      "status": "PASS",
+      "detail": "6 hashes verified"
+    },
+    {
+      "name": "phase15_lock_preserved",
+      "status": "PASS",
+      "detail": "560c671a3920bd6bde9f7fc005f3c952f857c55969c989bb6109932623210c9e"
+    },
+    {
+      "name": "phase15_test_not_rerun",
+      "status": "PASS",
+      "detail": {
+        "status": "COMPLETE",
+        "run_count": 1
+      }
+    },
+    {
+      "name": "no_arbitrary_execution",
+      "status": "PASS",
+      "detail": "no shell/eval/exec code path"
+    },
+    {
+      "name": "render_blueprint",
+      "status": "PASS",
+      "detail": "backend + static service contract"
+    },
+    {
+      "name": "react_kg_rag_page",
+      "status": "PASS",
+      "detail": [
+        "web/src/App.tsx",
+        "web/src/api/knowledgeApi.ts",
+        "web/src/pages/KnowledgeRagPage.tsx"
+      ]
+    },
+    {
+      "name": "real_runtime_smoke",
+      "status": "PASS",
+      "detail": {
+        "medical_citations": 1,
+        "finance_citations": 1,
+        "injection_abstained": true,
+        "artifact_version": "phase16-b4-560c671a3920"
+      }
+    }
+  ]
+}

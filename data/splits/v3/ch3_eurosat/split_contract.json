@@ -1,0 +1,47 @@
+{
+  "dataset_id": "ch3_eurosat",
+  "dataset_sha256": "8b6306b317c8ef119144c9360da8c7c58a3180da3a564d8cadd21330bc9ffe22",
+  "evidence_kind": "measured",
+  "group_key": "transitive_feature_or_pixel_or_verified_property_identity",
+  "leakage_audit": {
+    "path": "artifacts/manifests/phase24/ch3_eurosat/leakage_audit.json",
+    "sha256": "5fa5100182be29379ca3508366e7e78190b78bdbf6577bde717dd4cbb5254350"
+  },
+  "method": "group_stratified",
+  "partitions": [
+    {
+      "count": 18900,
+      "ids": {
+        "path": "data/splits/v3/ch3_eurosat/train.ids.jsonl.gz",
+        "sha256": "10685885f23da328e10cf34da04012acc0d65f14dfb611d7c1601c9840d16b76"
+      },
+      "name": "train",
+      "target_end": null,
+      "target_start": null
+    },
+    {
+      "count": 4050,
+      "ids": {
+        "path": "data/splits/v3/ch3_eurosat/validation.ids.jsonl.gz",
+        "sha256": "f37667247d614e28d6747d9f9e88fa697e845135783ec4f87231940353bd338c"
+      },
+      "name": "validation",
+      "target_end": null,
+      "target_start": null
+    },
+    {
+      "count": 4050,
+      "ids": {
+        "path": "data/splits/v3/ch3_eurosat/test.ids.jsonl.gz",
+        "sha256": "107249689b42b98d0c26eac02abc72e8da6e779e9fe28eba2f5e43d7e9252c56"
+      },
+      "name": "test",
+      "target_end": null,
+      "target_start": null
+    }
+  ],
+  "schema_version": "3.0.0",
+  "seed": 42,
+  "split_id": "ch3_eurosat_v3_seed42",
+  "train_only_preprocessing": true
+}

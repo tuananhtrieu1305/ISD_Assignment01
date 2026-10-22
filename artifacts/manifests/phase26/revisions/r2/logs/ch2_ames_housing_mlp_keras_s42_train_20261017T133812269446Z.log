@@ -1,0 +1,31 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792244299.954422   35216 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792244300.000098   35216 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792244303.925175   35216 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1792244304.859786   35216 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1792244304.885016   35216 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1792244305.051308   35216 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5262 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+epoch=1 train_loss=0.338025 validation_loss=0.141217 best_epoch=1
+epoch=2 train_loss=0.102204 validation_loss=0.112758 best_epoch=2
+epoch=3 train_loss=0.088219 validation_loss=0.111638 best_epoch=3
+epoch=4 train_loss=0.076733 validation_loss=0.112156 best_epoch=3
+epoch=5 train_loss=0.066782 validation_loss=0.110899 best_epoch=5
+epoch=6 train_loss=0.062933 validation_loss=0.096862 best_epoch=6
+epoch=7 train_loss=0.054105 validation_loss=0.095604 best_epoch=7
+epoch=8 train_loss=0.047468 validation_loss=0.088718 best_epoch=8
+epoch=9 train_loss=0.045635 validation_loss=0.103938 best_epoch=8
+epoch=10 train_loss=0.040871 validation_loss=0.095888 best_epoch=8
+epoch=11 train_loss=0.035314 validation_loss=0.105600 best_epoch=8
+epoch=12 train_loss=0.032901 validation_loss=0.107901 best_epoch=8
+epoch=13 train_loss=0.031381 validation_loss=0.108486 best_epoch=8
+epoch=14 train_loss=0.026028 validation_loss=0.102372 best_epoch=8
+{
+  "run_id": "ch2_ames_housing_mlp_keras_s42",
+  "status": "succeeded",
+  "epochs": 14,
+  "best_epoch": 7,
+  "primary_metric": 22717.47918662582,
+  "train_seconds": 11.629828631000237
+}

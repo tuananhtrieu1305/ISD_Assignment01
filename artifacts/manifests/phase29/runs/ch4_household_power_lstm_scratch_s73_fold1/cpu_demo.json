@@ -1,0 +1,97 @@
+{
+  "canonical_x_sha256": "a57bca9429a0cdfdc0c81ab260776a5b30f0796ce4a059319fe6743f8ee0361e",
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_lstm/ch4_household_power_lstm_scratch_s73_fold1/best.npz",
+    "sha256": "2ee6570acfafc3dc803952eea13a287040ac36eb909e6dd12a4bc9cabb1671c1"
+  },
+  "comparisons": {
+    "atol": 1e-05,
+    "cpu_reference": {
+      "max_absolute_error": 0.0,
+      "output": [
+        [
+          2.1655657291412354,
+          1.0779322385787964,
+          1.4988800287246704
+        ],
+        [
+          2.177034854888916,
+          0.885155439376831,
+          1.481682300567627
+        ],
+        [
+          1.9605052471160889,
+          0.6142743825912476,
+          1.2984685897827148
+        ],
+        [
+          1.577567219734192,
+          0.6512194871902466,
+          1.0273360013961792
+        ]
+      ],
+      "status": "PASS"
+    },
+    "original_gpu_cpu_gate": {
+      "max_absolute_error": 0.0,
+      "output": [
+        [
+          2.1655657291412354,
+          1.0779322385787964,
+          1.4988800287246704
+        ],
+        [
+          2.177034854888916,
+          0.885155439376831,
+          1.481682300567627
+        ],
+        [
+          1.9605052471160889,
+          0.6142743825912476,
+          1.2984685897827148
+        ],
+        [
+          1.577567219734192,
+          0.6512194871902466,
+          1.0273360013961792
+        ]
+      ],
+      "status": "PASS"
+    },
+    "rtol": 0.0001
+  },
+  "export_reference_policy": "native_cpu; GPU comparison retained diagnostic, original tolerance unchanged",
+  "ids": [
+    "HOUSEHOLD/2006-12-23T19:00:00",
+    "HOUSEHOLD/2006-12-23T20:00:00",
+    "HOUSEHOLD/2006-12-23T23:00:00",
+    "HOUSEHOLD/2006-12-24T00:00:00"
+  ],
+  "input_split": "train",
+  "max_absolute_error": 0.0,
+  "raw_output": [
+    [
+      2.1655657291412354,
+      1.0779322385787964,
+      1.4988800287246704
+    ],
+    [
+      2.177034854888916,
+      0.885155439376831,
+      1.481682300567627
+    ],
+    [
+      1.9605052471160889,
+      0.6142743825912476,
+      1.2984685897827148
+    ],
+    [
+      1.577567219734192,
+      0.6512194871902466,
+      1.0273360013961792
+    ]
+  ],
+  "serving_backend": "numpy_cpu_portable",
+  "status": "PASS",
+  "training_implementation": "scratch"
+}

@@ -1,0 +1,76 @@
+{
+  "category": "tool_failure",
+  "domain": "house",
+  "metrics": {
+    "answer_completion": 0,
+    "citation_correctness": 0,
+    "latency_ms": 9.065561000170419,
+    "message_count": 1,
+    "numeric_parity": 0,
+    "peak_child_rss_bytes": 171745280,
+    "refusal_correctness": null,
+    "routing_accuracy": null,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 1,
+    "messages": [
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "house_numeric_025"
+        },
+        "node_id": "node_1",
+        "output": {
+          "code": "unavailable",
+          "peak_rss_bytes": 171745280,
+          "status": "error"
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 171745280,
+    "reason": "tool_unavailable",
+    "route": "house",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "Không thực hiện yêu cầu: tool_unavailable.",
+      "citations": [],
+      "domain": "house",
+      "evidence_kind": "measured",
+      "latency_ms": 8.110505999866291,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "direct",
+          "artifact_refs": [],
+          "duration_ms": 7.923960998596158,
+          "input_sha256": "02953c749ce3bbbfa9760be28f295a525d6f6151d6fdba08e7af0514dc24d86f",
+          "node_id": "node_1",
+          "outcome": "error",
+          "output_sha256": "cb701afb61e6824f2ba33d0c6a132ba3e19bfd547dbbbe4888a6430c214074e4",
+          "parent_ids": [],
+          "tool": "predict_house"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "failed",
+      "task_id": "house_tool_failure_f2_2",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_7304309cfedf0876244e_a0",
+      "variant": "A0"
+    },
+    "values": [],
+    "verification": "not_run",
+    "wall_latency_ms": 9.065561000170419
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "challenge",
+  "task_id": "house_tool_failure_f2_2",
+  "variant": "A0"
+}

@@ -1,0 +1,328 @@
+# MỤC LỤC NỘI DUNG
+
+Số trang được tạo từ bản DOCX đã phân trang; danh mục này không gán số dự kiến thành số thật.
+
+- MỞ ĐẦU
+  - 0.1. Lý do chọn đề tài
+  - 0.2. Mục tiêu và câu hỏi nghiên cứu
+  - 0.3. Đối tượng và phạm vi
+  - 0.4. Phương pháp thực hiện
+  - 0.5. Ý nghĩa và giới hạn sử dụng
+  - 0.6. Bố cục tiểu luận
+- CHƯƠNG 1. LỊCH SỬ PHÁT TRIỂN TRÍ TUỆ NHÂN TẠO
+  - 1.1. Tiền đề lý thuyết trước khi AI thành ngành
+    - 1.1.1. Logic hình thức, tính toán và neuron nhân tạo
+    - 1.1.2. McCulloch–Pitts và mô hình hóa hoạt động thần kinh
+  - 1.2. Turing và câu hỏi về trí tuệ máy
+    - 1.2.1. Imitation Game năm 1950
+    - 1.2.2. Ý nghĩa và giới hạn của phép thử hành vi
+  - 1.3. Dartmouth 1955–1956 và sự hình thành tên gọi AI
+    - 1.3.1. Mục tiêu trong đề xuất Dartmouth
+    - 1.3.2. Kỳ vọng ban đầu và những hướng nghiên cứu chính
+  - 1.4. Từ AI biểu tượng đến các chu kỳ hưng thịnh–suy giảm
+    - 1.4.1. Tìm kiếm, biểu diễn tri thức và hệ chuyên gia
+    - 1.4.2. AI winter: giới hạn dữ liệu, tính toán và kỳ vọng
+  - 1.5. Sự trỗi dậy của machine learning và deep learning
+    - 1.5.1. Perceptron, backpropagation và học biểu diễn
+    - 1.5.2. CNN, ImageNet và bước ngoặt AlexNet
+    - 1.5.3. RNN, LSTM, attention và Transformer
+  - 1.6. Bài học lịch sử cho thực nghiệm hiện đại
+    - 1.6.1. Dữ liệu, compute, kiến trúc và protocol đánh giá
+    - 1.6.2. Tính tái lập, đạo đức và giới hạn suy diễn
+  - 1.7. Ba benchmark minh họa lịch sử
+    - 1.7.1. Iris và phân loại từ các phép đo
+    - 1.7.2. MNIST và học biểu diễn từ điểm ảnh
+    - 1.7.3. ImageNet và giới hạn của metadata
+    - 1.7.4. Liên hệ với các chương thực nghiệm
+    - Hồ sơ ch1_iris_history
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+    - Hồ sơ ch1_mnist_history
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+    - Hồ sơ ch1_imagenet_history
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - 1.8. Tiểu kết
+- CHƯƠNG 2. CÁC KỸ THUẬT MACHINE LEARNING CƠ BẢN
+  - 2.1. Mở đầu
+  - 2.2. Những kỹ thuật nền tảng
+    - 2.2.1. Tiền xử lý và chia dữ liệu
+    - 2.2.2. Mô hình đơn giản và mô hình tuyến tính
+    - 2.2.3. MLP và sáu lớp học được
+    - 2.2.4. Hợp các hàm và vai trò từng hàm
+    - 2.2.5. Học trọng số và chọn checkpoint
+    - 2.2.6. Liên hệ trực tiếp ba đường code
+  - 2.3. Dữ liệu và giao thức thực nghiệm
+    - 2.3.1. Ba bộ dữ liệu
+    - 2.3.2. Điều kiện so sánh đã khóa
+    - 2.3.3. Cách đánh giá và giới hạn số đo
+  - 2.4. Kết quả thực nghiệm
+    - 2.4.1. CDC Diabetes
+    - 2.4.2. Ames Housing
+    - 2.4.3. Bank Marketing
+    - 2.4.4. Thời gian, bộ nhớ và kích thước
+    - 2.4.5. Xác suất, sai số và phân tích nhóm
+  - 2.5. Kiểm chứng mã và hợp đồng mô hình
+  - 2.6. Tiểu kết
+  - 2.7. Mẫu dữ liệu và đường dẫn hồ sơ
+    - ch2_cdc_diabetes
+    - ch2_ames_housing
+    - ch2_bank_marketing
+  - 2.8. Triển khai ngắn
+- CHƯƠNG 3. MẠNG NƠ-RON TÍCH CHẬP (CNN)
+  - 3.1. Mở đầu
+  - 3.2. Các thành phần cơ bản
+    - 3.2.1. Ảnh, kênh màu và batch
+    - 3.2.2. Tích chập: học một bộ lọc dùng ở nhiều vị trí
+    - 3.2.3. ReLU và pooling
+    - 3.2.4. Dense, logits, softmax và loss
+  - 3.3. Kiến trúc và hợp các hàm
+    - 3.3.1. Bảy lớp học được
+    - 3.3.2. Hợp hàm: đầu ra bước trước là đầu vào bước sau
+    - 3.3.3. Ba cách triển khai cùng một mô hình
+  - 3.4. Dữ liệu và giao thức đánh giá
+    - 3.4.1. Ba nguồn ảnh và kích cỡ
+    - 3.4.2. Mẫu đầu vào/nhãn thật và phân bố
+    - 3.4.3. Chống rò rỉ và phạm vi so sánh
+    - 3.4.4. Huấn luyện, metric và chi phí chạy
+  - 3.5. Kết quả thực nghiệm
+    - 3.5.1. Recall từng lớp và lỗi nhầm lẫn
+      - IDRiD
+      - EuroSAT
+      - CIFAR-10
+    - 3.5.2. Thời gian, bộ nhớ và checkpoint
+    - 3.5.3. Quá trình học và minh họa độ nhạy
+  - 3.6. Tiểu kết
+  - 3.7. Mẫu dữ liệu và đường dẫn hồ sơ
+    - ch3_idrid
+    - ch3_eurosat
+    - ch3_cifar10
+  - 3.8. Triển khai ngắn
+- CHƯƠNG 4. RNN–LSTM VÀ DỰ ĐOÁN CHUỖI THỜI GIAN
+  - 4.1. Bài toán dữ liệu tuần tự
+  - 4.2. Ba dataset và cách chia theo thời gian
+    - 4.2.1. Nguồn, kích cỡ và ý nghĩa đầu ra
+    - 4.2.2. Mẫu input/output thật và phân bố
+    - 4.2.3. Causal windows, scaler và rolling validation
+  - 4.3. RNN sáu lớp và hợp các hàm
+    - 4.3.1. Một bước nhớ, hai chiều lặp
+    - 4.3.2. Luồng tổng thể và bảng shape
+    - 4.3.3. Các hàm cốt lõi và mapping sang code
+    - 4.3.4. Scratch, Keras và PyTorch
+  - 4.4. LSTM: đường bộ nhớ và các cổng
+    - 4.4.1. Vì sao bổ sung LSTM?
+    - 4.4.2. Dữ liệu đầu vào và đầu ra
+    - 4.4.3. Một bước LSTM: giữ, ghi và xuất
+    - 4.4.4. Sáu lớp học được và hợp các hàm
+    - 4.4.5. Ba implementation và các hàm huấn luyện
+    - 4.4.6. Code cốt lõi ở ba cách viết
+  - 4.5. Giao thức so sánh và ý nghĩa số đo
+  - 4.6. Kết quả: LSTM không mặc định tốt hơn RNN
+    - 4.6.1. Chất lượng trên TEST chung
+    - 4.6.2. Horizon dài và biến động giai đoạn
+    - 4.6.3. Ví dụ dự đoán và khác biệt giữa nền kinh tế
+  - 4.7. Quá trình học, cổng và gradient
+  - 4.8. Chi phí, sai lệch đo và giới hạn
+  - 4.9. Mẫu dữ liệu và đường dẫn hồ sơ
+    - ch4_gold_pink_sheet
+    - ch4_bis_house_prices
+    - ch4_household_power
+  - 4.10. Triển khai ngắn
+- CHƯƠNG 5. KNOWLEDGE BASE, KNOWLEDGE GRAPH VÀ RETRIEVAL-AUGMENTED GENERATION
+  - 5.1. Mở đầu
+    - 5.1.1. Từ kho tri thức đến KG và RAG
+    - 5.1.2. Vai trò và ý nghĩa của việc kết hợp
+  - 5.2. Knowledge Base và Knowledge Graph
+    - 5.2.1. Dữ liệu, giấy phép và phạm vi sử dụng
+    - 5.2.2. Schema, provenance và hai đồ thị miền
+  - 5.3. Retrieval-Augmented Generation
+    - 5.3.1. Ingestion, chunking và lập chỉ mục
+    - 5.3.2. Trả lời grounded, citation và từ chối
+    - 5.3.3. Protocol và metric
+  - 5.4. Case study KB và RAG cho bệnh đái tháo đường
+    - 5.4.1. Truy hồi qua thực thể và đường đi graph
+    - 5.4.2. Sai số và giới hạn an toàn
+  - 5.5. Case study KB và RAG cho báo cáo doanh nghiệp
+    - 5.5.1. Retrieval không đồng nhất với suy luận số
+    - 5.5.2. Phân tích lỗi, provenance và giới hạn sử dụng
+  - 5.6. Hợp các hàm và contract dùng chung
+  - 5.7. Cầu nối sang hệ đa tác tử
+  - 5.8. Tiểu kết
+  - 5.9. Mẫu dữ liệu và đường dẫn hồ sơ
+    - ch5_medquad_diabetes
+    - ch5_finqa
+    - ch5_wikidata_subgraphs
+  - 5.10. Triển khai ngắn
+- CHƯƠNG 6. HỆ ĐA TÁC TỬ (MULTI-AGENT SYSTEMS)
+  - 6.1. Agent và phối hợp nhiều agent
+    - 6.1.1. Tác tử là gì?
+    - 6.1.2. Ba cấu hình được so sánh
+  - 6.2. Ba bộ nhiệm vụ diabetes, house, gold
+    - 6.2.1. Nguồn và kích cỡ
+    - 6.2.2. Phân bố, mẫu đầu ra và giới hạn
+  - 6.3. Router, specialist, verifier và reporter
+  - 6.4. Hợp hàm, công cụ và trace có provenance
+    - 6.4.1. Dữ liệu đi qua hệ thế nào?
+    - 6.4.2. Giải thích từng hàm
+  - 6.5. Benchmark A0/A1/A2 và đánh giá
+    - 6.5.1. Giao thức và mẫu số
+    - 6.5.2. Kết quả TEST tác tử
+    - 6.5.3. An toàn và ca lỗi
+  - 6.6. Giới hạn, an toàn và xử lý lỗi
+  - 6.7. Mẫu dữ liệu và đường dẫn hồ sơ
+    - ch6_diabetes_tasks
+    - ch6_house_tasks
+    - ch6_gold_tasks
+  - 6.8. Triển khai ngắn
+- KẾT LUẬN
+  - K.1. Kết quả đạt được
+  - K.2. Bài học về triển khai và tính tái lập
+  - K.3. Hạn chế và hướng phát triển
+- TÀI LIỆU THAM KHẢO
+- PHỤ LỤC A. HỒ SƠ DỮ LIỆU
+  - A.1. ch1_iris_history
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.2. ch1_mnist_history
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.3. ch1_imagenet_history
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.4. ch2_cdc_diabetes
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.5. ch2_ames_housing
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.6. ch2_bank_marketing
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.7. ch3_idrid
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.8. ch3_eurosat
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.9. ch3_cifar10
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.10. ch4_gold_pink_sheet
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.11. ch4_bis_house_prices
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.12. ch4_household_power
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.13. ch5_medquad_diabetes
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.14. ch5_finqa
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.15. ch5_wikidata_subgraphs
+      - Nguồn, kích cỡ và cấu trúc
+      - Mẫu input/output
+      - Phân bố và chất lượng dữ liệu
+      - Cách chia tập và tiền xử lý
+      - Nhận xét và giới hạn
+      - Bằng chứng tái lập
+  - A.16. ch6_diabetes_tasks
+  - A.17. ch6_house_tasks
+  - A.18. ch6_gold_tasks
+- PHỤ LỤC B. HỢP ĐỒNG HÀM VÀ MÃ NGUỒN
+  - B.1. ch2_cdc_diabetes / mlp
+  - B.2. ch2_ames_housing / mlp
+  - B.3. ch2_bank_marketing / mlp
+  - B.4. ch3_idrid / cnn
+  - B.5. ch3_eurosat / cnn
+  - B.6. ch3_cifar10 / cnn
+  - B.7. ch4_gold_pink_sheet / rnn
+  - B.8. ch4_gold_pink_sheet / lstm
+  - B.9. ch4_bis_house_prices / rnn
+  - B.10. ch4_bis_house_prices / lstm
+  - B.11. ch4_household_power / rnn
+  - B.12. ch4_household_power / lstm
+  - B.13. Đối chiếu tất cả implementation
+- PHỤ LỤC C. HƯỚNG DẪN TÁI LẬP VÀ DEMO
+  - C.1. Môi trường và đường dẫn nguồn
+  - C.2. Chạy giao diện local
+  - C.3. Render và trạng thái triển khai
+  - C.4. Đọc bằng chứng và các trường hợp ngoại lệ
+- PHỤ LỤC D. TRÍCH MÃ NGUỒN ĐÃ THỰC THI
+  - D.1. Scratch: forward cho MLP/CNN/RNN/LSTM
+  - D.2. Scratch: nối loss, backward và gradient
+  - D.3. Scratch: clipping và optimizer update
+  - D.4. Keras/TensorFlow: tạo các lớp từ cùng plan
+  - D.5. PyTorch: tạo các lớp từ cùng plan

@@ -1,0 +1,586 @@
+{
+  "cases": [
+    {
+      "dataset_id": "ch2_cdc_diabetes",
+      "models": 6,
+      "output": {
+        "dataset_id": "ch2_cdc_diabetes",
+        "ids": [
+          "row_0000015",
+          "row_0000017",
+          "row_0000024",
+          "row_0000027"
+        ],
+        "input_split": "train",
+        "known_outputs": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "models": [
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_mlp_scratch_s42/best.npz",
+              "sha256": "cc7d28232eb1a818cc0c10d9047b4a43f4ef25ac7c06b2737870c63ae644fdb8"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                0.7461313605308533,
+                0.25386863946914673
+              ],
+              [
+                0.8111369609832764,
+                0.18886303901672363
+              ],
+              [
+                0.4104534387588501,
+                0.5895465612411499
+              ],
+              [
+                0.26753920316696167,
+                0.7324607968330383
+              ]
+            ],
+            "run_id": "ch2_cdc_diabetes_mlp_scratch_s42",
+            "trained_implementation": "scratch"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_mlp_keras_s42/best.npz",
+              "sha256": "cefbc0936cc05128990bf0ea6910b2a855aa0ff3dc8dc6fd967e08ad4416d67b"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                0.7461313009262085,
+                0.2538687288761139
+              ],
+              [
+                0.8111369609832764,
+                0.18886305391788483
+              ],
+              [
+                0.4104534387588501,
+                0.5895465612411499
+              ],
+              [
+                0.26753920316696167,
+                0.7324607968330383
+              ]
+            ],
+            "run_id": "ch2_cdc_diabetes_mlp_keras_s42",
+            "trained_implementation": "keras"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_mlp_pytorch_s42/best.npz",
+              "sha256": "154d241519f62b30923fc38836be80d6622a60d1ccc56946a23ce0fac8d6a89b"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                0.7461313605308533,
+                0.25386863946914673
+              ],
+              [
+                0.8111369609832764,
+                0.18886303901672363
+              ],
+              [
+                0.4104534387588501,
+                0.5895465612411499
+              ],
+              [
+                0.26753926277160645,
+                0.7324607372283936
+              ]
+            ],
+            "run_id": "ch2_cdc_diabetes_mlp_pytorch_s42",
+            "trained_implementation": "pytorch"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_majority_s42/best.npz",
+              "sha256": "7b7c27b5dbe695344f35d0ae7c9ba9b2004ecd1dff9c63137a5fa8f9c769f9bc"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ]
+            ],
+            "run_id": "ch2_cdc_diabetes_majority_s42",
+            "trained_implementation": "majority"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_logistic_regression_s42/best.npz",
+              "sha256": "5a0460cca79653c28b96c6ac05153056838ce8596f13af40dea23fb6516807a6"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                0.705990195274353,
+                0.294009804725647
+              ],
+              [
+                0.8443224430084229,
+                0.15567752718925476
+              ],
+              [
+                0.41261035203933716,
+                0.5873896479606628
+              ],
+              [
+                0.09954631328582764,
+                0.9004536867141724
+              ]
+            ],
+            "run_id": "ch2_cdc_diabetes_logistic_regression_s42",
+            "trained_implementation": "logistic_regression"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_random_forest_s42/best.npz",
+              "sha256": "a415606d0a3e46d706b90ec285e39ef1d3f17d90cfe7cd19b407d06d9ba6abd0"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                0.8224343043867971,
+                0.17756569561320285
+              ],
+              [
+                0.741524338941412,
+                0.25847566105858827
+              ],
+              [
+                0.3580739760460544,
+                0.6419260239539458
+              ],
+              [
+                0.18251072961743403,
+                0.8174892703825667
+              ]
+            ],
+            "run_id": "ch2_cdc_diabetes_random_forest_s42",
+            "trained_implementation": "random_forest"
+          }
+        ],
+        "seed": 42,
+        "warning": "Academic demonstration, not clinical diagnosis or current market appraisal."
+      },
+      "samples": 4,
+      "status": "PASS"
+    },
+    {
+      "dataset_id": "ch2_ames_housing",
+      "models": 6,
+      "output": {
+        "dataset_id": "ch2_ames_housing",
+        "ids": [
+          "row_0000001",
+          "row_0000002",
+          "row_0000003",
+          "row_0000004"
+        ],
+        "input_split": "train",
+        "known_outputs": [
+          105000,
+          172000,
+          244000,
+          189900
+        ],
+        "models": [
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_ames_housing_mlp_scratch_s42/best.npz",
+              "sha256": "a701995927fa16fcf2d7196660bfdd17050af90d376cdb8e9858c85ba92ce9fe"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                118115.72861493682
+              ],
+              [
+                177813.2230632916
+              ],
+              [
+                253889.1433285652
+              ],
+              [
+                186300.57659544828
+              ]
+            ],
+            "run_id": "ch2_ames_housing_mlp_scratch_s42",
+            "trained_implementation": "scratch"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_ames_housing_mlp_keras_s42/best.npz",
+              "sha256": "aec13dae7e99dcb15ece0ef4192d7519971aebb13ce1ba0ae53daa817a5b4719"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                118069.97264197131
+              ],
+              [
+                177865.53756285895
+              ],
+              [
+                253919.28817275143
+              ],
+              [
+                186314.20848858624
+              ]
+            ],
+            "run_id": "ch2_ames_housing_mlp_keras_s42",
+            "trained_implementation": "keras"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_ames_housing_mlp_pytorch_s42/best.npz",
+              "sha256": "ba53b8b1f0cc4aa279eebe227e7b05c466c8c1e9c923afb54b781e02700f74a4"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                118069.96354987533
+              ],
+              [
+                177865.39961871543
+              ],
+              [
+                253919.32454113528
+              ],
+              [
+                186314.21303463422
+              ]
+            ],
+            "run_id": "ch2_ames_housing_mlp_pytorch_s42",
+            "trained_implementation": "pytorch"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_ames_housing_median_s42/best.npz",
+              "sha256": "cdc653a1ac23f15e4116d0d32642cf29beeb219c5876dd727db902f251a4c7bb"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                160000.00071568173
+              ],
+              [
+                160000.00071568173
+              ],
+              [
+                160000.00071568173
+              ],
+              [
+                160000.00071568173
+              ]
+            ],
+            "run_id": "ch2_ames_housing_median_s42",
+            "trained_implementation": "median"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_ames_housing_ridge_s42/best.npz",
+              "sha256": "5d014698b7b49f8190bcaa30389e4ac32995a7bbeb4e85c1fcc2fd790d59713a"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                123149.267509172
+              ],
+              [
+                122206.98086710583
+              ],
+              [
+                272886.85055401543
+              ],
+              [
+                187271.29251684246
+              ]
+            ],
+            "run_id": "ch2_ames_housing_ridge_s42",
+            "trained_implementation": "ridge"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_ames_housing_random_forest_s42/best.npz",
+              "sha256": "f5013ccb902221329929309915fec364c81dd11eac4031ef0b35162ca79a3dec"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                120594.89808071044
+              ],
+              [
+                160682.33352104237
+              ],
+              [
+                243616.22846512715
+              ],
+              [
+                182780.68400734197
+              ]
+            ],
+            "run_id": "ch2_ames_housing_random_forest_s42",
+            "trained_implementation": "random_forest"
+          }
+        ],
+        "seed": 42,
+        "warning": "Academic demonstration, not clinical diagnosis or current market appraisal."
+      },
+      "samples": 4,
+      "status": "PASS"
+    },
+    {
+      "dataset_id": "ch2_bank_marketing",
+      "models": 6,
+      "output": {
+        "dataset_id": "ch2_bank_marketing",
+        "ids": [
+          "row_0000001",
+          "row_0000004",
+          "row_0000014",
+          "row_0000015"
+        ],
+        "input_split": "train",
+        "known_outputs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "models": [
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_bank_marketing_mlp_scratch_s42/best.npz",
+              "sha256": "8b793b1b51caaaa0be4e277092f31a9754ae7375f9c5aa40b85cc78d9d96d1a4"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                0.7316338419914246,
+                0.26836615800857544
+              ],
+              [
+                0.7850863933563232,
+                0.21491363644599915
+              ],
+              [
+                0.7681534290313721,
+                0.23184658586978912
+              ],
+              [
+                0.823839545249939,
+                0.17616048455238342
+              ]
+            ],
+            "run_id": "ch2_bank_marketing_mlp_scratch_s42",
+            "trained_implementation": "scratch"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_bank_marketing_mlp_keras_s42/best.npz",
+              "sha256": "45840e16d3295cb2c32d268d435f8901742bc4ffc0b13fdddcc3bb28f322ff8a"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                0.7353616952896118,
+                0.2646382749080658
+              ],
+              [
+                0.7918707132339478,
+                0.20812927186489105
+              ],
+              [
+                0.7837411165237427,
+                0.21625889837741852
+              ],
+              [
+                0.8275883793830872,
+                0.17241163551807404
+              ]
+            ],
+            "run_id": "ch2_bank_marketing_mlp_keras_s42",
+            "trained_implementation": "keras"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_bank_marketing_mlp_pytorch_s42/best.npz",
+              "sha256": "70355014372e2131d9413e340ba9a23e47bd0253c88c900ceda2a17d2983e894"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                0.7382909059524536,
+                0.2617090940475464
+              ],
+              [
+                0.7870090007781982,
+                0.21299101412296295
+              ],
+              [
+                0.7772707939147949,
+                0.22272923588752747
+              ],
+              [
+                0.8234860897064209,
+                0.1765138953924179
+              ]
+            ],
+            "run_id": "ch2_bank_marketing_mlp_pytorch_s42",
+            "trained_implementation": "pytorch"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_bank_marketing_majority_s42/best.npz",
+              "sha256": "7b7c27b5dbe695344f35d0ae7c9ba9b2004ecd1dff9c63137a5fa8f9c769f9bc"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ]
+            ],
+            "run_id": "ch2_bank_marketing_majority_s42",
+            "trained_implementation": "majority"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_bank_marketing_logistic_regression_s42/best.npz",
+              "sha256": "bce93991d8cc72162971443ada8eb3ff083aa950f72d7225a62794ded1144dc7"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                0.8101018667221069,
+                0.18989814817905426
+              ],
+              [
+                0.6858692765235901,
+                0.3141307234764099
+              ],
+              [
+                0.8397442698478699,
+                0.16025574505329132
+              ],
+              [
+                0.8154726028442383,
+                0.18452739715576172
+              ]
+            ],
+            "run_id": "ch2_bank_marketing_logistic_regression_s42",
+            "trained_implementation": "logistic_regression"
+          },
+          {
+            "checkpoint": {
+              "path": "artifacts/models/v3/ch02_ml/ch2_bank_marketing_random_forest_s42/best.npz",
+              "sha256": "7bd6d894a4907bd639907acc5020b654ead301c66c4d51fa0f742dc0d02ea505"
+            },
+            "inference_backend": "numpy_cpu_portable",
+            "prediction": [
+              [
+                0.8471437591714441,
+                0.1528562408285562
+              ],
+              [
+                0.9072459356155477,
+                0.09275406438445227
+              ],
+              [
+                0.9157623228010822,
+                0.08423767719891778
+              ],
+              [
+                0.8961303369790785,
+                0.10386966302092154
+              ]
+            ],
+            "run_id": "ch2_bank_marketing_random_forest_s42",
+            "trained_implementation": "random_forest"
+          }
+        ],
+        "seed": 42,
+        "warning": "Academic demonstration, not clinical diagnosis or current market appraisal."
+      },
+      "samples": 4,
+      "status": "PASS"
+    }
+  ],
+  "preprocessing": [
+    {
+      "batch_size": 1,
+      "dataset_id": "ch2_cdc_diabetes",
+      "device": "cpu",
+      "input_split": "train",
+      "preprocessing_p50_ms": 1.3496080000550137,
+      "preprocessing_p95_ms": 1.872377249947021,
+      "repeats": 30,
+      "scope": "preloaded raw record to canonical float32 vector; no file load or target inverse; no refit",
+      "warmup": 5
+    },
+    {
+      "batch_size": 1,
+      "dataset_id": "ch2_ames_housing",
+      "device": "cpu",
+      "input_split": "train",
+      "preprocessing_p50_ms": 6.083011500322755,
+      "preprocessing_p95_ms": 6.488682800045353,
+      "repeats": 30,
+      "scope": "preloaded raw record to canonical float32 vector; no file load or target inverse; no refit",
+      "warmup": 5
+    },
+    {
+      "batch_size": 1,
+      "dataset_id": "ch2_bank_marketing",
+      "device": "cpu",
+      "input_split": "train",
+      "preprocessing_p50_ms": 1.140759000008984,
+      "preprocessing_p95_ms": 1.4778302000195251,
+      "repeats": 30,
+      "scope": "preloaded raw record to canonical float32 vector; no file load or target inverse; no refit",
+      "warmup": 5
+    }
+  ],
+  "preprocessing_table": {
+    "path": "artifacts/metrics/phase26/tables/preprocessing.csv",
+    "sha256": "a0ceae248435d2e607b5ccfa0784ef2aa0b10cd276e730ed7d5547849322fa73"
+  },
+  "status": "PASS",
+  "test_data_accessed": false,
+  "test_model_forward_executed": false
+}

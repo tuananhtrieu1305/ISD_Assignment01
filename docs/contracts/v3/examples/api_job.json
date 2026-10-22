@@ -1,0 +1,96 @@
+{
+  "schema_version": "3.0.0",
+  "request_id": "fixture_request",
+  "job_id": "fixture_job",
+  "request_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "status": "succeeded",
+  "dataset_id": "ch2_cdc_diabetes",
+  "family": "mlp",
+  "created_at": "2026-10-17T00:00:00Z",
+  "expires_at": "2026-10-18T00:00:00Z",
+  "results": [
+    {
+      "implementation": "scratch",
+      "status": "succeeded",
+      "model_id": "fixture_mlp_scratch",
+      "actual_device": "cpu",
+      "actual_backend": "numpy",
+      "inference_ms": 1,
+      "artifact_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "prediction": {
+        "kind": "classification",
+        "label": "0",
+        "probabilities": [
+          {
+            "label": "0",
+            "value": 0.6
+          },
+          {
+            "label": "1",
+            "value": 0.4
+          }
+        ]
+      },
+      "error": null,
+      "input_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comparison_group_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "implementation": "keras",
+      "status": "succeeded",
+      "model_id": "fixture_mlp_keras",
+      "actual_device": "cpu",
+      "actual_backend": "tensorflow",
+      "inference_ms": 1,
+      "artifact_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "prediction": {
+        "kind": "classification",
+        "label": "0",
+        "probabilities": [
+          {
+            "label": "0",
+            "value": 0.6
+          },
+          {
+            "label": "1",
+            "value": 0.4
+          }
+        ]
+      },
+      "error": null,
+      "input_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comparison_group_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "implementation": "pytorch",
+      "status": "succeeded",
+      "model_id": "fixture_mlp_pytorch",
+      "actual_device": "cpu",
+      "actual_backend": "torch",
+      "inference_ms": 1,
+      "artifact_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "prediction": {
+        "kind": "classification",
+        "label": "0",
+        "probabilities": [
+          {
+            "label": "0",
+            "value": 0.6
+          },
+          {
+            "label": "1",
+            "value": 0.4
+          }
+        ]
+      },
+      "error": null,
+      "input_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "comparison_group_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ],
+  "comparison_valid": true,
+  "comparison_blockers": [],
+  "trace_ids": [],
+  "metric_artifacts": [],
+  "input_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+}

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="4" time="3.984" timestamp="2026-10-20T07:10:15.925422+07:00" hostname="LaptopVJP"><testcase classname="tests.report29.test_acceptance" name="test_report_tables_keep300_rows_and_original_orphan_null_cost" time="0.001"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/DATA/assign/artifacts/manifests/phase29/report_statistics.json'">def test_report_tables_keep300_rows_and_original_orphan_null_cost():
+&gt;       statistics = read_json(BASE / "report_statistics.json")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/report29/test_acceptance.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/common/contracts.py:32: in read_json
+    return json.loads(path.read_text(encoding="utf-8-sig"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/tuananh/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/c/DATA/assign/artifacts/manifests/phase29/report_statistics.json')
+mode = 'r', buffering = -1, encoding = 'utf-8-sig', errors = None
+newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/DATA/assign/artifacts/manifests/phase29/report_statistics.json'
+
+/home/tuananh/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1044: FileNotFoundError</failure></testcase><testcase classname="tests.report29.test_acceptance" name="test_three_executed_notebooks_serve18_independent_cpu_checkpoint_slots" time="0.001"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/DATA/assign/artifacts/manifests/phase29/demo/export.json'">def test_three_executed_notebooks_serve18_independent_cpu_checkpoint_slots():
+&gt;       export = read_json(BASE / "demo/export.json")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/report29/test_acceptance.py:24: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/common/contracts.py:32: in read_json
+    return json.loads(path.read_text(encoding="utf-8-sig"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/tuananh/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/c/DATA/assign/artifacts/manifests/phase29/demo/export.json')
+mode = 'r', buffering = -1, encoding = 'utf-8-sig', errors = None
+newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/DATA/assign/artifacts/manifests/phase29/demo/export.json'
+
+/home/tuananh/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1044: FileNotFoundError</failure></testcase><testcase classname="tests.report29.test_acceptance" name="test_combined_chapter_has_both_families_code_functions_and9_existing_figures" time="0.001"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/DATA/assign/artifacts/manifests/phase29/manuscript_generation.json'">def test_combined_chapter_has_both_families_code_functions_and9_existing_figures():
+&gt;       manuscript = read_json(BASE / "manuscript_generation.json")["manuscript"]
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/report29/test_acceptance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/common/contracts.py:32: in read_json
+    return json.loads(path.read_text(encoding="utf-8-sig"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/tuananh/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/c/DATA/assign/artifacts/manifests/phase29/manuscript_generation.json')
+mode = 'r', buffering = -1, encoding = 'utf-8-sig', errors = None
+newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/DATA/assign/artifacts/manifests/phase29/manuscript_generation.json'
+
+/home/tuananh/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1044: FileNotFoundError</failure></testcase><testcase classname="tests.report29.test_acceptance" name="test_final_registry_is_evaluated_not_initialized_and_keeps_default_seed42" time="0.002"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/DATA/assign/artifacts/manifests/phase29/trained_registry.json'">def test_final_registry_is_evaluated_not_initialized_and_keeps_default_seed42():
+&gt;       registry = read_json(BASE / "trained_registry.json")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/report29/test_acceptance.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/common/contracts.py:32: in read_json
+    return json.loads(path.read_text(encoding="utf-8-sig"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/tuananh/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/c/DATA/assign/artifacts/manifests/phase29/trained_registry.json')
+mode = 'r', buffering = -1, encoding = 'utf-8-sig', errors = None
+newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/DATA/assign/artifacts/manifests/phase29/trained_registry.json'
+
+/home/tuananh/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1044: FileNotFoundError</failure></testcase></testsuite></testsuites>

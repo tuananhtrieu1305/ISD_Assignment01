@@ -1,0 +1,184 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch04_lstm/ch4_household_power_lstm_keras_s17_main/best.npz",
+      "sha256": "923eabe8d3f98e0c66e65c034ef0e6ca3ab7e90146257c669d154be544c1d472"
+    },
+    {
+      "path": "artifacts/models/v3/ch04_lstm/ch4_household_power_lstm_keras_s17_main/best.json",
+      "sha256": "5105fb38a934533a8c768735a006b63f79c4e349c8737da9169617f173656f8d"
+    },
+    {
+      "path": "artifacts/manifests/phase29/runs/ch4_household_power_lstm_keras_s17_main/selection.json",
+      "sha256": "f97569f6e8f1eabac90ea2f58d8576d970c0ec54d4ee31e9c4a0fd8e4ed929b4"
+    },
+    {
+      "path": "artifacts/predictions/phase29/test/ch4_household_power_lstm_keras_s17_main.jsonl.gz",
+      "sha256": "d16095daef3cf8b8361493af3ce26e80574166f48768223a4240dc624d69be53"
+    },
+    {
+      "path": "artifacts/manifests/phase29/test_details/ch4_household_power_lstm_keras_s17_main.json",
+      "sha256": "e176cc770a442c279bc88c60b402e993c00a2e9255ffad358f530985ab1c328f"
+    }
+  ],
+  "backend": "tensorflow",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "09340206e85ab9885292b48debce490f1d5fed9fa68f6826de2dc84109081c2a",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "ee2759761f529286dc4a11456b4e73f0c96ccc098f13ff897ca174498fdacfd1",
+  "config_sha256": "0c70c410b16ce4453148fa2018aa1d9961331e2bf82f70b7afc816f2707c89f8",
+  "dataset_id": "ch4_household_power",
+  "dataset_sha256": "db356f6739f2dbc8f493d383cface41cb84eed4ad572bbfd4b680519034539a1",
+  "device": "cuda:0",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 97142,
+    "inference_p50_ms": 9.64832049976394,
+    "inference_p95_ms": 10.486158800449628,
+    "peak_ram_bytes": 1664770048,
+    "peak_vram_bytes": 27883008,
+    "timed_repeats": 30,
+    "train_seconds": 269.1874820720004,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "lstm",
+  "finished_at": "2026-10-20T00:13:29.976293+00:00",
+  "implementation": "keras",
+  "metrics": [
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.6045440157391822
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.4429052973486889
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 46.84907093100037
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "macro_series_rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.6045440157391822
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.5339391117909182
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.38110370982523956
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 40.19779983351354
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.6441401847235974
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.4765606665707107
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 50.53918887943464
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.6296132528960495
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "kW",
+      "value": 0.4710515156501163
+    },
+    {
+      "direction": "min",
+      "horizon": 24,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 49.81022408005292
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase29/runs/ch4_household_power_lstm_keras_s17_main/model_contract.json",
+    "sha256": "3e34627971e7f1f08be964e90f0a2ec9d6afe680efdef0edeb4c86aa7c5de5f8"
+  },
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch4_household_power/preprocessing.json",
+    "sha256": "1940ded15fe9e51147e5dc0b4ec3dba661ef70a0462dabcec3875b011ca0909e"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch4_household_power_lstm_keras_s17_main",
+  "schema_version": "3.0.0",
+  "seed": 17,
+  "split": "test",
+  "split_id": "ch4_household_power_phase29_main",
+  "split_sha256": "90053761ae0a15d0faa3323fb1a1261425d5204ab0e74416c225613e68f498b8",
+  "started_at": "2026-10-20T00:13:19.963715+00:00",
+  "status": "succeeded",
+  "subset_sha256": "f6de2e1df1ddc0a78130d7bd5ccfe432dc94f143f295d176076ddd3049750a72",
+  "test_seal_id": "ch4_household_power_phase29_joint_test_v1",
+  "track": "matched_subset",
+  "warnings": [
+    "Latest revised snapshots, retrospective observation-origin forecast; no real-time publication/vintage claim or investment advice",
+    "Each rolling fold uses its frozen scaler; windows reset recurrent state",
+    "Train wall includes validation/progress I/O; RAM is process lifetime, VRAM allocator only; CPU/GPU and graph/eager differ",
+    "Joint RNN/LSTM main TEST once after frozen validation selection; no optimizer updates or TEST-input timing repeats",
+    "Train/RAM/VRAM/5warmup30repeat TRAIN-input timing copied byte-value from locked validation metric; not claimed as TEST-only measurements"
+  ]
+}

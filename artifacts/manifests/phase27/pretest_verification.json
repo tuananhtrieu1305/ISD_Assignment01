@@ -1,0 +1,72 @@
+{
+  "at": "2026-10-18T01:40:29.577836+00:00",
+  "auditor": {
+    "path": "scripts/verify_phase27.py",
+    "sha256": "8929cace0580aff718606e93a3388ffdcaf5f2c3a09529a69e01d6cc0751c4ea"
+  },
+  "code_sha256": "01e3a9025202e8e5f047f10f0d0cb9add4a482642c39db3d4fbb5b96688fc2d6",
+  "coverage_percent": 93.10829817158931,
+  "evidence": [
+    {
+      "path": "artifacts/manifests/phase27/cnn_tests.xml",
+      "sha256": "4cf64f13b4170fe383d8fb9b002563d16f3bed86c275d888249c3e5ff3c83d66"
+    },
+    {
+      "path": "artifacts/manifests/phase27/keras_trainer_tests.xml",
+      "sha256": "a66a355c754c51a2e4587912bf728d5ca27a865e56eca2072bd54b0adc4efc39"
+    },
+    {
+      "path": "artifacts/manifests/phase27/demo_tests.xml",
+      "sha256": "64c0ca3f1fcb73364f23dd5bd26daa81799b90244ea18adbad66b6afdce1ea64"
+    },
+    {
+      "path": "artifacts/manifests/phase27/regression-tests.xml",
+      "sha256": "998605d4f37d1f37758ad9716336692468fe76168811eba409c66c4439feab54"
+    },
+    {
+      "path": "artifacts/manifests/phase27/preservation-tests.xml",
+      "sha256": "31961f3da676a341c62b9c9158dd6458c4acff5beaea8beed84733b663db4bbf"
+    },
+    {
+      "path": "artifacts/manifests/phase27/pretest_coverage.json",
+      "sha256": "28602f44f6076f1ddcf232e81efaee9740cb5958ecbbb12b4cb7583cd1eb5b84"
+    }
+  ],
+  "majority_runs": 9,
+  "neural_runs": 27,
+  "protected_locks": {
+    "core25": {
+      "path": "artifacts/manifests/phase25/core_lock.json",
+      "sha256": "596e500edf30f4ab6440eb050f3ff2c274c30a9e02e062831a338ad83fa647d1",
+      "verified_files": 219
+    },
+    "data24": {
+      "path": "artifacts/manifests/phase24/data_lock.json",
+      "sha256": "5ae1091892262b0b2e52a570e19963005da6724a736447bd11b4e9be3b60e37e",
+      "verified_files": 294
+    },
+    "experiment26": {
+      "path": "artifacts/manifests/phase26/revisions/r2/experiment_lock.json",
+      "sha256": "dcf18106ea7ccdd75843cd44f2061ccab492b9e274eaea9e63900a6125198d1c",
+      "verified_files": 1032
+    },
+    "spec22": {
+      "path": "artifacts/manifests/phase22/spec_lock.json",
+      "sha256": "ae78989e584b41539623803fb2a85ae9e0e233617920d0b14826bdfb9603f939",
+      "verified_files": 31
+    }
+  },
+  "selection_artifacts": 333,
+  "stage": "pretest",
+  "status": "PASS",
+  "test_forward_executed_by_auditor": false,
+  "test_saved_rows_audited": 0,
+  "tests": {
+    "cnn_tests.xml": 25,
+    "demo_tests.xml": 4,
+    "keras_trainer_tests.xml": 1,
+    "preservation-tests.xml": 1,
+    "regression-tests.xml": 263
+  },
+  "validated_runs": 36
+}

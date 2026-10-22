@@ -1,0 +1,109 @@
+{
+  "comparison_blockers": [],
+  "comparison_valid": true,
+  "created_at": "2026-10-20T00:25:07.666572+00:00",
+  "dataset_id": "ch4_bis_house_prices",
+  "expires_at": "2026-10-20T01:25:07.666572+00:00",
+  "family": "lstm",
+  "input_sha256": "714f2c607720bcd19c768847985100c0ddba5250d87cad38c9707438bb3cd1a8",
+  "job_id": "lstm_demo_a85807074e77e7ed",
+  "metric_artifacts": [
+    {
+      "path": "artifacts/metrics/phase29/validation/ch4_bis_house_prices_lstm_scratch_s42_main.json",
+      "sha256": "484126e5446b3906651b346b97557fb703fa8d5989bea775bdfc1f743eee3e59"
+    },
+    {
+      "path": "artifacts/metrics/phase29/validation/ch4_bis_house_prices_lstm_keras_s42_main.json",
+      "sha256": "bdeb02e08f2635828f4d068e402d6d9ddd4c94cb5a1c8ab7948c16ac858b80ec"
+    },
+    {
+      "path": "artifacts/metrics/phase29/validation/ch4_bis_house_prices_lstm_pytorch_s42_main.json",
+      "sha256": "92533f9cf1506718fe40eaf81c0fe8877991d1c5a0e5b6070392fcf21d566c8f"
+    }
+  ],
+  "request_id": "lstm_request_a85807074e77e7ed",
+  "request_sha256": "a85807074e77e7edbcb6a487ccbabe371e8f3b0088203091edd27162bc9e2f98",
+  "results": [
+    {
+      "actual_backend": "numpy",
+      "actual_device": "cpu",
+      "artifact_sha256": "d07d75edb09c6b332ea33ba13716769ea2e6dcfd62bc10b01e4e863472e6d6c9",
+      "comparison_group_sha256": "641327eb5529d78aae746993355496140c831417910ec969b2af2465d3a70f62",
+      "error": null,
+      "implementation": "scratch",
+      "inference_ms": 1.0280690003128257,
+      "input_sha256": "714f2c607720bcd19c768847985100c0ddba5250d87cad38c9707438bb3cd1a8",
+      "model_id": "ch4_bis_house_prices_lstm_scratch_s42_main",
+      "prediction": {
+        "horizons": [
+          1,
+          2,
+          4
+        ],
+        "kind": "regression",
+        "unit": "index 2010=100",
+        "values": [
+          78.31360225674926,
+          79.12965390880682,
+          78.78961492957
+        ]
+      },
+      "status": "succeeded"
+    },
+    {
+      "actual_backend": "numpy",
+      "actual_device": "cpu",
+      "artifact_sha256": "9bf94f984126faba9f32f78d8818daa3667e64e08f705bf08e91eacbbca0bb56",
+      "comparison_group_sha256": "641327eb5529d78aae746993355496140c831417910ec969b2af2465d3a70f62",
+      "error": null,
+      "implementation": "keras",
+      "inference_ms": 1.0729259993240703,
+      "input_sha256": "714f2c607720bcd19c768847985100c0ddba5250d87cad38c9707438bb3cd1a8",
+      "model_id": "ch4_bis_house_prices_lstm_keras_s42_main",
+      "prediction": {
+        "horizons": [
+          1,
+          2,
+          4
+        ],
+        "kind": "regression",
+        "unit": "index 2010=100",
+        "values": [
+          78.31356823691573,
+          79.12963421311372,
+          78.78960418646469
+        ]
+      },
+      "status": "succeeded"
+    },
+    {
+      "actual_backend": "numpy",
+      "actual_device": "cpu",
+      "artifact_sha256": "b436ca59209068e98d9e8f3909f3d7a15e8293fbba513e2e863e424a169c791d",
+      "comparison_group_sha256": "641327eb5529d78aae746993355496140c831417910ec969b2af2465d3a70f62",
+      "error": null,
+      "implementation": "pytorch",
+      "inference_ms": 1.2731040005746763,
+      "input_sha256": "714f2c607720bcd19c768847985100c0ddba5250d87cad38c9707438bb3cd1a8",
+      "model_id": "ch4_bis_house_prices_lstm_pytorch_s42_main",
+      "prediction": {
+        "horizons": [
+          1,
+          2,
+          4
+        ],
+        "kind": "regression",
+        "unit": "index 2010=100",
+        "values": [
+          77.61282412483149,
+          78.65048276302045,
+          78.65892863432363
+        ]
+      },
+      "status": "succeeded"
+    }
+  ],
+  "schema_version": "3.0.0",
+  "status": "succeeded",
+  "trace_ids": []
+}

@@ -1,0 +1,3735 @@
+{
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_lstm/ch4_bis_house_prices_lstm_pytorch_s17_main/best.npz",
+    "sha256": "7aef2c6bc84c40cfc8033efc8373c4231bf85b3b76a89f5653c6d98551e35744"
+  },
+  "efficiency_scope": "Train/RAM/VRAM/5warmup30repeat TRAIN-input timing copied byte-value from locked validation metric; not claimed as TEST-only measurements",
+  "evaluator_sha256": "d57fe9be8d8a075525a30f2d7693d77080a79cc3c7f96a50960641995c2ae32c",
+  "metrics": {
+    "by_horizon": {
+      "1": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 36.53676101440819
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.2463702522528165
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 52.84417680473709
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 18.304216779114807
+        }
+      },
+      "2": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 36.471772353632744
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.2696058838772527
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 53.448475656641534
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 18.01090049632014
+        }
+      },
+      "4": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 38.81086196093445
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.25853516950424305
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 56.69300423431775
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 18.87075579297657
+        }
+      }
+    },
+    "by_series": {
+      "Q.AT.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 13.153614530106674
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -27.664598719147026
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 13.547496251513921
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 6.480381167900486
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 6.65722183395246
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -11.897117634926618
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 7.970718521681463
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 3.2427699553527805
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 7.080095639673549
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -7.609669521779775
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 7.592670301324801
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 3.3477093614879947
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 8.963644001244228
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -15.905425882623838
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 10.078287730583327
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 4.356953494913753
+        }
+      },
+      "Q.AU.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 27.062318006060835
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -6.0156465404524635
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 27.634451545960758
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 15.393176122322986
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 26.69269347045697
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -5.123716408563316
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 27.49466459627885
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 14.877850528786855
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 28.888979230115684
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -5.906998505334124
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 29.561469422028086
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 15.601077229028473
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 27.54799690221116
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -5.670479730015911
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 28.24594347216029
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 15.290701293379438
+        }
+      },
+      "Q.BE.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 3.727686659944135
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.45782611078253765
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 4.15909883915771
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 2.4674317195217643
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 4.150423765963953
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.444803331462464
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 4.620425262663664
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 2.7281488876638433
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 5.612569397822881
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -2.0084561642908882
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 6.391059012180411
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 3.6613659991481313
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 4.49689327457699
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -0.9765017417619024
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 5.147558258013083
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 2.95231553544458
+        }
+      },
+      "Q.BG.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 47.99555220335686
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -3.942779441778219
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 49.10798074451791
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 27.659242965036213
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 59.018498572114076
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -5.419415796610209
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 59.60967506279534
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 34.02124778740923
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 80.11303077387812
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -9.788466567749213
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 80.40041697125244
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 45.871241292750504
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 62.375693849783026
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -6.575932890147237
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 64.36648761337234
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 35.85057734839865
+        }
+      },
+      "Q.BR.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 28.260525678818215
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -8.239790146138068
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 28.914373057058132
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 15.096011175489885
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 26.333566172612564
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -6.700901455750831
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 27.012915689166398
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 13.792572227872707
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 28.07859277418578
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -7.548320324948705
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 28.603785281374282
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 14.367636048092173
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 27.557561541872186
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -7.485209370886045
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 28.189330817029013
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 14.418739817151588
+        }
+      },
+      "Q.CA.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 33.6034222797276
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -51.96676763254221
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 33.97458218313123
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 17.08788543322345
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 27.09238179329812
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -23.14464583161991
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 27.626321996574962
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 13.594390823491365
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 17.331966749332803
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -7.785101529676329
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 18.033387213969974
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 8.588686807549205
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 26.009256940786173
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -23.803016599105128
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 27.341598075617036
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 13.090321021421342
+        }
+      },
+      "Q.CH.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 19.347735526956797
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -22.213771066015582
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 19.65279506861095
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 12.748416590779202
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 18.44053571142789
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -15.689996415469789
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 18.852451837790973
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 12.023570064680849
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 17.753705121711935
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -10.530961123356514
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 18.373558590037483
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 11.332690054266962
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 18.51399212003221
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -15.057705540166616
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 18.96694448741975
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 12.034892236575672
+        }
+      },
+      "Q.CL.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 129.94904236525053
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -49.05236631325138
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 131.46586553542988
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 46.15659148334342
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 129.0116501075497
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -47.93688435042837
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 130.55206519483548
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 44.804952645605525
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 126.40759093884067
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -55.66788714856328
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 127.78158684387144
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 42.13095575903832
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 128.45609447054696
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -50.598296968471146
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 129.9426148522931
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 44.36416662932909
+        }
+      },
+      "Q.CN.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 1.9475494445610124
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.9211147154845845
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 2.1318064221936077
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 1.509659627253821
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 4.1405295079125395
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.6299629704834819
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 4.776761034556818
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 3.268419619423043
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 14.45136687634439
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -2.7776183589101318
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 14.696504128302934
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 11.1519385713036
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 6.846481942939314
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -0.3791532263942612
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 9.006465792162713
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 5.31000593932682
+        }
+      },
+      "Q.CO.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 61.32312153293379
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -14.568391765728817
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 63.568386894144346
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 27.14949498299952
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 60.545086853190135
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -13.788297402464185
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 62.84807979861903
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 26.107144063300968
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 63.16124640703135
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -10.586104797202653
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 66.2620765325367
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 26.09152294727729
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 61.67648493105176
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -12.671907738719081
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 64.24298595463155
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 26.449387331192597
+        }
+      },
+      "Q.CY.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 2.185873075792729
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.6821938387016164
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 2.6154396894733205
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 2.2716871703604977
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 2.011845028138676
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.7222276073403098
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 2.3405136222075464
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 2.08840348976752
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 3.7430832661438402
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.052554999727498664
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 4.4367146723280495
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 3.8365215757828213
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 2.6469337900250816
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.48400405144802616
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 3.2661376715555224
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 2.7322040786369466
+        }
+      },
+      "Q.DE.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 22.341099554975163
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -29.696097684228597
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 22.527477619978512
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 13.519498101051255
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 18.837162906344062
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -38.140681455563474
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 19.40123388610402
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 11.329307168322032
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 15.536984672236485
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -27.47609364983873
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 16.962173225032778
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 9.248137330837084
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 18.9050823778519
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -31.317458010833782
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 19.762004324274756
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 11.365647533403457
+        }
+      },
+      "Q.DK.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 14.41119271781136
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -5.969266475794155
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 14.877346472494386
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 9.653080069645283
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 13.75219024158277
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -3.564963825707128
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 14.785750895709857
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 9.084625525274781
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 15.476081012201105
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -2.99997602036356
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 16.780515808590632
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 9.948366590082752
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 14.546487990531745
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -3.80878462498709
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 15.508487766542402
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 9.562024061667605
+        }
+      },
+      "Q.EE.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 115.89500159748154
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -57.993953952133594
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 116.75231283272154
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 43.83295658018225
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 114.15130175135036
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -57.18510859000554
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 115.01221254239277
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 42.33581258453819
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 109.80744874250995
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -59.878240679516274
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 110.62737730020562
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 39.18007740635762
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 113.28458403044728
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -58.28953802265667
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 114.15972464637467
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 41.782948857026014
+        }
+      },
+      "Q.ES.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 5.3459980100090885
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.30598189987226443
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 7.006963447136357
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 4.501983091709933
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 9.003073646874354
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.3881570559354659
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 11.208621962775998
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 7.55521251598979
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 12.633600285959774
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.8058631351438019
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 14.8533490465405
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 10.253256010468238
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 8.994223980947739
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -0.3949491282515494
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 11.479731718007685
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 7.436817206055986
+        }
+      },
+      "Q.FI.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 1.1728142575084413
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.790198759123768
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 1.3579965494164918
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 1.0684606334861062
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 0.89728929653591
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.808614046440011
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 1.1081303663155946
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 0.8273835275124103
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 4.379316711632949
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -4.077651321931848
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 4.502673784780178
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 4.007387184637034
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 2.1498067552257667
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -0.2160151521001572
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 2.789634309912591
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 1.967743781878517
+        }
+      },
+      "Q.FR.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 17.641767170003664
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -40.50313844759528
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 17.695405753300733
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 14.691538791911194
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 16.682060581012852
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -49.45660931896669
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 16.77555713960552
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 13.897108460000565
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 15.278877401334086
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -76.7487253718491
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 15.68477614218215
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 12.787195431185319
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 16.534235050783536
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -50.61136046235133
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 16.738766429543972
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 13.791947561032359
+        }
+      },
+      "Q.GB.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 17.849598165998867
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -49.412029130776546
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 18.491761064323672
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 11.336664783417723
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 16.249576258423822
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -34.228403771779924
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 17.364386489586163
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 10.255269876112557
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 12.1437972342071
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -18.230326551209387
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 13.752897783987578
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 7.506111465122632
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 15.414323886209932
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -32.06933494638808
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 16.659425188929035
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 9.699348708217636
+        }
+      },
+      "Q.GR.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 2.787980247111849
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.8376986438425683
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 3.2615194659549167
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 2.6246562479954454
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 2.95251177748059
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.6758497542727011
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 4.372339239499785
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 2.6426600399737574
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 5.193674083207756
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.27990957412031814
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 6.053410794072478
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 4.633157432449945
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 3.6447220359333983
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.6214580232302275
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 4.70455955763008
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 3.300157906806382
+        }
+      },
+      "Q.HK.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 18.26909640782721
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.878519674919652
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 21.66296019527911
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 8.716300036374768
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 26.498939763304033
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -2.926416804444755
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 29.506082146626056
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 12.406056844728218
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 44.478306172562895
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -19.800298364048274
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 45.3948435068606
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 20.040177021185087
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 29.74878078123138
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -4.959484657836753
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 33.667910266196884
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 13.720844634096025
+        }
+      },
+      "Q.HR.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 45.42964179001171
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -8.65061159830992
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 46.276852831528274
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 29.542024696857194
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 50.83688946168813
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -9.393104185326765
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 51.84276181315295
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 32.55436029716562
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 65.46345957268775
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -11.654532399795217
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 66.80120661675187
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 41.011748015207
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 53.90999694146252
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -10.152504633792582
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 55.652553897253775
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 34.36937766974327
+        }
+      },
+      "Q.HU.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 131.50050729446423
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -14.926614842859113
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 137.1347455086439
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 51.02415705330525
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 137.89079140784366
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -12.437333035790068
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 144.73891052850487
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 51.57132081213581
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 151.56201295606823
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -12.654178496743404
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 159.4093167192229
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 53.480445652502986
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 140.31777055279204
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -13.163903807723
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 147.3845547127068
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 52.025307839314685
+        }
+      },
+      "Q.ID.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 9.265967938600928
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -21.314318904373824
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 9.404158464558998
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 5.7674793134159374
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 6.5401086699769335
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -12.51384230307321
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 6.695229390420154
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 4.022254685848551
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 4.377979144409217
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -8.989126711305667
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 4.512229184489066
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 2.6596977973569333
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 6.728018584329026
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -15.485825219948211
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 7.155988290241895
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 4.149810598873807
+        }
+      },
+      "Q.IE.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 21.00445227177003
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -3.5624069344209985
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 22.586396008297857
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 12.985349369602774
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 23.44279384704616
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -3.750959229408945
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 25.13543792798844
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 14.346561002781336
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 30.498123733845933
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -6.934977573861003
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 32.021795856886946
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 18.444720631844845
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 24.981789950887375
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -4.794672446008551
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 26.878311792072278
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 15.25887700140965
+        }
+      },
+      "Q.IL.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 39.25565729551965
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -33.256035599720356
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 40.16462123661455
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 19.42239690377348
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 35.162052942778935
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -26.52054813199526
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 36.23826909540282
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 17.130822508871365
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 31.175106953954252
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -24.373736016884905
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 32.20658410043435
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 14.873610820549823
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 35.197605730750944
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -28.211391819545728
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 36.348649702246554
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 17.14227674439822
+        }
+      },
+      "Q.IS.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 143.49649841204575
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -55.84416874868327
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 145.4026540630868
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 52.894812213385556
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 141.53894081088967
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -53.95753758269832
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 143.47227048902604
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 51.11507621165209
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 140.0462402685326
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -65.16022907058209
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 141.820552891824
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 48.898557696324545
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 141.69389316382268
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -57.86752219670528
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 143.57262207724773
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 50.96948204045406
+        }
+      },
+      "Q.IT.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 1.915180408060369
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.37658151845716237
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 2.267459377156799
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 2.0396472943235957
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 1.4148184856021544
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.6899140972275795
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 1.7037571850267137
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 1.496537646863918
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 2.2841729963619244
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.4021591958146219
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 2.668675468493465
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 2.3590953018019793
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 1.8713906300081493
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.4862624235223264
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 2.248406052349476
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 1.9650934143298313
+        }
+      },
+      "Q.JP.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 10.18473225697716
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -7.532993271661018
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 10.611467083226563
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 7.6918594396465565
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 11.166572315842572
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -9.425438550859703
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 11.543753155841221
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 8.391576097945833
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 8.112004908123874
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -3.682574621740857
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 8.683838083174335
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 5.9212419811661015
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 9.821103160314534
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -6.634314995591261
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 10.348438117838265
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 7.33489250625283
+        }
+      },
+      "Q.KR.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 7.343139379057102
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -7.397686216859727
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 7.468977293417356
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 5.255435280439308
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 6.1071310333628945
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -31.538324626742067
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 6.628246869990546
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 4.386976854852662
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 4.057623256039402
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -15.47478603734124
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 4.430435420494589
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 2.858562100082668
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 5.835964556153133
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -11.994321292604068
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 6.307351171299951
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 4.166991411791546
+        }
+      },
+      "Q.LT.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 113.13600392487876
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -27.370644000433202
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 114.75297378045444
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 51.81196155002764
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 116.96734646508672
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -26.867607179878643
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 118.77160566000663
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 52.458383847532595
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 130.51448496860328
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -24.696905412339248
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 132.8081640381562
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 56.44532430565453
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 120.20594511952292
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -26.109217228894064
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 122.3559666678875
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 53.57188990107159
+        }
+      },
+      "Q.LV.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 87.06509185845182
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -53.14154714045995
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 87.77139561063905
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 42.73602600502382
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 88.39304936997928
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -41.00295731719833
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 89.414094797143
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 42.691337367714524
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 93.90318618461167
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -29.386690415594426
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 95.39982845281568
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 44.18335764020551
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 89.78710913768093
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -38.2314450544258
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 90.92089144719608
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 43.203573670981285
+        }
+      },
+      "Q.MA.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 0.7307816360608411
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.029710874948680077
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 0.7790381816585882
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 0.7166410234976475
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 1.0699468260199307
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.2301316659802881
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 1.0951625528037576
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 1.0473566787306912
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 1.0649231971410036
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.3175986585864643
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 1.1375250588251065
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 1.0422736097656105
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 0.9552172197405918
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -0.21747568408530693
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 1.0165701754757883
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 0.9354237706646497
+        }
+      },
+      "Q.MK.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 29.473773584465714
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -2.063808177874725
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 32.143029126455374
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 20.4964043158124
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 33.33590180373267
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -2.0480487888887065
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 36.558120798340454
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 22.537477663697917
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 43.30912223026911
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -2.8361959925496074
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 46.58230239342645
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 28.12344542213186
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 35.37293253948916
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -2.3843723350426917
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 38.899791833216945
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 23.71910913388072
+        }
+      },
+      "Q.MT.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 8.021276256141611
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.1518110202156484
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 9.28263302536517
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 4.5831992461118665
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 7.572145542951145
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.01306729563907616
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 8.631397634953096
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 4.255703787709456
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 9.140456513955632
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.2177483273332761
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 9.839872196618632
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 5.025214073713624
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 8.244626104349464
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -0.12046492580403112
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 9.264473107199395
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 4.6213723691783155
+        }
+      },
+      "Q.MX.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 49.32006840483715
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -5.781635748617008
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 51.35017786606749
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 20.631213995492416
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 48.61285821619362
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -5.663291470414625
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 50.50060162124514
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 19.835684070551338
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 45.81364279262015
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -4.852558154845988
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 47.6459896765404
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 17.76831331148804
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 47.91552313788364
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -5.43175105781826
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 49.857436300052804
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 19.411737125843935
+        }
+      },
+      "Q.MY.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 19.292823384543755
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -7.131600517305731
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 19.50897554866381
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 9.04889990072057
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 14.770685692970751
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -4.043689561693639
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 14.997218759679837
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 6.791039783154513
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 7.160631735594912
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.6763120178007644
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 7.208477131305688
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 3.2018556053153615
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 13.741380271036471
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -4.3717073876663735
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 14.804040439877804
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 6.347265096396814
+        }
+      },
+      "Q.NL.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 18.803503997060428
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -2.9574245606243026
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 20.223668476497664
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 11.282821819313456
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 18.201359586724337
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -1.9667755518132282
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 19.860162604422918
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 10.685222000930382
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 18.83023939438556
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -1.9786120955884288
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 20.325881944343756
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 10.674275583762078
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 18.611700992723442
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -2.2441746763539023
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 20.137562763293904
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 10.880773134668638
+        }
+      },
+      "Q.NO.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 35.26054002277635
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -22.48511307789413
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 35.823374489582335
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 20.48886606452285
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 33.12641978564687
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -21.40683194645705
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 33.78592429822313
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 18.965216124482087
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 33.02604934366166
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -12.543839265575434
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 33.51453543453676
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 18.515791671744395
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 33.804336384028296
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -17.82042907627127
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 34.39005149700003
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 19.323291286916444
+        }
+      },
+      "Q.NZ.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 66.18175183123039
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -563.68464128991
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 66.52744390827846
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 33.013242945745525
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 60.8716418278257
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -621.130217545309
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 61.499255326217074
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 30.096109919661636
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 56.63737664811635
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -543.3524655931495
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 57.26650890397237
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 27.75592319092159
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 61.23025676905748
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -575.0548631584334
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 61.88029368788614
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 30.288425352109584
+        }
+      },
+      "Q.PE.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 7.5901790328458185
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -15.982116578730164
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 7.763792851551324
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 4.4135541934129625
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 4.299981686695224
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -2.7636313853865997
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 4.924536893957192
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 2.458025803044727
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 3.993078510654163
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -0.49969455784349814
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 6.0819300612391
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 2.216592326142356
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 5.294413076731735
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -2.506199284019171
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 6.364417133080578
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 3.0293907742000155
+        }
+      },
+      "Q.PT.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 48.13215314144142
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -7.044336036360134
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 51.004936909009324
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 26.17468904845589
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 51.97625942737725
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -6.177949992581596
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 55.45550652678055
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 27.53154533193195
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 65.91104551364917
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -6.3416769351303675
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 70.23493743713202
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 33.505535402747164
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 55.33981936082262
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -6.452012680486325
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 59.46921677089661
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 29.070589927711676
+        }
+      },
+      "Q.RS.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 71.71478488069808
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -33.76156908348125
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 72.5619889542119
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 35.15170071357435
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 71.34723803867594
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -36.58317377445389
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 72.09964366077156
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 34.328975842479245
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 74.13887184524083
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -42.47959548929901
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 74.8124456006855
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 34.76794802886849
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 72.40029825487163
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -37.37559479775835
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 73.16762233337214
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 34.749541528307354
+        }
+      },
+      "Q.RU.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 46.78119387070554
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -3.373856156964618
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 48.30147272459751
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 29.130281690749527
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 52.22031673793745
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -3.9406834619259676
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 53.56807772970156
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 32.081029669624996
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 61.567741905023134
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -4.515855993281435
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 63.329760951166506
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 35.459745348151685
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 53.52308417122204
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -4.003610356229031
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 55.41729525804581
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 32.223685569508746
+        }
+      },
+      "Q.SE.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 22.830891699874446
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -223.6647795348848
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 22.87540556824434
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 13.616053301864769
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 19.44662314621376
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -150.27361417750845
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 19.5417068339019
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 11.477722202431865
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 16.290081454114738
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -24.29017205023007
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 16.694667012097895
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 9.450442697541884
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 19.522532100067647
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -73.57870801590876
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 19.865165428782298
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 11.514739400612841
+        }
+      },
+      "Q.SG.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 18.180022896910877
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -9.069481621557454
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 19.13207871288838
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 12.554033968383276
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 20.631318387958427
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -13.598865035766966
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 21.37600685384122
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 14.21895814915303
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 24.6799207092796
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -22.390851675712472
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 25.269442644042716
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 16.91369496496189
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 21.163753998049636
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -14.392591328837643
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 22.071964392506224
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 14.562229027499402
+        }
+      },
+      "Q.SK.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 59.87900321920398
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -25.894285491785748
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 60.37582696401027
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 37.39175440709967
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 61.15607095586242
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -17.628369424260704
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 62.123835662836704
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 37.52940784988393
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 68.49715879645643
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -12.941261665073055
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 70.26776288958851
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 40.68802655878636
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 63.17741099050761
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -16.853969506179983
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 64.40023276500037
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 38.536396271923316
+        }
+      },
+      "Q.TH.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 12.641895942334115
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -15.95672080941523
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 13.019416624071406
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 7.384432719587851
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 8.650834284235655
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -7.644503359971193
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 9.224754070597136
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 4.967436786269935
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 5.874763154565815
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -2.874376266958184
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 6.631102727344726
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 3.3085144656309295
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 9.055831127045195
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -8.572828395897035
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 9.976185314282942
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 5.220127990496238
+        }
+      },
+      "Q.US.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 64.47560719217503
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -85.00539003984639
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 64.75845164492324
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 33.162614201437584
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 64.02678129349405
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -107.24061470239839
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 64.20996872242343
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 32.6084191961305
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 64.7033351769163
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -237.8888774148144
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 64.76479421054391
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 32.541719920090536
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 64.40190788752845
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -118.82736230750898
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 64.57826185313588
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 32.77091777255288
+        }
+      },
+      "Q.ZA.N.628": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 22.031201187252805
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -50.66915293040632
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 22.2717351873634
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 13.116277393812318
+            }
+          },
+          "2": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 19.145373372246194
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -22.536576912529362
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 19.606647413572677
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 11.214887067841122
+            }
+          },
+          "4": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 18.1816303024127
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -9.401393341235762
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 19.21080604585106
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 10.419443652067235
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 19.786068287303898
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -19.34550831341902
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 20.408379651403855
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 11.58353603790689
+        }
+      }
+    },
+    "macro_series_rmse": {
+      "undefined_reason": null,
+      "value": 38.76341415438979
+    },
+    "mae": {
+      "undefined_reason": null,
+      "value": 37.27313177632513
+    },
+    "r2": {
+      "undefined_reason": null,
+      "value": 0.2583865772560867
+    },
+    "rmse": {
+      "undefined_reason": null,
+      "value": 54.35483204923393
+    },
+    "smape": {
+      "undefined_reason": null,
+      "value": 18.39529102280384
+    }
+  },
+  "optimizer_updates": 0,
+  "output_dtype": "float64",
+  "run_id": "ch4_bis_house_prices_lstm_pytorch_s17_main",
+  "test_count": 568,
+  "test_forward_and_model_load_seconds": 1.765233176000038,
+  "test_forward_passes_per_window": 1,
+  "test_seal_manifest_sha256": "b7e75979a8ad46b83b0e0df69225c5bead76cc38574fdfbd3d8a062a7613e5d1",
+  "training_efficiency": {
+    "checkpoint_bytes": 116086,
+    "inference_p50_ms": 1.3911470014136285,
+    "inference_p95_ms": 3.235017498082013,
+    "peak_ram_bytes": 1837838336,
+    "peak_vram_bytes": 78149632,
+    "timed_repeats": 30,
+    "train_seconds": 18.039168345996586,
+    "warmup_batches": 5
+  },
+  "training_selection": {
+    "path": "artifacts/manifests/phase29/runs/ch4_bis_house_prices_lstm_pytorch_s17_main/selection.json",
+    "sha256": "0a54d528f8d84bdd62597153309409f980890c300555fa6adbb9ab885f5546b0"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "3.0.0"
+    },
+    "evidence_kind": {
+      "enum": [
+        "measured",
+        "synthetic_fixture",
+        "historical_baseline"
+      ]
+    },
+    "artifact_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+    },
+    "kind": {
+      "enum": [
+        "checkpoint",
+        "preprocessor",
+        "model_contract",
+        "metric",
+        "predictions",
+        "figure",
+        "trace",
+        "report",
+        "dataset",
+        "split"
+      ]
+    },
+    "path": {
+      "$ref": "urn:ai-paper:v3:common#/$defs/path"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "size_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "producer_run_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+    },
+    "serialization": {
+      "enum": [
+        "npz",
+        "keras",
+        "torch_state_dict",
+        "json",
+        "jsonl",
+        "csv",
+        "png",
+        "svg",
+        "docx",
+        "pdf",
+        "legacy_trusted_joblib"
+      ]
+    },
+    "load_policy": {
+      "enum": [
+        "numpy_no_pickle",
+        "keras_safe_mode",
+        "torch_weights_only",
+        "data_only",
+        "legacy_allowlist"
+      ]
+    },
+    "cpu_loadable": {
+      "type": "boolean"
+    },
+    "parent_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "$ref": "urn:ai-paper:v3:common#/$defs/path"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 20
+    }
+  },
+  "required": [
+    "schema_version",
+    "evidence_kind",
+    "artifact_id",
+    "kind",
+    "path",
+    "sha256",
+    "size_bytes",
+    "producer_run_id",
+    "serialization",
+    "load_policy",
+    "cpu_loadable",
+    "parent_artifacts"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-paper:v3:artifact",
+  "title": "AI term paper V3 artifact contract"
+}

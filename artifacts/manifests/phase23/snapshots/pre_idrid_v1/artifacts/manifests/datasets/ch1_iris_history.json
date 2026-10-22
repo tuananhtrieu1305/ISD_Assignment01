@@ -1,0 +1,122 @@
+{
+  "contract": {
+    "schema_version": "3.0.0",
+    "evidence_kind": "measured",
+    "dataset_id": "ch1_iris_history",
+    "chapter": 1,
+    "kind": "tabular",
+    "status": "ready",
+    "source": {
+      "url": "https://archive.ics.uci.edu/static/public/53/iris.zip",
+      "version": "UCI 53 original Iris snapshot; sha256:d11fe30213d36434a0879aab7cb00ce3c812eb7ba2495874438abff7b7b762e9",
+      "citation": "Fisher, R. A. (1936). Iris. UCI Machine Learning Repository. DOI:10.24432/C56C76.",
+      "license_status": "approved",
+      "license_note": "CC BY 4.0; attribution required. https://archive.ics.uci.edu/dataset/53/iris",
+      "accessed_at": "2026-10-17T01:15:24.140603+00:00"
+    },
+    "files": [
+      {
+        "path": "data/raw/ch1/iris/iris.zip",
+        "sha256": "d11fe30213d36434a0879aab7cb00ce3c812eb7ba2495874438abff7b7b762e9",
+        "size_bytes": 3738
+      }
+    ],
+    "logical_size": {
+      "records": 150,
+      "features": 4,
+      "unit": "raw rows"
+    },
+    "target": "none",
+    "columns": [
+      {
+        "name": "sepal_length",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "sepal_width",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "petal_length",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "petal_width",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "species",
+        "dtype": "string",
+        "role": "target"
+      }
+    ],
+    "parent_dataset_ids": [],
+    "data_card_path": "report/references/dataset_cards/v3/ch1_iris_history.md"
+  },
+  "inspection": {
+    "records": 150,
+    "features": 4,
+    "unit": "raw rows",
+    "columns": [
+      {
+        "name": "sepal_length",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "sepal_width",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "petal_length",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "petal_width",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "species",
+        "dtype": "string",
+        "role": "target"
+      }
+    ],
+    "observed_columns": [
+      "sepal_length",
+      "sepal_width",
+      "petal_length",
+      "petal_width",
+      "species"
+    ],
+    "raw_to_contract_aliases": {
+      "sepal_length": "sepal_length",
+      "sepal_width": "sepal_width",
+      "petal_length": "petal_length",
+      "petal_width": "petal_width",
+      "species": "species"
+    },
+    "excluded_feature_columns": [],
+    "checks": [
+      "row_count",
+      "column_schema"
+    ]
+  },
+  "archive_inventory": {
+    "path": "artifacts/manifests/datasets/ch1_iris_history/archive_members.jsonl",
+    "sha256": "b7ef230c3669939c64112893d5c6bcbaa795dd459a38c6eb294a7d5abebff492",
+    "size_bytes": 482,
+    "members": 4,
+    "expanded_bytes": 12205,
+    "extracted": false
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "training_executed": false,
+  "test_evaluation_executed": false
+}

@@ -1,0 +1,52 @@
+{
+  "categorical": {},
+  "features": [
+    "gold",
+    "silver_lag1",
+    "platinum_lag1",
+    "crude_oil_lag1"
+  ],
+  "fit_count": 475,
+  "fit_ids_sha256": "18ff1954c9ecb032fa4a011642c5490d71640da7f41b364b367542a1f9f769c7",
+  "fit_scope": "train_only",
+  "input_columns": [
+    "gold",
+    "silver_lag1",
+    "platinum_lag1",
+    "crude_oil_lag1"
+  ],
+  "numeric": {
+    "crude_oil_lag1": {
+      "all_missing_fallback": false,
+      "mean": 13.615157894736843,
+      "median": 13.0,
+      "std": 11.073327923025612
+    },
+    "gold": {
+      "all_missing_fallback": false,
+      "mean": 233.7621052631579,
+      "median": 283.0,
+      "std": 168.1577712675603
+    },
+    "platinum_lag1": {
+      "all_missing_fallback": false,
+      "mean": 284.38736842105266,
+      "median": 309.0,
+      "std": 167.32880158670596
+    },
+    "silver_lag1": {
+      "all_missing_fallback": false,
+      "mean": 4.837999999999999,
+      "median": 4.55,
+      "std": 4.082230195422723
+    }
+  },
+  "output_dtype": "float32",
+  "output_width": 4,
+  "schema_version": "3.0.0",
+  "target_transform": {
+    "mean": 233.7621052631579,
+    "std": 168.1577712675603
+  },
+  "unknown_category": "all_zero_one_hot"
+}

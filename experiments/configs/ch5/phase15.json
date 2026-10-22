@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-13T00:00:00+07:00",
+  "seed": 42,
+  "test_policy": "ONE_SHOT_AFTER_VALIDATION_LOCK",
+  "top_k": [1, 3, 5, 10],
+  "retrieval_depth": 10,
+  "candidate_depth": 500,
+  "B3": {
+    "name": "Entity-neighborhood graph retrieval with lexical ranking",
+    "candidate_max_hops": [1, 2]
+  },
+  "B4": {
+    "name": "Sparse+dense+graph weighted reciprocal-rank fusion",
+    "rrf_k": 60,
+    "candidate_weights": [
+      {"sparse": 0.6, "dense": 0.2, "graph": 0.2},
+      {"sparse": 0.5, "dense": 0.2, "graph": 0.3},
+      {"sparse": 0.4, "dense": 0.2, "graph": 0.4},
+      {"sparse": 0.6, "dense": 0.1, "graph": 0.3}
+    ],
+    "selection_metric": "macro_domain_chunk_recall_at_5",
+    "tie_break": "lowest_hops_then_lexicographic_weights"
+  },
+  "baseline": {
+    "B2_sparse_weight": 0.75,
+    "source_locked_config": "config/phase14_locked.json"
+  },
+  "bootstrap": {
+    "confidence": 0.95,
+    "n_resamples": 1000,
+    "seed": 42
+  },
+  "ablation": {
+    "variants": ["full", "no_graph", "no_dense", "no_sparse", "hop_1", "hop_2"],
+    "top_k_sensitivity": [3, 5, 10],
+    "split": "validation"
+  },
+  "evaluation": {
+    "tuning_split": "validation",
+    "final_split": "test",
+    "private_test_allowed": false,
+    "compare_models": ["B0", "B1", "B2", "B3", "B4"],
+    "domains_reported_separately": true
+  }
+}

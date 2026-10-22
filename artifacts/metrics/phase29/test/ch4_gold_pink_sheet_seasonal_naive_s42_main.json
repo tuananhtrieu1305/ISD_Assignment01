@@ -1,0 +1,185 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_seasonal_naive_s42_main/best.npz",
+      "sha256": "9e4c56c568f3abd948e75661a271fecf3198ebe990e587cfec7efdeb8ccfad17"
+    },
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_seasonal_naive_s42_main/best.json",
+      "sha256": "f46b00e336247321e0bbfbc0401bbc083d1803a874284e52d7e8bde321e82e77"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_seasonal_naive_s42_main/selection.json",
+      "sha256": "53515083765f5ecc1588dca0463b9c0a0ec2dbdc9ca6e32fbf45517cab9d275b"
+    },
+    {
+      "path": "artifacts/predictions/phase29/test/ch4_gold_pink_sheet_seasonal_naive_s42_main.jsonl.gz",
+      "sha256": "e8227a679260d7c700dda8ce813e22dc04361d4a80dc2a369620376f961a135e"
+    },
+    {
+      "path": "artifacts/manifests/phase29/test_details/ch4_gold_pink_sheet_seasonal_naive_s42_main.json",
+      "sha256": "aab57f7e8d5cd02dcad05b2ea84b7508af02fff224f4c510487d6066b6ba0ae1"
+    }
+  ],
+  "backend": "numpy",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "c7aaafbe11688e15bbc33da23c0bc5558a42ed3662504a5ae018b4d4eb556c70",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "97b6d53f760f289e6287c92d3e871d366b7837cdc51039eeeb124a906d86ed27",
+  "config_sha256": "cae0ac7653c562e6cd588eb20f6055cb2af62e2ac59c16687cbb1ba40b9489fd",
+  "dataset_id": "ch4_gold_pink_sheet",
+  "dataset_sha256": "dfaba9c931ef045fa98ba4bd5d51e478f17cd7fb1b9911e1a3a07a1123bdbef3",
+  "device": "cpu",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 288,
+    "inference_p50_ms": 0.0443560002167942,
+    "inference_p95_ms": 0.06832945082351215,
+    "peak_ram_bytes": 237326336,
+    "peak_vram_bytes": 0,
+    "timed_repeats": 30,
+    "train_seconds": 5.534000592888333e-06,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "classical",
+  "finished_at": "2026-10-19T23:18:37.585482+00:00",
+  "implementation": "numpy",
+  "method": "seasonal_naive",
+  "metrics": [
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 564.108627042211
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 343.9454022988506
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 14.649401900673556
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "macro_series_rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 564.108627042211
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 546.7688079164217
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 327.3189655172414
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 14.377856094816218
+    },
+    {
+      "direction": "min",
+      "horizon": 3,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 564.9637766844147
+    },
+    {
+      "direction": "min",
+      "horizon": 3,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 343.2068965517241
+    },
+    {
+      "direction": "min",
+      "horizon": 3,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 14.637122954753682
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 580.0995009776192
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 361.3103448275862
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 14.933226652450763
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_seasonal_naive_s42_main/model_contract.json",
+    "sha256": "43f3f31b106ae351f2f2160a926ebd18e54f12c49c169ba0805deb5d69839210"
+  },
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch4_gold_pink_sheet/preprocessing.json",
+    "sha256": "82dcdf6733898fc2b818ef6aac3ee19dd299c65a4803cdb601a2204a28e4729e"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch4_gold_pink_sheet_seasonal_naive_s42_main",
+  "schema_version": "phase29.causal_baseline_test_run.1",
+  "seed": 42,
+  "split": "test",
+  "split_id": "ch4_gold_pink_sheet_phase28_main",
+  "split_sha256": "91a1fb8d745b1017b056636d2d90c6ec3da35ce27b7c046a8045cf8d29f51ddb",
+  "started_at": "2026-10-19T23:18:37.471190+00:00",
+  "status": "succeeded",
+  "subset_sha256": "c9b193cc6d8d16d76c4d1343fbf7aa71723a01bbdbb0bf0e861a6f3a3ceab60a",
+  "test_seal_id": "ch4_gold_pink_sheet_phase29_joint_test_v1",
+  "track": "matched_subset",
+  "warnings": [
+    "Latest revised snapshots, retrospective observation-origin forecast; no real-time publication/vintage claim or investment advice",
+    "Each rolling fold uses its frozen scaler; windows reset recurrent state",
+    "Train wall includes validation/progress I/O; RAM is process lifetime, VRAM allocator only; CPU/GPU and graph/eager differ",
+    "Joint RNN/LSTM main TEST once after frozen validation selection; no optimizer updates or TEST-input timing repeats",
+    "Train/RAM/VRAM/5warmup30repeat TRAIN-input timing copied byte-value from locked validation metric; not claimed as TEST-only measurements"
+  ]
+}

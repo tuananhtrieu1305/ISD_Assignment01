@@ -1,0 +1,94 @@
+{
+  "canonical_x_sha256": "08ae6b77dd40b07b4fff57d11d7377bd1c285ded59d68553a712e6ded6439912",
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_bis_house_prices_rnn_pytorch_s73_main/best.npz",
+    "sha256": "0d4fb5e2e7204cd82a53de4d4c7320fdabaac3c19a1afd616c5f7080bd609912"
+  },
+  "checkpoint_metadata": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_bis_house_prices_rnn_pytorch_s73_main/best.json",
+    "sha256": "41dd0144c8d15768fa2f45936aa92a276adfe06cfe0f323a5cbf4a75cde8bf41"
+  },
+  "comparisons": {
+    "atol": 1e-05,
+    "cpu_reference": {
+      "max_absolute_error": 1.7881393432617188e-07,
+      "output": [
+        [
+          -0.6420401930809021,
+          -0.5761957168579102,
+          -0.5503078699111938
+        ],
+        [
+          -0.6198881268501282,
+          -0.54926997423172,
+          -0.5352731943130493
+        ],
+        [
+          -0.6034789681434631,
+          -0.5272305011749268,
+          -0.5329465866088867
+        ],
+        [
+          -0.5842479467391968,
+          -0.5094242095947266,
+          -0.5094360113143921
+        ]
+      ],
+      "status": "PASS"
+    },
+    "original_gpu_cpu_gate": {
+      "max_absolute_error": 2.2649765014648438e-06,
+      "output": null,
+      "source": {
+        "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_pytorch_s73_main/cpu_demo.json",
+        "sha256": "75685c8efc062e548954a474d15b079fe2a75c76e2b582db8abbb4fc84f645ac"
+      },
+      "status": "PASS"
+    },
+    "rtol": 0.0001
+  },
+  "ids": [
+    "Q.AT.N.628/2004-10-01T00:00:00",
+    "Q.AT.N.628/2005-01-01T00:00:00",
+    "Q.AT.N.628/2005-04-01T00:00:00",
+    "Q.AT.N.628/2005-07-01T00:00:00"
+  ],
+  "input_split": "train",
+  "native_cpu_device": "cpu",
+  "native_cpu_engine": "torch",
+  "portable_cpu_output": [
+    [
+      -0.6420400142669678,
+      -0.5761956572532654,
+      -0.5503076910972595
+    ],
+    [
+      -0.619888186454773,
+      -0.5492700338363647,
+      -0.5352731347084045
+    ],
+    [
+      -0.6034788489341736,
+      -0.5272303819656372,
+      -0.5329464673995972
+    ],
+    [
+      -0.5842479467391968,
+      -0.5094241499900818,
+      -0.5094358921051025
+    ]
+  ],
+  "revision": {
+    "path": "artifacts/manifests/phase28/revisions/r2/revision.json",
+    "sha256": "11c7251f5dd092ba7c109f4ea512d3062de3cc6dd1514f683dd7aa06bbc771b7"
+  },
+  "run_id": "ch4_bis_house_prices_rnn_pytorch_s73_main",
+  "selection": {
+    "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_pytorch_s73_main/selection.json",
+    "sha256": "53b9fd3ab615497751fbeef3e12f71914c8cedfdafa630a47637c50df6ccc3f0"
+  },
+  "status": "PASS",
+  "test_executed": false,
+  "validation_executed": false,
+  "weights_updated": false
+}

@@ -1,0 +1,1042 @@
+{
+  "contract": {
+    "schema_version": "3.0.0",
+    "evidence_kind": "measured",
+    "dataset_id": "ch2_ames_housing",
+    "chapter": 2,
+    "kind": "tabular",
+    "status": "ready",
+    "source": {
+      "url": "https://jse.amstat.org/v19n3/decock/AmesHousing.txt",
+      "version": "De Cock JSE 2011 original 2930-row tab-delimited release; sha256:6cfe6cb525ba437de428653a1040e2aed7d696640bf75203786a6d7a0e67cfcc",
+      "citation": "De Cock, D. (2011). Ames, Iowa: Alternative to the Boston Housing Data as an End of Semester Regression Project. Journal of Statistics Education 19(3). DOI:10.1080/10691898.2011.11889627.",
+      "license_status": "approved",
+      "license_note": "Author-published teaching/research dataset accompanying JSE article; retain attribution; no explicit SPDX license on original TXT. GPL-2 in topepo/AmesHousing applies to that package, not automatically to this original source. Local academic analysis only; no raw redistribution.",
+      "accessed_at": "2026-10-17T01:15:29.511894+00:00"
+    },
+    "files": [
+      {
+        "path": "data/raw/ch2/ames/AmesHousing.txt",
+        "sha256": "6cfe6cb525ba437de428653a1040e2aed7d696640bf75203786a6d7a0e67cfcc",
+        "size_bytes": 960807
+      }
+    ],
+    "logical_size": {
+      "records": 2930,
+      "features": 79,
+      "unit": "raw rows"
+    },
+    "target": "sale_price",
+    "columns": [
+      {
+        "name": "order",
+        "dtype": "integer",
+        "role": "id"
+      },
+      {
+        "name": "pid",
+        "dtype": "integer",
+        "role": "id"
+      },
+      {
+        "name": "ms_sub_class",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "ms_zoning",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "lot_frontage",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "lot_area",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "street",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "alley",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "lot_shape",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "land_contour",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "utilities",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "lot_config",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "land_slope",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "neighborhood",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "condition_1",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "condition_2",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "bldg_type",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "house_style",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "overall_qual",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "overall_cond",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "year_built",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "year_remod_add",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "roof_style",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "roof_matl",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "exterior_1st",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "exterior_2nd",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "mas_vnr_type",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "mas_vnr_area",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "exter_qual",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "exter_cond",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "foundation",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_qual",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_cond",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_exposure",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_fin_type_1",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_fin_sf_1",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_fin_type_2",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_fin_sf_2",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_unf_sf",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "total_bsmt_sf",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "heating",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "heating_qc",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "central_air",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "electrical",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "v_1st_flr_sf",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "v_2nd_flr_sf",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "low_qual_fin_sf",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "gr_liv_area",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_full_bath",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_half_bath",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "full_bath",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "half_bath",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "bedroom_abv_gr",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "kitchen_abv_gr",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "kitchen_qual",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "tot_rms_abv_grd",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "functional",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "fireplaces",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "fireplace_qu",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "garage_type",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "garage_yr_blt",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "garage_finish",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "garage_cars",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "garage_area",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "garage_qual",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "garage_cond",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "paved_drive",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "wood_deck_sf",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "open_porch_sf",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "enclosed_porch",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "v_3_ssn_porch",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "screen_porch",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "pool_area",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "pool_qc",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "fence",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "misc_feature",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "misc_val",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "mo_sold",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "yr_sold",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "sale_type",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "sale_condition",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "sale_price",
+        "dtype": "integer",
+        "role": "target"
+      }
+    ],
+    "parent_dataset_ids": [],
+    "data_card_path": "report/references/dataset_cards/v3/ch2_ames_housing.md"
+  },
+  "inspection": {
+    "records": 2930,
+    "features": 79,
+    "unit": "raw rows",
+    "columns": [
+      {
+        "name": "order",
+        "dtype": "integer",
+        "role": "id"
+      },
+      {
+        "name": "pid",
+        "dtype": "integer",
+        "role": "id"
+      },
+      {
+        "name": "ms_sub_class",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "ms_zoning",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "lot_frontage",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "lot_area",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "street",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "alley",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "lot_shape",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "land_contour",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "utilities",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "lot_config",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "land_slope",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "neighborhood",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "condition_1",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "condition_2",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "bldg_type",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "house_style",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "overall_qual",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "overall_cond",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "year_built",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "year_remod_add",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "roof_style",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "roof_matl",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "exterior_1st",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "exterior_2nd",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "mas_vnr_type",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "mas_vnr_area",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "exter_qual",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "exter_cond",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "foundation",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_qual",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_cond",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_exposure",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_fin_type_1",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_fin_sf_1",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_fin_type_2",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_fin_sf_2",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_unf_sf",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "total_bsmt_sf",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "heating",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "heating_qc",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "central_air",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "electrical",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "v_1st_flr_sf",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "v_2nd_flr_sf",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "low_qual_fin_sf",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "gr_liv_area",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_full_bath",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "bsmt_half_bath",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "full_bath",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "half_bath",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "bedroom_abv_gr",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "kitchen_abv_gr",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "kitchen_qual",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "tot_rms_abv_grd",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "functional",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "fireplaces",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "fireplace_qu",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "garage_type",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "garage_yr_blt",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "garage_finish",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "garage_cars",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "garage_area",
+        "dtype": "number",
+        "role": "feature"
+      },
+      {
+        "name": "garage_qual",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "garage_cond",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "paved_drive",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "wood_deck_sf",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "open_porch_sf",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "enclosed_porch",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "v_3_ssn_porch",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "screen_porch",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "pool_area",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "pool_qc",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "fence",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "misc_feature",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "misc_val",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "mo_sold",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "yr_sold",
+        "dtype": "integer",
+        "role": "feature"
+      },
+      {
+        "name": "sale_type",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "sale_condition",
+        "dtype": "string",
+        "role": "feature"
+      },
+      {
+        "name": "sale_price",
+        "dtype": "integer",
+        "role": "target"
+      }
+    ],
+    "observed_columns": [
+      "Order",
+      "PID",
+      "MS SubClass",
+      "MS Zoning",
+      "Lot Frontage",
+      "Lot Area",
+      "Street",
+      "Alley",
+      "Lot Shape",
+      "Land Contour",
+      "Utilities",
+      "Lot Config",
+      "Land Slope",
+      "Neighborhood",
+      "Condition 1",
+      "Condition 2",
+      "Bldg Type",
+      "House Style",
+      "Overall Qual",
+      "Overall Cond",
+      "Year Built",
+      "Year Remod/Add",
+      "Roof Style",
+      "Roof Matl",
+      "Exterior 1st",
+      "Exterior 2nd",
+      "Mas Vnr Type",
+      "Mas Vnr Area",
+      "Exter Qual",
+      "Exter Cond",
+      "Foundation",
+      "Bsmt Qual",
+      "Bsmt Cond",
+      "Bsmt Exposure",
+      "BsmtFin Type 1",
+      "BsmtFin SF 1",
+      "BsmtFin Type 2",
+      "BsmtFin SF 2",
+      "Bsmt Unf SF",
+      "Total Bsmt SF",
+      "Heating",
+      "Heating QC",
+      "Central Air",
+      "Electrical",
+      "1st Flr SF",
+      "2nd Flr SF",
+      "Low Qual Fin SF",
+      "Gr Liv Area",
+      "Bsmt Full Bath",
+      "Bsmt Half Bath",
+      "Full Bath",
+      "Half Bath",
+      "Bedroom AbvGr",
+      "Kitchen AbvGr",
+      "Kitchen Qual",
+      "TotRms AbvGrd",
+      "Functional",
+      "Fireplaces",
+      "Fireplace Qu",
+      "Garage Type",
+      "Garage Yr Blt",
+      "Garage Finish",
+      "Garage Cars",
+      "Garage Area",
+      "Garage Qual",
+      "Garage Cond",
+      "Paved Drive",
+      "Wood Deck SF",
+      "Open Porch SF",
+      "Enclosed Porch",
+      "3Ssn Porch",
+      "Screen Porch",
+      "Pool Area",
+      "Pool QC",
+      "Fence",
+      "Misc Feature",
+      "Misc Val",
+      "Mo Sold",
+      "Yr Sold",
+      "Sale Type",
+      "Sale Condition",
+      "SalePrice"
+    ],
+    "raw_to_contract_aliases": {
+      "Order": "order",
+      "PID": "pid",
+      "MS SubClass": "ms_sub_class",
+      "MS Zoning": "ms_zoning",
+      "Lot Frontage": "lot_frontage",
+      "Lot Area": "lot_area",
+      "Street": "street",
+      "Alley": "alley",
+      "Lot Shape": "lot_shape",
+      "Land Contour": "land_contour",
+      "Utilities": "utilities",
+      "Lot Config": "lot_config",
+      "Land Slope": "land_slope",
+      "Neighborhood": "neighborhood",
+      "Condition 1": "condition_1",
+      "Condition 2": "condition_2",
+      "Bldg Type": "bldg_type",
+      "House Style": "house_style",
+      "Overall Qual": "overall_qual",
+      "Overall Cond": "overall_cond",
+      "Year Built": "year_built",
+      "Year Remod/Add": "year_remod_add",
+      "Roof Style": "roof_style",
+      "Roof Matl": "roof_matl",
+      "Exterior 1st": "exterior_1st",
+      "Exterior 2nd": "exterior_2nd",
+      "Mas Vnr Type": "mas_vnr_type",
+      "Mas Vnr Area": "mas_vnr_area",
+      "Exter Qual": "exter_qual",
+      "Exter Cond": "exter_cond",
+      "Foundation": "foundation",
+      "Bsmt Qual": "bsmt_qual",
+      "Bsmt Cond": "bsmt_cond",
+      "Bsmt Exposure": "bsmt_exposure",
+      "BsmtFin Type 1": "bsmt_fin_type_1",
+      "BsmtFin SF 1": "bsmt_fin_sf_1",
+      "BsmtFin Type 2": "bsmt_fin_type_2",
+      "BsmtFin SF 2": "bsmt_fin_sf_2",
+      "Bsmt Unf SF": "bsmt_unf_sf",
+      "Total Bsmt SF": "total_bsmt_sf",
+      "Heating": "heating",
+      "Heating QC": "heating_qc",
+      "Central Air": "central_air",
+      "Electrical": "electrical",
+      "1st Flr SF": "v_1st_flr_sf",
+      "2nd Flr SF": "v_2nd_flr_sf",
+      "Low Qual Fin SF": "low_qual_fin_sf",
+      "Gr Liv Area": "gr_liv_area",
+      "Bsmt Full Bath": "bsmt_full_bath",
+      "Bsmt Half Bath": "bsmt_half_bath",
+      "Full Bath": "full_bath",
+      "Half Bath": "half_bath",
+      "Bedroom AbvGr": "bedroom_abv_gr",
+      "Kitchen AbvGr": "kitchen_abv_gr",
+      "Kitchen Qual": "kitchen_qual",
+      "TotRms AbvGrd": "tot_rms_abv_grd",
+      "Functional": "functional",
+      "Fireplaces": "fireplaces",
+      "Fireplace Qu": "fireplace_qu",
+      "Garage Type": "garage_type",
+      "Garage Yr Blt": "garage_yr_blt",
+      "Garage Finish": "garage_finish",
+      "Garage Cars": "garage_cars",
+      "Garage Area": "garage_area",
+      "Garage Qual": "garage_qual",
+      "Garage Cond": "garage_cond",
+      "Paved Drive": "paved_drive",
+      "Wood Deck SF": "wood_deck_sf",
+      "Open Porch SF": "open_porch_sf",
+      "Enclosed Porch": "enclosed_porch",
+      "3Ssn Porch": "v_3_ssn_porch",
+      "Screen Porch": "screen_porch",
+      "Pool Area": "pool_area",
+      "Pool QC": "pool_qc",
+      "Fence": "fence",
+      "Misc Feature": "misc_feature",
+      "Misc Val": "misc_val",
+      "Mo Sold": "mo_sold",
+      "Yr Sold": "yr_sold",
+      "Sale Type": "sale_type",
+      "Sale Condition": "sale_condition",
+      "SalePrice": "sale_price"
+    },
+    "excluded_feature_columns": [
+      "order",
+      "pid"
+    ],
+    "checks": [
+      "row_count",
+      "column_schema"
+    ]
+  },
+  "archive_inventory": null,
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "training_executed": false,
+  "test_evaluation_executed": false
+}

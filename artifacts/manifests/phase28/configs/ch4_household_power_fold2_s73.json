@@ -1,0 +1,172 @@
+{
+  "adapter": {
+    "path": "artifacts/manifests/phase28/adapters/ch4_household_power_fold2.json",
+    "sha256": "bef7872f02efee5bd00d4918096a27e21ea7cad1ec077300899006268188295f"
+  },
+  "baseline_policy": "Observed target history at/before origin; missing seasonal source falls back to last observed within lookback; no target imputation",
+  "canonical_initial_weights_sha256": "3be79d1a719f99b6037bd1bd0a83924fa13ad08254cf441c30d852752da2ca91",
+  "code": {
+    "dirty_tree_sha256": "c7aaafbe11688e15bbc33da23c0bc5558a42ed3662504a5ae018b4d4eb556c70",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "data_contract": {
+    "path": "artifacts/manifests/phase28/data/ch4_household_power_fold2.json",
+    "sha256": "a47eeeb6862bea33dbc78729902323bde138deea4a0dc5b68440c50cc3060dbe"
+  },
+  "dataset_id": "ch4_household_power",
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "execution_policy": {
+    "keras": "Keras TensorFlow GPU tf.function with XLA JIT; host validation plus canonical Adam",
+    "pytorch": "PyTorch GPU eager, frozen zero second recurrent bias",
+    "scratch": "NumPy CPU manual BPTT/Adam"
+  },
+  "fold": 2,
+  "gradient_diagnostic_policy": "first four fixed TRAIN IDs, selected weights, normalized MSE input gradient; no causal/TEST claims",
+  "horizons": [
+    1,
+    6,
+    24
+  ],
+  "phase": 28,
+  "plan": {
+    "family": "rnn",
+    "input_shape": [
+      168,
+      14
+    ],
+    "output_shape": [
+      3
+    ],
+    "plan_version": "phase25.1",
+    "steps": [
+      {
+        "id": "rnn_1",
+        "input_shape": [
+          168,
+          14
+        ],
+        "kind": "rnn",
+        "output_shape": [
+          168,
+          32
+        ],
+        "return_sequences": true
+      },
+      {
+        "id": "rnn_2",
+        "input_shape": [
+          168,
+          32
+        ],
+        "kind": "rnn",
+        "output_shape": [
+          168,
+          32
+        ],
+        "return_sequences": true
+      },
+      {
+        "id": "rnn_3",
+        "input_shape": [
+          168,
+          32
+        ],
+        "kind": "rnn",
+        "output_shape": [
+          32
+        ],
+        "return_sequences": false
+      },
+      {
+        "id": "dense_4",
+        "input_shape": [
+          32
+        ],
+        "kind": "dense",
+        "output_shape": [
+          16
+        ]
+      },
+      {
+        "activation": "relu",
+        "id": "activation_5",
+        "input_shape": [
+          16
+        ],
+        "kind": "activation",
+        "output_shape": [
+          16
+        ]
+      },
+      {
+        "id": "dense_6",
+        "input_shape": [
+          16
+        ],
+        "kind": "dense",
+        "output_shape": [
+          8
+        ]
+      },
+      {
+        "activation": "relu",
+        "id": "activation_7",
+        "input_shape": [
+          8
+        ],
+        "kind": "activation",
+        "output_shape": [
+          8
+        ]
+      },
+      {
+        "id": "dense_8",
+        "input_shape": [
+          8
+        ],
+        "kind": "dense",
+        "output_shape": [
+          3
+        ]
+      }
+    ],
+    "tiny_synthetic_only": false
+  },
+  "primary_metric": "rmse",
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "provenance": {
+    "adapter_sha256": "153bff72d1102704be385334267928d581b28a9212dfa0e6f614d53fd26f4098",
+    "dataset_sha256": "db356f6739f2dbc8f493d383cface41cb84eed4ad572bbfd4b680519034539a1",
+    "preprocessing_sha256": "113517432533f483d54fee9e3b531e993f56b2fe57d2ffdb11c33e82212b6b16",
+    "split_sha256": "01e81727b1a2be23972d565c264f71172375448b58912ac9bf051358f897d191",
+    "subset_sha256": "cceab0ec42b2752523904b2ce0ce42669a95686ed71b4e07dd22fa84d5eb9fdc"
+  },
+  "seed": 73,
+  "task": "mse",
+  "test_policy": "NO TEST in Phase28; joint RNN/LSTM TEST only in Phase29 after both families locked",
+  "track": "matched_subset",
+  "training": {
+    "batch_size": 32,
+    "checkpoint_selection": "minimum validation loss; never TEST",
+    "dtype": "float32",
+    "failure_policy": "Record timeout/OOM/NaN as failed, never silently reduce samples, architecture or epochs for one implementation.",
+    "gradient_clip_global_norm": 1,
+    "hyperparameter_search_trials": 1,
+    "initialization": "Generate canonical NumPy weights once per seed; convert layouts for each adapter; paired forward/gradient checks before training.",
+    "max_epochs": 40,
+    "min_delta": 1e-05,
+    "optimizer": {
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "epsilon": 1e-07,
+      "epsilon_convention": "denominator sqrt(v_hat)+epsilon; adapters must normalize or disclose numerical deviations",
+      "learning_rate": 0.001,
+      "name": "adam"
+    },
+    "patience": 6,
+    "shuffle_policy": "Saved common train batch order per seed; no split/time shuffle.",
+    "wall_time_limit_minutes": 120
+  },
+  "unit": "kW",
+  "validation_policy": "Every origin uses only observed history; all horizons within partition; rolling folds use their own frozen scaler and matched IDs"
+}

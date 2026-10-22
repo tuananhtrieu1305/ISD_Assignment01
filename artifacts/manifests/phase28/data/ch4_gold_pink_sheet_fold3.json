@@ -1,0 +1,59 @@
+{
+  "adapter": {
+    "adapter_version": "phase25.1",
+    "canonical_layout": "NTF",
+    "class_names": {},
+    "class_weights_by_id": {},
+    "dataset_id": "ch4_gold_pink_sheet",
+    "dtype": "float32",
+    "feature_order_policy": "numeric input_columns order; then categorical input_columns/vocabulary order",
+    "fold": 3,
+    "kind": "timeseries",
+    "output_feature_names": [
+      "gold",
+      "silver_lag1",
+      "platinum_lag1",
+      "crude_oil_lag1"
+    ],
+    "preprocessing": {
+      "path": "data/splits/v3/ch4_gold_pink_sheet/rolling_fold_3/preprocessing.json",
+      "sha256": "c943667fbc6b0e49c046278762addf52d7764adb0ee2b2b7471e05f50a2b49eb"
+    },
+    "pytorch_image_layout": null,
+    "source_label_to_id": {}
+  },
+  "baseline_policy": "Observed target history at/before origin; missing seasonal source falls back to last observed within lookback; no target imputation",
+  "dataset_id": "ch4_gold_pink_sheet",
+  "feature_bytes": 12816,
+  "fold": 3,
+  "fold_index_revision": "phase28.1; source-index gaps reconstructed from immutable IDs/calendar, never alter splits/scalers",
+  "horizons": [
+    1,
+    3,
+    6
+  ],
+  "input_shape": [
+    24,
+    4
+  ],
+  "provenance": {
+    "adapter_sha256": "9a3371afcbd06908d12ff4ddeec9ee8fcf05b285a4eae7527012efbc4ee135da",
+    "dataset_sha256": "dfaba9c931ef045fa98ba4bd5d51e478f17cd7fb1b9911e1a3a07a1123bdbef3",
+    "preprocessing_sha256": "c943667fbc6b0e49c046278762addf52d7764adb0ee2b2b7471e05f50a2b49eb",
+    "split_sha256": "b77566539a5892466998387053cbaf39abcf4933dddfcb732c35bdadb0f36cab",
+    "subset_sha256": "25217dd7bdf55b4e7f0d1414f303fa36b5c6ba9f6709d60af8ba82a284a26c38"
+  },
+  "raw_read_scope": "Frozen full row table is read; transform/gather only development context rows; no TEST window predictions or labels used for selection",
+  "reconstructed_fold_ids": [
+    "GOLD/2006-03-01T00:00:00",
+    "GOLD/2006-04-01T00:00:00",
+    "GOLD/2006-05-01T00:00:00",
+    "GOLD/2006-06-01T00:00:00",
+    "GOLD/2006-07-01T00:00:00"
+  ],
+  "test_windows_materialized": false,
+  "train_count": 549,
+  "train_ids_sha256": "9ca1df3412acd693fc6185568d62bf63a0dece7cb895d50d2543d184c7969562",
+  "validation_count": 97,
+  "validation_ids_sha256": "228b5e5121182f996b7d7365a43c507df220f8a043501fb21b53902aaf2251d7"
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.936" timestamp="2026-10-22T06:21:25.396949+07:00" hostname="LaptopVJP"><testcase classname="tests.report34.test_publication" name="test_integration_is_deterministic_without_inference" time="0.002"><failure message="AssertionError: Integration test must not overwrite publication&#10;assert PosixPath('/mnt/c/DATA/assign/report/phase34') != (PosixPath('/mnt/c/DATA/assign') / 'report/phase34')&#10; +  where PosixPath('/mnt/c/DATA/assign') = builder.ROOT">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7c2df4391610&gt;
+tmp_path = PosixPath('/tmp/pytest-of-tuananh/pytest-5/test_integration_is_determinis0')
+
+    def test_integration_is_deterministic_without_inference(monkeypatch, tmp_path):
+        # Repeat the unreleased generated publication only; original source stays read-only.
+        output = builder.OUT
+&gt;       assert output != builder.ROOT / 'report/phase34', 'Integration test must not overwrite publication'
+E       AssertionError: Integration test must not overwrite publication
+E       assert PosixPath('/mnt/c/DATA/assign/report/phase34') != (PosixPath('/mnt/c/DATA/assign') / 'report/phase34')
+E        +  where PosixPath('/mnt/c/DATA/assign') = builder.ROOT
+
+tests/report34/test_publication.py:29: AssertionError</failure></testcase></testsuite></testsuites>

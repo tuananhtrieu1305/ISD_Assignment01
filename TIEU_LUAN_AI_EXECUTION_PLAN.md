@@ -1,5 +1,10 @@
 # KẾ HOẠCH THỰC THI TIỂU LUẬN AI/ML/CNN/RNN
 
+> **LỊCH SỬ:** Phase 0–9 đã hoàn thành. Yêu cầu V3 ngày 2026-10-16 và các lệnh
+> `làm phase 20` đến `làm phase 35` phải theo `TIEU_LUAN_AI_V3_EXECUTION_PLAN.md`.
+
+> **CẬP NHẬT 2026-10-16:** Phase 0–9 trong file này đã hoàn thành và được giữ làm lịch sử. Phase 10–19 trong `CHUONG_5_KNOWLEDGE_RAG_EXECUTION_PLAN.md` cũng đã hoàn thành. Kế hoạch đang hoạt động là `TIEU_LUAN_AI_V3_EXECUTION_PLAN.md` với Phase 20–35.
+
 > **Vai trò của file này:** Đây là nguồn sự thật duy nhất (single source of truth) để thực hiện tiểu luận. Khi người dùng gõ **`làm phase N`**, trợ lý phải đọc toàn bộ file này, đọc các `AGENTS.md` liên quan, kiểm tra trạng thái và tự thực hiện đầy đủ phase tương ứng cho đến khi đạt tiêu chí nghiệm thu hoặc gặp một blocker thực sự cần người dùng quyết định.
 
 ## 0. Thông tin quản trị

@@ -1,0 +1,53 @@
+{
+  "phase": 35,
+  "status": "COMPLETE",
+  "stage": "released_verified",
+  "date": "2026-10-22",
+  "controller_pid": null,
+  "requires_user_decision": false,
+  "blocker": {
+    "code": "RESOLVED_LOCAL_TOOLCHAIN_AUTHORIZED",
+    "detail": "User authorized isolated pinned local document tooling. TDF LibreOffice 26.2.6.3 rendered all 32 reference pages successfully; Ubuntu-packaged rootless attempt retained as failure history.",
+    "resolution": "docs/phase35_local_toolchain_authorization.md; local_toolchain_r2/probe.json"
+  },
+  "source": {
+    "pointer": "report/active_manuscript_v3.json",
+    "publication_manifest": "artifacts/manifests/phase34/manuscript_manifest.json",
+    "manuscript": "report/phase34/manuscript.md",
+    "sha256": "dcb895acfd76f1ad616baecd7fdc7fa099becbc0cc508a80b3c0432eabef2b19"
+  },
+  "dependency_check": {
+    "status": "PASS",
+    "command": "scripts/check_phase34.ps1 -Distribution Ubuntu",
+    "files": 226,
+    "mode": "read_only_no_inference"
+  },
+  "checkpoint_note": "docs/phase35_checkpoint_20261022.md",
+  "runtime_preflight": "artifacts/manifests/phase35/runtime_preflight_20261022.json",
+  "preservation": {
+    "receipt": "artifacts/manifests/phase35/preserve_after.json",
+    "status": "PASS",
+    "unique_protected_files": 31848,
+    "parent_locks": 12,
+    "all_owned_audit_processes_exited": true
+  },
+  "docx_authored": true,
+  "cover_information": "User explicitly confirmed retaining A06 identity, class, lecturer and institution",
+  "artifact_operation_marker_run": true,
+  "template_distillation_complete": true,
+  "candidate": "report/build/phase35/candidate-r12.docx",
+  "candidate_sha256": "5daf2aa5b5f587be5f61ecf7a2c6d32dc131c9ae2efe5df8630b4a23387060a5",
+  "page_count": 202,
+  "page_qa": "PASS_202_OF_202; 131 exact-PNG-hash carry from individually viewed pages and 71 individually viewed final pages",
+  "word_open": "R12_PASS_WORD16_FIELDS_UPDATE_ERROR_INDEX0_202PAGES; SOURCE_UNCHANGED_NO_SAVE",
+  "final_tests": "PASS_82_OF_82_0SKIP; final_tests_r2.xml; combined_coverage84.89247311827957_branch80.42704626334519",
+  "production_smoke": "PASS_UI_R2_23_OF_23; CPU_COMPACT_BUNDLE_LOCAL_NOT_CLOUD; UI_R1_20PASS3TIMEOUT_RETAINED",
+  "cloud_deployment": "NOT_PERFORMED",
+  "release_manifest": "releases/v3/release_manifest.json",
+  "release_lock": "artifacts/manifests/phase35/release_lock.json",
+  "release_lock_sha256": "3d66f57de0d5bd48f19b15eaf75c92619519ab9c29a1beb11b469512ea47adab",
+  "release_files": 391,
+  "verification": "PASS_READ_ONLY_NO_INFERENCE",
+  "models_retrained": 0,
+  "historical_test_evaluation_executed": false
+}

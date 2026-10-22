@@ -1,0 +1,113 @@
+{
+  "category": "tool_failure",
+  "domain": "diabetes",
+  "metrics": {
+    "answer_completion": 1,
+    "citation_correctness": 0,
+    "latency_ms": 7.411350001348183,
+    "message_count": 1,
+    "numeric_parity": 1,
+    "peak_child_rss_bytes": 175697920,
+    "refusal_correctness": 0,
+    "routing_accuracy": null,
+    "task_success": 0,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 1
+  },
+  "output": {
+    "message_count": 1,
+    "messages": [
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "diabetes_numeric_031"
+        },
+        "node_id": "node_1",
+        "output": {
+          "payload": {
+            "artifact_refs": [
+              {
+                "path": "data/processed/v3/phase26/r2/ch2_cdc_diabetes_development.npz",
+                "sha256": "c53fa5ef792a32926b3b59803bae50159d802c9a67445822aecf0880cb6fbe8e"
+              },
+              {
+                "path": "artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_mlp_scratch_s42/best.npz",
+                "sha256": "cc7d28232eb1a818cc0c10d9047b4a43f4ef25ac7c06b2737870c63ae644fdb8"
+              },
+              {
+                "path": "artifacts/manifests/phase26/revisions/r2/configs/ch2_cdc_diabetes_s42.json",
+                "sha256": "507cafad70aa974bb739decc54d0cf3f8a10a232eed7a3b7ad927a0a3d31a4d6"
+              }
+            ],
+            "citations": [],
+            "text": "Frozen NumPy CPU tool output: 0.64675465",
+            "unit": "probability",
+            "values": [
+              0.6467546512271612
+            ]
+          },
+          "peak_rss_bytes": 175697920,
+          "receipt_sha256": "339c81d41723f28f0e233c26d3b1c78d24184c776619928df6926480154c5c7c",
+          "status": "ok"
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 175697920,
+    "reason": null,
+    "route": "diabetes",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "Frozen NumPy CPU tool output: 0.64675465",
+      "citations": [],
+      "domain": "diabetes",
+      "evidence_kind": "measured",
+      "latency_ms": 6.67204599994875,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "direct",
+          "artifact_refs": [
+            {
+              "path": "data/processed/v3/phase26/r2/ch2_cdc_diabetes_development.npz",
+              "sha256": "c53fa5ef792a32926b3b59803bae50159d802c9a67445822aecf0880cb6fbe8e"
+            },
+            {
+              "path": "artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_mlp_scratch_s42/best.npz",
+              "sha256": "cc7d28232eb1a818cc0c10d9047b4a43f4ef25ac7c06b2737870c63ae644fdb8"
+            },
+            {
+              "path": "artifacts/manifests/phase26/revisions/r2/configs/ch2_cdc_diabetes_s42.json",
+              "sha256": "507cafad70aa974bb739decc54d0cf3f8a10a232eed7a3b7ad927a0a3d31a4d6"
+            }
+          ],
+          "duration_ms": 6.544220999785466,
+          "input_sha256": "a3135bd7148a83eb52e9b7e0b88fe2cbfb67dbd0f25f18a4e6aacaa1ed44a54e",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "37dd85b3fdc9ee69e5ce05c038865c2b736b7b92b757a027265447d4a7a1a545",
+          "parent_ids": [],
+          "tool": "predict_diabetes"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "succeeded",
+      "task_id": "diabetes_tool_failure_f3_4",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_e0ef3b284be4baa8b949_a0",
+      "variant": "A0"
+    },
+    "values": [
+      0.6467546512271612
+    ],
+    "verification": "not_run",
+    "wall_latency_ms": 7.411350001348183
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "challenge",
+  "task_id": "diabetes_tool_failure_f3_4",
+  "variant": "A0"
+}

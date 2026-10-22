@@ -1,0 +1,143 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "3.0.0"
+    },
+    "evidence_kind": {
+      "enum": [
+        "measured",
+        "synthetic_fixture",
+        "historical_baseline"
+      ]
+    },
+    "split_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+    },
+    "dataset_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+    },
+    "dataset_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "method": {
+      "enum": [
+        "stratified",
+        "group_stratified",
+        "official",
+        "temporal",
+        "benchmark_only"
+      ]
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "train_only_preprocessing": {
+      "const": true
+    },
+    "group_key": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "partitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "enum": [
+              "train",
+              "validation",
+              "test"
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "ids": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "$ref": "urn:ai-paper:v3:common#/$defs/path"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ]
+          },
+          "target_start": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "target_end": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "name",
+          "count",
+          "ids",
+          "target_start",
+          "target_end"
+        ]
+      },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "leakage_audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "$ref": "urn:ai-paper:v3:common#/$defs/path"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "evidence_kind",
+    "split_id",
+    "dataset_id",
+    "dataset_sha256",
+    "method",
+    "seed",
+    "train_only_preprocessing",
+    "group_key",
+    "partitions",
+    "leakage_audit"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-paper:v3:split",
+  "title": "AI term paper V3 split contract"
+}

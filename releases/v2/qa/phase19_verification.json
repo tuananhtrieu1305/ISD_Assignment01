@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "phase": 19,
+  "status": "PASS",
+  "checks_passed": 17,
+  "checks_total": 17,
+  "document": "term_paper/report/Tieu_luan_AI_ML_CNN_RNN_KG_RAG.docx",
+  "document_sha256": "d7286dd4867e6216f197414e42fc112a3759621c017839fa9b1491b7c5dbfa51",
+  "document_bytes": 3948873,
+  "page_count": 86,
+  "page_budgets": {
+    "intro": 4,
+    "chapter1": 8,
+    "chapter2": 15,
+    "chapter3": 14,
+    "chapter4": 15,
+    "chapter5": 13
+  },
+  "inventory": {
+    "navigation_targets": 178,
+    "figures": 22,
+    "tables": 21,
+    "references": 57
+  },
+  "checks": [
+    {
+      "name": "docx_exists_and_is_zip",
+      "status": "PASS",
+      "detail": 3948873
+    },
+    {
+      "name": "docx_package_integrity",
+      "status": "PASS",
+      "detail": "ZIP package valid"
+    },
+    {
+      "name": "structural_validation",
+      "status": "PASS",
+      "detail": "21 checks; 0 failures"
+    },
+    {
+      "name": "validation_hash_matches_release",
+      "status": "PASS",
+      "detail": {
+        "validation": "d7286dd4867e6216f197414e42fc112a3759621c017839fa9b1491b7c5dbfa51",
+        "release": "d7286dd4867e6216f197414e42fc112a3759621c017839fa9b1491b7c5dbfa51"
+      }
+    },
+    {
+      "name": "navigation_and_pagination",
+      "status": "PASS",
+      "detail": {
+        "pages": 86,
+        "resolved": 178
+      }
+    },
+    {
+      "name": "hyperlink_targets",
+      "status": "PASS",
+      "detail": {
+        "internal_links": 356,
+        "unique_internal_targets": 178,
+        "external_links": 68
+      }
+    },
+    {
+      "name": "chapter_page_budgets",
+      "status": "PASS",
+      "detail": {
+        "intro": 4,
+        "chapter1": 8,
+        "chapter2": 15,
+        "chapter3": 14,
+        "chapter4": 15,
+        "chapter5": 13
+      }
+    },
+    {
+      "name": "visual_qa_100_percent",
+      "status": "PASS",
+      "detail": "86/86 pages"
+    },
+    {
+      "name": "accessibility",
+      "status": "PASS",
+      "detail": {
+        "high": 0,
+        "medium": 3,
+        "exception": "ACCEPTED"
+      }
+    },
+    {
+      "name": "renderer_exception_documented",
+      "status": "PASS",
+      "detail": "LibreOffice soffice.exe was not found on PATH on this Windows host."
+    },
+    {
+      "name": "release_metadata",
+      "status": "PASS",
+      "detail": {
+        "creator": "Triệu Tuấn Anh",
+        "lastModifiedBy": "Triệu Tuấn Anh"
+      }
+    },
+    {
+      "name": "baseline_docx_unchanged",
+      "status": "PASS",
+      "detail": "0c82a1e90d394420a7143534ca2b06ebc912648b1c9ea17dd58784d095ce1e9d"
+    },
+    {
+      "name": "phase15_public_test_lock",
+      "status": "PASS",
+      "detail": {
+        "status": "COMPLETE",
+        "run_count": 1,
+        "lock": "560c671a3920bd6bde9f7fc005f3c952f857c55969c989bb6109932623210c9e"
+      }
+    },
+    {
+      "name": "requirements_matrix_closed",
+      "status": "PASS",
+      "detail": "no PLANNED/PENDING_INPUT rows"
+    },
+    {
+      "name": "no_standalone_deployment_chapter",
+      "status": "PASS",
+      "detail": false
+    },
+    {
+      "name": "report_inventory",
+      "status": "PASS",
+      "detail": {
+        "figures": 22,
+        "tables": 21,
+        "references": 57
+      }
+    },
+    {
+      "name": "regression_suite",
+      "status": "PASS",
+      "detail": {
+        "phase16_runtime_verifier": "PASS",
+        "phase17_content_verifier": "PASS",
+        "phase18_migration_verifier": "PASS",
+        "python_runtime_backend_regression": "PASS",
+        "react_api_tests": "PASS",
+        "react_type_check": "PASS",
+        "react_production_build": "PASS",
+        "tensorflow_unit_collection": "NOT_RUN_ENVIRONMENT"
+      }
+    }
+  ],
+  "failures": []
+}

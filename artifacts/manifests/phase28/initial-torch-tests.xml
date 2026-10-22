@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="6" skipped="0" tests="17" time="39.958" timestamp="2026-10-18T14:03:40.923142+07:00" hostname="LaptopVJP"><testcase classname="tests.recurrent.test_training" name="test_torch_recurrent_slots_canonical_and_resume" time="8.418" /><testcase classname="tests.recurrent.test_training" name="test_manual_bptt_numeric_gradient_tiny_sequence" time="0.013" /><testcase classname="tests.recurrent.test_training" name="test_fit_windows_resume_matches_uninterrupted" time="0.015" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[None-ch4_gold_pink_sheet]" time="0.477" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[None-ch4_bis_house_prices]" time="1.912" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[None-ch4_household_power]" time="10.571" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[1-ch4_gold_pink_sheet]" time="0.399" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[1-ch4_bis_house_prices]" time="1.253" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[1-ch4_household_power]" time="8.489" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[2-ch4_gold_pink_sheet]" time="0.294"><failure message="KeyError: 'GOLD/2006-07-01T00:00:00'">dataset = 'ch4_gold_pink_sheet', fold = 2
+
+    @pytest.mark.parametrize("dataset", DATASETS)
+    @pytest.mark.parametrize("fold", [None, 1, 2, 3])
+    def test_batch_matches_frozen_reference(dataset, fold):
+&gt;       data = WindowData(dataset, fold)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/recurrent/test_window_data.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;src.ch04_rnn_lstm.window_data.WindowData object at 0x7a851bb1d850&gt;
+dataset_id = 'ch4_gold_pink_sheet', fold = 2
+
+    def __init__(self, dataset_id, fold=None):
+        self.view = DatasetView(dataset_id, fold)
+        if self.view.kind != "timeseries":
+            raise ValueError("Require a frozen time-series dataset")
+        self.dataset_id, self.fold, self.adapter = dataset_id, fold, self.view.adapter
+        self.train_ids = self.view.ids("train")
+        self.validation_ids = self.view.ids("validation")
+        self.allowed = set(self.view.ids("train", matched=False)) | set(self.validation_ids)
+        self.view._load()
+        self.frame, self.rows = self.view._frame, self.view._index
+        self.lookback = self.view.spec["lookback"]
+        self.horizons = self.view.spec["horizons"]
+        self.features = np.full((len(self.frame), self.adapter.state["output_width"]), np.nan, "float32")
+        context_rows = set()
+        for key in self.allowed:
+&gt;           row = self.rows[key]
+                  ^^^^^^^^^^^^^^
+E           KeyError: 'GOLD/2006-07-01T00:00:00'
+
+src/ch04_rnn_lstm/window_data.py:26: KeyError</failure></testcase><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[2-ch4_bis_house_prices]" time="0.143"><failure message="KeyError: 'Q.GB.N.628/2018-01-01T00:00:00'">dataset = 'ch4_bis_house_prices', fold = 2
+
+    @pytest.mark.parametrize("dataset", DATASETS)
+    @pytest.mark.parametrize("fold", [None, 1, 2, 3])
+    def test_batch_matches_frozen_reference(dataset, fold):
+&gt;       data = WindowData(dataset, fold)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/recurrent/test_window_data.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;src.ch04_rnn_lstm.window_data.WindowData object at 0x7a873e2b4890&gt;
+dataset_id = 'ch4_bis_house_prices', fold = 2
+
+    def __init__(self, dataset_id, fold=None):
+        self.view = DatasetView(dataset_id, fold)
+        if self.view.kind != "timeseries":
+            raise ValueError("Require a frozen time-series dataset")
+        self.dataset_id, self.fold, self.adapter = dataset_id, fold, self.view.adapter
+        self.train_ids = self.view.ids("train")
+        self.validation_ids = self.view.ids("validation")
+        self.allowed = set(self.view.ids("train", matched=False)) | set(self.validation_ids)
+        self.view._load()
+        self.frame, self.rows = self.view._frame, self.view._index
+        self.lookback = self.view.spec["lookback"]
+        self.horizons = self.view.spec["horizons"]
+        self.features = np.full((len(self.frame), self.adapter.state["output_width"]), np.nan, "float32")
+        context_rows = set()
+        for key in self.allowed:
+&gt;           row = self.rows[key]
+                  ^^^^^^^^^^^^^^
+E           KeyError: 'Q.GB.N.628/2018-01-01T00:00:00'
+
+src/ch04_rnn_lstm/window_data.py:26: KeyError</failure></testcase><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[2-ch4_household_power]" time="1.429"><failure message="KeyError: 'HOUSEHOLD/2009-09-19T21:00:00'">dataset = 'ch4_household_power', fold = 2
+
+    @pytest.mark.parametrize("dataset", DATASETS)
+    @pytest.mark.parametrize("fold", [None, 1, 2, 3])
+    def test_batch_matches_frozen_reference(dataset, fold):
+&gt;       data = WindowData(dataset, fold)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/recurrent/test_window_data.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;src.ch04_rnn_lstm.window_data.WindowData object at 0x7a873e1156d0&gt;
+dataset_id = 'ch4_household_power', fold = 2
+
+    def __init__(self, dataset_id, fold=None):
+        self.view = DatasetView(dataset_id, fold)
+        if self.view.kind != "timeseries":
+            raise ValueError("Require a frozen time-series dataset")
+        self.dataset_id, self.fold, self.adapter = dataset_id, fold, self.view.adapter
+        self.train_ids = self.view.ids("train")
+        self.validation_ids = self.view.ids("validation")
+        self.allowed = set(self.view.ids("train", matched=False)) | set(self.validation_ids)
+        self.view._load()
+        self.frame, self.rows = self.view._frame, self.view._index
+        self.lookback = self.view.spec["lookback"]
+        self.horizons = self.view.spec["horizons"]
+        self.features = np.full((len(self.frame), self.adapter.state["output_width"]), np.nan, "float32")
+        context_rows = set()
+        for key in self.allowed:
+&gt;           row = self.rows[key]
+                  ^^^^^^^^^^^^^^
+E           KeyError: 'HOUSEHOLD/2009-09-19T21:00:00'
+
+src/ch04_rnn_lstm/window_data.py:26: KeyError</failure></testcase><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[3-ch4_gold_pink_sheet]" time="0.159"><failure message="KeyError: 'GOLD/2006-07-01T00:00:00'">dataset = 'ch4_gold_pink_sheet', fold = 3
+
+    @pytest.mark.parametrize("dataset", DATASETS)
+    @pytest.mark.parametrize("fold", [None, 1, 2, 3])
+    def test_batch_matches_frozen_reference(dataset, fold):
+&gt;       data = WindowData(dataset, fold)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/recurrent/test_window_data.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;src.ch04_rnn_lstm.window_data.WindowData object at 0x7a851b27b950&gt;
+dataset_id = 'ch4_gold_pink_sheet', fold = 3
+
+    def __init__(self, dataset_id, fold=None):
+        self.view = DatasetView(dataset_id, fold)
+        if self.view.kind != "timeseries":
+            raise ValueError("Require a frozen time-series dataset")
+        self.dataset_id, self.fold, self.adapter = dataset_id, fold, self.view.adapter
+        self.train_ids = self.view.ids("train")
+        self.validation_ids = self.view.ids("validation")
+        self.allowed = set(self.view.ids("train", matched=False)) | set(self.validation_ids)
+        self.view._load()
+        self.frame, self.rows = self.view._frame, self.view._index
+        self.lookback = self.view.spec["lookback"]
+        self.horizons = self.view.spec["horizons"]
+        self.features = np.full((len(self.frame), self.adapter.state["output_width"]), np.nan, "float32")
+        context_rows = set()
+        for key in self.allowed:
+&gt;           row = self.rows[key]
+                  ^^^^^^^^^^^^^^
+E           KeyError: 'GOLD/2006-07-01T00:00:00'
+
+src/ch04_rnn_lstm/window_data.py:26: KeyError</failure></testcase><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[3-ch4_bis_house_prices]" time="0.271"><failure message="KeyError: 'Q.ZA.N.628/2018-04-01T00:00:00'">dataset = 'ch4_bis_house_prices', fold = 3
+
+    @pytest.mark.parametrize("dataset", DATASETS)
+    @pytest.mark.parametrize("fold", [None, 1, 2, 3])
+    def test_batch_matches_frozen_reference(dataset, fold):
+&gt;       data = WindowData(dataset, fold)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/recurrent/test_window_data.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;src.ch04_rnn_lstm.window_data.WindowData object at 0x7a85249c3cd0&gt;
+dataset_id = 'ch4_bis_house_prices', fold = 3
+
+    def __init__(self, dataset_id, fold=None):
+        self.view = DatasetView(dataset_id, fold)
+        if self.view.kind != "timeseries":
+            raise ValueError("Require a frozen time-series dataset")
+        self.dataset_id, self.fold, self.adapter = dataset_id, fold, self.view.adapter
+        self.train_ids = self.view.ids("train")
+        self.validation_ids = self.view.ids("validation")
+        self.allowed = set(self.view.ids("train", matched=False)) | set(self.validation_ids)
+        self.view._load()
+        self.frame, self.rows = self.view._frame, self.view._index
+        self.lookback = self.view.spec["lookback"]
+        self.horizons = self.view.spec["horizons"]
+        self.features = np.full((len(self.frame), self.adapter.state["output_width"]), np.nan, "float32")
+        context_rows = set()
+        for key in self.allowed:
+&gt;           row = self.rows[key]
+                  ^^^^^^^^^^^^^^
+E           KeyError: 'Q.ZA.N.628/2018-04-01T00:00:00'
+
+src/ch04_rnn_lstm/window_data.py:26: KeyError</failure></testcase><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[3-ch4_household_power]" time="1.274"><failure message="KeyError: 'HOUSEHOLD/2009-09-19T21:00:00'">dataset = 'ch4_household_power', fold = 3
+
+    @pytest.mark.parametrize("dataset", DATASETS)
+    @pytest.mark.parametrize("fold", [None, 1, 2, 3])
+    def test_batch_matches_frozen_reference(dataset, fold):
+&gt;       data = WindowData(dataset, fold)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/recurrent/test_window_data.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;src.ch04_rnn_lstm.window_data.WindowData object at 0x7a8517d38350&gt;
+dataset_id = 'ch4_household_power', fold = 3
+
+    def __init__(self, dataset_id, fold=None):
+        self.view = DatasetView(dataset_id, fold)
+        if self.view.kind != "timeseries":
+            raise ValueError("Require a frozen time-series dataset")
+        self.dataset_id, self.fold, self.adapter = dataset_id, fold, self.view.adapter
+        self.train_ids = self.view.ids("train")
+        self.validation_ids = self.view.ids("validation")
+        self.allowed = set(self.view.ids("train", matched=False)) | set(self.validation_ids)
+        self.view._load()
+        self.frame, self.rows = self.view._frame, self.view._index
+        self.lookback = self.view.spec["lookback"]
+        self.horizons = self.view.spec["horizons"]
+        self.features = np.full((len(self.frame), self.adapter.state["output_width"]), np.nan, "float32")
+        context_rows = set()
+        for key in self.allowed:
+&gt;           row = self.rows[key]
+                  ^^^^^^^^^^^^^^
+E           KeyError: 'HOUSEHOLD/2009-09-19T21:00:00'
+
+src/ch04_rnn_lstm/window_data.py:26: KeyError</failure></testcase><testcase classname="tests.recurrent.test_window_data" name="test_sealed_duplicate_unknown_and_empty_windows_refused" time="0.342" /><testcase classname="tests.recurrent.test_window_data" name="test_validation_targets_remain_original_float64" time="0.321" /></testsuite></testsuites>

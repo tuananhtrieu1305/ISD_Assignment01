@@ -1,0 +1,183 @@
+{
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_pytorch_s73_main/best.npz",
+    "sha256": "9ff03f931ea21690c8bdf9eb258d9eb5050107f6838075f26700913b556c895e"
+  },
+  "efficiency_scope": "Train/RAM/VRAM/5warmup30repeat TRAIN-input timing copied byte-value from locked validation metric; not claimed as TEST-only measurements",
+  "evaluator_sha256": "d57fe9be8d8a075525a30f2d7693d77080a79cc3c7f96a50960641995c2ae32c",
+  "metrics": {
+    "by_horizon": {
+      "1": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 1578.7671820202397
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -3.4494620583202398
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 1796.1834225447026
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 126.6976224463249
+        }
+      },
+      "3": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 1659.4317421362025
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -3.3871638681451195
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 1893.075523830137
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 131.66028570084794
+        }
+      },
+      "6": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 1733.7887125765342
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -3.268205392636114
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 1984.6071015586408
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 132.63603178518275
+        }
+      }
+    },
+    "by_series": {
+      "GOLD": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 1578.7671820202397
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -3.4494620583202398
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 1796.1834225447026
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 126.6976224463249
+            }
+          },
+          "3": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 1659.4317421362025
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -3.3871638681451195
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 1893.075523830137
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 131.66028570084794
+            }
+          },
+          "6": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 1733.7887125765342
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": -3.268205392636114
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 1984.6071015586408
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 132.63603178518275
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 1657.3292122443254
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": -3.3609535705804996
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 1892.852800572559
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 130.3313133107852
+        }
+      }
+    },
+    "macro_series_rmse": {
+      "undefined_reason": null,
+      "value": 1892.852800572559
+    },
+    "mae": {
+      "undefined_reason": null,
+      "value": 1657.3292122443254
+    },
+    "r2": {
+      "undefined_reason": null,
+      "value": -3.3609535705804996
+    },
+    "rmse": {
+      "undefined_reason": null,
+      "value": 1892.852800572559
+    },
+    "smape": {
+      "undefined_reason": null,
+      "value": 130.3313133107852
+    }
+  },
+  "optimizer_updates": 0,
+  "output_dtype": "float64",
+  "run_id": "ch4_gold_pink_sheet_lstm_pytorch_s73_main",
+  "test_count": 116,
+  "test_forward_and_model_load_seconds": 1.8231993269992017,
+  "test_forward_passes_per_window": 1,
+  "test_seal_manifest_sha256": "597bff62544f81cd9021c8567899734be5bb33a2a9ad1f97ed10c716e693dff9",
+  "training_efficiency": {
+    "checkpoint_bytes": 92022,
+    "inference_p50_ms": 0.8501379998051561,
+    "inference_p95_ms": 1.2825281997720592,
+    "peak_ram_bytes": 1828716544,
+    "peak_vram_bytes": 80124928,
+    "timed_repeats": 30,
+    "train_seconds": 10.653617039999517,
+    "warmup_batches": 5
+  },
+  "training_selection": {
+    "path": "artifacts/manifests/phase29/runs/ch4_gold_pink_sheet_lstm_pytorch_s73_main/selection.json",
+    "sha256": "4d29aeb214984998c59e79ec0b1e981dc9335f4e3d3e7614487353381ecad69f"
+  }
+}

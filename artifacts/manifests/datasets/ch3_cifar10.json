@@ -1,0 +1,70 @@
+{
+  "contract": {
+    "schema_version": "3.0.0",
+    "evidence_kind": "measured",
+    "dataset_id": "ch3_cifar10",
+    "chapter": 3,
+    "kind": "image",
+    "status": "ready",
+    "source": {
+      "url": "https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz",
+      "version": "CIFAR-10 original binary release 2009; not Python pickle; sha256:c4a38c50a1bc5f3a1c5537f2155ab9d68f9f25eb1ed8d9ddda3db29a59bca1dd",
+      "citation": "Krizhevsky, A. (2009). Learning Multiple Layers of Features from Tiny Images. University of Toronto technical report.",
+      "license_status": "approved",
+      "license_note": "Author-hosted public research benchmark; author requests citation. No explicit SPDX license asserted. Local academic analysis only; no raw redistribution. https://www.cs.toronto.edu/~kriz/cifar.html",
+      "accessed_at": "2026-10-17T02:08:44.072442+00:00"
+    },
+    "files": [
+      {
+        "path": "data/raw/ch3/cifar10/cifar-10-binary.tar.gz",
+        "sha256": "c4a38c50a1bc5f3a1c5537f2155ab9d68f9f25eb1ed8d9ddda3db29a59bca1dd",
+        "size_bytes": 170052171
+      }
+    ],
+    "logical_size": {
+      "records": 60000,
+      "features": 3072,
+      "unit": "images (50000 train + 10000 test)"
+    },
+    "target": "object_class",
+    "columns": [],
+    "parent_dataset_ids": [],
+    "data_card_path": "report/references/dataset_cards/v3/ch3_cifar10.md"
+  },
+  "inspection": {
+    "records": 60000,
+    "features": 3072,
+    "unit": "images (50000 train + 10000 test)",
+    "columns": [],
+    "native_shape": [
+      32,
+      32,
+      3
+    ],
+    "batch_counts": {
+      "cifar-10-batches-bin/data_batch_1.bin": 10000,
+      "cifar-10-batches-bin/data_batch_3.bin": 10000,
+      "cifar-10-batches-bin/data_batch_4.bin": 10000,
+      "cifar-10-batches-bin/test_batch.bin": 10000,
+      "cifar-10-batches-bin/data_batch_5.bin": 10000,
+      "cifar-10-batches-bin/data_batch_2.bin": 10000
+    },
+    "checks": [
+      "binary_not_pickle",
+      "record_length",
+      "batch_count",
+      "label_range"
+    ]
+  },
+  "archive_inventory": {
+    "path": "artifacts/manifests/datasets/ch3_cifar10/archive_members.jsonl",
+    "sha256": "d06e434ac7fbaea7f57b5f86cbc836aafb0520479ff268538db6dfa9395d129f",
+    "size_bytes": 1197,
+    "members": 8,
+    "expanded_bytes": 184380149,
+    "extracted": false
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "training_executed": false,
+  "test_evaluation_executed": false
+}

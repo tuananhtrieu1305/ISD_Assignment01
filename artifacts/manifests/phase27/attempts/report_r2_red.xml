@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="4.627" timestamp="2026-10-18T08:55:40.419726+07:00" hostname="LaptopVJP"><testcase classname="tests.test_phase27_report_acceptance" name="test_derived_tables_and_chapter_images" time="0.069"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/DATA/assign/artifacts/manifests/phase27/active_report.json'">def test_derived_tables_and_chapter_images():
+        rows = read_json(METRICS / "tables/runs.json")
+        summary = read_json(METRICS / "tables/aggregate.json")
+        assert len(rows) == 72 and len(summary) == 288
+        for item in summary:
+            selected = [r for r in rows if all(r[key] == item[key] for key in ("dataset_id", "method", "split"))]
+            assert {r["seed"] for r in selected} == {17, 42, 73}
+            values = [r[item["metric"]] for r in selected if r[item["metric"]] is not None]
+            assert len(values) == item["n"]
+            if values:
+                np.testing.assert_allclose(item["mean"], np.mean(values), rtol=1e-12, atol=1e-12)
+                np.testing.assert_allclose(item["sample_std"], np.std(values, ddof=1), rtol=1e-12, atol=1e-12)
+            else:
+                assert item["mean"] is None and item["undefined_reason"]
+        assert len(read_json(METRICS / "tables/per_class_recall.json")) == 75
+&gt;       active = read_json(BASE / "active_report.json")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_phase27_report_acceptance.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/common/contracts.py:32: in read_json
+    return json.loads(path.read_text(encoding="utf-8-sig"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/anhca/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/mnt/c/DATA/assign/artifacts/manifests/phase27/active_report.json')
+mode = 'r', buffering = -1, encoding = 'utf-8-sig', errors = None
+newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/DATA/assign/artifacts/manifests/phase27/active_report.json'
+
+/home/anhca/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1044: FileNotFoundError</failure></testcase></testsuite></testsuites>
