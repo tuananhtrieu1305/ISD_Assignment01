@@ -611,3 +611,25 @@ Kế hoạch đang hoạt động là `TIEU_LUAN_AI_V3_EXECUTION_PLAN.md`.
 - Probe Word đầu có thể để Options.UpdateLinksAtOpen=False mà thiếu before snapshot;
   đã công khai ở bàn giao. Không tự đoán giá trị cũ để đảo lại. Script cuối không đổi
   tùy chọn này, mọi probe đóng không lưu file. Cloud V3 vẫn chưa deploy/nghiệm thu.
+
+## Render monorepo revision r1 — local verification PASS,22/10/2026
+
+- Người dùng yêu cầu sửa source để deploy cùng repo lên hai service Render Free hiện có.
+  Root `render.yaml` đã chuyển V3, bản trước ở `deploy/render-v3-r1/render-v2-before.yaml`.
+  Không sửa source/artifact/khóa Phase22–35. Không commit/push hoặc sửa account Settings.
+- `deploy/render-v3-r1/api-bundle.zip` là bản sao byte-identical gói CPU Phase32/package_v2,
+  SHA-256 `1f38247bf5b2a4a1b1a8036d234e8e1bcfb34931a59d4c41655e6d5da319db54`,74864102byte.
+  Git theo dõi ZIP trực tiếp, không force-add model/raw hoặc dùng LFS pointer.11JSON Wikidata
+  trong data/raw là runtime browser allowlist, không tải lại raw dataset.
+- `scripts/render_v3.py build|start|check` staging riêng `.render-v3/` ignored; kiểm ZIP/member/
+  manifest/hash và source Python trong checkout. Backend frozen đổi cần revision/gói mới,
+  không âm thầm phục vụ ZIP cũ; React vẫn build từ apps/web trong commit hiện hành.
+  Không chạy `build` trong GPU env: nó cài CPU lock. Render dùng Python3.11.17/NumPy CPU.
+- 46unit/integration PASS, coverage96,3134%combined;8E2E/20live slot PASS trên CPU-only QA
+  venv riêng26dependency hash-locked;4neural TRAIN+FinQA demo+Gold agent parent-TRAIN.
+  Không scientific TEST/train/nativeGPU hoặc cloud/SLA.31848protected file/12lock và
+  Phase35 release391file vẫn PASS. Receipt artifacts/manifests/render_v3_r1/verification.json.
+- Handoff `deploy/render-v3-r1/README.md`, docs/render_v3_r1_operations.md. Hai service thủ công
+  cần owner đổi Build/Start/Environment một lần; root YAML không tự sửa Dashboard. Không tự
+  tạo service, nâng plan hoặc resume server/installer QA theo PID lịch sử. QA tmp riêng giữ
+  trong /tmp/ai-paper-render-v3-r1-*; không thay runtime GPU Ubuntu/user tuananh.

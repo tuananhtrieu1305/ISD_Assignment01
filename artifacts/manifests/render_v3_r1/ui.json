@@ -1,0 +1,403 @@
+{
+  "config": {
+    "argv": [
+      "C:\\DATA\\assign\\.local\\node-v22.23.4-win-x64\\node.exe",
+      "C:\\DATA\\assign\\apps\\web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "tests/deploy/playwright.render-v3-r1.config.mjs"
+    ],
+    "configFile": "C:\\DATA\\assign\\tests\\deploy\\playwright.render-v3-r1.config.mjs",
+    "rootDir": "C:/DATA/assign/tests/deploy",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/DATA/assign/artifacts/manifests/render_v3_r1/ui-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/DATA/assign/tests/deploy",
+        "testIgnore": [],
+        "testMatch": [
+          "render-v3-r1.spec.mjs"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\DATA\\assign\\artifacts\\manifests\\render_v3_r1\\ui-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "C:\\DATA\\assign\\tests\\deploy",
+        "snapshotDir": "C:\\DATA\\assign\\tests\\deploy",
+        "testIgnore": [],
+        "testMatch": "render-v3-r1.spec.mjs",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://localhost:5173",
+          "headless": true,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "trace": "off",
+          "video": "off",
+          "screenshot": "off"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line",
+        null
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "C:\\DATA\\assign\\artifacts\\manifests\\render_v3_r1\\ui.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "C:\\DATA\\assign\\artifacts\\manifests\\render_v3_r1\\ui.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "cwd": "C:\\DATA\\assign\\apps\\web",
+      "command": "\"C:\\DATA\\assign\\.local\\node-v22.23.4-win-x64\\node.exe\" node_modules/vite/bin/vite.js preview --outDir \"C:\\DATA\\assign\\report\\build\\render-v3-r1\\web-local\" --host localhost --port 5173 --strictPort",
+      "url": "http://localhost:5173",
+      "reuseExistingServer": false,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "render-v3-r1.spec.mjs",
+      "file": "render-v3-r1.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "CPU-only Render runtime ch2_cdc_diabetes/mlp",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4826,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T13:32:32.214Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d8eebe61be218248d799-93f8c0e2889cfd3eaa8b",
+          "file": "render-v3-r1.spec.mjs",
+          "line": 15,
+          "column": 3
+        },
+        {
+          "title": "CPU-only Render runtime ch3_idrid/cnn",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3318,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T13:32:37.381Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d8eebe61be218248d799-99912d75c9ef64006ac9",
+          "file": "render-v3-r1.spec.mjs",
+          "line": 15,
+          "column": 3
+        },
+        {
+          "title": "CPU-only Render runtime ch4_gold_pink_sheet/rnn",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3235,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T13:32:40.737Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d8eebe61be218248d799-e3de3b222d87f48f0711",
+          "file": "render-v3-r1.spec.mjs",
+          "line": 15,
+          "column": 3
+        },
+        {
+          "title": "CPU-only Render runtime ch4_gold_pink_sheet/lstm",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2230,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T13:32:43.992Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d8eebe61be218248d799-866d7611dda76752d30f",
+          "file": "render-v3-r1.spec.mjs",
+          "line": 15,
+          "column": 3
+        },
+        {
+          "title": "CPU-only Render runtime ch5_finqa/kg_rag",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5291,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T13:32:46.245Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d8eebe61be218248d799-ebd54a8401df86ebaa39",
+          "file": "render-v3-r1.spec.mjs",
+          "line": 15,
+          "column": 3
+        },
+        {
+          "title": "CPU-only Render runtime ch6_gold_tasks/multi_agent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2282,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T13:32:51.568Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d8eebe61be218248d799-e8a97bd5f19fa221014e",
+          "file": "render-v3-r1.spec.mjs",
+          "line": 15,
+          "column": 3
+        },
+        {
+          "title": "deep-link refresh keeps LSTM selection",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 405,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T13:32:53.889Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d8eebe61be218248d799-30dfb59ff9eb3592b2d1",
+          "file": "render-v3-r1.spec.mjs",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "HTTP readiness and exact-origin CORS",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 67,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T13:32:54.320Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d8eebe61be218248d799-95092360ea878c65f969",
+          "file": "render-v3-r1.spec.mjs",
+          "line": 52,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-22T13:32:27.609Z",
+    "duration": 28641.892,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
