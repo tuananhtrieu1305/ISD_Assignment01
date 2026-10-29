@@ -1,0 +1,59 @@
+{
+  "job": {
+    "checkpoint_episode": null,
+    "group": "variant",
+    "job_id": "variant/persistent/no_discount/s0033/role0",
+    "kernel_id": "persistent",
+    "kind": "no_discount",
+    "learner": null,
+    "policy_id": "no_discount",
+    "policy_sha256": "2742856fd6463e3bac02d298e73510252ae53ef73207d9b4503cfcd350f2bd3d",
+    "role": 0,
+    "scenario_sha256": "ec2a7d6f534924bd7f5a84e7c2aba8fd1e898e44b9afa2daffe64d50c08d1c6a",
+    "scenario_spec": {
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "initial_history": [
+        0,
+        0
+      ],
+      "market": {
+        "cost": 5.0,
+        "customers_high": 20,
+        "customers_low": 10,
+        "discount": 0.2,
+        "kernel": [
+          [
+            0.9,
+            0.1
+          ],
+          [
+            0.1,
+            0.9
+          ]
+        ],
+        "price": 10.0,
+        "steps": 20
+      },
+      "rng": {
+        "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+        "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+        "near_ties": {
+          "atol": 1e-08,
+          "rtol": 1e-05,
+          "rule": "random among np.isclose to max"
+        },
+        "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+        "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+        "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+        "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+      },
+      "scenario_seed": 2000033
+    },
+    "seed": 33,
+    "study_id": "ag02_phase06_robustness_v1"
+  },
+  "key": "830c7f79cdaaa4316828d03f800d365b64eb8be4603660d837f8f2b9f8341a39",
+  "proof_sha256": "f03206ede3ec1973e94270985c2a19f01bbdaa38007de5f382c395c030481a2d",
+  "claimed_utc": "2026-10-24T06:40:43.109721+00:00"
+}

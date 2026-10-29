@@ -1,0 +1,73 @@
+# Giải thích hình Phase7
+
+## augmented_training
+
+**purpose**: Đọc diễn biến train khi chỉ thay state.
+
+**axes_and_units**: X:episode train;Y:lợi nhuận giả lập/bước.
+
+**legend**: Đen liền:augmented;xám đứt:baseline cùngkernel;dải±sample std.
+
+**aggregation_and_n**: MA100 riêng từng seed trước,rồi mean/std ddof1 qua5seed;khôngCI.
+
+**observations**: iid/augmented:MA100 đầu=29.53160,cuối=29.94750; iid/baseline:MA100 đầu=31.13010,cuối=34.28750; persistent/augmented:MA100 đầu=28.75390,cuối=30.39230; persistent/baseline:MA100 đầu=30.93690,cuối=33.28630; gold/augmented:MA100 đầu=26.64440,cuối=26.94880; gold/baseline:MA100 đầu=28.03220,cuối=29.85110
+
+**quantitative_comparison**: iid/augmented:MA100 đầu=29.53160,cuối=29.94750; iid/baseline:MA100 đầu=31.13010,cuối=34.28750; persistent/augmented:MA100 đầu=28.75390,cuối=30.39230; persistent/baseline:MA100 đầu=30.93690,cuối=33.28630; gold/augmented:MA100 đầu=26.64440,cuối=26.94880; gold/baseline:MA100 đầu=28.03220,cuối=29.85110
+
+**limitations**: Q đang thay đổi và cònepsilon;traincurve không chứng minh policy cuối tốt hơn/hội tụ. Baseline đọc logcũ,khôngtrain lại.
+
+**data_source**: artifacts/metrics/phase07/train_curves.csv
+
+## augmented_final_profit
+
+**purpose**: So chất lượng policy cuối trước cùng fixedrule/scenario.
+
+**axes_and_units**: X:3policy;Y:profit/bước;ba panelkernel.
+
+**legend**: Cột mean;whisker±sample std.
+
+**aggregation_and_n**: 500episode/vai,gộp2vai trước rồi5seed/kernel.Rule n5 làscenario panel.30claim mới+60reference reuse.
+
+**observations**: iid/augmented=30.27341±0.60242; iid/baseline=34.02786±1.22178; iid/rule=35.05235±0.22585; persistent/augmented=30.97311±1.69375; persistent/baseline=33.06165±2.63493; persistent/rule=35.02665±0.25749; gold/augmented=27.10489±0.28315; gold/baseline=29.35694±2.78040; gold/rule=31.07485±0.21348
+
+**quantitative_comparison**: iid/augmented=30.27341±0.60242; iid/baseline=34.02786±1.22178; iid/rule=35.05235±0.22585; persistent/augmented=30.97311±1.69375; persistent/baseline=33.06165±2.63493; persistent/rule=35.02665±0.25749; gold/augmented=27.10489±0.28315; gold/baseline=29.35694±2.78040; gold/rule=31.07485±0.21348
+
+**limitations**: Không so rawprofit xuyênkernel như cùng phân phối;n5 nhỏ,whiskerkhôngCI/kiểmđịnh;khôngtuning từfinal.
+
+**data_source**: artifacts/metrics/phase07/policy_summary.csv và seed_comparison.csv
+
+## augmented_paired_delta
+
+**purpose**: Trả lời state mới có cải thiện mean trên cả3kernel hay không.
+
+**axes_and_units**: X:kernel;Y:profit augmented trừ đối chứng/bước.
+
+**legend**: Tròn đen:trừbaseline;vuôngxám:trừrule;đứtngang:mốc0.
+
+**aggregation_and_n**: Tính delta saugộp role cho từngseed,rồi mean±sample std qua5seed;khôngCI.
+
+**observations**: iid:Δbaseline=-3.75445±1.52304,Δrule=-4.77894±0.53768; persistent:Δbaseline=-2.08854±3.69446,Δrule=-4.05354±1.74828; gold:Δbaseline=-2.25205±2.93133,Δrule=-3.96996±0.40610
+
+**quantitative_comparison**: iid:Δbaseline=-3.75445±1.52304,Δrule=-4.77894±0.53768; persistent:Δbaseline=-2.08854±3.69446,Δrule=-4.05354±1.74828; gold:Δbaseline=-2.25205±2.93133,Δrule=-3.96996±0.40610
+
+**limitations**: Mean dương không tự chứng minh cóýnghĩathốngkê;giữmọiseed,kểcảbấtlợi.Không đổi budget đểđảo kếtquả.
+
+**data_source**: artifacts/metrics/phase07/paired_deltas.csv và delta_summary.csv
+
+## augmented_coverage_cost
+
+**purpose**: Đối chiếu kích cỡ bảng,visitation và chi phí.
+
+**axes_and_units**: X:kernel;tráiY:%ôQ đãthăm;phảiY:CPUgiây/run.
+
+**legend**: Xámđậm:augmented;nhạt:baseline;phảiwhiskerstd5seed.
+
+**aggregation_and_n**: Mean qua5run/kernel/model,CPUstd ddof1;coverage dùngmẫusố320/8ô,bảngfloat642.560/64byte.
+
+**observations**: iid/augmented:visited=83.62%,CPUmean=7.3186s; persistent/augmented:visited=78.44%,CPUmean=7.1533s; gold/augmented:visited=81.81%,CPUmean=7.2149s; iid/baseline:visited=100.00%,CPUmean=6.5035s; persistent/baseline:visited=100.00%,CPUmean=6.9060s; gold/baseline:visited=100.00%,CPUmean=6.5628s
+
+**quantitative_comparison**: iid/augmented:visited=83.62%,CPUmean=7.3186s; persistent/augmented:visited=78.44%,CPUmean=7.1533s; gold/augmented:visited=81.81%,CPUmean=7.2149s; iid/baseline:visited=100.00%,CPUmean=6.5035s; persistent/baseline:visited=100.00%,CPUmean=6.9060s; gold/baseline:visited=100.00%,CPUmean=6.5628s
+
+**limitations**: Một sốô fullstate không thểđạt từreset/horizon;coverage thấp khôngtựlàlỗi. CPUkhônggồmcheckpointI/O,khôngpeakRAM/benchmarkmáy.
+
+**data_source**: artifacts/metrics/phase07/cost_coverage.csv

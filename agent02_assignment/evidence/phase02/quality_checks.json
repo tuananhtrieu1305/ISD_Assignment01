@@ -1,0 +1,49 @@
+{
+    "status":  "PASS",
+    "exit_codes":  {
+                       "powershell_parser":  0,
+                       "cli_help":  0,
+                       "cli_status":  0,
+                       "saved_smoke_verification":  0,
+                       "ruff":  0
+                   },
+    "lint_files":  [
+                       "agent02_assignment/code/controlled.py",
+                       "agent02_assignment/code/training.py",
+                       "agent02_assignment/code/evaluation/frozen.py",
+                       "agent02_assignment/code/reference_adapter.py",
+                       "agent02_assignment/protocol.py",
+                       "agent02_assignment/phase02.py",
+                       "agent02_assignment/verify_phase02.py",
+                       "agent02_assignment/tests/test_controlled_model.py",
+                       "agent02_assignment/tests/test_controlled_runs.py",
+                       "agent02_assignment/tests/test_protocol_phase02.py",
+                       "agent02_assignment/tests/test_phase02_artifacts.py"
+                   ],
+    "lint_output":  [
+                        "All checks passed!"
+                    ],
+    "cli_help":  [
+                     "usage: phase02.py [-h] {status,write-protocol,smoke,verify-smoke}",
+                     "",
+                     "Bounded Phase 2 smoke only; no full-training or final-evaluation entry point.",
+                     "",
+                     "positional arguments:",
+                     "  {status,write-protocol,smoke,verify-smoke}",
+                     "",
+                     "options:",
+                     "  -h, --help            show this help message and exit"
+                 ],
+    "cli_status":  {
+                       "status":  "PASS",
+                       "phase":  2,
+                       "declared_runs":  56,
+                       "full_training_started":  false,
+                       "final_evaluation_started":  false,
+                       "smoke_complete":  true
+                   },
+    "smoke_sha256":  "2015100058736f8ad6698a01244cc7f37d26b7f0be866be6bb5ea1a3d1f10e81",
+    "reference_main_called":  false,
+    "full_training_started":  false,
+    "final_evaluation_started":  false
+}

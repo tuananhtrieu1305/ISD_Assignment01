@@ -1,0 +1,4353 @@
+{
+  "aggregation": "Average the two roles per trained seed, then mean/sample std ddof1 across five seeds; paired seed deltas",
+  "controls_interpretation": "Five scenario panels, not five trained control agents",
+  "episodes_per_claim": 500,
+  "expected_market_steps": 710000,
+  "expected_unique_claims": 71,
+  "files": [
+    {
+      "path": "artifacts/manifests/phase03/trained_registry.json",
+      "sha256": "578f9b222b87f2bfa52b9531405ab59fad280b567b1fe91a4309ceba514342dd"
+    },
+    {
+      "path": "artifacts/manifests/phase04/trained_registry.json",
+      "sha256": "23c3482b3d0addfd670c5119c1a05b54e15ebcc8389147c298ebf505068b8798"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/alpha_high/s0011/q_table.json",
+      "sha256": "3ce336e60d4448480b2cd9c8e1d888db03a2b799c7946178d0e3814129ccda29"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/alpha_high/s0022/q_table.json",
+      "sha256": "c4f89cec3081a5210e994e9c49f29236623c4ff400a0764b64903e1ce892c0da"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/alpha_high/s0033/q_table.json",
+      "sha256": "9eee27cdd59cc5a93dd7913c24733ee70f728ba37b3823d5da8dcf03cad9b8f3"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/alpha_high/s0044/q_table.json",
+      "sha256": "4862f1f0bb0223fd79fc0f51add61f7f5e0edfe92a5b8362a4481b233847820c"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/alpha_high/s0055/q_table.json",
+      "sha256": "4af600e4749a26b4eb0de6c4a1b6621a2da875820e3a2dd059a4d7280e702e54"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/alpha_low/s0011/q_table.json",
+      "sha256": "032d4591ddbcc6a2b9580459e434b66251f9268ce491aaf5ff3a95488a833d75"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/alpha_low/s0022/q_table.json",
+      "sha256": "7685f4cbcee908dd61775cc2600b159dc7520b8246a07f672845ca01f9df77d6"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/alpha_low/s0033/q_table.json",
+      "sha256": "bdbe38030c4724a1ec41d6775344fb62b0fb6fe3c4032c9c87f11d1a310a6b35"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/alpha_low/s0044/q_table.json",
+      "sha256": "58ea1e961b3eacc7c06b48c90929fdbd1ce53b562b9a1e2db09d7c7cb95d7b72"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/alpha_low/s0055/q_table.json",
+      "sha256": "c403f058467cf1b8c96523b87ca6fc4336221792af6a70b0003651261cb62075"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/baseline/s0011/q_table.json",
+      "sha256": "76ed5ee9d2948b38c4acb547c1c4b54d61d312b501f8662db97b19f9934419db"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/baseline/s0022/q_table.json",
+      "sha256": "30f7ce6d11d02bb930a59251e00f47a47f1932a1734e3ecc7e8432138306e558"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/baseline/s0033/q_table.json",
+      "sha256": "66e7d4148eb81dc83760d012f445d03e8eb5842c62e01e1e22cf311d3099be6b"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/baseline/s0044/q_table.json",
+      "sha256": "3a488e7d4d789cdc1e052ccc3219c20c7333b0847376c361d600c712518b6acd"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/baseline/s0055/q_table.json",
+      "sha256": "603573c8e1e900105d77ed731f90707326d4d37ee8f64952d836561d6035860b"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0011/q_table.json",
+      "sha256": "9c96a02f1c2571753a2b55834dfc3a27f6dbba2e3b8e30fa9666aeeac7a9e73b"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0022/q_table.json",
+      "sha256": "52a5716a326837eff46642b8401f64f8657a7684f26a6da8c59a2983fa8efeda"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0033/q_table.json",
+      "sha256": "6edbc26de1744845dec24177b4be3f1493cc33f8542c34acd9d38949315c6cab"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0044/q_table.json",
+      "sha256": "9f63e1c9c9dae5b7fd050a676e6370ce3d101152141bcbe5b03f3f9aa99195e2"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0055/q_table.json",
+      "sha256": "8ca5e43e295d3c3770e243ae7faba007734ab9aa27257fa7313a62b78d7bfcc5"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0011/q_table.json",
+      "sha256": "8215e89d59c6822c039b7936a560e0d7eb1432ae96abf5b382a520c3202a7a41"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0022/q_table.json",
+      "sha256": "1f6a8ec59f098b2a2cb12520e07d9d4a4fd113306493472451fdbdcd6ce29854"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0033/q_table.json",
+      "sha256": "d49113109dc24ef45febc88cbbb2eb3e7811f136dd544bd8b2f73f92ab89c00a"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0044/q_table.json",
+      "sha256": "ebf020e53a3c617c1d948d741b6924efb595e956a96276c7f43b793e48bcdcf5"
+    },
+    {
+      "path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0055/q_table.json",
+      "sha256": "f7bb1b2296244ff89f01dd0a0cc5f922965c8fce08bc2854563188c90a0cd78f"
+    },
+    {
+      "path": "artifacts/runs/ref/baseline/s0042/checkpoint_e005000.json",
+      "sha256": "896d96f763e27625e9c2e76149c80baacebf90ae78c4c31202da702a1437792d"
+    },
+    {
+      "path": "artifacts/runs/ref/baseline/s0042/q_table.json",
+      "sha256": "d115dc59c1638423a48deb6673079c097665cbe59b163c9a05709ee9a789bfda"
+    },
+    {
+      "path": "code/agent02_experiment.py",
+      "sha256": "3d40be4edc925f83b403c0b7e71e7fff03dfe0dbed56f0895c192058a4865ca9"
+    },
+    {
+      "path": "code/controlled.py",
+      "sha256": "df92154dea7a95739019fae56e6c9b79d53c446afe7607db8058f8b49e8f28b2"
+    },
+    {
+      "path": "code/evaluation/__init__.py",
+      "sha256": "7e1c4ec49bfc775558d79da20dd1e95d7763ef43ba8019ea38b26fd5b57f3cce"
+    },
+    {
+      "path": "code/evaluation/final_v1.py",
+      "sha256": "504176cd6e96e569f7258ff6d369e447755efdded25410097af3e9e89a71f8c2"
+    },
+    {
+      "path": "code/evaluation/journal_v1.py",
+      "sha256": "fab3c57dcaae97f21d9bed3b495aaca72fb3f0bedf98adec537b26c83c513edb"
+    },
+    {
+      "path": "code/reference_adapter.py",
+      "sha256": "c0677ed8d364604b855d826ce76efb5df1470b3a0d0f547bd537045278175ccc"
+    },
+    {
+      "path": "code/training.py",
+      "sha256": "e3e43418373866f9f3bd05310709793bdeb41460d226db3cad519a25f2ec2a3f"
+    },
+    {
+      "path": "docs/protocol_v1.json",
+      "sha256": "2cbeba32dd2c36102e3c2097bcbbbb0b956ee5110d92d042d4fb1dd0420f6898"
+    },
+    {
+      "path": "evidence/phase04/experiment_lock.json",
+      "sha256": "3ff17f6682ae26c5303a5d07450f6c0ce44df6304223838e63eb8da0371d7f38"
+    },
+    {
+      "path": "evidence/phase05/pretest_coverage.json",
+      "sha256": "a745e14f444cf59afc111335592f8b39ed906a64f5057bc11bc55c2b03794a55"
+    },
+    {
+      "path": "evidence/phase05/pretest_tests.xml",
+      "sha256": "dba1da53d8a2200ecc87b6a8f2e7224e9292085571368ded8204fb37bd091e81"
+    },
+    {
+      "path": "phase01.py",
+      "sha256": "cd32fd1b7596b657fd13393ecdc316a0acd10b50989506cb7b5a5a169aae7a8b"
+    },
+    {
+      "path": "phase02.py",
+      "sha256": "6d98e5172c13db98ae94b6ba135ec621bcc1be415b842d29926d601322bb3bcc"
+    },
+    {
+      "path": "phase03.py",
+      "sha256": "f428c4ba71b870330ffe2741f400e54a1cadc2b622e4a69a10c32da650a2c86a"
+    },
+    {
+      "path": "phase05.py",
+      "sha256": "a68718ba74648decb76465ff08e74e2a39f425f8c88e0640ca3c0609924fbb33"
+    },
+    {
+      "path": "scripts/run_agent02_phase05.ps1",
+      "sha256": "faf3427241ef3fdd06349590e7429ae6e6446959dac8b5293cc2f7a85e6164b3"
+    },
+    {
+      "path": "tests/coverage_phase05.ini",
+      "sha256": "7ba18d3810f490a0b789eb51026e113125db8768f06826f5dcba5acb01e27528"
+    },
+    {
+      "path": "tests/test_phase05_evaluation.py",
+      "sha256": "4bc04c6ba2359629578035bd00db1b6dd0d586d440498fadb0de9f01fd52ffd5"
+    },
+    {
+      "path": "tests/test_phase05_gate.py",
+      "sha256": "b8ce0f1dcc6a85070cc1a14345956281f6750a0ec6833486670e59a7cf75f271"
+    },
+    {
+      "path": "workspace.py",
+      "sha256": "f96f7ca823d07046723dc0f086395cbe77f5459e44ce48bccfc5882770a6a0e4"
+    }
+  ],
+  "final_authorized_by_user_phase5": true,
+  "free_bytes_before": 35884687360,
+  "jobs": [
+    {
+      "config_id": "baseline",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/baseline/s0011/role0",
+      "kind": "q",
+      "policy_sha256": "fb89cdff648726eb9bbe9e33fccc95a2af1e411e2d60f9ea6aade98d414563a0",
+      "q_file_sha256": "76ed5ee9d2948b38c4acb547c1c4b54d61d312b501f8662db97b19f9934419db",
+      "q_path": "artifacts/runs/controlled/iid/baseline/s0011/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/baseline/s0011",
+      "scenario_seed": 2000011,
+      "scenario_sha256": "f5b028b99eb9c38d883f5c6ddb9a9cbeb41141c64ae853f8d734a86b91d81b21",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000011,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 11
+    },
+    {
+      "config_id": "baseline",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/baseline/s0011/role1",
+      "kind": "q",
+      "policy_sha256": "fb89cdff648726eb9bbe9e33fccc95a2af1e411e2d60f9ea6aade98d414563a0",
+      "q_file_sha256": "76ed5ee9d2948b38c4acb547c1c4b54d61d312b501f8662db97b19f9934419db",
+      "q_path": "artifacts/runs/controlled/iid/baseline/s0011/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/baseline/s0011",
+      "scenario_seed": 2000011,
+      "scenario_sha256": "f5b028b99eb9c38d883f5c6ddb9a9cbeb41141c64ae853f8d734a86b91d81b21",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000011,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 11
+    },
+    {
+      "config_id": "baseline",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/baseline/s0022/role0",
+      "kind": "q",
+      "policy_sha256": "333ec70f99c6e012305f099bff3fb089b87d2536e527915b35b65e39c0591500",
+      "q_file_sha256": "30f7ce6d11d02bb930a59251e00f47a47f1932a1734e3ecc7e8432138306e558",
+      "q_path": "artifacts/runs/controlled/iid/baseline/s0022/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/baseline/s0022",
+      "scenario_seed": 2000022,
+      "scenario_sha256": "e1d6953bf6100869a7eb4716b462e7142abc35a031b9e701513b05486bcea336",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000022,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 22
+    },
+    {
+      "config_id": "baseline",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/baseline/s0022/role1",
+      "kind": "q",
+      "policy_sha256": "333ec70f99c6e012305f099bff3fb089b87d2536e527915b35b65e39c0591500",
+      "q_file_sha256": "30f7ce6d11d02bb930a59251e00f47a47f1932a1734e3ecc7e8432138306e558",
+      "q_path": "artifacts/runs/controlled/iid/baseline/s0022/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/baseline/s0022",
+      "scenario_seed": 2000022,
+      "scenario_sha256": "e1d6953bf6100869a7eb4716b462e7142abc35a031b9e701513b05486bcea336",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000022,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 22
+    },
+    {
+      "config_id": "baseline",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/baseline/s0033/role0",
+      "kind": "q",
+      "policy_sha256": "a603c214e749e48126ec192c3863eebbaef589d24b52c3ecbd7569098ca2a66a",
+      "q_file_sha256": "66e7d4148eb81dc83760d012f445d03e8eb5842c62e01e1e22cf311d3099be6b",
+      "q_path": "artifacts/runs/controlled/iid/baseline/s0033/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/baseline/s0033",
+      "scenario_seed": 2000033,
+      "scenario_sha256": "63f39956e409ceaa85a5c4c320e0b6fc813fb571e5e4ac0f8d560b92a3fd9a56",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000033,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 33
+    },
+    {
+      "config_id": "baseline",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/baseline/s0033/role1",
+      "kind": "q",
+      "policy_sha256": "a603c214e749e48126ec192c3863eebbaef589d24b52c3ecbd7569098ca2a66a",
+      "q_file_sha256": "66e7d4148eb81dc83760d012f445d03e8eb5842c62e01e1e22cf311d3099be6b",
+      "q_path": "artifacts/runs/controlled/iid/baseline/s0033/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/baseline/s0033",
+      "scenario_seed": 2000033,
+      "scenario_sha256": "63f39956e409ceaa85a5c4c320e0b6fc813fb571e5e4ac0f8d560b92a3fd9a56",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000033,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 33
+    },
+    {
+      "config_id": "baseline",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/baseline/s0044/role0",
+      "kind": "q",
+      "policy_sha256": "49676ad1d5d5837659d2f09e163c08b3d8c95f042899919c42c9b0689a107a5d",
+      "q_file_sha256": "3a488e7d4d789cdc1e052ccc3219c20c7333b0847376c361d600c712518b6acd",
+      "q_path": "artifacts/runs/controlled/iid/baseline/s0044/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/baseline/s0044",
+      "scenario_seed": 2000044,
+      "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000044,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 44
+    },
+    {
+      "config_id": "baseline",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/baseline/s0044/role1",
+      "kind": "q",
+      "policy_sha256": "49676ad1d5d5837659d2f09e163c08b3d8c95f042899919c42c9b0689a107a5d",
+      "q_file_sha256": "3a488e7d4d789cdc1e052ccc3219c20c7333b0847376c361d600c712518b6acd",
+      "q_path": "artifacts/runs/controlled/iid/baseline/s0044/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/baseline/s0044",
+      "scenario_seed": 2000044,
+      "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000044,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 44
+    },
+    {
+      "config_id": "baseline",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/baseline/s0055/role0",
+      "kind": "q",
+      "policy_sha256": "c6d9639a0b1882252f0751f16a7fb5d23b999e1366cd1c13213de7a97581cf71",
+      "q_file_sha256": "603573c8e1e900105d77ed731f90707326d4d37ee8f64952d836561d6035860b",
+      "q_path": "artifacts/runs/controlled/iid/baseline/s0055/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/baseline/s0055",
+      "scenario_seed": 2000055,
+      "scenario_sha256": "58ccdbaa247b9693c6530b79564392b031c0b6b042159d1bd6b659179bfcc74c",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000055,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 55
+    },
+    {
+      "config_id": "baseline",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/baseline/s0055/role1",
+      "kind": "q",
+      "policy_sha256": "c6d9639a0b1882252f0751f16a7fb5d23b999e1366cd1c13213de7a97581cf71",
+      "q_file_sha256": "603573c8e1e900105d77ed731f90707326d4d37ee8f64952d836561d6035860b",
+      "q_path": "artifacts/runs/controlled/iid/baseline/s0055/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/baseline/s0055",
+      "scenario_seed": 2000055,
+      "scenario_sha256": "58ccdbaa247b9693c6530b79564392b031c0b6b042159d1bd6b659179bfcc74c",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000055,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 55
+    },
+    {
+      "config_id": "alpha_low",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_low/s0011/role0",
+      "kind": "q",
+      "policy_sha256": "130896d821db817743ddb70f806119a1e5abe0fb75e1c7d39f8d6836d06f0312",
+      "q_file_sha256": "032d4591ddbcc6a2b9580459e434b66251f9268ce491aaf5ff3a95488a833d75",
+      "q_path": "artifacts/runs/controlled/iid/alpha_low/s0011/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/alpha_low/s0011",
+      "scenario_seed": 2000011,
+      "scenario_sha256": "f5b028b99eb9c38d883f5c6ddb9a9cbeb41141c64ae853f8d734a86b91d81b21",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000011,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 11
+    },
+    {
+      "config_id": "alpha_low",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_low/s0011/role1",
+      "kind": "q",
+      "policy_sha256": "130896d821db817743ddb70f806119a1e5abe0fb75e1c7d39f8d6836d06f0312",
+      "q_file_sha256": "032d4591ddbcc6a2b9580459e434b66251f9268ce491aaf5ff3a95488a833d75",
+      "q_path": "artifacts/runs/controlled/iid/alpha_low/s0011/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/alpha_low/s0011",
+      "scenario_seed": 2000011,
+      "scenario_sha256": "f5b028b99eb9c38d883f5c6ddb9a9cbeb41141c64ae853f8d734a86b91d81b21",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000011,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 11
+    },
+    {
+      "config_id": "alpha_low",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_low/s0022/role0",
+      "kind": "q",
+      "policy_sha256": "e274d24657052433ebbe4a9ce59c178ca63ed207fc317f383b5cd699ae031111",
+      "q_file_sha256": "7685f4cbcee908dd61775cc2600b159dc7520b8246a07f672845ca01f9df77d6",
+      "q_path": "artifacts/runs/controlled/iid/alpha_low/s0022/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/alpha_low/s0022",
+      "scenario_seed": 2000022,
+      "scenario_sha256": "e1d6953bf6100869a7eb4716b462e7142abc35a031b9e701513b05486bcea336",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000022,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 22
+    },
+    {
+      "config_id": "alpha_low",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_low/s0022/role1",
+      "kind": "q",
+      "policy_sha256": "e274d24657052433ebbe4a9ce59c178ca63ed207fc317f383b5cd699ae031111",
+      "q_file_sha256": "7685f4cbcee908dd61775cc2600b159dc7520b8246a07f672845ca01f9df77d6",
+      "q_path": "artifacts/runs/controlled/iid/alpha_low/s0022/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/alpha_low/s0022",
+      "scenario_seed": 2000022,
+      "scenario_sha256": "e1d6953bf6100869a7eb4716b462e7142abc35a031b9e701513b05486bcea336",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000022,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 22
+    },
+    {
+      "config_id": "alpha_low",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_low/s0033/role0",
+      "kind": "q",
+      "policy_sha256": "0954dea9175aecf9452e6d590a8bfc3e44924b32f871330ce67005a06cc2e7e9",
+      "q_file_sha256": "bdbe38030c4724a1ec41d6775344fb62b0fb6fe3c4032c9c87f11d1a310a6b35",
+      "q_path": "artifacts/runs/controlled/iid/alpha_low/s0033/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/alpha_low/s0033",
+      "scenario_seed": 2000033,
+      "scenario_sha256": "63f39956e409ceaa85a5c4c320e0b6fc813fb571e5e4ac0f8d560b92a3fd9a56",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000033,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 33
+    },
+    {
+      "config_id": "alpha_low",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_low/s0033/role1",
+      "kind": "q",
+      "policy_sha256": "0954dea9175aecf9452e6d590a8bfc3e44924b32f871330ce67005a06cc2e7e9",
+      "q_file_sha256": "bdbe38030c4724a1ec41d6775344fb62b0fb6fe3c4032c9c87f11d1a310a6b35",
+      "q_path": "artifacts/runs/controlled/iid/alpha_low/s0033/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/alpha_low/s0033",
+      "scenario_seed": 2000033,
+      "scenario_sha256": "63f39956e409ceaa85a5c4c320e0b6fc813fb571e5e4ac0f8d560b92a3fd9a56",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000033,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 33
+    },
+    {
+      "config_id": "alpha_low",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_low/s0044/role0",
+      "kind": "q",
+      "policy_sha256": "3e253e90c1d4f0c45a28a1c85825fb9c5e3914b191613910dd9ebc9803398655",
+      "q_file_sha256": "58ea1e961b3eacc7c06b48c90929fdbd1ce53b562b9a1e2db09d7c7cb95d7b72",
+      "q_path": "artifacts/runs/controlled/iid/alpha_low/s0044/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/alpha_low/s0044",
+      "scenario_seed": 2000044,
+      "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000044,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 44
+    },
+    {
+      "config_id": "alpha_low",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_low/s0044/role1",
+      "kind": "q",
+      "policy_sha256": "3e253e90c1d4f0c45a28a1c85825fb9c5e3914b191613910dd9ebc9803398655",
+      "q_file_sha256": "58ea1e961b3eacc7c06b48c90929fdbd1ce53b562b9a1e2db09d7c7cb95d7b72",
+      "q_path": "artifacts/runs/controlled/iid/alpha_low/s0044/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/alpha_low/s0044",
+      "scenario_seed": 2000044,
+      "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000044,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 44
+    },
+    {
+      "config_id": "alpha_low",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_low/s0055/role0",
+      "kind": "q",
+      "policy_sha256": "bf5718cee5bc2fa0ec6f11c4560f57f08c5f343d642bc96561c0d1884c0cd967",
+      "q_file_sha256": "c403f058467cf1b8c96523b87ca6fc4336221792af6a70b0003651261cb62075",
+      "q_path": "artifacts/runs/controlled/iid/alpha_low/s0055/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/alpha_low/s0055",
+      "scenario_seed": 2000055,
+      "scenario_sha256": "58ccdbaa247b9693c6530b79564392b031c0b6b042159d1bd6b659179bfcc74c",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000055,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 55
+    },
+    {
+      "config_id": "alpha_low",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_low/s0055/role1",
+      "kind": "q",
+      "policy_sha256": "bf5718cee5bc2fa0ec6f11c4560f57f08c5f343d642bc96561c0d1884c0cd967",
+      "q_file_sha256": "c403f058467cf1b8c96523b87ca6fc4336221792af6a70b0003651261cb62075",
+      "q_path": "artifacts/runs/controlled/iid/alpha_low/s0055/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/alpha_low/s0055",
+      "scenario_seed": 2000055,
+      "scenario_sha256": "58ccdbaa247b9693c6530b79564392b031c0b6b042159d1bd6b659179bfcc74c",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000055,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 55
+    },
+    {
+      "config_id": "alpha_high",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_high/s0011/role0",
+      "kind": "q",
+      "policy_sha256": "f6ecb96f09a51b748f41641ef8259b5b53638c4226856cff540f78144be047dc",
+      "q_file_sha256": "3ce336e60d4448480b2cd9c8e1d888db03a2b799c7946178d0e3814129ccda29",
+      "q_path": "artifacts/runs/controlled/iid/alpha_high/s0011/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/alpha_high/s0011",
+      "scenario_seed": 2000011,
+      "scenario_sha256": "f5b028b99eb9c38d883f5c6ddb9a9cbeb41141c64ae853f8d734a86b91d81b21",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000011,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 11
+    },
+    {
+      "config_id": "alpha_high",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_high/s0011/role1",
+      "kind": "q",
+      "policy_sha256": "f6ecb96f09a51b748f41641ef8259b5b53638c4226856cff540f78144be047dc",
+      "q_file_sha256": "3ce336e60d4448480b2cd9c8e1d888db03a2b799c7946178d0e3814129ccda29",
+      "q_path": "artifacts/runs/controlled/iid/alpha_high/s0011/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/alpha_high/s0011",
+      "scenario_seed": 2000011,
+      "scenario_sha256": "f5b028b99eb9c38d883f5c6ddb9a9cbeb41141c64ae853f8d734a86b91d81b21",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000011,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 11
+    },
+    {
+      "config_id": "alpha_high",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_high/s0022/role0",
+      "kind": "q",
+      "policy_sha256": "ae74d33e6db4b21b4dbd12e50d91fde6c6f4bc93a60fb05f32acd1d2499ea19f",
+      "q_file_sha256": "c4f89cec3081a5210e994e9c49f29236623c4ff400a0764b64903e1ce892c0da",
+      "q_path": "artifacts/runs/controlled/iid/alpha_high/s0022/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/alpha_high/s0022",
+      "scenario_seed": 2000022,
+      "scenario_sha256": "e1d6953bf6100869a7eb4716b462e7142abc35a031b9e701513b05486bcea336",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000022,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 22
+    },
+    {
+      "config_id": "alpha_high",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_high/s0022/role1",
+      "kind": "q",
+      "policy_sha256": "ae74d33e6db4b21b4dbd12e50d91fde6c6f4bc93a60fb05f32acd1d2499ea19f",
+      "q_file_sha256": "c4f89cec3081a5210e994e9c49f29236623c4ff400a0764b64903e1ce892c0da",
+      "q_path": "artifacts/runs/controlled/iid/alpha_high/s0022/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/alpha_high/s0022",
+      "scenario_seed": 2000022,
+      "scenario_sha256": "e1d6953bf6100869a7eb4716b462e7142abc35a031b9e701513b05486bcea336",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000022,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 22
+    },
+    {
+      "config_id": "alpha_high",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_high/s0033/role0",
+      "kind": "q",
+      "policy_sha256": "3ff5a7cc2ff53e7f5b55a2627c91b91b5a04c4c303d62545dbcdd43eb73a9c9a",
+      "q_file_sha256": "9eee27cdd59cc5a93dd7913c24733ee70f728ba37b3823d5da8dcf03cad9b8f3",
+      "q_path": "artifacts/runs/controlled/iid/alpha_high/s0033/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/alpha_high/s0033",
+      "scenario_seed": 2000033,
+      "scenario_sha256": "63f39956e409ceaa85a5c4c320e0b6fc813fb571e5e4ac0f8d560b92a3fd9a56",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000033,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 33
+    },
+    {
+      "config_id": "alpha_high",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_high/s0033/role1",
+      "kind": "q",
+      "policy_sha256": "3ff5a7cc2ff53e7f5b55a2627c91b91b5a04c4c303d62545dbcdd43eb73a9c9a",
+      "q_file_sha256": "9eee27cdd59cc5a93dd7913c24733ee70f728ba37b3823d5da8dcf03cad9b8f3",
+      "q_path": "artifacts/runs/controlled/iid/alpha_high/s0033/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/alpha_high/s0033",
+      "scenario_seed": 2000033,
+      "scenario_sha256": "63f39956e409ceaa85a5c4c320e0b6fc813fb571e5e4ac0f8d560b92a3fd9a56",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000033,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 33
+    },
+    {
+      "config_id": "alpha_high",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_high/s0044/role0",
+      "kind": "q",
+      "policy_sha256": "67d990e3abdc6ac50cf0cd8eace2ce43924b4cf25928fe9d21b69d5037fd5f1e",
+      "q_file_sha256": "4862f1f0bb0223fd79fc0f51add61f7f5e0edfe92a5b8362a4481b233847820c",
+      "q_path": "artifacts/runs/controlled/iid/alpha_high/s0044/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/alpha_high/s0044",
+      "scenario_seed": 2000044,
+      "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000044,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 44
+    },
+    {
+      "config_id": "alpha_high",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_high/s0044/role1",
+      "kind": "q",
+      "policy_sha256": "67d990e3abdc6ac50cf0cd8eace2ce43924b4cf25928fe9d21b69d5037fd5f1e",
+      "q_file_sha256": "4862f1f0bb0223fd79fc0f51add61f7f5e0edfe92a5b8362a4481b233847820c",
+      "q_path": "artifacts/runs/controlled/iid/alpha_high/s0044/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/alpha_high/s0044",
+      "scenario_seed": 2000044,
+      "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000044,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 44
+    },
+    {
+      "config_id": "alpha_high",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_high/s0055/role0",
+      "kind": "q",
+      "policy_sha256": "c7654d9dde06e818c980ae32626971002c16342ae34751802cfd5d51a424572f",
+      "q_file_sha256": "4af600e4749a26b4eb0de6c4a1b6621a2da875820e3a2dd059a4d7280e702e54",
+      "q_path": "artifacts/runs/controlled/iid/alpha_high/s0055/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/alpha_high/s0055",
+      "scenario_seed": 2000055,
+      "scenario_sha256": "58ccdbaa247b9693c6530b79564392b031c0b6b042159d1bd6b659179bfcc74c",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000055,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 55
+    },
+    {
+      "config_id": "alpha_high",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/alpha_high/s0055/role1",
+      "kind": "q",
+      "policy_sha256": "c7654d9dde06e818c980ae32626971002c16342ae34751802cfd5d51a424572f",
+      "q_file_sha256": "4af600e4749a26b4eb0de6c4a1b6621a2da875820e3a2dd059a4d7280e702e54",
+      "q_path": "artifacts/runs/controlled/iid/alpha_high/s0055/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/alpha_high/s0055",
+      "scenario_seed": 2000055,
+      "scenario_sha256": "58ccdbaa247b9693c6530b79564392b031c0b6b042159d1bd6b659179bfcc74c",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000055,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 55
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_low_fixed/s0011/role0",
+      "kind": "q",
+      "policy_sha256": "8bc18974c9662c459157cad4ecfcc2432ef4849d05cf618b96801c0338e4c359",
+      "q_file_sha256": "8215e89d59c6822c039b7936a560e0d7eb1432ae96abf5b382a520c3202a7a41",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0011/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0011",
+      "scenario_seed": 2000011,
+      "scenario_sha256": "f5b028b99eb9c38d883f5c6ddb9a9cbeb41141c64ae853f8d734a86b91d81b21",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000011,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 11
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_low_fixed/s0011/role1",
+      "kind": "q",
+      "policy_sha256": "8bc18974c9662c459157cad4ecfcc2432ef4849d05cf618b96801c0338e4c359",
+      "q_file_sha256": "8215e89d59c6822c039b7936a560e0d7eb1432ae96abf5b382a520c3202a7a41",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0011/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0011",
+      "scenario_seed": 2000011,
+      "scenario_sha256": "f5b028b99eb9c38d883f5c6ddb9a9cbeb41141c64ae853f8d734a86b91d81b21",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000011,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 11
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_low_fixed/s0022/role0",
+      "kind": "q",
+      "policy_sha256": "4312f99cbf94c27af02cb580d683b737451b9a9a96c2ea55ee9778e4d862a102",
+      "q_file_sha256": "1f6a8ec59f098b2a2cb12520e07d9d4a4fd113306493472451fdbdcd6ce29854",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0022/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0022",
+      "scenario_seed": 2000022,
+      "scenario_sha256": "e1d6953bf6100869a7eb4716b462e7142abc35a031b9e701513b05486bcea336",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000022,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 22
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_low_fixed/s0022/role1",
+      "kind": "q",
+      "policy_sha256": "4312f99cbf94c27af02cb580d683b737451b9a9a96c2ea55ee9778e4d862a102",
+      "q_file_sha256": "1f6a8ec59f098b2a2cb12520e07d9d4a4fd113306493472451fdbdcd6ce29854",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0022/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0022",
+      "scenario_seed": 2000022,
+      "scenario_sha256": "e1d6953bf6100869a7eb4716b462e7142abc35a031b9e701513b05486bcea336",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000022,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 22
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_low_fixed/s0033/role0",
+      "kind": "q",
+      "policy_sha256": "bce23fafd8aa59d539040d359304453addad57f664fb8aab54748b03e2bf8995",
+      "q_file_sha256": "d49113109dc24ef45febc88cbbb2eb3e7811f136dd544bd8b2f73f92ab89c00a",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0033/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0033",
+      "scenario_seed": 2000033,
+      "scenario_sha256": "63f39956e409ceaa85a5c4c320e0b6fc813fb571e5e4ac0f8d560b92a3fd9a56",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000033,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 33
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_low_fixed/s0033/role1",
+      "kind": "q",
+      "policy_sha256": "bce23fafd8aa59d539040d359304453addad57f664fb8aab54748b03e2bf8995",
+      "q_file_sha256": "d49113109dc24ef45febc88cbbb2eb3e7811f136dd544bd8b2f73f92ab89c00a",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0033/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0033",
+      "scenario_seed": 2000033,
+      "scenario_sha256": "63f39956e409ceaa85a5c4c320e0b6fc813fb571e5e4ac0f8d560b92a3fd9a56",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000033,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 33
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_low_fixed/s0044/role0",
+      "kind": "q",
+      "policy_sha256": "86abbebc5365730f4e2ae06bab0127cad69f993c9420dfd708628ea94aaee718",
+      "q_file_sha256": "ebf020e53a3c617c1d948d741b6924efb595e956a96276c7f43b793e48bcdcf5",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0044/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0044",
+      "scenario_seed": 2000044,
+      "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000044,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 44
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_low_fixed/s0044/role1",
+      "kind": "q",
+      "policy_sha256": "86abbebc5365730f4e2ae06bab0127cad69f993c9420dfd708628ea94aaee718",
+      "q_file_sha256": "ebf020e53a3c617c1d948d741b6924efb595e956a96276c7f43b793e48bcdcf5",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0044/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0044",
+      "scenario_seed": 2000044,
+      "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000044,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 44
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_low_fixed/s0055/role0",
+      "kind": "q",
+      "policy_sha256": "e1312320d14b609731f4b89e483caf237eebc4b8d3fd59150a613bae9db40919",
+      "q_file_sha256": "f7bb1b2296244ff89f01dd0a0cc5f922965c8fce08bc2854563188c90a0cd78f",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0055/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0055",
+      "scenario_seed": 2000055,
+      "scenario_sha256": "58ccdbaa247b9693c6530b79564392b031c0b6b042159d1bd6b659179bfcc74c",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000055,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 55
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_low_fixed/s0055/role1",
+      "kind": "q",
+      "policy_sha256": "e1312320d14b609731f4b89e483caf237eebc4b8d3fd59150a613bae9db40919",
+      "q_file_sha256": "f7bb1b2296244ff89f01dd0a0cc5f922965c8fce08bc2854563188c90a0cd78f",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_low_fixed/s0055/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0055",
+      "scenario_seed": 2000055,
+      "scenario_sha256": "58ccdbaa247b9693c6530b79564392b031c0b6b042159d1bd6b659179bfcc74c",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000055,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 55
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_high_fixed/s0011/role0",
+      "kind": "q",
+      "policy_sha256": "b7946c21ff33864859e0bd2d3f74b6d4442b6be1e639299e4ca627bbec9edd7d",
+      "q_file_sha256": "9c96a02f1c2571753a2b55834dfc3a27f6dbba2e3b8e30fa9666aeeac7a9e73b",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0011/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0011",
+      "scenario_seed": 2000011,
+      "scenario_sha256": "f5b028b99eb9c38d883f5c6ddb9a9cbeb41141c64ae853f8d734a86b91d81b21",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000011,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 11
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_high_fixed/s0011/role1",
+      "kind": "q",
+      "policy_sha256": "b7946c21ff33864859e0bd2d3f74b6d4442b6be1e639299e4ca627bbec9edd7d",
+      "q_file_sha256": "9c96a02f1c2571753a2b55834dfc3a27f6dbba2e3b8e30fa9666aeeac7a9e73b",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0011/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0011",
+      "scenario_seed": 2000011,
+      "scenario_sha256": "f5b028b99eb9c38d883f5c6ddb9a9cbeb41141c64ae853f8d734a86b91d81b21",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000011,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 11
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_high_fixed/s0022/role0",
+      "kind": "q",
+      "policy_sha256": "851afeff9fe07b9965c332cffb848590d298c5a6668f99bb8f9c7200e6c3e52a",
+      "q_file_sha256": "52a5716a326837eff46642b8401f64f8657a7684f26a6da8c59a2983fa8efeda",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0022/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0022",
+      "scenario_seed": 2000022,
+      "scenario_sha256": "e1d6953bf6100869a7eb4716b462e7142abc35a031b9e701513b05486bcea336",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000022,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 22
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_high_fixed/s0022/role1",
+      "kind": "q",
+      "policy_sha256": "851afeff9fe07b9965c332cffb848590d298c5a6668f99bb8f9c7200e6c3e52a",
+      "q_file_sha256": "52a5716a326837eff46642b8401f64f8657a7684f26a6da8c59a2983fa8efeda",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0022/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0022",
+      "scenario_seed": 2000022,
+      "scenario_sha256": "e1d6953bf6100869a7eb4716b462e7142abc35a031b9e701513b05486bcea336",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000022,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 22
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_high_fixed/s0033/role0",
+      "kind": "q",
+      "policy_sha256": "be268146cfd06e792ae5cda84b215279aae65435b031e5082790727f7f338462",
+      "q_file_sha256": "6edbc26de1744845dec24177b4be3f1493cc33f8542c34acd9d38949315c6cab",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0033/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0033",
+      "scenario_seed": 2000033,
+      "scenario_sha256": "63f39956e409ceaa85a5c4c320e0b6fc813fb571e5e4ac0f8d560b92a3fd9a56",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000033,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 33
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_high_fixed/s0033/role1",
+      "kind": "q",
+      "policy_sha256": "be268146cfd06e792ae5cda84b215279aae65435b031e5082790727f7f338462",
+      "q_file_sha256": "6edbc26de1744845dec24177b4be3f1493cc33f8542c34acd9d38949315c6cab",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0033/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0033",
+      "scenario_seed": 2000033,
+      "scenario_sha256": "63f39956e409ceaa85a5c4c320e0b6fc813fb571e5e4ac0f8d560b92a3fd9a56",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000033,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 33
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_high_fixed/s0044/role0",
+      "kind": "q",
+      "policy_sha256": "3946845bcfe5f4b37337899be7c0efa2c63e48adb7dc088601e6ccb7e423f008",
+      "q_file_sha256": "9f63e1c9c9dae5b7fd050a676e6370ce3d101152141bcbe5b03f3f9aa99195e2",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0044/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0044",
+      "scenario_seed": 2000044,
+      "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000044,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 44
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_high_fixed/s0044/role1",
+      "kind": "q",
+      "policy_sha256": "3946845bcfe5f4b37337899be7c0efa2c63e48adb7dc088601e6ccb7e423f008",
+      "q_file_sha256": "9f63e1c9c9dae5b7fd050a676e6370ce3d101152141bcbe5b03f3f9aa99195e2",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0044/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0044",
+      "scenario_seed": 2000044,
+      "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000044,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 44
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_high_fixed/s0055/role0",
+      "kind": "q",
+      "policy_sha256": "15204c0e2b60084ab30284ee816698d7a48278bb6ea1019cf8ef41f9906540b8",
+      "q_file_sha256": "8ca5e43e295d3c3770e243ae7faba007734ab9aa27257fa7313a62b78d7bfcc5",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0055/q_table.json",
+      "role": 0,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0055",
+      "scenario_seed": 2000055,
+      "scenario_sha256": "58ccdbaa247b9693c6530b79564392b031c0b6b042159d1bd6b659179bfcc74c",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000055,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 55
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "core",
+      "job_id": "core/epsilon_high_fixed/s0055/role1",
+      "kind": "q",
+      "policy_sha256": "15204c0e2b60084ab30284ee816698d7a48278bb6ea1019cf8ef41f9906540b8",
+      "q_file_sha256": "8ca5e43e295d3c3770e243ae7faba007734ab9aa27257fa7313a62b78d7bfcc5",
+      "q_path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0055/q_table.json",
+      "role": 1,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0055",
+      "scenario_seed": 2000055,
+      "scenario_sha256": "58ccdbaa247b9693c6530b79564392b031c0b6b042159d1bd6b659179bfcc74c",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000055,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 55
+    },
+    {
+      "config_id": "rule",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/rule/s0011/role0",
+      "kind": "rule",
+      "policy_sha256": "f52dda84a7515d13a2447ea1dc8416348131180963e1c185f9286600bad58da6",
+      "role": 0,
+      "scenario_seed": 2000011,
+      "scenario_sha256": "f5b028b99eb9c38d883f5c6ddb9a9cbeb41141c64ae853f8d734a86b91d81b21",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000011,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 11
+    },
+    {
+      "config_id": "rule",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/rule/s0011/role1",
+      "kind": "rule",
+      "policy_sha256": "f52dda84a7515d13a2447ea1dc8416348131180963e1c185f9286600bad58da6",
+      "role": 1,
+      "scenario_seed": 2000011,
+      "scenario_sha256": "f5b028b99eb9c38d883f5c6ddb9a9cbeb41141c64ae853f8d734a86b91d81b21",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000011,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 11
+    },
+    {
+      "config_id": "rule",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/rule/s0022/role0",
+      "kind": "rule",
+      "policy_sha256": "f52dda84a7515d13a2447ea1dc8416348131180963e1c185f9286600bad58da6",
+      "role": 0,
+      "scenario_seed": 2000022,
+      "scenario_sha256": "e1d6953bf6100869a7eb4716b462e7142abc35a031b9e701513b05486bcea336",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000022,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 22
+    },
+    {
+      "config_id": "rule",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/rule/s0022/role1",
+      "kind": "rule",
+      "policy_sha256": "f52dda84a7515d13a2447ea1dc8416348131180963e1c185f9286600bad58da6",
+      "role": 1,
+      "scenario_seed": 2000022,
+      "scenario_sha256": "e1d6953bf6100869a7eb4716b462e7142abc35a031b9e701513b05486bcea336",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000022,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 22
+    },
+    {
+      "config_id": "rule",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/rule/s0033/role0",
+      "kind": "rule",
+      "policy_sha256": "f52dda84a7515d13a2447ea1dc8416348131180963e1c185f9286600bad58da6",
+      "role": 0,
+      "scenario_seed": 2000033,
+      "scenario_sha256": "63f39956e409ceaa85a5c4c320e0b6fc813fb571e5e4ac0f8d560b92a3fd9a56",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000033,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 33
+    },
+    {
+      "config_id": "rule",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/rule/s0033/role1",
+      "kind": "rule",
+      "policy_sha256": "f52dda84a7515d13a2447ea1dc8416348131180963e1c185f9286600bad58da6",
+      "role": 1,
+      "scenario_seed": 2000033,
+      "scenario_sha256": "63f39956e409ceaa85a5c4c320e0b6fc813fb571e5e4ac0f8d560b92a3fd9a56",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000033,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 33
+    },
+    {
+      "config_id": "rule",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/rule/s0044/role0",
+      "kind": "rule",
+      "policy_sha256": "f52dda84a7515d13a2447ea1dc8416348131180963e1c185f9286600bad58da6",
+      "role": 0,
+      "scenario_seed": 2000044,
+      "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000044,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 44
+    },
+    {
+      "config_id": "rule",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/rule/s0044/role1",
+      "kind": "rule",
+      "policy_sha256": "f52dda84a7515d13a2447ea1dc8416348131180963e1c185f9286600bad58da6",
+      "role": 1,
+      "scenario_seed": 2000044,
+      "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000044,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 44
+    },
+    {
+      "config_id": "rule",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/rule/s0055/role0",
+      "kind": "rule",
+      "policy_sha256": "f52dda84a7515d13a2447ea1dc8416348131180963e1c185f9286600bad58da6",
+      "role": 0,
+      "scenario_seed": 2000055,
+      "scenario_sha256": "58ccdbaa247b9693c6530b79564392b031c0b6b042159d1bd6b659179bfcc74c",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000055,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 55
+    },
+    {
+      "config_id": "rule",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/rule/s0055/role1",
+      "kind": "rule",
+      "policy_sha256": "f52dda84a7515d13a2447ea1dc8416348131180963e1c185f9286600bad58da6",
+      "role": 1,
+      "scenario_seed": 2000055,
+      "scenario_sha256": "58ccdbaa247b9693c6530b79564392b031c0b6b042159d1bd6b659179bfcc74c",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000055,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 55
+    },
+    {
+      "config_id": "no_discount",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/no_discount/s0011/role0",
+      "kind": "no_discount",
+      "policy_sha256": "2742856fd6463e3bac02d298e73510252ae53ef73207d9b4503cfcd350f2bd3d",
+      "role": 0,
+      "scenario_seed": 2000011,
+      "scenario_sha256": "f5b028b99eb9c38d883f5c6ddb9a9cbeb41141c64ae853f8d734a86b91d81b21",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000011,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 11
+    },
+    {
+      "config_id": "no_discount",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/no_discount/s0011/role1",
+      "kind": "no_discount",
+      "policy_sha256": "2742856fd6463e3bac02d298e73510252ae53ef73207d9b4503cfcd350f2bd3d",
+      "role": 1,
+      "scenario_seed": 2000011,
+      "scenario_sha256": "f5b028b99eb9c38d883f5c6ddb9a9cbeb41141c64ae853f8d734a86b91d81b21",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000011,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 11
+    },
+    {
+      "config_id": "no_discount",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/no_discount/s0022/role0",
+      "kind": "no_discount",
+      "policy_sha256": "2742856fd6463e3bac02d298e73510252ae53ef73207d9b4503cfcd350f2bd3d",
+      "role": 0,
+      "scenario_seed": 2000022,
+      "scenario_sha256": "e1d6953bf6100869a7eb4716b462e7142abc35a031b9e701513b05486bcea336",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000022,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 22
+    },
+    {
+      "config_id": "no_discount",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/no_discount/s0022/role1",
+      "kind": "no_discount",
+      "policy_sha256": "2742856fd6463e3bac02d298e73510252ae53ef73207d9b4503cfcd350f2bd3d",
+      "role": 1,
+      "scenario_seed": 2000022,
+      "scenario_sha256": "e1d6953bf6100869a7eb4716b462e7142abc35a031b9e701513b05486bcea336",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000022,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 22
+    },
+    {
+      "config_id": "no_discount",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/no_discount/s0033/role0",
+      "kind": "no_discount",
+      "policy_sha256": "2742856fd6463e3bac02d298e73510252ae53ef73207d9b4503cfcd350f2bd3d",
+      "role": 0,
+      "scenario_seed": 2000033,
+      "scenario_sha256": "63f39956e409ceaa85a5c4c320e0b6fc813fb571e5e4ac0f8d560b92a3fd9a56",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000033,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 33
+    },
+    {
+      "config_id": "no_discount",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/no_discount/s0033/role1",
+      "kind": "no_discount",
+      "policy_sha256": "2742856fd6463e3bac02d298e73510252ae53ef73207d9b4503cfcd350f2bd3d",
+      "role": 1,
+      "scenario_seed": 2000033,
+      "scenario_sha256": "63f39956e409ceaa85a5c4c320e0b6fc813fb571e5e4ac0f8d560b92a3fd9a56",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000033,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 33
+    },
+    {
+      "config_id": "no_discount",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/no_discount/s0044/role0",
+      "kind": "no_discount",
+      "policy_sha256": "2742856fd6463e3bac02d298e73510252ae53ef73207d9b4503cfcd350f2bd3d",
+      "role": 0,
+      "scenario_seed": 2000044,
+      "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000044,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 44
+    },
+    {
+      "config_id": "no_discount",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/no_discount/s0044/role1",
+      "kind": "no_discount",
+      "policy_sha256": "2742856fd6463e3bac02d298e73510252ae53ef73207d9b4503cfcd350f2bd3d",
+      "role": 1,
+      "scenario_seed": 2000044,
+      "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000044,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 44
+    },
+    {
+      "config_id": "no_discount",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/no_discount/s0055/role0",
+      "kind": "no_discount",
+      "policy_sha256": "2742856fd6463e3bac02d298e73510252ae53ef73207d9b4503cfcd350f2bd3d",
+      "role": 0,
+      "scenario_seed": 2000055,
+      "scenario_sha256": "58ccdbaa247b9693c6530b79564392b031c0b6b042159d1bd6b659179bfcc74c",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000055,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 55
+    },
+    {
+      "config_id": "no_discount",
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "group": "control",
+      "job_id": "control/no_discount/s0055/role1",
+      "kind": "no_discount",
+      "policy_sha256": "2742856fd6463e3bac02d298e73510252ae53ef73207d9b4503cfcd350f2bd3d",
+      "role": 1,
+      "scenario_seed": 2000055,
+      "scenario_sha256": "58ccdbaa247b9693c6530b79564392b031c0b6b042159d1bd6b659179bfcc74c",
+      "scenario_spec": {
+        "engine": "matched_tapes_v1",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": {
+          "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+          "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+          "near_ties": {
+            "atol": 1e-08,
+            "rtol": 1e-05,
+            "rule": "random among np.isclose to max"
+          },
+          "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+          "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+          "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+          "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+        },
+        "scenario_seed": 2000055,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_core_final_v1",
+      "train_seed": 55
+    },
+    {
+      "checkpoint": "artifacts/runs/ref/baseline/s0042/checkpoint_e005000.json",
+      "checkpoint_sha256": "896d96f763e27625e9c2e76149c80baacebf90ae78c4c31202da702a1437792d",
+      "config_id": "reference_native",
+      "engine": "teacher_native_evaluate_pair",
+      "episodes": 500,
+      "group": "reference_native",
+      "job_id": "reference_native/reference_native/s0042/role0",
+      "kind": "q",
+      "policy_sha256": "61b44329058d1a13f84a646c7b0780cf50320c05be627e64886e3a650b089d22",
+      "q_file_sha256": "d115dc59c1638423a48deb6673079c097665cbe59b163c9a05709ee9a789bfda",
+      "q_path": "artifacts/runs/ref/baseline/s0042/q_table.json",
+      "role": 0,
+      "run_id": "ref/baseline/s0042",
+      "scenario_seed": 500042,
+      "scenario_sha256": "9616492132ca7cd885880bbfdaf9b15936411b9eb414d562842f8c7faaa04e69",
+      "scenario_spec": {
+        "engine": "teacher_native_evaluate_pair",
+        "episodes": 500,
+        "initial_history": [
+          0,
+          0
+        ],
+        "market": {
+          "cost": 5.0,
+          "customers_high": 20,
+          "customers_low": 10,
+          "discount": 0.2,
+          "kernel": [
+            [
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5
+            ]
+          ],
+          "price": 10.0,
+          "steps": 20
+        },
+        "rng_spec": "original env RNG; cloned trained policy RNG",
+        "scenario_seed": 500042,
+        "steps_per_episode": 20
+      },
+      "steps_per_episode": 20,
+      "study_id": "ag02_ref_native_final_v1",
+      "train_seed": 42
+    }
+  ],
+  "native_reference_scope": "One faithful native role0 run, excluded from CONTROLLED n5 aggregates",
+  "prior_release_sha256": "3ff17f6682ae26c5303a5d07450f6c0ce44df6304223838e63eb8da0371d7f38",
+  "recovery": "Keep failed/partial consumed claims; never replay; reuse valid completed claims",
+  "registry25_sha256": "23c3482b3d0addfd670c5119c1a05b54e15ebcc8389147c298ebf505068b8798",
+  "role_swap_core_and_controls": true,
+  "runtime": {
+    "executable": "/home/tuananh/.local/share/ai-term-paper-v3/.venv-torch/bin/python",
+    "packages": {
+      "matplotlib": "3.11.2",
+      "nbclient": "0.11.0",
+      "nbformat": "5.11.1",
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "pypdf": "6.21.0",
+      "pytest": "9.1.1",
+      "python-docx": "1.2.0",
+      "ruff": "0.17.1",
+      "scikit-learn": "1.9.0",
+      "torch": "2.14.1+cu130"
+    },
+    "platform": "Linux",
+    "python": "3.11.17",
+    "user": "tuananh"
+  },
+  "schema": "ag02.phase05.final_declaration.1"
+}

@@ -1,0 +1,51 @@
+{
+    "status":  "PASS",
+    "exit_codes":  {
+                       "powershell_parser":  0,
+                       "ruff":  0,
+                       "cli_help":  0,
+                       "cli_status":  0
+                   },
+    "files":  [
+                  "agent02_assignment/code/sweep_runs.py",
+                  "agent02_assignment/code/sweep_analysis.py",
+                  "agent02_assignment/code/sweep_summary.py",
+                  "agent02_assignment/phase04.py",
+                  "agent02_assignment/phase04_reporting.py",
+                  "agent02_assignment/verify_phase04.py",
+                  "agent02_assignment/tests/test_phase04.py",
+                  "agent02_assignment/tests/test_phase04_summary.py"
+              ],
+    "lint_output":  [
+                        "All checks passed!"
+                    ],
+    "cli_help":  [
+                     "usage: phase04.py [-h] [--resume] {status,declare,train}",
+                     "",
+                     "AG02 Phase4: complete 25 CONTROLLED cells, reusing Phase3 seed11; train only.",
+                     "",
+                     "positional arguments:",
+                     "  {status,declare,train}",
+                     "",
+                     "options:",
+                     "  -h, --help            show this help message and exit",
+                     "  --resume"
+                 ],
+    "cli_status":  {
+                       "phase":  4,
+                       "matrix_cells":  25,
+                       "completed_cells":  25,
+                       "controller":  {
+                                          "status":  "COMPLETE",
+                                          "pid":  null,
+                                          "completed_cells":  25,
+                                          "current_run":  null,
+                                          "final_evaluation":  false,
+                                          "started_unix":  1792809735.9687347,
+                                          "finished_unix":  1792810300.3628187
+                                      },
+                       "final_evaluation":  false
+                   },
+    "declaration_sha256":  "cec88cd1d8300c9325c6b27f605b208c973e05297d06d3863481f9e7f7d9b92a",
+    "final_evaluation":  false
+}

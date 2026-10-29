@@ -1,0 +1,140 @@
+{
+  "checkpoint_interval_episodes": 100,
+  "dev": {
+    "episodes_per_role": 100,
+    "partition": "development",
+    "roles": [
+      0,
+      1
+    ],
+    "scenario_seed": 1000011,
+    "tracks_use_same_tapes": true
+  },
+  "device": "NumPy CPU float64",
+  "files": [
+    {
+      "path": "code/__init__.py",
+      "sha256": "f239c9d7514f92a5329ebc5fb6666f07a01739edce9a1622338543c5b1b9d94d"
+    },
+    {
+      "path": "code/agent02_experiment.py",
+      "sha256": "3d40be4edc925f83b403c0b7e71e7fff03dfe0dbed56f0895c192058a4865ca9"
+    },
+    {
+      "path": "code/baseline_runs.py",
+      "sha256": "859ff73872dc8ac67c5db6e294a5360e11f3359d8eb23d5b1e26c8f85cfb06f8"
+    },
+    {
+      "path": "code/controlled.py",
+      "sha256": "df92154dea7a95739019fae56e6c9b79d53c446afe7607db8058f8b49e8f28b2"
+    },
+    {
+      "path": "code/evaluation/__init__.py",
+      "sha256": "7e1c4ec49bfc775558d79da20dd1e95d7763ef43ba8019ea38b26fd5b57f3cce"
+    },
+    {
+      "path": "code/evaluation/frozen.py",
+      "sha256": "f485532802df53845a56db3f006c584873e062231f58be67d362629a4bf3fa21"
+    },
+    {
+      "path": "code/reference_adapter.py",
+      "sha256": "c0677ed8d364604b855d826ce76efb5df1470b3a0d0f547bd537045278175ccc"
+    },
+    {
+      "path": "code/reference_training.py",
+      "sha256": "d31611c86e9bcad807fbbedbf8e51f77995de61f21ef048f838de4e06f293afb"
+    },
+    {
+      "path": "code/training.py",
+      "sha256": "e3e43418373866f9f3bd05310709793bdeb41460d226db3cad519a25f2ec2a3f"
+    },
+    {
+      "path": "docs/protocol_v1.json",
+      "sha256": "2cbeba32dd2c36102e3c2097bcbbbb0b956ee5110d92d042d4fb1dd0420f6898"
+    },
+    {
+      "path": "evidence/phase03/pretrain_coverage_r2.json",
+      "sha256": "70b6a8c448152038d3d4d052e9ad9ebd2cab34efde68e65f0f063c353b731ee7"
+    },
+    {
+      "path": "evidence/phase03/pretrain_tests_r2.xml",
+      "sha256": "0164d391a3b6f04d7d2cf8a504ff7413f8394c02253ac36c2b64a94d55fa026b"
+    },
+    {
+      "path": "phase02.py",
+      "sha256": "6d98e5172c13db98ae94b6ba135ec621bcc1be415b842d29926d601322bb3bcc"
+    },
+    {
+      "path": "phase03.py",
+      "sha256": "f428c4ba71b870330ffe2741f400e54a1cadc2b622e4a69a10c32da650a2c86a"
+    },
+    {
+      "path": "protocol.py",
+      "sha256": "8d2fd26d2a144899f421be87c573a27f0d4fff9b950585b195a4d541570aabc6"
+    },
+    {
+      "path": "scripts/run_agent02_phase03.ps1",
+      "sha256": "990a93eab02af3a42ae47a337e7595f82d5b7e0b8045c07f2e05d288d8badba0"
+    },
+    {
+      "path": "tests/coverage_phase03.ini",
+      "sha256": "9c44f79f8c899e4a4d2dab697b36a88a137fbe63ec9e6b553764babf017c6640"
+    },
+    {
+      "path": "tests/test_phase03_gate.py",
+      "sha256": "a07a9b12feb2a0d868145e43f755867ba8f333295d762c6dcaa2f387b259ba8e"
+    },
+    {
+      "path": "tests/test_phase03_training.py",
+      "sha256": "df2da5c0ebd510165a969abb5b51ed89cda8a6613ff34812f43c2227e4f8b3bf"
+    },
+    {
+      "path": "workspace.py",
+      "sha256": "f96f7ca823d07046723dc0f086395cbe77f5459e44ce48bccfc5882770a6a0e4"
+    }
+  ],
+  "final_evaluation_authorized": false,
+  "initialization": "fresh zero Q; never smoke checkpoint",
+  "minimum_free_bytes": 5368709120,
+  "phase2_lock_sha256": "dfc338bfce41cbb4462c2e3fe7b04168f5193ab79f154d108024b75d65ce7832",
+  "protocol_file_sha256": "2cbeba32dd2c36102e3c2097bcbbbb0b956ee5110d92d042d4fb1dd0420f6898",
+  "reference_adapter": "Original teacher classes, faithful instrumented loop; fixture parity proven",
+  "runs": [
+    {
+      "config_id": "baseline",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 3,
+      "run_id": "ref/baseline/s0042",
+      "seed": 42,
+      "status": "declared_not_started",
+      "track": "REF"
+    },
+    {
+      "config_id": "baseline",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 3,
+      "run_id": "controlled/iid/baseline/s0011",
+      "seed": 11,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    }
+  ],
+  "runtime": {
+    "matplotlib": "3.11.2",
+    "nbclient": "0.11.0",
+    "nbformat": "5.11.1",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "pypdf": "6.21.0",
+    "pytest": "9.1.1",
+    "python-docx": "1.2.0",
+    "ruff": "0.17.1",
+    "scikit-learn": "1.9.0",
+    "torch": "2.14.1+cu130"
+  },
+  "schema": "ag02.phase03.declaration.1",
+  "steps_per_episode": 20,
+  "train_episodes_per_run": 5000
+}

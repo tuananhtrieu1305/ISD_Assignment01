@@ -1,0 +1,57 @@
+{
+  "job": {
+    "job_id": "augmented/iid/s0055/role1",
+    "kernel_id": "iid",
+    "policy_id": "augmented",
+    "policy_sha256": "91be1daae0b78dba9e1358632a1c1f5351c6693115242180c8c848f7171a6d48",
+    "q_file_sha256": "36e90e640196bcb544fb7137091ef61a44d9e8c7a0352b7f1a29df93e3245271",
+    "q_path": "artifacts/runs/controlled/iid/augmented/s0055/q_table.json",
+    "role": 1,
+    "scenario_sha256": "acd844e9cdef1cc07f18fe43d6d349e2e181aa9a7731472ef036f0b6d228602e",
+    "scenario_spec": {
+      "episodes": 500,
+      "initial_history": [
+        0,
+        0
+      ],
+      "market": {
+        "cost": 5.0,
+        "customers_high": 20,
+        "customers_low": 10,
+        "discount": 0.2,
+        "kernel": [
+          [
+            0.5,
+            0.5
+          ],
+          [
+            0.5,
+            0.5
+          ]
+        ],
+        "price": 10.0,
+        "steps": 20
+      },
+      "rng": {
+        "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+        "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+        "near_ties": {
+          "atol": 1e-08,
+          "rtol": 1e-05,
+          "rule": "random among np.isclose to max"
+        },
+        "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+        "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+        "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+        "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+      },
+      "scenario_seed": 2000055,
+      "tape_engine": "original_Tape.generate_v1"
+    },
+    "seed": 55,
+    "study_id": "ag02_phase07_augmented_v1"
+  },
+  "key": "fb7fad32b47bd70cc35514efba08c2f8d8a4c154e452d664e5c2f395536ee385",
+  "proof_sha256": "909607dff359f2ec12a90d2c5d4738c76bf54f1a98b97f1f6ef65cf943690975",
+  "claimed_utc": "2026-10-24T07:03:42.730893+00:00"
+}

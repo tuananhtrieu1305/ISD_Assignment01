@@ -1,0 +1,182 @@
+[
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "X là episode train, Y là reward cả episode chia 20 bước; đen liền là RL, xám đứt là rule. Panel dưới làm mượt 100 episode; chỉ có một seed, không có dải sai số giữa seed. RL tăng từ 31,92100 ở 100 episode đầu lên 33,56900 ở 100 episode cuối. Reward vẫn dao động; nhu cầu/doanh số ngẫu nhiên và policy đang học cùng ảnh hưởng đường vẽ. Làm mượt không chứng minh hội tụ hoặc ưu thế ngoài mẫu. Nguồn: D3, run REF42.",
+    "id": "F01",
+    "notes_path": "artifacts/figures/phase03/figure_notes.json",
+    "path": "artifacts/figures/phase03/ref_learning_curve.png",
+    "phase": 3,
+    "sha256": "f716f0024df05b0aec50742c256227a0c7981a0cec7650615cd1b74914bd6f76"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "X là episode train, Y là profit/bước; đen RL, xám đứt rule. Panel dưới là MA 100; chỉ một seed 11, không có dải sai số giữa seed và không phải các learner độc lập. RL đầu/cuối là 30,27150/ 34,31200, rule là 29,03400/ 33,36200. Rule không học vẫn thay reward do learner và thị trường đổi. Không lấy chênh giữa F01–F02 để xếp hạng cách quản lý RNG vì cả seed cũng khác. Nguồn: D3, run CONTROLLED11.",
+    "id": "F02",
+    "notes_path": "artifacts/figures/phase03/figure_notes.json",
+    "path": "artifacts/figures/phase03/controlled_learning_curve.png",
+    "phase": 3,
+    "sha256": "4cca34a0fbec1e8e69e91918456f8782a26d2a2184c29648190ec38263047a82"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "Hàng là bốn state nhu cầu/action trước của đối thủ; cột là hai action. Ô tối hơn có Q lớn hơn, số trong ô là Q chịu chiết khấu, không phải profit/bước. Không lấy trung bình hai track hoặc vẽ error bar. B02 cho thấy REF chọn 1 ởstate(0,1)/(1,1), trong khi CONTROLLED chọn 0 ởcảbốnstate. State ít hoặc không gặp trong policy greedy có thể không ảnh hưởng score của kịch bản hiện tại. Nguồn: D3, Q/policy cuối.",
+    "id": "F03",
+    "notes_path": "artifacts/figures/phase03/figure_notes.json",
+    "path": "artifacts/figures/phase03/q_tables.png",
+    "phase": 3,
+    "sha256": "4f6117ffe3f3971c345cbe9b9f2365780e67ce674efcca493932397daa04eb93"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "X là từng cặp agent/action; Y là tổng số lần chọn trên 100.000 bước/run. Cột tối giữ giá, cột sáng giảm giá; không có std vì mỗi track chỉ một seed. REF learner giảm 17524 lần, CONTROLLED giảm 14474 lần. Đây là hành vi khi còn exploration, không phải tỷ lệ epsilon hoặc tần suất của policy cuối. Giảm giá nhiều hơn không tự mang lợi nhuận cao hơn. Nguồn: D3, action_counts.",
+    "id": "F04",
+    "notes_path": "artifacts/figures/phase03/figure_notes.json",
+    "path": "artifacts/figures/phase03/action_counts.png",
+    "phase": 3,
+    "sha256": "2dfa3d6a7d3a3ee71c736ccfaf850e81cb9e97b03127eb9f01b5cc1e3e6d1485"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "Mỗi panel ứng với α 0,01/0,10/0,50; X là episode, Y là profit/bước. Đen RL, xám đứt rule; MA 100 riêng từng seed trước rồi mean±sample std qua 5 seed. Cuối cửa sổ, RL lần lượt 33,49160,34,28750, 31,87860. Alpha lớn cập nhật mạnh nhưng không tạo final mean cao hơn trong mẫu này. Vùng mờ giữa seed khác với nhiễu từng bước; không dùng overlap của dải để làm kiểm định. Nguồn: D4, curves_mean_std.",
+    "id": "F05",
+    "notes_path": "artifacts/figures/phase04/figure_notes.json",
+    "path": "artifacts/figures/phase04/alpha_curves.png",
+    "phase": 4,
+    "sha256": "01be6856c95fd0cd3411c7fa2e13fba74acba9397266b8e26ddff2f4848b3bb1"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "X là episode, Y là profit/bước; đen RL, xám đứt rule. MA 100 riêng từng seed rồi mean/std qua 5 seed như F05; chỉ thay lịch khám phá. RL ở cửa sổ cuối của epsilon 0,05, baseline giảm, epsilon 0,30 lần lượt 32,57480, 34,28750, 31,15510. Khám phá cao có thể làm reward train thấp vì tiếp tục thử action, nhưng không kết luận chỉ từ train rằng policy cuối kém hơn. Nguồn: D4.",
+    "id": "F06",
+    "notes_path": "artifacts/figures/phase04/figure_notes.json",
+    "path": "artifacts/figures/phase04/exploration_curves.png",
+    "phase": 4,
+    "sha256": "4fbbe0aeb99090049401318b0c2a60d58828f20319ad71a7eef052f6069719fc"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "X là episode, Y là xác suất khám phá, không có đơn vị reward. Đường đen giảm 0,20 → 0,02; hai đường còn lại giữ 0,05/0,30. Đây là cấu hình chung cho cả 5 seed, không phải số đo ngẫu nhiên nên không có dải std. Epsilon chỉ là xác suất chọn action ngẫu nhiên; tỷ lệ giảm giá còn phụ thuộc action được chọn khi khám phá và policy khi khai thác. Nguồn: D2,D4, epsilon_schedules.",
+    "id": "F07",
+    "notes_path": "artifacts/figures/phase04/figure_notes.json",
+    "path": "artifacts/figures/phase04/epsilon_schedules.png",
+    "phase": 4,
+    "sha256": "1dfca39064fb6f8628dc5ee40a49bb3e155b7aef55c90515b92285ca05c40b68"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "Hai panel tách RL và rule; X là cấu hình, Y là mean profit/bước trên 100.000 bước/run. Cột là mean 5 run, whisker là sample std của 5 mean/run. Baseline RL 33,76528±0,09989; alpha 0,01 30,91717±3,91720. Dải của alpha 0,01 lớn hơn nhiều giữa seed; không bỏ seed bất lợi. Đó là train score, chưa phải chất lượng cuối đo trước cùng opponent/tape. Nguồn: D4.",
+    "id": "F08",
+    "notes_path": "artifacts/figures/phase04/figure_notes.json",
+    "path": "artifacts/figures/phase04/train_summary.png",
+    "phase": 4,
+    "sha256": "f172b8c1eece0cb820ff84609bd37db3f95d02e684e586ffdf85861803b9891c"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "X là năm cấu hình,Y là profit/bước; cột mean, whisker là std qua 5 training seed sau gộp vai. Đường đứt là mean Rule-vs-rule qua 5 scenario panel, không phải rule đã train. Baseline 34,02786 cao nhất trong năm mean quan sát, alpha 0,50 là 32,06337; không từ đó chọn lại cấu hình hoặc khẳng định ưu thế thống kê/phổ quát. Nguồn: D5, config_summary.",
+    "id": "F09",
+    "notes_path": "artifacts/figures/phase05/figure_notes.json",
+    "path": "artifacts/figures/phase05/final_profit.png",
+    "phase": 5,
+    "sha256": "aed3072b7227cd424d2f5bfd2106386447f1ff32323f4854030ebd90c8d2a090"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "Hai panel cùng X là cấu hình,Y là chênh profit/bước; chấm mean, whisker sample std qua 5 delta seed, đường 0 là không chênh. **Panel trái** là Q cấu hình trừ Q baseline cùng seed/tape; **panel phải** là Q trừ rule trong chính trận đó. Alpha 0,50 có delta so baseline -1,96449, nhưng delta trong trận 0,63457. Không dùng panel phải để tuyên bố Q tốt hơn policy rule trước cùng opponent. Nguồn: D5, paired_comparison.",
+    "id": "F10",
+    "notes_path": "artifacts/figures/phase05/figure_notes.json",
+    "path": "artifacts/figures/phase05/paired_and_match.png",
+    "phase": 5,
+    "sha256": "116140ae93651459a977cd0ad3d34207b5b8eaa68892b9fad7c7d81068bf882b"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "X là cấu hình,Y là profit/bước; cột sáng là toàn quá trình học, cột tối là policy cuối đóng băng trên scenario riêng, whisker đều giữa 5 seed. Alpha 0,01 train mean 30,91717 còn finalmean 33,90382. Chênh lệch gồm cả policy thay đổi, exploration và tập tình huống; không quy toàn bộ cho việc tắt epsilon hoặc gọi score tăng là hội tụ. Nguồn: D4,D5.",
+    "id": "F11",
+    "notes_path": "artifacts/figures/phase05/figure_notes.json",
+    "path": "artifacts/figures/phase05/train_vs_final.png",
+    "phase": 5,
+    "sha256": "f02c7d47fd2ff905f9b1d0d01bb38e60f0ada796381792d7abc29efcc90a9111"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "X là cấu hình,Y là tỷ lệ giảm giá(%); cột sáng train 100.000 bước/run, tối final 20.000 bước/seed gộp hai vai. Whisker là sample std giữa 5 seed, đơn vị điểm%. Final baseline 16,212%, alpha 0,50 30,186%. Tỷ lệ không bằng epsilon. Whisker mean±std có thể xuống dưới 0 khi độ phân tán lớn; từng tỷ lệ quan sát vẫn 0–100%, whisker không phải khoảng xác suất/CI. Nguồn: D4,D5.",
+    "id": "F12",
+    "notes_path": "artifacts/figures/phase05/figure_notes.json",
+    "path": "artifacts/figures/phase05/discount_rates.png",
+    "phase": 5,
+    "sha256": "5178f180e02529e98f5bf6640dce4b75d9b767341c34f15f542f4cd49d2aa0c9"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "Trái: X là tháng, Y là USD/troy ounce; đường đen là 560 giá tháng trong prefix TRAIN, 01/1960–08/2006. Phải: hàng là regime hiện tại, cột là regime tháng sau, số trong ô là xác suất sau cộng Laplace 1. Regime 1 là giá tăng; regime 0 gồm giảm hoặc giữ nguyên. P 00=0,706745, P 11=0,547511, khác kernel persistent giữ chế độ với xác suất 0,9. Đây là hướng biến động **giá**, không phải nhu cầu vàng thực đo; không diễn giải thành quan hệ nhân quả hay backtest đầu tư. Nguồn: S7,D6, Gold TRAIN prefix/kernel.",
+    "id": "F13",
+    "notes_path": "artifacts/figures/phase06/figure_notes.json",
+    "path": "artifacts/figures/phase06/gold_calibration.png",
+    "phase": 6,
+    "sha256": "81ae92e2a0e1cc090e26b5893ca7ca6cea2623212ab0552f6d0240bf3cc9c014"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "Hai panel tách learner 0/1; X là episode train, Y là profit/bước. Đường đen là mean của MA 100 riêng từng seed; dải xám là ±sample std qua năm pair seed. Hai đường vẫn dao động; mean train của learner 0/1 là 32,99454/ 32,98117, không tăng đều đến cuối. Đây là quá trình cả hai policy đang đổi; vùng mờ còn chứa khác biệt kinh nghiệm giữa seed. Không từ đó quy riêng biến động cho non-stationarity hoặc kết luận hội tụ. Nguồn: D6, pair_train_curves.",
+    "id": "F14",
+    "notes_path": "artifacts/figures/phase06/figure_notes.json",
+    "path": "artifacts/figures/phase06/two_learner_training.png",
+    "phase": 6,
+    "sha256": "96a2a8df3eabd1a047457173d3347b2e9a8c16b192dbf8d7d073d013b826ae00"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "Trái: X là checkpoint, Y là profit/bước khi Q đóng băng trước fixed rule; chấm mean, whisker là std sau gộp vai/learner trong pair, n 5 pair seed. Mean ở 1.000 episode là 34,48443, ở 5.000 là 31,58872. Phải: X là cuối mỗi khoảng 100 episode, Y là số state đổi tập greedy trên bốn state, lấy mean qua 10 learner thuộc 5 pair. Có 612 state-change trên 500 learner-interval; không phải số lần đổi action trong timestep. Drift ở state ít gặp có thể không đổi return; không chọn checkpoint 1.000 làm kết quả cuối chỉ vì mean cao hơn. Nguồn: D6.",
+    "id": "F15",
+    "notes_path": "artifacts/figures/phase06/figure_notes.json",
+    "path": "artifacts/figures/phase06/checkpoint_drift.png",
+    "phase": 6,
+    "sha256": "5b6543c6ba7de0eddb58bb05e2b1955713c2bfac1cbaeaa4ff79d9d26c053788"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "Mỗi panel là một kernel; X gồm Q IID cũ, Q train lại, rule và no-discount; Y là profit/bước. Cột mean, whisker là std sau gộp hai vai. Delta train lại trừ Q IID cũ là-1,48087±2,70026 ởpersistent, -0,80510±3,54276 ởGold. Rule-vs-rule và no-discount trùng hành vi giữ giá từ lịch sử reset 0, nên không coi hai cột đó là hai chuẩn hành vi độc lập. Không so raw profit xuyên kernel như cùng phân phối. Nguồn: D6, variant_seed/variant_summary/variant_deltas.",
+    "id": "F16",
+    "notes_path": "artifacts/figures/phase06/figure_notes.json",
+    "path": "artifacts/figures/phase06/variant_robustness.png",
+    "phase": 6,
+    "sha256": "f2eb6670c504ce92d5c6411a56fa23e3de6586869d60c8b29f54b6f2ecae56e5"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "Ba panel là IID/persistent/Gold; X là episode, Y là profit/bước. Đen liền là state memory/time, xám đứt là state cũ train cùng kernel; mỗi đường là mean MA 100 qua năm seed, dải là sample std tương ứng. Ở cả ba panel, đường memory/time quan sát thấp hơn phần lớn quá trình. Train reward còn exploration và Q thay đổi; không thay nó cho final hoặc suy ra nguyên nhân chỉ từ hình. Nguồn: D7, train_curves.",
+    "id": "F17",
+    "notes_path": "artifacts/figures/phase07/figure_notes.json",
+    "path": "artifacts/figures/phase07/augmented_training.png",
+    "phase": 7,
+    "sha256": "f7712e84c1e74f5462f84a3f688ee91e6831f0a0fdd7066ea3968ae46a78962a"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "X là ba policy, Y là profit/bước; cột mean và whisker sample std, n 5 sau gộp vai. IID memory/time đạt 30,27341 so với baseline 34,02786; Gold lần lượt 27,10489/29,35694. Kết quả có std nhỏ hơn không đủ để gọi robust hơn nếu mean thấp hơn. Các panel khác phân phối nên so trong từng kernel là chính. Nguồn: D7, policy_summary.",
+    "id": "F18",
+    "notes_path": "artifacts/figures/phase07/figure_notes.json",
+    "path": "artifacts/figures/phase07/augmented_final_profit.png",
+    "phase": 7,
+    "sha256": "745f8ff2f409458644bcdc4249e9386ecf22c5af685dcbc10192fe59f5bcf8d6"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "X là kernel, Y là profit augmented trừ đối chứng/bước. Tròn đen trừ baseline, vuông xám trừ rule; đường đứt 0 là không chênh. Điểm là mean, whisker là sample std của năm delta seed. Mean trừ baseline âm ở cả ba kernel: B11 ghi rõ mức chênh. Whisker qua 0 không phải kiểm định; không loại seed bất lợi hoặc tăng budget sau khi xem score để đảo kết luận. Nguồn: D7, paired_deltas/delta_summary.",
+    "id": "F19",
+    "notes_path": "artifacts/figures/phase07/figure_notes.json",
+    "path": "artifacts/figures/phase07/augmented_paired_delta.png",
+    "phase": 7,
+    "sha256": "913225f2f07b7573658037a8ca5c65b965f79f57507a723663063a0dc2c62ac0"
+  },
+  {
+    "caption_review_scope": "Author reviewed axes,legend,aggregation,n,quantitative observation and limits; original pixel QA preserved in prior phase",
+    "caption_text": "X là kernel. Trái: Y là phần trăm ô state–action đã được thăm trên tổng ô lý thuyết; phải: Y là CPUgiây/100.000 train market step. Cột đậm memory/time, nhạt baseline; panel phải có whisker là std qua 5 seed. Agent mới thăm 83,6%/78,4%/ 81,8% của 320 ô trênIID/persistent/Gold, baseline thăm 100% của 8 ô; một số fullstate không đạt được từ reset/horizon nên phần chưa thăm không tự là lỗi. Qpayload float64 tăng 64 → 2.560 byte, không phải peakRAM. CPU loop không gồm checkpointI/O và không phải benchmark hệ thống. Nguồn: D7, cost_coverage.",
+    "id": "F20",
+    "notes_path": "artifacts/figures/phase07/figure_notes.json",
+    "path": "artifacts/figures/phase07/augmented_coverage_cost.png",
+    "phase": 7,
+    "sha256": "bcdeb5787f57d418c486ada0f3cc8ff66b68fc77d2d95258eb9ef1b887231414"
+  }
+]

@@ -1,0 +1,466 @@
+{
+  "alpha": {
+    "headers": [
+      "Cấu hình",
+      "Train Q mean±std",
+      "Final Q mean±std"
+    ],
+    "markdown": "|Cấu hình|Train Q mean±std|Final Q mean±std|\n|---|---|---|\n|Baseline (α0,10; ε giảm)|33,76528 ± 0,09989|34,02786 ± 1,22178|\n|α0,01|30,91717 ± 3,91720|33,90382 ± 2,60833|\n|α0,50|31,97780 ± 0,12472|32,06337 ± 4,25085|",
+    "rows": [
+      [
+        "Baseline (α0,10; ε giảm)",
+        "33,76528 ± 0,09989",
+        "34,02786 ± 1,22178"
+      ],
+      [
+        "α0,01",
+        "30,91717 ± 3,91720",
+        "33,90382 ± 2,60833"
+      ],
+      [
+        "α0,50",
+        "31,97780 ± 0,12472",
+        "32,06337 ± 4,25085"
+      ]
+    ],
+    "sources": [
+      "artifacts/metrics/phase04/config_train_summary.csv",
+      "artifacts/metrics/phase05/config_summary.json"
+    ]
+  },
+  "baseline_final": {
+    "headers": [
+      "Track/seed",
+      "Profit Q",
+      "Profit rule",
+      "Tổng reward Q",
+      "Tổng reward rule",
+      "Bước gộp vai"
+    ],
+    "markdown": "|Track/seed|Profit Q|Profit rule|Tổng reward Q|Tổng reward rule|Bước gộp vai|\n|---|---|---|---|---|---|\n|CONTROLLED/11|34,98425|34,98425|699.685|699.685|20.000|\n|CONTROLLED/22|32,60005|30,56260|652.001|611.252|20.000|\n|CONTROLLED/33|32,79050|30,78705|655.810|615.741|20.000|\n|CONTROLLED/44|34,76675|34,76675|695.335|695.335|20.000|\n|CONTROLLED/55|34,99775|34,99775|699.955|699.955|20.000|\n|REF_NATIVE/42|35,12750|34,96850|351.275|349.685|10.000|",
+    "rows": [
+      [
+        "CONTROLLED/11",
+        "34,98425",
+        "34,98425",
+        "699.685",
+        "699.685",
+        "20.000"
+      ],
+      [
+        "CONTROLLED/22",
+        "32,60005",
+        "30,56260",
+        "652.001",
+        "611.252",
+        "20.000"
+      ],
+      [
+        "CONTROLLED/33",
+        "32,79050",
+        "30,78705",
+        "655.810",
+        "615.741",
+        "20.000"
+      ],
+      [
+        "CONTROLLED/44",
+        "34,76675",
+        "34,76675",
+        "695.335",
+        "695.335",
+        "20.000"
+      ],
+      [
+        "CONTROLLED/55",
+        "34,99775",
+        "34,99775",
+        "699.955",
+        "699.955",
+        "20.000"
+      ],
+      [
+        "REF_NATIVE/42",
+        "35,12750",
+        "34,96850",
+        "351.275",
+        "349.685",
+        "10.000"
+      ]
+    ],
+    "sources": [
+      "artifacts/metrics/phase05/baseline_reward.csv"
+    ]
+  },
+  "baseline_train": {
+    "headers": [
+      "Track/seed",
+      "Agent",
+      "Total profit",
+      "Profit/bước",
+      "Giữ giá",
+      "Giảm giá"
+    ],
+    "markdown": "|Track/seed|Agent|Total profit|Profit/bước|Giữ giá|Giảm giá|\n|---|---|---|---|---|---|\n|REF/42|RL|3.345.548|33,45548|82.476|17.524|\n|REF/42|RULE|3.283.930|32,83930|91.677|8.323|\n|CONTROLLED/11|RL|3.374.759|33,74759|85.526|14.474|\n|CONTROLLED/11|RULE|3.328.637|33,28637|93.216|6.784|",
+    "rows": [
+      [
+        "REF/42",
+        "RL",
+        "3.345.548",
+        "33,45548",
+        "82.476",
+        "17.524"
+      ],
+      [
+        "REF/42",
+        "RULE",
+        "3.283.930",
+        "32,83930",
+        "91.677",
+        "8.323"
+      ],
+      [
+        "CONTROLLED/11",
+        "RL",
+        "3.374.759",
+        "33,74759",
+        "85.526",
+        "14.474"
+      ],
+      [
+        "CONTROLLED/11",
+        "RULE",
+        "3.328.637",
+        "33,28637",
+        "93.216",
+        "6.784"
+      ]
+    ],
+    "sources": [
+      "artifacts/metrics/phase03_train_summary.csv"
+    ]
+  },
+  "core_final": {
+    "headers": [
+      "Cấu hình",
+      "Q final mean±std",
+      "Rule cùng trận mean±std",
+      "Q−rule cùng trận",
+      "Q−policy rule"
+    ],
+    "markdown": "|Cấu hình|Q final mean±std|Rule cùng trận mean±std|Q−rule cùng trận|Q−policy rule|\n|---|---|---|---|---|\n|Baseline (α0,10; ε giảm)|34,02786 ± 1,22178|33,21968 ± 2,32629|0,80818|-1,02449|\n|α0,01|33,90382 ± 2,60833|33,46195 ± 3,59374|0,44187|-1,14853|\n|α0,50|32,06337 ± 4,25085|31,42880 ± 5,12948|0,63457|-2,98898|\n|ε cố định0,05|33,39952 ± 2,64330|32,55158 ± 3,75356|0,84794|-1,65283|\n|ε cố định0,30|32,87013 ± 3,58062|32,53152 ± 3,61138|0,33861|-2,18222|",
+    "rows": [
+      [
+        "Baseline (α0,10; ε giảm)",
+        "34,02786 ± 1,22178",
+        "33,21968 ± 2,32629",
+        "0,80818",
+        "-1,02449"
+      ],
+      [
+        "α0,01",
+        "33,90382 ± 2,60833",
+        "33,46195 ± 3,59374",
+        "0,44187",
+        "-1,14853"
+      ],
+      [
+        "α0,50",
+        "32,06337 ± 4,25085",
+        "31,42880 ± 5,12948",
+        "0,63457",
+        "-2,98898"
+      ],
+      [
+        "ε cố định0,05",
+        "33,39952 ± 2,64330",
+        "32,55158 ± 3,75356",
+        "0,84794",
+        "-1,65283"
+      ],
+      [
+        "ε cố định0,30",
+        "32,87013 ± 3,58062",
+        "32,53152 ± 3,61138",
+        "0,33861",
+        "-2,18222"
+      ]
+    ],
+    "sources": [
+      "artifacts/metrics/phase05/config_summary.json"
+    ]
+  },
+  "exploration": {
+    "headers": [
+      "Cấu hình",
+      "Train Q mean±std",
+      "Final Q mean±std"
+    ],
+    "markdown": "|Cấu hình|Train Q mean±std|Final Q mean±std|\n|---|---|---|\n|Baseline (α0,10; ε giảm)|33,76528 ± 0,09989|34,02786 ± 1,22178|\n|ε cố định0,05|32,89187 ± 0,18749|33,39952 ± 2,64330|\n|ε cố định0,30|30,92305 ± 0,09846|32,87013 ± 3,58062|",
+    "rows": [
+      [
+        "Baseline (α0,10; ε giảm)",
+        "33,76528 ± 0,09989",
+        "34,02786 ± 1,22178"
+      ],
+      [
+        "ε cố định0,05",
+        "32,89187 ± 0,18749",
+        "33,39952 ± 2,64330"
+      ],
+      [
+        "ε cố định0,30",
+        "30,92305 ± 0,09846",
+        "32,87013 ± 3,58062"
+      ]
+    ],
+    "sources": [
+      "artifacts/metrics/phase04/config_train_summary.csv",
+      "artifacts/metrics/phase05/config_summary.json"
+    ]
+  },
+  "gold_kernel": {
+    "headers": [
+      "Regime hiện tại",
+      "Count →0",
+      "Count →1",
+      "P →0 sau cộng1",
+      "P →1 sau cộng1"
+    ],
+    "markdown": "|Regime hiện tại|Count →0|Count →1|P →0 sau cộng1|P →1 sau cộng1|\n|---|---|---|---|---|\n|0|240|99|0,706745|0,293255|\n|1|99|120|0,452489|0,547511|",
+    "rows": [
+      [
+        0,
+        240,
+        99,
+        "0,706745",
+        "0,293255"
+      ],
+      [
+        1,
+        99,
+        120,
+        "0,452489",
+        "0,547511"
+      ]
+    ],
+    "sources": [
+      "data/derived/gold_regime_kernel_v1.json"
+    ]
+  },
+  "improved": {
+    "headers": [
+      "Kernel",
+      "Memory/time mean±std",
+      "Baseline cùngkernel mean±std",
+      "Rule mean±std"
+    ],
+    "markdown": "|Kernel|Memory/time mean±std|Baseline cùngkernel mean±std|Rule mean±std|\n|---|---|---|---|\n|iid|30,27341 ± 0,60242|34,02786 ± 1,22178|35,05235 ± 0,22585|\n|persistent|30,97311 ± 1,69375|33,06165 ± 2,63493|35,02665 ± 0,25749|\n|gold|27,10489 ± 0,28315|29,35694 ± 2,78040|31,07485 ± 0,21348|",
+    "rows": [
+      [
+        "iid",
+        "30,27341 ± 0,60242",
+        "34,02786 ± 1,22178",
+        "35,05235 ± 0,22585"
+      ],
+      [
+        "persistent",
+        "30,97311 ± 1,69375",
+        "33,06165 ± 2,63493",
+        "35,02665 ± 0,25749"
+      ],
+      [
+        "gold",
+        "27,10489 ± 0,28315",
+        "29,35694 ± 2,78040",
+        "31,07485 ± 0,21348"
+      ]
+    ],
+    "sources": [
+      "artifacts/metrics/phase07/policy_summary.csv"
+    ]
+  },
+  "improved_delta": {
+    "headers": [
+      "Kernel",
+      "Memory/time−baseline mean±std",
+      "Memory/time−rule mean±std"
+    ],
+    "markdown": "|Kernel|Memory/time−baseline mean±std|Memory/time−rule mean±std|\n|---|---|---|\n|iid|-3,75445 ± 1,52304|-4,77894 ± 0,53768|\n|persistent|-2,08854 ± 3,69446|-4,05354 ± 1,74828|\n|gold|-2,25205 ± 2,93133|-3,96996 ± 0,40610|",
+    "rows": [
+      [
+        "iid",
+        "-3,75445 ± 1,52304",
+        "-4,77894 ± 0,53768"
+      ],
+      [
+        "persistent",
+        "-2,08854 ± 3,69446",
+        "-4,05354 ± 1,74828"
+      ],
+      [
+        "gold",
+        "-2,25205 ± 2,93133",
+        "-3,96996 ± 0,40610"
+      ]
+    ],
+    "sources": [
+      "artifacts/metrics/phase07/delta_summary.csv"
+    ]
+  },
+  "oracle": {
+    "headers": [
+      "Kernel",
+      "Oracle expected profit/bước (γ1)",
+      "Memory/time expected profit/bước"
+    ],
+    "markdown": "|Kernel|Oracle expected profit/bước (γ1)|Memory/time expected profit/bước|\n|---|---|---|\n|iid|35,00000|30,21586|\n|persistent|35,00000|30,96036|\n|gold|31,01586|27,04324|",
+    "rows": [
+      [
+        "iid",
+        "35,00000",
+        "30,21586"
+      ],
+      [
+        "persistent",
+        "35,00000",
+        "30,96036"
+      ],
+      [
+        "gold",
+        "31,01586",
+        "27,04324"
+      ]
+    ],
+    "sources": [
+      "artifacts/metrics/phase07/oracle_summary.csv",
+      "artifacts/metrics/phase07/model_expectations.csv"
+    ]
+  },
+  "q8": {
+    "headers": [
+      "Checkpoint episode",
+      "Mean profit/bước ±std qua5pair seed"
+    ],
+    "markdown": "|Checkpoint episode|Mean profit/bước ±std qua5pair seed|\n|---|---|\n|0|29,55358 ± 0,19596|\n|1000|34,48443 ± 1,32679|\n|2500|34,23232 ± 0,70593|\n|5000|31,58872 ± 2,75761|",
+    "rows": [
+      [
+        "0",
+        "29,55358 ± 0,19596"
+      ],
+      [
+        "1000",
+        "34,48443 ± 1,32679"
+      ],
+      [
+        "2500",
+        "34,23232 ± 0,70593"
+      ],
+      [
+        "5000",
+        "31,58872 ± 2,75761"
+      ]
+    ],
+    "sources": [
+      "artifacts/metrics/phase06/q8_summary.csv"
+    ]
+  },
+  "q_policy": {
+    "headers": [
+      "Track",
+      "State (nhu cầu,đối thủ trước)",
+      "Q giữ giá",
+      "Q giảm giá",
+      "Greedy action"
+    ],
+    "markdown": "|Track|State (nhu cầu,đối thủ trước)|Q giữ giá|Q giảm giá|Greedy action|\n|---|---|---|---|---|\n|REF|(0, 0)|228,30|178,85|0|\n|REF|(0, 1)|177,99|207,21|1|\n|REF|(1, 0)|246,88|235,23|0|\n|REF|(1, 1)|211,42|242,96|1|\n|CONTROLLED|(0, 0)|233,67|197,14|0|\n|CONTROLLED|(0, 1)|213,65|171,28|0|\n|CONTROLLED|(1, 0)|265,03|225,54|0|\n|CONTROLLED|(1, 1)|249,42|224,71|0|",
+    "rows": [
+      [
+        "REF",
+        "(0, 0)",
+        "228,30",
+        "178,85",
+        "0"
+      ],
+      [
+        "REF",
+        "(0, 1)",
+        "177,99",
+        "207,21",
+        "1"
+      ],
+      [
+        "REF",
+        "(1, 0)",
+        "246,88",
+        "235,23",
+        "0"
+      ],
+      [
+        "REF",
+        "(1, 1)",
+        "211,42",
+        "242,96",
+        "1"
+      ],
+      [
+        "CONTROLLED",
+        "(0, 0)",
+        "233,67",
+        "197,14",
+        "0"
+      ],
+      [
+        "CONTROLLED",
+        "(0, 1)",
+        "213,65",
+        "171,28",
+        "0"
+      ],
+      [
+        "CONTROLLED",
+        "(1, 0)",
+        "265,03",
+        "225,54",
+        "0"
+      ],
+      [
+        "CONTROLLED",
+        "(1, 1)",
+        "249,42",
+        "224,71",
+        "0"
+      ]
+    ],
+    "sources": [
+      "artifacts/runs/ref/baseline/s0042/policy.json",
+      "artifacts/runs/controlled/iid/baseline/s0011/policy.json"
+    ]
+  },
+  "variants": {
+    "headers": [
+      "Kernel",
+      "Q IID cũ mean±std",
+      "Q train lại mean±std",
+      "Rule mean±std"
+    ],
+    "markdown": "|Kernel|Q IID cũ mean±std|Q train lại mean±std|Rule mean±std|\n|---|---|---|---|\n|persistent|34,54252 ± 0,71342|33,06165 ± 2,63493|35,02665 ± 0,25749|\n|gold|30,16204 ± 1,09861|29,35694 ± 2,78040|31,07485 ± 0,21348|",
+    "rows": [
+      [
+        "persistent",
+        "34,54252 ± 0,71342",
+        "33,06165 ± 2,63493",
+        "35,02665 ± 0,25749"
+      ],
+      [
+        "gold",
+        "30,16204 ± 1,09861",
+        "29,35694 ± 2,78040",
+        "31,07485 ± 0,21348"
+      ]
+    ],
+    "sources": [
+      "artifacts/metrics/phase06/variant_summary.csv"
+    ]
+  }
+}

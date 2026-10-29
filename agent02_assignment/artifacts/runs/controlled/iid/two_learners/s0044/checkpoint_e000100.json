@@ -1,0 +1,2819 @@
+{
+  "completed": 100,
+  "learning": {
+    "alpha": 0.1,
+    "episodes": 5000,
+    "epsilon_decay": 0.995,
+    "epsilon_min": 0.02,
+    "epsilon_start": 0.2,
+    "gamma": 0.9
+  },
+  "market": {
+    "cost": 5.0,
+    "customers_high": 20,
+    "customers_low": 10,
+    "discount": 0.2,
+    "kernel": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.5,
+        0.5
+      ]
+    ],
+    "price": 10.0,
+    "steps": 20
+  },
+  "q": [
+    [
+      [
+        [
+          204.53269333304925,
+          199.6779019885211
+        ],
+        [
+          200.02814877583347,
+          140.73576282909923
+        ]
+      ],
+      [
+        [
+          249.64277200018438,
+          229.1295567045625
+        ],
+        [
+          173.5818853336065,
+          252.61166126739482
+        ]
+      ]
+    ],
+    [
+      [
+        [
+          214.31353299887263,
+          210.37772842983318
+        ],
+        [
+          203.30747456969107,
+          157.31605941703353
+        ]
+      ],
+      [
+        [
+          263.29899040433753,
+          234.53600484470823
+        ],
+        [
+          260.54884248436383,
+          157.44590794780737
+        ]
+      ]
+    ]
+  ],
+  "rng": {
+    "agents": [
+      {
+        "bit_generator": "PCG64",
+        "has_uint32": 1,
+        "state": {
+          "inc": 282908981616728742435295607180389311827,
+          "state": 270415605657184953291795249453200897043
+        },
+        "uinteger": 2339128273
+      },
+      {
+        "bit_generator": "PCG64",
+        "has_uint32": 0,
+        "state": {
+          "inc": 64294470536757836547593220413960547,
+          "state": 159744221885030707537811884059459966060
+        },
+        "uinteger": 2764727374
+      }
+    ],
+    "demand": {
+      "bit_generator": "PCG64",
+      "has_uint32": 0,
+      "state": {
+        "inc": 762441968459946881146668352658223677,
+        "state": 71029173099439715658729026412355952951
+      },
+      "uinteger": 4269427215
+    },
+    "sales": [
+      {
+        "bit_generator": "PCG64",
+        "has_uint32": 0,
+        "state": {
+          "inc": 123344405500518649562277504055753806143,
+          "state": 8828712541632899970759984396892138190
+        },
+        "uinteger": 0
+      },
+      {
+        "bit_generator": "PCG64",
+        "has_uint32": 0,
+        "state": {
+          "inc": 159356135416328889152962515114448065735,
+          "state": 264997333943897376563662681699585681036
+        },
+        "uinteger": 0
+      }
+    ]
+  },
+  "rows": [
+    {
+      "action_counts": [
+        [
+          11,
+          9
+        ],
+        [
+          7,
+          13
+        ]
+      ],
+      "agent0_episode_reward": 601.0,
+      "agent0_mean_reward_per_step": 30.05,
+      "agent1_episode_reward": 586.0,
+      "agent1_mean_reward_per_step": 29.3,
+      "alpha": 0.1,
+      "episode": 1,
+      "epsilon": 0.2
+    },
+    {
+      "action_counts": [
+        [
+          14,
+          6
+        ],
+        [
+          11,
+          9
+        ]
+      ],
+      "agent0_episode_reward": 599.0,
+      "agent0_mean_reward_per_step": 29.95,
+      "agent1_episode_reward": 577.0,
+      "agent1_mean_reward_per_step": 28.85,
+      "alpha": 0.1,
+      "episode": 2,
+      "epsilon": 0.199
+    },
+    {
+      "action_counts": [
+        [
+          14,
+          6
+        ],
+        [
+          7,
+          13
+        ]
+      ],
+      "agent0_episode_reward": 605.0,
+      "agent0_mean_reward_per_step": 30.25,
+      "agent1_episode_reward": 603.0,
+      "agent1_mean_reward_per_step": 30.15,
+      "alpha": 0.1,
+      "episode": 3,
+      "epsilon": 0.19800500000000001
+    },
+    {
+      "action_counts": [
+        [
+          15,
+          5
+        ],
+        [
+          6,
+          14
+        ]
+      ],
+      "agent0_episode_reward": 590.0,
+      "agent0_mean_reward_per_step": 29.5,
+      "agent1_episode_reward": 561.0,
+      "agent1_mean_reward_per_step": 28.05,
+      "alpha": 0.1,
+      "episode": 4,
+      "epsilon": 0.197014975
+    },
+    {
+      "action_counts": [
+        [
+          11,
+          9
+        ],
+        [
+          12,
+          8
+        ]
+      ],
+      "agent0_episode_reward": 581.0,
+      "agent0_mean_reward_per_step": 29.05,
+      "agent1_episode_reward": 556.0,
+      "agent1_mean_reward_per_step": 27.8,
+      "alpha": 0.1,
+      "episode": 5,
+      "epsilon": 0.196029900125
+    },
+    {
+      "action_counts": [
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          9
+        ]
+      ],
+      "agent0_episode_reward": 589.0,
+      "agent0_mean_reward_per_step": 29.45,
+      "agent1_episode_reward": 549.0,
+      "agent1_mean_reward_per_step": 27.45,
+      "alpha": 0.1,
+      "episode": 6,
+      "epsilon": 0.19504975062437502
+    },
+    {
+      "action_counts": [
+        [
+          15,
+          5
+        ],
+        [
+          7,
+          13
+        ]
+      ],
+      "agent0_episode_reward": 606.0,
+      "agent0_mean_reward_per_step": 30.3,
+      "agent1_episode_reward": 608.0,
+      "agent1_mean_reward_per_step": 30.4,
+      "alpha": 0.1,
+      "episode": 7,
+      "epsilon": 0.19407450187125314
+    },
+    {
+      "action_counts": [
+        [
+          12,
+          8
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "agent0_episode_reward": 507.0,
+      "agent0_mean_reward_per_step": 25.35,
+      "agent1_episode_reward": 554.0,
+      "agent1_mean_reward_per_step": 27.7,
+      "alpha": 0.1,
+      "episode": 8,
+      "epsilon": 0.19310412936189686
+    },
+    {
+      "action_counts": [
+        [
+          11,
+          9
+        ],
+        [
+          7,
+          13
+        ]
+      ],
+      "agent0_episode_reward": 524.0,
+      "agent0_mean_reward_per_step": 26.2,
+      "agent1_episode_reward": 601.0,
+      "agent1_mean_reward_per_step": 30.05,
+      "alpha": 0.1,
+      "episode": 9,
+      "epsilon": 0.19213860871508737
+    },
+    {
+      "action_counts": [
+        [
+          13,
+          7
+        ],
+        [
+          5,
+          15
+        ]
+      ],
+      "agent0_episode_reward": 463.0,
+      "agent0_mean_reward_per_step": 23.15,
+      "agent1_episode_reward": 478.0,
+      "agent1_mean_reward_per_step": 23.9,
+      "alpha": 0.1,
+      "episode": 10,
+      "epsilon": 0.19117791567151193
+    },
+    {
+      "action_counts": [
+        [
+          13,
+          7
+        ],
+        [
+          6,
+          14
+        ]
+      ],
+      "agent0_episode_reward": 508.0,
+      "agent0_mean_reward_per_step": 25.4,
+      "agent1_episode_reward": 581.0,
+      "agent1_mean_reward_per_step": 29.05,
+      "alpha": 0.1,
+      "episode": 11,
+      "epsilon": 0.1902220260931544
+    },
+    {
+      "action_counts": [
+        [
+          14,
+          6
+        ],
+        [
+          6,
+          14
+        ]
+      ],
+      "agent0_episode_reward": 429.0,
+      "agent0_mean_reward_per_step": 21.45,
+      "agent1_episode_reward": 435.0,
+      "agent1_mean_reward_per_step": 21.75,
+      "alpha": 0.1,
+      "episode": 12,
+      "epsilon": 0.1892709159626886
+    },
+    {
+      "action_counts": [
+        [
+          15,
+          5
+        ],
+        [
+          5,
+          15
+        ]
+      ],
+      "agent0_episode_reward": 422.0,
+      "agent0_mean_reward_per_step": 21.1,
+      "agent1_episode_reward": 444.0,
+      "agent1_mean_reward_per_step": 22.2,
+      "alpha": 0.1,
+      "episode": 13,
+      "epsilon": 0.18832456138287515
+    },
+    {
+      "action_counts": [
+        [
+          11,
+          9
+        ],
+        [
+          7,
+          13
+        ]
+      ],
+      "agent0_episode_reward": 512.0,
+      "agent0_mean_reward_per_step": 25.6,
+      "agent1_episode_reward": 492.0,
+      "agent1_mean_reward_per_step": 24.6,
+      "alpha": 0.1,
+      "episode": 14,
+      "epsilon": 0.18738293857596078
+    },
+    {
+      "action_counts": [
+        [
+          14,
+          6
+        ],
+        [
+          7,
+          13
+        ]
+      ],
+      "agent0_episode_reward": 479.0,
+      "agent0_mean_reward_per_step": 23.95,
+      "agent1_episode_reward": 500.0,
+      "agent1_mean_reward_per_step": 25.0,
+      "alpha": 0.1,
+      "episode": 15,
+      "epsilon": 0.18644602388308099
+    },
+    {
+      "action_counts": [
+        [
+          13,
+          7
+        ],
+        [
+          8,
+          12
+        ]
+      ],
+      "agent0_episode_reward": 523.0,
+      "agent0_mean_reward_per_step": 26.15,
+      "agent1_episode_reward": 563.0,
+      "agent1_mean_reward_per_step": 28.15,
+      "alpha": 0.1,
+      "episode": 16,
+      "epsilon": 0.18551379376366559
+    },
+    {
+      "action_counts": [
+        [
+          13,
+          7
+        ],
+        [
+          6,
+          14
+        ]
+      ],
+      "agent0_episode_reward": 489.0,
+      "agent0_mean_reward_per_step": 24.45,
+      "agent1_episode_reward": 478.0,
+      "agent1_mean_reward_per_step": 23.9,
+      "alpha": 0.1,
+      "episode": 17,
+      "epsilon": 0.18458622479484724
+    },
+    {
+      "action_counts": [
+        [
+          12,
+          8
+        ],
+        [
+          9,
+          11
+        ]
+      ],
+      "agent0_episode_reward": 546.0,
+      "agent0_mean_reward_per_step": 27.3,
+      "agent1_episode_reward": 587.0,
+      "agent1_mean_reward_per_step": 29.35,
+      "alpha": 0.1,
+      "episode": 18,
+      "epsilon": 0.183663293670873
+    },
+    {
+      "action_counts": [
+        [
+          12,
+          8
+        ],
+        [
+          8,
+          12
+        ]
+      ],
+      "agent0_episode_reward": 581.0,
+      "agent0_mean_reward_per_step": 29.05,
+      "agent1_episode_reward": 638.0,
+      "agent1_mean_reward_per_step": 31.9,
+      "alpha": 0.1,
+      "episode": 19,
+      "epsilon": 0.18274497720251864
+    },
+    {
+      "action_counts": [
+        [
+          15,
+          5
+        ],
+        [
+          8,
+          12
+        ]
+      ],
+      "agent0_episode_reward": 474.0,
+      "agent0_mean_reward_per_step": 23.7,
+      "agent1_episode_reward": 532.0,
+      "agent1_mean_reward_per_step": 26.6,
+      "alpha": 0.1,
+      "episode": 20,
+      "epsilon": 0.18183125231650604
+    },
+    {
+      "action_counts": [
+        [
+          13,
+          7
+        ],
+        [
+          8,
+          12
+        ]
+      ],
+      "agent0_episode_reward": 534.0,
+      "agent0_mean_reward_per_step": 26.7,
+      "agent1_episode_reward": 457.0,
+      "agent1_mean_reward_per_step": 22.85,
+      "alpha": 0.1,
+      "episode": 21,
+      "epsilon": 0.18092209605492351
+    },
+    {
+      "action_counts": [
+        [
+          13,
+          7
+        ],
+        [
+          6,
+          14
+        ]
+      ],
+      "agent0_episode_reward": 418.0,
+      "agent0_mean_reward_per_step": 20.9,
+      "agent1_episode_reward": 512.0,
+      "agent1_mean_reward_per_step": 25.6,
+      "alpha": 0.1,
+      "episode": 22,
+      "epsilon": 0.18001748557464892
+    },
+    {
+      "action_counts": [
+        [
+          11,
+          9
+        ],
+        [
+          8,
+          12
+        ]
+      ],
+      "agent0_episode_reward": 582.0,
+      "agent0_mean_reward_per_step": 29.1,
+      "agent1_episode_reward": 612.0,
+      "agent1_mean_reward_per_step": 30.6,
+      "alpha": 0.1,
+      "episode": 23,
+      "epsilon": 0.17911739814677566
+    },
+    {
+      "action_counts": [
+        [
+          16,
+          4
+        ],
+        [
+          7,
+          13
+        ]
+      ],
+      "agent0_episode_reward": 430.0,
+      "agent0_mean_reward_per_step": 21.5,
+      "agent1_episode_reward": 589.0,
+      "agent1_mean_reward_per_step": 29.45,
+      "alpha": 0.1,
+      "episode": 24,
+      "epsilon": 0.17822181115604177
+    },
+    {
+      "action_counts": [
+        [
+          15,
+          5
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "agent0_episode_reward": 640.0,
+      "agent0_mean_reward_per_step": 32.0,
+      "agent1_episode_reward": 660.0,
+      "agent1_mean_reward_per_step": 33.0,
+      "alpha": 0.1,
+      "episode": 25,
+      "epsilon": 0.17733070210026158
+    },
+    {
+      "action_counts": [
+        [
+          12,
+          8
+        ],
+        [
+          6,
+          14
+        ]
+      ],
+      "agent0_episode_reward": 576.0,
+      "agent0_mean_reward_per_step": 28.8,
+      "agent1_episode_reward": 599.0,
+      "agent1_mean_reward_per_step": 29.95,
+      "alpha": 0.1,
+      "episode": 26,
+      "epsilon": 0.17644404858976026
+    },
+    {
+      "action_counts": [
+        [
+          14,
+          6
+        ],
+        [
+          5,
+          15
+        ]
+      ],
+      "agent0_episode_reward": 462.0,
+      "agent0_mean_reward_per_step": 23.1,
+      "agent1_episode_reward": 514.0,
+      "agent1_mean_reward_per_step": 25.7,
+      "alpha": 0.1,
+      "episode": 27,
+      "epsilon": 0.17556182834681144
+    },
+    {
+      "action_counts": [
+        [
+          16,
+          4
+        ],
+        [
+          5,
+          15
+        ]
+      ],
+      "agent0_episode_reward": 417.0,
+      "agent0_mean_reward_per_step": 20.85,
+      "agent1_episode_reward": 448.0,
+      "agent1_mean_reward_per_step": 22.4,
+      "alpha": 0.1,
+      "episode": 28,
+      "epsilon": 0.1746840192050774
+    },
+    {
+      "action_counts": [
+        [
+          12,
+          8
+        ],
+        [
+          9,
+          11
+        ]
+      ],
+      "agent0_episode_reward": 479.0,
+      "agent0_mean_reward_per_step": 23.95,
+      "agent1_episode_reward": 425.0,
+      "agent1_mean_reward_per_step": 21.25,
+      "alpha": 0.1,
+      "episode": 29,
+      "epsilon": 0.17381059910905203
+    },
+    {
+      "action_counts": [
+        [
+          13,
+          7
+        ],
+        [
+          7,
+          13
+        ]
+      ],
+      "agent0_episode_reward": 554.0,
+      "agent0_mean_reward_per_step": 27.7,
+      "agent1_episode_reward": 655.0,
+      "agent1_mean_reward_per_step": 32.75,
+      "alpha": 0.1,
+      "episode": 30,
+      "epsilon": 0.17294154611350676
+    },
+    {
+      "action_counts": [
+        [
+          14,
+          6
+        ],
+        [
+          7,
+          13
+        ]
+      ],
+      "agent0_episode_reward": 409.0,
+      "agent0_mean_reward_per_step": 20.45,
+      "agent1_episode_reward": 428.0,
+      "agent1_mean_reward_per_step": 21.4,
+      "alpha": 0.1,
+      "episode": 31,
+      "epsilon": 0.17207683838293922
+    },
+    {
+      "action_counts": [
+        [
+          13,
+          7
+        ],
+        [
+          8,
+          12
+        ]
+      ],
+      "agent0_episode_reward": 585.0,
+      "agent0_mean_reward_per_step": 29.25,
+      "agent1_episode_reward": 566.0,
+      "agent1_mean_reward_per_step": 28.3,
+      "alpha": 0.1,
+      "episode": 32,
+      "epsilon": 0.17121645419102452
+    },
+    {
+      "action_counts": [
+        [
+          15,
+          5
+        ],
+        [
+          7,
+          13
+        ]
+      ],
+      "agent0_episode_reward": 688.0,
+      "agent0_mean_reward_per_step": 34.4,
+      "agent1_episode_reward": 663.0,
+      "agent1_mean_reward_per_step": 33.15,
+      "alpha": 0.1,
+      "episode": 33,
+      "epsilon": 0.1703603719200694
+    },
+    {
+      "action_counts": [
+        [
+          14,
+          6
+        ],
+        [
+          7,
+          13
+        ]
+      ],
+      "agent0_episode_reward": 562.0,
+      "agent0_mean_reward_per_step": 28.1,
+      "agent1_episode_reward": 580.0,
+      "agent1_mean_reward_per_step": 29.0,
+      "alpha": 0.1,
+      "episode": 34,
+      "epsilon": 0.16950857006046904
+    },
+    {
+      "action_counts": [
+        [
+          14,
+          6
+        ],
+        [
+          5,
+          15
+        ]
+      ],
+      "agent0_episode_reward": 456.0,
+      "agent0_mean_reward_per_step": 22.8,
+      "agent1_episode_reward": 550.0,
+      "agent1_mean_reward_per_step": 27.5,
+      "alpha": 0.1,
+      "episode": 35,
+      "epsilon": 0.1686610272101667
+    },
+    {
+      "action_counts": [
+        [
+          14,
+          6
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "agent0_episode_reward": 621.0,
+      "agent0_mean_reward_per_step": 31.05,
+      "agent1_episode_reward": 648.0,
+      "agent1_mean_reward_per_step": 32.4,
+      "alpha": 0.1,
+      "episode": 36,
+      "epsilon": 0.16781772207411585
+    },
+    {
+      "action_counts": [
+        [
+          14,
+          6
+        ],
+        [
+          6,
+          14
+        ]
+      ],
+      "agent0_episode_reward": 447.0,
+      "agent0_mean_reward_per_step": 22.35,
+      "agent1_episode_reward": 481.0,
+      "agent1_mean_reward_per_step": 24.05,
+      "alpha": 0.1,
+      "episode": 37,
+      "epsilon": 0.1669786334637453
+    },
+    {
+      "action_counts": [
+        [
+          13,
+          7
+        ],
+        [
+          15,
+          5
+        ]
+      ],
+      "agent0_episode_reward": 720.0,
+      "agent0_mean_reward_per_step": 36.0,
+      "agent1_episode_reward": 702.0,
+      "agent1_mean_reward_per_step": 35.1,
+      "alpha": 0.1,
+      "episode": 38,
+      "epsilon": 0.16614374029642656
+    },
+    {
+      "action_counts": [
+        [
+          17,
+          3
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "agent0_episode_reward": 450.0,
+      "agent0_mean_reward_per_step": 22.5,
+      "agent1_episode_reward": 493.0,
+      "agent1_mean_reward_per_step": 24.65,
+      "alpha": 0.1,
+      "episode": 39,
+      "epsilon": 0.16531302159494443
+    },
+    {
+      "action_counts": [
+        [
+          12,
+          8
+        ],
+        [
+          11,
+          9
+        ]
+      ],
+      "agent0_episode_reward": 575.0,
+      "agent0_mean_reward_per_step": 28.75,
+      "agent1_episode_reward": 615.0,
+      "agent1_mean_reward_per_step": 30.75,
+      "alpha": 0.1,
+      "episode": 40,
+      "epsilon": 0.1644864564869697
+    },
+    {
+      "action_counts": [
+        [
+          17,
+          3
+        ],
+        [
+          16,
+          4
+        ]
+      ],
+      "agent0_episode_reward": 810.0,
+      "agent0_mean_reward_per_step": 40.5,
+      "agent1_episode_reward": 786.0,
+      "agent1_mean_reward_per_step": 39.3,
+      "alpha": 0.1,
+      "episode": 41,
+      "epsilon": 0.16366402420453485
+    },
+    {
+      "action_counts": [
+        [
+          16,
+          4
+        ],
+        [
+          12,
+          8
+        ]
+      ],
+      "agent0_episode_reward": 578.0,
+      "agent0_mean_reward_per_step": 28.9,
+      "agent1_episode_reward": 633.0,
+      "agent1_mean_reward_per_step": 31.65,
+      "alpha": 0.1,
+      "episode": 42,
+      "epsilon": 0.16284570408351218
+    },
+    {
+      "action_counts": [
+        [
+          14,
+          6
+        ],
+        [
+          9,
+          11
+        ]
+      ],
+      "agent0_episode_reward": 343.0,
+      "agent0_mean_reward_per_step": 17.15,
+      "agent1_episode_reward": 516.0,
+      "agent1_mean_reward_per_step": 25.8,
+      "alpha": 0.1,
+      "episode": 43,
+      "epsilon": 0.1620314755630946
+    },
+    {
+      "action_counts": [
+        [
+          15,
+          5
+        ],
+        [
+          12,
+          8
+        ]
+      ],
+      "agent0_episode_reward": 620.0,
+      "agent0_mean_reward_per_step": 31.0,
+      "agent1_episode_reward": 697.0,
+      "agent1_mean_reward_per_step": 34.85,
+      "alpha": 0.1,
+      "episode": 44,
+      "epsilon": 0.16122131818527916
+    },
+    {
+      "action_counts": [
+        [
+          13,
+          7
+        ],
+        [
+          11,
+          9
+        ]
+      ],
+      "agent0_episode_reward": 567.0,
+      "agent0_mean_reward_per_step": 28.35,
+      "agent1_episode_reward": 632.0,
+      "agent1_mean_reward_per_step": 31.6,
+      "alpha": 0.1,
+      "episode": 45,
+      "epsilon": 0.16041521159435276
+    },
+    {
+      "action_counts": [
+        [
+          17,
+          3
+        ],
+        [
+          8,
+          12
+        ]
+      ],
+      "agent0_episode_reward": 385.0,
+      "agent0_mean_reward_per_step": 19.25,
+      "agent1_episode_reward": 456.0,
+      "agent1_mean_reward_per_step": 22.8,
+      "alpha": 0.1,
+      "episode": 46,
+      "epsilon": 0.15961313553638098
+    },
+    {
+      "action_counts": [
+        [
+          17,
+          3
+        ],
+        [
+          9,
+          11
+        ]
+      ],
+      "agent0_episode_reward": 481.0,
+      "agent0_mean_reward_per_step": 24.05,
+      "agent1_episode_reward": 580.0,
+      "agent1_mean_reward_per_step": 29.0,
+      "alpha": 0.1,
+      "episode": 47,
+      "epsilon": 0.1588150698586991
+    },
+    {
+      "action_counts": [
+        [
+          14,
+          6
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "agent0_episode_reward": 637.0,
+      "agent0_mean_reward_per_step": 31.85,
+      "agent1_episode_reward": 598.0,
+      "agent1_mean_reward_per_step": 29.9,
+      "alpha": 0.1,
+      "episode": 48,
+      "epsilon": 0.15802099450940557
+    },
+    {
+      "action_counts": [
+        [
+          16,
+          4
+        ],
+        [
+          7,
+          13
+        ]
+      ],
+      "agent0_episode_reward": 447.0,
+      "agent0_mean_reward_per_step": 22.35,
+      "agent1_episode_reward": 530.0,
+      "agent1_mean_reward_per_step": 26.5,
+      "alpha": 0.1,
+      "episode": 49,
+      "epsilon": 0.15723088953685857
+    },
+    {
+      "action_counts": [
+        [
+          17,
+          3
+        ],
+        [
+          11,
+          9
+        ]
+      ],
+      "agent0_episode_reward": 574.0,
+      "agent0_mean_reward_per_step": 28.7,
+      "agent1_episode_reward": 632.0,
+      "agent1_mean_reward_per_step": 31.6,
+      "alpha": 0.1,
+      "episode": 50,
+      "epsilon": 0.15644473508917425
+    },
+    {
+      "action_counts": [
+        [
+          15,
+          5
+        ],
+        [
+          14,
+          6
+        ]
+      ],
+      "agent0_episode_reward": 673.0,
+      "agent0_mean_reward_per_step": 33.65,
+      "agent1_episode_reward": 755.0,
+      "agent1_mean_reward_per_step": 37.75,
+      "alpha": 0.1,
+      "episode": 51,
+      "epsilon": 0.1556625114137284
+    },
+    {
+      "action_counts": [
+        [
+          16,
+          4
+        ],
+        [
+          11,
+          9
+        ]
+      ],
+      "agent0_episode_reward": 527.0,
+      "agent0_mean_reward_per_step": 26.35,
+      "agent1_episode_reward": 649.0,
+      "agent1_mean_reward_per_step": 32.45,
+      "alpha": 0.1,
+      "episode": 52,
+      "epsilon": 0.15488419885665974
+    },
+    {
+      "action_counts": [
+        [
+          16,
+          4
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "agent0_episode_reward": 434.0,
+      "agent0_mean_reward_per_step": 21.7,
+      "agent1_episode_reward": 536.0,
+      "agent1_mean_reward_per_step": 26.8,
+      "alpha": 0.1,
+      "episode": 53,
+      "epsilon": 0.15410977786237645
+    },
+    {
+      "action_counts": [
+        [
+          15,
+          5
+        ],
+        [
+          13,
+          7
+        ]
+      ],
+      "agent0_episode_reward": 664.0,
+      "agent0_mean_reward_per_step": 33.2,
+      "agent1_episode_reward": 673.0,
+      "agent1_mean_reward_per_step": 33.65,
+      "alpha": 0.1,
+      "episode": 54,
+      "epsilon": 0.15333922897306457
+    },
+    {
+      "action_counts": [
+        [
+          16,
+          4
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "agent0_episode_reward": 541.0,
+      "agent0_mean_reward_per_step": 27.05,
+      "agent1_episode_reward": 586.0,
+      "agent1_mean_reward_per_step": 29.3,
+      "alpha": 0.1,
+      "episode": 55,
+      "epsilon": 0.15257253282819924
+    },
+    {
+      "action_counts": [
+        [
+          15,
+          5
+        ],
+        [
+          15,
+          5
+        ]
+      ],
+      "agent0_episode_reward": 692.0,
+      "agent0_mean_reward_per_step": 34.6,
+      "agent1_episode_reward": 610.0,
+      "agent1_mean_reward_per_step": 30.5,
+      "alpha": 0.1,
+      "episode": 56,
+      "epsilon": 0.15180967016405825
+    },
+    {
+      "action_counts": [
+        [
+          15,
+          5
+        ],
+        [
+          12,
+          8
+        ]
+      ],
+      "agent0_episode_reward": 598.0,
+      "agent0_mean_reward_per_step": 29.9,
+      "agent1_episode_reward": 677.0,
+      "agent1_mean_reward_per_step": 33.85,
+      "alpha": 0.1,
+      "episode": 57,
+      "epsilon": 0.15105062181323795
+    },
+    {
+      "action_counts": [
+        [
+          17,
+          3
+        ],
+        [
+          9,
+          11
+        ]
+      ],
+      "agent0_episode_reward": 445.0,
+      "agent0_mean_reward_per_step": 22.25,
+      "agent1_episode_reward": 464.0,
+      "agent1_mean_reward_per_step": 23.2,
+      "alpha": 0.1,
+      "episode": 58,
+      "epsilon": 0.15029536870417176
+    },
+    {
+      "action_counts": [
+        [
+          17,
+          3
+        ],
+        [
+          20,
+          0
+        ]
+      ],
+      "agent0_episode_reward": 729.0,
+      "agent0_mean_reward_per_step": 36.45,
+      "agent1_episode_reward": 715.0,
+      "agent1_mean_reward_per_step": 35.75,
+      "alpha": 0.1,
+      "episode": 59,
+      "epsilon": 0.1495438918606509
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "agent0_episode_reward": 947.0,
+      "agent0_mean_reward_per_step": 47.35,
+      "agent1_episode_reward": 890.0,
+      "agent1_mean_reward_per_step": 44.5,
+      "alpha": 0.1,
+      "episode": 60,
+      "epsilon": 0.14879617240134765
+    },
+    {
+      "action_counts": [
+        [
+          19,
+          1
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "agent0_episode_reward": 773.0,
+      "agent0_mean_reward_per_step": 38.65,
+      "agent1_episode_reward": 781.0,
+      "agent1_mean_reward_per_step": 39.05,
+      "alpha": 0.1,
+      "episode": 61,
+      "epsilon": 0.1480521915393409
+    },
+    {
+      "action_counts": [
+        [
+          19,
+          1
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "agent0_episode_reward": 890.0,
+      "agent0_mean_reward_per_step": 44.5,
+      "agent1_episode_reward": 835.0,
+      "agent1_mean_reward_per_step": 41.75,
+      "alpha": 0.1,
+      "episode": 62,
+      "epsilon": 0.1473119305816442
+    },
+    {
+      "action_counts": [
+        [
+          17,
+          3
+        ],
+        [
+          20,
+          0
+        ]
+      ],
+      "agent0_episode_reward": 838.0,
+      "agent0_mean_reward_per_step": 41.9,
+      "agent1_episode_reward": 845.0,
+      "agent1_mean_reward_per_step": 42.25,
+      "alpha": 0.1,
+      "episode": 63,
+      "epsilon": 0.146575370928736
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "agent0_episode_reward": 551.0,
+      "agent0_mean_reward_per_step": 27.55,
+      "agent1_episode_reward": 573.0,
+      "agent1_mean_reward_per_step": 28.65,
+      "alpha": 0.1,
+      "episode": 64,
+      "epsilon": 0.1458424940740923
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          20,
+          0
+        ]
+      ],
+      "agent0_episode_reward": 686.0,
+      "agent0_mean_reward_per_step": 34.3,
+      "agent1_episode_reward": 650.0,
+      "agent1_mean_reward_per_step": 32.5,
+      "alpha": 0.1,
+      "episode": 65,
+      "epsilon": 0.14511328160372183
+    },
+    {
+      "action_counts": [
+        [
+          17,
+          3
+        ],
+        [
+          18,
+          2
+        ]
+      ],
+      "agent0_episode_reward": 763.0,
+      "agent0_mean_reward_per_step": 38.15,
+      "agent1_episode_reward": 750.0,
+      "agent1_mean_reward_per_step": 37.5,
+      "alpha": 0.1,
+      "episode": 66,
+      "epsilon": 0.14438771519570323
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "agent0_episode_reward": 720.0,
+      "agent0_mean_reward_per_step": 36.0,
+      "agent1_episode_reward": 729.0,
+      "agent1_mean_reward_per_step": 36.45,
+      "alpha": 0.1,
+      "episode": 67,
+      "epsilon": 0.1436657766197247
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          18,
+          2
+        ]
+      ],
+      "agent0_episode_reward": 829.0,
+      "agent0_mean_reward_per_step": 41.45,
+      "agent1_episode_reward": 849.0,
+      "agent1_mean_reward_per_step": 42.45,
+      "alpha": 0.1,
+      "episode": 68,
+      "epsilon": 0.1429474477366261
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          18,
+          2
+        ]
+      ],
+      "agent0_episode_reward": 639.0,
+      "agent0_mean_reward_per_step": 31.95,
+      "agent1_episode_reward": 655.0,
+      "agent1_mean_reward_per_step": 32.75,
+      "alpha": 0.1,
+      "episode": 69,
+      "epsilon": 0.14223271049794295
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          20,
+          0
+        ]
+      ],
+      "agent0_episode_reward": 576.0,
+      "agent0_mean_reward_per_step": 28.8,
+      "agent1_episode_reward": 515.0,
+      "agent1_mean_reward_per_step": 25.75,
+      "alpha": 0.1,
+      "episode": 70,
+      "epsilon": 0.14152154694545324
+    },
+    {
+      "action_counts": [
+        [
+          15,
+          5
+        ],
+        [
+          17,
+          3
+        ]
+      ],
+      "agent0_episode_reward": 691.0,
+      "agent0_mean_reward_per_step": 34.55,
+      "agent1_episode_reward": 819.0,
+      "agent1_mean_reward_per_step": 40.95,
+      "alpha": 0.1,
+      "episode": 71,
+      "epsilon": 0.14081393921072596
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "agent0_episode_reward": 799.0,
+      "agent0_mean_reward_per_step": 39.95,
+      "agent1_episode_reward": 843.0,
+      "agent1_mean_reward_per_step": 42.15,
+      "alpha": 0.1,
+      "episode": 72,
+      "epsilon": 0.14010986951467233
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          20,
+          0
+        ]
+      ],
+      "agent0_episode_reward": 674.0,
+      "agent0_mean_reward_per_step": 33.7,
+      "agent1_episode_reward": 675.0,
+      "agent1_mean_reward_per_step": 33.75,
+      "alpha": 0.1,
+      "episode": 73,
+      "epsilon": 0.13940932016709898
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          18,
+          2
+        ]
+      ],
+      "agent0_episode_reward": 726.0,
+      "agent0_mean_reward_per_step": 36.3,
+      "agent1_episode_reward": 709.0,
+      "agent1_mean_reward_per_step": 35.45,
+      "alpha": 0.1,
+      "episode": 74,
+      "epsilon": 0.13871227356626348
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "agent0_episode_reward": 702.0,
+      "agent0_mean_reward_per_step": 35.1,
+      "agent1_episode_reward": 756.0,
+      "agent1_mean_reward_per_step": 37.8,
+      "alpha": 0.1,
+      "episode": 75,
+      "epsilon": 0.13801871219843218
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          18,
+          2
+        ]
+      ],
+      "agent0_episode_reward": 689.0,
+      "agent0_mean_reward_per_step": 34.45,
+      "agent1_episode_reward": 602.0,
+      "agent1_mean_reward_per_step": 30.1,
+      "alpha": 0.1,
+      "episode": 76,
+      "epsilon": 0.13732861863744
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          18,
+          2
+        ]
+      ],
+      "agent0_episode_reward": 632.0,
+      "agent0_mean_reward_per_step": 31.6,
+      "agent1_episode_reward": 619.0,
+      "agent1_mean_reward_per_step": 30.95,
+      "alpha": 0.1,
+      "episode": 77,
+      "epsilon": 0.1366419755442528
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "agent0_episode_reward": 574.0,
+      "agent0_mean_reward_per_step": 28.7,
+      "agent1_episode_reward": 590.0,
+      "agent1_mean_reward_per_step": 29.5,
+      "alpha": 0.1,
+      "episode": 78,
+      "epsilon": 0.13595876566653153
+    },
+    {
+      "action_counts": [
+        [
+          19,
+          1
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "agent0_episode_reward": 793.0,
+      "agent0_mean_reward_per_step": 39.65,
+      "agent1_episode_reward": 772.0,
+      "agent1_mean_reward_per_step": 38.6,
+      "alpha": 0.1,
+      "episode": 79,
+      "epsilon": 0.1352789718381989
+    },
+    {
+      "action_counts": [
+        [
+          19,
+          1
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "agent0_episode_reward": 790.0,
+      "agent0_mean_reward_per_step": 39.5,
+      "agent1_episode_reward": 727.0,
+      "agent1_mean_reward_per_step": 36.35,
+      "alpha": 0.1,
+      "episode": 80,
+      "epsilon": 0.13460257697900788
+    },
+    {
+      "action_counts": [
+        [
+          17,
+          3
+        ],
+        [
+          18,
+          2
+        ]
+      ],
+      "agent0_episode_reward": 613.0,
+      "agent0_mean_reward_per_step": 30.65,
+      "agent1_episode_reward": 600.0,
+      "agent1_mean_reward_per_step": 30.0,
+      "alpha": 0.1,
+      "episode": 81,
+      "epsilon": 0.13392956409411283
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "agent0_episode_reward": 777.0,
+      "agent0_mean_reward_per_step": 38.85,
+      "agent1_episode_reward": 807.0,
+      "agent1_mean_reward_per_step": 40.35,
+      "alpha": 0.1,
+      "episode": 82,
+      "epsilon": 0.13325991627364228
+    },
+    {
+      "action_counts": [
+        [
+          17,
+          3
+        ],
+        [
+          18,
+          2
+        ]
+      ],
+      "agent0_episode_reward": 794.0,
+      "agent0_mean_reward_per_step": 39.7,
+      "agent1_episode_reward": 782.0,
+      "agent1_mean_reward_per_step": 39.1,
+      "alpha": 0.1,
+      "episode": 83,
+      "epsilon": 0.13259361669227407
+    },
+    {
+      "action_counts": [
+        [
+          20,
+          0
+        ],
+        [
+          20,
+          0
+        ]
+      ],
+      "agent0_episode_reward": 805.0,
+      "agent0_mean_reward_per_step": 40.25,
+      "agent1_episode_reward": 780.0,
+      "agent1_mean_reward_per_step": 39.0,
+      "alpha": 0.1,
+      "episode": 84,
+      "epsilon": 0.1319306486088127
+    },
+    {
+      "action_counts": [
+        [
+          19,
+          1
+        ],
+        [
+          18,
+          2
+        ]
+      ],
+      "agent0_episode_reward": 688.0,
+      "agent0_mean_reward_per_step": 34.4,
+      "agent1_episode_reward": 637.0,
+      "agent1_mean_reward_per_step": 31.85,
+      "alpha": 0.1,
+      "episode": 85,
+      "epsilon": 0.13127099536576864
+    },
+    {
+      "action_counts": [
+        [
+          17,
+          3
+        ],
+        [
+          18,
+          2
+        ]
+      ],
+      "agent0_episode_reward": 724.0,
+      "agent0_mean_reward_per_step": 36.2,
+      "agent1_episode_reward": 764.0,
+      "agent1_mean_reward_per_step": 38.2,
+      "alpha": 0.1,
+      "episode": 86,
+      "epsilon": 0.13061464038893977
+    },
+    {
+      "action_counts": [
+        [
+          20,
+          0
+        ],
+        [
+          18,
+          2
+        ]
+      ],
+      "agent0_episode_reward": 640.0,
+      "agent0_mean_reward_per_step": 32.0,
+      "agent1_episode_reward": 713.0,
+      "agent1_mean_reward_per_step": 35.65,
+      "alpha": 0.1,
+      "episode": 87,
+      "epsilon": 0.1299615671869951
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "agent0_episode_reward": 673.0,
+      "agent0_mean_reward_per_step": 33.65,
+      "agent1_episode_reward": 641.0,
+      "agent1_mean_reward_per_step": 32.05,
+      "alpha": 0.1,
+      "episode": 88,
+      "epsilon": 0.12931175935106012
+    },
+    {
+      "action_counts": [
+        [
+          20,
+          0
+        ],
+        [
+          20,
+          0
+        ]
+      ],
+      "agent0_episode_reward": 825.0,
+      "agent0_mean_reward_per_step": 41.25,
+      "agent1_episode_reward": 715.0,
+      "agent1_mean_reward_per_step": 35.75,
+      "alpha": 0.1,
+      "episode": 89,
+      "epsilon": 0.12866520055430483
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "agent0_episode_reward": 638.0,
+      "agent0_mean_reward_per_step": 31.9,
+      "agent1_episode_reward": 673.0,
+      "agent1_mean_reward_per_step": 33.65,
+      "alpha": 0.1,
+      "episode": 90,
+      "epsilon": 0.1280218745515333
+    },
+    {
+      "action_counts": [
+        [
+          15,
+          5
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "agent0_episode_reward": 652.0,
+      "agent0_mean_reward_per_step": 32.6,
+      "agent1_episode_reward": 650.0,
+      "agent1_mean_reward_per_step": 32.5,
+      "alpha": 0.1,
+      "episode": 91,
+      "epsilon": 0.1273817651787756
+    },
+    {
+      "action_counts": [
+        [
+          14,
+          6
+        ],
+        [
+          13,
+          7
+        ]
+      ],
+      "agent0_episode_reward": 659.0,
+      "agent0_mean_reward_per_step": 32.95,
+      "agent1_episode_reward": 759.0,
+      "agent1_mean_reward_per_step": 37.95,
+      "alpha": 0.1,
+      "episode": 92,
+      "epsilon": 0.12674485635288174
+    },
+    {
+      "action_counts": [
+        [
+          8,
+          12
+        ],
+        [
+          15,
+          5
+        ]
+      ],
+      "agent0_episode_reward": 613.0,
+      "agent0_mean_reward_per_step": 30.65,
+      "agent1_episode_reward": 655.0,
+      "agent1_mean_reward_per_step": 32.75,
+      "alpha": 0.1,
+      "episode": 93,
+      "epsilon": 0.12611113207111732
+    },
+    {
+      "action_counts": [
+        [
+          8,
+          12
+        ],
+        [
+          18,
+          2
+        ]
+      ],
+      "agent0_episode_reward": 658.0,
+      "agent0_mean_reward_per_step": 32.9,
+      "agent1_episode_reward": 777.0,
+      "agent1_mean_reward_per_step": 38.85,
+      "alpha": 0.1,
+      "episode": 94,
+      "epsilon": 0.12548057641076174
+    },
+    {
+      "action_counts": [
+        [
+          8,
+          12
+        ],
+        [
+          18,
+          2
+        ]
+      ],
+      "agent0_episode_reward": 660.0,
+      "agent0_mean_reward_per_step": 33.0,
+      "agent1_episode_reward": 640.0,
+      "agent1_mean_reward_per_step": 32.0,
+      "alpha": 0.1,
+      "episode": 95,
+      "epsilon": 0.12485317352870794
+    },
+    {
+      "action_counts": [
+        [
+          17,
+          3
+        ],
+        [
+          17,
+          3
+        ]
+      ],
+      "agent0_episode_reward": 719.0,
+      "agent0_mean_reward_per_step": 35.95,
+      "agent1_episode_reward": 675.0,
+      "agent1_mean_reward_per_step": 33.75,
+      "alpha": 0.1,
+      "episode": 96,
+      "epsilon": 0.12422890766106438
+    },
+    {
+      "action_counts": [
+        [
+          18,
+          2
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "agent0_episode_reward": 564.0,
+      "agent0_mean_reward_per_step": 28.2,
+      "agent1_episode_reward": 690.0,
+      "agent1_mean_reward_per_step": 34.5,
+      "alpha": 0.1,
+      "episode": 97,
+      "epsilon": 0.12360776312275908
+    },
+    {
+      "action_counts": [
+        [
+          20,
+          0
+        ],
+        [
+          17,
+          3
+        ]
+      ],
+      "agent0_episode_reward": 730.0,
+      "agent0_mean_reward_per_step": 36.5,
+      "agent1_episode_reward": 682.0,
+      "agent1_mean_reward_per_step": 34.1,
+      "alpha": 0.1,
+      "episode": 98,
+      "epsilon": 0.12298972430714528
+    },
+    {
+      "action_counts": [
+        [
+          19,
+          1
+        ],
+        [
+          20,
+          0
+        ]
+      ],
+      "agent0_episode_reward": 698.0,
+      "agent0_mean_reward_per_step": 34.9,
+      "agent1_episode_reward": 645.0,
+      "agent1_mean_reward_per_step": 32.25,
+      "alpha": 0.1,
+      "episode": 99,
+      "epsilon": 0.12237477568560956
+    },
+    {
+      "action_counts": [
+        [
+          19,
+          1
+        ],
+        [
+          18,
+          2
+        ]
+      ],
+      "agent0_episode_reward": 579.0,
+      "agent0_mean_reward_per_step": 28.95,
+      "agent1_episode_reward": 644.0,
+      "agent1_mean_reward_per_step": 32.2,
+      "alpha": 0.1,
+      "episode": 100,
+      "epsilon": 0.12176290180718151
+    }
+  ],
+  "schema": "ag02.pair.checkpoint.1",
+  "seed": 44,
+  "sha256": "7a084d8330ee36e9ad74b5009660e63f36dacf9822906eadbbb3aadad4e93e5e",
+  "trace": [
+    {
+      "actions": [
+        0,
+        1
+      ],
+      "episode": 1,
+      "rewards": [
+        40.0,
+        45.0
+      ],
+      "sales": [
+        8,
+        15
+      ],
+      "states_after": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "states_before": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "step": 1,
+      "terminal": false
+    },
+    {
+      "actions": [
+        0,
+        1
+      ],
+      "episode": 1,
+      "rewards": [
+        15.0,
+        21.0
+      ],
+      "sales": [
+        3,
+        7
+      ],
+      "states_after": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "states_before": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "step": 2,
+      "terminal": false
+    },
+    {
+      "actions": [
+        0,
+        1
+      ],
+      "episode": 1,
+      "rewards": [
+        0.0,
+        18.0
+      ],
+      "sales": [
+        0,
+        6
+      ],
+      "states_after": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "states_before": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "step": 3,
+      "terminal": false
+    },
+    {
+      "actions": [
+        1,
+        1
+      ],
+      "episode": 1,
+      "rewards": [
+        36.0,
+        27.0
+      ],
+      "sales": [
+        12,
+        9
+      ],
+      "states_after": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "states_before": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "step": 4,
+      "terminal": false
+    },
+    {
+      "actions": [
+        0,
+        0
+      ],
+      "episode": 1,
+      "rewards": [
+        25.0,
+        10.0
+      ],
+      "sales": [
+        5,
+        2
+      ],
+      "states_after": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "states_before": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "step": 5,
+      "terminal": false
+    },
+    {
+      "actions": [
+        0,
+        1
+      ],
+      "episode": 1,
+      "rewards": [
+        50.0,
+        51.0
+      ],
+      "sales": [
+        10,
+        17
+      ],
+      "states_after": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "states_before": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "step": 6,
+      "terminal": false
+    },
+    {
+      "actions": [
+        0,
+        1
+      ],
+      "episode": 1,
+      "rewards": [
+        0.0,
+        15.0
+      ],
+      "sales": [
+        0,
+        5
+      ],
+      "states_after": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "states_before": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "step": 7,
+      "terminal": false
+    },
+    {
+      "actions": [
+        1,
+        1
+      ],
+      "episode": 1,
+      "rewards": [
+        12.0,
+        6.0
+      ],
+      "sales": [
+        4,
+        2
+      ],
+      "states_after": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "states_before": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "step": 8,
+      "terminal": false
+    },
+    {
+      "actions": [
+        1,
+        1
+      ],
+      "episode": 1,
+      "rewards": [
+        48.0,
+        33.0
+      ],
+      "sales": [
+        16,
+        11
+      ],
+      "states_after": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "states_before": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "step": 9,
+      "terminal": false
+    },
+    {
+      "actions": [
+        1,
+        0
+      ],
+      "episode": 1,
+      "rewards": [
+        42.0,
+        40.0
+      ],
+      "sales": [
+        14,
+        8
+      ],
+      "states_after": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "states_before": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "step": 10,
+      "terminal": false
+    },
+    {
+      "actions": [
+        0,
+        0
+      ],
+      "episode": 1,
+      "rewards": [
+        45.0,
+        40.0
+      ],
+      "sales": [
+        9,
+        8
+      ],
+      "states_after": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "states_before": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "step": 11,
+      "terminal": false
+    },
+    {
+      "actions": [
+        0,
+        1
+      ],
+      "episode": 1,
+      "rewards": [
+        25.0,
+        12.0
+      ],
+      "sales": [
+        5,
+        4
+      ],
+      "states_after": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "states_before": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "step": 12,
+      "terminal": false
+    },
+    {
+      "actions": [
+        1,
+        1
+      ],
+      "episode": 1,
+      "rewards": [
+        30.0,
+        24.0
+      ],
+      "sales": [
+        10,
+        8
+      ],
+      "states_after": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "states_before": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "step": 13,
+      "terminal": false
+    },
+    {
+      "actions": [
+        1,
+        0
+      ],
+      "episode": 1,
+      "rewards": [
+        48.0,
+        35.0
+      ],
+      "sales": [
+        16,
+        7
+      ],
+      "states_after": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "states_before": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "step": 14,
+      "terminal": false
+    },
+    {
+      "actions": [
+        0,
+        0
+      ],
+      "episode": 1,
+      "rewards": [
+        45.0,
+        45.0
+      ],
+      "sales": [
+        9,
+        9
+      ],
+      "states_after": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "states_before": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "step": 15,
+      "terminal": false
+    },
+    {
+      "actions": [
+        0,
+        1
+      ],
+      "episode": 1,
+      "rewards": [
+        5.0,
+        12.0
+      ],
+      "sales": [
+        1,
+        4
+      ],
+      "states_after": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "states_before": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "step": 16,
+      "terminal": false
+    },
+    {
+      "actions": [
+        1,
+        1
+      ],
+      "episode": 1,
+      "rewards": [
+        36.0,
+        33.0
+      ],
+      "sales": [
+        12,
+        11
+      ],
+      "states_after": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "states_before": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "step": 17,
+      "terminal": false
+    },
+    {
+      "actions": [
+        1,
+        0
+      ],
+      "episode": 1,
+      "rewards": [
+        33.0,
+        45.0
+      ],
+      "sales": [
+        11,
+        9
+      ],
+      "states_after": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "states_before": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "step": 18,
+      "terminal": false
+    },
+    {
+      "actions": [
+        0,
+        0
+      ],
+      "episode": 1,
+      "rewards": [
+        60.0,
+        65.0
+      ],
+      "sales": [
+        12,
+        13
+      ],
+      "states_after": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "states_before": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "step": 19,
+      "terminal": false
+    },
+    {
+      "actions": [
+        1,
+        1
+      ],
+      "episode": 1,
+      "rewards": [
+        6.0,
+        9.0
+      ],
+      "sales": [
+        2,
+        3
+      ],
+      "states_after": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "states_before": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "step": 20,
+      "terminal": true
+    }
+  ],
+  "visits": [
+    [
+      [
+        [
+          596,
+          47
+        ],
+        [
+          313,
+          42
+        ]
+      ],
+      [
+        [
+          604,
+          69
+        ],
+        [
+          25,
+          304
+        ]
+      ]
+    ],
+    [
+      [
+        [
+          316,
+          469
+        ],
+        [
+          197,
+          16
+        ]
+      ],
+      [
+        [
+          558,
+          218
+        ],
+        [
+          205,
+          21
+        ]
+      ]
+    ]
+  ]
+}

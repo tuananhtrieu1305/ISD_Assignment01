@@ -1,0 +1,23 @@
+{
+  "revision": "r3",
+  "status": "PASS",
+  "review_method": "Viewed every actual rendered page image with view_image after the r3 LibreOffice render",
+  "reviewed_pages": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+  "checks": [
+    "Theory occupies exactly pages 1 through 6; practice starts on page 7",
+    "No blank pages, clipped body text, overlapping elements or split table rows",
+    "Times New Roman headings and body; no inherited colored title border",
+    "Nine actual notebook code/output screenshots are visible and readable",
+    "Screenshot soft wrapping retains full code and output, including route coordinates",
+    "Greedy path diagram and reward plot match actual notebook output",
+    "Bibliography contains all four resolved URLs and the adaptation note",
+    "All text black and figures grayscale; strict channel equality additionally checked by tests"
+  ],
+  "earlier_attempts": {
+    "r1": "Rejected: overflowing page-break paragraphs created blank pages; inherited blue title border",
+    "r2": "Layout passed; strict RGB test found browser subpixel antialiasing color fringes",
+    "r3": "Same correct pagination; browser LCD antialiasing disabled and cell CSS grayscale; all color tests PASS"
+  },
+  "renderer": "Existing approved Phase35 document toolchain, no environment installation",
+  "limitation": "Verified in this renderer; other Word/font installations may paginate differently"
+}

@@ -1,0 +1,57 @@
+{
+  "job": {
+    "job_id": "augmented/gold/s0011/role0",
+    "kernel_id": "gold",
+    "policy_id": "augmented",
+    "policy_sha256": "4c8613053f78c32f3cdab863cacd87dae1542196c0e000c713c919776d0906f4",
+    "q_file_sha256": "1bc4a4f595833488b769f8b0c703c7e18e532dd1a26ca8aec8c677ffe1597d92",
+    "q_path": "artifacts/runs/controlled/gold/augmented/s0011/q_table.json",
+    "role": 0,
+    "scenario_sha256": "355ab21063fe25c12151a06363f40d90ed1085035c93cb817c75e3974c9d7428",
+    "scenario_spec": {
+      "episodes": 500,
+      "initial_history": [
+        0,
+        0
+      ],
+      "market": {
+        "cost": 5.0,
+        "customers_high": 20,
+        "customers_low": 10,
+        "discount": 0.2,
+        "kernel": [
+          [
+            0.7067448680351907,
+            0.2932551319648094
+          ],
+          [
+            0.45248868778280543,
+            0.5475113122171946
+          ]
+        ],
+        "price": 10.0,
+        "steps": 20
+      },
+      "rng": {
+        "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+        "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+        "near_ties": {
+          "atol": 1e-08,
+          "rtol": 1e-05,
+          "rule": "random among np.isclose to max"
+        },
+        "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+        "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+        "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+        "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+      },
+      "scenario_seed": 2000011,
+      "tape_engine": "original_Tape.generate_v1"
+    },
+    "seed": 11,
+    "study_id": "ag02_phase07_augmented_v1"
+  },
+  "key": "aa8121406ca438d46be4c85aac4ce9c01dcd32c57dee9a1ce4c11f4fdc97b41a",
+  "proof_sha256": "909607dff359f2ec12a90d2c5d4738c76bf54f1a98b97f1f6ef65cf943690975",
+  "claimed_utc": "2026-10-24T07:04:00.120803+00:00"
+}

@@ -1,0 +1,64 @@
+{
+  "job": {
+    "config_id": "epsilon_high_fixed",
+    "engine": "matched_tapes_v1",
+    "episodes": 500,
+    "group": "core",
+    "job_id": "core/epsilon_high_fixed/s0044/role0",
+    "kind": "q",
+    "policy_sha256": "3946845bcfe5f4b37337899be7c0efa2c63e48adb7dc088601e6ccb7e423f008",
+    "q_file_sha256": "9f63e1c9c9dae5b7fd050a676e6370ce3d101152141bcbe5b03f3f9aa99195e2",
+    "q_path": "artifacts/runs/controlled/iid/epsilon_high_fixed/s0044/q_table.json",
+    "role": 0,
+    "run_id": "controlled/iid/epsilon_high_fixed/s0044",
+    "scenario_seed": 2000044,
+    "scenario_sha256": "034a6aa98e4fa0ba343a3ec211c3150ffc27a10a205744ec75d74386980e61aa",
+    "scenario_spec": {
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "initial_history": [
+        0,
+        0
+      ],
+      "market": {
+        "cost": 5.0,
+        "customers_high": 20,
+        "customers_low": 10,
+        "discount": 0.2,
+        "kernel": [
+          [
+            0.5,
+            0.5
+          ],
+          [
+            0.5,
+            0.5
+          ]
+        ],
+        "price": 10.0,
+        "steps": 20
+      },
+      "rng_spec": {
+        "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+        "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+        "near_ties": {
+          "atol": 1e-08,
+          "rtol": 1e-05,
+          "rule": "random among np.isclose to max"
+        },
+        "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+        "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+        "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+        "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+      },
+      "scenario_seed": 2000044,
+      "steps_per_episode": 20
+    },
+    "steps_per_episode": 20,
+    "study_id": "ag02_core_final_v1",
+    "train_seed": 44
+  },
+  "key": "98fa221a5dd6084fbb2bbd495a45b7d72a70717f82368b4196c101f253459044",
+  "proof_sha256": "5fd71f5c3bf70413c8bd456f79bb59ea75088a72149454cc5c3573ec871e8fa1",
+  "claimed_utc": "2026-10-24T03:14:30.735307+00:00"
+}

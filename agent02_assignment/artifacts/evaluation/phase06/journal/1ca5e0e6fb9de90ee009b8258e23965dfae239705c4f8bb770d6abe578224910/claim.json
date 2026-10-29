@@ -1,0 +1,61 @@
+{
+  "job": {
+    "checkpoint_episode": 2500,
+    "group": "q8",
+    "job_id": "q8/iid/learner1_e002500/s0022/role1",
+    "kernel_id": "iid",
+    "kind": "q",
+    "learner": 1,
+    "policy_id": "learner1_e002500",
+    "policy_sha256": "40038eab143be31ec09f7ade2c236746724083a99f1f80b98dd5db09530532c2",
+    "q_file_sha256": "1fbf1b98bfbf21f9c4589611f79658b0dabdcc7982b383d1006b13af90ad943e",
+    "q_path": "artifacts/runs/controlled/iid/two_learners/s0022/checkpoint_e002500.json",
+    "role": 1,
+    "scenario_sha256": "1bbca0459ac64b9aa02905c1c9a17f03059b7fdf2e55d09a12eaa5f96a162c3b",
+    "scenario_spec": {
+      "engine": "matched_tapes_v1",
+      "episodes": 500,
+      "initial_history": [
+        0,
+        0
+      ],
+      "market": {
+        "cost": 5.0,
+        "customers_high": 20,
+        "customers_low": 10,
+        "discount": 0.2,
+        "kernel": [
+          [
+            0.5,
+            0.5
+          ],
+          [
+            0.5,
+            0.5
+          ]
+        ],
+        "price": 10.0,
+        "steps": 20
+      },
+      "rng": {
+        "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+        "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+        "near_ties": {
+          "atol": 1e-08,
+          "rtol": 1e-05,
+          "rule": "random among np.isclose to max"
+        },
+        "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+        "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+        "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+        "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+      },
+      "scenario_seed": 2000022
+    },
+    "seed": 22,
+    "study_id": "ag02_phase06_q8_learner1_e002500_v1"
+  },
+  "key": "1ca5e0e6fb9de90ee009b8258e23965dfae239705c4f8bb770d6abe578224910",
+  "proof_sha256": "f03206ede3ec1973e94270985c2a19f01bbdaa38007de5f382c395c030481a2d",
+  "claimed_utc": "2026-10-24T06:39:09.866016+00:00"
+}

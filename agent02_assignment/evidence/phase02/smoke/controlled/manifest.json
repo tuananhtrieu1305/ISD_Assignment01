@@ -1,0 +1,75 @@
+{
+  "checkpoint_path": "evidence/phase02/smoke/controlled/checkpoint_e000100.json",
+  "checkpoint_payload_sha256": "b32ce51ee95563a49cb007523c59bbdb4e47cacacc7cf6d9d1fa073d8636d7f8",
+  "config": {
+    "learning": {
+      "alpha": 0.1,
+      "episodes": 100,
+      "epsilon_decay": 0.995,
+      "epsilon_min": 0.02,
+      "epsilon_start": 0.2,
+      "gamma": 0.9
+    },
+    "market": {
+      "cost": 5.0,
+      "customers_high": 20,
+      "customers_low": 10,
+      "discount": 0.2,
+      "kernel": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "price": 10.0,
+      "steps": 20
+    },
+    "seed": 730011
+  },
+  "config_sha256": "6868a0a86d33318e2f775a5351ed4fd8fa0081042f725f119c89b6fb9dbf4e66",
+  "protocol_sha256": "2cd7d3cd791e9f4bf2d11817f1ddc5f479d5c5db31a13c09397bedca1ae9eb1d",
+  "purpose": "SMOKE_NOT_REPORT",
+  "run_id": "phase02_smoke/CONTROLLED/s730011",
+  "source_files": [
+    {
+      "path": "code/__init__.py",
+      "sha256": "f239c9d7514f92a5329ebc5fb6666f07a01739edce9a1622338543c5b1b9d94d"
+    },
+    {
+      "path": "code/controlled.py",
+      "sha256": "df92154dea7a95739019fae56e6c9b79d53c446afe7607db8058f8b49e8f28b2"
+    },
+    {
+      "path": "code/training.py",
+      "sha256": "e3e43418373866f9f3bd05310709793bdeb41460d226db3cad519a25f2ec2a3f"
+    },
+    {
+      "path": "code/evaluation/__init__.py",
+      "sha256": "7e1c4ec49bfc775558d79da20dd1e95d7763ef43ba8019ea38b26fd5b57f3cce"
+    },
+    {
+      "path": "code/evaluation/frozen.py",
+      "sha256": "f485532802df53845a56db3f006c584873e062231f58be67d362629a4bf3fa21"
+    },
+    {
+      "path": "code/reference_adapter.py",
+      "sha256": "c0677ed8d364604b855d826ce76efb5df1470b3a0d0f547bd537045278175ccc"
+    },
+    {
+      "path": "protocol.py",
+      "sha256": "8d2fd26d2a144899f421be87c573a27f0d4fff9b950585b195a4d541570aabc6"
+    },
+    {
+      "path": "phase02.py",
+      "sha256": "6d98e5172c13db98ae94b6ba135ec621bcc1be415b842d29926d601322bb3bcc"
+    },
+    {
+      "path": "workspace.py",
+      "sha256": "f96f7ca823d07046723dc0f086395cbe77f5459e44ce48bccfc5882770a6a0e4"
+    }
+  ]
+}

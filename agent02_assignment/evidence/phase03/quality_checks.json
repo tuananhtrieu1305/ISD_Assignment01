@@ -1,0 +1,51 @@
+{
+    "status":  "PASS",
+    "exit_codes":  {
+                       "powershell_parser":  0,
+                       "ruff":  0,
+                       "cli_help":  0,
+                       "cli_status":  0
+                   },
+    "files":  [
+                  "agent02_assignment/code/reference_training.py",
+                  "agent02_assignment/code/baseline_runs.py",
+                  "agent02_assignment/code/baseline_analysis.py",
+                  "agent02_assignment/phase03.py",
+                  "agent02_assignment/phase03_reporting.py",
+                  "agent02_assignment/verify_phase03.py",
+                  "agent02_assignment/tests/test_phase03_training.py",
+                  "agent02_assignment/tests/test_phase03_gate.py",
+                  "agent02_assignment/tests/test_phase03_reporting.py"
+              ],
+    "lint_output":  [
+                        "All checks passed!"
+                    ],
+    "cli_help":  [
+                     "usage: phase03.py [-h] [--resume] {status,declare,train,development}",
+                     "",
+                     "AG02 Phase 3: registered baselines and bounded DEV; never final evaluation.",
+                     "",
+                     "positional arguments:",
+                     "  {status,declare,train,development}",
+                     "",
+                     "options:",
+                     "  -h, --help            show this help message and exit",
+                     "  --resume              explicitly resume incomplete train claims"
+                 ],
+    "cli_status":  {
+                       "phase":  3,
+                       "runs":  [
+                                    {
+                                        "run_id":  "ref/baseline/s0042",
+                                        "complete":  true
+                                    },
+                                    {
+                                        "run_id":  "controlled/iid/baseline/s0011",
+                                        "complete":  true
+                                    }
+                                ],
+                       "final_evaluation":  false
+                   },
+    "declaration_sha256":  "50615dbdf5dbcb3893f0039a08f134f51ab17ec8c7e810797f0d4b1deec27506",
+    "final_evaluation":  false
+}

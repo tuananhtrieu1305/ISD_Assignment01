@@ -1,0 +1,57 @@
+{
+  "job": {
+    "job_id": "augmented/persistent/s0055/role0",
+    "kernel_id": "persistent",
+    "policy_id": "augmented",
+    "policy_sha256": "38bdb0b79d50a4567da862da68623044b36decd91c589204d1ddb494ecc07174",
+    "q_file_sha256": "e499be84304f2a450d73bf72febe15cfc1c24e76fbd790aac72797107aec0ba5",
+    "q_path": "artifacts/runs/controlled/persistent/augmented/s0055/q_table.json",
+    "role": 0,
+    "scenario_sha256": "231340d46dcaca55d495b03695cd5dc5714860278eef0491aa3fcd837bf7bad9",
+    "scenario_spec": {
+      "episodes": 500,
+      "initial_history": [
+        0,
+        0
+      ],
+      "market": {
+        "cost": 5.0,
+        "customers_high": 20,
+        "customers_low": 10,
+        "discount": 0.2,
+        "kernel": [
+          [
+            0.9,
+            0.1
+          ],
+          [
+            0.1,
+            0.9
+          ]
+        ],
+        "price": 10.0,
+        "steps": 20
+      },
+      "rng": {
+        "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+        "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+        "near_ties": {
+          "atol": 1e-08,
+          "rtol": 1e-05,
+          "rule": "random among np.isclose to max"
+        },
+        "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+        "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+        "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+        "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+      },
+      "scenario_seed": 2000055,
+      "tape_engine": "original_Tape.generate_v1"
+    },
+    "seed": 55,
+    "study_id": "ag02_phase07_augmented_v1"
+  },
+  "key": "fc1350c4cb12ed277b669da13b6d7e5f1b9107b8632e753541194888c1b0cd17",
+  "proof_sha256": "909607dff359f2ec12a90d2c5d4738c76bf54f1a98b97f1f6ef65cf943690975",
+  "claimed_utc": "2026-10-24T07:03:56.594261+00:00"
+}

@@ -1,0 +1,788 @@
+{
+  "budget": {
+    "checkpoint_interval_episodes": 100,
+    "declared_learner_instances": 61,
+    "declared_market_runs": 56,
+    "declared_train_market_steps": 5600000,
+    "final_evaluation_episodes_per_role": 500,
+    "maximum_parallel_train_writers": 1,
+    "minimum_free_disk_bytes": 5368709120,
+    "steps_per_episode": 20,
+    "trace_rows_per_run": 20,
+    "train_episodes": 5000
+  },
+  "controlled_configs": {
+    "alpha_high": {
+      "alpha": 0.5,
+      "episodes": 5000,
+      "epsilon_decay": 0.995,
+      "epsilon_min": 0.02,
+      "epsilon_start": 0.2,
+      "gamma": 0.9
+    },
+    "alpha_low": {
+      "alpha": 0.01,
+      "episodes": 5000,
+      "epsilon_decay": 0.995,
+      "epsilon_min": 0.02,
+      "epsilon_start": 0.2,
+      "gamma": 0.9
+    },
+    "baseline": {
+      "alpha": 0.1,
+      "episodes": 5000,
+      "epsilon_decay": 0.995,
+      "epsilon_min": 0.02,
+      "epsilon_start": 0.2,
+      "gamma": 0.9
+    },
+    "epsilon_high_fixed": {
+      "alpha": 0.1,
+      "episodes": 5000,
+      "epsilon_decay": 1,
+      "epsilon_min": 0.3,
+      "epsilon_start": 0.3,
+      "gamma": 0.9
+    },
+    "epsilon_low_fixed": {
+      "alpha": 0.1,
+      "episodes": 5000,
+      "epsilon_decay": 1,
+      "epsilon_min": 0.05,
+      "epsilon_start": 0.05,
+      "gamma": 0.9
+    }
+  },
+  "device": "CPU NumPy float64",
+  "evaluation": {
+    "aggregation": "mean and sample std(ddof=1) across 5 training seeds after averaging roles",
+    "development_scenario_seeds": [
+      1000011,
+      1000022,
+      1000033,
+      1000044,
+      1000055
+    ],
+    "final_evaluation_authorized_in_phase2": false,
+    "final_gate_phase": 5,
+    "final_scenario_seeds": [
+      2000011,
+      2000022,
+      2000033,
+      2000044,
+      2000055
+    ],
+    "fixed_opponent": "Original rule; rule-vs-rule and no-discount diagnostics",
+    "frozen": "Copy Q read-only, no learn, explore=False; verify source Q hash and RNG unchanged",
+    "future_improved_gate_phase": 7,
+    "future_variant_gate_phase": 6,
+    "journal_key": "(study_id,policy_sha256,scenario_spec_sha256,role); reuse identical saved output",
+    "paired_scenarios": "Same scenario seed and episode tape across configs; both physical roles",
+    "recovery": "Retain failed/partial claims; investigate/version, do not silently replay final",
+    "reference_native_final_phase": 5,
+    "reference_native_final_seed": 500042,
+    "roles": [
+      0,
+      1
+    ],
+    "selection": "Report all preregistered configs; never tune/select on final results",
+    "uncertainty": "Report seed-level paired deltas; if CI used, resample seed pairs, not steps"
+  },
+  "figure_policy": {
+    "format": "black/grayscale",
+    "interpretation_notes_required": true,
+    "moving_average_episodes": 100,
+    "notes_template": "docs/figure_explanation_template.md",
+    "required_notes": [
+      "purpose",
+      "data_source",
+      "axes_and_units",
+      "legend",
+      "aggregation_and_n",
+      "observations",
+      "quantitative_comparison",
+      "limitations"
+    ]
+  },
+  "future_variants": {
+    "gold": {
+      "calibration_status": "deferred_to_phase6",
+      "initial_demand": "Bernoulli(0.5)",
+      "interpretation": "synthetic demand proxy, not causality or investment",
+      "last_allowed_month": "2006-08",
+      "missing_policy": "Do not impute or bridge a missing month; record exclusions",
+      "parent_split_path": "data/splits/v3/ch4_gold_pink_sheet/split_contract.json",
+      "parent_split_sha256": "91a1fb8d745b1017b056636d2d90c6ec3da35ce27b7c046a8045cf8d29f51ddb",
+      "real_demand_measurement": false,
+      "regime": "1 if gold[t] > gold[t-1] else 0; consecutive observed calendar months only",
+      "smoothing_pseudocount": 1,
+      "source_path": "data/raw/ch4/gold/CMO-Historical-Data-Monthly.xlsx",
+      "source_sha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+      "transition_estimator": "(count_ij+1)/(sum_j count_ij+2)"
+    },
+    "persistent": {
+      "initial_demand": "Bernoulli(0.5)",
+      "kernel": [
+        [
+          0.9,
+          0.1
+        ],
+        [
+          0.1,
+          0.9
+        ]
+      ]
+    }
+  },
+  "improved_design": {
+    "implementation_phase": 7,
+    "learning_parameters": {
+      "alpha": 0.1,
+      "episodes": 5000,
+      "epsilon_decay": 0.995,
+      "epsilon_min": 0.02,
+      "epsilon_start": 0.2,
+      "gamma": 0.9
+    },
+    "oracle": "optional exact finite-horizon known-model/fixed-rule check, never train labels",
+    "q_entries": 320,
+    "remaining_steps": "1..20, zero future value at terminal",
+    "reward": "unchanged profit",
+    "state": [
+      "demand",
+      "own_previous",
+      "competitor_previous",
+      "remaining_steps"
+    ]
+  },
+  "local_date": "2026-10-24",
+  "market": {
+    "cost": 5.0,
+    "customers_high": 20,
+    "customers_low": 10,
+    "discount": 0.2,
+    "kernel": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.5,
+        0.5
+      ]
+    ],
+    "price": 10.0,
+    "steps": 20
+  },
+  "outputs_per_run": [
+    "manifest.json",
+    "episode_rewards.csv",
+    "checkpoint_eNNNNNN.json",
+    "q_table.json",
+    "policy.json",
+    "visits.json",
+    "trace_sample.json"
+  ],
+  "rng": {
+    "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+    "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+    "near_ties": {
+      "atol": 1e-08,
+      "rtol": 1e-05,
+      "rule": "random among np.isclose to max"
+    },
+    "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+    "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+    "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+    "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+  },
+  "schema_version": "ag02.protocol.1",
+  "scope": "Agent02 only; no LLM/MAS project, web or V3 TEST replay",
+  "smoke": {
+    "controlled_seed": 730011,
+    "development_episodes_per_role": 3,
+    "development_scenario_seed": 1730011,
+    "episodes_per_track": 100,
+    "reference_seed": 730042,
+    "steps_per_episode": 20,
+    "use_as_report_results": false
+  },
+  "test_plan": [
+    "8 state-action pairs and 4 simultaneous joint actions",
+    "all rule branches and reward margins",
+    "Q=4.65 calculation, terminal update, epsilon/ties",
+    "independent demand/sales/policy RNG",
+    "frozen DEV evaluation and forbidden final CLI",
+    "resume/logging exact parity",
+    "hash/source/disk/path guards and unchanged Phase1/V3 inputs"
+  ],
+  "train_seeds": [
+    11,
+    22,
+    33,
+    44,
+    55
+  ],
+  "training_runs": [
+    {
+      "config_id": "baseline",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 3,
+      "run_id": "ref/baseline/s0042",
+      "seed": 42,
+      "status": "declared_not_started",
+      "track": "REF"
+    },
+    {
+      "config_id": "baseline",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 3,
+      "run_id": "controlled/iid/baseline/s0011",
+      "seed": 11,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "baseline",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/baseline/s0022",
+      "seed": 22,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "baseline",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/baseline/s0033",
+      "seed": 33,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "baseline",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/baseline/s0044",
+      "seed": 44,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "baseline",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/baseline/s0055",
+      "seed": 55,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "alpha_low",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/alpha_low/s0011",
+      "seed": 11,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "alpha_low",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/alpha_low/s0022",
+      "seed": 22,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "alpha_low",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/alpha_low/s0033",
+      "seed": 33,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "alpha_low",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/alpha_low/s0044",
+      "seed": 44,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "alpha_low",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/alpha_low/s0055",
+      "seed": 55,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "alpha_high",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/alpha_high/s0011",
+      "seed": 11,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "alpha_high",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/alpha_high/s0022",
+      "seed": 22,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "alpha_high",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/alpha_high/s0033",
+      "seed": 33,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "alpha_high",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/alpha_high/s0044",
+      "seed": 44,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "alpha_high",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/alpha_high/s0055",
+      "seed": 55,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0011",
+      "seed": 11,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0022",
+      "seed": 22,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0033",
+      "seed": 33,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0044",
+      "seed": 44,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "epsilon_low_fixed",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/epsilon_low_fixed/s0055",
+      "seed": 55,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0011",
+      "seed": 11,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0022",
+      "seed": 22,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0033",
+      "seed": 33,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0044",
+      "seed": 44,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "epsilon_high_fixed",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 4,
+      "run_id": "controlled/iid/epsilon_high_fixed/s0055",
+      "seed": 55,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "two_learners",
+      "kernel_id": "iid",
+      "learners": 2,
+      "phase": 6,
+      "run_id": "controlled/iid/two_learners/s0011",
+      "seed": 11,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "two_learners",
+      "kernel_id": "iid",
+      "learners": 2,
+      "phase": 6,
+      "run_id": "controlled/iid/two_learners/s0022",
+      "seed": 22,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "two_learners",
+      "kernel_id": "iid",
+      "learners": 2,
+      "phase": 6,
+      "run_id": "controlled/iid/two_learners/s0033",
+      "seed": 33,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "two_learners",
+      "kernel_id": "iid",
+      "learners": 2,
+      "phase": 6,
+      "run_id": "controlled/iid/two_learners/s0044",
+      "seed": 44,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "two_learners",
+      "kernel_id": "iid",
+      "learners": 2,
+      "phase": 6,
+      "run_id": "controlled/iid/two_learners/s0055",
+      "seed": 55,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "retrain",
+      "kernel_id": "persistent",
+      "learners": 1,
+      "phase": 6,
+      "run_id": "controlled/persistent/retrain/s0011",
+      "seed": 11,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "retrain",
+      "kernel_id": "persistent",
+      "learners": 1,
+      "phase": 6,
+      "run_id": "controlled/persistent/retrain/s0022",
+      "seed": 22,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "retrain",
+      "kernel_id": "persistent",
+      "learners": 1,
+      "phase": 6,
+      "run_id": "controlled/persistent/retrain/s0033",
+      "seed": 33,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "retrain",
+      "kernel_id": "persistent",
+      "learners": 1,
+      "phase": 6,
+      "run_id": "controlled/persistent/retrain/s0044",
+      "seed": 44,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "retrain",
+      "kernel_id": "persistent",
+      "learners": 1,
+      "phase": 6,
+      "run_id": "controlled/persistent/retrain/s0055",
+      "seed": 55,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "retrain",
+      "kernel_id": "gold",
+      "learners": 1,
+      "phase": 6,
+      "run_id": "controlled/gold/retrain/s0011",
+      "seed": 11,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "retrain",
+      "kernel_id": "gold",
+      "learners": 1,
+      "phase": 6,
+      "run_id": "controlled/gold/retrain/s0022",
+      "seed": 22,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "retrain",
+      "kernel_id": "gold",
+      "learners": 1,
+      "phase": 6,
+      "run_id": "controlled/gold/retrain/s0033",
+      "seed": 33,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "retrain",
+      "kernel_id": "gold",
+      "learners": 1,
+      "phase": 6,
+      "run_id": "controlled/gold/retrain/s0044",
+      "seed": 44,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "retrain",
+      "kernel_id": "gold",
+      "learners": 1,
+      "phase": 6,
+      "run_id": "controlled/gold/retrain/s0055",
+      "seed": 55,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/iid/augmented/s0011",
+      "seed": 11,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/iid/augmented/s0022",
+      "seed": 22,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/iid/augmented/s0033",
+      "seed": 33,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/iid/augmented/s0044",
+      "seed": 44,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "iid",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/iid/augmented/s0055",
+      "seed": 55,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "persistent",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/persistent/augmented/s0011",
+      "seed": 11,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "persistent",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/persistent/augmented/s0022",
+      "seed": 22,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "persistent",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/persistent/augmented/s0033",
+      "seed": 33,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "persistent",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/persistent/augmented/s0044",
+      "seed": 44,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "persistent",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/persistent/augmented/s0055",
+      "seed": 55,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "gold",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/gold/augmented/s0011",
+      "seed": 11,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "gold",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/gold/augmented/s0022",
+      "seed": 22,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "gold",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/gold/augmented/s0033",
+      "seed": 33,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "gold",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/gold/augmented/s0044",
+      "seed": 44,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    },
+    {
+      "config_id": "augmented",
+      "kernel_id": "gold",
+      "learners": 1,
+      "phase": 7,
+      "run_id": "controlled/gold/augmented/s0055",
+      "seed": 55,
+      "status": "declared_not_started",
+      "track": "CONTROLLED"
+    }
+  ]
+}

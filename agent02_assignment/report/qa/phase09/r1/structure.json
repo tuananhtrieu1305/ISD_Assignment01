@@ -1,0 +1,263 @@
+{
+  "status": "STRUCTURAL_PASS_PENDING_VISUAL_REVIEW",
+  "revision": "r1",
+  "docx": "report/build/candidate-r1/agent02_D23CTPM01_TrieuTuanAnh.docx",
+  "docx_sha256": "550ed938f979371909d544fd2f884a098fad75af3dce81c231a23561469e29ba",
+  "pdf": "report/qa/phase09/r1/agent02_D23CTPM01_TrieuTuanAnh.pdf",
+  "pdf_sha256": "6408237bf212c2fa285f9b1adc55d48d8e976545c87f303bb491ad373b94b601",
+  "page_count": 30,
+  "native_tables": 14,
+  "figure_occurrences": 600,
+  "exact_code_excerpts": 8,
+  "questions_in_pdf": 10,
+  "docx_text_colors": [
+    "000000"
+  ],
+  "pdf_text_colors": [
+    0
+  ],
+  "all_page_pixels_grayscale": true,
+  "page_boundary_violations": [],
+  "pages": [
+    {
+      "page": 1,
+      "text_characters": 283,
+      "beginning": "1\nHỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG\nPHÁT TRIỂN HỆ THỐNG THÔNG MINH\nBÀI THỰC NGHIỆM AGENT02\nSO ",
+      "ending": " ĐIỆN \nTỬ\nSinh viên  Triệu Tuấn Anh\nMã sinh viên  B23DCCN053\nLớp  D23CTPM01\nBài nộp cá nhân\nTháng 10 năm 2026\n",
+      "image_occurrences": 20,
+      "png_sha256": "93cd773a3e41ae1c49752eb6fe444c09b8142be3180959d23f7061ad3889b27d"
+    },
+    {
+      "page": 2,
+      "text_characters": 2724,
+      "beginning": "2\n2 Mở đầu và mục tiêu\nTrong mô phỏng hai cửa hàng, tác tử theo luật không học nhưng vẫn có thể thu ",
+      "ending": "úp phân biệt các kiểu tương tác; bài chỉ dùng ý \ntưởng nền, không triển khai dự án LLM/MAS riêng trong slide.\n",
+      "image_occurrences": 20,
+      "png_sha256": "2e4b51f6dbe183fccddfb95f99927409188af27082c48b1719491f39aa411092"
+    },
+    {
+      "page": 3,
+      "text_characters": 2658,
+      "beginning": "3\n3 Môi trường và hai loại tác tử\n3 1 Mô hình thị trường\nMỗi shop chọn một trong hai action:0 giữ gi",
+      "ending": " cuối episode không dùng giá trị tương lai để bootstrap. Ý nghĩa và phép tính cụ thể \nđược trình bày ở câu 3.\n",
+      "image_occurrences": 20,
+      "png_sha256": "9273d4cd014f2713204a32fc2a6fe9b87e0af57bd243fca6e82cef9af555bc16"
+    },
+    {
+      "page": 4,
+      "text_characters": 676,
+      "beginning": "4\nREF tái lập code thầy với seed 42, giữ thuật toán và thứ tự RNG gốc. CONTROLLED giữ \nluật môi trườ",
+      "ending": "; thí nghiệm hai learner \ncùng học được tách riêng để trả lời câu 8 [S1, trang PDF 6–8; S2, trang PDF 4; S3].\n",
+      "image_occurrences": 20,
+      "png_sha256": "95d5a052efa429bd890a5d607d3f3f0b7bc860c33d63100137d50c96913e8ea5"
+    },
+    {
+      "page": 5,
+      "text_characters": 2438,
+      "beginning": "5\n4 Thiết lập code thiết yếu và cách đánh giá\n4 1 Cấu hình và ma trận chạy\nMỗi run train 5.000 episo",
+      "ending": "E02: code/controlled.py, dòng 179–190; SHA256 df92154dea7a9573… (hash đầy đủ trong \ncode_excerpt_index.json).\n",
+      "image_occurrences": 20,
+      "png_sha256": "43e89e7eed165c29913e40c4cead4b4ceb9fc29178a417ee4d80f9eec8e17df8"
+    },
+    {
+      "page": 6,
+      "text_characters": 2946,
+      "beginning": "6\nE03 là phần cập nhật Q. Nhánh terminal giữ target bằng reward hiện tại; không cộng Q của \nmột epis",
+      "ending": "scenario_seed, \n4]).generate_state(1)[0]))\n        learner.q[:] = q\n        learner.q.flags.writeable = False\n",
+      "image_occurrences": 20,
+      "png_sha256": "a81597d6847850ecb3af40c5fbad5153ba0435d5f6b8e5c51823f6009af48d03"
+    },
+    {
+      "page": 7,
+      "text_characters": 753,
+      "beginning": "7\nNguồn E05: code/evaluation/final_v1.py, dòng 29–37; SHA256 504176cd6e96e569… (hash đầy đủ \ntrong c",
+      "ending": "và policy nào tốt hơn trước cùng một fixed \nopponent/tape. Kết quả của hai so sánh không nhất thiết cùng dấu.\n",
+      "image_occurrences": 20,
+      "png_sha256": "4b67d4c511783de18205295c6ee8bb70cf314a4efcc02b580da38cc115928f8a"
+    },
+    {
+      "page": 8,
+      "text_characters": 1568,
+      "beginning": "8\n5 Kết quả bảng và giải thích hình\nCác giá trị dưới đây có đơn vị lợi nhuận giả lập/bước nếu không ",
+      "ending": "hực sự đạt tới sau reset. Điều đó không chứng minh hai bảng tương đương trên mọi \ntrạng thái hoặc môi trường.\n",
+      "image_occurrences": 20,
+      "png_sha256": "780a6e9eb945017075dba5d100ac488d2749bb2cc4c6503f471377a87389da2b"
+    },
+    {
+      "page": 9,
+      "text_characters": 476,
+      "beginning": "9\nHình F01. REF: reward thô và moving average 100 episode.\nX là episode train, Y là reward cả episod",
+      "ending": "g học cùng ảnh hưởng đường vẽ. Làm mượt không \nchứng minh hội tụ hoặc ưu thế ngoài mẫu. Nguồn: D3, run REF42.\n",
+      "image_occurrences": 20,
+      "png_sha256": "42aaf23b80abe7dc772152814905072ef313563cb6d4736b3e166cf6e6286670"
+    },
+    {
+      "page": 10,
+      "text_characters": 919,
+      "beginning": "10\nHình F02. CONTROLLED seed 11: cùng cách đọc nhưng là run khác.\nX là episode train, Y là profit/bư",
+      "ending": " không gặp trong policy greedy có thể không ảnh hưởng score của \nkịch bản hiện tại. Nguồn: D3, Q/policy cuối.\n",
+      "image_occurrences": 20,
+      "png_sha256": "8712007a94adc704485bb78da37ece94b051fcfa627505241d98f96663df3ea9"
+    },
+    {
+      "page": 11,
+      "text_characters": 801,
+      "beginning": "11\nHình F04. Action count lúc train.\nX là từng cặp agent/action; Y là tổng số lần chọn trên 100.000 ",
+      "ending": "\n34,02786 ± 1,22178\nα 0,01\n30,91717 ± 3,91720\n33,90382 ± 2,60833\nα 0,50\n31,97780 ± 0,12472\n32,06337 ± 4,25085\n",
+      "image_occurrences": 20,
+      "png_sha256": "9fb3b8d2920ac0b74a0ebfefe929b236f14965741be15f7b5af6b558b2ecacc3"
+    },
+    {
+      "page": 12,
+      "text_characters": 705,
+      "beginning": "12\nHình F05. Reward curves khi đổi alpha.\nMỗi panel ứng với α 0,01/0,10/0,50; X là episode, Y là pro",
+      "ending": "178\nε cố định 0,05\n32,89187 ± 0,18749\n33,39952 ± 2,64330\nε cố định 0,30\n30,92305 ± 0,09846\n32,87013 ± 3,58062\n",
+      "image_occurrences": 20,
+      "png_sha256": "21cfb35f75b4ebc2b520773cb628ebd68bcea8051319da76dd0fecef0f089357"
+    },
+    {
+      "page": 13,
+      "text_characters": 643,
+      "beginning": "13\nHình F06. Train curves của ba lịch epsilon.\nX là episode, Y là profit/bước; đen RL, xám đứt rule.",
+      "ending": "ảm 0,20 → 0,02; \nhai đường còn lại giữ 0,05/0,30. Đây là cấu hình chung cho cả 5 seed, không phải số đo ngẫu \n",
+      "image_occurrences": 20,
+      "png_sha256": "4329afc28b79ca31a04c8d3cf6f72af01397502db48c2a817636b6174031318d"
+    },
+    {
+      "page": 14,
+      "text_characters": 1472,
+      "beginning": "14\nnhiên nên không có dải std. Epsilon chỉ là xác suất chọn action ngẫu nhiên; tỷ lệ giảm giá còn \np",
+      "ending": "policy rule đối chứng là -1,02449/bước. Hai dấu \nnày trả lời hai câu hỏi khác nhau, không phải lỗi tính toán.\n",
+      "image_occurrences": 20,
+      "png_sha256": "2d85aea0642c4676d3da2379ea4a3e0378e83bad12f5d7f967f92be0201c7fad"
+    },
+    {
+      "page": 15,
+      "text_characters": 858,
+      "beginning": "15\nHình F09. Profit của Q cuối trước fixed rule.\nX là năm cấu hình,Y là profit/bước; cột mean, whisk",
+      "ending": ". Không dùng panel phải để tuyên bố Q tốt hơn policy rule trước cùng \nopponent. Nguồn: D5, paired_comparison.\n",
+      "image_occurrences": 20,
+      "png_sha256": "d956ad45e62e7a01f8e08bf3fb257208031b70caf0ece299434a0f6c2dc2d9ca"
+    },
+    {
+      "page": 16,
+      "text_characters": 824,
+      "beginning": "16\nHình F11. Train và final không đo cùng một đại lượng.\nX là cấu hình,Y là profit/bước; cột sáng là",
+      "ending": " 0 khi độ phân tán lớn; từng tỷ lệ quan sát vẫn 0–100%, whisker không phải khoảng xác \nsuất/CI. Nguồn: D4,D5.\n",
+      "image_occurrences": 20,
+      "png_sha256": "6f1acbed4a1c10ddfde24c7213d5e89c96fcdc253a7c3379ec517fa0efad23af"
+    },
+    {
+      "page": 17,
+      "text_characters": 1938,
+      "beginning": "17\nBảng B06. Từng seed baseline final và REF native riêng. Cột steps ghi tổng bước đã gộp vai, không",
+      "ending": "ng 0/1 [D6].\nRegime hiện tại\nCount → 0\nCount → 1\nP → 0 sau cộng 1\nP → 1 sau cộng 1\n0\n240\n99\n0,706745\n0,293255\n",
+      "image_occurrences": 20,
+      "png_sha256": "605a76838af2ace317cd7c48ffb9cb82989c89c87bd600d39c4ea97ef4b0134d"
+    },
+    {
+      "page": 18,
+      "text_characters": 1022,
+      "beginning": "18\nRegime hiện tại\nCount → 0\nCount → 1\nP → 0 sau cộng 1\nP → 1 sau cộng 1\n1\n99\n120\n0,452489\n0,547511\n",
+      "ending": "greedy trên bốn \nstate, lấy mean qua 10 learner thuộc 5 pair. Có 612 state-change trên 500 learner-interval; \n",
+      "image_occurrences": 20,
+      "png_sha256": "fe941a677804c4187deebb6ee87bda6edcb4cbc64c287ff06d2842c00870086a"
+    },
+    {
+      "page": 19,
+      "text_characters": 1549,
+      "beginning": "19\nkhông phải số lần đổi action trong timestep. Drift ở state ít gặp có thể không đổi return; không ",
+      "ending": "± 1,69375\n33,06165 ± 2,63493\n35,02665 ± 0,25749\ngold\n27,10489 ± 0,28315\n29,35694 ± 2,78040\n31,07485 ± 0,21348\n",
+      "image_occurrences": 20,
+      "png_sha256": "772f05e6ef669268b2105dcbfe8d057d3321d9792ad17c873758c43adac5dd8f"
+    },
+    {
+      "page": 20,
+      "text_characters": 839,
+      "beginning": "20\nHình F17. Train curves khi thay state.\nBa panel là IID/persistent/Gold; X là episode, Y là profit",
+      "ending": "ơn nếu mean thấp hơn. Các panel khác phân phối \nnên so trong từng kernel là chính. Nguồn: D7, policy_summary.\n",
+      "image_occurrences": 20,
+      "png_sha256": "0299a954c045ce38d690bbeda6cf5a73116636d4b28a2a6db0eeee04f1dc5261"
+    },
+    {
+      "page": 21,
+      "text_characters": 999,
+      "beginning": "21\nBảng B11. Delta ghép cặp của memory/time.\nKernel\nMemory/time−baseline \nmean±std\nMemory/time−rule ",
+      "ending": "y/time, nhạt baseline; panel phải có \nwhisker là std qua 5 seed. Agent mới thăm 83,6%/78,4%/ 81,8% của 320 ô \n",
+      "image_occurrences": 20,
+      "png_sha256": "9c02cc6c7236fe22c2722c1b876370d7cdea34e3fbf4de0d0aa6584d3cc73326"
+    },
+    {
+      "page": 22,
+      "text_characters": 1179,
+      "beginning": "22\ntrênIID/persistent/Gold, baseline thăm 100% của 8 ô; một số fullstate không đạt được từ \nreset/ho",
+      "ending": "à discounted total riêng, không trộn với \nprofit/bước không chiết khấu hoặc gọi oracle là learner model-free.\n",
+      "image_occurrences": 20,
+      "png_sha256": "86f33b59c147a366b1b13a21f68c7a8538e7074480d01b1cf5674eea742765a2"
+    },
+    {
+      "page": 23,
+      "text_characters": 2431,
+      "beginning": "23\n6 Trả lời mười câu hỏi thí nghiệm\n6 1 Câu 1 Mô hình tác tử và môi trường\nHai tác tử là hai shop, ",
+      "ending": "inal, target chỉ bằng r vì episode đã kết thúc.\nVới số giả định đề cho, Q cũ 4, α 0,1, r 6, γ 0,9, maxQ kế 5:\n",
+      "image_occurrences": 20,
+      "png_sha256": "004995967e3870ae82816c4dca09692bce983e882f04f4bafba8600a51a7b781"
+    },
+    {
+      "page": 24,
+      "text_characters": 2946,
+      "beginning": "24\n1. Giá trị tương lai có chiết khấu:0,9 × 5=4,5. 2. Target:6+4,5=10,5. 3. Chênh target so Q \ncũ:10",
+      "ending": "d hữu ích hơn một run, nhưng không chứng minh ưu thế ở thị trường thật hoặc coi \nmọi timestep là mẫu độc lập.\n",
+      "image_occurrences": 20,
+      "png_sha256": "a10e45a0809d15cd77e56dcd8f9374ecb4df11e79c5976f9237754340239d093"
+    },
+    {
+      "page": 25,
+      "text_characters": 3119,
+      "beginning": "25\n6 7 Câu 7 Learning rate và độ ổn định\nAlpha nhỏ chỉ sửa Q một phần nhỏ sau reward mới; alpha lớn ",
+      "ending": "train−baseline \nởpersistent là-1,48087, ởGold-0,80510 (B09,F16). Trong budget này, train lại không cải thiện \n",
+      "image_occurrences": 20,
+      "png_sha256": "b8432eaf5ac63b38b93e998e4f234b7e9ae7de57aadeb3ba6054997e43e7f5a9"
+    },
+    {
+      "page": 26,
+      "text_characters": 2590,
+      "beginning": "26\nmean. Không từ đó kết luận retrain luôn kém: từng seed khác nhau, chỉ hai kịch bản sửa môi \ntrườn",
+      "ending": "udget/ablation mới, rồi thu bộ đánh giá mới để kiểm giả thuyết, thay vì sử dụng lại \ncác score cuối hiện tại.\n",
+      "image_occurrences": 20,
+      "png_sha256": "7fbf0a74902b5277b4c748e52a82797444605d4cde89170f5e6f576fc584521e"
+    },
+    {
+      "page": 27,
+      "text_characters": 2486,
+      "beginning": "27\n7 Thảo luận hạn chế và hướng cải tiến\nKết quả chính là sự khác nhau giữa có khả năng học và đã họ",
+      "ending": ". Bản Python thầy, raw dữ liệu và kết quả các bài cũ không được sửa hoặc chạy lại khi \nbiên soạn báo cáo này.\n",
+      "image_occurrences": 20,
+      "png_sha256": "96008c40e1ab1dab88ab06a92aba6c194b6f6b88cfcf65ecd152d011ac693513"
+    },
+    {
+      "page": 28,
+      "text_characters": 664,
+      "beginning": "28\n8 Kết luận\nBài đã mô hình hóa hai shop tương tác, triển khai rule và Q-learning, chạy các thí ngh",
+      "ending": " giới hạn trong simulator, budget và kịch bản hiện tại; \nchưa chứng minh hiệu quả ở hệ thống kinh doanh thực.\n",
+      "image_occurrences": 20,
+      "png_sha256": "dc46d46c983603922e72a6e8e741e7420190fc40c62256a97b282e538cab1722"
+    },
+    {
+      "page": 29,
+      "text_characters": 2949,
+      "beginning": "29\n9 Tài liệu tham khảo và nguồn số liệu\n[S1] Tài liệu giảng dạy được cung cấp, *Intelligent System ",
+      "ending": "/evaluation/phase06/ và \ndata/derived/gold_regime_kernel_v1.json; khóa evidence/phase06/experiment_lock.json.\n",
+      "image_occurrences": 20,
+      "png_sha256": "02a56e568826439f864521f667f811c06f0f4d4ac59bef19dac5cbcd1fe4a0c0"
+    },
+    {
+      "page": 30,
+      "text_characters": 249,
+      "beginning": "30\n[D7] Memory/time và oracle tách biệt, artifacts/metrics/phase07/, \nartifacts/evaluation/phase07/,",
+      "ending": "phase07/experiment_lock.json. Chỉ mục reference ghi 60 claim được reuse, không \ntính chúng thành forward mới.\n",
+      "image_occurrences": 20,
+      "png_sha256": "bab29284993c0f638bc8a7d9658d67a3c957d741676837e5907b81f680e3d0d9"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "inspection": {
+    "bytes": 25001,
+    "classes": [
+      "Config",
+      "ECommerceEnvironment",
+      "QLearningAgent",
+      "RuleBasedAgent"
+    ],
+    "config_defaults": {
+      "alpha": 0.1,
+      "discount_rate": 0.2,
+      "episodes": 5000,
+      "epsilon_decay": 0.995,
+      "epsilon_min": 0.02,
+      "epsilon_start": 0.2,
+      "evaluation_episodes": 500,
+      "gamma": 0.9,
+      "high_demand_customers": 20,
+      "low_demand_customers": 10,
+      "output_dir": "agent02_results",
+      "price": 10.0,
+      "seed": 42,
+      "steps_per_episode": 20,
+      "unit_cost": 5.0
+    },
+    "execution_performed": false,
+    "functions": [
+      "train_rl_against_rule",
+      "evaluate_pair",
+      "write_csv",
+      "save_q_table",
+      "moving_average",
+      "plot_training_rewards",
+      "plot_bar_comparison",
+      "run_baseline",
+      "run_learning_rate_experiment",
+      "run_exploration_experiment",
+      "run_multi_seed_experiment",
+      "main"
+    ],
+    "lines": 966,
+    "sha256": "3d40be4edc925f83b403c0b7e71e7fff03dfe0dbed56f0895c192058a4865ca9",
+    "syntax_valid": true
+  },
+  "reference": {
+    "bytes": 25001,
+    "operation": "copied",
+    "path": "code/agent02_experiment.py",
+    "sha256": "3d40be4edc925f83b403c0b7e71e7fff03dfe0dbed56f0895c192058a4865ca9"
+  },
+  "sources": [
+    {
+      "bytes": 1339449,
+      "operation": "copied",
+      "path": "sources/provided/A_Gentle_Introduction_to_Reinforcement_Learning_an.pdf",
+      "sha256": "a16cff80444c7da080a11599b811ad9280571d82fd1ba0697f3eeed1e788ac8c"
+    },
+    {
+      "bytes": 25001,
+      "operation": "copied",
+      "path": "sources/provided/agent02_code.tex",
+      "sha256": "3d40be4edc925f83b403c0b7e71e7fff03dfe0dbed56f0895c192058a4865ca9"
+    },
+    {
+      "bytes": 284381,
+      "operation": "copied",
+      "path": "sources/provided/agent02_complementary_code.pdf",
+      "sha256": "efb870b0fa7163f2b841c13f54a9c607847ac0297a8fe1721386733ac0828094"
+    },
+    {
+      "bytes": 298420,
+      "operation": "copied",
+      "path": "sources/provided/assignment_Agent02_due_29.10.pdf",
+      "sha256": "db1a86dcb625bbd959d047d5c7e4417431270b1aa69362fcedff363c4ab81d68"
+    },
+    {
+      "bytes": 2420086,
+      "operation": "copied",
+      "path": "sources/provided/multiagent-LLM.pdf",
+      "sha256": "badaf8bb47535df96252be38c5a5b81d979478b860ed67c2c4ac0ebaa4483ae5"
+    },
+    {
+      "bytes": 452446,
+      "operation": "copied",
+      "path": "sources/provided/slide_multiAgent_system_20.10.2026.pdf",
+      "sha256": "0c8bc9095e5318b04ca9a220a05d6ac55b4cfef1f1be163b60f54740bd505b42"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "title": "DISCOVERING AI Agent",
+  "subtitle": "Tìm hiểu tác tử trí tuệ nhân tạo",
+  "author": "Triệu Tuấn Anh    MSSV B23DCCN053",
+  "pages": [
+    {
+      "heading": "1 Hiểu đúng về AI Agent",
+      "blocks": [
+        {"p": "Giả sử một sinh viên muốn tìm buổi họp nhóm phù hợp với lịch học của bốn người. Chương trình chỉ trả lời cách đặt lịch chưa hoàn thành công việc. Một tác tử được cấp quyền phù hợp có thể đọc lịch, tìm giờ trống, đề xuất phương án và tạo lời mời sau khi được xác nhận. Ví dụ giả định này giúp phân biệt việc tạo câu trả lời với việc thực hiện một nhiệm vụ."},
+        {"p": "Google Cloud nhấn mạnh tác tử theo đuổi mục tiêu và hành động thay người dùng [1]. IBM chú ý đến tổ chức công việc và sử dụng công cụ [2]. McKinsey nhìn tác tử như một thành phần có thể phối hợp với các thành phần khác trong quy trình [3]. Từ đó, tôi hiểu AI Agent là một hệ thống nhận thông tin, lựa chọn hành động và kiểm tra kết quả để tiến tới mục tiêu trong phạm vi được giao."},
+        {"h2": "Mục tiêu và quyền hạn cần được tách biệt"},
+        {"p": "Trong ví dụ họp nhóm, mục tiêu là tìm giờ phù hợp; dữ liệu là lịch học; công cụ là thao tác đọc lịch hoặc tạo sự kiện. Quyền đọc lịch không tự động bao gồm quyền gửi lời mời. Nếu chưa được phép gửi, tác tử phải dừng ở bản đề xuất. Vì vậy, tính tự chủ nên được hiểu là khả năng tự chọn các bước trong giới hạn, không phải quyền thực hiện mọi hành động."},
+        {"p": "Một mô hình dự đoán thời gian trống có thể là thành phần của tác tử, nhưng bản thân dự đoán chưa tạo thành toàn bộ hệ thống. Ngược lại, có thể xây dựng tác tử đơn giản bằng luật hoặc bảng giá trị mà không cần mô hình ngôn ngữ lớn. Điều quan trọng khi mô tả một tác tử là xác định nó quan sát gì, được chọn hành động nào và dùng tiêu chí nào để biết nhiệm vụ đã xong."},
+        {"h2": "Cách hiểu dùng trong bài"},
+        {"p": "Tôi xem mô hình là bộ phận đưa ra dự đoán hoặc gợi ý, còn tác tử là hệ thống sử dụng kết quả đó để quyết định và hành động. Khi đánh giá tác tử họp nhóm, cần kiểm tra giờ có xung đột không và lời mời đã được xác nhận chưa; câu trả lời trôi chảy không đủ chứng minh nhiệm vụ thành công. Cách nhìn này cũng áp dụng cho tác tử mê cung ở phần thực hành: tiêu chí là tới đích hợp lệ, không phải chỉ vẽ ra một đường."}
+      ]
+    },
+    {
+      "heading": "2 Cấu tạo và vòng lặp hoạt động",
+      "blocks": [
+        {"p": "Có thể đọc một tác tử qua sáu thành phần: mục tiêu, thông tin quan sát, bộ phận chọn hành động, bộ nhớ, công cụ và phản hồi. Trong mô tả của Google Cloud, vai trò, bộ nhớ, công cụ và mô hình là các yếu tố đáng chú ý [1]. Tuy nhiên, một ví dụ nhỏ không bắt buộc phải có đầy đủ mọi loại bộ nhớ hoặc công cụ phức tạp."},
+        {"flow": "Mục tiêu → Quan sát → Quyết định → Hành động → Kiểm tra"},
+        {"p": "Sau bước kiểm tra, hệ thống có thể kết thúc, hỏi thêm hoặc quay lại quan sát. Vòng lặp chỉ có ý nghĩa khi thông tin mới có thể làm thay đổi quyết định. Chẳng hạn, một giờ họp vừa được người khác đặt phải bị loại khỏi các lựa chọn tiếp theo. Nếu tác tử tiếp tục gửi cùng yêu cầu mà không xét kết quả, nó chỉ đang lặp thao tác chứ chưa thích nghi tốt."},
+        {"h2": "Diễn giải bằng ví dụ đặt lịch"},
+        {"table": {"headers": ["Thành phần", "Ý nghĩa trong tình huống giả định"], "rows": [["Mục tiêu", "Tìm một giờ họp không trùng lịch học"], ["Quan sát", "Các khoảng bận và phản hồi của thành viên"], ["Quyết định", "Chọn giờ, hỏi thêm hoặc báo chưa tìm được"], ["Bộ nhớ", "Các phương án đã thử và yêu cầu đã xác nhận"], ["Công cụ", "Đọc lịch, kiểm tra xung đột, tạo bản nháp lời mời"], ["Phản hồi", "Kết quả kiểm tra lịch và xác nhận của người dùng"]]}},
+        {"p": "Tôi phân biệt bộ nhớ làm việc với việc học lại mô hình. Ghi lại giờ đã bị từ chối giúp tác tử tránh hỏi lặp trong phiên hiện tại, nhưng chưa chứng minh các trọng số của mô hình đã thay đổi. Muốn nói hệ thống học được từ kinh nghiệm, cần chỉ ra cơ chế cập nhật và cách kiểm tra thay đổi đó. Sự phân biệt này giúp tránh dùng từ học cho mọi thao tác lưu thông tin."},
+        {"h2": "Khi nào vòng lặp được dừng"},
+        {"p": "Với ví dụ trên, có ba điểm dừng hợp lý: đã tìm được phương án được chấp nhận; không còn giờ phù hợp; hoặc cần quyền mà tác tử chưa được cấp. Có thể đặt thêm số lần thử tối đa để tránh hỏi và gọi công cụ liên tục. Đây là quy tắc thiết kế tôi đề xuất cho tình huống minh họa, không phải kết quả đo từ một hệ thống đặt lịch thực tế."}
+      ]
+    },
+    {
+      "heading": "3 Các kiểu tác tử và cách phối hợp",
+      "blocks": [
+        {"p": "IBM giới thiệu năm kiểu tác tử: phản xạ đơn giản, phản xạ dựa trên mô hình, hướng mục tiêu, dựa trên độ hữu ích và có khả năng học [2]. Có thể hiểu chúng qua cách lựa chọn hành động. Bảng dưới dùng các ví dụ tự xây dựng trong một thư viện để làm rõ sự khác nhau; không hàm ý thư viện thực tế đã triển khai các hệ thống này."},
+        {"table": {"headers": ["Kiểu tác tử", "Cách chọn hành động", "Ví dụ minh họa"], "rows": [["Phản xạ đơn giản", "Áp dụng luật cho quan sát hiện tại", "Báo hết chỗ khi số ghế trống bằng không"], ["Dựa trên mô hình", "Dùng quan sát và trạng thái đã ghi nhớ", "Robot nhớ khu vực vừa kiểm tra"], ["Hướng mục tiêu", "Tìm chuỗi bước đưa đến đích", "Tìm đường tới giá sách được yêu cầu"], ["Dựa trên độ hữu ích", "Cân nhắc nhiều tiêu chí giữa các cách đạt đích", "Chọn đường vừa ngắn vừa ít cản trở người đọc"], ["Có khả năng học", "Cải thiện cách chọn hành động từ kinh nghiệm", "Điều chỉnh lựa chọn sau các lượt di chuyển"]]}},
+        {"p": "Các kiểu trên không nên được hiểu như một bảng xếp hạng bắt buộc. Nếu chỉ cần kiểm tra còn ghế hay không, một luật rõ ràng dễ kiểm thử hơn việc thêm mô hình lớn. Nếu cần chọn đường qua nhiều ngã rẽ, hệ thống phải xét ảnh hưởng của các bước tiếp theo. Khả năng phù hợp với nhiệm vụ quan trọng hơn số lượng thành phần được gắn vào tác tử."},
+        {"h2": "Một tác tử và nhiều tác tử"},
+        {"p": "Cách chia một hoặc nhiều tác tử nói về tổ chức hệ thống, không trùng với cách phân loại theo năng lực. Một tác tử có thể xử lý toàn bộ yêu cầu; nhiều tác tử có thể chia vai trò và trao đổi kết quả. Trong ví dụ giả định tìm sách, một tác tử tra danh mục, một tác tử kiểm tra vị trí và một tác tử tổng hợp hướng dẫn cho người đọc."},
+        {"p": "Tách vai trò có ích khi từng bước có dữ liệu hoặc trách nhiệm khác nhau. Tuy nhiên, nếu danh mục ghi sai mã sách, nhiều tác tử cùng dựa vào mã đó vẫn có thể trả lời sai. Tôi sẽ yêu cầu kết quả trung gian mang theo mã sách và thời điểm kiểm tra, thay vì chỉ truyền một câu kết luận. Thêm tác tử không thay thế được việc xác thực dữ liệu và kiểm tra kết quả cuối cùng."},
+        {"p": "Bài thực hành chỉ xây dựng một tác tử học từ tương tác. Bảng Q là cách lưu kinh nghiệm chọn hành động, không phải một tác tử thứ hai và cũng không phải mô hình ngôn ngữ."}
+      ]
+    },
+    {
+      "heading": "4 Ứng dụng và cách xác định giá trị",
+      "blocks": [
+        {"p": "McKinsey bàn đến nhiều cách đưa tác tử vào công việc, từ hỗ trợ cá nhân và tự động hóa quy trình đến các hệ thống chuyên biệt hoặc vai trò làm việc độc lập hơn [3]. Tôi hiểu điểm cần đánh giá là phần việc nào được hoàn thành tốt hơn, chứ không chỉ việc sản phẩm có thêm một cửa sổ trò chuyện."},
+        {"h2": "Tình huống hỗ trợ tra cứu lịch thi"},
+        {"p": "Xét một tác tử giả định giúp sinh viên tra lịch thi. Đầu vào là mã học phần và lớp; nguồn thông tin là lịch thi được công bố. Tác tử cần tìm đúng kỳ thi, kiểm tra phiên bản lịch rồi trả lại phòng, giờ và đường dẫn thông báo. Nếu chưa có mã lớp, nó nên hỏi lại thay vì tự chọn một lớp có tên gần giống. Đây là ví dụ thiết kế để phân tích, không phải ứng dụng đã được triển khai."},
+        {"p": "Ở mức hỗ trợ cá nhân, tác tử chỉ tóm tắt lịch để người dùng tự nhập vào lịch riêng. Ở mức tự động hóa quy trình, nó có thể tạo bản nháp sự kiện và chờ xác nhận. Nếu hệ thống được tích hợp sâu hơn, cần xác định ai chịu trách nhiệm khi lịch đổi và cách thông báo bản cập nhật. Cùng một mục tiêu có thể dẫn đến phạm vi tự chủ rất khác nhau."},
+        {"table": {"headers": ["Câu hỏi đánh giá", "Dấu hiệu có thể kiểm tra"], "rows": [["Kết quả có đúng không", "Mã học phần, lớp và thời gian khớp thông báo"], ["Thông tin có còn hiệu lực không", "Có phiên bản hoặc thời điểm công bố"], ["Tác tử có vượt quyền không", "Không tự gửi thông báo nếu chưa được phép"], ["Có tiết kiệm thao tác không", "Đếm bước người dùng phải làm trước và sau"], ["Khi thiếu dữ liệu thì sao", "Hỏi lại hoặc báo chưa xác nhận được"]]}},
+        {"h2": "Lợi ích phải đi kèm điều kiện"},
+        {"p": "Ví dụ này cho thấy giảm thao tác chỉ có giá trị khi kết quả đúng. Một hệ thống tạo lịch rất nhanh nhưng chọn sai lớp có thể làm người dùng mất thêm thời gian sửa. Nếu muốn tuyên bố hiệu quả, tôi cần so sánh trên cùng tập yêu cầu và ghi cả lỗi, thời gian chờ lẫn số lần phải nhờ con người hỗ trợ. Bài này không tự đưa ra số phần trăm tăng năng suất vì chưa có phép đo như vậy."},
+        {"p": "Ba bài đọc gợi ra ba câu hỏi bổ sung cho nhau: tác tử làm được gì, cơ chế nào cho phép nó làm điều đó và tổ chức cần kiểm soát việc sử dụng ra sao. Một bản trình diễn có thể trả lời câu hỏi đầu; để sử dụng ổn định còn phải trả lời hai câu hỏi sau."}
+      ]
+    },
+    {
+      "heading": "5 Rủi ro và vai trò của con người",
+      "blocks": [
+        {"p": "Tác tử có thể nhận dữ liệu thiếu, chọn công cụ sai hoặc tiếp tục thực hiện một kế hoạch không còn phù hợp. IBM nêu các rủi ro như vòng lặp phản hồi, phụ thuộc giữa tác tử và quyền riêng tư [2]. Tôi cho rằng quyền hành động càng rộng thì càng cần xác định trước điểm dừng và người chịu trách nhiệm kiểm tra."},
+        {"h2": "Rủi ro trong tình huống tra lịch thi"},
+        {"p": "Nếu tác tử đọc một thông báo cũ, câu trả lời vẫn có thể đủ phòng và giờ nhưng không còn đúng. Nếu gặp hai thông báo khác nhau, việc tự chọn bản thuận tiện hơn sẽ che giấu sự không chắc chắn. Một cách xử lý tôi đề xuất là giữ đường dẫn và thời điểm của thông báo, ưu tiên bản được xác nhận có hiệu lực, còn trường hợp mâu thuẫn thì báo rõ để người dùng kiểm tra."},
+        {"table": {"headers": ["Vấn đề", "Biện pháp thiết kế đề xuất"], "rows": [["Thiếu hoặc mâu thuẫn thông tin", "Hỏi lại, đối chiếu nguồn, không tự bịa phần còn thiếu"], ["Gọi công cụ lặp mãi", "Giới hạn số lần thử và cho phép người dùng dừng"], ["Thực hiện hành động quá phạm vi", "Tách quyền đọc, tạo bản nháp và gửi chính thức"], ["Khó xác định bước làm sai", "Ghi nhật ký công cụ, thời điểm và kết quả kiểm tra"], ["Lộ thông tin người dùng", "Chỉ lấy dữ liệu cần thiết và giới hạn người được xem"]]}},
+        {"p": "Nhật ký hữu ích cần ghi được hệ thống đã gọi công cụ nào và nhận kết quả gì. Không nhất thiết phải công bố toàn bộ diễn giải nội bộ của mô hình để xác minh một thao tác. Với tác tử lịch thi, bằng chứng quan trọng là thông báo đã được đọc và sự kiện nào đã được tạo. Cách ghi này giúp người dùng kiểm tra hành động thực tế thay vì chỉ tin vào lời giải thích của tác tử."},
+        {"h2": "Con người quyết định phạm vi tự chủ"},
+        {"p": "Đối với một yêu cầu tra cứu, có thể cho tác tử tự đọc thông báo công khai. Đối với việc gửi thay đổi đến nhiều người, cần bước xác nhận rõ ràng. Khi thông tin chưa đủ, báo chưa xác nhận được là một kết quả hợp lệ. Tôi sẽ không coi việc luôn trả lời hoặc luôn tiếp tục hành động là tiêu chí tốt hơn việc dừng đúng lúc."},
+        {"p": "Từ tình huống minh họa, tiêu chí sử dụng có trách nhiệm gồm tính đúng đắn của kết quả, tuân thủ quyền hạn và khả năng sửa sai. Một tác tử hữu ích phải giúp người dùng biết nó đã làm gì, phần nào chưa chắc và bước nào vẫn cần quyết định của con người."}
+      ]
+    },
+    {
+      "heading": "6 Tổng hợp và liên hệ với học tăng cường",
+      "blocks": [
+        {"p": "Sau khi đọc các tài liệu, tôi rút ra ba điểm: tác tử cần mục tiêu có thể kiểm tra; hành động phải dựa trên thông tin và quyền được cấp; phản hồi phải có khả năng thay đổi lựa chọn tiếp theo. Một hệ thống tạo câu trả lời hay nhưng không kiểm tra kết quả thực hiện vẫn chưa giải quyết đầy đủ nhiệm vụ của người dùng."},
+        {"h2": "Học tăng cường minh họa điều gì"},
+        {"p": "Trong học tăng cường, tác tử thử hành động trong môi trường và nhận phần thưởng. Chính sách là cách chọn hành động; bảng Q ghi giá trị ước lượng của từng lựa chọn [4]. Ví dụ mê cung ở phần sau làm rõ vòng tương tác này bằng một không gian nhỏ, quan sát được. Việc cập nhật Q là học từ trải nghiệm, khác với chỉ ghi nhớ nội dung một cuộc trò chuyện."},
+        {"table": {"headers": ["Khái niệm", "Trong bài mê cung"], "rows": [["Tác tử", "Bộ phận chọn hướng đi"], ["Môi trường", "Lưới đường đi và tường"], ["Trạng thái", "Tọa độ hàng và cột hiện tại"], ["Hành động", "Trái, phải, lên hoặc xuống"], ["Phản hồi", "Phần thưởng và trạng thái tiếp theo"], ["Chính sách", "Cách chọn hướng từ bảng Q và mức khám phá"]]}},
+        {"p": "Ban đầu, tác tử chưa biết lựa chọn nào tốt nên phải khám phá. Khi đã có kinh nghiệm, nó khai thác lựa chọn có giá trị Q cao. Trong bài này, mỗi bước đi mất một đơn vị thưởng, va tường bị phạt và tới đích được thưởng. Cách đặt mục tiêu đó khuyến khích một đường đi hợp lệ, ngắn hơn các đường vòng. Tuy nhiên, thiết kế phần thưởng không tự chứng minh rằng lượt học cụ thể đã tìm được đường ngắn nhất."},
+        {"h2": "Giới hạn của minh họa"},
+        {"p": "Mê cung cố định khác xa một tác tử dùng công cụ trong doanh nghiệp: không có ngôn ngữ tự nhiên, dữ liệu riêng tư hoặc tác tử khác. Vì vậy, kết quả chỉ minh họa cách một learning agent cải thiện quyết định trong môi trường đã định nghĩa. Không thể dùng một đường đi thành công để kết luận mọi AI Agent đều cần Q-learning hoặc có thể xử lý nhiệm vụ thực tế an toàn."},
+        {"p": "Trong thực hành, tôi sẽ chạy notebook thật, kiểm tra đường đi không xuyên tường và dùng BFS làm đối chứng độc lập cho độ dài tối thiểu. BFS không cung cấp đáp án cho quá trình học. Cách kiểm tra này nối phần lý thuyết với bằng chứng quan sát được: tác tử đã hành động ra sao và kết quả có đạt tiêu chí đã đặt hay không."}
+      ]
+    }
+  ]
+}

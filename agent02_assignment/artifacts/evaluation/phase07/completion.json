@@ -1,0 +1,1687 @@
+{
+  "declaration_sha256": "909607dff359f2ec12a90d2c5d4738c76bf54f1a98b97f1f6ef65cf943690975",
+  "entries": [
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/117a0bf944ad6c288123ea3f29f6763d81e30eed23dedc45925c0bc676716ea9/complete.json",
+      "job": {
+        "job_id": "augmented/iid/s0011/role0",
+        "kernel_id": "iid",
+        "policy_id": "augmented",
+        "policy_sha256": "e056ed0c4981cfc7dba7c95a82881f834719cc60321f455acf6db8384f694fb0",
+        "q_file_sha256": "e624ef41f24eeaef4c916a45fcf8b0c7c49a2db3c85024af7650f2f7b57778aa",
+        "q_path": "artifacts/runs/controlled/iid/augmented/s0011/q_table.json",
+        "role": 0,
+        "scenario_sha256": "15882683275a4786997347011d6f06fda2e55af85c3edd9242689f5ec639afd0",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000011,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 11,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "117a0bf944ad6c288123ea3f29f6763d81e30eed23dedc45925c0bc676716ea9"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/8b5f82f33a7cb938e102e4a725e948930c02b5968d20387d103a4ec7e49b3610/complete.json",
+      "job": {
+        "job_id": "augmented/iid/s0011/role1",
+        "kernel_id": "iid",
+        "policy_id": "augmented",
+        "policy_sha256": "e056ed0c4981cfc7dba7c95a82881f834719cc60321f455acf6db8384f694fb0",
+        "q_file_sha256": "e624ef41f24eeaef4c916a45fcf8b0c7c49a2db3c85024af7650f2f7b57778aa",
+        "q_path": "artifacts/runs/controlled/iid/augmented/s0011/q_table.json",
+        "role": 1,
+        "scenario_sha256": "15882683275a4786997347011d6f06fda2e55af85c3edd9242689f5ec639afd0",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000011,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 11,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "8b5f82f33a7cb938e102e4a725e948930c02b5968d20387d103a4ec7e49b3610"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/b8207b35d9a5dd98f7a56d064d21725f870ca45d99f3b18423c0376159efce66/complete.json",
+      "job": {
+        "job_id": "augmented/iid/s0022/role0",
+        "kernel_id": "iid",
+        "policy_id": "augmented",
+        "policy_sha256": "10cf6d3ca3d2608b4309f004f83369330313fcaad47bfefbabbc02b3ef931bd3",
+        "q_file_sha256": "788e0aae54612566ca6ddc361d5dcd8bf3e766158bbf77ede13d5232caa8fb24",
+        "q_path": "artifacts/runs/controlled/iid/augmented/s0022/q_table.json",
+        "role": 0,
+        "scenario_sha256": "142924082ca16f47a0bca248134c0475037a5f1fb9449ec110d0178cb2dffe35",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000022,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 22,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "b8207b35d9a5dd98f7a56d064d21725f870ca45d99f3b18423c0376159efce66"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/7afad53c4e576112574381306a4d471abcd7f25973660e11b1c11c56876da9a3/complete.json",
+      "job": {
+        "job_id": "augmented/iid/s0022/role1",
+        "kernel_id": "iid",
+        "policy_id": "augmented",
+        "policy_sha256": "10cf6d3ca3d2608b4309f004f83369330313fcaad47bfefbabbc02b3ef931bd3",
+        "q_file_sha256": "788e0aae54612566ca6ddc361d5dcd8bf3e766158bbf77ede13d5232caa8fb24",
+        "q_path": "artifacts/runs/controlled/iid/augmented/s0022/q_table.json",
+        "role": 1,
+        "scenario_sha256": "142924082ca16f47a0bca248134c0475037a5f1fb9449ec110d0178cb2dffe35",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000022,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 22,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "7afad53c4e576112574381306a4d471abcd7f25973660e11b1c11c56876da9a3"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/c5a8058d87d947f07837c0b05952a5c50ff2a6f3f3ae3aca743246471513042d/complete.json",
+      "job": {
+        "job_id": "augmented/iid/s0033/role0",
+        "kernel_id": "iid",
+        "policy_id": "augmented",
+        "policy_sha256": "78bd222cd8b7cf623fb8b80dd6ab0bc707394bb623bffa4932b9f9b4a87d215d",
+        "q_file_sha256": "9ce9e70bb5320a1b92c3f4b5182e6e2ab84c91f50811f55f0e7555319f6d28e1",
+        "q_path": "artifacts/runs/controlled/iid/augmented/s0033/q_table.json",
+        "role": 0,
+        "scenario_sha256": "d16465739e1e12629358c4daa5edadfdafecc8062c0eed255d31108f5a0ae271",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000033,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 33,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "c5a8058d87d947f07837c0b05952a5c50ff2a6f3f3ae3aca743246471513042d"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/99cd153e63984bd436abde87eb46a15d7718bfbb870495f39a7d18fbce2ae7b7/complete.json",
+      "job": {
+        "job_id": "augmented/iid/s0033/role1",
+        "kernel_id": "iid",
+        "policy_id": "augmented",
+        "policy_sha256": "78bd222cd8b7cf623fb8b80dd6ab0bc707394bb623bffa4932b9f9b4a87d215d",
+        "q_file_sha256": "9ce9e70bb5320a1b92c3f4b5182e6e2ab84c91f50811f55f0e7555319f6d28e1",
+        "q_path": "artifacts/runs/controlled/iid/augmented/s0033/q_table.json",
+        "role": 1,
+        "scenario_sha256": "d16465739e1e12629358c4daa5edadfdafecc8062c0eed255d31108f5a0ae271",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000033,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 33,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "99cd153e63984bd436abde87eb46a15d7718bfbb870495f39a7d18fbce2ae7b7"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/48e5284c0fef764d2506213defa5cae2cf95bda17d5a5a5a6f49c9cd949d7a43/complete.json",
+      "job": {
+        "job_id": "augmented/iid/s0044/role0",
+        "kernel_id": "iid",
+        "policy_id": "augmented",
+        "policy_sha256": "7815c488185c04738397f3282d7c27810554237c6f9c6a7aa55d7b2c3c0319b9",
+        "q_file_sha256": "0b1e8b449ee2aba56e4f80c838fc834fdd6d9ad6e62bfa46bf90e2c8b460034c",
+        "q_path": "artifacts/runs/controlled/iid/augmented/s0044/q_table.json",
+        "role": 0,
+        "scenario_sha256": "bc7a8bebc93334771b36d5ab0aadcc0dd73fc877d0140f06d6dd0a4a2bff7d7d",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000044,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 44,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "48e5284c0fef764d2506213defa5cae2cf95bda17d5a5a5a6f49c9cd949d7a43"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/3ce5295b7ab420a0bb7beb4ef639f7fd89d2f22b13ef25749036c02a4c16a0ee/complete.json",
+      "job": {
+        "job_id": "augmented/iid/s0044/role1",
+        "kernel_id": "iid",
+        "policy_id": "augmented",
+        "policy_sha256": "7815c488185c04738397f3282d7c27810554237c6f9c6a7aa55d7b2c3c0319b9",
+        "q_file_sha256": "0b1e8b449ee2aba56e4f80c838fc834fdd6d9ad6e62bfa46bf90e2c8b460034c",
+        "q_path": "artifacts/runs/controlled/iid/augmented/s0044/q_table.json",
+        "role": 1,
+        "scenario_sha256": "bc7a8bebc93334771b36d5ab0aadcc0dd73fc877d0140f06d6dd0a4a2bff7d7d",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000044,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 44,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "3ce5295b7ab420a0bb7beb4ef639f7fd89d2f22b13ef25749036c02a4c16a0ee"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/2061f6f8d70b2d20a9812022ea95ac748c3b7203f0d875fb5f982f817cb274a0/complete.json",
+      "job": {
+        "job_id": "augmented/iid/s0055/role0",
+        "kernel_id": "iid",
+        "policy_id": "augmented",
+        "policy_sha256": "91be1daae0b78dba9e1358632a1c1f5351c6693115242180c8c848f7171a6d48",
+        "q_file_sha256": "36e90e640196bcb544fb7137091ef61a44d9e8c7a0352b7f1a29df93e3245271",
+        "q_path": "artifacts/runs/controlled/iid/augmented/s0055/q_table.json",
+        "role": 0,
+        "scenario_sha256": "acd844e9cdef1cc07f18fe43d6d349e2e181aa9a7731472ef036f0b6d228602e",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000055,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 55,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "2061f6f8d70b2d20a9812022ea95ac748c3b7203f0d875fb5f982f817cb274a0"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/fb7fad32b47bd70cc35514efba08c2f8d8a4c154e452d664e5c2f395536ee385/complete.json",
+      "job": {
+        "job_id": "augmented/iid/s0055/role1",
+        "kernel_id": "iid",
+        "policy_id": "augmented",
+        "policy_sha256": "91be1daae0b78dba9e1358632a1c1f5351c6693115242180c8c848f7171a6d48",
+        "q_file_sha256": "36e90e640196bcb544fb7137091ef61a44d9e8c7a0352b7f1a29df93e3245271",
+        "q_path": "artifacts/runs/controlled/iid/augmented/s0055/q_table.json",
+        "role": 1,
+        "scenario_sha256": "acd844e9cdef1cc07f18fe43d6d349e2e181aa9a7731472ef036f0b6d228602e",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000055,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 55,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "fb7fad32b47bd70cc35514efba08c2f8d8a4c154e452d664e5c2f395536ee385"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/4312b63d569baa7c2db92dc2358cb6ecb765a43edec8b7af2d6f002f5ef1738a/complete.json",
+      "job": {
+        "job_id": "augmented/persistent/s0011/role0",
+        "kernel_id": "persistent",
+        "policy_id": "augmented",
+        "policy_sha256": "7bc37f12f7fc2d46c9a5b3ee6ce901455a4bf499bef4f73d24d99fcaa4e48966",
+        "q_file_sha256": "adbd75b38cdba55572341cac24b5118c2fd698b56d463110bc514850a5ddf28f",
+        "q_path": "artifacts/runs/controlled/persistent/augmented/s0011/q_table.json",
+        "role": 0,
+        "scenario_sha256": "506b3d7e11551a1f8404bf61c8ebda38ed709eaed8ca58d5d417234818f260fd",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.9,
+                0.1
+              ],
+              [
+                0.1,
+                0.9
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000011,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 11,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "4312b63d569baa7c2db92dc2358cb6ecb765a43edec8b7af2d6f002f5ef1738a"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/e09d1fa847617870cc8929c46e558da5b0d362e83a1d28417eb2dd815b6e7d57/complete.json",
+      "job": {
+        "job_id": "augmented/persistent/s0011/role1",
+        "kernel_id": "persistent",
+        "policy_id": "augmented",
+        "policy_sha256": "7bc37f12f7fc2d46c9a5b3ee6ce901455a4bf499bef4f73d24d99fcaa4e48966",
+        "q_file_sha256": "adbd75b38cdba55572341cac24b5118c2fd698b56d463110bc514850a5ddf28f",
+        "q_path": "artifacts/runs/controlled/persistent/augmented/s0011/q_table.json",
+        "role": 1,
+        "scenario_sha256": "506b3d7e11551a1f8404bf61c8ebda38ed709eaed8ca58d5d417234818f260fd",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.9,
+                0.1
+              ],
+              [
+                0.1,
+                0.9
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000011,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 11,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "e09d1fa847617870cc8929c46e558da5b0d362e83a1d28417eb2dd815b6e7d57"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/da08d3a9384646add8a2bd9918c194592fb51492788c7862f0088a99558d8815/complete.json",
+      "job": {
+        "job_id": "augmented/persistent/s0022/role0",
+        "kernel_id": "persistent",
+        "policy_id": "augmented",
+        "policy_sha256": "4f9ef1ef3c290f1e5e78bc87508a3c35f2aa3de7d3e6cebbf05dc66d53f83f04",
+        "q_file_sha256": "a24f69ab7d6261c664f1400042b09caf227c2ec0cb82112b41890dc1c73e7226",
+        "q_path": "artifacts/runs/controlled/persistent/augmented/s0022/q_table.json",
+        "role": 0,
+        "scenario_sha256": "a6bc0bb41472c0431ff872aa884ee407175db5a141c9e7d771f15d1003297e07",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.9,
+                0.1
+              ],
+              [
+                0.1,
+                0.9
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000022,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 22,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "da08d3a9384646add8a2bd9918c194592fb51492788c7862f0088a99558d8815"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/c6b861cdfd8a149eafcba88022fec427b6a8ca7f152e350c490811c9a88ed1e7/complete.json",
+      "job": {
+        "job_id": "augmented/persistent/s0022/role1",
+        "kernel_id": "persistent",
+        "policy_id": "augmented",
+        "policy_sha256": "4f9ef1ef3c290f1e5e78bc87508a3c35f2aa3de7d3e6cebbf05dc66d53f83f04",
+        "q_file_sha256": "a24f69ab7d6261c664f1400042b09caf227c2ec0cb82112b41890dc1c73e7226",
+        "q_path": "artifacts/runs/controlled/persistent/augmented/s0022/q_table.json",
+        "role": 1,
+        "scenario_sha256": "a6bc0bb41472c0431ff872aa884ee407175db5a141c9e7d771f15d1003297e07",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.9,
+                0.1
+              ],
+              [
+                0.1,
+                0.9
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000022,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 22,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "c6b861cdfd8a149eafcba88022fec427b6a8ca7f152e350c490811c9a88ed1e7"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/9276cf0901281cd98a05a9f3aada169dbce8f849d3401a1a83a978f091cd67d5/complete.json",
+      "job": {
+        "job_id": "augmented/persistent/s0033/role0",
+        "kernel_id": "persistent",
+        "policy_id": "augmented",
+        "policy_sha256": "9454865fd6ed680f50d364d8ee2032d69566fd2bad64f3cd4432c8e3a57003aa",
+        "q_file_sha256": "a0e6e315a3f30b71d7d6ab25511201f406992cbd83af104ceaee796379e54894",
+        "q_path": "artifacts/runs/controlled/persistent/augmented/s0033/q_table.json",
+        "role": 0,
+        "scenario_sha256": "1780000538bd7760603c8fb6f9e0f5902c427032ab4bc3da4f4f6c0d4a67e800",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.9,
+                0.1
+              ],
+              [
+                0.1,
+                0.9
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000033,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 33,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "9276cf0901281cd98a05a9f3aada169dbce8f849d3401a1a83a978f091cd67d5"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/16ab572975d75a1b459cee7bf959ad327ed425849c20ad685228b3c3d0e68e3c/complete.json",
+      "job": {
+        "job_id": "augmented/persistent/s0033/role1",
+        "kernel_id": "persistent",
+        "policy_id": "augmented",
+        "policy_sha256": "9454865fd6ed680f50d364d8ee2032d69566fd2bad64f3cd4432c8e3a57003aa",
+        "q_file_sha256": "a0e6e315a3f30b71d7d6ab25511201f406992cbd83af104ceaee796379e54894",
+        "q_path": "artifacts/runs/controlled/persistent/augmented/s0033/q_table.json",
+        "role": 1,
+        "scenario_sha256": "1780000538bd7760603c8fb6f9e0f5902c427032ab4bc3da4f4f6c0d4a67e800",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.9,
+                0.1
+              ],
+              [
+                0.1,
+                0.9
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000033,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 33,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "16ab572975d75a1b459cee7bf959ad327ed425849c20ad685228b3c3d0e68e3c"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/c3e835f0a7e1fd79337ca00a04117b525f39df5ed413a9904d89f1922727770a/complete.json",
+      "job": {
+        "job_id": "augmented/persistent/s0044/role0",
+        "kernel_id": "persistent",
+        "policy_id": "augmented",
+        "policy_sha256": "017f360cf7a0a243e16a4a89fbf3511a49eb1bd223e8b44848cd49e7b9300ab6",
+        "q_file_sha256": "2e5f188131d05a910aafe51692b520e7ec99c71b76dca17db968aa4160992f65",
+        "q_path": "artifacts/runs/controlled/persistent/augmented/s0044/q_table.json",
+        "role": 0,
+        "scenario_sha256": "a0c72bb7c5d9527bf98f4658b4a1afbdc66fcfea845bdafa2dcd4c45be432619",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.9,
+                0.1
+              ],
+              [
+                0.1,
+                0.9
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000044,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 44,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "c3e835f0a7e1fd79337ca00a04117b525f39df5ed413a9904d89f1922727770a"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/c84a95ed716d1d7d1a3a722388b37711ffa5630528fa8a14fbba57c0fe0c1960/complete.json",
+      "job": {
+        "job_id": "augmented/persistent/s0044/role1",
+        "kernel_id": "persistent",
+        "policy_id": "augmented",
+        "policy_sha256": "017f360cf7a0a243e16a4a89fbf3511a49eb1bd223e8b44848cd49e7b9300ab6",
+        "q_file_sha256": "2e5f188131d05a910aafe51692b520e7ec99c71b76dca17db968aa4160992f65",
+        "q_path": "artifacts/runs/controlled/persistent/augmented/s0044/q_table.json",
+        "role": 1,
+        "scenario_sha256": "a0c72bb7c5d9527bf98f4658b4a1afbdc66fcfea845bdafa2dcd4c45be432619",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.9,
+                0.1
+              ],
+              [
+                0.1,
+                0.9
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000044,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 44,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "c84a95ed716d1d7d1a3a722388b37711ffa5630528fa8a14fbba57c0fe0c1960"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/fc1350c4cb12ed277b669da13b6d7e5f1b9107b8632e753541194888c1b0cd17/complete.json",
+      "job": {
+        "job_id": "augmented/persistent/s0055/role0",
+        "kernel_id": "persistent",
+        "policy_id": "augmented",
+        "policy_sha256": "38bdb0b79d50a4567da862da68623044b36decd91c589204d1ddb494ecc07174",
+        "q_file_sha256": "e499be84304f2a450d73bf72febe15cfc1c24e76fbd790aac72797107aec0ba5",
+        "q_path": "artifacts/runs/controlled/persistent/augmented/s0055/q_table.json",
+        "role": 0,
+        "scenario_sha256": "231340d46dcaca55d495b03695cd5dc5714860278eef0491aa3fcd837bf7bad9",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.9,
+                0.1
+              ],
+              [
+                0.1,
+                0.9
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000055,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 55,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "fc1350c4cb12ed277b669da13b6d7e5f1b9107b8632e753541194888c1b0cd17"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/20805ba85c28af168e5b087f2fc2febc3602a58be8b00c286100464fcf31656f/complete.json",
+      "job": {
+        "job_id": "augmented/persistent/s0055/role1",
+        "kernel_id": "persistent",
+        "policy_id": "augmented",
+        "policy_sha256": "38bdb0b79d50a4567da862da68623044b36decd91c589204d1ddb494ecc07174",
+        "q_file_sha256": "e499be84304f2a450d73bf72febe15cfc1c24e76fbd790aac72797107aec0ba5",
+        "q_path": "artifacts/runs/controlled/persistent/augmented/s0055/q_table.json",
+        "role": 1,
+        "scenario_sha256": "231340d46dcaca55d495b03695cd5dc5714860278eef0491aa3fcd837bf7bad9",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.9,
+                0.1
+              ],
+              [
+                0.1,
+                0.9
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000055,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 55,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "20805ba85c28af168e5b087f2fc2febc3602a58be8b00c286100464fcf31656f"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/aa8121406ca438d46be4c85aac4ce9c01dcd32c57dee9a1ce4c11f4fdc97b41a/complete.json",
+      "job": {
+        "job_id": "augmented/gold/s0011/role0",
+        "kernel_id": "gold",
+        "policy_id": "augmented",
+        "policy_sha256": "4c8613053f78c32f3cdab863cacd87dae1542196c0e000c713c919776d0906f4",
+        "q_file_sha256": "1bc4a4f595833488b769f8b0c703c7e18e532dd1a26ca8aec8c677ffe1597d92",
+        "q_path": "artifacts/runs/controlled/gold/augmented/s0011/q_table.json",
+        "role": 0,
+        "scenario_sha256": "355ab21063fe25c12151a06363f40d90ed1085035c93cb817c75e3974c9d7428",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.7067448680351907,
+                0.2932551319648094
+              ],
+              [
+                0.45248868778280543,
+                0.5475113122171946
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000011,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 11,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "aa8121406ca438d46be4c85aac4ce9c01dcd32c57dee9a1ce4c11f4fdc97b41a"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/4473b00c3b4199dfdb631d692660eda541b8cbd943899e3ddbc4f375028f67c2/complete.json",
+      "job": {
+        "job_id": "augmented/gold/s0011/role1",
+        "kernel_id": "gold",
+        "policy_id": "augmented",
+        "policy_sha256": "4c8613053f78c32f3cdab863cacd87dae1542196c0e000c713c919776d0906f4",
+        "q_file_sha256": "1bc4a4f595833488b769f8b0c703c7e18e532dd1a26ca8aec8c677ffe1597d92",
+        "q_path": "artifacts/runs/controlled/gold/augmented/s0011/q_table.json",
+        "role": 1,
+        "scenario_sha256": "355ab21063fe25c12151a06363f40d90ed1085035c93cb817c75e3974c9d7428",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.7067448680351907,
+                0.2932551319648094
+              ],
+              [
+                0.45248868778280543,
+                0.5475113122171946
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000011,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 11,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "4473b00c3b4199dfdb631d692660eda541b8cbd943899e3ddbc4f375028f67c2"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/d7c7facfc4052fbb764d86c900833cba89cfcdea62b712689434d85bcf9d8f31/complete.json",
+      "job": {
+        "job_id": "augmented/gold/s0022/role0",
+        "kernel_id": "gold",
+        "policy_id": "augmented",
+        "policy_sha256": "98e92e90b847d866fa76129ac4008737d2840b2e04900b6b04c4043a1505643c",
+        "q_file_sha256": "5267dc1c10a3b58480daf3e2b265ad3263839295569b9c951f0b51abc4481efe",
+        "q_path": "artifacts/runs/controlled/gold/augmented/s0022/q_table.json",
+        "role": 0,
+        "scenario_sha256": "1f938e0d306ba7e83a594a2af3f2dacf6ca5e4bfa22994a1436a4c3aec530b9f",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.7067448680351907,
+                0.2932551319648094
+              ],
+              [
+                0.45248868778280543,
+                0.5475113122171946
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000022,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 22,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "d7c7facfc4052fbb764d86c900833cba89cfcdea62b712689434d85bcf9d8f31"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/d1e4964ca675751183aaf0d0ee9afaa2f488bab1f4117f27d8b304a21780362b/complete.json",
+      "job": {
+        "job_id": "augmented/gold/s0022/role1",
+        "kernel_id": "gold",
+        "policy_id": "augmented",
+        "policy_sha256": "98e92e90b847d866fa76129ac4008737d2840b2e04900b6b04c4043a1505643c",
+        "q_file_sha256": "5267dc1c10a3b58480daf3e2b265ad3263839295569b9c951f0b51abc4481efe",
+        "q_path": "artifacts/runs/controlled/gold/augmented/s0022/q_table.json",
+        "role": 1,
+        "scenario_sha256": "1f938e0d306ba7e83a594a2af3f2dacf6ca5e4bfa22994a1436a4c3aec530b9f",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.7067448680351907,
+                0.2932551319648094
+              ],
+              [
+                0.45248868778280543,
+                0.5475113122171946
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000022,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 22,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "d1e4964ca675751183aaf0d0ee9afaa2f488bab1f4117f27d8b304a21780362b"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/e3961145f982f8aaa959f20b702b788957e696742e3dd49512864ab398237b62/complete.json",
+      "job": {
+        "job_id": "augmented/gold/s0033/role0",
+        "kernel_id": "gold",
+        "policy_id": "augmented",
+        "policy_sha256": "60e87d35335534a810a73f1968c07c84119601329ff920c7cfca12f113e2adfb",
+        "q_file_sha256": "be4b7ba82a8134ea4fcb8debd7787ba4aad38faf19e4a0dc1d50a326ad3a23b3",
+        "q_path": "artifacts/runs/controlled/gold/augmented/s0033/q_table.json",
+        "role": 0,
+        "scenario_sha256": "ef3be31f1ec1e9c8145d8cfa6040e6656a39592acd184c7070fd42f33d6d0041",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.7067448680351907,
+                0.2932551319648094
+              ],
+              [
+                0.45248868778280543,
+                0.5475113122171946
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000033,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 33,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "e3961145f982f8aaa959f20b702b788957e696742e3dd49512864ab398237b62"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/75cea855caf33612521504945fdd3dd478cbc650d3822f9e56d5ad475a400e4d/complete.json",
+      "job": {
+        "job_id": "augmented/gold/s0033/role1",
+        "kernel_id": "gold",
+        "policy_id": "augmented",
+        "policy_sha256": "60e87d35335534a810a73f1968c07c84119601329ff920c7cfca12f113e2adfb",
+        "q_file_sha256": "be4b7ba82a8134ea4fcb8debd7787ba4aad38faf19e4a0dc1d50a326ad3a23b3",
+        "q_path": "artifacts/runs/controlled/gold/augmented/s0033/q_table.json",
+        "role": 1,
+        "scenario_sha256": "ef3be31f1ec1e9c8145d8cfa6040e6656a39592acd184c7070fd42f33d6d0041",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.7067448680351907,
+                0.2932551319648094
+              ],
+              [
+                0.45248868778280543,
+                0.5475113122171946
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000033,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 33,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "75cea855caf33612521504945fdd3dd478cbc650d3822f9e56d5ad475a400e4d"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/5c5e1706b66940555d234e96f9e503dc57040c3c7ca2cd3f43be9c867db24082/complete.json",
+      "job": {
+        "job_id": "augmented/gold/s0044/role0",
+        "kernel_id": "gold",
+        "policy_id": "augmented",
+        "policy_sha256": "47f17c975b955960813453dda66ec43db81e84686e7a6b639448725bc50213cc",
+        "q_file_sha256": "f8455b49523e7a1721e94ce4c338853711691c3a9913ae9c2b88090c2778fb52",
+        "q_path": "artifacts/runs/controlled/gold/augmented/s0044/q_table.json",
+        "role": 0,
+        "scenario_sha256": "32c9d7e6bd2d5e196b5b5a1d94a5701b1b2d1c1c16313e24d54c454fb17f5afb",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.7067448680351907,
+                0.2932551319648094
+              ],
+              [
+                0.45248868778280543,
+                0.5475113122171946
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000044,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 44,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "5c5e1706b66940555d234e96f9e503dc57040c3c7ca2cd3f43be9c867db24082"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/b5baa2e4b4decb9cb625fe31d4913ff70fccb32ca0371cde1fda57a72af964ea/complete.json",
+      "job": {
+        "job_id": "augmented/gold/s0044/role1",
+        "kernel_id": "gold",
+        "policy_id": "augmented",
+        "policy_sha256": "47f17c975b955960813453dda66ec43db81e84686e7a6b639448725bc50213cc",
+        "q_file_sha256": "f8455b49523e7a1721e94ce4c338853711691c3a9913ae9c2b88090c2778fb52",
+        "q_path": "artifacts/runs/controlled/gold/augmented/s0044/q_table.json",
+        "role": 1,
+        "scenario_sha256": "32c9d7e6bd2d5e196b5b5a1d94a5701b1b2d1c1c16313e24d54c454fb17f5afb",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.7067448680351907,
+                0.2932551319648094
+              ],
+              [
+                0.45248868778280543,
+                0.5475113122171946
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000044,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 44,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "b5baa2e4b4decb9cb625fe31d4913ff70fccb32ca0371cde1fda57a72af964ea"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/de92814e2d8f00392adb71a6a7731a8fed7a208fc1bd6bd444cc8d7eb130c422/complete.json",
+      "job": {
+        "job_id": "augmented/gold/s0055/role0",
+        "kernel_id": "gold",
+        "policy_id": "augmented",
+        "policy_sha256": "84da0c1f18845f2170ee046a3ab3648b5fd213f4f799caa6bece574ac2c7015c",
+        "q_file_sha256": "957782721184c4e2e8e9670db7a91224796dae536359e491e736e3392358e470",
+        "q_path": "artifacts/runs/controlled/gold/augmented/s0055/q_table.json",
+        "role": 0,
+        "scenario_sha256": "6cff40397fddfbc4ced08b97806825af15b9c6a78d30f9066d330d17e8f64aa0",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.7067448680351907,
+                0.2932551319648094
+              ],
+              [
+                0.45248868778280543,
+                0.5475113122171946
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000055,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 55,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "de92814e2d8f00392adb71a6a7731a8fed7a208fc1bd6bd444cc8d7eb130c422"
+    },
+    {
+      "complete_path": "artifacts/evaluation/phase07/journal/2375f64e179fcef9bb75bb20944fd1ce105e69471055abb9ed36ead737f7a9cb/complete.json",
+      "job": {
+        "job_id": "augmented/gold/s0055/role1",
+        "kernel_id": "gold",
+        "policy_id": "augmented",
+        "policy_sha256": "84da0c1f18845f2170ee046a3ab3648b5fd213f4f799caa6bece574ac2c7015c",
+        "q_file_sha256": "957782721184c4e2e8e9670db7a91224796dae536359e491e736e3392358e470",
+        "q_path": "artifacts/runs/controlled/gold/augmented/s0055/q_table.json",
+        "role": 1,
+        "scenario_sha256": "6cff40397fddfbc4ced08b97806825af15b9c6a78d30f9066d330d17e8f64aa0",
+        "scenario_spec": {
+          "episodes": 500,
+          "initial_history": [
+            0,
+            0
+          ],
+          "market": {
+            "cost": 5.0,
+            "customers_high": 20,
+            "customers_low": 10,
+            "discount": 0.2,
+            "kernel": [
+              [
+                0.7067448680351907,
+                0.2932551319648094
+              ],
+              [
+                0.45248868778280543,
+                0.5475113122171946
+              ]
+            ],
+            "price": 10.0,
+            "steps": 20
+          },
+          "rng": {
+            "controlled_training": "PCG64 SeedSequence([train_seed, channel]); channels demand=0,sales=1,2,policy=3",
+            "evaluation_ties": "PCG64 int(SeedSequence([scenario_seed,4]).generate_state(1)[0])",
+            "near_ties": {
+              "atol": 1e-08,
+              "rtol": 1e-05,
+              "rule": "random among np.isclose to max"
+            },
+            "policy_seed_derivation": "int(SeedSequence([seed,3]).generate_state(1)[0])",
+            "reference": "Original single env RNG seed; action RNG seed+10000; reference code unchanged",
+            "tape_sampling": "Count independent uniforms < conversion for N customers; Binomial marginal",
+            "tapes": "PCG64 SeedSequence([scenario_seed,episode,channel]); demand=0,customer_uniforms=1"
+          },
+          "scenario_seed": 2000055,
+          "tape_engine": "original_Tape.generate_v1"
+        },
+        "seed": 55,
+        "study_id": "ag02_phase07_augmented_v1"
+      },
+      "key": "2375f64e179fcef9bb75bb20944fd1ce105e69471055abb9ed36ead737f7a9cb"
+    }
+  ],
+  "status": "EVALUATED",
+  "unique_claims": 30
+}

@@ -1,0 +1,44 @@
+{
+  "bytes": 25001,
+  "classes": [
+    "Config",
+    "ECommerceEnvironment",
+    "QLearningAgent",
+    "RuleBasedAgent"
+  ],
+  "config_defaults": {
+    "alpha": 0.1,
+    "discount_rate": 0.2,
+    "episodes": 5000,
+    "epsilon_decay": 0.995,
+    "epsilon_min": 0.02,
+    "epsilon_start": 0.2,
+    "evaluation_episodes": 500,
+    "gamma": 0.9,
+    "high_demand_customers": 20,
+    "low_demand_customers": 10,
+    "output_dir": "agent02_results",
+    "price": 10.0,
+    "seed": 42,
+    "steps_per_episode": 20,
+    "unit_cost": 5.0
+  },
+  "execution_performed": false,
+  "functions": [
+    "train_rl_against_rule",
+    "evaluate_pair",
+    "write_csv",
+    "save_q_table",
+    "moving_average",
+    "plot_training_rewards",
+    "plot_bar_comparison",
+    "run_baseline",
+    "run_learning_rate_experiment",
+    "run_exploration_experiment",
+    "run_multi_seed_experiment",
+    "main"
+  ],
+  "lines": 966,
+  "sha256": "3d40be4edc925f83b403c0b7e71e7fff03dfe0dbed56f0895c192058a4865ca9",
+  "syntax_valid": true
+}

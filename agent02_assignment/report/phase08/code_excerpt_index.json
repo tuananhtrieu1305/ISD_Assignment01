@@ -1,0 +1,82 @@
+[
+  {
+    "end_line": 169,
+    "excerpt_sha256": "d3a24769a88c4e0e1d9584d959823fa0d6a1bf8ba26fc3960c44afb61f28c70a",
+    "id": "E01",
+    "path": "code/controlled.py",
+    "source_sha256": "df92154dea7a95739019fae56e6c9b79d53c446afe7607db8058f8b49e8f28b2",
+    "start_line": 167,
+    "symbol": "RuleAgent.act",
+    "text": "def act(self, state):\n    demand, competitor_previous = state_pair(state)\n    return int(demand == 1 and competitor_previous == 1)"
+  },
+  {
+    "end_line": 190,
+    "excerpt_sha256": "0cd28c7a7555c97dc48e96d61e15fd4e2bec8cc5fe10eb256b77db4b597d0683",
+    "id": "E02",
+    "path": "code/controlled.py",
+    "source_sha256": "df92154dea7a95739019fae56e6c9b79d53c446afe7607db8058f8b49e8f28b2",
+    "start_line": 179,
+    "symbol": "QAgent.act",
+    "text": "def act(self, state, epsilon, *, explore=True):\n    state = state_pair(state)\n    if not np.isfinite(epsilon) or not 0 <= epsilon <= 1:\n        raise ValueError('epsilon must be in [0,1]')\n    values = self.q[state]\n    if not np.isfinite(values).all():\n        raise ValueError('Nonfinite Q values')\n    if explore and self.rng.random() < epsilon:\n        return int(self.rng.integers(2))\n    # Same near-tie convention as the reference, made explicit in the protocol.\n    best = np.flatnonzero(np.isclose(values, values.max(), rtol=1e-5, atol=1e-8))\n    return int(self.rng.choice(best))"
+  },
+  {
+    "end_line": 200,
+    "excerpt_sha256": "7d0e5f6bff06234d5336c3ad35e2834b332c5e37bbe9e309c910627bb7a1a170",
+    "id": "E03",
+    "path": "code/controlled.py",
+    "source_sha256": "df92154dea7a95739019fae56e6c9b79d53c446afe7607db8058f8b49e8f28b2",
+    "start_line": 192,
+    "symbol": "QAgent.learn",
+    "text": "def learn(self, state, action, reward, following, terminal):\n    state, following, action = state_pair(state), state_pair(following), binary(action, 'action')\n    if not np.isfinite(reward):\n        raise ValueError('Nonfinite reward')\n    target = reward if terminal else reward + self.config.gamma * float(self.q[following].max())\n    key = (*state, action)\n    self.q[key] += self.config.alpha * (target - self.q[key])\n    if not np.isfinite(self.q[key]):\n        raise ValueError('Nonfinite Q update')"
+  },
+  {
+    "end_line": 52,
+    "excerpt_sha256": "ec99d4db22fe02de14ca4059e066052ebc04be0ad5ba65a45c9d7576227d0fa5",
+    "id": "E04",
+    "path": "code/training.py",
+    "source_sha256": "e3e43418373866f9f3bd05310709793bdeb41460d226db3cad519a25f2ec2a3f",
+    "start_line": 46,
+    "symbol": "TrainSession.run_chunk",
+    "text": "for step in range(self.market.steps):\n    # Neither policy sees the other's current action before choosing.\n    actions = (self.agent.act(states[0], epsilon), self.rule.act(states[1]))\n    result = self.env.step(actions)\n    self.agent.learn(states[0], actions[0], result.rewards[0], result.states[0], result.done)\n    self.visits[(*states[0], actions[0])] += 1\n    total += result.rewards"
+  },
+  {
+    "end_line": 37,
+    "excerpt_sha256": "d8d098ebc9be79bd231d615a480d4dab37b5d94ea78236e060cd4dcaf94a63d4",
+    "id": "E05",
+    "path": "code/evaluation/final_v1.py",
+    "source_sha256": "504176cd6e96e569f7258ff6d369e447755efdded25410097af3e9e89a71f8c2",
+    "start_line": 29,
+    "symbol": "evaluate_tapes",
+    "text": "def evaluate_tapes(q, market, *, episodes, scenario_seed, role, kind='q', guard=None):\n    budget(episodes, role)\n    fingerprint = policy_hash(q, kind)\n    before = q_digest(q) if kind == 'q' else None\n    learner = None\n    if kind == 'q':\n        learner = QAgent(LearningConfig(), int(np.random.SeedSequence([scenario_seed, 4]).generate_state(1)[0]))\n        learner.q[:] = q\n        learner.q.flags.writeable = False"
+  },
+  {
+    "end_line": 71,
+    "excerpt_sha256": "5a269adf582f2aa7e438440d20df21071cb91b8505e80877794824ba0351ea5f",
+    "id": "E06",
+    "path": "code/evaluation/final_v1.py",
+    "source_sha256": "504176cd6e96e569f7258ff6d369e447755efdded25410097af3e9e89a71f8c2",
+    "start_line": 69,
+    "symbol": "evaluate_tapes",
+    "text": "after = q_digest(q) if kind == 'q' else None\nif before != after or (learner is not None and q_digest(learner.q) != before):\n    raise RuntimeError('Frozen Q changed')"
+  },
+  {
+    "end_line": 47,
+    "excerpt_sha256": "a6e1b000080a2989b6a80da7f5d4b7a07f60452a101c13e2d1054b7b1a37f508",
+    "id": "E07",
+    "path": "phase06.py",
+    "source_sha256": "6cfec2247289322144a59fc61b1aa1c5a4aa714fd6c58c0f9879a0c9cfaf363f",
+    "start_line": 43,
+    "symbol": "markets",
+    "text": "def markets():\n    data = protocol()\n    baseline = MarketConfig(**data['market'])\n    return {'iid': baseline, 'persistent': replace(baseline, kernel=data['future_variants']['persistent']['kernel']),\n        'gold': replace(baseline, kernel=json.loads((BASE/'data/derived/gold_regime_kernel_v1.json').read_text())['kernel'])}"
+  },
+  {
+    "end_line": 88,
+    "excerpt_sha256": "4481982d6e27789fe6d7538284035d5da1c40e0d90621b163aa62aee9a0d3bbc",
+    "id": "E08",
+    "path": "code/augmented.py",
+    "source_sha256": "3638a130760b2bc3713e5925eca115be09f58b6207d81a870a681333b747d57f",
+    "start_line": 73,
+    "symbol": "AugmentedAgent.learn",
+    "text": "def learn(self, state, action, reward, following, terminal):\n    index = state_index(state)\n    action = binary(action, 'action')\n    if not np.isfinite(reward) or bool(terminal)!=(state[3]==1):\n        raise ValueError('Invalid reward/terminal time')\n    if terminal:\n        target = reward\n    else:\n        following_index = state_index(following)\n        if following[3]!=state[3]-1:\n            raise ValueError('Remaining time must decrease exactly1')\n        target = reward+self.config.gamma*float(self.q[following_index].max())\n    key = (*index, action)\n    self.q[key] += self.config.alpha*(target-self.q[key])\n    if not np.isfinite(self.q[key]):\n        raise ValueError('Nonfinite augmented Q update')"
+  }
+]

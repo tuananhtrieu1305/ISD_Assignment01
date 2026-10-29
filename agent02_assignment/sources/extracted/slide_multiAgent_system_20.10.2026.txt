@@ -1,0 +1,835 @@
+===== PAGE 1 =====
+Intelligent System Development
+Developing Multiagent Systems
+A Practical Tutorial with Python and PyTorch
+Level: Senior undergraduate students
+Topic: Intelligent agents and multiagent systems
+Programming: Python, with optional PyTorch
+Applications: E-commerce, tourism, healthcare
+Format: Theory, implementation, laboratory exercises
+Tutorial objectives
+This tutorial introduces the principles of intelligent agents, multiagent coordination,
+software architecture, learned decision components, and application-oriented evaluation.
+Students will design and implement a small multiagent system and investigate how
+several specialized agents cooperate to solve a practical problem.
+Teaching material
+
+===== PAGE 2 =====
+Intelligent System Development Developing Multiagent Systems
+How to Use This Tutorial
+The tutorial is organized into 20 teaching units. Each unit can be used as a lecture segment, laboratory
+handout, or independent reading assignment.
+Learning outcomes
+After completing the tutorial, students should be able to:
+1. Explain intelligent agents, autonomy, goals, percepts, actions, and environments.
+2. Identify applications that benefit from multiple agents.
+3. Design agent roles, communication messages, and coordination policies.
+4. Implement a basic multiagent system in Python.
+5. Integrate a trained PyTorch model into an agent.
+6. Evaluate quality, latency, robustness, and safety.
+7. Propose a multiagent solution for e-commerce, tourism, or healthcare support.
+Suggested teaching schedule
+Time Activity
+45 minutes Concepts and examples
+30 minutes Architecture and agent design
+60 minutes Python implementation
+30 minutes Testing and application discussion
+15 minutes Review and assignment briefing
+The implementation begins with deterministic agents so that students can understand coordination
+before adding machine learning. The PyTorch section is an extension, not a substitute for the complete
+system design.
+1
+
+===== PAGE 3 =====
+Intelligent System Development Developing Multiagent Systems
+1 What Is a Multiagent System?
+An intelligent agentis a computational entity that perceives its environment and selects actions to
+achieve objectives. Amultiagent system(MAS) consists of multiple agents whose actions interact
+through messages, shared state, or a common environment.
+Examples include shopping assistants, autonomous vehicles, traffic-control systems, robotic teams,
+and distributed scheduling applications.
+1.1 From an AI model to an intelligent system
+A machine-learning model may predict a class or estimate a score. An intelligent application must
+additionally manage data, state, decisions, external services, errors, and user interaction.
+A practical system may contain:
+• a user-interface component;
+• a coordinator or workflow manager;
+• specialized agents;
+• databases and external services;
+• validation and access-control rules;
+• monitoring and evaluation components.
+1.2 Main elements
+Agent: A component with a role and decision policy.
+Environment: The world or application state in which the agents operate.
+Percept: Information available to an agent.
+Action: An operation that changes state or produces an outcome.
+Goal: A desired condition or performance objective.
+Message: Information exchanged between agents.
+Coordination: Mechanisms for ordering or reconciling agent actions.
+1.3 Example
+A shopping assistant may use a catalog agent to retrieve products, a recommendation agent to rank
+them, and an inventory agent to verify availability. A coordinator combines the results into a response.
+A collection of functions is not automatically a MAS. Agent boundaries should represent meaningful
+responsibilities, decision policies, or independently evolving services.
+2
+
+===== PAGE 4 =====
+Intelligent System Development Developing Multiagent Systems
+2 Examples of Multiagent Systems
+2.1 Applications in different domains
+Domain Agents Objective
+E-commerce Catalog, recommendation, inventory, policy Relevant product selection under constraints
+Tourism Preference, attraction, route, budget Feasible personalized itineraries
+Healthcare sup-
+port
+Intake, information, scheduling, preparation Safe administrative and educational assis-
+tance
+Smart buildings Occupancy, lighting, HVAC, energy Balance comfort and energy use
+Traffic Signal controllers, traffic monitors Reduce congestion while respecting safety
+constraints
+Education Learner model, tutor, exercise selector Personalized learning activities
+Supply chain Demand, inventory, procurement, delivery Coordinate stock and logistics
+2.2 Centralized coordination
+A central coordinator receives a request, assigns tasks, collects outputs, and decides what to do next.
+Advantages:
+• straightforward workflow control;
+• easier debugging and monitoring;
+• explicit validation of final outputs.
+Limitations include a possible bottleneck and dependence on the coordinator.
+2.3 Distributed coordination
+Agents make local decisions and coordinate through messages, events, negotiation, or shared state.
+This can improve autonomy and scalability but introduces challenges involving conflicts, consistency,
+and failures.
+2.4 When is MAS useful?
+A multiagent approach is particularly useful when a problem naturally decomposes into different
+responsibilities, when components use different tools or policies, or when coordination between decisions
+has measurable value.
+Design principle: Do not introduce agents merely to increase the number of components. Every
+agent introduces communication, testing, and maintenance costs.
+3
+
+===== PAGE 5 =====
+Intelligent System Development Developing Multiagent Systems
+3 Concepts for Understanding Intelligent Agents
+3.1 Agent perception and action
+At timet, an agent receives a perceptot, maintains internal statebt if required, and chooses an action
+at.
+A simple policy can be represented by
+at =π(ot).
+A stateful policy may be represented as
+at =π(bt,o t),
+where the internal state summarizes relevant past observations.
+A stochastic policy can be written as
+π(a|o) = P (at =a|ot =o).
+3.2 PEAS task specification
+PEAS stands for Performance measure, Environment, Actuators, and Sensors. It provides a structured
+way to describe an agent’s task.
+Example: tourism itinerary agent
+• Performance: preference match, budget compliance, feasible travel time.
+• Environment: attractions, transport, opening hours, user constraints.
+• Actuators: propose, add, remove, or reorder stops.
+• Sensors: preferences, map results, schedules, weather.
+3.3 Rationality
+A rational agent selects an action expected to perform well according to its objective, given its available
+information, knowledge, and computational resources.
+Rationality does not imply perfect knowledge. Data may be incomplete, noisy, or outdated.
+3.4 Important properties
+• Autonomy: decisions are based on the agent’s policy and state.
+• Reactivity: the agent responds to changes.
+• Proactiveness: the agent plans toward goals.
+• Social ability: the agent communicates.
+• Learning: the agent improves from data or feedback.
+4
+
+===== PAGE 6 =====
+Intelligent System Development Developing Multiagent Systems
+4 Environments, Goals, and Agent Architectures
+4.1 Environment characteristics
+An environment can be described along several dimensions:
+• fully or partially observable;
+• deterministic or stochastic;
+• episodic or sequential;
+• static or dynamic;
+• discrete or continuous;
+• single-agent or multiagent.
+These distinctions affect how an agent should represent uncertainty, plan, and react to events.
+4.2 Common architectures
+Reactive agentsuse condition–action rules. They are often fast and interpretable.
+Deliberative agentsmaintain a representation of states, goals, and possible plans.
+Belief–Desire–Intention (BDI) agentsdistinguish beliefs about the world, desired outcomes,
+and committed plans.
+Utility-based agentscompare candidate actions using a utility function:
+a∗ = arg max
+a∈A
+U (a).
+Learning agentsuse data to estimate predictions or improve decision policies.
+Hybrid agentscombine rules, planning, retrieval, learned models, and tools.
+4.3 Recommended student architecture
+For an introductory MAS project, a hybrid architecture is usually practical:
+1. rules enforce hard constraints and safety;
+2. retrieval obtains current facts;
+3. a learned model classifies or ranks candidates;
+4. a coordinator controls the workflow;
+5. a human reviews consequential decisions.
+A language model can be included as a component, but natural-language generation alone does not
+provide reliable state management, authorization, or coordination.
+5
+
+===== PAGE 7 =====
+Intelligent System Development Developing Multiagent Systems
+5 Multiagent Architecture and Communication
+5.1 Reference architecture
+User interface and application API
+⇓
+Coordinator / workflow manager
+⇓
+Catalog agent Recommendation agent
+Inventory agent Policy agent
+⇓
+Databases, learned models, external services
+Logs, evaluation, audit, monitoring
+5.2 Message structure
+Messages should have explicit schemas. A conceptual message may contain:
+• message identifier;
+• conversation or task identifier;
+• sender and receiver;
+• message type;
+• structured payload;
+• timestamp and optional timeout.
+Example:
+1 {
+2 " m e s s a g e _ i d " : "m -001 " ,
+3 " sender " : " c o o r d i n a t o r " ,
+4 " receiver " : " catalog " ,
+5 " type " : " S E A R C H _ P R O D U C T S " ,
+6 " payload " : { " query " : " l i g h t w e i g h t laptop " }
+7 }
+5.3 Communication patterns
+• Request–response: one agent asks another for a result.
+• Publish–subscribe: agents receive relevant events.
+• Shared workspace: agents use controlled shared state.
+• Negotiation: agents propose alternatives and resolve conflicts under explicit rules.
+5.4 Coordination invariants
+Examples of invariants that must remain true:
+• A booking is not confirmed until the booking service confirms it.
+• A recommendation must not imply verified stock when inventory has not been checked.
+• A healthcare support model must not present an unverified prediction as a diagnosis.
+6
+
+===== PAGE 8 =====
+Intelligent System Development Developing Multiagent Systems
+6 Engineering Workflow: From Problem to MAS
+A disciplined engineering workflow reduces complexity and makes the system testable.
+1. Define the user problem and measurable success criteria.
+2. Identify environment entities, data sources, and tools.
+3. Decompose the task into coherent agent responsibilities.
+4. Define message schemas and access permissions.
+5. Specify ordering, timeouts, retries, and fallback policies.
+6. Implement a minimal end-to-end working example.
+7. Test normal inputs, edge cases, and failures.
+8. Compare performance against a suitable baseline.
+9. Deploy behind an interface and monitor outcomes.
+10. Revise the system using evidence and feedback.
+6.1 Agent specification template
+For each agent, document:
+• name and responsibility;
+• input and output schemas;
+• permitted tools and data;
+• decision policy;
+• expected failure modes;
+• success metric and tests.
+6.2 Why explicit contracts matter
+An agent’s output should be validated before it is consumed by another agent. For example, a recom-
+mendation agent should return a list of known product identifiers, not arbitrary product descriptions.
+The coordinator should enforce workflow rules rather than blindly trusting the outputs of internal
+components.
+6.3 Minimum viable implementation
+Begin with two agents and one coordinator. Add more agents only when their responsibilities are
+distinct and their contribution can be evaluated.
+7
+
+===== PAGE 9 =====
+Intelligent System Development Developing Multiagent Systems
+7 Python Environment and a Basic Agent
+The initial implementation uses the Python standard library. PyTorch is required only for the model
+extension.
+Install Python 3.10 or later. In a terminal, check the environment and optionally install PyTorch:
+1 python -- version
+2 python -m pip install torch
+7.1 Message and agent interface
+1 from d a t a c l a s s e simport da ta cl as s
+2 from typing import Any
+3
+4 @ d a t a c l a s s
+5 class Message :
+6 sender : str
+7 receiver : str
+8 kind : str
+9 payload : dict [ str , Any ]
+10
+11 class Agent :
+12 def __init__ ( self , name : str ) :
+13 self . name = name
+14
+15 def handle ( self , message : Message ) -> Message :
+16 raise N o t I m p l e m e n t e d E r r o r
+The Message class defines a basic communication contract. Each agent implements its own handling
+policy.
+7.2 Catalog agent
+1 class C a t a l o g A g e n t ( Agent ) :
+2 def __init__ ( self , products ) :
+3 super () . __init__ ( " catalog " )
+4 self . products = products
+5
+6 def handle ( self , message ) :
+7 query = message . payload . get (
+8 " query " , " "
+9 ) . strip () . lower ()
+10
+11 def matches ( item ) :
+12 fields = [
+13 item [ " name " ] ,
+14 item [ " category " ]
+15 ]
+16 fields += item . get ( " tags " , [])
+17 return any (
+18 query in str ( value ) . lower ()
+19 for value in fields
+20 )
+21
+22 items = [
+23 item for item in self . products
+24 if query and matches ( item )
+25 ]
+26
+27 return Message (
+28 sender = self . name ,
+29 receiver = message . sender ,
+30 kind = " S E A R C H _ R E S U L T S " ,
+8
+
+===== PAGE 10 =====
+Intelligent System Development Developing Multiagent Systems
+31 payload ={ " items " : items }
+32 )
+The catalog agent retrieves candidates. It does not rank them or decide whether they are affordable.
+Those tasks belong to other components.
+9
+
+===== PAGE 11 =====
+Intelligent System Development Developing Multiagent Systems
+8 Building an E-commerce Multiagent System
+We construct a shopping assistant with a small in-memory catalog. This example runs without external
+APIs.
+8.1 Product data
+1 PRODUCTS = [
+2 {
+3 " id " : " p1 " ,
+4 " name " : " L i g h t w e i g h t laptop " ,
+5 " category " : " e l e c t r o n i c s " ,
+6 " price " : 850 ,
+7 " tags " : [ " portable " , " study " ]
+8 } ,
+9 {
+10 " id " : " p2 " ,
+11 " name " : " Wireless mouse " ,
+12 " category " : " e l e c t r o n i c s " ,
+13 " price " : 25 ,
+14 " tags " : [ " portable " , " a cc es so ry " ]
+15 } ,
+16 {
+17 " id " : " p3 " ,
+18 " name " : " Running shoes " ,
+19 " category " : " sports " ,
+20 " price " : 70 ,
+21 " tags " : [ " fitness " , " outdoor " ]
+22 } ,
+23 {
+24 " id " : " p4 " ,
+25 " name " : " Travel backpack " ,
+26 " category " : " travel " ,
+27 " price " : 55 ,
+28 " tags " : [ " portable " , " travel " ]
+29 }
+30 ]
+8.2 Recommendation agent
+1 class R e c o m m e n d a t i o n A g e n t ( Agent ) :
+2 def __init__ ( self ) :
+3 super () . __init__ ( " r e c o m m e n d e r " )
+4
+5 def handle ( self , message ) :
+6 budget = float (
+7 message . payload . get ( " budget " , 0)
+8 )
+9 items = message . payload . get ( " items " , [])
+10
+11 c a n d i d a t e s = [
+12 item for item in items
+13 if item [ " price " ] <= budget
+14 ]
+15
+16 ranked = sorted (
+17 candidates ,
+18 key = lambda item : (
+19 " portable " not in item [ " tags " ] ,
+20 item [ " price " ]
+21 )
+22 )
+23
+10
+
+===== PAGE 12 =====
+Intelligent System Development Developing Multiagent Systems
+24 return Message (
+25 self . name ,
+26 message . sender ,
+27 " R E C O M M E N D A T I O N S " ,
+28 { " items " : ranked [:3]}
+29 )
+The agent first applies the budget constraint, then ranks eligible items. A real recommender could
+additionally use user preferences, product attributes, or a trained model.
+11
+
+===== PAGE 13 =====
+Intelligent System Development Developing Multiagent Systems
+9 Coordinator, Execution, and Testing
+9.1 Coordinator implementation
+1 class C o o r d i n a t o r ( Agent ) :
+2 def __init__ ( self , catalog , r e c o m m e n d e r ) :
+3 super () . __init__ ( " c o o r d i n a t o r " )
+4 self . catalog = catalog
+5 self . r e c o m m e n d e r = r e c o m m e n d e r
+6
+7 def shop ( self , query , budget ) :
+8 s e a r c h _ m s g = Message (
+9 self . name , " catalog " , " SEARCH " ,
+10 { " query " : query }
+11 )
+12 s e a r c h _ r e s u l t = self . catalog . handle (
+13 s e a r c h _ m s g
+14 )
+15
+16 rank_msg = Message (
+17 self . name , " r e c o m m e n d e r " , " RANK " ,
+18 {
+19 " items " : s e a r c h _ r e s u l t . payload [ " items " ] ,
+20 " budget " : budget
+21 }
+22 )
+23
+24 result = self . r e c o m m e n d e r . handle ( rank_msg )
+25 return result . payload [ " items " ]
+9.2 Run the system
+1 catalog = C a t a l o g A g e n t ( PRODUCTS )
+2 r e c o m m e n d e r = R e c o m m e n d a t i o n A g e n t ()
+3
+4 system = C o o r d i n a t o r ( catalog , r e c o m m e n d e r )
+5
+6 results = system . shop ( " portable " , budget =100)
+7
+8 for product in results :
+9 print ( product [ " name " ] , product [ " price " ])
+Expected products include the wireless mouse and travel backpack. The laptop is excluded because
+it exceeds the budget.
+9.3 Testing requirements
+Students should verify:
+1. a matching tag retrieves the relevant item;
+2. an item over budget is excluded;
+3. an unknown query returns an empty result;
+4. an empty query does not accidentally return everything;
+5. the recommender only returns catalog candidates.
+9.4 Extension: inventory agent
+Add an inventory agent that returns stock information for each candidate. The coordinator must verify
+stock before claiming that a product is available.
+12
+
+===== PAGE 14 =====
+Intelligent System Development Developing Multiagent Systems
+If the inventory agent fails, the system should report that availability is unverified rather than
+inventing an answer.
+13
+
+===== PAGE 15 =====
+Intelligent System Development Developing Multiagent Systems
+10 Integrating PyTorch: Intent Classification
+A trained classifier can help route user requests to an appropriate workflow. For example, requests
+may be assigned to e-commerce, tourism, or healthcare-support categories.
+The following network demonstrates the mechanics of a PyTorch classifier. Its input consists of two
+numeric features, not raw natural language.
+10.1 Model definition
+1 import torch
+2 from torch import nn
+3
+4 class I nt en tN et ( nn . Module ) :
+5 def __init__ ( self , i np ut _d im =2 , n _c la ss es =3) :
+6 super () . __init__ ()
+7 self . net = nn . S e q u e n t i a l (
+8 nn . Linear ( input_dim , 16) ,
+9 nn . ReLU () ,
+10 nn . Linear (16 , n_ cl as se s )
+11 )
+12
+13 def forward ( self , x ) :
+14 return self . net ( x )
+15
+16 torch . m a n u a l _ s e e d (42)
+17
+18 model = I nt en tN et ()
+19 model . eval ()
+20
+21 x = torch . tensor (
+22 [[0.8 , 0.2]] ,
+23 dtype = torch . float32
+24 )
+25
+26 with torch . no_grad () :
+27 logits = model ( x )
+28 p r o b a b i l i t i e s = torch . softmax ( logits , dim =1)
+29
+30 labels = [ " ec om me rc e " , " tourism " , " h e a l t h c a r e " ]
+31 p r e d i c t i o n = int ( p r o b a b i l i t i e s . argmax ( dim =1) . item () )
+32
+33 print ( " Pr ed ic te d intent : " , labels [ p r e d i c t i o n ])
+34 print ( " P r o b a b i l i t i e s : " , p r o b a b i l i t i e s . tolist () )
+10.2 Important limitation
+The network is untrained. Its output is arbitrary and must not be used as a valid intent prediction.
+This example demonstrates tensor dimensions, model execution, and probability calculation only.
+10.3 Training outline
+Given a labeled training settrain_x with shape [N, 2] and integer labels train_y in{0, 1, 2}, the
+model can be trained as follows.
+1 model = I nt en tN et ()
+2 o pt im iz er = torch . optim . Adam (
+3 model . p a r a m e t e r s () , lr =1 e -3
+4 )
+5 c ri te ri on = nn . C r o s s E n t r o p y L o s s ()
+6
+7 for epoch in range (50) :
+8 model . train ()
+14
+
+===== PAGE 16 =====
+Intelligent System Development Developing Multiagent Systems
+9 logits = model ( train_x )
+10 loss = cr it er io n ( logits , train_y )
+11
+12 o pt im iz er . z er o_ gr ad ()
+13 loss . backward ()
+14 o pt im iz er . step ()
+A valid application also requires representative labeled data, a held-out test set, suitable features,
+and evaluation of classification errors.
+15
+
+===== PAGE 17 =====
+Intelligent System Development Developing Multiagent Systems
+11 Coordination, Failure Handling, and Monitoring
+A coordinator is a workflow controller. It decides which agent to call, validates outputs, and handles
+missing or inconsistent information.
+11.1 Failure scenarios
+Typical failures include:
+• an agent times out;
+• a message has an invalid payload;
+• a database returns no records;
+• a service returns stale information;
+• two agents produce incompatible results.
+11.2 Basic fallback pattern
+1 def s af e_ ca ll ( agent , message , fallback ) :
+2 try :
+3 response = agent . handle ( message )
+4
+5 if not i s i n s t a n c e ( response , Message ) :
+6 raise T yp eE rr or (
+7 " Invalid agent response "
+8 )
+9
+10 if response . kind . endswith ( " _ERROR " ) :
+11 return fallback
+12
+13 return response
+14
+15 except ( TimeoutError , TypeError , V a l u e E r r o r ) :
+16 # A p r o d u c t i o n i m p l e m e n t a t i o n should log
+17 # a s t r u c t u r e d error and c o r r e l a t i o n ID .
+18 return fallback
+This simple example does not implement a real timeout. A production implementation should
+enforce deadlines at the process, task, or network-call level.
+11.3 Metrics
+Task completion rate:Fraction of requests that meet the task definition.
+Latency: Median and 95th-percentile response time.
+Coordination overhead: Messages and model/tool calls per request.
+Quality: Relevance and constraint satisfaction.
+Reliability: Failures, timeouts, and recovery success.
+Safety: Unauthorized actions and unsupported claims.
+11.4 Reproducibility
+Record model and policy versions, message sequence, timestamps, and final outcomes. Avoid logging
+secrets or unnecessary personal data. A fixed random seed improves experimental repeatability but
+does not establish real-world validity.
+16
+
+===== PAGE 18 =====
+Intelligent System Development Developing Multiagent Systems
+12 Case Study A: E-commerce Shopping Assistant
+12.1 Problem definition
+A customer requests products that satisfy preferences, budget, and other constraints. The system
+should retrieve real candidates, rank them, verify relevant details, and explain the recommendations.
+12.2 Agent roles
+• Intent agent:classifies the request.
+• Catalog agent:retrieves products.
+• Recommendation agent:ranks candidates.
+• Inventory agent:verifies stock.
+• Policy agent:checks business constraints.
+• Coordinator: manages the workflow.
+12.3 Workflow
+Customer request→ intent classification→ catalog retrieval→ constraint filtering→
+ranking→ inventory verification→ response
+12.4 Evaluation
+Possible metrics include:
+• Recall@k for retrieval;
+• NDCG@k for ranking quality;
+• budget-violation rate;
+• unsupported-availability claims;
+• task completion and latency.
+Compare the MAS with a single-agent baseline using the same requests, catalog, and evaluation
+criteria.
+12.5 Ethical considerations
+Avoid manipulative ranking and undisclosed sponsored placement. Clearly distinguish relevance-
+based ranking from paid promotion. Do not place orders or charge payments without explicit user
+confirmation.
+17
+
+===== PAGE 19 =====
+Intelligent System Development Developing Multiagent Systems
+13 Case Study B: Tourism and Itinerary Planning
+13.1 Problem definition
+A traveler wants an itinerary based on dates, interests, budget, travel time, opening hours, and personal
+constraints. The itinerary must be both useful and feasible.
+13.2 Agent roles
+• Preference agent: collects interests and constraints.
+• Attraction agent: retrieves candidate destinations.
+• Route agent: estimates travel times and ordering.
+• Budget agent: estimates costs.
+• Context agent: retrieves relevant weather or event data.
+• Coordinator: reconciles conflicts and produces the plan.
+13.3 Basic mathematical formulation
+Letxi∈{ 0, 1} indicate whether attractioni is selected. Letci denote its cost,ti its visit duration, and
+Tij the travel time between attractions.
+A budget constraint is
+n∑
+i=1
+cixi≤B,
+where B is the available budget.
+A simplified time constraint is
+n∑
+i=1
+tixi +
+∑
+(i,j)∈R
+Tij≤Tmax,
+where R is the set of consecutive itinerary transitions.
+A real itinerary must additionally account for opening hours, waiting times, breaks, and time
+windows.
+13.4 Coordination challenge
+The attraction agent may recommend a site that is closed. The route agent may find an inefficient
+order, while the budget agent may reject the total cost.
+The coordinator should revise the candidate set, relax a soft preference, or ask the user which
+constraint can change.
+13.5 Evaluation
+Measure feasibility, preference match, budget deviation, source freshness, itinerary diversity, and the
+number of clarification turns.
+Opening hours and transport estimates should be verified against appropriate current sources.
+18
+
+===== PAGE 20 =====
+Intelligent System Development Developing Multiagent Systems
+14 Case Study C: Healthcare Support
+14.1 Scope and safety boundary
+A student prototype should focus on administrative or educational support rather than autonomous
+diagnosis or treatment. Examples include appointment preparation, clinic navigation, and organizing
+questions for a clinician.
+14.2 Agent roles
+• Intake agent:clarifies the administrative need.
+• Information agent:retrieves approved educational material.
+• Scheduling agent:queries appointment slots.
+• Preparation agent:creates a neutral checklist.
+• Safety agent:identifies cases requiring professional or emergency support.
+• Coordinator: enforces permissions and workflow.
+14.3 Example workflow
+A user requests help preparing for a clinic visit.
+1. The intake agent clarifies the purpose and logistics.
+2. The information agent retrieves approved clinic material.
+3. The preparation agent generates a checklist.
+4. The user reviews the checklist.
+5. Qualified healthcare personnel remain responsible for clinical decisions.
+14.4 Safety requirements
+• Minimize personal-data collection.
+• Use consent, access controls, and secure storage.
+• Label generated content and identify its source.
+• Never fabricate appointments, test results, or records.
+• Escalate urgent or high-risk requests appropriately.
+• Require confirmation before booking or changing records.
+14.5 Evaluation
+Measure information correctness, task completion, privacy compliance, escalation sensitivity, false
+reassurance, and usability. The system must not present an unverified model output as a professional
+medical judgment.
+19
+
+===== PAGE 21 =====
+Intelligent System Development Developing Multiagent Systems
+15 Comparing the Three Applications
+Dimension E-commerce Tourism Healthcare support
+Objective Product relevance Feasible itinerary Safe administrative support
+Authoritative
+data
+Catalog, price, inventory Opening hours, maps, costs Approved content, clinic
+schedule
+Typical conflict Budget vs. preference Interest vs. time Convenience vs. safety
+Key metric Ranking and constraint vio-
+lations
+Feasibility and preference
+match
+Correctness and escalation
+Confirmation Before purchase Before booking or purchase Before appointment or
+record change
+Failure fallback Show verified candidates Offer revised itinerary Stop risky automation and
+escalate
+15.1 Cross-domain design principles
+Despite different application requirements, all three systems benefit from:
+• explicit agent responsibilities;
+• structured communication;
+• verification of important facts;
+• measurable constraints;
+• graceful failure handling;
+• appropriate human confirmation.
+The acceptable risk level differs by domain. A ranking error in a shopping recommendation and an
+unsafe healthcare response must not be evaluated using the same criteria.
+15.2 Discussion
+Ask students:
+1. Which agent owns each constraint?
+2. Which facts require verification?
+3. What should happen when two agents disagree?
+4. Which actions require explicit user confirmation?
+5. How can the system communicate uncertainty?
+20
+
+===== PAGE 22 =====
+Intelligent System Development Developing Multiagent Systems
+16 Experimental Design and Evaluation
+A working demonstration is necessary but insufficient. A student project should test whether the MAS
+improves a measurable property relative to a suitable baseline.
+16.1 Baselines
+B0: Single-agent pipeline.
+B1: Rule-based multiagent system.
+B2: Multiagent system with a learned component.
+B3: Ablation without coordinator validation.
+16.2 Experimental controls
+All systems should use the same test requests, data sources, and task definitions. A held-out test set
+should be kept separate from training and model selection.
+16.3 Suggested metrics
+• task completion rate;
+• domain-specific relevance or accuracy;
+• constraint satisfaction rate;
+• median and 95th-percentile latency;
+• messages and tool calls per request;
+• failure recovery rate;
+• safety violations.
+16.4 Results table template
+System Success P95 latency Messages Violations
+B0: single agent – – – –
+B1: rule-based MAS – – – –
+B2: learned MAS – – – –
+B3: no validation – – – –
+Students should populate the table with measured results. Do not invent results or treat a toy
+demonstration as evidence of deployment readiness.
+21
+
+===== PAGE 23 =====
+Intelligent System Development Developing Multiagent Systems
+17 Laboratory Exercises and Deliverables
+Exercise 1: Specify the agents
+Choose one application. Write a PEAS specification and define at least three agents. For each agent,
+document its inputs, outputs, permissions, and success metrics.
+Exercise 2: Extend the shopping system
+Run the baseline Python code and add an inventory, policy, or preference agent. Update the coordinator
+and test the complete workflow.
+Exercise 3: Integrate PyTorch
+Create a labeled dataset for three request categories. Train the intent classifier and report accuracy
+and per-class precision and recall on a held-out test set.
+Use a confidence threshold or uncertainty rule to decide when the system should request clarification
+rather than route a request automatically.
+Exercise 4: Failure injection
+Simulate:
+1. an agent timeout;
+2. an empty search result;
+3. a malformed message;
+4. stale availability information.
+Show that the system handles each case safely.
+Exercise 5: Compare architectures
+Compare a single-agent baseline with the MAS. Discuss whether the additional coordination improves
+quality enough to justify its latency and complexity.
+Required deliverables
+• architecture diagram and agent specifications;
+• runnable Python source and README;
+• model training and evaluation code, if applicable;
+• at least eight tests, including three failure tests;
+• results table and discussion of limitations;
+• short presentation or demonstration.
+22
+
+===== PAGE 24 =====
+Intelligent System Development Developing Multiagent Systems
+18 Assessment Rubric and Common Mistakes
+18.1 Suggested assessment rubric
+Criterion Points Evidence
+Problem definition and PEAS 10 Clear objective and environment
+Agent decomposition and contracts 15 Roles, schemas, permissions
+Implementation and reproducibility 20 Runnable code and instructions
+Coordination and failure handling 15 Validation, timeouts, fallbacks
+PyTorch/model evaluation 15 Valid data split and metrics
+Testing and comparative analysis 15 Tests, baselines, measured results
+Ethics and presentation 10 Privacy, safety, clear explanation
+Total 100
+18.2 Common mistakes
+• Calling several ordinary functions “agents” without meaningful independent responsibilities.
+• Using an untrained neural network and treating its predictions as valid.
+• Allowing agents to invent facts absent from the data.
+• Ignoring timeouts, duplicate actions, or malformed data.
+• Evaluating only accuracy while ignoring safety and latency.
+• Using personal data without appropriate justification and safeguards.
+• Reporting improvements without a fair baseline.
+18.3 Final project suggestion
+Students may build a tourism planner that combines preference elicitation, attraction retrieval, route
+planning, and budget constraints. They can compare a rule-based system with a learned ranking
+component and evaluate itinerary feasibility.
+The same framework can be adapted to shopping or healthcare administration.
+23
+
+===== PAGE 25 =====
+Intelligent System Development Developing Multiagent Systems
+19 Reference Architecture and Further Reading
+19.1 Final design checklist
+Before presenting a multiagent system, verify that:
+1. the problem and success criteria are explicit;
+2. each agent has a coherent responsibility;
+3. inputs and outputs follow defined schemas;
+4. permissions and access to data are controlled;
+5. the coordinator validates results;
+6. external facts are verified when freshness matters;
+7. learned components are trained and evaluated;
+8. tests cover normal, boundary, and failure cases;
+9. logs support debugging without unnecessary personal data;
+10. consequential actions require suitable confirmation.
+19.2 Foundational references
+1. Russell, S. J., and Norvig, P.Artificial Intelligence: A Modern Approach. Pearson. See the chapters
+on intelligent agents and multiagent decision making.
+2. Wooldridge, M.An Introduction to MultiAgent Systems. Wiley.
+3. Shoham, Y., and Leyton-Brown, K.Multiagent Systems: Algorithmic, Game-Theoretic, and Logical
+Foundations. Cambridge University Press.
+4. Sutton, R. S., and Barto, A. G.Reinforcement Learning: An Introduction. MIT Press.
+5. PyTorch documentation. https://pytorch.org/docs/stable/
+19.3 Conclusion
+A multiagent system is an engineered collaboration among decision-making components. Strong
+implementations combine clear roles, structured communication, grounded information, measurable
+evaluation, safe failure handling, and human-centered workflows.
+The goal is not to maximize the number of agents. It is to design a system in which coordination
+produces measurable benefits over a simpler alternative.
+End of tutorial
+24
