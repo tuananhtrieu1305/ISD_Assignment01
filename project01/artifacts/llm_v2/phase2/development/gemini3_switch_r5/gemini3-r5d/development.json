@@ -1,0 +1,2065 @@
+{
+  "question_id": "v2-dev-05",
+  "question": "Vận động có ích gì cho cân nặng và đường huyết?",
+  "model": "gemini-3-flash-preview",
+  "claim_revision": "gemini3-r5d",
+  "results": {
+    "llm_direct": {
+      "variant": "llm_direct",
+      "question": "Vận động có ích gì cho cân nặng và đường huyết?",
+      "status": "complete",
+      "answer_vi": "Vận động giúp **giảm cân nặng** và **hạ đường huyết** một cách hiệu quả thông qua các cơ chế sinh học trực tiếp.\n\nCụ thể:\n\n1.  **Đối với đường huyết:**\n    *   **Tăng nhạy cảm Insulin:** Vận động giúp các tế bào sử dụng insulin hiệu quả hơn, cho phép đường đi từ máu vào tế bào tốt hơn.\n    *   **Tiêu thụ Glucose trực tiếp:** Khi cơ bắp hoạt động, chúng cần năng lượng và sẽ lấy glucose trong máu để đốt cháy ngay cả khi không có đủ insulin. Điều này giúp hạ đường huyết tức thì và duy trì ổn định lâu dài (giảm chỉ số HbA1c).\n\n2.  **Đối với cân nặng:**\n    *   **Đốt cháy Calo:** Hoạt động thể chất làm tăng tiêu hao năng lượng, giúp giảm mỡ thừa và duy trì cân nặng hợp lý.\n    *   **Xây dựng cơ bắp:** Khối lượng cơ bắp lớn hơn sẽ làm tăng tốc độ trao đổi chất cơ bản, giúp cơ thể tiêu thụ nhiều năng lượng hơn ngay cả khi nghỉ ngơi.\n\n**Lưu ý:** Bạn nên kiểm tra đường huyết trước và sau khi tập, đồng thời tham khảo ý kiến bác sĩ để có cường độ vận động phù hợp với tình trạng sức khỏe cá nhân.",
+      "claims": [],
+      "citations": [],
+      "evidence": [],
+      "usage": [
+        {
+          "usage": {
+            "input_tokens": 121,
+            "output_tokens": 284,
+            "thought_tokens": null,
+            "total_tokens": 405,
+            "provider_usage_metadata": {
+              "candidates_token_count": 284,
+              "prompt_token_count": 121,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 121
+                }
+              ],
+              "total_token_count": 405
+            }
+          },
+          "model_returned": "gemini-3-flash-preview",
+          "response_status": "completed",
+          "finish_reasons": [
+            "STOP"
+          ],
+          "cache_status": "local_cache",
+          "model_requested": "gemini-3-flash-preview",
+          "latency_ms": 97.3824349998722,
+          "attempts": 1,
+          "call_id": "afccb42beb09de94dcbac64dd67c9e4355c15cf07b56d80151fce9833c7f7437",
+          "paid_cost_usd": 0,
+          "invoice_verified": false,
+          "endpoint": "v1beta/generateContent",
+          "sdk_calls": 1,
+          "original_provider_latency_ms": 3166.479236000214,
+          "kind": "generation"
+        }
+      ],
+      "model": "gemini-3-flash-preview",
+      "latency_ms": 99.25833099987358,
+      "freeze_id": null,
+      "cache_status": "local_cache",
+      "paid_cost_usd": 0,
+      "call_prefix": "gemini3-r5b:v2-dev-05",
+      "minute_retries": 0
+    },
+    "agentic_rag": {
+      "variant": "agentic_rag",
+      "question": "Vận động có ích gì cho cân nặng và đường huyết?",
+      "status": "complete",
+      "answer_vi": "Vận động thể chất giúp giảm cân hoặc duy trì cân nặng hợp lý, đồng thời hỗ trợ giữ mức đường huyết ở mức mục tiêu [m2c-670a97431189b868aa1c]. Hoạt động này giúp cơ bắp đốt cháy glucose để tạo năng lượng, làm tăng độ nhạy của cơ thể với insulin và thậm chí giúp cơ bắp hấp thụ glucose mà không cần đến insulin [m2c-93ee5f2851b002102cd2]. Ngoài ra, tập luyện thường xuyên còn cải thiện khả năng sử dụng insulin của cơ thể, từ đó hỗ trợ kiểm soát huyết áp và cholesterol [m2c-17975993ad1ee12f4af5], [m2c-588ce571ca436c0c6d55]. Bạn nên tham khảo ý kiến bác sĩ trước khi bắt đầu bất kỳ chương trình vận động nào để đảm bảo an toàn và điều chỉnh chế độ ăn uống hoặc thuốc nếu cần thiết [m2c-670a97431189b868aa1c], [m2c-588ce571ca436c0c6d55].",
+      "claims": [
+        {
+          "id": "1",
+          "text_vi": "Vận động thể chất giúp giảm cân hoặc duy trì cân nặng khỏe mạnh và giữ mức đường huyết ở mức mục tiêu.",
+          "citation_chunk_ids": [
+            "m2c-670a97431189b868aa1c"
+          ]
+        },
+        {
+          "id": "2",
+          "text_vi": "Tập thể dục làm tăng độ nhạy insulin của cơ bắp, giúp cơ bắp hấp thụ glucose trực tiếp và đốt cháy glucose để kiểm soát đường huyết.",
+          "citation_chunk_ids": [
+            "m2c-93ee5f2851b002102cd2"
+          ]
+        },
+        {
+          "id": "3",
+          "text_vi": "Hoạt động thể chất thường xuyên giúp cơ thể sử dụng insulin tốt hơn và kiểm soát huyết áp cũng như cholesterol.",
+          "citation_chunk_ids": [
+            "m2c-17975993ad1ee12f4af5",
+            "m2c-588ce571ca436c0c6d55"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "chunk_id": "m2c-670a97431189b868aa1c",
+          "content": "- Starting a physical activity program can help you lose weight or keep a healthy weight and keep your blood glucose levels on target. - Always talk with your health care team before you start a new physical activity program. - Ask your health care team if you need to change the amount of medicine you take or the food you eat before any physical activity. - Talk with your health care team about what types of physical activity are safe for you, such as walking, weightlifting, or housework. - To make sure you stay active, find activities you like to do. Ask a friend or family member to be your exercise buddy. - Write down your blood glucose levels and when and how long you are physically active in a record book. - Doctors suggest that you aim for 30 to 60 minutes of moderate to vigorous physical activity most days of the week. - Children and adolescents with type 2 diabetes who are 10 to 17 years old should aim for 60 minutes of moderate to vigorous activity every day. - Not all physical activity has to take place at the same time. For example, you might take a walk for 20 minutes, lift hand weights for 10 minutes, and walk up and down the stairs for 5 minutes. - Doing moderate to vigorous aerobic exercise for 30 to 60 minutes a day most days of the week provides many benefits. You can even split up these minutes into several parts. - Start exercising slowly, with 5 to 10 minutes a day, and add a little more time each week.",
+          "chunk_index": 136,
+          "metadata": {
+            "document_id": "mq-e4063412d94e5146",
+            "title": "What I need to know about Physical Activity and Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/physical-activity-diabetes/Pages/physical-activity-diabetes.aspx",
+            "section": "What to do for What I need to know about Physical Activity and Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-e4063412d94e5146",
+                "qa_id": "mq-e4063412d94e5146-qa0",
+                "answer_start": 0,
+                "answer_end": 1445,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/physical-activity-diabetes/Pages/physical-activity-diabetes.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000079.xml"
+              }
+            ]
+          },
+          "score": 0.0162876784769963,
+          "dense_rank": 1,
+          "sparse_rank": 2,
+          "kg_rank": 1,
+          "graph_assertion_ids": [
+            "kg2-a017",
+            "kg2-a018"
+          ],
+          "rerank_score": 1.0,
+          "original_rank": 1
+        },
+        {
+          "chunk_id": "m2c-17975993ad1ee12f4af5",
+          "content": "Making big changes in your life is hard, especially if you are faced with more than one change. You can make it easier by taking these steps: - Make a plan to change behavior. - Decide exactly what you will do and give yourself a time frame. - Plan what you need to get ready. - Track your goals and activity on a food and activity tracker, available at http://www.niddk.nih.gov/health-information/health-communication-programs/ndep/health-care-professionals/game-plan/small-steps/Documents/GP_FoodActTracker.pdf (PDF, 349 KB) - Think about what might prevent you from reaching your goals. - Find family and friends who will support and encourage you. - Decide how you will reward yourselfa shopping trip, movie tickets, an afternoon in the parkwhen you do what you have planned. Your doctor, a dietitian, or a counselor can help you make a plan. Be Physically Active Every Day Regular physical activity tackles several risk factors at once. Activity helps you lose weight; keeps your blood glucose, blood pressure, and cholesterol under control; and helps your body use insulin. People in the DPP who were physically active for 30 minutes a day, 5 days a week, reduced their risk of type 2 diabetes. Many chose brisk walking as their physical activity. If you are not fairly active, you should start slowly. First, talk with your doctor about what kinds of physical activity are safe for you. Make a plan to increase your activity level toward the goal of being active at least 30 minutes a day most days of the week. You can increase your level of physical activity in two main ways: 1.",
+          "chunk_index": 36,
+          "metadata": {
+            "document_id": "mq-336fda912bde5beb",
+            "title": "Am I at Risk for Type 2 Diabetes? Taking Steps to Lower Your Risk of Getting Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/type-2-diabetes-taking-steps-lower-your-risk-diabetes/Pages/index.aspx",
+            "section": "Who is at risk for Am I at Risk for Type 2 Diabetes? Taking Steps to Lower Your Risk of Getting Diabetes? ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-336fda912bde5beb",
+                "qa_id": "mq-336fda912bde5beb-qa6",
+                "answer_start": 0,
+                "answer_end": 1588,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/type-2-diabetes-taking-steps-lower-your-risk-diabetes/Pages/index.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000022.xml"
+              }
+            ]
+          },
+          "score": 0.011583333333333334,
+          "dense_rank": 4,
+          "sparse_rank": 15,
+          "kg_rank": null,
+          "graph_assertion_ids": [],
+          "rerank_score": 0.95,
+          "original_rank": 8
+        },
+        {
+          "chunk_id": "m2c-93ee5f2851b002102cd2",
+          "content": "Normally, active muscles burn their stored glucose for energy and refill their reserves with glucose taken from the bloodstream, keeping blood glucose levels in balance. Studies show that after exercising, muscles become more sensitive to insulin, reversing insulin resistance and lowering blood glucose levels. Exercise also helps muscles absorb more glucose without the need for insulin. The more muscle a body has, the more glucose it can burn to control blood glucose levels. Other Causes Other causes of insulin resistance may include ethnicity; certain diseases; hormones; steroid use; some medications; older age; sleep problems, especially sleep apnea; and cigarette smoking. Does sleep matter? Yes. Studies show that untreated sleep problems, especially sleep apnea, can increase the risk of obesity, insulin resistance, and type 2 diabetes. Night shift workers may also be at increased risk for these problems. Sleep apnea is a common disorder in which a person's breathing is interrupted during sleep. People may often move out of deep sleep and into light sleep when their breathing pauses or becomes shallow. This results in poor sleep quality that causes problem sleepiness, or excessive tiredness, during the day. Many people aren't aware of their symptoms and aren't diagnosed. People who think they might have sleep problems should talk with their health care provider. More information about sleep problems is available from the National Heart, Lung, and Blood Institute at http://www.nhlbi.nih.gov/health/resources/sleep.",
+          "chunk_index": 189,
+          "metadata": {
+            "document_id": "mq-a5a7f373bad71a5b",
+            "title": "Insulin Resistance and Prediabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/insulin-resistance-prediabetes/Pages/index.aspx",
+            "section": "What causes Insulin Resistance and Prediabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-a5a7f373bad71a5b",
+                "qa_id": "mq-a5a7f373bad71a5b-qa2",
+                "answer_start": 1335,
+                "answer_end": 2875,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/insulin-resistance-prediabetes/Pages/index.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000044.xml"
+              }
+            ]
+          },
+          "score": 0.01103344039297185,
+          "dense_rank": 7,
+          "sparse_rank": 19,
+          "kg_rank": null,
+          "graph_assertion_ids": [],
+          "rerank_score": 0.9,
+          "original_rank": 11
+        },
+        {
+          "chunk_id": "m2c-588ce571ca436c0c6d55",
+          "content": "Regular exercise reduces diabetes risk in several ways. It - helps you lose weight - controls your cholesterol and blood pressure - improves your body's use of insulin. helps you lose weight controls your cholesterol and blood pressure improves your body's use of insulin. Many people make walking part of their daily routine because its easy, fun and convenient. But you can choose any activity that gets you moving. Its fine to break up your 30 minutes of exercise into smaller increments, such as three 10-minute periods. Check with your doctor before beginning any exercise program. Many people make walking part of their daily routine because its easy, fun and convenient. But you can choose any activity that gets you moving. Its fine to break up your 30 minutes of exercise into smaller increments, such as three 10-minute periods. Check with your doctor before beginning any exercise program. For more information on exercise and older adults, see Exercises to Try or visit Go4Life, the exercise and physical activity campaign for older adults from the National Institute on Aging.",
+          "chunk_index": 115,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "How to prevent Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa2",
+                "answer_start": 6412,
+                "answer_end": 7501,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.012906583398386677,
+          "dense_rank": 3,
+          "sparse_rank": 1,
+          "kg_rank": null,
+          "graph_assertion_ids": [],
+          "rerank_score": 0.85,
+          "original_rank": 2
+        }
+      ],
+      "source_mapping": [
+        {
+          "chunk_id": "m2c-670a97431189b868aa1c",
+          "content": "- Starting a physical activity program can help you lose weight or keep a healthy weight and keep your blood glucose levels on target. - Always talk with your health care team before you start a new physical activity program. - Ask your health care team if you need to change the amount of medicine you take or the food you eat before any physical activity. - Talk with your health care team about what types of physical activity are safe for you, such as walking, weightlifting, or housework. - To make sure you stay active, find activities you like to do. Ask a friend or family member to be your exercise buddy. - Write down your blood glucose levels and when and how long you are physically active in a record book. - Doctors suggest that you aim for 30 to 60 minutes of moderate to vigorous physical activity most days of the week. - Children and adolescents with type 2 diabetes who are 10 to 17 years old should aim for 60 minutes of moderate to vigorous activity every day. - Not all physical activity has to take place at the same time. For example, you might take a walk for 20 minutes, lift hand weights for 10 minutes, and walk up and down the stairs for 5 minutes. - Doing moderate to vigorous aerobic exercise for 30 to 60 minutes a day most days of the week provides many benefits. You can even split up these minutes into several parts. - Start exercising slowly, with 5 to 10 minutes a day, and add a little more time each week.",
+          "chunk_index": 136,
+          "metadata": {
+            "document_id": "mq-e4063412d94e5146",
+            "title": "What I need to know about Physical Activity and Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/physical-activity-diabetes/Pages/physical-activity-diabetes.aspx",
+            "section": "What to do for What I need to know about Physical Activity and Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-e4063412d94e5146",
+                "qa_id": "mq-e4063412d94e5146-qa0",
+                "answer_start": 0,
+                "answer_end": 1445,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/physical-activity-diabetes/Pages/physical-activity-diabetes.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000079.xml"
+              }
+            ]
+          },
+          "score": 1.0,
+          "score_type": "rerank"
+        },
+        {
+          "chunk_id": "m2c-17975993ad1ee12f4af5",
+          "content": "Making big changes in your life is hard, especially if you are faced with more than one change. You can make it easier by taking these steps: - Make a plan to change behavior. - Decide exactly what you will do and give yourself a time frame. - Plan what you need to get ready. - Track your goals and activity on a food and activity tracker, available at http://www.niddk.nih.gov/health-information/health-communication-programs/ndep/health-care-professionals/game-plan/small-steps/Documents/GP_FoodActTracker.pdf (PDF, 349 KB) - Think about what might prevent you from reaching your goals. - Find family and friends who will support and encourage you. - Decide how you will reward yourselfa shopping trip, movie tickets, an afternoon in the parkwhen you do what you have planned. Your doctor, a dietitian, or a counselor can help you make a plan. Be Physically Active Every Day Regular physical activity tackles several risk factors at once. Activity helps you lose weight; keeps your blood glucose, blood pressure, and cholesterol under control; and helps your body use insulin. People in the DPP who were physically active for 30 minutes a day, 5 days a week, reduced their risk of type 2 diabetes. Many chose brisk walking as their physical activity. If you are not fairly active, you should start slowly. First, talk with your doctor about what kinds of physical activity are safe for you. Make a plan to increase your activity level toward the goal of being active at least 30 minutes a day most days of the week. You can increase your level of physical activity in two main ways: 1.",
+          "chunk_index": 36,
+          "metadata": {
+            "document_id": "mq-336fda912bde5beb",
+            "title": "Am I at Risk for Type 2 Diabetes? Taking Steps to Lower Your Risk of Getting Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/type-2-diabetes-taking-steps-lower-your-risk-diabetes/Pages/index.aspx",
+            "section": "Who is at risk for Am I at Risk for Type 2 Diabetes? Taking Steps to Lower Your Risk of Getting Diabetes? ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-336fda912bde5beb",
+                "qa_id": "mq-336fda912bde5beb-qa6",
+                "answer_start": 0,
+                "answer_end": 1588,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/type-2-diabetes-taking-steps-lower-your-risk-diabetes/Pages/index.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000022.xml"
+              }
+            ]
+          },
+          "score": 0.95,
+          "score_type": "rerank"
+        },
+        {
+          "chunk_id": "m2c-93ee5f2851b002102cd2",
+          "content": "Normally, active muscles burn their stored glucose for energy and refill their reserves with glucose taken from the bloodstream, keeping blood glucose levels in balance. Studies show that after exercising, muscles become more sensitive to insulin, reversing insulin resistance and lowering blood glucose levels. Exercise also helps muscles absorb more glucose without the need for insulin. The more muscle a body has, the more glucose it can burn to control blood glucose levels. Other Causes Other causes of insulin resistance may include ethnicity; certain diseases; hormones; steroid use; some medications; older age; sleep problems, especially sleep apnea; and cigarette smoking. Does sleep matter? Yes. Studies show that untreated sleep problems, especially sleep apnea, can increase the risk of obesity, insulin resistance, and type 2 diabetes. Night shift workers may also be at increased risk for these problems. Sleep apnea is a common disorder in which a person's breathing is interrupted during sleep. People may often move out of deep sleep and into light sleep when their breathing pauses or becomes shallow. This results in poor sleep quality that causes problem sleepiness, or excessive tiredness, during the day. Many people aren't aware of their symptoms and aren't diagnosed. People who think they might have sleep problems should talk with their health care provider. More information about sleep problems is available from the National Heart, Lung, and Blood Institute at http://www.nhlbi.nih.gov/health/resources/sleep.",
+          "chunk_index": 189,
+          "metadata": {
+            "document_id": "mq-a5a7f373bad71a5b",
+            "title": "Insulin Resistance and Prediabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/insulin-resistance-prediabetes/Pages/index.aspx",
+            "section": "What causes Insulin Resistance and Prediabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-a5a7f373bad71a5b",
+                "qa_id": "mq-a5a7f373bad71a5b-qa2",
+                "answer_start": 1335,
+                "answer_end": 2875,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/insulin-resistance-prediabetes/Pages/index.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000044.xml"
+              }
+            ]
+          },
+          "score": 0.9,
+          "score_type": "rerank"
+        },
+        {
+          "chunk_id": "m2c-588ce571ca436c0c6d55",
+          "content": "Regular exercise reduces diabetes risk in several ways. It - helps you lose weight - controls your cholesterol and blood pressure - improves your body's use of insulin. helps you lose weight controls your cholesterol and blood pressure improves your body's use of insulin. Many people make walking part of their daily routine because its easy, fun and convenient. But you can choose any activity that gets you moving. Its fine to break up your 30 minutes of exercise into smaller increments, such as three 10-minute periods. Check with your doctor before beginning any exercise program. Many people make walking part of their daily routine because its easy, fun and convenient. But you can choose any activity that gets you moving. Its fine to break up your 30 minutes of exercise into smaller increments, such as three 10-minute periods. Check with your doctor before beginning any exercise program. For more information on exercise and older adults, see Exercises to Try or visit Go4Life, the exercise and physical activity campaign for older adults from the National Institute on Aging.",
+          "chunk_index": 115,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "How to prevent Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa2",
+                "answer_start": 6412,
+                "answer_end": 7501,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.85,
+          "score_type": "rerank"
+        },
+        {
+          "chunk_id": "m2c-9b59253aa406abb4c8c5",
+          "content": "Check with your doctor before beginning any exercise program. Get at least 30 minutes of exercise at least five days a week. Regular exercise reduces diabetes risk in several ways: it helps you lose weight, controls your cholesterol and blood pressure, and improves your body's use of insulin. Many people make walking part of their daily routine because it's easy, fun and convenient. But you can choose any activity that gets you moving. It's fine to break up your 30 minutes of exercise into smaller increments, such as three 10-minute periods. Check with your doctor before beginning any exercise program.",
+          "chunk_index": 200,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "How to prevent Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa18",
+                "answer_start": 1486,
+                "answer_end": 2095,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.85,
+          "score_type": "rerank"
+        },
+        {
+          "chunk_id": "m2c-098be80ca92cd18f21d2",
+          "content": "Your weight affects your health in many ways. Being overweight can keep your body from making and using insulin properly. It can also cause high blood pressure. If you are overweight or obese, choose sensible ways to reach and maintain a reasonable body weight. - Make healthy food choices. What you eat has a big impact on your weight and overall health. By developing healthy eating habits you can help control your body weight, blood pressure, and cholesterol. Reducing portion size, increasing the amount of fiber you consume (by eating more fruits and vegetables) and limiting fatty and salty foods are key to a healthy diet. Make healthy food choices. What you eat has a big impact on your weight and overall health. By developing healthy eating habits you can help control your body weight, blood pressure, and cholesterol. Reducing portion size, increasing the amount of fiber you consume (by eating more fruits and vegetables) and limiting fatty and salty foods are key to a healthy diet. - Get at least 30 minutes of exercise at least five days a week. Regular exercise reduces diabetes risk in several ways: it helps you lose weight, controls your cholesterol and blood pressure, and improves your body's use of insulin. Many people make walking part of their daily routine because it's easy, fun and convenient. But you can choose any activity that gets you moving. It's fine to break up your 30 minutes of exercise into smaller increments, such as three 10-minute periods. Check with your doctor before beginning any exercise program.",
+          "chunk_index": 13,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "How to prevent Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa18",
+                "answer_start": 0,
+                "answer_end": 1547,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.8,
+          "score_type": "rerank"
+        }
+      ],
+      "limitations": [
+        "Các nguồn tài liệu là snapshot lịch sử từ MedQuAD, không phải hướng dẫn y khoa hiện hành.",
+        "Cần tham khảo ý kiến đội ngũ chăm sóc sức khỏe để điều chỉnh thuốc hoặc chế độ ăn trước khi vận động."
+      ],
+      "verification": {
+        "approved": true,
+        "claim_reviews": [
+          {
+            "claim_id": "1",
+            "status": "supported",
+            "evidence_ids": [
+              "m2c-670a97431189b868aa1c"
+            ]
+          },
+          {
+            "claim_id": "2",
+            "status": "supported",
+            "evidence_ids": [
+              "m2c-93ee5f2851b002102cd2"
+            ]
+          },
+          {
+            "claim_id": "3",
+            "status": "supported",
+            "evidence_ids": [
+              "m2c-17975993ad1ee12f4af5",
+              "m2c-588ce571ca436c0c6d55"
+            ]
+          }
+        ],
+        "direction_ok": true,
+        "numeric_ok": true,
+        "source_integrity_ok": true,
+        "feedback": "The answer accurately reflects the provided evidence regarding the benefits of physical activity for weight and blood glucose management. All claims are directly supported by the cited chunks, including the mechanisms of insulin sensitivity and glucose absorption. The advice to consult a doctor is also well-supported.",
+        "code_errors": []
+      },
+      "risk": null,
+      "plan": {
+        "language": "vi",
+        "intent": "knowledge",
+        "queries": [
+          "Vận động có ích gì cho cân nặng và đường huyết?",
+          "benefits of physical activity for weight management in diabetes",
+          "effect of exercise on blood glucose levels"
+        ],
+        "entity_ids": [
+          "activity"
+        ],
+        "relation_direction": [
+          {
+            "subject": "activity",
+            "relation": "benefits",
+            "object": "weight",
+            "negated": false,
+            "conditions": null
+          },
+          {
+            "subject": "activity",
+            "relation": "benefits",
+            "object": "blood glucose",
+            "negated": false,
+            "conditions": null
+          }
+        ],
+        "scope": "diabetes_knowledge",
+        "original_question": "Vận động có ích gì cho cân nặng và đường huyết?"
+      },
+      "evidence": [
+        {
+          "chunk_id": "m2c-670a97431189b868aa1c",
+          "content": "- Starting a physical activity program can help you lose weight or keep a healthy weight and keep your blood glucose levels on target. - Always talk with your health care team before you start a new physical activity program. - Ask your health care team if you need to change the amount of medicine you take or the food you eat before any physical activity. - Talk with your health care team about what types of physical activity are safe for you, such as walking, weightlifting, or housework. - To make sure you stay active, find activities you like to do. Ask a friend or family member to be your exercise buddy. - Write down your blood glucose levels and when and how long you are physically active in a record book. - Doctors suggest that you aim for 30 to 60 minutes of moderate to vigorous physical activity most days of the week. - Children and adolescents with type 2 diabetes who are 10 to 17 years old should aim for 60 minutes of moderate to vigorous activity every day. - Not all physical activity has to take place at the same time. For example, you might take a walk for 20 minutes, lift hand weights for 10 minutes, and walk up and down the stairs for 5 minutes. - Doing moderate to vigorous aerobic exercise for 30 to 60 minutes a day most days of the week provides many benefits. You can even split up these minutes into several parts. - Start exercising slowly, with 5 to 10 minutes a day, and add a little more time each week.",
+          "chunk_index": 136,
+          "metadata": {
+            "document_id": "mq-e4063412d94e5146",
+            "title": "What I need to know about Physical Activity and Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/physical-activity-diabetes/Pages/physical-activity-diabetes.aspx",
+            "section": "What to do for What I need to know about Physical Activity and Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-e4063412d94e5146",
+                "qa_id": "mq-e4063412d94e5146-qa0",
+                "answer_start": 0,
+                "answer_end": 1445,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/physical-activity-diabetes/Pages/physical-activity-diabetes.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000079.xml"
+              }
+            ]
+          },
+          "score": 0.0162876784769963,
+          "dense_rank": 1,
+          "sparse_rank": 2,
+          "kg_rank": 1,
+          "graph_assertion_ids": [
+            "kg2-a017",
+            "kg2-a018"
+          ],
+          "rerank_score": 1.0,
+          "original_rank": 1
+        },
+        {
+          "chunk_id": "m2c-17975993ad1ee12f4af5",
+          "content": "Making big changes in your life is hard, especially if you are faced with more than one change. You can make it easier by taking these steps: - Make a plan to change behavior. - Decide exactly what you will do and give yourself a time frame. - Plan what you need to get ready. - Track your goals and activity on a food and activity tracker, available at http://www.niddk.nih.gov/health-information/health-communication-programs/ndep/health-care-professionals/game-plan/small-steps/Documents/GP_FoodActTracker.pdf (PDF, 349 KB) - Think about what might prevent you from reaching your goals. - Find family and friends who will support and encourage you. - Decide how you will reward yourselfa shopping trip, movie tickets, an afternoon in the parkwhen you do what you have planned. Your doctor, a dietitian, or a counselor can help you make a plan. Be Physically Active Every Day Regular physical activity tackles several risk factors at once. Activity helps you lose weight; keeps your blood glucose, blood pressure, and cholesterol under control; and helps your body use insulin. People in the DPP who were physically active for 30 minutes a day, 5 days a week, reduced their risk of type 2 diabetes. Many chose brisk walking as their physical activity. If you are not fairly active, you should start slowly. First, talk with your doctor about what kinds of physical activity are safe for you. Make a plan to increase your activity level toward the goal of being active at least 30 minutes a day most days of the week. You can increase your level of physical activity in two main ways: 1.",
+          "chunk_index": 36,
+          "metadata": {
+            "document_id": "mq-336fda912bde5beb",
+            "title": "Am I at Risk for Type 2 Diabetes? Taking Steps to Lower Your Risk of Getting Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/type-2-diabetes-taking-steps-lower-your-risk-diabetes/Pages/index.aspx",
+            "section": "Who is at risk for Am I at Risk for Type 2 Diabetes? Taking Steps to Lower Your Risk of Getting Diabetes? ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-336fda912bde5beb",
+                "qa_id": "mq-336fda912bde5beb-qa6",
+                "answer_start": 0,
+                "answer_end": 1588,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/type-2-diabetes-taking-steps-lower-your-risk-diabetes/Pages/index.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000022.xml"
+              }
+            ]
+          },
+          "score": 0.011583333333333334,
+          "dense_rank": 4,
+          "sparse_rank": 15,
+          "kg_rank": null,
+          "graph_assertion_ids": [],
+          "rerank_score": 0.95,
+          "original_rank": 8
+        },
+        {
+          "chunk_id": "m2c-93ee5f2851b002102cd2",
+          "content": "Normally, active muscles burn their stored glucose for energy and refill their reserves with glucose taken from the bloodstream, keeping blood glucose levels in balance. Studies show that after exercising, muscles become more sensitive to insulin, reversing insulin resistance and lowering blood glucose levels. Exercise also helps muscles absorb more glucose without the need for insulin. The more muscle a body has, the more glucose it can burn to control blood glucose levels. Other Causes Other causes of insulin resistance may include ethnicity; certain diseases; hormones; steroid use; some medications; older age; sleep problems, especially sleep apnea; and cigarette smoking. Does sleep matter? Yes. Studies show that untreated sleep problems, especially sleep apnea, can increase the risk of obesity, insulin resistance, and type 2 diabetes. Night shift workers may also be at increased risk for these problems. Sleep apnea is a common disorder in which a person's breathing is interrupted during sleep. People may often move out of deep sleep and into light sleep when their breathing pauses or becomes shallow. This results in poor sleep quality that causes problem sleepiness, or excessive tiredness, during the day. Many people aren't aware of their symptoms and aren't diagnosed. People who think they might have sleep problems should talk with their health care provider. More information about sleep problems is available from the National Heart, Lung, and Blood Institute at http://www.nhlbi.nih.gov/health/resources/sleep.",
+          "chunk_index": 189,
+          "metadata": {
+            "document_id": "mq-a5a7f373bad71a5b",
+            "title": "Insulin Resistance and Prediabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/insulin-resistance-prediabetes/Pages/index.aspx",
+            "section": "What causes Insulin Resistance and Prediabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-a5a7f373bad71a5b",
+                "qa_id": "mq-a5a7f373bad71a5b-qa2",
+                "answer_start": 1335,
+                "answer_end": 2875,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/insulin-resistance-prediabetes/Pages/index.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000044.xml"
+              }
+            ]
+          },
+          "score": 0.01103344039297185,
+          "dense_rank": 7,
+          "sparse_rank": 19,
+          "kg_rank": null,
+          "graph_assertion_ids": [],
+          "rerank_score": 0.9,
+          "original_rank": 11
+        },
+        {
+          "chunk_id": "m2c-588ce571ca436c0c6d55",
+          "content": "Regular exercise reduces diabetes risk in several ways. It - helps you lose weight - controls your cholesterol and blood pressure - improves your body's use of insulin. helps you lose weight controls your cholesterol and blood pressure improves your body's use of insulin. Many people make walking part of their daily routine because its easy, fun and convenient. But you can choose any activity that gets you moving. Its fine to break up your 30 minutes of exercise into smaller increments, such as three 10-minute periods. Check with your doctor before beginning any exercise program. Many people make walking part of their daily routine because its easy, fun and convenient. But you can choose any activity that gets you moving. Its fine to break up your 30 minutes of exercise into smaller increments, such as three 10-minute periods. Check with your doctor before beginning any exercise program. For more information on exercise and older adults, see Exercises to Try or visit Go4Life, the exercise and physical activity campaign for older adults from the National Institute on Aging.",
+          "chunk_index": 115,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "How to prevent Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa2",
+                "answer_start": 6412,
+                "answer_end": 7501,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.012906583398386677,
+          "dense_rank": 3,
+          "sparse_rank": 1,
+          "kg_rank": null,
+          "graph_assertion_ids": [],
+          "rerank_score": 0.85,
+          "original_rank": 2
+        },
+        {
+          "chunk_id": "m2c-9b59253aa406abb4c8c5",
+          "content": "Check with your doctor before beginning any exercise program. Get at least 30 minutes of exercise at least five days a week. Regular exercise reduces diabetes risk in several ways: it helps you lose weight, controls your cholesterol and blood pressure, and improves your body's use of insulin. Many people make walking part of their daily routine because it's easy, fun and convenient. But you can choose any activity that gets you moving. It's fine to break up your 30 minutes of exercise into smaller increments, such as three 10-minute periods. Check with your doctor before beginning any exercise program.",
+          "chunk_index": 200,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "How to prevent Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa18",
+                "answer_start": 1486,
+                "answer_end": 2095,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.0125,
+          "dense_rank": 4,
+          "sparse_rank": 4,
+          "kg_rank": null,
+          "graph_assertion_ids": [],
+          "rerank_score": 0.85,
+          "original_rank": 3
+        },
+        {
+          "chunk_id": "m2c-098be80ca92cd18f21d2",
+          "content": "Your weight affects your health in many ways. Being overweight can keep your body from making and using insulin properly. It can also cause high blood pressure. If you are overweight or obese, choose sensible ways to reach and maintain a reasonable body weight. - Make healthy food choices. What you eat has a big impact on your weight and overall health. By developing healthy eating habits you can help control your body weight, blood pressure, and cholesterol. Reducing portion size, increasing the amount of fiber you consume (by eating more fruits and vegetables) and limiting fatty and salty foods are key to a healthy diet. Make healthy food choices. What you eat has a big impact on your weight and overall health. By developing healthy eating habits you can help control your body weight, blood pressure, and cholesterol. Reducing portion size, increasing the amount of fiber you consume (by eating more fruits and vegetables) and limiting fatty and salty foods are key to a healthy diet. - Get at least 30 minutes of exercise at least five days a week. Regular exercise reduces diabetes risk in several ways: it helps you lose weight, controls your cholesterol and blood pressure, and improves your body's use of insulin. Many people make walking part of their daily routine because it's easy, fun and convenient. But you can choose any activity that gets you moving. It's fine to break up your 30 minutes of exercise into smaller increments, such as three 10-minute periods. Check with your doctor before beginning any exercise program.",
+          "chunk_index": 13,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "How to prevent Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa18",
+                "answer_start": 0,
+                "answer_end": 1547,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.011983009166107759,
+          "dense_rank": 11,
+          "sparse_rank": 3,
+          "kg_rank": null,
+          "graph_assertion_ids": [],
+          "rerank_score": 0.8,
+          "original_rank": 5
+        }
+      ],
+      "retrieved": [
+        {
+          "chunk_id": "m2c-670a97431189b868aa1c",
+          "content": "- Starting a physical activity program can help you lose weight or keep a healthy weight and keep your blood glucose levels on target. - Always talk with your health care team before you start a new physical activity program. - Ask your health care team if you need to change the amount of medicine you take or the food you eat before any physical activity. - Talk with your health care team about what types of physical activity are safe for you, such as walking, weightlifting, or housework. - To make sure you stay active, find activities you like to do. Ask a friend or family member to be your exercise buddy. - Write down your blood glucose levels and when and how long you are physically active in a record book. - Doctors suggest that you aim for 30 to 60 minutes of moderate to vigorous physical activity most days of the week. - Children and adolescents with type 2 diabetes who are 10 to 17 years old should aim for 60 minutes of moderate to vigorous activity every day. - Not all physical activity has to take place at the same time. For example, you might take a walk for 20 minutes, lift hand weights for 10 minutes, and walk up and down the stairs for 5 minutes. - Doing moderate to vigorous aerobic exercise for 30 to 60 minutes a day most days of the week provides many benefits. You can even split up these minutes into several parts. - Start exercising slowly, with 5 to 10 minutes a day, and add a little more time each week.",
+          "chunk_index": 136,
+          "metadata": {
+            "document_id": "mq-e4063412d94e5146",
+            "title": "What I need to know about Physical Activity and Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/physical-activity-diabetes/Pages/physical-activity-diabetes.aspx",
+            "section": "What to do for What I need to know about Physical Activity and Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-e4063412d94e5146",
+                "qa_id": "mq-e4063412d94e5146-qa0",
+                "answer_start": 0,
+                "answer_end": 1445,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/physical-activity-diabetes/Pages/physical-activity-diabetes.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000079.xml"
+              }
+            ]
+          },
+          "score": 0.0162876784769963,
+          "dense_rank": 1,
+          "sparse_rank": 2,
+          "kg_rank": 1,
+          "graph_assertion_ids": [
+            "kg2-a017",
+            "kg2-a018"
+          ]
+        },
+        {
+          "chunk_id": "m2c-588ce571ca436c0c6d55",
+          "content": "Regular exercise reduces diabetes risk in several ways. It - helps you lose weight - controls your cholesterol and blood pressure - improves your body's use of insulin. helps you lose weight controls your cholesterol and blood pressure improves your body's use of insulin. Many people make walking part of their daily routine because its easy, fun and convenient. But you can choose any activity that gets you moving. Its fine to break up your 30 minutes of exercise into smaller increments, such as three 10-minute periods. Check with your doctor before beginning any exercise program. Many people make walking part of their daily routine because its easy, fun and convenient. But you can choose any activity that gets you moving. Its fine to break up your 30 minutes of exercise into smaller increments, such as three 10-minute periods. Check with your doctor before beginning any exercise program. For more information on exercise and older adults, see Exercises to Try or visit Go4Life, the exercise and physical activity campaign for older adults from the National Institute on Aging.",
+          "chunk_index": 115,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "How to prevent Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa2",
+                "answer_start": 6412,
+                "answer_end": 7501,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.012906583398386677,
+          "dense_rank": 3,
+          "sparse_rank": 1,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-9b59253aa406abb4c8c5",
+          "content": "Check with your doctor before beginning any exercise program. Get at least 30 minutes of exercise at least five days a week. Regular exercise reduces diabetes risk in several ways: it helps you lose weight, controls your cholesterol and blood pressure, and improves your body's use of insulin. Many people make walking part of their daily routine because it's easy, fun and convenient. But you can choose any activity that gets you moving. It's fine to break up your 30 minutes of exercise into smaller increments, such as three 10-minute periods. Check with your doctor before beginning any exercise program.",
+          "chunk_index": 200,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "How to prevent Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa18",
+                "answer_start": 1486,
+                "answer_end": 2095,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.0125,
+          "dense_rank": 4,
+          "sparse_rank": 4,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-ca45e72442565d7c1532",
+          "content": "To enlarge the video, click the brackets in the lower right-hand corner. To reduce the video, press the Escape (Esc) button on your keyboard.) The benefits of weight loss and regular exercise have long-lasting value. In a DPP follow-up trial known as the Diabetes Prevention Program Outcome Study (DPPOS), people at risk of type 2 diabetes who kept off the weight they had lost and who continued to exercise regularly delayed the onset of type 2 diabetes by about 4 years. The DPP study also showed that modest weight loss (achieved by following a low calorie, low-fat diet) and moderate physical activity were especially effective in preventing or delaying the development of diabetes in older people. In fact, people over the age of 60 were able to reduce their risk for developing type 2 diabetes by 71 percent. How to Lower Your Risk Making modest lifestyle changes can help prevent or delay type 2 diabetes in people who are at risk. Here are some tips. Reach and Maintain a Reasonable Body Weight Your weight affects your health in many ways. Being overweight can keep your body from making and using insulin properly. It can also cause high blood pressure. The Body Mass Index chart (seen here) can be used to find out whether someone is normal weight, overweight, or obese. Body mass index is a measurement of body weight relative to height for adults age 20 or older.",
+          "chunk_index": 249,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "How to prevent Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa2",
+                "answer_start": 1522,
+                "answer_end": 2898,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.012307692307692308,
+          "dense_rank": 5,
+          "sparse_rank": 5,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-098be80ca92cd18f21d2",
+          "content": "Your weight affects your health in many ways. Being overweight can keep your body from making and using insulin properly. It can also cause high blood pressure. If you are overweight or obese, choose sensible ways to reach and maintain a reasonable body weight. - Make healthy food choices. What you eat has a big impact on your weight and overall health. By developing healthy eating habits you can help control your body weight, blood pressure, and cholesterol. Reducing portion size, increasing the amount of fiber you consume (by eating more fruits and vegetables) and limiting fatty and salty foods are key to a healthy diet. Make healthy food choices. What you eat has a big impact on your weight and overall health. By developing healthy eating habits you can help control your body weight, blood pressure, and cholesterol. Reducing portion size, increasing the amount of fiber you consume (by eating more fruits and vegetables) and limiting fatty and salty foods are key to a healthy diet. - Get at least 30 minutes of exercise at least five days a week. Regular exercise reduces diabetes risk in several ways: it helps you lose weight, controls your cholesterol and blood pressure, and improves your body's use of insulin. Many people make walking part of their daily routine because it's easy, fun and convenient. But you can choose any activity that gets you moving. It's fine to break up your 30 minutes of exercise into smaller increments, such as three 10-minute periods. Check with your doctor before beginning any exercise program.",
+          "chunk_index": 13,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "How to prevent Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa18",
+                "answer_start": 0,
+                "answer_end": 1547,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.011983009166107759,
+          "dense_rank": 11,
+          "sparse_rank": 3,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-7b9e00d7dd829ca53969",
+          "content": "People with diabetes should - do aerobic activities, such as brisk walking, which use the bodys large muscles to make the heart beat faster. The large muscles are those of the upper and lower arms and legs and those that control head, shoulder, and hip movements. - do activities to strengthen muscles and bone, such as sit-ups or lifting weights. Aim for two times a week. - stretch to increase flexibility, lower stress, and help prevent muscle soreness after physical activity. do aerobic activities, such as brisk walking, which use the bodys large muscles to make the heart beat faster. The large muscles are those of the upper and lower arms and legs and those that control head, shoulder, and hip movements. do activities to strengthen muscles and bone, such as sit-ups or lifting weights. Aim for two times a week. stretch to increase flexibility, lower stress, and help prevent muscle soreness after physical activity. Try to exercise almost every day for a total of about 30 minutes. If you haven't exercised lately, begin slowly. Start with 5 to 10 minutes, and then add more time. Or exercise for 10 minutes, three times a day. (Tip: you dont need to get your exercise in all at one time.) For more information on exercise and older adults, see Exercises To Try or visit Go4Life, the exercise and physical activity campaign from the National Institute on Aging. Always talk with a doctor before starting a new physical activity program.",
+          "chunk_index": 163,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "What is (are) Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa17",
+                "answer_start": 0,
+                "answer_end": 1448,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.011646418098031002,
+          "dense_rank": 2,
+          "sparse_rank": 17,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-dd4ed96ebfc9c399cb8f",
+          "content": "The two most common forms of diabetes are type 1 and type 2. Currently, there is no way to delay or prevent type 1 diabetes. However, research has shown that type 2 diabetes can be prevented or delayed in people at risk for the disease. Preventing type 2 diabetes can mean a healthier and longer life without serious complications from the disease such as heart disease, stroke, blindness, kidney failure, and amputations. Preventing Type 2 Diabetes Before people develop type 2 diabetes, they usually have prediabetes -- a condition in which blood glucose levels are higher than normal, but not yet high enough for a diagnosis of diabetes. The good news is that if you have prediabetes, there are ways to reduce your risk of getting type 2 diabetes. With modest weight loss and moderate physical activity, you can delay or prevent type 2 diabetes Benefits of Weight Loss and Exercise The Diabetes Prevention Program (DPP) is a landmark study by the National Institute of Diabetes and Digestive and Kidney Diseases. DPP researchers found that adults at high risk for type 2 diabetes were able to cut their risk in half by losing a modest amount of weight and being active almost every day. This means losing 5 to 7 percent of body weight (that's 10 pounds if you weigh 200 pounds) and getting 150 minutes of physical activity a week. The drug metformin reduced the risk of type 2 diabetes by 34 percent but was more effective in younger and heavier adults. (Watch the video to learn more about preventing type 2 diabetes. To enlarge the video, click the brackets in the lower right-hand corner.",
+          "chunk_index": 274,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "How to prevent Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa2",
+                "answer_start": 0,
+                "answer_end": 1594,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.011612364243943192,
+          "dense_rank": 16,
+          "sparse_rank": 3,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-17975993ad1ee12f4af5",
+          "content": "Making big changes in your life is hard, especially if you are faced with more than one change. You can make it easier by taking these steps: - Make a plan to change behavior. - Decide exactly what you will do and give yourself a time frame. - Plan what you need to get ready. - Track your goals and activity on a food and activity tracker, available at http://www.niddk.nih.gov/health-information/health-communication-programs/ndep/health-care-professionals/game-plan/small-steps/Documents/GP_FoodActTracker.pdf (PDF, 349 KB) - Think about what might prevent you from reaching your goals. - Find family and friends who will support and encourage you. - Decide how you will reward yourselfa shopping trip, movie tickets, an afternoon in the parkwhen you do what you have planned. Your doctor, a dietitian, or a counselor can help you make a plan. Be Physically Active Every Day Regular physical activity tackles several risk factors at once. Activity helps you lose weight; keeps your blood glucose, blood pressure, and cholesterol under control; and helps your body use insulin. People in the DPP who were physically active for 30 minutes a day, 5 days a week, reduced their risk of type 2 diabetes. Many chose brisk walking as their physical activity. If you are not fairly active, you should start slowly. First, talk with your doctor about what kinds of physical activity are safe for you. Make a plan to increase your activity level toward the goal of being active at least 30 minutes a day most days of the week. You can increase your level of physical activity in two main ways: 1.",
+          "chunk_index": 36,
+          "metadata": {
+            "document_id": "mq-336fda912bde5beb",
+            "title": "Am I at Risk for Type 2 Diabetes? Taking Steps to Lower Your Risk of Getting Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/type-2-diabetes-taking-steps-lower-your-risk-diabetes/Pages/index.aspx",
+            "section": "Who is at risk for Am I at Risk for Type 2 Diabetes? Taking Steps to Lower Your Risk of Getting Diabetes? ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-336fda912bde5beb",
+                "qa_id": "mq-336fda912bde5beb-qa6",
+                "answer_start": 0,
+                "answer_end": 1588,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/type-2-diabetes-taking-steps-lower-your-risk-diabetes/Pages/index.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000022.xml"
+              }
+            ]
+          },
+          "score": 0.011583333333333334,
+          "dense_rank": 4,
+          "sparse_rank": 15,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-39c6512524216aa32b22",
+          "content": "Those who took metformin also received information about physical activity and diet. - Receiving education about diabetes. The third group only received information about physical activity and diet and took a placeboa pill without medicine in it. People in the lifestyle change group showed the best outcomes. But people who took metformin also benefited. The results showed that by losing an average of 15 pounds in the first year of the study, people in the lifestyle change group reduced their risk of developing type 2 diabetes by 58 percent over 3 years. Lifestyle change was even more effective in those age 60 and older. People in this group reduced their risk by 71 percent. But people in the metformin group also benefited, reducing their risk by 31 percent. More information about the DPP, funded under National Institutes of Health (NIH) clinical trial number NCT00004992, is available at www.bsc.gwu.edu/dpp. Lasting Results The Diabetes Prevention Program Outcomes Study (DPPOS) has shown that the benefits of weight loss and metformin last for at least 10 years. The DPPOS has continued to follow most DPP participants since the DPP ended in 2001.",
+          "chunk_index": 72,
+          "metadata": {
+            "document_id": "mq-336fda912bde5beb",
+            "title": "Am I at Risk for Type 2 Diabetes? Taking Steps to Lower Your Risk of Getting Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/type-2-diabetes-taking-steps-lower-your-risk-diabetes/Pages/index.aspx",
+            "section": "How to prevent Am I at Risk for Type 2 Diabetes? Taking Steps to Lower Your Risk of Getting Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-336fda912bde5beb",
+                "qa_id": "mq-336fda912bde5beb-qa1",
+                "answer_start": 1402,
+                "answer_end": 2563,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/type-2-diabetes-taking-steps-lower-your-risk-diabetes/Pages/index.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000022.xml"
+              }
+            ]
+          },
+          "score": 0.011583333333333334,
+          "dense_rank": 15,
+          "sparse_rank": 4,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-91cdf62148f4f6938cfb",
+          "content": "The two most common forms of diabetes are type 1 and type 2. Currently, there is no way to delay or prevent type 1 diabetes. However, research has shown that making modest lifestyle changes can prevent or delay type 2 diabetes in people at risk for the disease. In the Diabetes Prevention Program (DPP), a landmark study by the National Institute of Diabetes and Digestive and Kidney Diseases, researchers found that adults at high risk for type 2 diabetes were able to cut their risk in half by losing a modest amount of weight and being active almost every day. This means losing 5 to 7 percent of body weight (that's 10 pounds if you weigh 200 pounds) and getting 150 minutes of physical activity a week. The DPP study also showed that modest weight loss (achieved by following a low calorie, low-fat diet) and moderate physical activity were especially effective in preventing or delaying the development of diabetes in older people. In fact, people over the age of 60 were able to reduce their risk for developing type 2 diabetes by 71 percent. (Watch the video to learn more about preventing type 2 diabetes. To enlarge the video, click the brackets in the lower right-hand corner. To reduce the video, press the Escape (Esc) button on your keyboard.)",
+          "chunk_index": 187,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "How to prevent Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa13",
+                "answer_start": 0,
+                "answer_end": 1257,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.011189358372456965,
+          "dense_rank": 12,
+          "sparse_rank": 11,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-93ee5f2851b002102cd2",
+          "content": "Normally, active muscles burn their stored glucose for energy and refill their reserves with glucose taken from the bloodstream, keeping blood glucose levels in balance. Studies show that after exercising, muscles become more sensitive to insulin, reversing insulin resistance and lowering blood glucose levels. Exercise also helps muscles absorb more glucose without the need for insulin. The more muscle a body has, the more glucose it can burn to control blood glucose levels. Other Causes Other causes of insulin resistance may include ethnicity; certain diseases; hormones; steroid use; some medications; older age; sleep problems, especially sleep apnea; and cigarette smoking. Does sleep matter? Yes. Studies show that untreated sleep problems, especially sleep apnea, can increase the risk of obesity, insulin resistance, and type 2 diabetes. Night shift workers may also be at increased risk for these problems. Sleep apnea is a common disorder in which a person's breathing is interrupted during sleep. People may often move out of deep sleep and into light sleep when their breathing pauses or becomes shallow. This results in poor sleep quality that causes problem sleepiness, or excessive tiredness, during the day. Many people aren't aware of their symptoms and aren't diagnosed. People who think they might have sleep problems should talk with their health care provider. More information about sleep problems is available from the National Heart, Lung, and Blood Institute at http://www.nhlbi.nih.gov/health/resources/sleep.",
+          "chunk_index": 189,
+          "metadata": {
+            "document_id": "mq-a5a7f373bad71a5b",
+            "title": "Insulin Resistance and Prediabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/insulin-resistance-prediabetes/Pages/index.aspx",
+            "section": "What causes Insulin Resistance and Prediabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-a5a7f373bad71a5b",
+                "qa_id": "mq-a5a7f373bad71a5b-qa2",
+                "answer_start": 1335,
+                "answer_end": 2875,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/insulin-resistance-prediabetes/Pages/index.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000044.xml"
+              }
+            ]
+          },
+          "score": 0.01103344039297185,
+          "dense_rank": 7,
+          "sparse_rank": 19,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-6f92baa461f193e88da4",
+          "content": "In modern times, however, when high-calorie foods are plentiful, such a trait can promote obesity and type 2 diabetes. Obesity and Physical Inactivity Physical inactivity and obesity are strongly associated with the development of type 2 diabetes. People who are genetically susceptible to type 2 diabetes are more vulnerable when these risk factors are present. An imbalance between caloric intake and physical activity can lead to obesity, which causes insulin resistance and is common in people with type 2 diabetes. Central obesity, in which a person has excess abdominal fat, is a major risk factor not only for insulin resistance and type 2 diabetes but also for heart and blood vessel disease, also called cardiovascular disease (CVD). This excess belly fat produces hormones and other substances that can cause harmful, chronic effects in the body such as damage to blood vessels. The DPP and other studies show that millions of people can lower their risk for type 2 diabetes by making lifestyle changes and losing weight. The DPP proved that people with prediabetesat high risk of developing type 2 diabetescould sharply lower their risk by losing weight through regular physical activity and a diet low in fat and calories.",
+          "chunk_index": 146,
+          "metadata": {
+            "document_id": "mq-1a96cc5a67a19f40",
+            "title": "Causes of Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/causes-diabetes/Pages/index.aspx#gestational",
+            "section": "What causes Causes of Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-1a96cc5a67a19f40",
+                "qa_id": "mq-1a96cc5a67a19f40-qa2",
+                "answer_start": 2800,
+                "answer_end": 4034,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/causes-diabetes/Pages/index.aspx#gestational",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000037.xml"
+              },
+              {
+                "document_id": "mq-c814356637340276",
+                "qa_id": "mq-c814356637340276-qa2",
+                "answer_start": 2800,
+                "answer_end": 4034,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/causes-diabetes/Pages/index.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000027.xml"
+              },
+              {
+                "document_id": "mq-e0a5afea97e7ca46",
+                "qa_id": "mq-e0a5afea97e7ca46-qa2",
+                "answer_start": 2800,
+                "answer_end": 4034,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/causes-diabetes/Pages/index.aspx#causes",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000070.xml"
+              },
+              {
+                "document_id": "mq-f3b5a2182f97103e",
+                "qa_id": "mq-f3b5a2182f97103e-qa2",
+                "answer_start": 2800,
+                "answer_end": 4034,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/causes-diabetes/Pages/index.aspx#type2",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000071.xml"
+              }
+            ]
+          },
+          "score": 0.010860392588515868,
+          "dense_rank": 19,
+          "sparse_rank": 9,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-fa38c385439d56d25f21",
+          "content": "However, protein intake that is too low may lead to malnutrition, a condition that occurs when the body does not get enough nutrients. More information about diabetes and diet is provided in the NIDDK health topics: - What I need to know about Eating and Diabetes and What I need to know about Carbohydrate Counting and Diabetes - Make the Kidney Connection: Food Tips and Healthy Eating Ideas and Eating Right for Kidney Health: Tips for People with Chronic Kidney Disease. Weight Loss and Physical Activity Health care providers recommend that people who are overweight or obese lose weight to improve their bodies ability to use insulin properly and lower their risk for health problems related to high blood pressure. Overweight is defined as a body mass index (BMI)a measurement of weight in relation to heightof 25 to 29. A BMI of 30 or higher is considered obese. People should aim to keep their BMI lower than 25.4 Experts recommend physical activity as an important part of losing weight, keeping sensitivity to insulin, and treating high blood pressure. Most people should try to get at least 30 to 60 minutes of activity most or all days of the week. A person can do all physical activity at once or break up activities into shorter periods of at least 10 minutes each. Moderate activities include brisk walking, dancing, bowling, riding a bike, working in a garden, and cleaning the house. More information is provided in the NIDDK health topic, What I need to know about Physical Activity and Diabetes.",
+          "chunk_index": 307,
+          "metadata": {
+            "document_id": "mq-39edc72b4c07d38d",
+            "title": "Diabetic Kidney Disease",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/diabetic-kidney-disease/Pages/index.aspx",
+            "section": "How to prevent Diabetic Kidney Disease ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-39edc72b4c07d38d",
+                "qa_id": "mq-39edc72b4c07d38d-qa6",
+                "answer_start": 3988,
+                "answer_end": 5503,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/diabetic-kidney-disease/Pages/index.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000033.xml"
+              }
+            ]
+          },
+          "score": 0.010714285714285714,
+          "dense_rank": 20,
+          "sparse_rank": 10,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-35e182afdb145d782fe8",
+          "content": "Diabetes is a disease in which your blood glucose, or blood sugar, levels are too high. Glucose comes from the foods you eat. Insulin is a hormone that helps the glucose get into your cells to give them energy. With type 1 diabetes, your body does not make insulin. With type 2 diabetes, the more common type, your body does not make or use insulin well. Without enough insulin, the glucose stays in your blood. You can also have prediabetes. This means that your blood sugar is higher than normal but not high enough to be called diabetes. Having prediabetes puts you at a higher risk of getting type 2 diabetes. Over time, having too much glucose in your blood can cause serious problems. It can damage your eyes, kidneys, and nerves. Diabetes can also cause heart disease, stroke and even the need to remove a limb. Pregnant women can also get diabetes, called gestational diabetes. Blood tests can show if you have diabetes. One type of test, the A1C, can also check on how you are managing your diabetes. Exercise, weight control and sticking to your meal plan can help control your diabetes. You should also monitor your blood glucose level and take medicine if prescribed. NIH: National Institute of Diabetes and Digestive and Kidney Diseases",
+          "chunk_index": 66,
+          "metadata": {
+            "document_id": "mq-cdb161eaa3dbc89d",
+            "title": "Diabetes",
+            "source": "https://www.nlm.nih.gov/medlineplus/diabetes.html",
+            "section": "What is (are) Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-cdb161eaa3dbc89d",
+                "qa_id": "mq-cdb161eaa3dbc89d-qa0",
+                "answer_start": 0,
+                "answer_end": 1249,
+                "source_url": "https://www.nlm.nih.gov/medlineplus/diabetes.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/4_MPlus_Health_Topics_QA/0000266.xml"
+              }
+            ]
+          },
+          "score": 0.01060765718299965,
+          "dense_rank": 18,
+          "sparse_rank": 13,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-7e5aa9c96d176641246d",
+          "content": "Yes. The results of the Diabetes Prevention Program (DPP) proved that weight loss through moderate diet changes and physical activity can delay or prevent type 2 diabetes. The DPP was a federally funded study of 3,234 people at high risk for diabetes. This study showed that a 5-to 7-percent weight loss, which for a 200-pound person would be 10 to 14 pounds, slowed development of type 2 diabetes. People at High Risk for Diabetes DPP study participants were overweight and had higher than normal levels of blood glucose, a condition called prediabetes. Many had family members with type 2 diabetes. Prediabetes, obesity, and a family history of diabetes are strong risk factors for type 2 diabetes. About half of the DPP participants were from minority groups with high rates of diabetes, including African Americans, Alaska Natives, American Indians, Asian Americans, Hispanics/Latinos, and Pacific Islander Americans. DPP participants also included others at high risk for developing type 2 diabetes, such as women with a history of gestational diabetes and people age 60 and older. Approaches to Preventing Diabetes The DPP tested three approaches to preventing diabetes: - Making lifestyle changes. People in the lifestyle change group exercised, usually by walking 5 days a week for about 30 minutes a day, and lowered their intake of fat and calories. - Taking the diabetes medicine metformin. Those who took metformin also received information about physical activity and diet. - Receiving education about diabetes.",
+          "chunk_index": 164,
+          "metadata": {
+            "document_id": "mq-336fda912bde5beb",
+            "title": "Am I at Risk for Type 2 Diabetes? Taking Steps to Lower Your Risk of Getting Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/type-2-diabetes-taking-steps-lower-your-risk-diabetes/Pages/index.aspx",
+            "section": "How to prevent Am I at Risk for Type 2 Diabetes? Taking Steps to Lower Your Risk of Getting Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-336fda912bde5beb",
+                "qa_id": "mq-336fda912bde5beb-qa1",
+                "answer_start": 0,
+                "answer_end": 1524,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/type-2-diabetes-taking-steps-lower-your-risk-diabetes/Pages/index.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000022.xml"
+              }
+            ]
+          },
+          "score": 0.010405405405405407,
+          "dense_rank": 14,
+          "sparse_rank": 20,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-d665232fc896ebeb39fd",
+          "content": "Moderate-protein Diets In people with diabetes, excessive consumption of protein may be harmful. Experts recommend that people with kidney disease of diabetes consume the recommended dietary allowance for protein, but avoid high-protein diets. For people with greatly reduced kidney function, a diet containing reduced amounts of protein may help delay the onset of kidney failure. Anyone following a reduced-protein diet should work with a dietitian to ensure adequate nutrition. Intensive Management of Blood Glucose Antihypertensive drugs and low-protein diets can slow CKD. A third treatment, known as intensive management of blood glucose or glycemic control, has shown great promise for people with diabetes, especially for those in the early stages of CKD. The human body normally converts food to glucose, the simple sugar that is the main source of energy for the body's cells. To enter cells, glucose needs the help of insulin, a hormone produced by the pancreas. When a person does not make enough insulin, or the body does not respond to the insulin that is present, the body cannot process glucose, and it builds up in the bloodstream. High levels of glucose in the blood lead to a diagnosis of diabetes. Intensive management of blood glucose is a treatment regimen that aims to keep blood glucose levels close to normal. The regimen includes testing blood glucose frequently, administering insulin throughout the day on the basis of food intake and physical activity, following a diet and activity plan, and consulting a health care team regularly.",
+          "chunk_index": 262,
+          "metadata": {
+            "document_id": "mq-454e874ed9eacbb9",
+            "title": "Kidney Disease of Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/kidney-disease/kidney-disease-of-diabetes/Pages/facts.aspx",
+            "section": "How to prevent Kidney Disease of Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-454e874ed9eacbb9",
+                "qa_id": "mq-454e874ed9eacbb9-qa2",
+                "answer_start": 1379,
+                "answer_end": 2941,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/kidney-disease/kidney-disease-of-diabetes/Pages/facts.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000153.xml"
+              },
+              {
+                "document_id": "mq-454e874ed9eacbb9",
+                "qa_id": "mq-454e874ed9eacbb9-qa3",
+                "answer_start": 1379,
+                "answer_end": 2941,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/kidney-disease/kidney-disease-of-diabetes/Pages/facts.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000153.xml"
+              }
+            ]
+          },
+          "score": 0.006557377049180328,
+          "dense_rank": null,
+          "sparse_rank": 1,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-68caee72dd5b1a5f2692",
+          "content": "You can even split up these minutes into several parts. - Start exercising slowly, with 5 to 10 minutes a day, and add a little more time each week. Try walking briskly, hiking, or climbing stairs. - Whether youre a man or a woman, you can do strength training with hand weights, elastic bands, or weight machines two to three times a week. - Stretching exercises are a light to moderate physical activity that both men and women can do. When you stretch, you increase your flexibility, lower your stress, and help prevent sore muscles. - Increase daily activity by spending less time watching TV or at the computer. - Try these simple ways to add light, moderate, or vigorous physical activities in your life every day: - Walk around while you talk on the phone. - Take a walk through your neighborhood. - Do chores, such as work in the garden or rake leaves, clean the house, or wash the car. - If you have type 1 diabetes, try not to do vigorous physical activity when you have ketones in your blood or urine.",
+          "chunk_index": 139,
+          "metadata": {
+            "document_id": "mq-e4063412d94e5146",
+            "title": "What I need to know about Physical Activity and Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/physical-activity-diabetes/Pages/physical-activity-diabetes.aspx",
+            "section": "What to do for What I need to know about Physical Activity and Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-e4063412d94e5146",
+                "qa_id": "mq-e4063412d94e5146-qa0",
+                "answer_start": 1297,
+                "answer_end": 2309,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/physical-activity-diabetes/Pages/physical-activity-diabetes.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000079.xml"
+              }
+            ]
+          },
+          "score": 0.0064516129032258064,
+          "dense_rank": 2,
+          "sparse_rank": null,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-6301bf4dcd9a320ac913",
+          "content": "Many genes, as well as interactions among genes, are thought to influence susceptibility to and protection from type 1 diabetes. The key genes may vary in different population groups. Variations in genes that affect more than 1 percent of a population group are called gene variants. Certain gene variants that carry instructions for making proteins called human leukocyte antigens (HLAs) on white blood cells are linked to the risk of developing type 1 diabetes. The proteins produced by HLA genes help determine whether the immune system recognizes a cell as part of the body or as foreign material. Some combinations of HLA gene variants predict that a person will be at higher risk for type 1 diabetes, while other combinations are protective or have no effect on risk. While HLA genes are the major risk genes for type 1 diabetes, many additional risk genes or gene regions have been found. Not only can these genes help identify people at risk for type 1 diabetes, but they also provide important clues to help scientists better understand how the disease develops and identify potential targets for therapy and prevention. Genetic testing can show what types of HLA genes a person carries and can reveal other genes linked to diabetes. However, most genetic testing is done in a research setting and is not yet available to individuals. Scientists are studying how the results of genetic testing can be used to improve type 1 diabetes prevention or treatment. Autoimmune Destruction of Beta Cells In type 1 diabetes, white blood cells called T cells attack and destroy beta cells.",
+          "chunk_index": 130,
+          "metadata": {
+            "document_id": "mq-1a96cc5a67a19f40",
+            "title": "Causes of Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/causes-diabetes/Pages/index.aspx#gestational",
+            "section": "What causes Causes of Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-1a96cc5a67a19f40",
+                "qa_id": "mq-1a96cc5a67a19f40-qa1",
+                "answer_start": 1452,
+                "answer_end": 3039,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/causes-diabetes/Pages/index.aspx#gestational",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000037.xml"
+              },
+              {
+                "document_id": "mq-c814356637340276",
+                "qa_id": "mq-c814356637340276-qa1",
+                "answer_start": 1452,
+                "answer_end": 3039,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/causes-diabetes/Pages/index.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000027.xml"
+              },
+              {
+                "document_id": "mq-e0a5afea97e7ca46",
+                "qa_id": "mq-e0a5afea97e7ca46-qa1",
+                "answer_start": 1452,
+                "answer_end": 3039,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/causes-diabetes/Pages/index.aspx#causes",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000070.xml"
+              },
+              {
+                "document_id": "mq-f3b5a2182f97103e",
+                "qa_id": "mq-f3b5a2182f97103e-qa1",
+                "answer_start": 1452,
+                "answer_end": 3039,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/causes-diabetes/Pages/index.aspx#type2",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000071.xml"
+              }
+            ]
+          },
+          "score": 0.0064516129032258064,
+          "dense_rank": null,
+          "sparse_rank": 2,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-0781349f3bad3874b832",
+          "content": "Ask for help to quit. Call 1-800 QUITNOW (1-800-784-8669). For more information on smoking and older adults, see Quitting Smoking for Older Adults. Eat Well People with diabetes don't need to buy or prepare special foods. The foods that are best for someone with diabetes are excellent choices for everyone: foods that are low in fat, salt, and sugar, and high in fiber, such as beans, fruits, vegetables, and whole grains. These foods help you reach and stay at a weight that's good for your body, keep your blood pressure, glucose and cholesterol in a desirable range, and prevent or delay heart and blood vessel disease. For more on healthy eating, see Small Steps for Eating Healthy Foods. Be Active Try to exercise almost every day for a total of about 30 to 60 minutes. If you haven't exercised lately, begin slowly. Start with 5 to 10 minutes, and then add more time. Or exercise for 10 minutes, three times a day. (Tip: you dont need to get your exercise in all at one time.) For more information on exercise and older adults, see Exercise: How to Get Started or visit Go4Life, the exercise and physical activity campaign for older adults from the National Institute on Aging. Be sure to check with your doctor before starting an exercise program. Other Areas To Manage Here are other areas to manage if you have diabetes. - Take care of your eyes. - Protect your kidneys. - Protect your skin. - Learn how to cope with stress. Take care of your eyes. Protect your kidneys. Protect your skin. Learn how to cope with stress.",
+          "chunk_index": 8,
+          "metadata": {
+            "document_id": "mq-4cdedfe5a14e0ebd",
+            "title": "Diabetes",
+            "source": "http://nihseniorhealth.gov/diabetes/toc.html",
+            "section": "What are the treatments for Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-4cdedfe5a14e0ebd",
+                "qa_id": "mq-4cdedfe5a14e0ebd-qa4",
+                "answer_start": 5779,
+                "answer_end": 7309,
+                "source_url": "http://nihseniorhealth.gov/diabetes/toc.html",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/7_SeniorHealth_QA/0000015.xml"
+              }
+            ]
+          },
+          "score": 0.006153846153846154,
+          "dense_rank": null,
+          "sparse_rank": 5,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        },
+        {
+          "chunk_id": "m2c-e993822351a1b04554fc",
+          "content": "The regimen includes testing blood glucose frequently, administering insulin throughout the day on the basis of food intake and physical activity, following a diet and activity plan, and consulting a health care team regularly. Some people use an insulin pump to supply insulin throughout the day. A number of studies have pointed to the beneficial effects of intensive management of blood glucose. In the Diabetes Control and Complications Trial supported by the National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK), researchers found a 50 percent decrease in both development and progression of early diabetic kidney disease in participants who followed an intensive regimen for controlling blood glucose levels. The intensively managed patients had average blood glucose levels of 150 milligrams per deciliterabout 80 milligrams per deciliter lower than the levels observed in the conventionally managed patients. The United Kingdom Prospective Diabetes Study, conducted from 1976 to 1997, showed conclusively that, in people with improved blood glucose control, the risk of early kidney disease was reduced by a third. Additional studies conducted over the past decades have clearly established that any program resulting in sustained lowering of blood glucose levels will be beneficial to patients in the early stages of CKD.",
+          "chunk_index": 288,
+          "metadata": {
+            "document_id": "mq-454e874ed9eacbb9",
+            "title": "Kidney Disease of Diabetes",
+            "source": "http://www.niddk.nih.gov/health-information/health-topics/kidney-disease/kidney-disease-of-diabetes/Pages/facts.aspx",
+            "section": "How to prevent Kidney Disease of Diabetes ?",
+            "subsection": null,
+            "source_refs": [
+              {
+                "document_id": "mq-454e874ed9eacbb9",
+                "qa_id": "mq-454e874ed9eacbb9-qa2",
+                "answer_start": 2714,
+                "answer_end": 4064,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/kidney-disease/kidney-disease-of-diabetes/Pages/facts.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000153.xml"
+              },
+              {
+                "document_id": "mq-454e874ed9eacbb9",
+                "qa_id": "mq-454e874ed9eacbb9-qa3",
+                "answer_start": 2714,
+                "answer_end": 4064,
+                "source_url": "http://www.niddk.nih.gov/health-information/health-topics/kidney-disease/kidney-disease-of-diabetes/Pages/facts.aspx",
+                "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000153.xml"
+              }
+            ]
+          },
+          "score": 0.006060606060606061,
+          "dense_rank": null,
+          "sparse_rank": 6,
+          "kg_rank": null,
+          "graph_assertion_ids": []
+        }
+      ],
+      "graph": {
+        "entities": [
+          {
+            "id": "insulin",
+            "type": "MedicalConcept",
+            "name": "Insulin",
+            "aliases": [
+              "insulin"
+            ]
+          },
+          {
+            "id": "glucose",
+            "type": "MedicalConcept",
+            "name": "Blood glucose",
+            "aliases": [
+              "đường huyết",
+              "đường máu",
+              "blood glucose",
+              "blood sugar"
+            ]
+          },
+          {
+            "id": "kidney_damage",
+            "type": "Complication",
+            "name": "Diabetic kidney disease",
+            "aliases": [
+              "bệnh thận do tiểu đường",
+              "bệnh thận",
+              "diabetic nephropathy",
+              "kidney disease"
+            ]
+          },
+          {
+            "id": "neuropathy",
+            "type": "Complication",
+            "name": "Diabetic neuropathy",
+            "aliases": [
+              "bệnh thần kinh do tiểu đường",
+              "diabetic neuropathy",
+              "nerve damage"
+            ]
+          },
+          {
+            "id": "activity",
+            "type": "Lifestyle",
+            "name": "Physical activity",
+            "aliases": [
+              "vận động",
+              "tập thể dục",
+              "physical activity",
+              "exercise"
+            ]
+          },
+          {
+            "id": "healthy_weight",
+            "type": "MedicalConcept",
+            "name": "Healthy weight",
+            "aliases": [
+              "cân nặng hợp lý",
+              "healthy weight"
+            ]
+          },
+          {
+            "id": "healthy_eating",
+            "type": "Lifestyle",
+            "name": "Healthy eating",
+            "aliases": [
+              "ăn uống lành mạnh",
+              "healthy eating"
+            ]
+          },
+          {
+            "id": "a1c",
+            "type": "Test",
+            "name": "A1C test",
+            "aliases": [
+              "hba1c",
+              "a1c"
+            ]
+          }
+        ],
+        "relationships": [
+          {
+            "id": "kg2-a005",
+            "subject": "insulin",
+            "relation": "SUPPORTS",
+            "object": "glucose",
+            "direction": "subject_to_object",
+            "polarity": "positive",
+            "conditions": "cellular glucose uptake",
+            "source_qa_id": "mq-66c3595f48e5fa69-qa0",
+            "document_id": "mq-66c3595f48e5fa69",
+            "source_chunk_ids": [
+              "m2c-670500b709fe9da77fb1"
+            ],
+            "quote": "Insulin is a hormone that helps glucose get into your cells to give them energy.",
+            "answer_start": 131,
+            "answer_end": 211,
+            "source_url": "https://www.nlm.nih.gov/medlineplus/diabetestype1.html",
+            "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/4_MPlus_Health_Topics_QA/0000272.xml",
+            "review": {
+              "status": "SOURCE_CHECKED_ASSISTANT",
+              "reviewer": "Codex assistant",
+              "date": "2026-11-02",
+              "not_clinical_expert_review": true,
+              "direction_and_scope_note": "Function, not a claim that insulin raises blood glucose"
+            }
+          },
+          {
+            "id": "kg2-a017",
+            "subject": "activity",
+            "relation": "SUPPORTS",
+            "object": "healthy_weight",
+            "direction": "subject_to_object",
+            "polarity": "positive",
+            "conditions": "can help, not guarantee",
+            "source_qa_id": "mq-e4063412d94e5146-qa0",
+            "document_id": "mq-e4063412d94e5146",
+            "source_chunk_ids": [
+              "m2c-670a97431189b868aa1c"
+            ],
+            "quote": "Starting a physical activity program can help you lose weight or keep a healthy weight and keep your blood glucose levels on target.",
+            "answer_start": 2,
+            "answer_end": 134,
+            "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/physical-activity-diabetes/Pages/physical-activity-diabetes.aspx",
+            "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000079.xml",
+            "review": {
+              "status": "SOURCE_CHECKED_ASSISTANT",
+              "reviewer": "Codex assistant",
+              "date": "2026-11-02",
+              "not_clinical_expert_review": true,
+              "direction_and_scope_note": "No universal exercise prescription"
+            }
+          },
+          {
+            "id": "kg2-a018",
+            "subject": "activity",
+            "relation": "SUPPORTS",
+            "object": "glucose",
+            "direction": "subject_to_object",
+            "polarity": "positive",
+            "conditions": "glycemic management",
+            "source_qa_id": "mq-e4063412d94e5146-qa0",
+            "document_id": "mq-e4063412d94e5146",
+            "source_chunk_ids": [
+              "m2c-670a97431189b868aa1c"
+            ],
+            "quote": "Starting a physical activity program can help you lose weight or keep a healthy weight and keep your blood glucose levels on target.",
+            "answer_start": 2,
+            "answer_end": 134,
+            "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/physical-activity-diabetes/Pages/physical-activity-diabetes.aspx",
+            "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000079.xml",
+            "review": {
+              "status": "SOURCE_CHECKED_ASSISTANT",
+              "reviewer": "Codex assistant",
+              "date": "2026-11-02",
+              "not_clinical_expert_review": true,
+              "direction_and_scope_note": "Supports target control, not cure"
+            }
+          },
+          {
+            "id": "kg2-a019",
+            "subject": "healthy_eating",
+            "relation": "SUPPORTS",
+            "object": "glucose",
+            "direction": "subject_to_object",
+            "polarity": "positive",
+            "conditions": "individual target range",
+            "source_qa_id": "mq-caa9758d5a659141-qa0",
+            "document_id": "mq-caa9758d5a659141",
+            "source_chunk_ids": [
+              "m2c-28769805c3e1683a637a"
+            ],
+            "quote": "Healthy eating helps keep your blood sugar in your target range.",
+            "answer_start": 137,
+            "answer_end": 201,
+            "source_url": "https://www.nlm.nih.gov/medlineplus/diabeticdiet.html",
+            "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/4_MPlus_Health_Topics_QA/0000274.xml",
+            "review": {
+              "status": "SOURCE_CHECKED_ASSISTANT",
+              "reviewer": "Codex assistant",
+              "date": "2026-11-02",
+              "not_clinical_expert_review": true,
+              "direction_and_scope_note": "No dose or universal meal quantities"
+            }
+          },
+          {
+            "id": "kg2-a025",
+            "subject": "a1c",
+            "relation": "ASSESSES",
+            "object": "glucose",
+            "direction": "subject_to_object",
+            "polarity": "positive",
+            "conditions": "management monitoring",
+            "source_qa_id": "mq-66c3595f48e5fa69-qa0",
+            "document_id": "mq-66c3595f48e5fa69",
+            "source_chunk_ids": [
+              "m2c-670500b709fe9da77fb1"
+            ],
+            "quote": "A blood test called the A1C can check to see how well you are managing your diabetes.",
+            "answer_start": 859,
+            "answer_end": 944,
+            "source_url": "https://www.nlm.nih.gov/medlineplus/diabetestype1.html",
+            "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/4_MPlus_Health_Topics_QA/0000272.xml",
+            "review": {
+              "status": "SOURCE_CHECKED_ASSISTANT",
+              "reviewer": "Codex assistant",
+              "date": "2026-11-02",
+              "not_clinical_expert_review": true,
+              "direction_and_scope_note": "Not a personal diagnosis from a model score"
+            }
+          },
+          {
+            "id": "kg2-a031",
+            "subject": "activity",
+            "relation": "SUPPORTS",
+            "object": "kidney_damage",
+            "direction": "subject_to_object",
+            "polarity": "positive",
+            "conditions": "supports prevention/slowing; not cure, read full source",
+            "source_qa_id": "mq-39edc72b4c07d38d-qa6",
+            "document_id": "mq-39edc72b4c07d38d",
+            "source_chunk_ids": [
+              "m2c-651f780ceb14ed0ef220"
+            ],
+            "quote": "People can prevent or slow the progression of diabetic kidney disease by - taking medications to control high blood pressure - managing blood glucose levels - making changes in their eating, diet, and nutrition - losing weight if they are overweight or obese - getting regular physical activity",
+            "answer_start": 0,
+            "answer_end": 294,
+            "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/diabetic-kidney-disease/Pages/index.aspx",
+            "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000033.xml",
+            "review": {
+              "status": "SOURCE_CHECKED_ASSISTANT",
+              "reviewer": "Codex assistant",
+              "date": "2026-11-02",
+              "not_clinical_expert_review": true,
+              "direction_and_scope_note": "supports prevention/slowing; not cure, read full source"
+            }
+          },
+          {
+            "id": "kg2-a035",
+            "subject": "glucose",
+            "relation": "SUPPORTS",
+            "object": "neuropathy",
+            "direction": "subject_to_object",
+            "polarity": "positive",
+            "conditions": "safe glycemic levels support nerve protection, not elevated glucose",
+            "source_qa_id": "mq-f2d73ab83304811e-qa8",
+            "document_id": "mq-f2d73ab83304811e",
+            "source_chunk_ids": [
+              "m2c-00924c7eaf6f74576861"
+            ],
+            "quote": "Maintaining safe blood glucose levels protects nerves throughout the body.",
+            "answer_start": 109,
+            "answer_end": 183,
+            "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/diabetic-neuropathies-nerve-damage-diabetes/Pages/diabetic-neuropathies-nerve-damage.aspx",
+            "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000034.xml",
+            "review": {
+              "status": "SOURCE_CHECKED_ASSISTANT",
+              "reviewer": "Codex assistant",
+              "date": "2026-11-02",
+              "not_clinical_expert_review": true,
+              "direction_and_scope_note": "safe glycemic levels support nerve protection, not elevated glucose"
+            }
+          }
+        ],
+        "note": "Incoming context keeps original edge direction. No transitive or reverse causal inference."
+      },
+      "trace": [
+        {
+          "role": "Coordinator · lập truy vấn",
+          "at_ms": 115.80831799983571
+        },
+        {
+          "role": "Knowledge · BM25 + embedding + KG",
+          "at_ms": 312.33997899971655
+        },
+        {
+          "role": "Knowledge · reranking",
+          "at_ms": 377.58110699996905
+        },
+        {
+          "role": "Reporter · soạn câu trả lời",
+          "at_ms": 408.85672500007786
+        },
+        {
+          "role": "Verifier · kiểm claim và nguồn",
+          "at_ms": 4817.256842000006
+        },
+        {
+          "role": "Reporter · sửa một lần theo kiểm chứng",
+          "at_ms": 7147.666848999961
+        },
+        {
+          "role": "Phát hành · đúng bản đã kiểm",
+          "at_ms": 13171.80921399995
+        }
+      ],
+      "feedback_rounds": 1,
+      "usage": [
+        {
+          "usage": {
+            "input_tokens": 235,
+            "output_tokens": 183,
+            "thought_tokens": null,
+            "total_tokens": 418,
+            "provider_usage_metadata": {
+              "candidates_token_count": 183,
+              "prompt_token_count": 235,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 235
+                }
+              ],
+              "total_token_count": 418
+            }
+          },
+          "model_returned": "gemini-3-flash-preview",
+          "response_status": "completed",
+          "finish_reasons": [
+            "STOP"
+          ],
+          "cache_status": "local_cache",
+          "model_requested": "gemini-3-flash-preview",
+          "latency_ms": 4.199625000183005,
+          "attempts": 1,
+          "call_id": "4cc6bc2a27d278749b52747236de3b4b764a0a4dc1db0921f99311e78199183a",
+          "paid_cost_usd": 0,
+          "invoice_verified": false,
+          "endpoint": "v1beta/generateContent",
+          "sdk_calls": 1,
+          "original_provider_latency_ms": 1611.855285999809,
+          "kind": "generation"
+        },
+        {
+          "usage": null,
+          "model_returned": "gemini-embedding-001",
+          "cache_status": "local_cache",
+          "model_requested": "gemini-embedding-001",
+          "latency_ms": 7.353479999892443,
+          "attempts": 1,
+          "call_id": "be59f85c6ad2e9cedc8588cbb9e151b0f5b549831765fd40889dbae3703a57ad",
+          "paid_cost_usd": 0,
+          "invoice_verified": false,
+          "endpoint": "v1beta/embedding",
+          "sdk_calls": 1,
+          "original_provider_latency_ms": 524.3167399999038,
+          "kind": "embedding"
+        },
+        {
+          "usage": null,
+          "model_returned": "gemini-embedding-001",
+          "cache_status": "local_cache",
+          "model_requested": "gemini-embedding-001",
+          "latency_ms": 4.211485999803699,
+          "attempts": 1,
+          "call_id": "effbc43d8b0c8ae6d45df6abded7d5532cee0179bbbcc6360f70ead9b2a9bb1c",
+          "paid_cost_usd": 0,
+          "invoice_verified": false,
+          "endpoint": "v1beta/embedding",
+          "sdk_calls": 1,
+          "original_provider_latency_ms": 488.9391279998563,
+          "kind": "embedding"
+        },
+        {
+          "usage": null,
+          "model_returned": "gemini-embedding-001",
+          "cache_status": "local_cache",
+          "model_requested": "gemini-embedding-001",
+          "latency_ms": 5.12015699996482,
+          "attempts": 1,
+          "call_id": "74842ec497e39dd80c45e169e7cf4ef0d98f98df22ee69455c86788b5263ba7c",
+          "paid_cost_usd": 0,
+          "invoice_verified": false,
+          "endpoint": "v1beta/embedding",
+          "sdk_calls": 1,
+          "original_provider_latency_ms": 546.4771699998892,
+          "kind": "embedding"
+        },
+        {
+          "usage": {
+            "input_tokens": 6575,
+            "output_tokens": 195,
+            "thought_tokens": null,
+            "total_tokens": 6770,
+            "provider_usage_metadata": {
+              "candidates_token_count": 195,
+              "prompt_token_count": 6575,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 6575
+                }
+              ],
+              "total_token_count": 6770
+            }
+          },
+          "model_returned": "gemini-3-flash-preview",
+          "response_status": "completed",
+          "finish_reasons": [
+            "STOP"
+          ],
+          "cache_status": "local_cache",
+          "model_requested": "gemini-3-flash-preview",
+          "latency_ms": 19.599674999881245,
+          "attempts": 1,
+          "call_id": "1c66ddb8a12d1bf569463383c327961866c124277b2ea2cf2e90bb7b1206051d",
+          "paid_cost_usd": 0,
+          "invoice_verified": false,
+          "endpoint": "v1beta/generateContent",
+          "sdk_calls": 1,
+          "original_provider_latency_ms": 1973.2472849996157,
+          "kind": "generation"
+        },
+        {
+          "usage": {
+            "input_tokens": 2464,
+            "output_tokens": 528,
+            "thought_tokens": null,
+            "total_tokens": 2992,
+            "provider_usage_metadata": {
+              "candidates_token_count": 528,
+              "prompt_token_count": 2464,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 2464
+                }
+              ],
+              "total_token_count": 2992
+            }
+          },
+          "model_returned": "gemini-3-flash-preview",
+          "response_status": "completed",
+          "finish_reasons": [
+            "STOP"
+          ],
+          "cache_status": "live",
+          "model_requested": "gemini-3-flash-preview",
+          "latency_ms": 4377.026784999998,
+          "attempts": 1,
+          "call_id": "f8086de7e5c6e6427e68ff03c37c8a7f48f6dd3ee4a7fe665d7950827f8db537",
+          "paid_cost_usd": 0,
+          "invoice_verified": false,
+          "endpoint": "v1beta/generateContent",
+          "sdk_calls": 1,
+          "kind": "generation"
+        },
+        {
+          "usage": {
+            "input_tokens": 2438,
+            "output_tokens": 314,
+            "thought_tokens": null,
+            "total_tokens": 2752,
+            "provider_usage_metadata": {
+              "candidates_token_count": 314,
+              "prompt_token_count": 2438,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 2438
+                }
+              ],
+              "total_token_count": 2752
+            }
+          },
+          "model_returned": "gemini-3-flash-preview",
+          "response_status": "completed",
+          "finish_reasons": [
+            "STOP"
+          ],
+          "cache_status": "live",
+          "model_requested": "gemini-3-flash-preview",
+          "latency_ms": 2220.328249999966,
+          "attempts": 1,
+          "call_id": "06983e7a1c65ae9232a94fea7308085e7751beb99dff6fa314103a6eb8bfca65",
+          "paid_cost_usd": 0,
+          "invoice_verified": false,
+          "endpoint": "v1beta/generateContent",
+          "sdk_calls": 1,
+          "kind": "generation"
+        },
+        {
+          "usage": {
+            "input_tokens": 2559,
+            "output_tokens": 655,
+            "thought_tokens": null,
+            "total_tokens": 3214,
+            "provider_usage_metadata": {
+              "candidates_token_count": 655,
+              "prompt_token_count": 2559,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 2559
+                }
+              ],
+              "total_token_count": 3214
+            }
+          },
+          "model_returned": "gemini-3-flash-preview",
+          "response_status": "completed",
+          "finish_reasons": [
+            "STOP"
+          ],
+          "cache_status": "live",
+          "model_requested": "gemini-3-flash-preview",
+          "latency_ms": 3424.4484129999364,
+          "attempts": 1,
+          "call_id": "cfed7ad2e7e938bc131d8595be5346db45954085d72e9ad30e3ed37d10306185",
+          "paid_cost_usd": 0,
+          "invoice_verified": false,
+          "endpoint": "v1beta/generateContent",
+          "sdk_calls": 1,
+          "kind": "generation"
+        },
+        {
+          "usage": {
+            "input_tokens": 2565,
+            "output_tokens": 317,
+            "thought_tokens": null,
+            "total_tokens": 2882,
+            "provider_usage_metadata": {
+              "candidates_token_count": 317,
+              "prompt_token_count": 2565,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 2565
+                }
+              ],
+              "total_token_count": 2882
+            }
+          },
+          "model_returned": "gemini-3-flash-preview",
+          "response_status": "completed",
+          "finish_reasons": [
+            "STOP"
+          ],
+          "cache_status": "live",
+          "model_requested": "gemini-3-flash-preview",
+          "latency_ms": 2384.903187999953,
+          "attempts": 1,
+          "call_id": "0aa971502b0f9eae4b317841cdee4b0a3ea44e65b8b71444a8d925f8d4e05d08",
+          "paid_cost_usd": 0,
+          "invoice_verified": false,
+          "endpoint": "v1beta/generateContent",
+          "sdk_calls": 1,
+          "kind": "generation"
+        }
+      ],
+      "model": "gemini-3-flash-preview",
+      "latency_ms": 13231.143169999996,
+      "freeze_id": null,
+      "cache_status": "mixed_or_live",
+      "paid_cost_usd": 0,
+      "reviewer_scope": "same-LLM verification, not independent clinical review",
+      "call_prefix": "gemini3-r5b:v2-dev-05",
+      "minute_retries": 0
+    }
+  },
+  "status": "complete",
+  "held_out": false,
+  "created_at": 1793624772.670356,
+  "progress": "Phát hành · đúng bản đã kiểm",
+  "finished_at": 1793624786.3611543,
+  "observations": [
+    {
+      "usage": {
+        "input_tokens": 121,
+        "output_tokens": 284,
+        "thought_tokens": null,
+        "total_tokens": 405,
+        "provider_usage_metadata": {
+          "candidates_token_count": 284,
+          "prompt_token_count": 121,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 121
+            }
+          ],
+          "total_token_count": 405
+        }
+      },
+      "model_returned": "gemini-3-flash-preview",
+      "response_status": "completed",
+      "finish_reasons": [
+        "STOP"
+      ],
+      "cache_status": "local_cache",
+      "model_requested": "gemini-3-flash-preview",
+      "latency_ms": 97.3824349998722,
+      "attempts": 1,
+      "call_id": "afccb42beb09de94dcbac64dd67c9e4355c15cf07b56d80151fce9833c7f7437",
+      "paid_cost_usd": 0,
+      "invoice_verified": false,
+      "endpoint": "v1beta/generateContent",
+      "sdk_calls": 1,
+      "original_provider_latency_ms": 3166.479236000214,
+      "kind": "generation"
+    },
+    {
+      "usage": {
+        "input_tokens": 235,
+        "output_tokens": 183,
+        "thought_tokens": null,
+        "total_tokens": 418,
+        "provider_usage_metadata": {
+          "candidates_token_count": 183,
+          "prompt_token_count": 235,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 235
+            }
+          ],
+          "total_token_count": 418
+        }
+      },
+      "model_returned": "gemini-3-flash-preview",
+      "response_status": "completed",
+      "finish_reasons": [
+        "STOP"
+      ],
+      "cache_status": "local_cache",
+      "model_requested": "gemini-3-flash-preview",
+      "latency_ms": 4.199625000183005,
+      "attempts": 1,
+      "call_id": "4cc6bc2a27d278749b52747236de3b4b764a0a4dc1db0921f99311e78199183a",
+      "paid_cost_usd": 0,
+      "invoice_verified": false,
+      "endpoint": "v1beta/generateContent",
+      "sdk_calls": 1,
+      "original_provider_latency_ms": 1611.855285999809,
+      "kind": "generation"
+    },
+    {
+      "usage": null,
+      "model_returned": "gemini-embedding-001",
+      "cache_status": "local_cache",
+      "model_requested": "gemini-embedding-001",
+      "latency_ms": 7.353479999892443,
+      "attempts": 1,
+      "call_id": "be59f85c6ad2e9cedc8588cbb9e151b0f5b549831765fd40889dbae3703a57ad",
+      "paid_cost_usd": 0,
+      "invoice_verified": false,
+      "endpoint": "v1beta/embedding",
+      "sdk_calls": 1,
+      "original_provider_latency_ms": 524.3167399999038,
+      "kind": "embedding"
+    },
+    {
+      "usage": null,
+      "model_returned": "gemini-embedding-001",
+      "cache_status": "local_cache",
+      "model_requested": "gemini-embedding-001",
+      "latency_ms": 4.211485999803699,
+      "attempts": 1,
+      "call_id": "effbc43d8b0c8ae6d45df6abded7d5532cee0179bbbcc6360f70ead9b2a9bb1c",
+      "paid_cost_usd": 0,
+      "invoice_verified": false,
+      "endpoint": "v1beta/embedding",
+      "sdk_calls": 1,
+      "original_provider_latency_ms": 488.9391279998563,
+      "kind": "embedding"
+    },
+    {
+      "usage": null,
+      "model_returned": "gemini-embedding-001",
+      "cache_status": "local_cache",
+      "model_requested": "gemini-embedding-001",
+      "latency_ms": 5.12015699996482,
+      "attempts": 1,
+      "call_id": "74842ec497e39dd80c45e169e7cf4ef0d98f98df22ee69455c86788b5263ba7c",
+      "paid_cost_usd": 0,
+      "invoice_verified": false,
+      "endpoint": "v1beta/embedding",
+      "sdk_calls": 1,
+      "original_provider_latency_ms": 546.4771699998892,
+      "kind": "embedding"
+    },
+    {
+      "usage": {
+        "input_tokens": 6575,
+        "output_tokens": 195,
+        "thought_tokens": null,
+        "total_tokens": 6770,
+        "provider_usage_metadata": {
+          "candidates_token_count": 195,
+          "prompt_token_count": 6575,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 6575
+            }
+          ],
+          "total_token_count": 6770
+        }
+      },
+      "model_returned": "gemini-3-flash-preview",
+      "response_status": "completed",
+      "finish_reasons": [
+        "STOP"
+      ],
+      "cache_status": "local_cache",
+      "model_requested": "gemini-3-flash-preview",
+      "latency_ms": 19.599674999881245,
+      "attempts": 1,
+      "call_id": "1c66ddb8a12d1bf569463383c327961866c124277b2ea2cf2e90bb7b1206051d",
+      "paid_cost_usd": 0,
+      "invoice_verified": false,
+      "endpoint": "v1beta/generateContent",
+      "sdk_calls": 1,
+      "original_provider_latency_ms": 1973.2472849996157,
+      "kind": "generation"
+    },
+    {
+      "usage": {
+        "input_tokens": 2464,
+        "output_tokens": 528,
+        "thought_tokens": null,
+        "total_tokens": 2992,
+        "provider_usage_metadata": {
+          "candidates_token_count": 528,
+          "prompt_token_count": 2464,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 2464
+            }
+          ],
+          "total_token_count": 2992
+        }
+      },
+      "model_returned": "gemini-3-flash-preview",
+      "response_status": "completed",
+      "finish_reasons": [
+        "STOP"
+      ],
+      "cache_status": "live",
+      "model_requested": "gemini-3-flash-preview",
+      "latency_ms": 4377.026784999998,
+      "attempts": 1,
+      "call_id": "f8086de7e5c6e6427e68ff03c37c8a7f48f6dd3ee4a7fe665d7950827f8db537",
+      "paid_cost_usd": 0,
+      "invoice_verified": false,
+      "endpoint": "v1beta/generateContent",
+      "sdk_calls": 1,
+      "kind": "generation"
+    },
+    {
+      "usage": {
+        "input_tokens": 2438,
+        "output_tokens": 314,
+        "thought_tokens": null,
+        "total_tokens": 2752,
+        "provider_usage_metadata": {
+          "candidates_token_count": 314,
+          "prompt_token_count": 2438,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 2438
+            }
+          ],
+          "total_token_count": 2752
+        }
+      },
+      "model_returned": "gemini-3-flash-preview",
+      "response_status": "completed",
+      "finish_reasons": [
+        "STOP"
+      ],
+      "cache_status": "live",
+      "model_requested": "gemini-3-flash-preview",
+      "latency_ms": 2220.328249999966,
+      "attempts": 1,
+      "call_id": "06983e7a1c65ae9232a94fea7308085e7751beb99dff6fa314103a6eb8bfca65",
+      "paid_cost_usd": 0,
+      "invoice_verified": false,
+      "endpoint": "v1beta/generateContent",
+      "sdk_calls": 1,
+      "kind": "generation"
+    },
+    {
+      "usage": {
+        "input_tokens": 2559,
+        "output_tokens": 655,
+        "thought_tokens": null,
+        "total_tokens": 3214,
+        "provider_usage_metadata": {
+          "candidates_token_count": 655,
+          "prompt_token_count": 2559,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 2559
+            }
+          ],
+          "total_token_count": 3214
+        }
+      },
+      "model_returned": "gemini-3-flash-preview",
+      "response_status": "completed",
+      "finish_reasons": [
+        "STOP"
+      ],
+      "cache_status": "live",
+      "model_requested": "gemini-3-flash-preview",
+      "latency_ms": 3424.4484129999364,
+      "attempts": 1,
+      "call_id": "cfed7ad2e7e938bc131d8595be5346db45954085d72e9ad30e3ed37d10306185",
+      "paid_cost_usd": 0,
+      "invoice_verified": false,
+      "endpoint": "v1beta/generateContent",
+      "sdk_calls": 1,
+      "kind": "generation"
+    },
+    {
+      "usage": {
+        "input_tokens": 2565,
+        "output_tokens": 317,
+        "thought_tokens": null,
+        "total_tokens": 2882,
+        "provider_usage_metadata": {
+          "candidates_token_count": 317,
+          "prompt_token_count": 2565,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 2565
+            }
+          ],
+          "total_token_count": 2882
+        }
+      },
+      "model_returned": "gemini-3-flash-preview",
+      "response_status": "completed",
+      "finish_reasons": [
+        "STOP"
+      ],
+      "cache_status": "live",
+      "model_requested": "gemini-3-flash-preview",
+      "latency_ms": 2384.903187999953,
+      "attempts": 1,
+      "call_id": "0aa971502b0f9eae4b317841cdee4b0a3ea44e65b8b71444a8d925f8d4e05d08",
+      "paid_cost_usd": 0,
+      "invoice_verified": false,
+      "endpoint": "v1beta/generateContent",
+      "sdk_calls": 1,
+      "kind": "generation"
+    }
+  ]
+}

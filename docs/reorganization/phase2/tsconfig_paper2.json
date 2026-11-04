@@ -1,0 +1,13 @@
+{
+  "extends": "../../../tieuluan2/web/frontend/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "../../../apps/web/node_modules",
+    "typeRoots": ["../../../apps/web/node_modules/@types"],
+    "paths": {
+      "react": ["@types/react"],
+      "react/*": ["@types/react/*"],
+      "react-dom/*": ["@types/react-dom/*"]
+    }
+  },
+  "include": ["../../../tieuluan2/web/frontend/src", "../../../apps/web/node_modules/vite/client.d.ts"]
+}

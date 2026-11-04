@@ -1,0 +1,184 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_rnn_keras_s17_main/best.npz",
+      "sha256": "2bd8d02d60dd43506abd0187882ab12bcef047818e4607ed27c3d59d6f04dc7e"
+    },
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_rnn_keras_s17_main/best.json",
+      "sha256": "7e235053eb0627ccdeb333b270475c420cbac7a7156fea2cd9384566d89ec9b8"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s17_main/selection.json",
+      "sha256": "697c14e8e0ee3a5e3ed0e71e486d6365193cb5af7ba28e1f15dea05442141971"
+    },
+    {
+      "path": "artifacts/predictions/phase29/test/ch4_gold_pink_sheet_rnn_keras_s17_main.jsonl.gz",
+      "sha256": "df8b030d69b44c843a1d254a5b54b54ad1a87a2b336616ccd1bd6443e671925a"
+    },
+    {
+      "path": "artifacts/manifests/phase29/test_details/ch4_gold_pink_sheet_rnn_keras_s17_main.json",
+      "sha256": "d7dc17bdabbd8395759c353303f0377c319e1ae857d2c45e2514bd91a51ab747"
+    }
+  ],
+  "backend": "tensorflow",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "c7aaafbe11688e15bbc33da23c0bc5558a42ed3662504a5ae018b4d4eb556c70",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "883c2d45e3bcdac0bc48d348bd1c31d4ba606e1c141545a7a9b4e7e2cd973316",
+  "config_sha256": "13ddf4ed8feb87a599b107876b0370f14124d123b461cb9edef13a429bdb4112",
+  "dataset_id": "ch4_gold_pink_sheet",
+  "dataset_sha256": "dfaba9c931ef045fa98ba4bd5d51e478f17cd7fb1b9911e1a3a07a1123bdbef3",
+  "device": "cuda:0",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 27876,
+    "inference_p50_ms": 5.555091500355047,
+    "inference_p95_ms": 7.388911549332985,
+    "peak_ram_bytes": 1587085312,
+    "peak_vram_bytes": 2067712,
+    "timed_repeats": 30,
+    "train_seconds": 25.264904282000316,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "rnn",
+  "finished_at": "2026-10-19T23:16:58.767969+00:00",
+  "implementation": "keras",
+  "metrics": [
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 1695.1049230084673
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 1428.6816894624199
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 99.82103301087744
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "macro_series_rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 1695.1049230084673
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 1603.7045980952503
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 1358.566303822217
+    },
+    {
+      "direction": "min",
+      "horizon": 1,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 97.27168315799042
+    },
+    {
+      "direction": "min",
+      "horizon": 3,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 1699.5431310851345
+    },
+    {
+      "direction": "min",
+      "horizon": 3,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 1433.839031645977
+    },
+    {
+      "direction": "min",
+      "horizon": 3,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 101.13618188789538
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 1777.5901686418374
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "USD/troy ounce",
+      "value": 1493.6397329190645
+    },
+    {
+      "direction": "min",
+      "horizon": 6,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 101.05523398674647
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s17_main/model_contract.json",
+    "sha256": "04f5a377075f9411099ed6a7b26435bd005868992ae5eca6da8d50792e899c17"
+  },
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch4_gold_pink_sheet/preprocessing.json",
+    "sha256": "82dcdf6733898fc2b818ef6aac3ee19dd299c65a4803cdb601a2204a28e4729e"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch4_gold_pink_sheet_rnn_keras_s17_main",
+  "schema_version": "3.0.0",
+  "seed": 17,
+  "split": "test",
+  "split_id": "ch4_gold_pink_sheet_phase28_main",
+  "split_sha256": "91a1fb8d745b1017b056636d2d90c6ec3da35ce27b7c046a8045cf8d29f51ddb",
+  "started_at": "2026-10-19T23:16:49.032538+00:00",
+  "status": "succeeded",
+  "subset_sha256": "c9b193cc6d8d16d76c4d1343fbf7aa71723a01bbdbb0bf0e861a6f3a3ceab60a",
+  "test_seal_id": "ch4_gold_pink_sheet_phase29_joint_test_v1",
+  "track": "matched_subset",
+  "warnings": [
+    "Latest revised snapshots, retrospective observation-origin forecast; no real-time publication/vintage claim or investment advice",
+    "Each rolling fold uses its frozen scaler; windows reset recurrent state",
+    "Train wall includes validation/progress I/O; RAM is process lifetime, VRAM allocator only; CPU/GPU and graph/eager differ",
+    "Joint RNN/LSTM main TEST once after frozen validation selection; no optimizer updates or TEST-input timing repeats",
+    "Train/RAM/VRAM/5warmup30repeat TRAIN-input timing copied byte-value from locked validation metric; not claimed as TEST-only measurements"
+  ]
+}

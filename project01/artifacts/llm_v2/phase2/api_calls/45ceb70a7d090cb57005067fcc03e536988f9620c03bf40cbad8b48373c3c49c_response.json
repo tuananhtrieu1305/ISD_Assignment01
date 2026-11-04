@@ -1,0 +1,38 @@
+{
+  "call_id": "45ceb70a7d090cb57005067fcc03e536988f9620c03bf40cbad8b48373c3c49c",
+  "status": "complete",
+  "response": {
+    "text": "```json\n{\n \"approved\": true,\n \"numeric_ok\": true,\n \"scope_ok\": true,\n \"answer_matches_claims\": true,\n \"claim_reviews\": [\n  {\n   \"claim_id\": \"1\",\n   \"status\": \"supported\",\n   \"evidence_ids\": [\n    \"m2c-1cee35b8e949e3d92c5e\",\n    \"m2c-91cdf62148f4f6938cfb\"\n   ],\n   \"reason_vi\": \"Nghiên cứu DPP xác nhận việc giảm 5-7% trọng lượng và hoạt động thể chất 150 phút/tuần giúp giảm khoảng một nửa (50%) nguy cơ mắc tiểu đường loại 2 ở người có nguy cơ cao.\"\n  },\n  {\n   \"claim_id\": \"2\",\n   \"status\": \"supported\",\n   \"evidence_ids\": [\n    \"m2c-91cdf62148f4f6938cfb\"\n   ],\n   \"reason_vi\": \"Nguồn nêu rõ người trên 60 tuổi có thể giảm 71% nguy cơ thông qua thay đổi lối sống.\"\n  },\n  {\n   \"claim_id\": \"3\",\n   \"status\": \"supported\",\n   \"evidence_ids\": [\n    \"m2c-588ce571ca436c0c6d55\",\n    \"m2c-098be80ca92cd18f21d2\"\n   ],\n   \"reason_vi\": \"Các nguồn xác nhận tập thể dục (bao gồm đi bộ) giúp giảm cân và cải thiện khả năng sử dụng insulin của cơ thể.\"\n  }\n ],\n \"feedback\": \"Bản thảo khớp hoàn toàn với các bằng chứng được cung cấp về số liệu (50%, 71%, 150 phút) và điều kiện áp dụng (kết hợp giảm cân, đối tượng nguy cơ cao). Các giới hạn về tiểu đường loại 1 và việc không chỉ riêng đi bộ đơn lẻ cũng được nêu rõ.\",\n \"corrected_draft\": null\n}\n```",
+    "usage": {
+      "input_tokens": 5801,
+      "output_tokens": 495,
+      "thought_tokens": null,
+      "total_tokens": 6296,
+      "provider_usage_metadata": {
+        "candidates_token_count": 495,
+        "prompt_token_count": 5801,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 5801
+          }
+        ],
+        "total_token_count": 6296
+      }
+    },
+    "model_returned": "gemini-3-flash-preview",
+    "response_status": "completed",
+    "finish_reasons": [
+      "STOP"
+    ],
+    "cache_status": "live",
+    "model_requested": "gemini-3-flash-preview",
+    "latency_ms": 38680.57364800006,
+    "attempts": 1,
+    "call_id": "45ceb70a7d090cb57005067fcc03e536988f9620c03bf40cbad8b48373c3c49c",
+    "paid_cost_usd": 0,
+    "invoice_verified": false,
+    "endpoint": "v1beta/generateContent",
+    "sdk_calls": 1
+  }
+}

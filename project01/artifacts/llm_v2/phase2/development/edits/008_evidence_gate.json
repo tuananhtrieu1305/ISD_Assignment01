@@ -1,0 +1,5 @@
+[
+ {"module":"reranker","old":"return selected[:top_n]","new":"return [row for row in selected if row.rerank_score>=0.5][:top_n]","count":1},
+ {"module":"generation","old":"'\\n\\n'.join(f'{m.type}: {m.content}' for m in messages)","new":"'\\n\\n'.join(f'{m.type}: {m.content}' for m in messages)+'\\nTrả lời ngắn khoảng80-120 từ, tối đa3 claim. Nếu không có evidence phù hợp thì trả lời rõ chưa đủ căn cứ trong kho này, claims=[], không thêm kiến thức y khoa không có nguồn.'","count":1},
+ {"module":"generation","old":"self.call_prefix+':reporter'","new":"self.call_prefix+':reporter:r3'","count":1}
+]

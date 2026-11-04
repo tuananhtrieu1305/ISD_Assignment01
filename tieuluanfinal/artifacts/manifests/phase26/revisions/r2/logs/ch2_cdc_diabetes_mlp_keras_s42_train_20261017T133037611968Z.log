@@ -1,0 +1,25 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792243848.223613   16612 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792243848.289659   16612 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792243852.930857   16612 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1792243854.244929   16612 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1792243854.314018   16612 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1792243854.526557   16612 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5262 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+epoch=1 train_loss=0.539160 validation_loss=0.517056 best_epoch=1
+epoch=2 train_loss=0.505159 validation_loss=0.510890 best_epoch=2
+epoch=3 train_loss=0.497891 validation_loss=0.513286 best_epoch=2
+epoch=4 train_loss=0.491583 validation_loss=0.520328 best_epoch=2
+epoch=5 train_loss=0.489036 validation_loss=0.525384 best_epoch=2
+epoch=6 train_loss=0.481970 validation_loss=0.524998 best_epoch=2
+epoch=7 train_loss=0.476561 validation_loss=0.529524 best_epoch=2
+epoch=8 train_loss=0.471602 validation_loss=0.536987 best_epoch=2
+{
+  "run_id": "ch2_cdc_diabetes_mlp_keras_s42",
+  "status": "succeeded",
+  "epochs": 8,
+  "best_epoch": 1,
+  "primary_metric": 0.6317289955134997,
+  "train_seconds": 72.57419745400011
+}

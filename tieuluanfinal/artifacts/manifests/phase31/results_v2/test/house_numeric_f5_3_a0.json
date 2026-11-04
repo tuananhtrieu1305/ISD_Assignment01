@@ -1,0 +1,127 @@
+{
+  "category": "numeric",
+  "domain": "house",
+  "metrics": {
+    "answer_completion": 1,
+    "citation_correctness": 1,
+    "latency_ms": 7.366408999587293,
+    "message_count": 1,
+    "numeric_parity": 1,
+    "peak_child_rss_bytes": 175095808,
+    "refusal_correctness": null,
+    "routing_accuracy": null,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 1,
+    "messages": [
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "house_numeric_018"
+        },
+        "node_id": "node_1",
+        "output": {
+          "payload": {
+            "artifact_refs": [
+              {
+                "path": "data/processed/v3/phase26/r2/ch2_ames_housing_development.npz",
+                "sha256": "c6a9010960cc01cff51b663af8f744144c07f427b6c9a3b26a97eaaa60da687f"
+              },
+              {
+                "path": "artifacts/models/v3/ch02_ml/ch2_ames_housing_mlp_scratch_s42/best.npz",
+                "sha256": "a701995927fa16fcf2d7196660bfdd17050af90d376cdb8e9858c85ba92ce9fe"
+              },
+              {
+                "path": "artifacts/manifests/phase26/revisions/r2/configs/ch2_ames_housing_s42.json",
+                "sha256": "66fc07d2982135325b7c7ca4b6f60c6d66167d47a50dbcb2d57b8365a9231c49"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "evidence_house_numeric_018",
+                "locator": "parent_train/row_0000023",
+                "source_sha256": "c6a9010960cc01cff51b663af8f744144c07f427b6c9a3b26a97eaaa60da687f",
+                "source_url": "https://jse.amstat.org/v19n3/decock.pdf"
+              }
+            ],
+            "text": "Frozen NumPy CPU tool output: 148919.32",
+            "unit": "USD historical sale price",
+            "values": [
+              148919.31561133798
+            ]
+          },
+          "peak_rss_bytes": 175095808,
+          "receipt_sha256": "8d5cc99f5112b06bc91276c52ce5a1e0c5c705d23b8a3dc72ee512651024312b",
+          "status": "ok"
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 175095808,
+    "reason": null,
+    "route": "house",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "Frozen NumPy CPU tool output: 148919.32",
+      "citations": [
+        {
+          "evidence_id": "evidence_house_numeric_018",
+          "locator": "parent_train/row_0000023",
+          "source_sha256": "c6a9010960cc01cff51b663af8f744144c07f427b6c9a3b26a97eaaa60da687f",
+          "source_url": "https://jse.amstat.org/v19n3/decock.pdf"
+        }
+      ],
+      "domain": "house",
+      "evidence_kind": "measured",
+      "latency_ms": 6.616783000936266,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "direct",
+          "artifact_refs": [
+            {
+              "path": "data/processed/v3/phase26/r2/ch2_ames_housing_development.npz",
+              "sha256": "c6a9010960cc01cff51b663af8f744144c07f427b6c9a3b26a97eaaa60da687f"
+            },
+            {
+              "path": "artifacts/models/v3/ch02_ml/ch2_ames_housing_mlp_scratch_s42/best.npz",
+              "sha256": "a701995927fa16fcf2d7196660bfdd17050af90d376cdb8e9858c85ba92ce9fe"
+            },
+            {
+              "path": "artifacts/manifests/phase26/revisions/r2/configs/ch2_ames_housing_s42.json",
+              "sha256": "66fc07d2982135325b7c7ca4b6f60c6d66167d47a50dbcb2d57b8365a9231c49"
+            }
+          ],
+          "duration_ms": 6.493429000329343,
+          "input_sha256": "3a3fc0a04bf1671501803f41383ac8bc64ef7a34beb4910ca33fa6335e426b17",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "630330ac9b6c758044ee5de6c275a5301a5c5b431da4d90a74f63383e11785f5",
+          "parent_ids": [],
+          "tool": "predict_house"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "succeeded",
+      "task_id": "house_numeric_f5_3",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_17b21072fb8ed3d8f88a_a0",
+      "variant": "A0"
+    },
+    "values": [
+      148919.31561133798
+    ],
+    "verification": "not_run",
+    "wall_latency_ms": 7.366408999587293
+  },
+  "parent_model_test_forward": false,
+  "split": "test",
+  "stratum": "benign",
+  "task_id": "house_numeric_f5_3",
+  "variant": "A0"
+}

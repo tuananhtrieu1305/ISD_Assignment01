@@ -1,0 +1,319 @@
+{
+  "adapter": {
+    "path": "artifacts/manifests/phase27/adapters/ch3_idrid.json",
+    "sha256": "2b962c6d7ead608b22d8a72ee7a9072aea246ebda9e2748210a3f8082646f764"
+  },
+  "augmentation": "none; inherited frozen Phase24 preprocessing, any extra track needs new config",
+  "cache_manifest": {
+    "path": "data/processed/v3/phase27/ch3_idrid_development/manifest.json",
+    "sha256": "521d3faa13e8da8919ed29a6b0cafab8ddf41ab0b2abfd4eee6e55a832c42db4"
+  },
+  "canonical_initial_weights_sha256": "2a8198d008adba1ff0fc9f6f9563be8637c92448cd83592b24ab046bd8a77d47",
+  "class_names": {
+    "0": "DR grade 0",
+    "1": "DR grade 1",
+    "2": "DR grade 2",
+    "3": "DR grade 3",
+    "4": "DR grade 4"
+  },
+  "class_weights": {
+    "0": 0.6159292035398231,
+    "1": 4.35,
+    "2": 0.6,
+    "3": 1.1047619047619048,
+    "4": 1.74
+  },
+  "code": {
+    "dirty_tree_sha256": "01e3a9025202e8e5f047f10f0d0cb9add4a482642c39db3d4fbb5b96688fc2d6",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "dataset_id": "ch3_idrid",
+  "efficiency_policy": "Train wall includes validation/batch conversion/progress I/O; inference batch1/5warmup/30repeat model+transfer, preprocessing separate; process-lifetime RSS; framework allocator VRAM",
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "execution_policy": {
+    "keras": "Keras TensorFlow CUDA tf.function canonical Adam, no XLA",
+    "pytorch": "PyTorch native CUDA eager Adam",
+    "scratch": "NumPy CPU manual conv/pool/backward/Adam eager"
+  },
+  "majority_policy": "argmax unweighted matched TRAIN class counts; one-hot probabilities; no fitting to validation/TEST",
+  "phase": 27,
+  "plan": {
+    "family": "cnn",
+    "input_shape": [
+      128,
+      128,
+      3
+    ],
+    "output_shape": [
+      5
+    ],
+    "plan_version": "phase25.1",
+    "steps": [
+      {
+        "id": "conv2d_1",
+        "input_shape": [
+          128,
+          128,
+          3
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "output_shape": [
+          128,
+          128,
+          8
+        ],
+        "padding": "same"
+      },
+      {
+        "activation": "relu",
+        "id": "activation_2",
+        "input_shape": [
+          128,
+          128,
+          8
+        ],
+        "kind": "activation",
+        "output_shape": [
+          128,
+          128,
+          8
+        ]
+      },
+      {
+        "id": "conv2d_3",
+        "input_shape": [
+          128,
+          128,
+          8
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "output_shape": [
+          128,
+          128,
+          8
+        ],
+        "padding": "same"
+      },
+      {
+        "activation": "relu",
+        "id": "activation_4",
+        "input_shape": [
+          128,
+          128,
+          8
+        ],
+        "kind": "activation",
+        "output_shape": [
+          128,
+          128,
+          8
+        ]
+      },
+      {
+        "id": "pooling_5",
+        "input_shape": [
+          128,
+          128,
+          8
+        ],
+        "kind": "pooling",
+        "output_shape": [
+          64,
+          64,
+          8
+        ],
+        "pool": "max2"
+      },
+      {
+        "id": "conv2d_6",
+        "input_shape": [
+          64,
+          64,
+          8
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "output_shape": [
+          64,
+          64,
+          16
+        ],
+        "padding": "same"
+      },
+      {
+        "activation": "relu",
+        "id": "activation_7",
+        "input_shape": [
+          64,
+          64,
+          16
+        ],
+        "kind": "activation",
+        "output_shape": [
+          64,
+          64,
+          16
+        ]
+      },
+      {
+        "id": "conv2d_8",
+        "input_shape": [
+          64,
+          64,
+          16
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "output_shape": [
+          64,
+          64,
+          16
+        ],
+        "padding": "same"
+      },
+      {
+        "activation": "relu",
+        "id": "activation_9",
+        "input_shape": [
+          64,
+          64,
+          16
+        ],
+        "kind": "activation",
+        "output_shape": [
+          64,
+          64,
+          16
+        ]
+      },
+      {
+        "id": "pooling_10",
+        "input_shape": [
+          64,
+          64,
+          16
+        ],
+        "kind": "pooling",
+        "output_shape": [
+          32,
+          32,
+          16
+        ],
+        "pool": "max2"
+      },
+      {
+        "id": "conv2d_11",
+        "input_shape": [
+          32,
+          32,
+          16
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "output_shape": [
+          32,
+          32,
+          32
+        ],
+        "padding": "same"
+      },
+      {
+        "activation": "relu",
+        "id": "activation_12",
+        "input_shape": [
+          32,
+          32,
+          32
+        ],
+        "kind": "activation",
+        "output_shape": [
+          32,
+          32,
+          32
+        ]
+      },
+      {
+        "id": "pooling_13",
+        "input_shape": [
+          32,
+          32,
+          32
+        ],
+        "kind": "pooling",
+        "output_shape": [
+          32
+        ],
+        "pool": "global_average"
+      },
+      {
+        "id": "dense_14",
+        "input_shape": [
+          32
+        ],
+        "kind": "dense",
+        "output_shape": [
+          32
+        ]
+      },
+      {
+        "activation": "relu",
+        "id": "activation_15",
+        "input_shape": [
+          32
+        ],
+        "kind": "activation",
+        "output_shape": [
+          32
+        ]
+      },
+      {
+        "id": "dense_16",
+        "input_shape": [
+          32
+        ],
+        "kind": "dense",
+        "output_shape": [
+          5
+        ]
+      }
+    ],
+    "tiny_synthetic_only": false
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "provenance": {
+    "adapter_sha256": "f20642408529b82a35166fc2106dde6140df456d5a579a065e385d8e65bbe47b",
+    "dataset_sha256": "8d24ac9b9103feb4d06a7caace78b9658193ede0dd308faaf9a01e16c0ccf764",
+    "preprocessing_sha256": "dec79d2d31793701f1a4ef6b1653ff318138359ad344570dfb0b1e840e65b790",
+    "split_sha256": "e4ba938f293fca2787d6670e4f0c989299e90df2c5dbc91081be47ab5160946b",
+    "subset_sha256": "28328c2a0de708b03fd8022efcdaf88beb2c6966007b7c58776d4fe6d19f6847"
+  },
+  "saliency_policy": "seed42 first fixed TRAIN image, gradient of predicted logit; illustration only, not clinical interpretation",
+  "seed": 17,
+  "task": "multiclass",
+  "test_policy": "Full TEST once, only after all validation-selected configurations/checkpoints/evaluator approved; no retry/tuning",
+  "track": "matched_subset",
+  "training": {
+    "batch_size": 16,
+    "checkpoint_selection": "minimum validation loss; never TEST",
+    "dtype": "float32",
+    "failure_policy": "Record timeout/OOM/NaN as failed, never silently reduce samples, architecture or epochs for one implementation.",
+    "gradient_clip_global_norm": 1,
+    "hyperparameter_search_trials": 1,
+    "initialization": "Generate canonical NumPy weights once per seed; convert layouts for each adapter; paired forward/gradient checks before training.",
+    "max_epochs": 40,
+    "min_delta": 1e-05,
+    "optimizer": {
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "epsilon": 1e-07,
+      "epsilon_convention": "denominator sqrt(v_hat)+epsilon; adapters must normalize or disclose numerical deviations",
+      "learning_rate": 0.001,
+      "name": "adam"
+    },
+    "patience": 6,
+    "shuffle_policy": "Saved common train batch order per seed; no split/time shuffle.",
+    "wall_time_limit_minutes": 120
+  }
+}

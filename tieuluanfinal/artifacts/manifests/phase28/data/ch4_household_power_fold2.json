@@ -1,0 +1,87 @@
+{
+  "adapter": {
+    "adapter_version": "phase25.1",
+    "canonical_layout": "NTF",
+    "class_names": {},
+    "class_weights_by_id": {},
+    "dataset_id": "ch4_household_power",
+    "dtype": "float32",
+    "feature_order_policy": "numeric input_columns order; then categorical input_columns/vocabulary order",
+    "fold": 2,
+    "kind": "timeseries",
+    "output_feature_names": [
+      "Global_active_power",
+      "Global_active_power_missing",
+      "Global_reactive_power",
+      "Global_reactive_power_missing",
+      "Voltage",
+      "Voltage_missing",
+      "Global_intensity",
+      "Global_intensity_missing",
+      "Sub_metering_1",
+      "Sub_metering_1_missing",
+      "Sub_metering_2",
+      "Sub_metering_2_missing",
+      "Sub_metering_3",
+      "Sub_metering_3_missing"
+    ],
+    "preprocessing": {
+      "path": "data/splits/v3/ch4_household_power/rolling_fold_2/preprocessing.json",
+      "sha256": "113517432533f483d54fee9e3b531e993f56b2fe57d2ffdb11c33e82212b6b16"
+    },
+    "pytorch_image_layout": null,
+    "source_label_to_id": {}
+  },
+  "baseline_policy": "Observed target history at/before origin; missing seasonal source falls back to last observed within lookback; no target imputation",
+  "dataset_id": "ch4_household_power",
+  "feature_bytes": 1936984,
+  "fold": 2,
+  "fold_index_revision": "phase28.1; source-index gaps reconstructed from immutable IDs/calendar, never alter splits/scalers",
+  "horizons": [
+    1,
+    6,
+    24
+  ],
+  "input_shape": [
+    168,
+    14
+  ],
+  "provenance": {
+    "adapter_sha256": "153bff72d1102704be385334267928d581b28a9212dfa0e6f614d53fd26f4098",
+    "dataset_sha256": "db356f6739f2dbc8f493d383cface41cb84eed4ad572bbfd4b680519034539a1",
+    "preprocessing_sha256": "113517432533f483d54fee9e3b531e993f56b2fe57d2ffdb11c33e82212b6b16",
+    "split_sha256": "01e81727b1a2be23972d565c264f71172375448b58912ac9bf051358f897d191",
+    "subset_sha256": "cceab0ec42b2752523904b2ce0ce42669a95686ed71b4e07dd22fa84d5eb9fdc"
+  },
+  "raw_read_scope": "Frozen full row table is read; transform/gather only development context rows; no TEST window predictions or labels used for selection",
+  "reconstructed_fold_ids": [
+    "HOUSEHOLD/2009-09-19T13:00:00",
+    "HOUSEHOLD/2009-09-19T14:00:00",
+    "HOUSEHOLD/2009-09-19T15:00:00",
+    "HOUSEHOLD/2009-09-19T16:00:00",
+    "HOUSEHOLD/2009-09-19T17:00:00",
+    "HOUSEHOLD/2009-09-19T18:00:00",
+    "HOUSEHOLD/2009-09-19T19:00:00",
+    "HOUSEHOLD/2009-09-19T20:00:00",
+    "HOUSEHOLD/2009-09-19T21:00:00",
+    "HOUSEHOLD/2009-09-19T22:00:00",
+    "HOUSEHOLD/2009-09-19T23:00:00",
+    "HOUSEHOLD/2009-09-20T00:00:00",
+    "HOUSEHOLD/2009-09-20T01:00:00",
+    "HOUSEHOLD/2009-09-20T02:00:00",
+    "HOUSEHOLD/2009-09-20T03:00:00",
+    "HOUSEHOLD/2009-09-20T04:00:00",
+    "HOUSEHOLD/2009-09-20T05:00:00",
+    "HOUSEHOLD/2009-09-20T06:00:00",
+    "HOUSEHOLD/2009-09-20T07:00:00",
+    "HOUSEHOLD/2009-09-20T08:00:00",
+    "HOUSEHOLD/2009-09-20T09:00:00",
+    "HOUSEHOLD/2009-09-20T10:00:00",
+    "HOUSEHOLD/2009-09-20T11:00:00"
+  ],
+  "test_windows_materialized": false,
+  "train_count": 12000,
+  "train_ids_sha256": "eabb9ac2f8af1c580d66e0ab02ad108bd980057ceb60ee30e64394a76ba44d33",
+  "validation_count": 4273,
+  "validation_ids_sha256": "ceffdc5f6b6187f62c74da3d2ac47ea9a8ed2265f82cbe269d2b6589430fa144"
+}

@@ -1,0 +1,86 @@
+{
+  "available": true,
+  "composition": [
+    "validate",
+    "bm25",
+    "graph",
+    "answer",
+    "cite"
+  ],
+  "composition_plain": "Kiểm tra dataset, miền, độ dài và schema → Tìm đoạn chia sẻ từ khóa và điều chỉnh độ dài → Khớp tối đa bốn nhãn anchor và lấy chunk reachable → Chọn trích đoạn đạt overlap, không tạo nội dung mới → Đóng gói V3 job với citation tới container được bảo toàn",
+  "config_refs": [
+    {
+      "path": "experiments/configs/ch5/phase14_locked.json",
+      "sha256": "ea5b3546a8e408648f5024d62bd0cb3584784ead2f594e126d2dea356240653d"
+    },
+    {
+      "path": "experiments/configs/ch5/phase15_locked.json",
+      "sha256": "560c671a3920bd6bde9f7fc005f3c952f857c55969c989bb6109932623210c9e"
+    },
+    {
+      "path": "apps/api/models/kg_manifest.json",
+      "sha256": "8b58e70d6d892cd697e8174ccdbaad78bcd0098a9cd2bc23ca2fda5724823073"
+    }
+  ],
+  "dataset_id": "ch5_finqa",
+  "demo_scope": "phase30.compact_free_question_demo.1; compact label matching is not historic query-ID graph evaluation; LSA is not a pretrained transformer",
+  "functions": [
+    {
+      "corner_case": "Input lạ hoặc rỗng bị từ chối",
+      "formula": null,
+      "id": "validate",
+      "input": "request JSON",
+      "output": "question string",
+      "role": "Kiểm tra dataset, miền, độ dài và schema",
+      "signature": "validate_request(request)",
+      "source": "src/ch05_knowledge_rag/service.py"
+    },
+    {
+      "corner_case": "Không có token trong từ điển: danh sách rỗng",
+      "formula": null,
+      "id": "bm25",
+      "input": "string + sparse index",
+      "output": "ranked (chunk_id, score)",
+      "role": "Tìm đoạn chia sẻ từ khóa và điều chỉnh độ dài",
+      "signature": "BM25Index.search(query, top_k)",
+      "source": "src/term_paper/tools/phase14_rag.py"
+    },
+    {
+      "corner_case": "Không match anchor: không đoán entity",
+      "formula": null,
+      "id": "graph",
+      "input": "question + compact anchor map",
+      "output": "candidate IDs + anchor→chunk paths",
+      "role": "Khớp tối đa bốn nhãn anchor và lấy chunk reachable",
+      "signature": "graph_candidates(question, graph)",
+      "source": "src/ch05_knowledge_rag/runtime.py"
+    },
+    {
+      "corner_case": "Thiếu bằng chứng hoặc guardrail: từ chối không citation",
+      "formula": null,
+      "id": "answer",
+      "input": "question + retrieved chunk texts",
+      "output": "answer/citations/abstention",
+      "role": "Chọn trích đoạn đạt overlap, không tạo nội dung mới",
+      "signature": "grounded_answer(query, ranking, chunk_lookup, ...)",
+      "source": "src/term_paper/tools/phase14_rag.py"
+    },
+    {
+      "corner_case": "URL cấp dataset; không giả locator raw đã bị lược khỏi bundle",
+      "formula": null,
+      "id": "cite",
+      "input": "answer + chunk/document IDs",
+      "output": "five-slot job + evidence",
+      "role": "Đóng gói V3 job với citation tới container được bảo toàn",
+      "signature": "KgRagService.compare(request)",
+      "source": "src/ch05_knowledge_rag/service.py"
+    }
+  ],
+  "historical_test_rerun": false,
+  "learnable_layers": null,
+  "lifecycle": "reused_legacy_index_demo",
+  "method": "B3",
+  "model_id": "ch5_finqa_b3_compact_demo",
+  "parameter_count": null,
+  "schema_version": "phase30.retrieval_pipeline.1"
+}

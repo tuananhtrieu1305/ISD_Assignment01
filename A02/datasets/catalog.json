@@ -1,0 +1,218 @@
+{
+  "project": "A02",
+  "datasets": [
+    {
+      "dataset_id": "a02_01",
+      "name": "Pima diabetes",
+      "status": "available",
+      "files": [
+        {
+          "path": "A02/datasets/diabetes/diabetes.csv",
+          "sha256": "d943613ee7b914cea44b1063467217c6d7a10ac9537c3be70845ceb54259d78c",
+          "bytes": 24938
+        }
+      ],
+      "source": "same source family asA01, exact hash comparison required",
+      "note": "",
+      "schema": {
+        "datasets/diabetes/diabetes.csv": {
+          "rows": 768,
+          "columns": [
+            "Pregnancies",
+            "Glucose",
+            "BloodPressure",
+            "SkinThickness",
+            "Insulin",
+            "BMI",
+            "DiabetesPedigreeFunction",
+            "Age",
+            "Outcome"
+          ],
+          "delimiter": ",",
+          "bytes": 24938,
+          "sha256": "d943613ee7b914cea44b1063467217c6d7a10ac9537c3be70845ceb54259d78c",
+          "crlf_equivalent_sha256": "e25ebf48cce3c03cacbbdd007e356ad0a2f7818747cf471f79371f9753869697"
+        }
+      },
+      "split_policy": "preserve each assignment's split artifacts; do not substitute V3 splits"
+    },
+    {
+      "dataset_id": "a02_02",
+      "name": "Vietnam house prices",
+      "status": "available",
+      "files": [
+        {
+          "path": "A02/datasets/housing_price/vietnam_housing_dataset.csv",
+          "sha256": "b184ef7884b9fe50077fe1e15674d044e48e2a266f87e27ec44f941b9cd3b161",
+          "bytes": 3502455
+        }
+      ],
+      "source": "notebook source/metadata",
+      "note": "",
+      "schema": {
+        "datasets/housing_price/vietnam_housing_dataset.csv": {
+          "rows": 30229,
+          "columns": [
+            "Address",
+            "Area",
+            "Frontage",
+            "Access Road",
+            "House direction",
+            "Balcony direction",
+            "Floors",
+            "Bedrooms",
+            "Bathrooms",
+            "Legal status",
+            "Furniture state",
+            "Price"
+          ],
+          "delimiter": ",",
+          "bytes": 3502455,
+          "sha256": "b184ef7884b9fe50077fe1e15674d044e48e2a266f87e27ec44f941b9cd3b161",
+          "crlf_equivalent_sha256": "7ee188d69aca06349a81bac0c2d2d1503058d5aec7124edfd075154fa87d97c8"
+        }
+      },
+      "split_policy": "preserve each assignment's split artifacts; do not substitute V3 splits"
+    },
+    {
+      "dataset_id": "a02_03",
+      "name": "Customer behavior",
+      "status": "available",
+      "files": [
+        {
+          "path": "A02/datasets/customer_behavior/README.md",
+          "sha256": "d31cc53979dedefb99682a55f0f21c9581c566ee974095cbf209646e1c98c1a4",
+          "bytes": 6568
+        },
+        {
+          "path": "A02/datasets/customer_behavior/customers.csv",
+          "sha256": "8e9bb30da45e27ed2b3098ab1e864c965e7d48679bbb414e320ae54ed549d44f",
+          "bytes": 509464
+        },
+        {
+          "path": "A02/datasets/customer_behavior/products.csv",
+          "sha256": "cc040392b315e78eb239d9e4c7817f3fd616f20ccef8ec5debab93732138d5ca",
+          "bytes": 76794
+        },
+        {
+          "path": "A02/datasets/customer_behavior/reviews.csv",
+          "sha256": "a27726c5238f491faa1086b0617cdf74f4aa9951bc49615a739073bfa81845e8",
+          "bytes": 1695777
+        },
+        {
+          "path": "A02/datasets/customer_behavior/sessions.csv",
+          "sha256": "44bad613413ac6c89525097a2483e20016abecdf3b7970c70c4894730414b055",
+          "bytes": 5013659
+        },
+        {
+          "path": "A02/datasets/customer_behavior/transactions.csv",
+          "sha256": "296927e286d30ca400f9340e30aa802ed8a002839347106ba68d6bf72450a1c2",
+          "bytes": 9837285
+        }
+      ],
+      "source": "datasets/customer_behavior/README.md",
+      "note": "synthetic/source nature must follow historical README, do not call it Olist",
+      "schema": {
+        "datasets/customer_behavior/customers.csv": {
+          "rows": 10000,
+          "columns": [
+            "customer_id",
+            "signup_date",
+            "age",
+            "gender",
+            "country",
+            "segment",
+            "is_churned",
+            "lifetime_value",
+            "email_opt_in",
+            "has_app"
+          ],
+          "delimiter": ",",
+          "bytes": 509464,
+          "sha256": "8e9bb30da45e27ed2b3098ab1e864c965e7d48679bbb414e320ae54ed549d44f",
+          "crlf_equivalent_sha256": "870cf34ef34eeb2c6de6497f989191ac83591942642910dba0d6741fe9f4febe"
+        },
+        "datasets/customer_behavior/products.csv": {
+          "rows": 1000,
+          "columns": [
+            "product_id",
+            "product_name",
+            "category",
+            "brand",
+            "price",
+            "avg_rating",
+            "num_ratings",
+            "stock_quantity",
+            "discount_pct",
+            "is_featured",
+            "weight_kg"
+          ],
+          "delimiter": ",",
+          "bytes": 76794,
+          "sha256": "cc040392b315e78eb239d9e4c7817f3fd616f20ccef8ec5debab93732138d5ca",
+          "crlf_equivalent_sha256": "bd671fe626023a2e11105d0a6b95e199dece7e98572a0786abc26ea2f04a7293"
+        },
+        "datasets/customer_behavior/reviews.csv": {
+          "rows": 25000,
+          "columns": [
+            "review_id",
+            "customer_id",
+            "product_id",
+            "review_date",
+            "rating",
+            "review_text",
+            "helpful_votes",
+            "verified_purchase"
+          ],
+          "delimiter": ",",
+          "bytes": 1695777,
+          "sha256": "a27726c5238f491faa1086b0617cdf74f4aa9951bc49615a739073bfa81845e8",
+          "crlf_equivalent_sha256": "1bf4737efc4647c4f9b67928e930f4223fa72ac470b81ee197b49259a2b46bb7"
+        },
+        "datasets/customer_behavior/sessions.csv": {
+          "rows": 80000,
+          "columns": [
+            "session_id",
+            "customer_id",
+            "session_date",
+            "device",
+            "channel",
+            "duration_seconds",
+            "pages_viewed",
+            "converted",
+            "bounced",
+            "cart_additions"
+          ],
+          "delimiter": ",",
+          "bytes": 5013659,
+          "sha256": "44bad613413ac6c89525097a2483e20016abecdf3b7970c70c4894730414b055",
+          "crlf_equivalent_sha256": "f0db901c70cffe2b055518289f957770d8b79fc2429155c3c8804108641286d1"
+        },
+        "datasets/customer_behavior/transactions.csv": {
+          "rows": 120000,
+          "columns": [
+            "transaction_id",
+            "customer_id",
+            "product_id",
+            "transaction_date",
+            "quantity",
+            "unit_price",
+            "total_amount",
+            "discount_applied",
+            "status",
+            "payment_method",
+            "shipping_cost"
+          ],
+          "delimiter": ",",
+          "bytes": 9837285,
+          "sha256": "296927e286d30ca400f9340e30aa802ed8a002839347106ba68d6bf72450a1c2",
+          "crlf_equivalent_sha256": "4ba460d3acec76392ef6f470e0a334910a8770ea53909e7371557386fda413e8"
+        }
+      },
+      "split_policy": "preserve each assignment's split artifacts; do not substitute V3 splits"
+    }
+  ],
+  "physical_path_base": "repository root",
+  "resolver": "scripts/datasets.py",
+  "raw_modified": false
+}

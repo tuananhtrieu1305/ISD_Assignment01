@@ -1,0 +1,47 @@
+{
+  "schema_version": "3.0.0",
+  "evidence_kind": "synthetic_fixture",
+  "split_id": "fixture_temporal_v1",
+  "dataset_id": "ch4_gold_pink_sheet",
+  "dataset_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "method": "temporal",
+  "seed": 42,
+  "train_only_preprocessing": true,
+  "group_key": null,
+  "partitions": [
+    {
+      "name": "train",
+      "count": 10,
+      "ids": {
+        "path": "data/splits/fixture_train.jsonl",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "target_start": "2020-01-01T00:00:00Z",
+      "target_end": "2020-12-31T00:00:00Z"
+    },
+    {
+      "name": "validation",
+      "count": 10,
+      "ids": {
+        "path": "data/splits/fixture_validation.jsonl",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "target_start": "2021-01-01T00:00:00Z",
+      "target_end": "2021-12-31T00:00:00Z"
+    },
+    {
+      "name": "test",
+      "count": 10,
+      "ids": {
+        "path": "data/splits/fixture_test.jsonl",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "target_start": "2022-01-01T00:00:00Z",
+      "target_end": "2022-12-31T00:00:00Z"
+    }
+  ],
+  "leakage_audit": {
+    "path": "artifacts/manifests/fixture_leakage.json",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "metric_row": {
+    "chapter": 2,
+    "dataset_id": "ch2_diabetes_binary",
+    "framework": "pytorch",
+    "seed": 62,
+    "split": "test",
+    "task": "binary",
+    "topology_id": "mlp_64_32_1",
+    "input_dim": 21,
+    "parameter_count": 3521,
+    "optimizer": "Adam",
+    "learning_rate": 0.003,
+    "batch_size": 512,
+    "epochs_run": 16,
+    "best_epoch": 6,
+    "training_seconds": 1.0337140999999974,
+    "search_seconds": 2.3648478000004616,
+    "inference_seconds": 0.0006286999996518716,
+    "inference_ms_per_sample": 4.551838978076105e-05,
+    "sample_count": 13812,
+    "threshold": 0.38000000000000006,
+    "prediction_path": "term_paper/artifacts/predictions/ch2_ch2_diabetes_binary_pytorch_seed62_test.csv",
+    "prediction_sha256": "33fc1a99a52b61f14c31781e553c7b502bb5e8effb7215d1a21e9af3b45f6506",
+    "model_path": "term_paper/artifacts/models/ch2/ch2_diabetes_binary_pytorch_seed62.pt",
+    "model_sha256": "58fa8fcde24d3591388e270c330e26c0c313f5edd01ccfddee531769659eb539",
+    "preprocessor_sha256": "f7d520543655ea27d45d88d939c1458e2afc471a98c6038b67fe1bdc22b117f0",
+    "processed_sha256": "b57cf547e14f23df0f3378093465206f4a5770b4537f28f6faed58b5c6c187d8",
+    "split_sha256": "138c04fa519a96441560b250bf1fbdef2c6041439f654f230bb6ce4853fa5a3d",
+    "Accuracy": 0.7370402548508543,
+    "Precision": 0.6850557133493554,
+    "Recall": 0.8933048433048433,
+    "F1": 0.775442067515766,
+    "ROC-AUC": 0.8230299430535001
+  },
+  "learning_rate_candidates": [
+    {
+      "learning_rate": 0.01,
+      "measured_val_loss": 0.5109060769197721,
+      "history_best_val_loss": 0.5109061002731323,
+      "best_epoch": 5,
+      "epochs_run": 15,
+      "training_seconds": 1.0455184000002191
+    },
+    {
+      "learning_rate": 0.003,
+      "measured_val_loss": 0.509976176862094,
+      "history_best_val_loss": 0.5099760890007019,
+      "best_epoch": 6,
+      "epochs_run": 16,
+      "training_seconds": 1.0337140999999974
+    }
+  ],
+  "selected_candidate_index": 1,
+  "history_path": "term_paper/artifacts/metrics/ch2_ch2_diabetes_binary_pytorch_seed62_history.csv",
+  "threshold_path": "term_paper/artifacts/metrics/ch2_ch2_diabetes_binary_pytorch_seed62_threshold.csv"
+}

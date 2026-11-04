@@ -1,0 +1,223 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "3.0.0"
+    },
+    "evidence_kind": {
+      "enum": [
+        "measured",
+        "synthetic_fixture",
+        "historical_baseline"
+      ]
+    },
+    "dataset_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+    },
+    "chapter": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6
+    },
+    "kind": {
+      "enum": [
+        "tabular",
+        "image",
+        "timeseries",
+        "qa",
+        "kg",
+        "metadata",
+        "task_view"
+      ]
+    },
+    "status": {
+      "enum": [
+        "declared",
+        "ready",
+        "pending_user_download",
+        "rejected"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accessed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "citation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "license_status": {
+          "enum": [
+            "approved",
+            "pending",
+            "restricted"
+          ]
+        },
+        "license_note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "url",
+        "version",
+        "accessed_at",
+        "citation",
+        "license_status",
+        "license_note"
+      ]
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "$ref": "urn:ai-paper:v3:common#/$defs/path"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "size_bytes"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 20000
+    },
+    "logical_size": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "records": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "features": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "records",
+        "features",
+        "unit"
+      ]
+    },
+    "target": {
+      "type": "string",
+      "minLength": 1
+    },
+    "columns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+          },
+          "dtype": {
+            "enum": [
+              "number",
+              "integer",
+              "category",
+              "string",
+              "datetime",
+              "boolean"
+            ]
+          },
+          "role": {
+            "enum": [
+              "feature",
+              "target",
+              "id",
+              "group",
+              "time",
+              "evidence"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "dtype",
+          "role"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 256
+    },
+    "parent_dataset_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+      },
+      "minItems": 0,
+      "maxItems": 6
+    },
+    "data_card_path": {
+      "oneOf": [
+        {
+          "$ref": "urn:ai-paper:v3:common#/$defs/path"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "evidence_kind",
+    "dataset_id",
+    "chapter",
+    "kind",
+    "status",
+    "source",
+    "files",
+    "logical_size",
+    "target",
+    "columns",
+    "parent_dataset_ids",
+    "data_card_path"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-paper:v3:dataset",
+  "title": "AI term paper V3 dataset contract"
+}

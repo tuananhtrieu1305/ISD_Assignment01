@@ -1,0 +1,733 @@
+{
+  "case_id": "p01_evaluation_combined_02",
+  "split": "evaluation",
+  "category": "combined",
+  "question": "What does the snapshot document report about diabetes medicines and diabetes? Also report the model score for the supplied survey profile.",
+  "variant": "P2",
+  "reference_score": 0.08431055401611143,
+  "result": {
+    "request_id": "p01_43036dae76264047baff4b55c16f21b0",
+    "variant": "P2",
+    "status": "answered",
+    "risk": {
+      "score": 0.08431055401611143,
+      "class_id": 0,
+      "class_name": "no diabetes",
+      "logit": -2.3851702213287354,
+      "model_sha256": "cc7d28232eb1a818cc0c10d9047b4a43f4ef25ac7c06b2737870c63ae644fdb8",
+      "profile_sha256": "7ddb7f03056556e8fb713cbb4bc4f23a4b4197282d6593e69b932cbb2ab13cdb",
+      "unit": "historical_binary_model_score",
+      "calibrated_incidence_risk": false
+    },
+    "knowledge": {
+      "query_original": "What does the snapshot document report about diabetes medicines and diabetes? Also report the model score for the supplied survey profile.",
+      "query_normalized": "diabetes medicines",
+      "mapping": [],
+      "expanded": false,
+      "ranked_chunk_ids": [
+        "med-chunk-ff497309447bf4900c9c",
+        "med-chunk-5e0271a3601b45abe4ff",
+        "med-chunk-2b583989e8d34088d6be",
+        "med-chunk-c199270e7c9eebf766c4",
+        "med-chunk-a7a81505c68f3b1db781",
+        "med-chunk-075b999734bfbdc00f62",
+        "med-chunk-8381e1b3687a80102308",
+        "med-chunk-1da6064bb0fef9e42f7f",
+        "med-chunk-1134f05cecdf74d3fd32",
+        "med-chunk-ef72f2f0e51cc6670f8f"
+      ],
+      "evidence": [
+        {
+          "chunk_id": "med-chunk-ff497309447bf4900c9c",
+          "document_id": "med-doc-789ce78a7120946a49ec",
+          "domain": "medical",
+          "text": "Diabetes cannot be cured, but it can be managed. Managing blood glucose (blood sugar) as well as blood pressure and cholesterol is the best defense against the serious complications of diabetes. Know What To Do Every Day To manage your diabetes, here are things to do every day. - Take your medicines. - Keep track of your blood glucose (blood sugar). - Check your blood pressure if your doctor advises. - Check your feet. - Brush your teeth and floss. - Stop smoking. - Eat well. - Be active. Take your medicines. Keep track of your blood glucose (blood sugar). Check your blood pressure if your doctor advises. Check your feet. Brush your teeth and floss. Stop smoking. Eat well.",
+          "score": 0.01429196367980348,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-789ce78a7120946a49ec/med-chunk-ff497309447bf4900c9c",
+          "text_sha256": "68867049f4060becdea36ef3ea16e5498b04a0838958993f2a26bf145b437098",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-ff497309447bf4900c9c"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-5e0271a3601b45abe4ff",
+          "document_id": "med-doc-7347bf7c07619b63ea5d",
+          "domain": "medical",
+          "text": "day. - Take your medicines for diabetes and for any other health problems, even when you feel good. Take your medicines for diabetes and for any other health problems, even when you feel good. - Keep track of your blood glucose (blood sugar). You may want to check it one or more times a day. Be sure to talk about it with your health care team. Keep track of your blood glucose (blood sugar). You may want to check it one or more times a day. Be sure to talk about it with your health care team. - Check your blood pressure if your doctor advises and keep a record of it. Check your blood pressure if your doctor advises",
+          "score": 0.013982683982683982,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-7347bf7c07619b63ea5d/med-chunk-5e0271a3601b45abe4ff",
+          "text_sha256": "188ed8c15421c47880502609322e5c237957656839183e709ee2e5998f546210",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-5e0271a3601b45abe4ff"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-2b583989e8d34088d6be",
+          "document_id": "med-doc-ef8711d5f2bdf361a611",
+          "domain": "medical",
+          "text": "problems flu shot urine and a blood test to check for kidney problems. At least once, get a - pneumonia (nu-MOH-nya) shot. pneumonia (nu-MOH-nya) shot. If you have Medicare, ask your health care team if Medicare will cover some of the costs for - learning about healthy eating and diabetes self-care - special shoes, if you need them - medical supplies - diabetes medicines. learning about healthy eating and diabetes self-care special shoes, if you need them medical supplies diabetes medicines. (Watch the video for important things to remember when visiting your health care team. To enlarge the video, click the brackets in the lower right-hand corner. To reduce the video, press the Escape (Esc) button on your keyboard.)",
+          "score": 0.013968014420759187,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-ef8711d5f2bdf361a611/med-chunk-2b583989e8d34088d6be",
+          "text_sha256": "0d57cbe3749f31f048c7939a2cc093dd6c0237b4acca5619d51295bb7da627c8",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-2b583989e8d34088d6be"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-c199270e7c9eebf766c4",
+          "document_id": "med-doc-7347bf7c07619b63ea5d",
+          "domain": "medical",
+          "text": "People with type 1 diabetes control their blood sugar with insulin -- either with shots or an insulin pen. Many people with type 2 diabetes can control blood glucose levels with diet and exercise alone. Others require oral medications or insulin, and some people may need to take both, along with lifestyle modification. (Watch the video to learn how one woman manages her type 2 diabetes. To enlarge the video, click the brackets in the lower right-hand corner. To reduce the video, press the Escape (Esc) button on your keyboard.) To manage your diabetes, here are things to do every day. - Take your medicines for diabetes and for any other health problems, even when you feel good. Take your",
+          "score": 0.01282703488372093,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-7347bf7c07619b63ea5d/med-chunk-c199270e7c9eebf766c4",
+          "text_sha256": "677725463e579cfa4d2c13c1d13bd57188a3ffd18b3658f9155658769a497d63",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-c199270e7c9eebf766c4"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-a7a81505c68f3b1db781",
+          "document_id": "med-doc-789ce78a7120946a49ec",
+          "domain": "medical",
+          "text": "Check your blood pressure if your doctor advises. Check your feet. Brush your teeth and floss. Stop smoking. Eat well. Be active. (Watch the video to learn more about what one woman does to manage her diabetes every day. To enlarge the video, click the brackets in the lower right-hand corner. To reduce the video, press the Escape (Esc) button on your keyboard.) Take Your Diabetes Medicines People with type 1 diabetes control their blood sugar with insulin -- delivered either by injection or with a pump. Many people with type 2 diabetes can control blood glucose levels with diet and exercise alone. Others require oral medications or insulin, and some may need both, as well as lifestyle modification. Ask",
+          "score": 0.01233468286099865,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-789ce78a7120946a49ec/med-chunk-a7a81505c68f3b1db781",
+          "text_sha256": "a42cf6230799727ecb2bcf198ec6f041b82e19b1c2b8e2538d0514da54ae2561",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-a7a81505c68f3b1db781"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-075b999734bfbdc00f62",
+          "document_id": "med-doc-be4bb1de2a5468726a40",
+          "domain": "medical",
+          "text": "Summary : Diabetes means your blood glucose, or blood sugar, levels are too high. If you can't control your diabetes with wise food choices and physical activity, you may need diabetes medicines. The kind of medicine you take depends on your type of diabetes, your schedule, and your other health conditions. With type 1 diabetes, your pancreas does not make insulin. Insulin is a hormone that helps glucose get into your cells to give them energy. Without insulin, too much glucose stays in your blood. If you have type 1 diabetes, you will need to take insulin. Type 2 diabetes, the most common type, can start when the body doesn't use insulin as it should. If your body can't keep",
+          "score": 0.012216618963245648,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-be4bb1de2a5468726a40/med-chunk-075b999734bfbdc00f62",
+          "text_sha256": "4064a17d8e5023946e22cacf724218d368ca1d73e86347ed0732ba6f07728f5a",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-5c3512a7f6e1c3862f68cac9",
+            "med-chunk-075b999734bfbdc00f62"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-8381e1b3687a80102308",
+          "document_id": "med-doc-971e8063c673be881a97",
+          "domain": "medical",
+          "text": "Research also has shown that some people who have diabetes may benefit more from certain blood pressure and cholesterol medicines than from others. One example is a group of cholesterol medicines called bile acid sequestrants (such as cholestyramine). This type of medicine may offer advantages for people who have type 2 diabetes. It appears to improve blood sugar control and lower LDL cholesterol. Treatment for Heart Failure Some studies suggest that certain medicines may have advantages for treating heart failure in people who have diabetes. These medicines include ACE inhibitors, angiotensin receptor blockers, aldosterone antagonists, and beta blockers. Research shows that two blood sugar medicines (insulin and sulfanylureas) don't seem to reduce the risk of heart failure in people who",
+          "score": 0.011448968799576943,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-971e8063c673be881a97/med-chunk-8381e1b3687a80102308",
+          "text_sha256": "7cbf841925e948fc81e05e37c52427a10d91021f3a112145aeb3c698dd09eaea",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-1da6064bb0fef9e42f7f",
+          "document_id": "med-doc-c3d414e77f5cc07b457b",
+          "domain": "medical",
+          "text": "Record Page.\" High blood glucose, also called hyperglycemia, means you dont have enough insulin in your body. High blood glucose can happen if you - miss taking your diabetes medicines - eat too much - dont get enough physical activity - have an infection - get sick - are stressed - take medicines that can cause high blood glucose Be sure to tell your doctor about other medicines you take. When youre sick, be sure to check your blood glucose levels and keep taking your diabetes medicines. Read more about how to take care of yourself when youre sick in the section Take Care of Your Diabetes during Special Times or Events. Signs that your blood glucose levels may be",
+          "score": 0.011316763617133793,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-c3d414e77f5cc07b457b/med-chunk-1da6064bb0fef9e42f7f",
+          "text_sha256": "700c794d153f1513a80daa9eb9b210fe50ef936140b6c134021e0d610311408f",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-1134f05cecdf74d3fd32",
+          "document_id": "med-doc-760a496010828edba06e",
+          "domain": "medical",
+          "text": "diabetes, heart disease, or both, let your doctor know. Your doctor may prescribe medicines to control certain risk factors, such as high blood pressure and high blood cholesterol. Take all of your medicines exactly as your doctor advises. People who have diabetes also need good blood sugar control. Controlling your blood sugar level is good for heart health. Ask your doctor about the best ways to control your blood sugar level. For more information about lifestyle changes and medicines, go to \"How Is Diabetic Heart Disease Treated?\"",
+          "score": 0.011062271062271062,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-760a496010828edba06e/med-chunk-1134f05cecdf74d3fd32",
+          "text_sha256": "0c11077a33173a9e96974f1d6ce88b5d7fcf8a8752bd59fa83dd8efadac665d0",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-ef72f2f0e51cc6670f8f",
+          "document_id": "med-doc-2ffdeee2319a08fc2448",
+          "domain": "medical",
+          "text": "The treatment for nerve damage from diabetes is based on your symptoms. No treatment can reverse nerve damage; however, it can help you feel better. Your doctor might suggest taking low doses of medicines that both treat other health problems and help the pain of neuropathy. Some of these medicines include - antidepressants - anticonvulsants, or anti-seizure medicines Other treatment options include - creams or patches on your skin for burning pain - over-the-counter pain medicines - acupuncture, a form of pain treatment that uses needles inserted into your body at certain pressure points - physical therapy, which helps with muscle weakness and loss of balance - relaxation exercises, such as yoga - special shoes to fit softly around sore",
+          "score": 0.010890151515151514,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-2ffdeee2319a08fc2448/med-chunk-ef72f2f0e51cc6670f8f",
+          "text_sha256": "eeda1069aa6e297f5193c21e756c047957db9531e0cc79ac9229b34768f159f8",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        }
+      ],
+      "graph_paths": {
+        "med-chunk-075b999734bfbdc00f62": [
+          "kg-node-5c3512a7f6e1c3862f68cac9",
+          "med-chunk-075b999734bfbdc00f62"
+        ],
+        "med-chunk-60692d56151c452ba6ee": [
+          "kg-node-5c3512a7f6e1c3862f68cac9",
+          "med-chunk-60692d56151c452ba6ee"
+        ],
+        "med-chunk-00d0cff90bb719155edf": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-00d0cff90bb719155edf"
+        ],
+        "med-chunk-02742aed14c1dacb7d2a": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-02742aed14c1dacb7d2a"
+        ],
+        "med-chunk-042fc6d1baec3e2d6d52": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-042fc6d1baec3e2d6d52"
+        ],
+        "med-chunk-07f0e7ddf3090a20cda9": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-07f0e7ddf3090a20cda9"
+        ],
+        "med-chunk-142622843d46ae761ad6": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-142622843d46ae761ad6"
+        ],
+        "med-chunk-158d754ecbe5d593e96d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-158d754ecbe5d593e96d"
+        ],
+        "med-chunk-18185f2fcc09fac4293c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-18185f2fcc09fac4293c"
+        ],
+        "med-chunk-1c4cf120827198804eca": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1c4cf120827198804eca"
+        ],
+        "med-chunk-1fd3518bfe75fc88189f": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1fd3518bfe75fc88189f"
+        ],
+        "med-chunk-1ff75a3402733edbb3be": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1ff75a3402733edbb3be"
+        ],
+        "med-chunk-20da3a9768c72180eaee": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-20da3a9768c72180eaee"
+        ],
+        "med-chunk-234ffd24da97a47933dd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-234ffd24da97a47933dd"
+        ],
+        "med-chunk-2637d03c319543c561b0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2637d03c319543c561b0"
+        ],
+        "med-chunk-29cae499c93bcbc28766": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-29cae499c93bcbc28766"
+        ],
+        "med-chunk-2b583989e8d34088d6be": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2b583989e8d34088d6be"
+        ],
+        "med-chunk-2fcb3149d1770e0a595e": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2fcb3149d1770e0a595e"
+        ],
+        "med-chunk-322cf32545ba0d9fccd3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-322cf32545ba0d9fccd3"
+        ],
+        "med-chunk-35d53d10cdf7ca13f130": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-35d53d10cdf7ca13f130"
+        ],
+        "med-chunk-38c7b877bbde527d28df": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-38c7b877bbde527d28df"
+        ],
+        "med-chunk-40a47ef3b3edefc4b445": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-40a47ef3b3edefc4b445"
+        ],
+        "med-chunk-428e5bdb3faa8095da2c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-428e5bdb3faa8095da2c"
+        ],
+        "med-chunk-498ec32b50924f78d269": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-498ec32b50924f78d269"
+        ],
+        "med-chunk-4f099ecb0ff814fae6ce": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-4f099ecb0ff814fae6ce"
+        ],
+        "med-chunk-53e793bcf6344e35f8a7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-53e793bcf6344e35f8a7"
+        ],
+        "med-chunk-54facf2ee3eaff0fdce3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-54facf2ee3eaff0fdce3"
+        ],
+        "med-chunk-57b35921a9722b616aed": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-57b35921a9722b616aed"
+        ],
+        "med-chunk-592697f10ac0f2b0b6f0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-592697f10ac0f2b0b6f0"
+        ],
+        "med-chunk-5acc226aae6524197ef7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5acc226aae6524197ef7"
+        ],
+        "med-chunk-5e0271a3601b45abe4ff": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5e0271a3601b45abe4ff"
+        ],
+        "med-chunk-5edf8024738ce8e9b331": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5edf8024738ce8e9b331"
+        ],
+        "med-chunk-618f309badbf6a5f4b72": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-618f309badbf6a5f4b72"
+        ],
+        "med-chunk-64f932f085704ffa6a2d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-64f932f085704ffa6a2d"
+        ],
+        "med-chunk-68a95f47da58a027b61c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-68a95f47da58a027b61c"
+        ],
+        "med-chunk-6b96fb2799c25ab6f0fd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-6b96fb2799c25ab6f0fd"
+        ],
+        "med-chunk-6e2b4946973d9895a320": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-6e2b4946973d9895a320"
+        ],
+        "med-chunk-7201d90f8c11d3337e58": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7201d90f8c11d3337e58"
+        ],
+        "med-chunk-791eb61fb7e725fe87ee": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-791eb61fb7e725fe87ee"
+        ],
+        "med-chunk-797ef8993da8c25cded4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-797ef8993da8c25cded4"
+        ],
+        "med-chunk-7bfe9ed251eab800454b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7bfe9ed251eab800454b"
+        ],
+        "med-chunk-7f48782ab65e4dae9b0d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7f48782ab65e4dae9b0d"
+        ],
+        "med-chunk-805c768af161958295db": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-805c768af161958295db"
+        ],
+        "med-chunk-821f617f26d18b9824cd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-821f617f26d18b9824cd"
+        ],
+        "med-chunk-82541225c6e95203e992": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-82541225c6e95203e992"
+        ],
+        "med-chunk-8308c56ef25e2cfe22b4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8308c56ef25e2cfe22b4"
+        ],
+        "med-chunk-880bfce90afa02c43573": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-880bfce90afa02c43573"
+        ],
+        "med-chunk-8cc14350e486c23f2bff": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8cc14350e486c23f2bff"
+        ],
+        "med-chunk-8dffeea09fcafba78f9c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8dffeea09fcafba78f9c"
+        ],
+        "med-chunk-8e408fa25b89cf44fe73": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8e408fa25b89cf44fe73"
+        ],
+        "med-chunk-92578e57eaf0de1c605c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-92578e57eaf0de1c605c"
+        ],
+        "med-chunk-926991435686f8baf455": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-926991435686f8baf455"
+        ],
+        "med-chunk-93a7ce4421d6cdfd0019": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-93a7ce4421d6cdfd0019"
+        ],
+        "med-chunk-a1a4b29c41136d4eea36": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a1a4b29c41136d4eea36"
+        ],
+        "med-chunk-a210fbfb5dfd020e7260": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a210fbfb5dfd020e7260"
+        ],
+        "med-chunk-a2e51634f9fa03ae255d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a2e51634f9fa03ae255d"
+        ],
+        "med-chunk-a43cb96d1bc187e62f78": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a43cb96d1bc187e62f78"
+        ],
+        "med-chunk-a7a81505c68f3b1db781": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a7a81505c68f3b1db781"
+        ],
+        "med-chunk-a9074b046b94a319eebf": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a9074b046b94a319eebf"
+        ],
+        "med-chunk-a9c9a9186b08cffa54ac": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a9c9a9186b08cffa54ac"
+        ],
+        "med-chunk-ad2e41d109f2459c61a3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ad2e41d109f2459c61a3"
+        ],
+        "med-chunk-aeaf5140180cca99da80": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-aeaf5140180cca99da80"
+        ],
+        "med-chunk-b34f3a90c5b93bbb7ca3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b34f3a90c5b93bbb7ca3"
+        ],
+        "med-chunk-b439e7011436daf78d70": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b439e7011436daf78d70"
+        ],
+        "med-chunk-b5423d412a5c84a10678": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b5423d412a5c84a10678"
+        ],
+        "med-chunk-b5a68ac2e2f678742241": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b5a68ac2e2f678742241"
+        ],
+        "med-chunk-b6eb5a279443330c2ad3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b6eb5a279443330c2ad3"
+        ],
+        "med-chunk-b77c90bcbbbc928e4b0b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b77c90bcbbbc928e4b0b"
+        ],
+        "med-chunk-b9e463da28dcd8cae5b4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b9e463da28dcd8cae5b4"
+        ],
+        "med-chunk-c15b56a11e231144655e": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c15b56a11e231144655e"
+        ],
+        "med-chunk-c199270e7c9eebf766c4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c199270e7c9eebf766c4"
+        ],
+        "med-chunk-c3b05ea064562d9e4d2d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c3b05ea064562d9e4d2d"
+        ],
+        "med-chunk-c9f36e68e21351fe3f20": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c9f36e68e21351fe3f20"
+        ],
+        "med-chunk-cd312104e143618fd9c1": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-cd312104e143618fd9c1"
+        ],
+        "med-chunk-cf9eb66179943d5cdb43": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-cf9eb66179943d5cdb43"
+        ],
+        "med-chunk-d376529389af5b67695b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d376529389af5b67695b"
+        ],
+        "med-chunk-d4bb83dc775f308fa787": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d4bb83dc775f308fa787"
+        ],
+        "med-chunk-d4c01b61d78fa346a7fe": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d4c01b61d78fa346a7fe"
+        ],
+        "med-chunk-d53899bdb40c38a43edd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d53899bdb40c38a43edd"
+        ],
+        "med-chunk-d7c09f74f870a09ade81": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d7c09f74f870a09ade81"
+        ],
+        "med-chunk-d802b5ae0b11355e4a40": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d802b5ae0b11355e4a40"
+        ],
+        "med-chunk-d823ba21282c7148a6c9": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d823ba21282c7148a6c9"
+        ],
+        "med-chunk-d9234b0b602223bbb3f8": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d9234b0b602223bbb3f8"
+        ],
+        "med-chunk-dadd48872c0963ea3d46": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-dadd48872c0963ea3d46"
+        ],
+        "med-chunk-dc3c1305089057dfa49f": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-dc3c1305089057dfa49f"
+        ],
+        "med-chunk-df9c85fffb8211040522": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-df9c85fffb8211040522"
+        ],
+        "med-chunk-e04453f588452a112b7b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e04453f588452a112b7b"
+        ],
+        "med-chunk-e0a3ecd4fbd4bd1bffa5": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e0a3ecd4fbd4bd1bffa5"
+        ],
+        "med-chunk-e5068975c5ccace8d6b0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e5068975c5ccace8d6b0"
+        ],
+        "med-chunk-efcd1c95f5fdcb645f93": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-efcd1c95f5fdcb645f93"
+        ],
+        "med-chunk-f48938d706c03489bb61": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-f48938d706c03489bb61"
+        ],
+        "med-chunk-f7c195b56a3d5b981b2b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-f7c195b56a3d5b981b2b"
+        ],
+        "med-chunk-fa057772ca3b931e48a7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-fa057772ca3b931e48a7"
+        ],
+        "med-chunk-facc6c9df13f34d09dca": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-facc6c9df13f34d09dca"
+        ],
+        "med-chunk-fb01033fc65d1cfcb493": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-fb01033fc65d1cfcb493"
+        ],
+        "med-chunk-ff497309447bf4900c9c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ff497309447bf4900c9c"
+        ],
+        "med-chunk-ffd2aa901b2714cd9719": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ffd2aa901b2714cd9719"
+        ]
+      },
+      "answer": "Take your medicines for diabetes and for any other health problems, even when you feel good.",
+      "citations": [
+        "med-chunk-5e0271a3601b45abe4ff"
+      ],
+      "support_kind": "verbatim_focused_excerpt_heuristic",
+      "language": "en",
+      "method": "BM25 + LSA + lexical graph / weighted RRF",
+      "citation_scope": "source repository commit plus local document/chunk, not original page URL"
+    },
+    "profile_validation": {
+      "valid": true,
+      "missing": [],
+      "invalid": [],
+      "extra": []
+    },
+    "verification": {
+      "status": "passed",
+      "checks": {
+        "numeric_consistency": true,
+        "citation_integrity": true,
+        "verbatim_focused_claim_support": true
+      },
+      "errors": [],
+      "support_method": "verbatim span + topic-token heuristic; not expert semantic entailment"
+    },
+    "answer": {
+      "status": "answered",
+      "sections": [
+        {
+          "title": "Đầu ra mô hình khảo sát",
+          "text": "Score 0.084311; lớp 0: no diabetes. Không phải xác suất mắc mới đã hiệu chuẩn."
+        },
+        {
+          "title": "Bằng chứng truy hồi · tiếng Anh",
+          "text": "Take your medicines for diabetes and for any other health problems, even when you feel good."
+        }
+      ],
+      "variant": "P2",
+      "limitation": "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh.",
+      "synthesis": "verified_sections"
+    },
+    "errors": [],
+    "trace": [
+      {
+        "node_id": "n1",
+        "agent": "Coordinator",
+        "tool": "plan_request",
+        "parent_ids": [],
+        "duration_ms": 0.14708799972140696,
+        "outcome": "ok",
+        "output": {
+          "need_risk": true,
+          "need_knowledge": true,
+          "mode": "combined",
+          "policy": null
+        }
+      },
+      {
+        "node_id": "n2",
+        "agent": "Risk Agent",
+        "tool": "validate_profile",
+        "parent_ids": [
+          "n1"
+        ],
+        "duration_ms": 0.06986800053709885,
+        "outcome": "ok",
+        "output": {
+          "valid": true,
+          "missing": [],
+          "invalid": [],
+          "extra": []
+        }
+      },
+      {
+        "node_id": "n3",
+        "agent": "Risk Agent",
+        "tool": "predict_cdc",
+        "parent_ids": [
+          "n2"
+        ],
+        "duration_ms": 0.7017939997240319,
+        "outcome": "ok",
+        "output": {
+          "result_sha256": "8f5f3ea9085d57cca2ec2480ab8cf584fd94efa4d35a7918dc36ff29ee827245",
+          "attempt": 0
+        }
+      },
+      {
+        "node_id": "n4",
+        "agent": "Knowledge Agent",
+        "tool": "retrieve_medical",
+        "parent_ids": [
+          "n3"
+        ],
+        "duration_ms": 25.91243700044288,
+        "outcome": "ok",
+        "output": {
+          "result_sha256": "4836b6d2a466ed1bd3fe0bf716680265a9be3f8cff82d649ac1380c1fcd82fb6",
+          "attempt": 0
+        }
+      },
+      {
+        "node_id": "n5",
+        "agent": "Verifier",
+        "tool": "check_outputs",
+        "parent_ids": [
+          "n4"
+        ],
+        "duration_ms": 0.08459400032734266,
+        "outcome": "ok",
+        "output": {
+          "status": "passed",
+          "checks": {
+            "numeric_consistency": true,
+            "citation_integrity": true,
+            "verbatim_focused_claim_support": true
+          },
+          "errors": [],
+          "support_method": "verbatim span + topic-token heuristic; not expert semantic entailment"
+        }
+      },
+      {
+        "node_id": "n6",
+        "agent": "Reporter",
+        "tool": "compose",
+        "parent_ids": [
+          "n5"
+        ],
+        "duration_ms": 0.02619600036268821,
+        "outcome": "ok",
+        "output": {
+          "status": "answered",
+          "section_count": 2
+        }
+      }
+    ],
+    "tool_calls": 2,
+    "retrieval_loops": 0,
+    "latency_ms": 32.540982999307744,
+    "limitations": [
+      "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh."
+    ],
+    "input_sha256": "2db650eb1b69d5d45f17a3519e1a0052e84e215ee03fad5fcb89ebbb61ea08cc",
+    "worker_terminated": true
+  },
+  "metrics": {
+    "automatic_success": true,
+    "numeric_parity": true,
+    "citation_integrity_format": true,
+    "known_positive_hit_at_10": false,
+    "known_positive_rr": 0.0,
+    "support_review_required": true,
+    "task_success": true,
+    "manual_support": "supported"
+  },
+  "gold_document_ids": [
+    "med-doc-261f3d4194eb18a0fd7e"
+  ],
+  "scope": "pipeline/synthetic tasks; not clinical accuracy",
+  "derived_from": {
+    "path": "artifacts/phase2/evaluation/raw_results/p01_evaluation_combined_02_P2.json",
+    "sha256": "c0cf21dde8302f7644a6f8c528fa31fa4f776b5f7827942a9d0db944360ed76c",
+    "transformation": "append manual support and final task-success labels only; model/tool/trace outputs unchanged"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "version": "evaluation-v1",
+  "date": "2026-11-02",
+  "development": 20,
+  "held_out": 40,
+  "outputs_planned": 80,
+  "category_distribution": {
+    "dev": {
+      "direct": 10,
+      "relation": 4,
+      "multi": 2,
+      "insufficient": 2,
+      "outside": 2
+    },
+    "held_out": {
+      "direct": 20,
+      "relation": 8,
+      "multi": 4,
+      "insufficient": 4,
+      "outside": 4
+    }
+  },
+  "unique_fact_families": 60,
+  "fact_family_overlap_dev_held_out": 0,
+  "semantic_review": "Assistant authored distinct fact families; not a statistically independent or clinical expert benchmark",
+  "held_out_is_not_unseen_to_reference_author": true,
+  "model_calls_on_questions": 0,
+  "held_out_for_development_or_tuning": false,
+  "qrels_exhaustive": false,
+  "qrels_policy": "Exact source anchors across all duplicate chunks; accept other source-supported evidence after blinded review, never alter raw results",
+  "old_benchmark_reused": false,
+  "new_corpus_shared_between_splits": true
+}

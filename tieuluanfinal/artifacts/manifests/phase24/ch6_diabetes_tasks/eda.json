@@ -1,0 +1,52 @@
+{
+  "comments": [
+    "Không coi declared là dataset đã train/đánh giá.",
+    "Ba miền ưu tiên giữ diabetes, house, gold; không bịa số task hoặc metric."
+  ],
+  "dataset_id": "ch6_diabetes_tasks",
+  "distribution_summary": {
+    "agent_distribution": null,
+    "parent_distribution_references": [
+      "ch2_cdc_diabetes/eda.json",
+      "ch5_medquad_diabetes/eda.json"
+    ]
+  },
+  "figures": [],
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "sample_note": "Chỉ dẫn lại mẫu thật từ parent, KHÔNG phải task/gold answer của hệ agent. Task input/output schema và benchmark sẽ khóa Phase31.",
+  "samples": [
+    {
+      "from_parent": "ch2_cdc_diabetes",
+      "parent_sample": [
+        {
+          "id": "row_0048946",
+          "input": {
+            "bmi": 24,
+            "chol_check": 1,
+            "heart_diseaseor_attack": 0,
+            "high_bp": 1,
+            "high_chol": 1,
+            "phys_activity": 1,
+            "smoker": 0,
+            "stroke": 0
+          },
+          "known_output": 0
+        }
+      ]
+    }
+  ],
+  "schema_version": "3.0.0",
+  "scope": "declared_parent_view_NOT_AGENT_BENCHMARK",
+  "size_and_schema": {
+    "additional_raw_bytes": 0,
+    "agent_tasks": null,
+    "parent_dataset_ids": [
+      "ch2_cdc_diabetes",
+      "ch5_medquad_diabetes"
+    ]
+  },
+  "source_manifest_sha256": "fecaa086a12299aa054374b0b2557c5381b0fbf05ff6dfbc4f9732b9a6215ac5",
+  "split_note": "Chưa tạo task/split Ch6. Phase31 gom paraphrase/template/source ID và kế thừa TEST seal; không copy raw hay mở TEST parent để tuning.",
+  "test_evaluation_executed": false,
+  "training_executed": false
+}

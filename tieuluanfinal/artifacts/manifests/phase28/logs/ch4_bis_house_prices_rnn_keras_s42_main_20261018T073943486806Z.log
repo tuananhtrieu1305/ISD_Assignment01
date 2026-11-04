@@ -1,0 +1,57 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792309192.362640   55051 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792309192.410853   55051 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792309196.034413   55051 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1792309196.968402   55051 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1792309197.242222   55051 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1792309197.391502   55051 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5262 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+I0000 00:00:1792309198.513340   55051 service.cc:153] XLA service 0x5d0c3d0e2000 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1792309198.513379   55051 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5050 Laptop GPU, Compute Capability 12.0a (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.27.0)
+I0000 00:00:1792309198.530976   55051 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1792309198.593817   55051 cuda_dnn.cc:461] Loaded cuDNN version 92700
+I0000 00:00:1792309198.788503   55051 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+W0000 00:00:1792309200.356823   55051 assert_op.cc:39] Ignoring Assert operator assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert
+W0000 00:00:1792309200.357840   55051 assert_op.cc:39] Ignoring Assert operator assert_positive/assert_less/Assert/AssertGuard/Assert
+W0000 00:00:1792309200.432963   55051 assert_op.cc:39] Ignoring Assert operator assert_equal_1/Assert/Assert
+W0000 00:00:1792309200.433451   55051 assert_op.cc:39] Ignoring Assert operator assert_equal_3/Assert/Assert
+I0000 00:00:1792309200.671649   55051 dot_merger.cc:481] Merging Dots in computation: functional_1_rnn_3_1_while_body_2090_grad_2273_const_0__.36.clone.clone.clone.clone.clone.clone.clone
+I0000 00:00:1792309200.671759   55051 dot_merger.cc:481] Merging Dots in computation: functional_1_rnn_2_1_while_body_1979_grad_2494_const_0__.45.clone.clone.clone.clone.clone.clone.clone
+I0000 00:00:1792309200.671804   55051 dot_merger.cc:481] Merging Dots in computation: functional_1_rnn_1_1_while_body_1868_grad_2714_const_0__.54.clone.clone.clone.clone.clone.clone
+I0000 00:00:1792309200.671833   55051 dot_merger.cc:481] Merging Dots in computation: a_inference_step_3546__XlaMustCompile_true_config_proto_11533622207836055933_executor_type_11160318154034397263_.62
+W0000 00:00:1792309202.728525   55051 assert_op.cc:39] Ignoring Assert operator assert_non_negative/assert_less_equal/Assert/AssertGuard/Assert
+W0000 00:00:1792309202.729745   55051 assert_op.cc:39] Ignoring Assert operator assert_positive/assert_less/Assert/AssertGuard/Assert
+W0000 00:00:1792309202.785260   55051 assert_op.cc:39] Ignoring Assert operator assert_equal_1/Assert/Assert
+W0000 00:00:1792309202.785576   55051 assert_op.cc:39] Ignoring Assert operator assert_equal_3/Assert/Assert
+I0000 00:00:1792309203.044692   55051 dot_merger.cc:481] Merging Dots in computation: functional_1_rnn_3_1_while_body_2090_grad_2273_const_0__.36.clone.clone.clone.clone.clone.clone.clone
+I0000 00:00:1792309203.044808   55051 dot_merger.cc:481] Merging Dots in computation: functional_1_rnn_2_1_while_body_1979_grad_2494_const_0__.45.clone.clone.clone.clone.clone.clone.clone
+I0000 00:00:1792309203.044849   55051 dot_merger.cc:481] Merging Dots in computation: functional_1_rnn_1_1_while_body_1868_grad_2714_const_0__.54.clone.clone.clone.clone.clone.clone
+I0000 00:00:1792309203.044884   55051 dot_merger.cc:481] Merging Dots in computation: a_inference_step_3546__XlaMustCompile_true_config_proto_11533622207836055933_executor_type_11160318154034397263_.62
+epoch=1 train_loss=0.761859 validation_loss=4.975951 best_epoch=1
+epoch=2 train_loss=0.501613 validation_loss=2.716330 best_epoch=2
+epoch=3 train_loss=0.139519 validation_loss=1.066184 best_epoch=3
+epoch=4 train_loss=0.063403 validation_loss=0.717250 best_epoch=4
+epoch=5 train_loss=0.041728 validation_loss=0.563637 best_epoch=5
+epoch=6 train_loss=0.037591 validation_loss=0.477424 best_epoch=6
+epoch=7 train_loss=0.032004 validation_loss=0.427210 best_epoch=7
+epoch=8 train_loss=0.029794 validation_loss=0.434572 best_epoch=7
+epoch=9 train_loss=0.028117 validation_loss=0.396273 best_epoch=9
+epoch=10 train_loss=0.028525 validation_loss=0.358704 best_epoch=10
+epoch=11 train_loss=0.026692 validation_loss=0.410098 best_epoch=10
+epoch=12 train_loss=0.025303 validation_loss=0.372660 best_epoch=10
+epoch=13 train_loss=0.024219 validation_loss=0.346288 best_epoch=13
+epoch=14 train_loss=0.024466 validation_loss=0.390784 best_epoch=13
+epoch=15 train_loss=0.026612 validation_loss=0.365105 best_epoch=13
+epoch=16 train_loss=0.022633 validation_loss=0.333254 best_epoch=16
+epoch=17 train_loss=0.021045 validation_loss=0.297286 best_epoch=17
+epoch=18 train_loss=0.020823 validation_loss=0.322026 best_epoch=17
+epoch=19 train_loss=0.020553 validation_loss=0.315065 best_epoch=17
+epoch=20 train_loss=0.021168 validation_loss=0.293417 best_epoch=20
+epoch=21 train_loss=0.019576 validation_loss=0.303881 best_epoch=20
+epoch=22 train_loss=0.018987 validation_loss=0.301941 best_epoch=20
+epoch=23 train_loss=0.017780 validation_loss=0.309171 best_epoch=20
+epoch=24 train_loss=0.016898 validation_loss=0.315167 best_epoch=20
+epoch=25 train_loss=0.016426 validation_loss=0.293592 best_epoch=20
+epoch=26 train_loss=0.016901 validation_loss=0.312436 best_epoch=20
+{"run_id": "ch4_bis_house_prices_rnn_keras_s42_main", "status": "PASS", "epochs": 26, "best_epoch": 19, "rmse": 16.27201852958768, "train_seconds": 33.66420733999985}

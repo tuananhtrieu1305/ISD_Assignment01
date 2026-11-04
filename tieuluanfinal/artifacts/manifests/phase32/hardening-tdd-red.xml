@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="5" time="6.005" timestamp="2026-10-20T21:08:44.816417+07:00" hostname="LaptopVJP"><testcase classname="tests.serving32.test_hardening" name="test_job_database_is_private" time="0.031"><failure message="AssertionError: assert 420 == 384&#10; +  where 420 = &lt;built-in function S_IMODE&gt;(33188)&#10; +    where &lt;built-in function S_IMODE&gt; = stat.S_IMODE&#10; +    and   33188 = os.stat_result(st_mode=33188, st_ino=178852, st_dev=2096, st_nlink=1, st_uid=1000, st_gid=1000, st_size=16384, st_atime=1792505326, st_mtime=1792505326, st_ctime=1792505326).st_mode&#10; +      where os.stat_result(st_mode=33188, st_ino=178852, st_dev=2096, st_nlink=1, st_uid=1000, st_gid=1000, st_size=16384, st_atime=1792505326, st_mtime=1792505326, st_ctime=1792505326) = stat()&#10; +        where stat = PosixPath('/tmp/pytest-of-tuananh/pytest-6/test_job_database_is_private0/private/jobs.db').stat&#10; +          where PosixPath('/tmp/pytest-of-tuananh/pytest-6/test_job_database_is_private0/private/jobs.db') = &lt;apps.api.v3.jobs.JobStore object at 0x77ad4c173e10&gt;.path">tmp_path = PosixPath('/tmp/pytest-of-tuananh/pytest-6/test_job_database_is_private0')
+
+    def test_job_database_is_private(tmp_path):
+        before = os.umask(0o022)
+        try:
+            store = JobStore(tmp_path / "private" / "jobs.db")
+        finally:
+            os.umask(before)
+&gt;       assert stat.S_IMODE(store.path.stat().st_mode) == 0o600
+E       AssertionError: assert 420 == 384
+E        +  where 420 = &lt;built-in function S_IMODE&gt;(33188)
+E        +    where &lt;built-in function S_IMODE&gt; = stat.S_IMODE
+E        +    and   33188 = os.stat_result(st_mode=33188, st_ino=178852, st_dev=2096, st_nlink=1, st_uid=1000, st_gid=1000, st_size=16384, st_atime=1792505326, st_mtime=1792505326, st_ctime=1792505326).st_mode
+E        +      where os.stat_result(st_mode=33188, st_ino=178852, st_dev=2096, st_nlink=1, st_uid=1000, st_gid=1000, st_size=16384, st_atime=1792505326, st_mtime=1792505326, st_ctime=1792505326) = stat()
+E        +        where stat = PosixPath('/tmp/pytest-of-tuananh/pytest-6/test_job_database_is_private0/private/jobs.db').stat
+E        +          where PosixPath('/tmp/pytest-of-tuananh/pytest-6/test_job_database_is_private0/private/jobs.db') = &lt;apps.api.v3.jobs.JobStore object at 0x77ad4c173e10&gt;.path
+
+tests/serving32/test_hardening.py:20: AssertionError</failure></testcase><testcase classname="tests.serving32.test_hardening" name="test_short_question_is_422" time="0.989"><failure message="AssertionError: assert 202 == 422&#10; +  where 202 = &lt;WrapperTestResponse streamed [202 ACCEPTED]&gt;.status_code&#10; +    where &lt;WrapperTestResponse streamed [202 ACCEPTED]&gt; = post('/api/v3/comparisons', json={'chapter': 5, 'dataset_id': 'ch5_finqa', 'family': 'kg_rag', 'implementations': ['B0', 'B1', 'B2', 'B3', 'B4'], ...}, headers={'X-Client-Token': 'cccccccccccccccccccccccccccccccccccccccccccccccc', 'Idempotency-Key': 'hardening_key'})&#10; +      where post = &lt;FlaskClient &lt;Flask 'apps.api.v3.server'&gt;&gt;.post&#10; +        where &lt;FlaskClient &lt;Flask 'apps.api.v3.server'&gt;&gt; = test_client()&#10; +          where test_client = &lt;Flask 'apps.api.v3.server'&gt;.test_client">tmp_path = PosixPath('/tmp/pytest-of-tuananh/pytest-6/test_short_question_is_4220')
+
+    def test_short_question_is_422(tmp_path):
+        app = create_app(database=tmp_path / "jobs.db", start_worker=False)
+        registry = app.extensions["registry"]
+        payload = copy.deepcopy(registry.json(registry.document["samples"])["ch5_finqa"]["request"])
+        payload["input"]["text"] = "hi"
+&gt;       assert app.test_client().post("/api/v3/comparisons", json=payload, headers=HEADERS).status_code == 422
+E       AssertionError: assert 202 == 422
+E        +  where 202 = &lt;WrapperTestResponse streamed [202 ACCEPTED]&gt;.status_code
+E        +    where &lt;WrapperTestResponse streamed [202 ACCEPTED]&gt; = post('/api/v3/comparisons', json={'chapter': 5, 'dataset_id': 'ch5_finqa', 'family': 'kg_rag', 'implementations': ['B0', 'B1', 'B2', 'B3', 'B4'], ...}, headers={'X-Client-Token': 'cccccccccccccccccccccccccccccccccccccccccccccccc', 'Idempotency-Key': 'hardening_key'})
+E        +      where post = &lt;FlaskClient &lt;Flask 'apps.api.v3.server'&gt;&gt;.post
+E        +        where &lt;FlaskClient &lt;Flask 'apps.api.v3.server'&gt;&gt; = test_client()
+E        +          where test_client = &lt;Flask 'apps.api.v3.server'&gt;.test_client
+
+tests/serving32/test_hardening.py:28: AssertionError</failure></testcase><testcase classname="tests.serving32.test_hardening" name="test_catalog_marks_only_unavailable_neural_slot" time="0.059"><failure message="AssertionError: assert {'scratch': '...rch': 'ready'} == {'scratch': '...rch': 'ready'}&#10;  &#10;  Omitting 2 identical items, use -vv to show&#10;  Differing items:&#10;  {'keras': 'ready'} != {'keras': 'unavailable'}&#10;  Use -v to get more diff">tmp_path = PosixPath('/tmp/pytest-of-tuananh/pytest-6/test_catalog_marks_only_unavai0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x77ad1f81b910&gt;
+
+    def test_catalog_marks_only_unavailable_neural_slot(tmp_path, monkeypatch):
+        app = create_app(database=tmp_path / "jobs.db", start_worker=False)
+        registry = app.extensions["registry"]
+        model = next(r for r in registry.models.values() if r["dataset_id"] == "ch2_cdc_diabetes" and r["implementation"] == "keras")
+        original = registry.checked
+        def checked(record):
+            if record["path"] == model["checkpoint"]["path"]:
+                raise ArtifactError("Synthetic mismatch without touching real files")
+            return original(record)
+        monkeypatch.setattr(registry, "checked", checked)
+        reply = app.test_client().get("/api/v3/models?dataset_id=ch2_cdc_diabetes")
+        assert reply.status_code == 200
+        statuses = {r["implementation"]: r["status"] for r in reply.json["data"]}
+&gt;       assert statuses == {"scratch": "ready", "keras": "unavailable", "pytorch": "ready"}
+E       AssertionError: assert {'scratch': '...rch': 'ready'} == {'scratch': '...rch': 'ready'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Differing items:
+E         {'keras': 'ready'} != {'keras': 'unavailable'}
+E         Use -v to get more diff
+
+tests/serving32/test_hardening.py:44: AssertionError</failure></testcase><testcase classname="tests.serving32.test_hardening" name="test_dead_worker_does_not_accept_jobs" time="3.178"><failure message="AssertionError: assert 200 == 503&#10; +  where 200 = &lt;WrapperTestResponse streamed [200 OK]&gt;.status_code&#10; +    where &lt;WrapperTestResponse streamed [200 OK]&gt; = get('/ready')&#10; +      where get = &lt;FlaskClient &lt;Flask 'apps.api.v3.server'&gt;&gt;.get">tmp_path = PosixPath('/tmp/pytest-of-tuananh/pytest-6/test_dead_worker_does_not_acce0')
+
+    def test_dead_worker_does_not_accept_jobs(tmp_path):
+        app = create_app(database=tmp_path / "jobs.db")
+        app.extensions["supervisor"].close()
+        registry = app.extensions["registry"]
+        payload = registry.json(registry.document["samples"])["ch2_cdc_diabetes"]["request"]
+        client = app.test_client()
+&gt;       assert client.get("/ready").status_code == 503
+E       AssertionError: assert 200 == 503
+E        +  where 200 = &lt;WrapperTestResponse streamed [200 OK]&gt;.status_code
+E        +    where &lt;WrapperTestResponse streamed [200 OK]&gt; = get('/ready')
+E        +      where get = &lt;FlaskClient &lt;Flask 'apps.api.v3.server'&gt;&gt;.get
+
+tests/serving32/test_hardening.py:54: AssertionError</failure></testcase><testcase classname="tests.serving32.test_hardening" name="test_valid_agent_task_is_accepted" time="0.141" /></testsuite></testsuites>

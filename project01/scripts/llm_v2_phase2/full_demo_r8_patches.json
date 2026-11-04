@@ -1,0 +1,74 @@
+[
+  {
+    "module": "generation",
+    "old": "class BaseGenerator(ABC):",
+    "new": "def risk_summary(risk):\n    \"\"\"Compose a checked local tool result; never interpret it as incidence risk.\"\"\"\n    if risk is None:return ''\n    import math\n    score=risk.get('score')\n    if isinstance(score,bool) or not isinstance(score,(int,float)) or not math.isfinite(score) or not 0<=score<=1:\n        raise ValueError('Invalid CDC score')\n    class_id=int(score>0.5)\n    expected={0:'no diabetes',1:'prediabetes or diabetes'}\n    if risk.get('class_id')!=class_id or risk.get('class_name')!=expected[class_id]:\n        raise ValueError('CDC class metadata mismatch')\n    if risk.get('unit')!='historical_binary_model_score' or risk.get('calibrated_incidence_risk') is not False:\n        raise ValueError('CDC score semantics mismatch')\n    label={0:'không tiểu đường',1:'tiền tiểu đường hoặc tiểu đường'}[class_id]\n    return f'Kết quả công cụ CDC: score {score:.6f} (thang 0–1), nhóm phân loại “{label}”. Đây là điểm phân loại nhãn khảo sát lịch sử, không phải xác suất mắc bệnh năm tới hoặc chẩn đoán.\\n\\n'\n\n\nclass BaseGenerator(ABC):",
+    "count": 1
+  },
+  {
+    "module": "generation",
+    "old": "async def generate(self,question,results):",
+    "new": "async def generate(self,question,results,risk=None):",
+    "count": 1
+  },
+  {
+    "module": "generation",
+    "old": "            row=await self.gateway.generate(prompt,self.call_prefix+':reporter:r3',768);self.usage.append(row)",
+    "new": "            if risk is not None:\n                prompt+='\\nOUTPUT CÔNG CỤ CDC ĐÃ KIỂM (không phải nguồn y khoa): '+risk_summary(risk)+'\\nPhần này sẽ được ứng dụng ghép chính xác trước bản nháp và được Code Verifier kiểm. Chỉ viết phần giải thích kiến thức có evidence trong answer_vi/claims; không chép lại, sửa score, suy xác suất mắc mới hoặc coi nhãn công cụ là chẩn đoán. Không suy lời khuyên cá nhân từ score.'\n            row=await self.gateway.generate(prompt,self.call_prefix+':reporter:r8',768);self.usage.append(row)",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "from .generation import GeminiGenerator,CALIBRATION_POLICY",
+    "new": "from .generation import GeminiGenerator,CALIBRATION_POLICY,risk_summary",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "        errors=sorted(set(errors))",
+    "new": "        if risk is not None:\n            try:\n                if not draft.answer_vi.startswith(risk_summary(risk)):errors.append('risk_summary_mismatch')\n            except (ValueError,TypeError,KeyError):errors.append('invalid_risk_metadata')\n        errors=sorted(set(errors))",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "                'numeric_ok':'unsupported_numeric_claim' not in errors,",
+    "new": "                'risk_integrity_ok':not any(e in errors for e in ['risk_summary_mismatch','invalid_risk_metadata']),\n                'numeric_ok':'unsupported_numeric_claim' not in errors,",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'runtime_revision':'three-generation-r7'",
+    "new": "'runtime_revision':'full-demo-r8'",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'entity_ids_used':hybrid.entity_ids,'next':'retrieval'",
+    "new": "'entity_ids_used':hybrid.entity_ids,'next':'risk' if profile is not None else 'retrieval'",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "['score','class_name','calibrated_incidence_risk']",
+    "new": "['score','class_name','calibrated_incidence_risk','model_sha256','profile_sha256','unit']",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'evidence_count':len(ranked)})\n            raw=await reporter.generate(question,ranked)\n            draft=Draft.model_validate(parse_json(raw))",
+    "new": "'evidence_count':len(ranked),'risk_tool_summary':risk_summary(risk) or None,'raw_profile_sent':False})\n            raw=await reporter.generate(question,ranked,risk=risk)\n            draft=Draft.model_validate(parse_json(raw))\n            draft.answer_vi=risk_summary(risk)+draft.answer_vi",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'trace_revision':'io-r7-three-generation'",
+    "new": "'trace_revision':'io-r8-full-demo'",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'prompt_revision':'three-generation-r7'",
+    "new": "'prompt_revision':'full-demo-r8'",
+    "count": 2
+  }
+]

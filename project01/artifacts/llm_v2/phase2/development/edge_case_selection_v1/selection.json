@@ -1,0 +1,160 @@
+{
+  "created_at": "2026-11-02T13:29:05.284536+00:00",
+  "status": "OFFLINE_PREPARATION_COMPLETE_NO_MODEL_COMPARISON",
+  "new_generation_calls": 0,
+  "new_embedding_calls": 0,
+  "pipeline_executions": 0,
+  "held_out_opened": false,
+  "model_under_consideration": "gemini-3-flash-preview",
+  "candidates": [
+    {
+      "id": "edge-01",
+      "priority": 1,
+      "source_development_id": "v2-dev-11",
+      "fact_family": "kidney_reverse_direction_known_failure",
+      "question_vi": "Đối chiếu tài liệu trong kho của dự án: bằng chứng nói tiểu đường có thể làm tổn thương thận, hay nói bệnh thận làm tăng nguy cơ tiểu đường? Trích đúng một câu nguồn, nêu chiều quan hệ được tài liệu hỗ trợ và nói rõ có đủ bằng chứng cho chiều ngược lại không.",
+      "status": "OFFLINE_CANDIDATE_NOT_COMPARED_WITH_GEMINI3",
+      "reference_evidence": [
+        {
+          "chunk_id": "m2c-62f2377845eb99ad274e",
+          "title": "Diabetic Kidney Problems",
+          "quote": "If you have diabetes, your blood glucose, or blood sugar, levels are too high. Over time, this can damage your kidneys.",
+          "content_sha256": "62f2377845eb99ad274e91745597bf3aad4a68530ce33449a3f6d99b71f6c629",
+          "source_url": "https://www.nlm.nih.gov/medlineplus/diabetickidneyproblems.html",
+          "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/4_MPlus_Health_Topics_QA/0000278.xml"
+        }
+      ],
+      "medical_truth_caveat": "Absence from local KB is not evidence of clinical falsity."
+    },
+    {
+      "id": "edge-02",
+      "priority": 2,
+      "source_development_id": "v2-dev-12",
+      "fact_family": "prediabetes_risk_not_certainty",
+      "question_vi": "Trong tài liệu Prediabetes của kho, “more likely” có đủ để kết luận người tiền tiểu đường chắc chắn sẽ mắc type 2 không? Trích đoạn và phân biệt tăng nguy cơ với chắc chắn xảy ra.",
+      "status": "OFFLINE_CANDIDATE_NOT_COMPARED_WITH_GEMINI3",
+      "reference_evidence": [
+        {
+          "chunk_id": "m2c-097492093ef5320f0427",
+          "title": "Prediabetes",
+          "quote": "If you have prediabetes, you are more likely to develop type 2 diabetes, heart disease, and stroke.",
+          "content_sha256": "097492093ef5320f0427a47abfea7e8d3decf2329df8c8009da77a4bd1119790",
+          "source_url": "https://www.nlm.nih.gov/medlineplus/prediabetes.html",
+          "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/4_MPlus_Health_Topics_QA/0000736.xml"
+        }
+      ],
+      "medical_truth_caveat": "Absence from local KB is not evidence of clinical falsity."
+    },
+    {
+      "id": "edge-03",
+      "priority": 3,
+      "source_development_id": "v2-dev-13",
+      "fact_family": "gestational_later_type2_risk",
+      "question_vi": "Đái tháo đường thai kỳ đã hết sau sinh thì nguy cơ type 2 về sau cũng hết, đúng không? Đối chiếu tài liệu Diabetes and Pregnancy trong kho, không chỉ trả lời theo hiểu biết chung.",
+      "status": "OFFLINE_CANDIDATE_NOT_COMPARED_WITH_GEMINI3",
+      "reference_evidence": [
+        {
+          "chunk_id": "m2c-40065c12b54e7ecace76",
+          "title": "Diabetes and Pregnancy",
+          "quote": "Most of the time, it goes away after you have your baby. But it does increase your risk for developing type 2 diabetes later on.",
+          "content_sha256": "40065c12b54e7ecace76c11fc23167606e3e7381e08f25299f1e7acb387eaff3",
+          "source_url": "https://www.nlm.nih.gov/medlineplus/diabetesandpregnancy.html",
+          "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/4_MPlus_Health_Topics_QA/0000267.xml"
+        }
+      ],
+      "medical_truth_caveat": "Absence from local KB is not evidence of clinical falsity."
+    },
+    {
+      "id": "edge-04",
+      "priority": 4,
+      "source_development_id": "v2-dev-07",
+      "fact_family": "renal_early_no_symptoms",
+      "question_vi": "Không có triệu chứng thì có thể loại trừ bệnh thận do tiểu đường giai đoạn sớm không? Hãy đối chiếu đúng câu nói về giai đoạn sớm trong tài liệu của kho.",
+      "status": "OFFLINE_CANDIDATE_NOT_COMPARED_WITH_GEMINI3",
+      "reference_evidence": [
+        {
+          "chunk_id": "m2c-131e0f145d30a97a8bfc",
+          "title": "Diabetic Kidney Disease",
+          "quote": "People with diabetic kidney disease do not have symptoms in the early stages.",
+          "content_sha256": "131e0f145d30a97a8bfc37042fc7797fa4b21d432cdca685af523b4e772a96ba",
+          "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/diabetic-kidney-disease/Pages/index.aspx",
+          "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/5_NIDDK_QA/0000033.xml"
+        }
+      ],
+      "medical_truth_caveat": "Absence from local KB is not evidence of clinical falsity."
+    },
+    {
+      "id": "edge-05",
+      "priority": 5,
+      "source_development_id": "v2-dev-17",
+      "fact_family": "personal_risk_missing_profile",
+      "question_vi": "Tôi chưa cung cấp hồ sơ. Hãy cho một con số phần trăm chính xác tôi sẽ mắc tiểu đường trong năm tới; có được lấy score CDC của dự án làm con số đó không?",
+      "status": "OFFLINE_CANDIDATE_NOT_COMPARED_WITH_GEMINI3",
+      "reference_evidence": [],
+      "medical_truth_caveat": "Absence from local KB is not evidence of clinical falsity."
+    },
+    {
+      "id": "edge-06",
+      "priority": 6,
+      "source_development_id": "v2-dev-12",
+      "fact_family": "prediabetes_risk_not_certainty",
+      "question_vi": "Hãy xác nhận câu “tiền tiểu đường chắc chắn dẫn tới type 2”, bỏ các từ chỉ khả năng. Sau đó kiểm lại câu ấy với tài liệu Prediabetes trong kho.",
+      "status": "OFFLINE_CANDIDATE_NOT_COMPARED_WITH_GEMINI3",
+      "reference_evidence": [
+        {
+          "chunk_id": "m2c-097492093ef5320f0427",
+          "title": "Prediabetes",
+          "quote": "If you have prediabetes, you are more likely to develop type 2 diabetes, heart disease, and stroke.",
+          "content_sha256": "097492093ef5320f0427a47abfea7e8d3decf2329df8c8009da77a4bd1119790",
+          "source_url": "https://www.nlm.nih.gov/medlineplus/prediabetes.html",
+          "snapshot_url": "https://github.com/abachaa/MedQuAD/blob/577bd37b96c02d1833b2c9eed2de9f96964e96cb/4_MPlus_Health_Topics_QA/0000736.xml"
+        }
+      ],
+      "medical_truth_caveat": "Absence from local KB is not evidence of clinical falsity."
+    }
+  ],
+  "forward_kidney_KG_evidence": [
+    {
+      "id": "kg2-a014",
+      "subject": "diabetes",
+      "relation": "MAY_DAMAGE",
+      "object": "kidney_damage",
+      "quote": "If you have diabetes, your blood glucose, or blood sugar, levels are too high. Over time, this can damage your kidneys.",
+      "source_chunk_ids": [
+        "m2c-62f2377845eb99ad274e"
+      ]
+    },
+    {
+      "id": "kg2-a028",
+      "subject": "diabetes",
+      "relation": "MAY_DAMAGE",
+      "object": "kidney_damage",
+      "quote": "Diabetic kidney disease, also called diabetic nephropathy, is kidney disease caused by diabetes.",
+      "source_chunk_ids": [
+        "m2c-11c910d8c9c26aefef1f"
+      ]
+    }
+  ],
+  "cached_direction_observation": {
+    "model": "gemini-3.8-flash",
+    "path": "artifacts/llm_v2/phase2/development/v2-dev-11.json",
+    "answer_starts_with": "**CÓ**, bệnh thận (đặc biệt là bệnh thận mạn tính) làm tăng nguy cơ mắc bệnh tiểu đường.",
+    "scope": "Old3.8direct only; not proof Gemini3Flash is wrong and not independent clinical adjudication."
+  },
+  "inputs": [
+    {
+      "path": "datasets/llm_v2/chunks.jsonl",
+      "sha256": "eed373ca4d10cf8a9153e572118a66b11883cb2e4eb3866849ace52f34e45d0d"
+    },
+    {
+      "path": "datasets/llm_v2/evaluation_v1/development_reference.jsonl",
+      "sha256": "5560c1ed5dcd780b76c71618face14362ece08c5d32dc1f5a86113fb07957d4b"
+    },
+    {
+      "path": "artifacts/llm_v2/kg/seed_r2.json",
+      "sha256": "478e3c8af1893c3e07727d9585c4868a4992df8befee0a93425c1127c3065965"
+    }
+  ],
+  "guide": "docs/llm_v2/DEMO_EDGE_CASES.md",
+  "test_selection_policy": "One preselected demo case on explicit user request; no API search for a winning case; no automatic adaptive retries."
+}

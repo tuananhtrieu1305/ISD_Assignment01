@@ -1,0 +1,6 @@
+[
+ {"module":"kg","old":"frontier=set(seeds);edges={}","new":"if len(seeds)>1:seeds.discard('diabetes')\n        initial=set(seeds);frontier=set(seeds);edges={}","count":1},
+ {"module":"kg","old":"if edge['object'] in seeds:edges.setdefault(edge['id'],edge)","new":"if edge['object'] in initial:edges.setdefault(edge['id'],edge)","count":1},
+ {"module":"agents","old":"indexed=path.exists() and read_json(path).get('fingerprint')==self.fingerprint","new":"indexed=path.exists() and read_json(path).get('fingerprint')==self.fingerprint\n        if indexed:\n            import hashlib\n            indexed=hashlib.sha256((self.folder/'vectors.json').read_bytes()).hexdigest()==read_json(path)['vector_sha256']","count":1},
+ {"module":"agents","old":"if any(cid not in lookup for cid in c.get('evidence_ids',[])):errors.append('verifier_invalid_citation')","new":"if any(cid not in lookup for cid in c.get('evidence_ids',[])):errors.append('verifier_invalid_citation')\n            original=next((claim for claim in draft.claims if claim.id==c.get('claim_id')),None)\n            if original is not None and not (set(c.get('evidence_ids',[])) & set(original.citation_chunk_ids)):errors.append('verifier_no_matching_support')","count":1}
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "module": "agents",
+    "old": "recorder.finish({k:risk[k] for k in ['score','class_name','calibrated_incidence_risk','model_sha256','profile_sha256','unit'] if k in risk})",
+    "new": "recorder.finish({**{k:risk[k] for k in ['score','class_name','calibrated_incidence_risk','model_sha256','profile_sha256','unit'] if k in risk},'reporter_context_provided':True})",
+    "count": 1
+  }
+]

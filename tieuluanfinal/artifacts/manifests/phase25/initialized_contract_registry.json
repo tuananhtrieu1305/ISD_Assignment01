@@ -1,0 +1,1149 @@
+{
+  "adapters": [
+    {
+      "path": "artifacts/manifests/phase25/adapters/ch2_cdc_diabetes.json",
+      "sha256": "67abb4d387aeb846d9be76c08423a411eb6a76d2901929454c19463074e70e6d",
+      "size_bytes": 1100
+    },
+    {
+      "path": "artifacts/manifests/phase25/adapters/ch2_ames_housing.json",
+      "sha256": "4b364beafff8be9a807257db3b34bd5ee9abead3734509e8ea4ce460e7f7fb1a",
+      "size_bytes": 8122
+    },
+    {
+      "path": "artifacts/manifests/phase25/adapters/ch2_bank_marketing.json",
+      "sha256": "6c8c7f0fb3465b0af66b93774a4e101da4a9cdae6cee80d288e08f84350b1c7d",
+      "size_bytes": 1699
+    },
+    {
+      "path": "artifacts/manifests/phase25/adapters/ch3_idrid.json",
+      "sha256": "2b962c6d7ead608b22d8a72ee7a9072aea246ebda9e2748210a3f8082646f764",
+      "size_bytes": 901
+    },
+    {
+      "path": "artifacts/manifests/phase25/adapters/ch3_eurosat.json",
+      "sha256": "3f093082423f6b866249fd47952343d342ac8453f57cd47ee5f867bdc729ac97",
+      "size_bytes": 1346
+    },
+    {
+      "path": "artifacts/manifests/phase25/adapters/ch3_cifar10.json",
+      "sha256": "c589c858d2f540473b7099c731af4c67a6dcaab1703ce11fe0f446322d71f366",
+      "size_bytes": 1068
+    },
+    {
+      "path": "artifacts/manifests/phase25/adapters/ch4_gold_pink_sheet.json",
+      "sha256": "a58688f2ffa5f463dbb56b7faca3d001583c4efa711e05bf0e06f0c4c6ae2d2b",
+      "size_bytes": 678
+    },
+    {
+      "path": "artifacts/manifests/phase25/adapters/ch4_bis_house_prices.json",
+      "sha256": "108937ae02b77945c0b7aa35b19d5cc769d2742a878e77fa60e471643f9b64de",
+      "size_bytes": 1527
+    },
+    {
+      "path": "artifacts/manifests/phase25/adapters/ch4_household_power.json",
+      "sha256": "8a21dafc88a3bccbaee2dd1ffe7ab8503006b119ecb03bd6172e30590d64278b",
+      "size_bytes": 982
+    }
+  ],
+  "architecture_summary": [
+    {
+      "dataset_id": "ch2_cdc_diabetes",
+      "family": "mlp",
+      "initial_weight_hashes": {
+        "17": "fb321e1aba2ac1b1632393026c0e945e961eb495f8d7e22fce84416f3d61ff9f",
+        "42": "39f5c9296a4aee8663d407284293a367469359f363fd30f3f64d79963e716323",
+        "73": "84d6f9d8dbdac901cf9a4a7b8783dd8febc1169b625001e55543c77127d8ee49"
+      },
+      "input_shape": [
+        21
+      ],
+      "learnable_layers": 6,
+      "output_shape": [
+        1
+      ],
+      "parameter_count": 9249
+    },
+    {
+      "dataset_id": "ch2_ames_housing",
+      "family": "mlp",
+      "initial_weight_hashes": {
+        "17": "3ab7ac5798a51aaca7290d8452e19fb115b028198bc412ec62a75a871299096b",
+        "42": "5cbbe4c85d6fbcf9e093016b5cc49b8f46ebf6e9762d1c25b93c743ca4fa5622",
+        "73": "cd7466d0a0adf7b853c1efdee87b7a9277d46aa8042738ec85b4a9e9824ef8a6"
+      },
+      "input_shape": [
+        313
+      ],
+      "learnable_layers": 6,
+      "output_shape": [
+        1
+      ],
+      "parameter_count": 27937
+    },
+    {
+      "dataset_id": "ch2_bank_marketing",
+      "family": "mlp",
+      "initial_weight_hashes": {
+        "17": "9ebd03a4be39a46f90f559108695f12c0e5eaf20f9abb96246b0f5004b5325d4",
+        "42": "1fbd56a61d1c32eb92765912d1bf1f1d7a613409b85ec7a12becc50cef421754",
+        "73": "287bebf5f741d356f646d17f3fb881d05f54151675c4fbaa415f61bf28066fb8"
+      },
+      "input_shape": [
+        50
+      ],
+      "learnable_layers": 6,
+      "output_shape": [
+        1
+      ],
+      "parameter_count": 11105
+    },
+    {
+      "dataset_id": "ch3_idrid",
+      "family": "cnn",
+      "initial_weight_hashes": {
+        "17": "2a8198d008adba1ff0fc9f6f9563be8637c92448cd83592b24ab046bd8a77d47",
+        "42": "2c110b83ae14e718b6aa6b93ab10f2ca3066e31f33f9b187f49f6084b065dc92",
+        "73": "8d5763e100a31944823b51af7af5826226b2f85d52b8ec88ef3546aff6ffe652"
+      },
+      "input_shape": [
+        128,
+        128,
+        3
+      ],
+      "learnable_layers": 7,
+      "output_shape": [
+        5
+      ],
+      "parameter_count": 10157
+    },
+    {
+      "dataset_id": "ch3_eurosat",
+      "family": "cnn",
+      "initial_weight_hashes": {
+        "17": "08fb2a4cebe316215be21c153eb3e5d9721ea26211c29b957e6c12b84a6ac26e",
+        "42": "b6be6dd7c5e9a1333c6e706fac14dd71e32d62b6764468d1c75cedc4db45e58d",
+        "73": "d1d787a4bbe6050939884da66d30e70ad77a946173b5355e3046d2c308b89529"
+      },
+      "input_shape": [
+        32,
+        32,
+        3
+      ],
+      "learnable_layers": 7,
+      "output_shape": [
+        10
+      ],
+      "parameter_count": 10322
+    },
+    {
+      "dataset_id": "ch3_cifar10",
+      "family": "cnn",
+      "initial_weight_hashes": {
+        "17": "08fb2a4cebe316215be21c153eb3e5d9721ea26211c29b957e6c12b84a6ac26e",
+        "42": "b6be6dd7c5e9a1333c6e706fac14dd71e32d62b6764468d1c75cedc4db45e58d",
+        "73": "d1d787a4bbe6050939884da66d30e70ad77a946173b5355e3046d2c308b89529"
+      },
+      "input_shape": [
+        32,
+        32,
+        3
+      ],
+      "learnable_layers": 7,
+      "output_shape": [
+        10
+      ],
+      "parameter_count": 10322
+    },
+    {
+      "dataset_id": "ch4_gold_pink_sheet",
+      "family": "rnn",
+      "initial_weight_hashes": {
+        "17": "430c3008ad6101bbc5850f278c1728f9cf7f09cd638d356dacf413c56b18a488",
+        "42": "4a8972b64e460e60e7cba8d782778cdfa3695f2b391ea336ae0768524c164dc3",
+        "73": "42007c310565e94949d0f5e510e09e3d4015a160a80742d1b6ba402c0bbdac1b"
+      },
+      "input_shape": [
+        24,
+        4
+      ],
+      "learnable_layers": 6,
+      "output_shape": [
+        3
+      ],
+      "parameter_count": 6035
+    },
+    {
+      "dataset_id": "ch4_gold_pink_sheet",
+      "family": "lstm",
+      "initial_weight_hashes": {
+        "17": "671ea3a1ae456889c30eddd00f22295ebf62462d350c3cc2852756c1c711da3c",
+        "42": "a5c672bd9b0f78542ed81a610dff8d6eb8a3f75c6fd27dacc5a21c089a634fa6",
+        "73": "cce38b663591439632dc1288a3ac5726b0ad77a864a71d94ad4423b65808ccd7"
+      },
+      "input_shape": [
+        24,
+        4
+      ],
+      "learnable_layers": 6,
+      "output_shape": [
+        3
+      ],
+      "parameter_count": 22067
+    },
+    {
+      "dataset_id": "ch4_bis_house_prices",
+      "family": "rnn",
+      "initial_weight_hashes": {
+        "17": "1d92322bfc614ad80458f2c325c87a576d8f81a61f903c9e732bb4873fabb431",
+        "42": "46ca4373b9d5200026ee5b630397e5d305cbb9ad865c4622354c204b32349585",
+        "73": "799bc8a5ea99012ef0a137081e1e839c96f789b887a71798113d30254a7dc23b"
+      },
+      "input_shape": [
+        12,
+        51
+      ],
+      "learnable_layers": 6,
+      "output_shape": [
+        3
+      ],
+      "parameter_count": 7539
+    },
+    {
+      "dataset_id": "ch4_bis_house_prices",
+      "family": "lstm",
+      "initial_weight_hashes": {
+        "17": "7e513c293ea0cd6d7788f64cdb3a10d615f45b66f0e0996129608b6c0c66da79",
+        "42": "9612d1aa8a0f9f80eb44c1e28eeb71927e916f50a15704c18159e2a72f8b8505",
+        "73": "d9c0a658592501908a53e941c5a32e6227d7377931b70fe5167c4ee82421da71"
+      },
+      "input_shape": [
+        12,
+        51
+      ],
+      "learnable_layers": 6,
+      "output_shape": [
+        3
+      ],
+      "parameter_count": 28083
+    },
+    {
+      "dataset_id": "ch4_household_power",
+      "family": "rnn",
+      "initial_weight_hashes": {
+        "17": "729991a1d7a5172761a73a56bbfbc49691801d20591d3ba2f96f7ebe8a0e79e9",
+        "42": "849f007b8fe58dc59164a9c1913f08e8f3d63e6e4d54249c6809b3ba04db7cdf",
+        "73": "3be79d1a719f99b6037bd1bd0a83924fa13ad08254cf441c30d852752da2ca91"
+      },
+      "input_shape": [
+        168,
+        14
+      ],
+      "learnable_layers": 6,
+      "output_shape": [
+        3
+      ],
+      "parameter_count": 6355
+    },
+    {
+      "dataset_id": "ch4_household_power",
+      "family": "lstm",
+      "initial_weight_hashes": {
+        "17": "7622373656e6a517cfc31b64c0cb9d7749ad17b2e0f131b02e90da59b4bbc2c0",
+        "42": "14dc09dd4f4f5555f6e9670a62e6cdeb3a349607ab270aa189ed022491ebb707",
+        "73": "32256c529d03fe549cf49acab5617a66ffa70cc644188433fc12f5654bb938d2"
+      },
+      "input_shape": [
+        168,
+        14
+      ],
+      "learnable_layers": 6,
+      "output_shape": [
+        3
+      ],
+      "parameter_count": 23347
+    }
+  ],
+  "code_files": [
+    {
+      "path": "src/common/artifact_core.py",
+      "sha256": "6532f046c85a49ca653cb6fd5b20d1f606b75abb2d1aa0fb4e3e7000a5e04ab2"
+    },
+    {
+      "path": "src/common/backend_models.py",
+      "sha256": "effef2c102d5f2ef56a3efa664d3d012946f767a23cb0ab7d889d4033f5af2f7"
+    },
+    {
+      "path": "src/common/data_access.py",
+      "sha256": "35418da59ea9a2bf592c8ad135c52b66b56f09d088bd1c706b8ca2ee55b3e54d"
+    },
+    {
+      "path": "src/common/device_core.py",
+      "sha256": "1cad657b6706c922ab84be7a9f7c57fc2b3faabe70b5072ef47792c889566662"
+    },
+    {
+      "path": "src/common/metric_core.py",
+      "sha256": "95a3ba7682f9aa3c213ab92535ec6da78fd59e9c377557b60b27b2ae17d7ab44"
+    },
+    {
+      "path": "src/common/model_core.py",
+      "sha256": "78eb484eeb1e85c67b925d1d15de1c469233421e01478e0fb3b963d6262853a8"
+    },
+    {
+      "path": "src/common/native_training.py",
+      "sha256": "4c11572876fe00c3b6718e56da87e2e988b9a86c3b8236896d540a7174a6d84a"
+    },
+    {
+      "path": "src/common/numpy_engine.py",
+      "sha256": "bb24bb5112a9b967b5f12d35fe01eb2f9587c07c33768507d3ae184896c13152"
+    },
+    {
+      "path": "src/common/parity.py",
+      "sha256": "cc7455194bd1a406ebe45d1b9f72ed903fb6fc7598b44022441337564aec6ef0"
+    },
+    {
+      "path": "src/common/tensor_adapters.py",
+      "sha256": "f0d9b9aeee6a1a792ed53fe5b250d839b7e6612357fa44ef624a828bdde25d28"
+    },
+    {
+      "path": "src/common/training_core.py",
+      "sha256": "23d7737b4b156077226873b6c4163822293ec95323139f230aa2f1000d3c34c8"
+    }
+  ],
+  "code_sha256": "3eb8df6c86ce045f6ad124d5a2d86aeae977ab88b29b1cb92dc57f2535c44b44",
+  "inference_ready": false,
+  "lifecycle": "initialized_only",
+  "models": [
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch2_cdc_diabetes.json",
+        "sha256": "67abb4d387aeb846d9be76c08423a411eb6a76d2901929454c19463074e70e6d",
+        "size_bytes": 1100
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch2_cdc_diabetes_mlp.json",
+        "sha256": "cf766444b19989bcbc4f8d707053bb60e560f8f1a34af48fa32c7ac33ece785e",
+        "size_bytes": 2804
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch2_cdc_diabetes_mlp_scratch/model_contract.json",
+        "sha256": "9c65585f387bcd72edc3947071cbd8d4730a25c2b8585d5360b91b350006482f",
+        "size_bytes": 15945
+      },
+      "dataset_id": "ch2_cdc_diabetes",
+      "family": "mlp",
+      "implementation": "scratch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch2_cdc_diabetes_mlp_scratch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch2_cdc_diabetes.json",
+        "sha256": "67abb4d387aeb846d9be76c08423a411eb6a76d2901929454c19463074e70e6d",
+        "size_bytes": 1100
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch2_cdc_diabetes_mlp.json",
+        "sha256": "cf766444b19989bcbc4f8d707053bb60e560f8f1a34af48fa32c7ac33ece785e",
+        "size_bytes": 2804
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch2_cdc_diabetes_mlp_keras/model_contract.json",
+        "sha256": "c6f4d73cde35e2e54a72d49d75fc58486e1cc90819dca9f43782cb0bba86bec3",
+        "size_bytes": 15946
+      },
+      "dataset_id": "ch2_cdc_diabetes",
+      "family": "mlp",
+      "implementation": "keras",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch2_cdc_diabetes_mlp_keras"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch2_cdc_diabetes.json",
+        "sha256": "67abb4d387aeb846d9be76c08423a411eb6a76d2901929454c19463074e70e6d",
+        "size_bytes": 1100
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch2_cdc_diabetes_mlp.json",
+        "sha256": "cf766444b19989bcbc4f8d707053bb60e560f8f1a34af48fa32c7ac33ece785e",
+        "size_bytes": 2804
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch2_cdc_diabetes_mlp_pytorch/model_contract.json",
+        "sha256": "3458bccbcbf5eaf9e5c1a64d9cd58382c91b3ca2f125c6094b65eaeba764acdb",
+        "size_bytes": 15945
+      },
+      "dataset_id": "ch2_cdc_diabetes",
+      "family": "mlp",
+      "implementation": "pytorch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch2_cdc_diabetes_mlp_pytorch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch2_ames_housing.json",
+        "sha256": "4b364beafff8be9a807257db3b34bd5ee9abead3734509e8ea4ce460e7f7fb1a",
+        "size_bytes": 8122
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch2_ames_housing_mlp.json",
+        "sha256": "c141afb320ab782b6d3961404cdfeb84dd8d62ea36eb8fe9294c11f8395ba951",
+        "size_bytes": 2804
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch2_ames_housing_mlp_scratch/model_contract.json",
+        "sha256": "2aeeac924d8eed775dd640c0c2ac0590ea5f1922b1d1468e968c35be280c8be8",
+        "size_bytes": 15952
+      },
+      "dataset_id": "ch2_ames_housing",
+      "family": "mlp",
+      "implementation": "scratch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch2_ames_housing_mlp_scratch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch2_ames_housing.json",
+        "sha256": "4b364beafff8be9a807257db3b34bd5ee9abead3734509e8ea4ce460e7f7fb1a",
+        "size_bytes": 8122
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch2_ames_housing_mlp.json",
+        "sha256": "c141afb320ab782b6d3961404cdfeb84dd8d62ea36eb8fe9294c11f8395ba951",
+        "size_bytes": 2804
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch2_ames_housing_mlp_keras/model_contract.json",
+        "sha256": "13a85acc1aff41d1c930ede3d2bac3bcb685055d3ad544329485bc4f61385a09",
+        "size_bytes": 15953
+      },
+      "dataset_id": "ch2_ames_housing",
+      "family": "mlp",
+      "implementation": "keras",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch2_ames_housing_mlp_keras"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch2_ames_housing.json",
+        "sha256": "4b364beafff8be9a807257db3b34bd5ee9abead3734509e8ea4ce460e7f7fb1a",
+        "size_bytes": 8122
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch2_ames_housing_mlp.json",
+        "sha256": "c141afb320ab782b6d3961404cdfeb84dd8d62ea36eb8fe9294c11f8395ba951",
+        "size_bytes": 2804
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch2_ames_housing_mlp_pytorch/model_contract.json",
+        "sha256": "c63baf9d1c93d85f1cdb162daa7af4bb631aa194a5eb21c1d07d7f2b838e48c8",
+        "size_bytes": 15952
+      },
+      "dataset_id": "ch2_ames_housing",
+      "family": "mlp",
+      "implementation": "pytorch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch2_ames_housing_mlp_pytorch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch2_bank_marketing.json",
+        "sha256": "6c8c7f0fb3465b0af66b93774a4e101da4a9cdae6cee80d288e08f84350b1c7d",
+        "size_bytes": 1699
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch2_bank_marketing_mlp.json",
+        "sha256": "b4afc2bb5956b92bc558b4989f3ad0b0fc7e012437008c8e2f91517bb1e76667",
+        "size_bytes": 2810
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch2_bank_marketing_mlp_scratch/model_contract.json",
+        "sha256": "8c01134dd5b9dbb09268a22993772b8f11531c5dcdb1e153edcf8c93c510f3bc",
+        "size_bytes": 15952
+      },
+      "dataset_id": "ch2_bank_marketing",
+      "family": "mlp",
+      "implementation": "scratch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch2_bank_marketing_mlp_scratch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch2_bank_marketing.json",
+        "sha256": "6c8c7f0fb3465b0af66b93774a4e101da4a9cdae6cee80d288e08f84350b1c7d",
+        "size_bytes": 1699
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch2_bank_marketing_mlp.json",
+        "sha256": "b4afc2bb5956b92bc558b4989f3ad0b0fc7e012437008c8e2f91517bb1e76667",
+        "size_bytes": 2810
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch2_bank_marketing_mlp_keras/model_contract.json",
+        "sha256": "5853140f972e5d2c73900be319b879b4a5deddb433eca7b96052f0abb26474f7",
+        "size_bytes": 15953
+      },
+      "dataset_id": "ch2_bank_marketing",
+      "family": "mlp",
+      "implementation": "keras",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch2_bank_marketing_mlp_keras"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch2_bank_marketing.json",
+        "sha256": "6c8c7f0fb3465b0af66b93774a4e101da4a9cdae6cee80d288e08f84350b1c7d",
+        "size_bytes": 1699
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch2_bank_marketing_mlp.json",
+        "sha256": "b4afc2bb5956b92bc558b4989f3ad0b0fc7e012437008c8e2f91517bb1e76667",
+        "size_bytes": 2810
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch2_bank_marketing_mlp_pytorch/model_contract.json",
+        "sha256": "938cbddc4e2c07bdbc137ca8b1d787807ca2ffe70cc535f191e37cf676d27de9",
+        "size_bytes": 15952
+      },
+      "dataset_id": "ch2_bank_marketing",
+      "family": "mlp",
+      "implementation": "pytorch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch2_bank_marketing_mlp_pytorch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch3_idrid.json",
+        "sha256": "2b962c6d7ead608b22d8a72ee7a9072aea246ebda9e2748210a3f8082646f764",
+        "size_bytes": 901
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch3_idrid_cnn.json",
+        "sha256": "65c4eb698a8dab35da36289dd9b887f9daf7e465d52d4f5c9b98fd8eeb2eafe2",
+        "size_bytes": 2782
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch3_idrid_cnn_scratch/model_contract.json",
+        "sha256": "aaa5bc6783e723fc6fab26b4ec176745ec56b260d992f86510c2032dffeca202",
+        "size_bytes": 23750
+      },
+      "dataset_id": "ch3_idrid",
+      "family": "cnn",
+      "implementation": "scratch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch3_idrid_cnn_scratch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch3_idrid.json",
+        "sha256": "2b962c6d7ead608b22d8a72ee7a9072aea246ebda9e2748210a3f8082646f764",
+        "size_bytes": 901
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch3_idrid_cnn.json",
+        "sha256": "65c4eb698a8dab35da36289dd9b887f9daf7e465d52d4f5c9b98fd8eeb2eafe2",
+        "size_bytes": 2782
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch3_idrid_cnn_keras/model_contract.json",
+        "sha256": "52c8f71bd8a69dded67c5b5d8ad7a385d4c347e6799578a5631887657fa5fe38",
+        "size_bytes": 23751
+      },
+      "dataset_id": "ch3_idrid",
+      "family": "cnn",
+      "implementation": "keras",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch3_idrid_cnn_keras"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch3_idrid.json",
+        "sha256": "2b962c6d7ead608b22d8a72ee7a9072aea246ebda9e2748210a3f8082646f764",
+        "size_bytes": 901
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch3_idrid_cnn.json",
+        "sha256": "65c4eb698a8dab35da36289dd9b887f9daf7e465d52d4f5c9b98fd8eeb2eafe2",
+        "size_bytes": 2782
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch3_idrid_cnn_pytorch/model_contract.json",
+        "sha256": "14c1862564cf9df72de5bd86d28292fdb3ac42275c40717e9c5f0361dfe0291a",
+        "size_bytes": 23750
+      },
+      "dataset_id": "ch3_idrid",
+      "family": "cnn",
+      "implementation": "pytorch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch3_idrid_cnn_pytorch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch3_eurosat.json",
+        "sha256": "3f093082423f6b866249fd47952343d342ac8453f57cd47ee5f867bdc729ac97",
+        "size_bytes": 1346
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch3_eurosat_cnn.json",
+        "sha256": "035973641b3b195c13fa700f365d08dc0dbbe2d0adf09848f374a5273517f1be",
+        "size_bytes": 2789
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch3_eurosat_cnn_scratch/model_contract.json",
+        "sha256": "f1bfad439bb23681158f5a40f2f9122c416dd1db8c80423d52747988aea6e9b7",
+        "size_bytes": 23673
+      },
+      "dataset_id": "ch3_eurosat",
+      "family": "cnn",
+      "implementation": "scratch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch3_eurosat_cnn_scratch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch3_eurosat.json",
+        "sha256": "3f093082423f6b866249fd47952343d342ac8453f57cd47ee5f867bdc729ac97",
+        "size_bytes": 1346
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch3_eurosat_cnn.json",
+        "sha256": "035973641b3b195c13fa700f365d08dc0dbbe2d0adf09848f374a5273517f1be",
+        "size_bytes": 2789
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch3_eurosat_cnn_keras/model_contract.json",
+        "sha256": "e3f5b942ba2d2751768f0f11372df2bb67cecee3d85eed9dd1d63be65395bbd4",
+        "size_bytes": 23674
+      },
+      "dataset_id": "ch3_eurosat",
+      "family": "cnn",
+      "implementation": "keras",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch3_eurosat_cnn_keras"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch3_eurosat.json",
+        "sha256": "3f093082423f6b866249fd47952343d342ac8453f57cd47ee5f867bdc729ac97",
+        "size_bytes": 1346
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch3_eurosat_cnn.json",
+        "sha256": "035973641b3b195c13fa700f365d08dc0dbbe2d0adf09848f374a5273517f1be",
+        "size_bytes": 2789
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch3_eurosat_cnn_pytorch/model_contract.json",
+        "sha256": "be50f190251f002e7fba702d3a4b3f45203c9d369317d5e478b73a5b831c22b3",
+        "size_bytes": 23673
+      },
+      "dataset_id": "ch3_eurosat",
+      "family": "cnn",
+      "implementation": "pytorch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch3_eurosat_cnn_pytorch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch3_cifar10.json",
+        "sha256": "c589c858d2f540473b7099c731af4c67a6dcaab1703ce11fe0f446322d71f366",
+        "size_bytes": 1068
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch3_cifar10_cnn.json",
+        "sha256": "c36b2a2e692d8e6794366bd9f855f4f5eb59cf58922b99c266bda7e00e65caa5",
+        "size_bytes": 2789
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch3_cifar10_cnn_scratch/model_contract.json",
+        "sha256": "2295e3e2bae4008905e9d585c4e225f984b45a61d0f3b389f112057a348102a5",
+        "size_bytes": 23673
+      },
+      "dataset_id": "ch3_cifar10",
+      "family": "cnn",
+      "implementation": "scratch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch3_cifar10_cnn_scratch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch3_cifar10.json",
+        "sha256": "c589c858d2f540473b7099c731af4c67a6dcaab1703ce11fe0f446322d71f366",
+        "size_bytes": 1068
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch3_cifar10_cnn.json",
+        "sha256": "c36b2a2e692d8e6794366bd9f855f4f5eb59cf58922b99c266bda7e00e65caa5",
+        "size_bytes": 2789
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch3_cifar10_cnn_keras/model_contract.json",
+        "sha256": "21100311445a1ea62c2a6108c775edb0d22162cf7fdfdcde557be28c5f2726d0",
+        "size_bytes": 23674
+      },
+      "dataset_id": "ch3_cifar10",
+      "family": "cnn",
+      "implementation": "keras",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch3_cifar10_cnn_keras"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch3_cifar10.json",
+        "sha256": "c589c858d2f540473b7099c731af4c67a6dcaab1703ce11fe0f446322d71f366",
+        "size_bytes": 1068
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch3_cifar10_cnn.json",
+        "sha256": "c36b2a2e692d8e6794366bd9f855f4f5eb59cf58922b99c266bda7e00e65caa5",
+        "size_bytes": 2789
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch3_cifar10_cnn_pytorch/model_contract.json",
+        "sha256": "c1f4617cf4391ae5f260ace713351a43036040c2161cdadad3ec65c1c1e44a3f",
+        "size_bytes": 23673
+      },
+      "dataset_id": "ch3_cifar10",
+      "family": "cnn",
+      "implementation": "pytorch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch3_cifar10_cnn_pytorch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_gold_pink_sheet.json",
+        "sha256": "a58688f2ffa5f463dbb56b7faca3d001583c4efa711e05bf0e06f0c4c6ae2d2b",
+        "size_bytes": 678
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_gold_pink_sheet_rnn.json",
+        "sha256": "677e75c3ffbd2644fb217809259b88f44f249fc1a805220dd97e2bedc3fd5327",
+        "size_bytes": 2812
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_gold_pink_sheet_rnn_scratch/model_contract.json",
+        "sha256": "ddf8300bae0419a8c804de8024e529745fb1721fe7ed44b0e9eee1133a9390bf",
+        "size_bytes": 15096
+      },
+      "dataset_id": "ch4_gold_pink_sheet",
+      "family": "rnn",
+      "implementation": "scratch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_gold_pink_sheet_rnn_scratch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_gold_pink_sheet.json",
+        "sha256": "a58688f2ffa5f463dbb56b7faca3d001583c4efa711e05bf0e06f0c4c6ae2d2b",
+        "size_bytes": 678
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_gold_pink_sheet_rnn.json",
+        "sha256": "677e75c3ffbd2644fb217809259b88f44f249fc1a805220dd97e2bedc3fd5327",
+        "size_bytes": 2812
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_gold_pink_sheet_rnn_keras/model_contract.json",
+        "sha256": "bac22dc04dbdf866d282077726dcc7e92c36aaeb7be12b0da7fe1838d4c1dc27",
+        "size_bytes": 15097
+      },
+      "dataset_id": "ch4_gold_pink_sheet",
+      "family": "rnn",
+      "implementation": "keras",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_gold_pink_sheet_rnn_keras"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_gold_pink_sheet.json",
+        "sha256": "a58688f2ffa5f463dbb56b7faca3d001583c4efa711e05bf0e06f0c4c6ae2d2b",
+        "size_bytes": 678
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_gold_pink_sheet_rnn.json",
+        "sha256": "677e75c3ffbd2644fb217809259b88f44f249fc1a805220dd97e2bedc3fd5327",
+        "size_bytes": 2812
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_gold_pink_sheet_rnn_pytorch/model_contract.json",
+        "sha256": "7e8c8e216d161572c1e941617c345b2b87f293b04796c70766587a88b23a5d9d",
+        "size_bytes": 15096
+      },
+      "dataset_id": "ch4_gold_pink_sheet",
+      "family": "rnn",
+      "implementation": "pytorch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_gold_pink_sheet_rnn_pytorch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_gold_pink_sheet.json",
+        "sha256": "a58688f2ffa5f463dbb56b7faca3d001583c4efa711e05bf0e06f0c4c6ae2d2b",
+        "size_bytes": 678
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_gold_pink_sheet_lstm.json",
+        "sha256": "38a1cc9dc8f7f579b1cb1d05ebdb61cc98e8b86abfd6c5d6b5479fd9061025d9",
+        "size_bytes": 2814
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_gold_pink_sheet_lstm_scratch/model_contract.json",
+        "sha256": "303c526d54b1be506954c7a4ec22e6b0a99f441542aed6ff0a7cded55f2d2240",
+        "size_bytes": 17397
+      },
+      "dataset_id": "ch4_gold_pink_sheet",
+      "family": "lstm",
+      "implementation": "scratch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_gold_pink_sheet_lstm_scratch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_gold_pink_sheet.json",
+        "sha256": "a58688f2ffa5f463dbb56b7faca3d001583c4efa711e05bf0e06f0c4c6ae2d2b",
+        "size_bytes": 678
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_gold_pink_sheet_lstm.json",
+        "sha256": "38a1cc9dc8f7f579b1cb1d05ebdb61cc98e8b86abfd6c5d6b5479fd9061025d9",
+        "size_bytes": 2814
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_gold_pink_sheet_lstm_keras/model_contract.json",
+        "sha256": "058d700501379d793b43dcba21bd993a67305fa0e043bc385642a4f3e06e2282",
+        "size_bytes": 17398
+      },
+      "dataset_id": "ch4_gold_pink_sheet",
+      "family": "lstm",
+      "implementation": "keras",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_gold_pink_sheet_lstm_keras"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_gold_pink_sheet.json",
+        "sha256": "a58688f2ffa5f463dbb56b7faca3d001583c4efa711e05bf0e06f0c4c6ae2d2b",
+        "size_bytes": 678
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_gold_pink_sheet_lstm.json",
+        "sha256": "38a1cc9dc8f7f579b1cb1d05ebdb61cc98e8b86abfd6c5d6b5479fd9061025d9",
+        "size_bytes": 2814
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_gold_pink_sheet_lstm_pytorch/model_contract.json",
+        "sha256": "f62a273974f2016351c235211d8857365323bd5e1a3f32c0287f6c9f048bedab",
+        "size_bytes": 17397
+      },
+      "dataset_id": "ch4_gold_pink_sheet",
+      "family": "lstm",
+      "implementation": "pytorch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_gold_pink_sheet_lstm_pytorch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_bis_house_prices.json",
+        "sha256": "108937ae02b77945c0b7aa35b19d5cc769d2742a878e77fa60e471643f9b64de",
+        "size_bytes": 1527
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_bis_house_prices_rnn.json",
+        "sha256": "cd8425b568fef77098572c19de76d2eb4b9738d1c4bd918d9731340a89cf4858",
+        "size_bytes": 2816
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_bis_house_prices_rnn_scratch/model_contract.json",
+        "sha256": "fc5d279d0fe218ab645658d359e30ab71a40f31ead0339410b1415ee47019c70",
+        "size_bytes": 15103
+      },
+      "dataset_id": "ch4_bis_house_prices",
+      "family": "rnn",
+      "implementation": "scratch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_bis_house_prices_rnn_scratch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_bis_house_prices.json",
+        "sha256": "108937ae02b77945c0b7aa35b19d5cc769d2742a878e77fa60e471643f9b64de",
+        "size_bytes": 1527
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_bis_house_prices_rnn.json",
+        "sha256": "cd8425b568fef77098572c19de76d2eb4b9738d1c4bd918d9731340a89cf4858",
+        "size_bytes": 2816
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_bis_house_prices_rnn_keras/model_contract.json",
+        "sha256": "a5ada8338962cfe691099fd4085bbf7d74f275160222c16926e78204a3748c64",
+        "size_bytes": 15104
+      },
+      "dataset_id": "ch4_bis_house_prices",
+      "family": "rnn",
+      "implementation": "keras",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_bis_house_prices_rnn_keras"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_bis_house_prices.json",
+        "sha256": "108937ae02b77945c0b7aa35b19d5cc769d2742a878e77fa60e471643f9b64de",
+        "size_bytes": 1527
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_bis_house_prices_rnn.json",
+        "sha256": "cd8425b568fef77098572c19de76d2eb4b9738d1c4bd918d9731340a89cf4858",
+        "size_bytes": 2816
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_bis_house_prices_rnn_pytorch/model_contract.json",
+        "sha256": "b5fa5c4ec8d0ca9db217012ebd82ec179ccfcdf38be98d51e296b31dd949e49f",
+        "size_bytes": 15103
+      },
+      "dataset_id": "ch4_bis_house_prices",
+      "family": "rnn",
+      "implementation": "pytorch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_bis_house_prices_rnn_pytorch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_bis_house_prices.json",
+        "sha256": "108937ae02b77945c0b7aa35b19d5cc769d2742a878e77fa60e471643f9b64de",
+        "size_bytes": 1527
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_bis_house_prices_lstm.json",
+        "sha256": "b76cbf594a2a410f62c74959ffb65d9eb5f4508db900f06f022dcb7de8946a27",
+        "size_bytes": 2818
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_bis_house_prices_lstm_scratch/model_contract.json",
+        "sha256": "670386f1f93fc2c8e689c10010d062bb13126a45dbd749a6725f782baa4ad016",
+        "size_bytes": 17406
+      },
+      "dataset_id": "ch4_bis_house_prices",
+      "family": "lstm",
+      "implementation": "scratch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_bis_house_prices_lstm_scratch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_bis_house_prices.json",
+        "sha256": "108937ae02b77945c0b7aa35b19d5cc769d2742a878e77fa60e471643f9b64de",
+        "size_bytes": 1527
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_bis_house_prices_lstm.json",
+        "sha256": "b76cbf594a2a410f62c74959ffb65d9eb5f4508db900f06f022dcb7de8946a27",
+        "size_bytes": 2818
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_bis_house_prices_lstm_keras/model_contract.json",
+        "sha256": "1a62863c4965f6ee4af9f1cd8516421383427931396106166ac89847b31703cc",
+        "size_bytes": 17407
+      },
+      "dataset_id": "ch4_bis_house_prices",
+      "family": "lstm",
+      "implementation": "keras",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_bis_house_prices_lstm_keras"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_bis_house_prices.json",
+        "sha256": "108937ae02b77945c0b7aa35b19d5cc769d2742a878e77fa60e471643f9b64de",
+        "size_bytes": 1527
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_bis_house_prices_lstm.json",
+        "sha256": "b76cbf594a2a410f62c74959ffb65d9eb5f4508db900f06f022dcb7de8946a27",
+        "size_bytes": 2818
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_bis_house_prices_lstm_pytorch/model_contract.json",
+        "sha256": "a6edf1d80b71857776e260791d92589113d0ac6376d8d1ee7b12fb726c7970ff",
+        "size_bytes": 17406
+      },
+      "dataset_id": "ch4_bis_house_prices",
+      "family": "lstm",
+      "implementation": "pytorch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_bis_house_prices_lstm_pytorch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_household_power.json",
+        "sha256": "8a21dafc88a3bccbaee2dd1ffe7ab8503006b119ecb03bd6172e30590d64278b",
+        "size_bytes": 982
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_household_power_rnn.json",
+        "sha256": "2c3452c66aecbde8f38a55184818bd29a9dbdbffcd915e1bb6c627ff5c85ba49",
+        "size_bytes": 2812
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_household_power_rnn_scratch/model_contract.json",
+        "sha256": "fde0d1efae5f99bc46ec09c35e680731c5dbac499304615c08a8a0ee925dfbab",
+        "size_bytes": 15118
+      },
+      "dataset_id": "ch4_household_power",
+      "family": "rnn",
+      "implementation": "scratch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_household_power_rnn_scratch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_household_power.json",
+        "sha256": "8a21dafc88a3bccbaee2dd1ffe7ab8503006b119ecb03bd6172e30590d64278b",
+        "size_bytes": 982
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_household_power_rnn.json",
+        "sha256": "2c3452c66aecbde8f38a55184818bd29a9dbdbffcd915e1bb6c627ff5c85ba49",
+        "size_bytes": 2812
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_household_power_rnn_keras/model_contract.json",
+        "sha256": "fe7cfd373306831319a94fe6f4e3dd530c12207c3383f8305540bff3c595a20f",
+        "size_bytes": 15119
+      },
+      "dataset_id": "ch4_household_power",
+      "family": "rnn",
+      "implementation": "keras",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_household_power_rnn_keras"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_household_power.json",
+        "sha256": "8a21dafc88a3bccbaee2dd1ffe7ab8503006b119ecb03bd6172e30590d64278b",
+        "size_bytes": 982
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_household_power_rnn.json",
+        "sha256": "2c3452c66aecbde8f38a55184818bd29a9dbdbffcd915e1bb6c627ff5c85ba49",
+        "size_bytes": 2812
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_household_power_rnn_pytorch/model_contract.json",
+        "sha256": "e235584d1d9b22b9c0d82da7918052d571e0ed04da20d1cdd0e2fa28ef495023",
+        "size_bytes": 15118
+      },
+      "dataset_id": "ch4_household_power",
+      "family": "rnn",
+      "implementation": "pytorch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_household_power_rnn_pytorch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_household_power.json",
+        "sha256": "8a21dafc88a3bccbaee2dd1ffe7ab8503006b119ecb03bd6172e30590d64278b",
+        "size_bytes": 982
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_household_power_lstm.json",
+        "sha256": "37a210dcef8e8941e6f933028b998b02f2f35523282118f517af8b21165db0de",
+        "size_bytes": 2814
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_household_power_lstm_scratch/model_contract.json",
+        "sha256": "7c8c59984fada46194218034ad0e5e00c65679d5020c15a0907536042ed252b0",
+        "size_bytes": 17419
+      },
+      "dataset_id": "ch4_household_power",
+      "family": "lstm",
+      "implementation": "scratch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_household_power_lstm_scratch"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_household_power.json",
+        "sha256": "8a21dafc88a3bccbaee2dd1ffe7ab8503006b119ecb03bd6172e30590d64278b",
+        "size_bytes": 982
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_household_power_lstm.json",
+        "sha256": "37a210dcef8e8941e6f933028b998b02f2f35523282118f517af8b21165db0de",
+        "size_bytes": 2814
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_household_power_lstm_keras/model_contract.json",
+        "sha256": "4914f022c70b49a28793b74ee4c8e4f3464be3cd3609393cd36bf6a7b0609020",
+        "size_bytes": 17420
+      },
+      "dataset_id": "ch4_household_power",
+      "family": "lstm",
+      "implementation": "keras",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_household_power_lstm_keras"
+    },
+    {
+      "adapter": {
+        "path": "artifacts/manifests/phase25/adapters/ch4_household_power.json",
+        "sha256": "8a21dafc88a3bccbaee2dd1ffe7ab8503006b119ecb03bd6172e30590d64278b",
+        "size_bytes": 982
+      },
+      "config": {
+        "path": "artifacts/manifests/phase25/configs/ch4_household_power_lstm.json",
+        "sha256": "37a210dcef8e8941e6f933028b998b02f2f35523282118f517af8b21165db0de",
+        "size_bytes": 2814
+      },
+      "contract": {
+        "path": "artifacts/manifests/phase25/contracts/ch4_household_power_lstm_pytorch/model_contract.json",
+        "sha256": "fdf41f55e5bee33f7e964200634249f9f458049ac0d9afc539033ff20c9b2851",
+        "size_bytes": 17419
+      },
+      "dataset_id": "ch4_household_power",
+      "family": "lstm",
+      "implementation": "pytorch",
+      "inference_ready": false,
+      "lifecycle": "initialized_only",
+      "model_id": "ch4_household_power_lstm_pytorch"
+    }
+  ],
+  "phase": 25,
+  "real_dataset_training_executed": false,
+  "test_evaluation_executed": false
+}

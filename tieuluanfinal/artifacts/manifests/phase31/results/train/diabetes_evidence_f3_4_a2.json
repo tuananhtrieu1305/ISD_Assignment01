@@ -1,0 +1,212 @@
+{
+  "category": "evidence",
+  "domain": "diabetes",
+  "metrics": {
+    "answer_completion": 1,
+    "citation_correctness": 1,
+    "latency_ms": 34.72159400007513,
+    "message_count": 4,
+    "numeric_parity": null,
+    "peak_child_rss_bytes": 176181248,
+    "refusal_correctness": null,
+    "routing_accuracy": 1,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 4,
+    "messages": [
+      {
+        "input": {
+          "domain_hint": "diabetes",
+          "operation": "evidence",
+          "question": "Mở dẫn chứng học thuật diabetes_evidence_011 trong tiểu đường.",
+          "record_id": "diabetes_evidence_011",
+          "task_id": "diabetes_evidence_f3_4"
+        },
+        "node_id": "node_1",
+        "output": {
+          "policy": null,
+          "route": "diabetes"
+        }
+      },
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "diabetes_evidence_011"
+        },
+        "node_id": "node_2",
+        "output": {
+          "payload": {
+            "artifact_refs": [
+              {
+                "path": "artifacts/manifests/phase30/preserved_snapshot.json",
+                "sha256": "481071f65b2c01b8d132532bdaccaa08ff760b153b908bbf1906e72d2f1c310a"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "evidence_diabetes_evidence_011",
+                "locator": "kg_chunks.jsonl.gz#med-chunk-edce2019a9ca9501a5f3;document=med-doc-0e9b00f51172bcca897c",
+                "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+                "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb"
+              }
+            ],
+            "text": "How might brittle diabetes be treated? The approach to management depends upon the underlying cause. General management strategies include diabetes education, frequent self-monitoring of blood glucose, the use of a continuous subcutaneous insulin pump in conjunction with a continuous glucose monitoring device, and, in rare cases, pancreas transplantation. Psychotherapy or working with a psychiatrist or psychologist is recommended for many people with brittle diabetes. Referral to a specialty center may be warranted in certain situations.",
+            "unit": "excerpt",
+            "values": []
+          },
+          "peak_rss_bytes": 176181248,
+          "receipt_sha256": "db2de9f50c997c116ffc920430e00c1bef8c7e4aac1571349747b015648db7d8",
+          "status": "ok"
+        }
+      },
+      {
+        "input": {
+          "receipt": {
+            "payload": {
+              "artifact_refs": [
+                {
+                  "path": "artifacts/manifests/phase30/preserved_snapshot.json",
+                  "sha256": "481071f65b2c01b8d132532bdaccaa08ff760b153b908bbf1906e72d2f1c310a"
+                }
+              ],
+              "citations": [
+                {
+                  "evidence_id": "evidence_diabetes_evidence_011",
+                  "locator": "kg_chunks.jsonl.gz#med-chunk-edce2019a9ca9501a5f3;document=med-doc-0e9b00f51172bcca897c",
+                  "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+                  "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb"
+                }
+              ],
+              "text": "How might brittle diabetes be treated? The approach to management depends upon the underlying cause. General management strategies include diabetes education, frequent self-monitoring of blood glucose, the use of a continuous subcutaneous insulin pump in conjunction with a continuous glucose monitoring device, and, in rare cases, pancreas transplantation. Psychotherapy or working with a psychiatrist or psychologist is recommended for many people with brittle diabetes. Referral to a specialty center may be warranted in certain situations.",
+              "unit": "excerpt",
+              "values": []
+            },
+            "peak_rss_bytes": 176181248,
+            "receipt_sha256": "db2de9f50c997c116ffc920430e00c1bef8c7e4aac1571349747b015648db7d8",
+            "status": "ok"
+          }
+        },
+        "node_id": "node_3",
+        "output": {
+          "reason": null,
+          "verification": "passed"
+        }
+      },
+      {
+        "input": {
+          "citations": [
+            {
+              "evidence_id": "evidence_diabetes_evidence_011",
+              "locator": "kg_chunks.jsonl.gz#med-chunk-edce2019a9ca9501a5f3;document=med-doc-0e9b00f51172bcca897c",
+              "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+              "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb"
+            }
+          ],
+          "status": "succeeded",
+          "values": []
+        },
+        "node_id": "node_4",
+        "output": {
+          "answer": "How might brittle diabetes be treated? The approach to management depends upon the underlying cause. General management strategies include diabetes education, frequent self-monitoring of blood glucose, the use of a continuous subcutaneous insulin pump in conjunction with a continuous glucose monitoring device, and, in rare cases, pancreas transplantation. Psychotherapy or working with a psychiatrist or psychologist is recommended for many people with brittle diabetes. Referral to a specialty center may be warranted in certain situations.",
+          "warning": "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 176181248,
+    "reason": null,
+    "route": "diabetes",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "How might brittle diabetes be treated? The approach to management depends upon the underlying cause. General management strategies include diabetes education, frequent self-monitoring of blood glucose, the use of a continuous subcutaneous insulin pump in conjunction with a continuous glucose monitoring device, and, in rare cases, pancreas transplantation. Psychotherapy or working with a psychiatrist or psychologist is recommended for many people with brittle diabetes. Referral to a specialty center may be warranted in certain situations.",
+      "citations": [
+        {
+          "evidence_id": "evidence_diabetes_evidence_011",
+          "locator": "kg_chunks.jsonl.gz#med-chunk-edce2019a9ca9501a5f3;document=med-doc-0e9b00f51172bcca897c",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb"
+        }
+      ],
+      "domain": "diabetes",
+      "evidence_kind": "measured",
+      "latency_ms": 33.43133999987913,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "router",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "a625d188eae33aab3189da57a3c60fb3db82f883c05b64dc6bf92ed30c0780c9",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "ad60332bf204ce6feb1a30d62c179f47de370b2861815c155466ae8d6252ced8",
+          "parent_ids": [],
+          "tool": "none"
+        },
+        {
+          "agent": "specialist",
+          "artifact_refs": [
+            {
+              "path": "artifacts/manifests/phase30/preserved_snapshot.json",
+              "sha256": "481071f65b2c01b8d132532bdaccaa08ff760b153b908bbf1906e72d2f1c310a"
+            }
+          ],
+          "duration_ms": 32.889964000787586,
+          "input_sha256": "721381121d4c88da6422c3b58c2396fcb8078fe8facf074e8f23e20202b5ee94",
+          "node_id": "node_2",
+          "outcome": "ok",
+          "output_sha256": "7e74b3a657e1b6f0e324adbcbe4f7ac546e2c1ff7ed15de9f286dbe2cca84c88",
+          "parent_ids": [
+            "node_1"
+          ],
+          "tool": "retrieve_medical"
+        },
+        {
+          "agent": "verifier",
+          "artifact_refs": [],
+          "duration_ms": 0.05833600152982399,
+          "input_sha256": "0b9218a68372f54c6a594b473e745a561dc4a8da83d9f81b292fd325f196f493",
+          "node_id": "node_3",
+          "outcome": "ok",
+          "output_sha256": "74b85fef6af3e54336cd24c01d554053e29c98a538f68e7ce9e1fc671d05e382",
+          "parent_ids": [
+            "node_2"
+          ],
+          "tool": "none"
+        },
+        {
+          "agent": "reporter",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "867f871a2ad4c05893694968ad57b5f5384e3e5bf6bf331be972ee005b2452e5",
+          "node_id": "node_4",
+          "outcome": "ok",
+          "output_sha256": "8847652edfc6f11ab89e6f4f24be498022bb7fa6e15dd3606f0719a47432445a",
+          "parent_ids": [
+            "node_3"
+          ],
+          "tool": "none"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "succeeded",
+      "task_id": "diabetes_evidence_f3_4",
+      "task_set_sha256": "bad7e9ef791528928971da69d47fe105ba5b24ae6918d9d831639526599ca23f",
+      "trace_id": "trace_a625d188eae33aab3189_a2",
+      "variant": "A2"
+    },
+    "values": [],
+    "verification": "passed",
+    "wall_latency_ms": 34.72159400007513
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "benign",
+  "task_id": "diabetes_evidence_f3_4",
+  "variant": "A2"
+}

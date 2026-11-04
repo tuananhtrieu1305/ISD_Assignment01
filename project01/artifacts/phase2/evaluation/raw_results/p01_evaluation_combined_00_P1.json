@@ -1,0 +1,694 @@
+{
+  "case_id": "p01_evaluation_combined_00",
+  "split": "evaluation",
+  "category": "combined",
+  "question": "What does the snapshot document report about pancreas and diabetes? Also report the model score for the supplied survey profile.",
+  "variant": "P1",
+  "reference_score": 0.7318105526447195,
+  "result": {
+    "request_id": "p01_0ba9af2030384af4b4c93fb5b5151ccd",
+    "variant": "P1",
+    "status": "answered",
+    "risk": {
+      "score": 0.7318105526447195,
+      "class_id": 1,
+      "class_name": "prediabetes or diabetes",
+      "logit": 1.0038280487060547,
+      "model_sha256": "cc7d28232eb1a818cc0c10d9047b4a43f4ef25ac7c06b2737870c63ae644fdb8",
+      "profile_sha256": "9debaf0f2f2d860646b57f5382a11de048dc0dcffd548f89f5de33d16b155479",
+      "unit": "historical_binary_model_score",
+      "calibrated_incidence_risk": false
+    },
+    "knowledge": {
+      "query_original": "What does the snapshot document report about pancreas and diabetes? Also report the model score for the supplied survey profile.",
+      "query_normalized": "pancreas diabetes",
+      "mapping": [],
+      "expanded": false,
+      "ranked_chunk_ids": [
+        "med-chunk-aeaf5140180cca99da80",
+        "med-chunk-1ff75a3402733edbb3be",
+        "med-chunk-cd312104e143618fd9c1",
+        "med-chunk-a9074b046b94a319eebf",
+        "med-chunk-d376529389af5b67695b",
+        "med-chunk-b34f3a90c5b93bbb7ca3",
+        "med-chunk-174e18465160709beb2d",
+        "med-chunk-9f39043f261f83629390",
+        "med-chunk-fdf7c41e341647d69a1a",
+        "med-chunk-3ea1d47aa868e595bfce"
+      ],
+      "evidence": [
+        {
+          "chunk_id": "med-chunk-aeaf5140180cca99da80",
+          "document_id": "med-doc-39f8d6ca848e130d65d8",
+          "domain": "medical",
+          "text": "demand by making more insulin. Over time, the pancreas doesnt make enough insulin when blood sugar levels increase, such as after meals. If your pancreas can no longer make enough insulin, you will need to treat your type 2 diabetes. Learn more about type 2 diabetes here.",
+          "score": 0.016044727504042795,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-39f8d6ca848e130d65d8/med-chunk-aeaf5140180cca99da80",
+          "text_sha256": "0d42332b428fb8e0a9943914355b969f20e70cc52904d2140c12bf5e638368ef",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-aeaf5140180cca99da80"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-1ff75a3402733edbb3be",
+          "document_id": "med-doc-123d4ee06aa94a9f6267",
+          "domain": "medical",
+          "text": "needs more insulin to help glucose enter cells. At first, the pancreas keeps up with the added demand by making more insulin. Over time, the pancreas doesnt make enough insulin when blood sugar levels increase, such as after meals. If your pancreas can no longer make enough insulin, you will need to treat your type 2 diabetes. Learn more about type 2 diabetes here. Gestational Diabetes Some women develop gestational diabetes during the late stages of pregnancy. Gestational diabetes is caused by the hormones of pregnancy or a shortage of insulin. Although this form of diabetes usually goes away after the baby is born, a woman who has had it and her child are more likely to develop diabetes later",
+          "score": 0.015422156081761281,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-123d4ee06aa94a9f6267/med-chunk-1ff75a3402733edbb3be",
+          "text_sha256": "5421b05a236a799c136e98318b6773a33f12b15071b33372e3692803c9fd9833",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-1ff75a3402733edbb3be"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-cd312104e143618fd9c1",
+          "document_id": "med-doc-39f8d6ca848e130d65d8",
+          "domain": "medical",
+          "text": "2 diabetes, which used to be called adult-onset diabetes or non insulin-dependent diabetes, is the most common form of diabetes. Although people can develop type 2 diabetes at any age -- even during childhood -- type 2 diabetes develops most often in middle-aged and older people. Type 2 diabetes usually begins with insulin resistancea condition that occurs when fat, muscle, and liver cells do not use insulin to carry glucose into the bodys cells to use for energy. As a result, the body needs more insulin to help glucose enter cells. At first, the pancreas keeps up with the added demand by making more insulin. Over time, the pancreas doesnt make enough insulin when blood sugar levels increase, such as",
+          "score": 0.014350945857795172,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-39f8d6ca848e130d65d8/med-chunk-cd312104e143618fd9c1",
+          "text_sha256": "bd4c3da8da2ba7fafdfff87196101799c288afa091ec2d7c1e449398962524d9",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-cd312104e143618fd9c1"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-a9074b046b94a319eebf",
+          "document_id": "med-doc-123d4ee06aa94a9f6267",
+          "domain": "medical",
+          "text": "Too Much Glucose in the Blood Diabetes means your blood glucose (often called blood sugar) is too high. Your blood always has some glucose in it because your body needs glucose for energy to keep you going. But too much glucose in the blood isn't good for your health. Glucose comes from the food you eat and is also made in your liver and muscles. Your blood carries the glucose to all of the cells in your body. Insulin is a chemical (a hormone) made by the pancreas. The pancreas releases insulin into the blood. Insulin helps the glucose from food get into your cells. If your body does not make enough insulin or if the insulin doesn't work the",
+          "score": 0.013167892156862746,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-123d4ee06aa94a9f6267/med-chunk-a9074b046b94a319eebf",
+          "text_sha256": "5fdb20e674e03c15ac4a17c3575599659b091441b4472b46e7e95cc253b77027",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-a9074b046b94a319eebf"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-d376529389af5b67695b",
+          "document_id": "med-doc-a62f2b3665782f35b7df",
+          "domain": "medical",
+          "text": "Diabetes means your blood glucose (often called blood sugar) is too high. Your blood always has some glucose in it because your body needs glucose for energy to keep you going. But too much glucose in the blood isn't good for your health. Glucose comes from the food you eat and is also made in your liver and muscles. Your blood carries the glucose to all of the cells in your body. Insulin is a chemical (a hormone) made by the pancreas. The pancreas releases insulin into the blood. Insulin helps the glucose from food get into your cells. If your body does not make enough insulin or if the insulin doesn't work the way it should, glucose can't get",
+          "score": 0.012984330484330484,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-a62f2b3665782f35b7df/med-chunk-d376529389af5b67695b",
+          "text_sha256": "0f917be327d4becd8a6f487237d13cc3d8024512376b47ec0b9b8343e2f0335f",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-d376529389af5b67695b"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-b34f3a90c5b93bbb7ca3",
+          "document_id": "med-doc-123d4ee06aa94a9f6267",
+          "domain": "medical",
+          "text": "delivered by injection or a pump. Learn more about type 1 diabetes here. Type 2 Diabetes Type 2 diabetes, which used to be called adult-onset diabetes or non insulin-dependent diabetes, is the most common form of diabetes. Although people can develop type 2 diabetes at any age -- even during childhood -- type 2 diabetes develops most often in middle-aged and older people. Type 2 diabetes usually begins with insulin resistancea condition that occurs when fat, muscle, and liver cells do not use insulin to carry glucose into the bodys cells to use for energy. As a result, the body needs more insulin to help glucose enter cells. At first, the pancreas keeps up with the added demand by making",
+          "score": 0.012286705871011279,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-123d4ee06aa94a9f6267/med-chunk-b34f3a90c5b93bbb7ca3",
+          "text_sha256": "a93f229cca1c39f922ddcdd07f59a6e331b3c5c579df3b803fffec532a38d1ba",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-b34f3a90c5b93bbb7ca3"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-174e18465160709beb2d",
+          "document_id": "med-doc-45521906afdf2a6fee9b",
+          "domain": "medical",
+          "text": "abnormally thick mucus, which blocks the pancreas. The risk of diabetes increases with age in people with cystic fibrosis. Hemochromatosis causes the body to store too much iron. If the disorder is not treated, iron can build up in and damage the pancreas and other organs. Damage to or Removal of the Pancreas Pancreatitis, cancer, and trauma can all harm the pancreatic beta cells or impair insulin production, thus causing diabetes. If the damaged pancreas is removed, diabetes will occur due to the loss of the beta cells. Endocrine Diseases Endocrine diseases affect organs that produce hormones. Cushings syndrome and acromegaly are examples of hormonal disorders that can cause prediabetes and diabetes by inducing insulin resistance. Cushings syndrome is marked",
+          "score": 0.011244516277995843,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-45521906afdf2a6fee9b/med-chunk-174e18465160709beb2d",
+          "text_sha256": "f716cf78679fb1dbf3644c9c37db8939a14633a1f1a0738a118e237464728d95",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-9f39043f261f83629390",
+          "document_id": "med-doc-22c6c2649c608ab4e682",
+          "domain": "medical",
+          "text": "Diabetes is a complex group of diseases with a variety of causes. People with diabetes have high blood glucose, also called high blood sugar or hyperglycemia. Diabetes is a disorder of metabolism the way the body uses digested food for energy. The digestive tract breaks down carbohydratessugars and starches found in many foodsinto glucose, a form of sugar that enters the bloodstream. With the help of the hormone insulin, cells throughout the body absorb glucose and use it for energy. Insulin is made in the pancreas, an organ located behind the stomach and below the liver. As blood glucose levels rise after a meal, the pancreas is triggered to release insulin. The pancreas contains clusters of cells called pancreatic islets.",
+          "score": 0.011062271062271062,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-22c6c2649c608ab4e682/med-chunk-9f39043f261f83629390",
+          "text_sha256": "214f14d7ac691847db6e3b74e737a6c47ed7cea4b0dd330bfc8f6a6d69d95041",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-fdf7c41e341647d69a1a",
+          "document_id": "med-doc-57eb4f5c308526c51d04",
+          "domain": "medical",
+          "text": "Diabetes is a disorder of metabolismthe way our bodies use digested food for energy. Most of the food we eat is broken down into glucose, the form of sugar in the blood. Glucose is the body's main source of fuel. After digestion, glucose enters the bloodstream. Then glucose goes to cells throughout the body where it is used for energy. However, a hormone called insulin must be present to allow glucose to enter the cells. Insulin is a hormone produced by the pancreas, a large gland behind the stomach. In people who do not have diabetes, the pancreas automatically produces the right amount of insulin to move glucose from blood into the cells. However, diabetes develops when the pancreas does",
+          "score": 0.0109375,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-57eb4f5c308526c51d04/med-chunk-fdf7c41e341647d69a1a",
+          "text_sha256": "671a2222dffa1646ccf53723709aac98f397c8767c57857ed683699a53f2f8e9",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-3ea1d47aa868e595bfce",
+          "document_id": "med-doc-cbd2d980cea7901e8035",
+          "domain": "medical",
+          "text": "Diabetes is a complex group of diseases with a variety of causes. People with diabetes have high blood glucose, also called high blood sugar or hyperglycemia. Diabetes is a disorder of metabolismthe way the body uses digested food for energy. The digestive tract breaks down carbohydratessugars and starches found in many foodsinto glucose, a form of sugar that enters the bloodstream. With the help of the hormone insulin, cells throughout the body absorb glucose and use it for energy. Insulin is made in the pancreas, an organ located behind the stomach. As the blood glucose level rises after a meal, the pancreas is triggered to release insulin. Within the pancreas, clusters of cells called islets contain beta cells, which make",
+          "score": 0.010745920745920744,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-cbd2d980cea7901e8035/med-chunk-3ea1d47aa868e595bfce",
+          "text_sha256": "979be6077a8092ba4d0e13de12fc37950b93b9a58dd2a0c09db59af1a2cd6f4f",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        }
+      ],
+      "graph_paths": {
+        "med-chunk-00d0cff90bb719155edf": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-00d0cff90bb719155edf"
+        ],
+        "med-chunk-02742aed14c1dacb7d2a": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-02742aed14c1dacb7d2a"
+        ],
+        "med-chunk-042fc6d1baec3e2d6d52": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-042fc6d1baec3e2d6d52"
+        ],
+        "med-chunk-07f0e7ddf3090a20cda9": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-07f0e7ddf3090a20cda9"
+        ],
+        "med-chunk-142622843d46ae761ad6": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-142622843d46ae761ad6"
+        ],
+        "med-chunk-158d754ecbe5d593e96d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-158d754ecbe5d593e96d"
+        ],
+        "med-chunk-18185f2fcc09fac4293c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-18185f2fcc09fac4293c"
+        ],
+        "med-chunk-1c4cf120827198804eca": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1c4cf120827198804eca"
+        ],
+        "med-chunk-1fd3518bfe75fc88189f": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1fd3518bfe75fc88189f"
+        ],
+        "med-chunk-1ff75a3402733edbb3be": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1ff75a3402733edbb3be"
+        ],
+        "med-chunk-20da3a9768c72180eaee": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-20da3a9768c72180eaee"
+        ],
+        "med-chunk-234ffd24da97a47933dd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-234ffd24da97a47933dd"
+        ],
+        "med-chunk-2637d03c319543c561b0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2637d03c319543c561b0"
+        ],
+        "med-chunk-29cae499c93bcbc28766": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-29cae499c93bcbc28766"
+        ],
+        "med-chunk-2b583989e8d34088d6be": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2b583989e8d34088d6be"
+        ],
+        "med-chunk-2fcb3149d1770e0a595e": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2fcb3149d1770e0a595e"
+        ],
+        "med-chunk-322cf32545ba0d9fccd3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-322cf32545ba0d9fccd3"
+        ],
+        "med-chunk-35d53d10cdf7ca13f130": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-35d53d10cdf7ca13f130"
+        ],
+        "med-chunk-38c7b877bbde527d28df": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-38c7b877bbde527d28df"
+        ],
+        "med-chunk-40a47ef3b3edefc4b445": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-40a47ef3b3edefc4b445"
+        ],
+        "med-chunk-428e5bdb3faa8095da2c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-428e5bdb3faa8095da2c"
+        ],
+        "med-chunk-498ec32b50924f78d269": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-498ec32b50924f78d269"
+        ],
+        "med-chunk-4f099ecb0ff814fae6ce": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-4f099ecb0ff814fae6ce"
+        ],
+        "med-chunk-53e793bcf6344e35f8a7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-53e793bcf6344e35f8a7"
+        ],
+        "med-chunk-54facf2ee3eaff0fdce3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-54facf2ee3eaff0fdce3"
+        ],
+        "med-chunk-57b35921a9722b616aed": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-57b35921a9722b616aed"
+        ],
+        "med-chunk-592697f10ac0f2b0b6f0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-592697f10ac0f2b0b6f0"
+        ],
+        "med-chunk-5acc226aae6524197ef7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5acc226aae6524197ef7"
+        ],
+        "med-chunk-5e0271a3601b45abe4ff": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5e0271a3601b45abe4ff"
+        ],
+        "med-chunk-5edf8024738ce8e9b331": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5edf8024738ce8e9b331"
+        ],
+        "med-chunk-618f309badbf6a5f4b72": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-618f309badbf6a5f4b72"
+        ],
+        "med-chunk-64f932f085704ffa6a2d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-64f932f085704ffa6a2d"
+        ],
+        "med-chunk-68a95f47da58a027b61c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-68a95f47da58a027b61c"
+        ],
+        "med-chunk-6b96fb2799c25ab6f0fd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-6b96fb2799c25ab6f0fd"
+        ],
+        "med-chunk-6e2b4946973d9895a320": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-6e2b4946973d9895a320"
+        ],
+        "med-chunk-7201d90f8c11d3337e58": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7201d90f8c11d3337e58"
+        ],
+        "med-chunk-791eb61fb7e725fe87ee": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-791eb61fb7e725fe87ee"
+        ],
+        "med-chunk-797ef8993da8c25cded4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-797ef8993da8c25cded4"
+        ],
+        "med-chunk-7bfe9ed251eab800454b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7bfe9ed251eab800454b"
+        ],
+        "med-chunk-7f48782ab65e4dae9b0d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7f48782ab65e4dae9b0d"
+        ],
+        "med-chunk-805c768af161958295db": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-805c768af161958295db"
+        ],
+        "med-chunk-821f617f26d18b9824cd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-821f617f26d18b9824cd"
+        ],
+        "med-chunk-82541225c6e95203e992": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-82541225c6e95203e992"
+        ],
+        "med-chunk-8308c56ef25e2cfe22b4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8308c56ef25e2cfe22b4"
+        ],
+        "med-chunk-880bfce90afa02c43573": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-880bfce90afa02c43573"
+        ],
+        "med-chunk-8cc14350e486c23f2bff": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8cc14350e486c23f2bff"
+        ],
+        "med-chunk-8dffeea09fcafba78f9c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8dffeea09fcafba78f9c"
+        ],
+        "med-chunk-8e408fa25b89cf44fe73": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8e408fa25b89cf44fe73"
+        ],
+        "med-chunk-92578e57eaf0de1c605c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-92578e57eaf0de1c605c"
+        ],
+        "med-chunk-926991435686f8baf455": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-926991435686f8baf455"
+        ],
+        "med-chunk-93a7ce4421d6cdfd0019": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-93a7ce4421d6cdfd0019"
+        ],
+        "med-chunk-a1a4b29c41136d4eea36": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a1a4b29c41136d4eea36"
+        ],
+        "med-chunk-a210fbfb5dfd020e7260": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a210fbfb5dfd020e7260"
+        ],
+        "med-chunk-a2e51634f9fa03ae255d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a2e51634f9fa03ae255d"
+        ],
+        "med-chunk-a43cb96d1bc187e62f78": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a43cb96d1bc187e62f78"
+        ],
+        "med-chunk-a7a81505c68f3b1db781": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a7a81505c68f3b1db781"
+        ],
+        "med-chunk-a9074b046b94a319eebf": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a9074b046b94a319eebf"
+        ],
+        "med-chunk-a9c9a9186b08cffa54ac": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a9c9a9186b08cffa54ac"
+        ],
+        "med-chunk-ad2e41d109f2459c61a3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ad2e41d109f2459c61a3"
+        ],
+        "med-chunk-aeaf5140180cca99da80": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-aeaf5140180cca99da80"
+        ],
+        "med-chunk-b34f3a90c5b93bbb7ca3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b34f3a90c5b93bbb7ca3"
+        ],
+        "med-chunk-b439e7011436daf78d70": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b439e7011436daf78d70"
+        ],
+        "med-chunk-b5423d412a5c84a10678": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b5423d412a5c84a10678"
+        ],
+        "med-chunk-b5a68ac2e2f678742241": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b5a68ac2e2f678742241"
+        ],
+        "med-chunk-b6eb5a279443330c2ad3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b6eb5a279443330c2ad3"
+        ],
+        "med-chunk-b77c90bcbbbc928e4b0b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b77c90bcbbbc928e4b0b"
+        ],
+        "med-chunk-b9e463da28dcd8cae5b4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b9e463da28dcd8cae5b4"
+        ],
+        "med-chunk-c15b56a11e231144655e": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c15b56a11e231144655e"
+        ],
+        "med-chunk-c199270e7c9eebf766c4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c199270e7c9eebf766c4"
+        ],
+        "med-chunk-c3b05ea064562d9e4d2d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c3b05ea064562d9e4d2d"
+        ],
+        "med-chunk-c9f36e68e21351fe3f20": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c9f36e68e21351fe3f20"
+        ],
+        "med-chunk-cd312104e143618fd9c1": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-cd312104e143618fd9c1"
+        ],
+        "med-chunk-cf9eb66179943d5cdb43": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-cf9eb66179943d5cdb43"
+        ],
+        "med-chunk-d376529389af5b67695b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d376529389af5b67695b"
+        ],
+        "med-chunk-d4bb83dc775f308fa787": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d4bb83dc775f308fa787"
+        ],
+        "med-chunk-d4c01b61d78fa346a7fe": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d4c01b61d78fa346a7fe"
+        ],
+        "med-chunk-d53899bdb40c38a43edd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d53899bdb40c38a43edd"
+        ],
+        "med-chunk-d7c09f74f870a09ade81": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d7c09f74f870a09ade81"
+        ],
+        "med-chunk-d802b5ae0b11355e4a40": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d802b5ae0b11355e4a40"
+        ],
+        "med-chunk-d823ba21282c7148a6c9": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d823ba21282c7148a6c9"
+        ],
+        "med-chunk-d9234b0b602223bbb3f8": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d9234b0b602223bbb3f8"
+        ],
+        "med-chunk-dadd48872c0963ea3d46": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-dadd48872c0963ea3d46"
+        ],
+        "med-chunk-dc3c1305089057dfa49f": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-dc3c1305089057dfa49f"
+        ],
+        "med-chunk-df9c85fffb8211040522": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-df9c85fffb8211040522"
+        ],
+        "med-chunk-e04453f588452a112b7b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e04453f588452a112b7b"
+        ],
+        "med-chunk-e0a3ecd4fbd4bd1bffa5": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e0a3ecd4fbd4bd1bffa5"
+        ],
+        "med-chunk-e5068975c5ccace8d6b0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e5068975c5ccace8d6b0"
+        ],
+        "med-chunk-efcd1c95f5fdcb645f93": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-efcd1c95f5fdcb645f93"
+        ],
+        "med-chunk-f48938d706c03489bb61": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-f48938d706c03489bb61"
+        ],
+        "med-chunk-f7c195b56a3d5b981b2b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-f7c195b56a3d5b981b2b"
+        ],
+        "med-chunk-fa057772ca3b931e48a7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-fa057772ca3b931e48a7"
+        ],
+        "med-chunk-facc6c9df13f34d09dca": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-facc6c9df13f34d09dca"
+        ],
+        "med-chunk-fb01033fc65d1cfcb493": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-fb01033fc65d1cfcb493"
+        ],
+        "med-chunk-ff497309447bf4900c9c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ff497309447bf4900c9c"
+        ],
+        "med-chunk-ffd2aa901b2714cd9719": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ffd2aa901b2714cd9719"
+        ]
+      },
+      "answer": "If your pancreas can no longer make enough insulin, you will need to treat your type 2 diabetes.",
+      "citations": [
+        "med-chunk-aeaf5140180cca99da80"
+      ],
+      "support_kind": "verbatim_focused_excerpt_heuristic",
+      "language": "en",
+      "method": "BM25 + LSA + lexical graph / weighted RRF",
+      "citation_scope": "source repository commit plus local document/chunk, not original page URL"
+    },
+    "profile_validation": {
+      "valid": true,
+      "missing": [],
+      "invalid": [],
+      "extra": []
+    },
+    "verification": {
+      "status": "not_run",
+      "checks": {}
+    },
+    "answer": {
+      "status": "answered",
+      "sections": [
+        {
+          "title": "Đầu ra mô hình khảo sát",
+          "text": "Score 0.731811; lớp 1: prediabetes or diabetes. Không phải xác suất mắc mới đã hiệu chuẩn."
+        },
+        {
+          "title": "Bằng chứng truy hồi · tiếng Anh",
+          "text": "If your pancreas can no longer make enough insulin, you will need to treat your type 2 diabetes."
+        }
+      ],
+      "variant": "P1",
+      "limitation": "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh.",
+      "synthesis": "unverified_tool_outputs"
+    },
+    "errors": [],
+    "trace": [
+      {
+        "node_id": "n1",
+        "agent": "Coordinator",
+        "tool": "plan_request",
+        "parent_ids": [],
+        "duration_ms": 0.19038200025534024,
+        "outcome": "ok",
+        "output": {
+          "need_risk": true,
+          "need_knowledge": true,
+          "mode": "combined",
+          "policy": null
+        }
+      },
+      {
+        "node_id": "n2",
+        "agent": "Risk Agent",
+        "tool": "validate_profile",
+        "parent_ids": [
+          "n1"
+        ],
+        "duration_ms": 0.11338100011926144,
+        "outcome": "ok",
+        "output": {
+          "valid": true,
+          "missing": [],
+          "invalid": [],
+          "extra": []
+        }
+      },
+      {
+        "node_id": "n3",
+        "agent": "Risk Agent",
+        "tool": "predict_cdc",
+        "parent_ids": [
+          "n2"
+        ],
+        "duration_ms": 0.9659160004957812,
+        "outcome": "ok",
+        "output": {
+          "result_sha256": "722127f9f080c2363c379458be9ade51700920716618657f92c78245d3607c49",
+          "attempt": 0
+        }
+      },
+      {
+        "node_id": "n4",
+        "agent": "Knowledge Agent",
+        "tool": "retrieve_medical",
+        "parent_ids": [
+          "n3"
+        ],
+        "duration_ms": 15.211138000267965,
+        "outcome": "ok",
+        "output": {
+          "result_sha256": "fbe8f310e91aaf9c24af8d2c16733cf00d474e1b4700b073a6b307d07e9c0709",
+          "attempt": 0
+        }
+      },
+      {
+        "node_id": "n5",
+        "agent": "Direct",
+        "tool": "compose",
+        "parent_ids": [
+          "n4"
+        ],
+        "duration_ms": 0.026931000320473686,
+        "outcome": "ok",
+        "output": {
+          "status": "answered",
+          "section_count": 2
+        }
+      }
+    ],
+    "tool_calls": 2,
+    "retrieval_loops": 0,
+    "latency_ms": 23.69749699937529,
+    "limitations": [
+      "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh."
+    ],
+    "input_sha256": "3fdfa768a701513206023bdf533236f2519faee008505dfba4d41911f1a302cc",
+    "worker_terminated": true
+  },
+  "metrics": {
+    "automatic_success": true,
+    "numeric_parity": true,
+    "citation_integrity_format": true,
+    "known_positive_hit_at_10": false,
+    "known_positive_rr": 0.0,
+    "support_review_required": true,
+    "task_success": null,
+    "manual_support": null
+  },
+  "gold_document_ids": [
+    "med-doc-be4bb1de2a5468726a40"
+  ],
+  "scope": "pipeline/synthetic tasks; not clinical accuracy"
+}

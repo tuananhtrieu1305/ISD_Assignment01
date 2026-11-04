@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.336" timestamp="2026-10-22T12:25:55.653419+07:00" hostname="LaptopVJP"><testcase classname="tests.report35.test_docx" name="test_ch5_latex_is_presented_as_native_readable_math" time="0.001"><failure message="AssertionError: assert ('\\operatorname' not in '\\[\n\\oper...,3,5,10\\}).'&#10;  &#10;  '\\operatorname' is contained here:&#10;    \[&#10;    \operatorname{RRF}(d)=\sum_j\frac{w_j}{60+r_j(d)}.&#10;  ? +++++++++++++&#10;    \] Retrieval (k\in\{1,3,5,10\}).)">def test_ch5_latex_is_presented_as_native_readable_math():
+        source = '\\[\n\\operatorname{RRF}(d)=\\sum_j\\frac{w_j}{60+r_j(d)}.\n\\]\n\nRetrieval (k\\in\\{1,3,5,10\\}).'
+        tokens = parse_markdown(source)
+        content = ' '.join(t.content for t in tokens if t.type == 'inline')
+&gt;       assert '\\operatorname' not in content and '\\in' not in content
+E       AssertionError: assert ('\\operatorname' not in '\\[\n\\oper...,3,5,10\\}).'
+E         
+E         '\\operatorname' is contained here:
+E           \[
+E           \operatorname{RRF}(d)=\sum_j\frac{w_j}{60+r_j(d)}.
+E         ? +++++++++++++
+E           \] Retrieval (k\in\{1,3,5,10\}).)
+
+tests/report35/test_docx.py:166: AssertionError</failure></testcase></testsuite></testsuites>

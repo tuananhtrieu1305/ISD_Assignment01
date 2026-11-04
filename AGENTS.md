@@ -1,3 +1,118 @@
+# Kế hoạch hiện hành — FINAL/project01 RAG + LLM v2 (01/11/2026)
+
+- Override r11 mới nhất theo người dùng: bỏ Risk/hồ sơ, chỉ4agent Coordinator→Knowledge→Reporter→Verifier. Giữ VerifierGemini và4generation/cặp. UI chỉ1pipeline, formcâu hỏi1ô+nút, tabKGSVGnhẹ thaytabđánhgiá; khôngNeo4j. API chỉquestion; giữCDC/model/output cũ ở lịch sử. Đọc `project01/docs/llm_v2/FOUR_AGENT_R11.md` và checkpoint. R10 defaultTRAIN/Risk bên dưới là lịch sử, không tự khôi phục hoặc gọiAPI.
+
+- Override mới nhất r10 ngày03/11/2026 theo yêu cầu người dùng: thay Verifier chỉ-code bằng một call Gemini kiểm ngữ nghĩa/có thể sửa ngay trong call, sau đó code kiểm cứng citation/score. Cặp hợp lệ4generation (direct+Coordinator+Reporter+Verifier); reranker/Risk local, không repair call riêng. Demo mặc định kèm hồ sơ TRAIN đủ21field, combined thiếu profile bị chặn trướcAPI. R7/3call bên dưới là lịch sử. Đọc `project01/docs/llm_v2/SEMANTIC_VERIFIER_R10.md` và checkpoint hiện hành; không tự gọi API để nghiệm thu hoặc tìm output thắng.
+
+- Override r7 ngày03/11/2026: mỗi cặp so sánh dùng đúng3 generation call: direct,
+  Coordinator/pre-retrieval và Reporter. `LocalEvidenceReranker` chạy local theo interface
+  project tham khảo; `CodeVerifier` chỉ kiểm integrity bằng Python; không Gemini rerank,
+  semantic verifier hoặc repair loop. Embedding query là quota riêng và phải ghi rõ.
+  UI/backend không tạo job mới khi còn dưới3 generation slot. Năm agent là năm vai trò,
+  không phải năm LLM; xem `project01/docs/llm_v2/architecture.md`.
+
+- Dùng `FINAL_PROJECT01_LLM_V2_EXECUTION_PLAN.md` và
+  `docs/final_project01/llm_v2/checkpoint.json`. Đọc toàn bộ hai file trước mỗi phase.
+- `FINAL_PROJECT01_EXECUTION_PLAN.md` và checkpoint v1 là lịch sử: Phase 1–2 COMPLETE,
+  Phase 3 chưa làm đã chuyển sang Phase 3 v2. Không tự chạy lại kế hoạch v1/REORG.
+- Từ nay `làm phase 1/2/3`, `làm FINAL phase N`, `làm LLM phase N` đều thuộc v2:
+  (1) API/KB/protocol mới, (2) đa agent + RAG + LLM/web/đánh giá, (3) DOCX final/tích hợp.
+  `làm tiếp task đang dở` chỉ tiếp active phase trong checkpoint v2; không tự mở phase sau.
+- Người dùng đã chọn nâng cấp bằng API LLM, pre-retrieval và reranking. Baseline offline
+  không API ở v1 chỉ là lịch sử. Demo chính mới: cùng LLM trực tiếp so với agentic RAG.
+- Plan 2.2 (02/11): port tối đa core `RAG_KG_Tham_khao/PTHTTM-RAG/` theo bảng 4.4,
+  mọi call OpenAI/Groq của code port đổi sang Gemini free tier.
+  Mini-KG theo mục 4.5: seed có kiểm nguồn 20–40 đoạn, cache/extract/visualize kế thừa nhóm,
+  JSON/adjacency nối retrieval thật; không thêm phase/Neo4j/Qdrant server hoặc extract cả corpus.
+- Plan 2.3: Phase 1 copy đủ source/helper/asset cần sang project01 kèm hash/attribution;
+  Phase 2 build/chạy độc lập khi không có folder tham khảo; Phase 3 sau gate mục 4.6 xóa
+  đúng `RAG_KG_Tham_khao/` và smoke lại. Giữ nguồn nguyên trạng tới gate; không copy key/
+  venv/node_modules/index luật không dùng, không xóa trong lượt chỉ sửa plan.
+- Trước API có phí phải chốt provider/model/budget và có key backend; không in key, đưa
+  vào chat/frontend/VITE/Git. Thiếu cấu hình vẫn làm phần độc lập, không fake API PASS.
+- Giữ 3 notebook project01, tối đa 4/cây; thuật toán đủ trong cell, backend export một chiều.
+  Giữ env WSL hiện có; không train/fine-tune hoặc chạy TEST/evaluation cũ để tuning.
+- Đánh giá mới chỉ trong Phase 2 v2 được gọi sau development/freeze, mặc định 40 câu ×2
+  nhánh=80 output. Giữ P0/P1/P2/120 output/82,5% cũ, không nhận là kết quả hệ LLM mới.
+- Một DOCX final từ tiểu luận3; lý thuyết ngắn/dễ hiểu, deploy mục nhỏ cuối chương.
+  Không thêm project DOCX thứ hai hoặc tự commit/push/deploy.
+- Bản gốc trước đổi plan/dispatcher ở `docs/final_project01/baseline/before_llm_v2/`, hash
+  trong `plan_v2_preservation.json`. Plan v1 và handoff/verifier/lock cũ giữ nguyên.
+  Verifier project hiện hành `project01/scripts/verify_answer_first_v2.py`; đổi file pin
+  cần revision/resolver đúng archive, không ghi đè receipt. Lượt lập plan chưa chạy Phase 1.
+
+# Notebook hiện hành — revision inline-v1 (01/11/2026)
+
+- Yêu cầu mới nhất: mỗi bài tối đa 4 notebook trong toàn bộ cây `notebooks/`;
+  notebook phải chứa code thuật toán đầy đủ, không chỉ import `.py`/xem kết quả.
+  Đọc `docs/notebook_revision/v1/README.md`, `manifest.json`, `checkpoint.json`
+  và `report.md` trước khi sửa notebook hoặc tiếp tục task này.
+- Notebook hiện hành: 29 file/11 bài. A06 có cơ bản/customer/stock/so sánh;
+  tiểu luận1 có 3 file; tiểu luận2 và3 mỗi bài 4 file. Bản trước revision giữ tại
+  `<bài>/provenance/notebooks_before_inline_v1/notebooks/` và ghi SHA trong backup.json.
+- `%%inline_module` chạy source trực tiếp trong cell, không đọc implementation từ `.py`.
+  Chỉnh thuật toán ở notebook hiện hành. `.py` gốc vẫn phục vụ backend/checkpoint và
+  evidence, không sửa/format hoặc chạy lại producer để ghi đè notebook người dùng đã sửa.
+- Hai kernel WSL Ubuntu/user tuananh giữ nguyên; không cài trộn TF/Torch hoặc đổi env.
+  Notebook mới mặc định RUN_EXPERIMENTS/RUN_TRAINING/RUN_TEST=False. Không tự train/TEST.
+  Kết quả chạy notebook từ runner nằm ở `artifacts/notebook_runs/`, ngoài `notebooks/`.
+- REORG ba phase dưới đây vẫn COMPLETE và là lịch sử. Verifier hiện hành
+  `scripts/verify_notebooks_inline.py` kiểm notebook mới và resolve evidence REORG cũ
+  về archive đúng hash; không ghi đè handoff/lock/seal cũ. Không commit/push/deploy.
+
+# Kế hoạch REORG đã hoàn tất — sắp xếp11 bài (30/10/2026)
+
+- Yêu cầu mới nhất dùng `ASSIGN_REORGANIZATION_EXECUTION_PLAN.md` và
+  `docs/reorganization/checkpoint.json`. Lệnh `làm phase 1`, `làm phase 2`,
+  `làm phase 3` (hoặc `làm REORG phase N`) phải đọc toàn bộ kế hoạch mới và
+  thực hiện đúng phase; `làm tiếp task đang dở` đọc active phase/checkpoint.
+- Mục tiêu: A01–A06, tieuluan1–3, agent01, agent02; mỗi bài có datasets/notebooks/web.
+  Đây là kế hoạch mới3 phase, không phải làm lại phase1–3 của tiểu luận cũ/AG02.
+  Lệnh có tiền tố `AG02` vẫn thuộc kế hoạch AG02.
+- Lần lập plan chưa di chuyển source. Lệnh người dùng yêu cầu thực hiện phase migration
+  là ủy quyền đổi cấu trúc/path theo plan, ưu tiên hơn hạn chế tên folder cũ ở AGENTS con;
+  không hỏi lại cho thao tác migration đã nằm trong phạm vi. Mọi quy tắc giữ nguyên
+  scientific byte/hash/TEST vẫn áp dụng.
+- Giữ cả hai web-demo chưa commit và payload ignored; Agent01 web-demo có Git lồng.
+  Không phục hồi venv/node_modules từ commit cũ, không train/TEST lại, không reset Git,
+  commit/push/deploy. Mọi thay đổi file đã khóa phải là revision giữ bản gốc.
+- Các phần V3 dưới đây là hướng dẫn lịch sử/bảo toàn. Không dùng câu "kế hoạch đang
+  hoạt động" của lịch sử để ghi đè dispatcher và yêu cầu sắp xếp mới ở đầu file này.
+
+## REORG Phase1 COMPLETE —30/10/2026
+
+- Đọc `docs/reorganization/phase1_report.md`, `phase1_handoff.json`, checkpoint và toàn bộ
+  `ASSIGN_REORGANIZATION_EXECUTION_PLAN.md` trước Phase2. Không nhầm với V3/AG02 phase1.
+- Đã phục hồi37.786file (~1,982GiB) vào staging, full commit/OID/SHA256 trong hai manifest
+  restoration/supplementary.50notebook/128Python static AST PASS; chưa execute notebook/model.
+- Hash read-back payload PASS;42.939file source/khoa học hiện hành và52web-demo file chưa
+  commit giữ nguyên. Backup57member có metadata Git lồng. Không xóa backup/staging trước gate.
+- `source_inventory.json`, `migration_map.json` (80.818file,0conflict), `dataset_catalog.json`,
+  web/runtime matrices và dependency audit là đầu vào2. Giữ evidence Phase1; đổi cần revision.
+- A04 thiếu CIFAR10 Python-format; binary archive V3 có sẵn, không được đổi tên để thay thế.
+  Torch env thiếuTF, Keras env thiếuTorch; xử lý notebook mixed-framework bằng wrapper/revision,
+  không cài trộn env. A05guard Anaconda và namespace `agent02_assignment`/`term_paper` cần adapter.
+- Chưa relocate source. Tiếp `làm phase 2` khi được yêu cầu; không tự train/TEST, cleanup,
+  commit/push/deploy hoặc resume process lịch sử. Không còn writer Phase1 đang chạy khi chốt.
+
+## REORG Phase2 COMPLETE —31/10/2026
+
+- Source đã về11 bài, đủ33folder. Đọc `docs/reorganization/phase2_report.md`, `phase2_handoff.json`, checkpoint và toàn bộ plan trước Phase3.
+- Mapping bất biến/active revision: `phase2/canonical_map.json`; alias dùng `runtime_view_map.json` và `scripts/materialize_project.py`. Không chạy lại relocate/setup/derive producer Phase2.
+- Runtime vẫn Ubuntu/user tuananh, hai env torch/keras hiện có. Runner `scripts/run_assignment.ps1` chọn đúng framework; đọc README từng bài.
+- Original byte/hash và Phase1handoff đã PASS; không train/TEST, sửa lock/seal, đổi env hoặc resume queue lịch sử. Sửa scientific file cần revision giữ bản gốc.
+- Paper2 chỉ Ch1–5, paper3 đủ6chương. Notebook demo Ch3/4 dùng `assignment_runtime.paper_demo` serving-registry seed42; guard Git lịch sử giữ nguyên. A06 CRLF adapter chỉ trong view, canonical LF giữ hash.
+- Phase3 còn11web/build/E2E/Render packaging và cleanup. `apps/web/node_modules`/dist cũ, staging, backup giữ đến gate. Chưa commit/push/deploy. Không tự bắt đầu Phase3.
+
+## REORG Phase3 COMPLETE —31/10/2026
+
+- Cả3phase COMPLETE. Đọc `docs/reorganization/phase3_report.md`, `verification.json`, `final_inventory.json`, `phase3_handoff.json`; không tự chạy lại producer/cleanup khi được hỏi trạng thái.
+- Chạy web bằng `scripts/run_web.ps1`; build React bằng `scripts/build_web.ps1`. Đọc `phase3_runtime.md` và README từng web.
+- Staging/root apps/dist/reference web đã dọn sau gate. Bản gốc theo Phase2 canonical map + Phase3 preservation_overrides; không đánh giá target cũ đã archive là canonical active. Runtime views giữ nguyên logic, materializer hiện hành `materialize_assignment.py` + runtime_source_overlay.json (307 source alias).
+- Bốn service module tiểu luận1 ở `tieuluan1/src/term_paper/deployment/app/`. Demo web bản1 dùng TRAIN/fixture; bản gốc TEST demo vẫn chỉ trong provenance, không chạy lại để kiểm UI.
+- Source-only serving check PASS cho3bài. Root Render dùng render_project.py mặc định tieuluan3; render_v3.py chỉ shim. Sửa backend phải tạo bundle revision mới, không phục vụ archive cũ âm thầm. Deployment/commit/push chưa được thực hiện/ủy quyền bởi kế hoạch.
+- Không train/TEST hoặc đổi env để xác minh migration. Giữ raw/checkpoint/metric/prediction/seal/report nguyên byte. Runtime Ubuntu/user tuananh, hai env hiện có giữ nguyên. A04–A06 web là replay, không mô tả thành native live inference.
+
 # Quy tắc làm việc cho tiểu luận V3
 
 Kế hoạch đang hoạt động là `TIEU_LUAN_AI_V3_EXECUTION_PLAN.md`.

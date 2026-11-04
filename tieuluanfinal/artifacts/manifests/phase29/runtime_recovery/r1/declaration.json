@@ -1,0 +1,27 @@
+{
+  "phase": 29,
+  "revision": "runtime_recovery_r1",
+  "date": "2026-10-19",
+  "status": "DECLARED_DURING_DEPENDENCY_RESTORE_BEFORE_GPU_PROBE_OR_TRAIN",
+  "reason": "Previously registered Ubuntu-24.04 and its two environments were absent. Current Ubuntu 24.04.4 user is tuananh. GPU RTX5050/driver591.74 remains visible.",
+  "old_distribution": "Ubuntu-24.04",
+  "new_distribution": "Ubuntu",
+  "old_runtime_root": "/home/anhca/.local/share/ai-term-paper-v3",
+  "new_runtime_root": "/home/tuananh/.local/share/ai-term-paper-v3",
+  "required_versions": {"uv": "0.13.1", "python": "3.11.17", "torch": "2.14.1+cu130", "keras": "3.15.1", "tensorflow": "2.21.0"},
+  "uv_lock_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "original_environment_sha256": "91ba6c68d5a297a3c32d1eb4aacc190b692dc7c3aa73171fba51ac2c98db76b5",
+  "original_training_release_sha256": "e25c29bfa7bc957829a7001892eda89a253b5268e5dbdc5381bb81f7ad0ea528",
+  "recovery_sources": [
+    {"path": "scripts/recover_phase29_runtime_r1.sh", "sha256": "8848a5634a586b84339333102ed78b237061d9a1c9178897862f6b1070932c13"},
+    {"path": "scripts/phase29_runtime_recovery_r1.py", "sha256": "0d825e27353ce7ffbd4a11d30c2e37edb7d8fcaa7dd478bec5d6d2c18d1a8a93"},
+    {"path": "tests/powershell/test_phase29_runtime_recovery.ps1", "sha256": "838230f449dd62ecdded6b23d274ce435903da1bf0c8f78b52ed2b461ca7a24e"}
+  ],
+  "training_source_changed": false,
+  "preserved_completed_selections": 5,
+  "dependency_upgrade_allowed": false,
+  "keras_backend_substitution_allowed": false,
+  "overwrite_old_environment_evidence_allowed": false,
+  "train_or_test_allowed_before_recovery_pass": false,
+  "test_evaluation_executed": false
+}

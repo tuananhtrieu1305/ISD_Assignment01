@@ -1,0 +1,28 @@
+{
+  "augmentation": "none for the locked matched comparison; any extra track needs separate config",
+  "class_weights": {
+    "AnnualCrop": 0.8982035928143712,
+    "Forest": 0.9009009009009009,
+    "HerbaceousVegetation": 0.9009009009009009,
+    "Highway": 1.079136690647482,
+    "Industrial": 1.079136690647482,
+    "Pasture": 1.3513513513513513,
+    "PermanentCrop": 1.079136690647482,
+    "Residential": 0.9009009009009009,
+    "River": 1.079136690647482,
+    "SeaLake": 0.9009009009009009
+  },
+  "decode": "Pillow RGB; CIFAR binary channels-first -> HWC",
+  "fit_count": 3000,
+  "fit_ids_sha256": "06111d5ceb85d78ad07bdf91b077df2b5132d1e8a8fe8071b236c7e50eca8ace",
+  "fit_scope": "train_only",
+  "input_shape_hwc": [
+    32,
+    32,
+    3
+  ],
+  "normalization_fit": "no fitted channel mean/std; same 0..1 scaling for all frameworks",
+  "rescale": "float32 / 255",
+  "resize": "Pillow BILINEAR",
+  "schema_version": "3.0.0"
+}

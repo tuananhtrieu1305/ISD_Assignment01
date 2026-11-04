@@ -1,0 +1,706 @@
+{
+  "backend": "tensorflow",
+  "code_sha256": "3eb8df6c86ce045f6ad124d5a2d86aeae977ab88b29b1cb92dc57f2535c44b44",
+  "device": "cpu",
+  "dtype": "float32",
+  "framework_version": "Keras 3.15.1/TensorFlow 2.21.0",
+  "implementation": "keras",
+  "memory_probes": [],
+  "parity": [
+    {
+      "canonical_initial_weights_sha256": "abb76590331e322815b2ed695e3eb0c91fb50647ae3ad325d7fd809f1b6bc6c1",
+      "evidence_kind": "synthetic_fixture",
+      "family": "mlp",
+      "forward_max_abs_error": 1.043081283569336e-07,
+      "gradient_parity": {
+        "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+        "max_abs_error": 1.7881393432617188e-07,
+        "max_relative_l2_error": 1.5145335950479366e-07,
+        "per_tensor_relative_l2_error": {
+          "dense_1/b": 1.3751626853451735e-07,
+          "dense_1/w": 1.5145335950479366e-07,
+          "dense_11/b": 4.218122912902069e-08,
+          "dense_11/w": 1.18235939405345e-07,
+          "dense_3/b": 9.551180608863334e-08,
+          "dense_3/w": 1.0102546050040226e-07,
+          "dense_5/b": 6.990332415796738e-08,
+          "dense_5/w": 9.361066975118279e-08,
+          "dense_7/b": 5.504136765316528e-08,
+          "dense_7/w": 7.413261683357902e-08,
+          "dense_9/b": 6.027558322434773e-08,
+          "dense_9/w": 8.936105221492555e-08
+        },
+        "tolerance": 0.001
+      },
+      "input_sha256": "acd64bc33fe01349a54b43fdce73b85aea0fa244b476b9f3f87dee6d1783297f",
+      "output_shape": [
+        2,
+        2
+      ],
+      "parameter_count": 8178,
+      "status": "PASS",
+      "three_updates_max_abs_error": 5.960464477539063e-08,
+      "trace": [
+        {
+          "id": "dense_1",
+          "input_shape": [
+            2,
+            4
+          ],
+          "output_shape": [
+            2,
+            64
+          ]
+        },
+        {
+          "id": "activation_2",
+          "input_shape": [
+            2,
+            64
+          ],
+          "output_shape": [
+            2,
+            64
+          ]
+        },
+        {
+          "id": "dense_3",
+          "input_shape": [
+            2,
+            64
+          ],
+          "output_shape": [
+            2,
+            64
+          ]
+        },
+        {
+          "id": "activation_4",
+          "input_shape": [
+            2,
+            64
+          ],
+          "output_shape": [
+            2,
+            64
+          ]
+        },
+        {
+          "id": "dense_5",
+          "input_shape": [
+            2,
+            64
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "activation_6",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "dense_7",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "activation_8",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "dense_9",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            16
+          ]
+        },
+        {
+          "id": "activation_10",
+          "input_shape": [
+            2,
+            16
+          ],
+          "output_shape": [
+            2,
+            16
+          ]
+        },
+        {
+          "id": "dense_11",
+          "input_shape": [
+            2,
+            16
+          ],
+          "output_shape": [
+            2,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "canonical_initial_weights_sha256": "ae8c92f76a3bd61c92f9352822bc9c230bf50db9b5c39d41b27dae031d3a1e7c",
+      "evidence_kind": "synthetic_fixture",
+      "family": "cnn",
+      "forward_max_abs_error": 8.195638656616211e-08,
+      "gradient_parity": {
+        "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+        "max_abs_error": 1.1920928955078125e-07,
+        "max_relative_l2_error": 2.689412972296419e-07,
+        "per_tensor_relative_l2_error": {
+          "conv2d_1/b": 2.689412972296419e-07,
+          "conv2d_1/w": 2.0669722459126034e-07,
+          "conv2d_11/b": 7.328997300710557e-08,
+          "conv2d_11/w": 1.074677300088435e-07,
+          "conv2d_3/b": 1.5553980161844482e-07,
+          "conv2d_3/w": 1.738730528037244e-07,
+          "conv2d_6/b": 7.542448264152967e-08,
+          "conv2d_6/w": 1.269098940907203e-07,
+          "conv2d_8/b": 1.4042682101374478e-07,
+          "conv2d_8/w": 1.58073478021638e-07,
+          "dense_14/b": 5.2108340148239714e-08,
+          "dense_14/w": 9.430195348207805e-08,
+          "dense_16/b": 1.4945991885657717e-08,
+          "dense_16/w": 1.265514019696866e-07
+        },
+        "tolerance": 0.001
+      },
+      "input_sha256": "dca30d1d794d0138521f2a73ed086d60227ae0ec6ad9b15cfed633e64619d66c",
+      "output_shape": [
+        2,
+        3
+      ],
+      "parameter_count": 10091,
+      "status": "PASS",
+      "three_updates_max_abs_error": 3.380700945854187e-07,
+      "trace": [
+        {
+          "id": "conv2d_1",
+          "input_shape": [
+            2,
+            8,
+            8,
+            3
+          ],
+          "output_shape": [
+            2,
+            8,
+            8,
+            8
+          ]
+        },
+        {
+          "id": "activation_2",
+          "input_shape": [
+            2,
+            8,
+            8,
+            8
+          ],
+          "output_shape": [
+            2,
+            8,
+            8,
+            8
+          ]
+        },
+        {
+          "id": "conv2d_3",
+          "input_shape": [
+            2,
+            8,
+            8,
+            8
+          ],
+          "output_shape": [
+            2,
+            8,
+            8,
+            8
+          ]
+        },
+        {
+          "id": "activation_4",
+          "input_shape": [
+            2,
+            8,
+            8,
+            8
+          ],
+          "output_shape": [
+            2,
+            8,
+            8,
+            8
+          ]
+        },
+        {
+          "id": "pooling_5",
+          "input_shape": [
+            2,
+            8,
+            8,
+            8
+          ],
+          "output_shape": [
+            2,
+            4,
+            4,
+            8
+          ]
+        },
+        {
+          "id": "conv2d_6",
+          "input_shape": [
+            2,
+            4,
+            4,
+            8
+          ],
+          "output_shape": [
+            2,
+            4,
+            4,
+            16
+          ]
+        },
+        {
+          "id": "activation_7",
+          "input_shape": [
+            2,
+            4,
+            4,
+            16
+          ],
+          "output_shape": [
+            2,
+            4,
+            4,
+            16
+          ]
+        },
+        {
+          "id": "conv2d_8",
+          "input_shape": [
+            2,
+            4,
+            4,
+            16
+          ],
+          "output_shape": [
+            2,
+            4,
+            4,
+            16
+          ]
+        },
+        {
+          "id": "activation_9",
+          "input_shape": [
+            2,
+            4,
+            4,
+            16
+          ],
+          "output_shape": [
+            2,
+            4,
+            4,
+            16
+          ]
+        },
+        {
+          "id": "pooling_10",
+          "input_shape": [
+            2,
+            4,
+            4,
+            16
+          ],
+          "output_shape": [
+            2,
+            2,
+            2,
+            16
+          ]
+        },
+        {
+          "id": "conv2d_11",
+          "input_shape": [
+            2,
+            2,
+            2,
+            16
+          ],
+          "output_shape": [
+            2,
+            2,
+            2,
+            32
+          ]
+        },
+        {
+          "id": "activation_12",
+          "input_shape": [
+            2,
+            2,
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            2,
+            2,
+            32
+          ]
+        },
+        {
+          "id": "pooling_13",
+          "input_shape": [
+            2,
+            2,
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "dense_14",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "activation_15",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "dense_16",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "canonical_initial_weights_sha256": "b6d794dd53044fc8330c731c04347b8350cd0b846d4cfb5f02c0b5943c2766c5",
+      "evidence_kind": "synthetic_fixture",
+      "family": "rnn",
+      "forward_max_abs_error": 1.1920928955078125e-07,
+      "gradient_parity": {
+        "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+        "max_abs_error": 2.384185791015625e-07,
+        "max_relative_l2_error": 2.220832270031485e-07,
+        "per_tensor_relative_l2_error": {
+          "dense_4/b": 6.643443369581053e-08,
+          "dense_4/w": 1.8573429409699546e-07,
+          "dense_6/b": 5.7393715480925544e-08,
+          "dense_6/w": 1.2365934754285428e-07,
+          "dense_8/b": 4.7004639850027014e-08,
+          "dense_8/w": 7.211114779249136e-08,
+          "rnn_1/b": 1.256985806932956e-07,
+          "rnn_1/u": 2.0024443893238277e-07,
+          "rnn_1/w": 2.220832270031485e-07,
+          "rnn_2/b": 1.499758294689403e-07,
+          "rnn_2/u": 2.007743838525458e-07,
+          "rnn_2/w": 1.810266036952171e-07,
+          "rnn_3/b": 1.271103025295091e-07,
+          "rnn_3/u": 1.7078509509687432e-07,
+          "rnn_3/w": 1.591691003976932e-07
+        },
+        "tolerance": 0.001
+      },
+      "input_sha256": "84290d853af62d0f219985c0063468cf286d4a56f2547fc61f9fafd679954176",
+      "output_shape": [
+        2,
+        3
+      ],
+      "parameter_count": 5971,
+      "status": "PASS",
+      "three_updates_max_abs_error": 4.76837158203125e-07,
+      "trace": [
+        {
+          "id": "rnn_1",
+          "input_shape": [
+            2,
+            4,
+            2
+          ],
+          "output_shape": [
+            2,
+            4,
+            32
+          ]
+        },
+        {
+          "id": "rnn_2",
+          "input_shape": [
+            2,
+            4,
+            32
+          ],
+          "output_shape": [
+            2,
+            4,
+            32
+          ]
+        },
+        {
+          "id": "rnn_3",
+          "input_shape": [
+            2,
+            4,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "dense_4",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            16
+          ]
+        },
+        {
+          "id": "activation_5",
+          "input_shape": [
+            2,
+            16
+          ],
+          "output_shape": [
+            2,
+            16
+          ]
+        },
+        {
+          "id": "dense_6",
+          "input_shape": [
+            2,
+            16
+          ],
+          "output_shape": [
+            2,
+            8
+          ]
+        },
+        {
+          "id": "activation_7",
+          "input_shape": [
+            2,
+            8
+          ],
+          "output_shape": [
+            2,
+            8
+          ]
+        },
+        {
+          "id": "dense_8",
+          "input_shape": [
+            2,
+            8
+          ],
+          "output_shape": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "canonical_initial_weights_sha256": "4d4405554eba15079739205140ee346da0ac6cf169d190d95cc08ab19e8b1e93",
+      "evidence_kind": "synthetic_fixture",
+      "family": "lstm",
+      "forward_max_abs_error": 2.9802322387695312e-08,
+      "gradient_parity": {
+        "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+        "max_abs_error": 8.940696716308594e-08,
+        "max_relative_l2_error": 2.5271728060426143e-07,
+        "per_tensor_relative_l2_error": {
+          "dense_4/b": 2.6452504111759763e-08,
+          "dense_4/w": 1.4544957527570665e-07,
+          "dense_6/b": 1.2106780853451482e-08,
+          "dense_6/w": 4.935630613594956e-08,
+          "dense_8/b": 2.8778112586630115e-08,
+          "dense_8/w": 4.753663570703293e-08,
+          "lstm_1/b": 1.984973004473513e-07,
+          "lstm_1/u": 2.5271728060426143e-07,
+          "lstm_1/w": 1.9960798766798506e-07,
+          "lstm_2/b": 1.2499234413442827e-07,
+          "lstm_2/u": 1.9669074023464796e-07,
+          "lstm_2/w": 1.633628659741108e-07,
+          "lstm_3/b": 8.87435935430372e-08,
+          "lstm_3/u": 1.392406938621116e-07,
+          "lstm_3/w": 1.7647994661000615e-07
+        },
+        "tolerance": 0.001
+      },
+      "input_sha256": "84290d853af62d0f219985c0063468cf286d4a56f2547fc61f9fafd679954176",
+      "output_shape": [
+        2,
+        3
+      ],
+      "parameter_count": 21811,
+      "status": "PASS",
+      "three_updates_max_abs_error": 1.3440847396850586e-05,
+      "trace": [
+        {
+          "id": "lstm_1",
+          "input_shape": [
+            2,
+            4,
+            2
+          ],
+          "output_shape": [
+            2,
+            4,
+            32
+          ]
+        },
+        {
+          "id": "lstm_2",
+          "input_shape": [
+            2,
+            4,
+            32
+          ],
+          "output_shape": [
+            2,
+            4,
+            32
+          ]
+        },
+        {
+          "id": "lstm_3",
+          "input_shape": [
+            2,
+            4,
+            32
+          ],
+          "output_shape": [
+            2,
+            32
+          ]
+        },
+        {
+          "id": "dense_4",
+          "input_shape": [
+            2,
+            32
+          ],
+          "output_shape": [
+            2,
+            16
+          ]
+        },
+        {
+          "id": "activation_5",
+          "input_shape": [
+            2,
+            16
+          ],
+          "output_shape": [
+            2,
+            16
+          ]
+        },
+        {
+          "id": "dense_6",
+          "input_shape": [
+            2,
+            16
+          ],
+          "output_shape": [
+            2,
+            8
+          ]
+        },
+        {
+          "id": "activation_7",
+          "input_shape": [
+            2,
+            8
+          ],
+          "output_shape": [
+            2,
+            8
+          ]
+        },
+        {
+          "id": "dense_8",
+          "input_shape": [
+            2,
+            8
+          ],
+          "output_shape": [
+            2,
+            3
+          ]
+        }
+      ]
+    }
+  ],
+  "phase": 25,
+  "phase24_lock_sha256": "5ae1091892262b0b2e52a570e19963005da6724a736447bd11b4e9be3b60e37e",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "probe_code_sha256": "99df8347808d22ec59dc73443c9ffca203d2f427f28788ca74ce526ae8930cb7",
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "python": "3.11.17",
+  "real_dataset_training_executed": false,
+  "seed": 42,
+  "status": "PASS",
+  "test_evaluation_executed": false
+}

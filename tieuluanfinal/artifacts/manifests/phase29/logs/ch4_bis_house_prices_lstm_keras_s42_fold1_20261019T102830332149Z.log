@@ -1,0 +1,39 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792405719.139356    6528 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792405719.186608    6528 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792405722.794215    6528 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1792405724.660724    6528 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1792405725.512964    6528 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1792405725.906986    6528 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5262 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+I0000 00:00:1792405726.949057    6547 cuda_dnn.cc:461] Loaded cuDNN version 92700
+epoch=1 train_loss=0.532763 validation_loss=2.027827 best_epoch=1
+epoch=2 train_loss=0.399734 validation_loss=1.664291 best_epoch=2
+epoch=3 train_loss=0.296824 validation_loss=1.309289 best_epoch=3
+epoch=4 train_loss=0.201430 validation_loss=1.181949 best_epoch=4
+epoch=5 train_loss=0.153112 validation_loss=1.004473 best_epoch=5
+epoch=6 train_loss=0.105123 validation_loss=0.977739 best_epoch=6
+epoch=7 train_loss=0.087932 validation_loss=0.876304 best_epoch=7
+epoch=8 train_loss=0.067944 validation_loss=0.853507 best_epoch=8
+epoch=9 train_loss=0.060781 validation_loss=0.804931 best_epoch=9
+epoch=10 train_loss=0.050280 validation_loss=0.850961 best_epoch=9
+epoch=11 train_loss=0.047136 validation_loss=0.780201 best_epoch=11
+epoch=12 train_loss=0.041672 validation_loss=0.778608 best_epoch=12
+epoch=13 train_loss=0.045041 validation_loss=0.796014 best_epoch=12
+epoch=14 train_loss=0.037797 validation_loss=0.748404 best_epoch=14
+epoch=15 train_loss=0.032924 validation_loss=0.769769 best_epoch=14
+epoch=16 train_loss=0.030956 validation_loss=0.777812 best_epoch=14
+epoch=17 train_loss=0.029880 validation_loss=0.781645 best_epoch=14
+epoch=18 train_loss=0.028589 validation_loss=0.739764 best_epoch=18
+epoch=19 train_loss=0.029007 validation_loss=0.860068 best_epoch=18
+epoch=20 train_loss=0.028541 validation_loss=0.729486 best_epoch=20
+epoch=21 train_loss=0.021601 validation_loss=0.746566 best_epoch=20
+epoch=22 train_loss=0.021554 validation_loss=0.726443 best_epoch=22
+epoch=23 train_loss=0.021802 validation_loss=0.769328 best_epoch=22
+epoch=24 train_loss=0.021392 validation_loss=0.824855 best_epoch=22
+epoch=25 train_loss=0.021811 validation_loss=0.794398 best_epoch=22
+epoch=26 train_loss=0.018616 validation_loss=0.768293 best_epoch=22
+epoch=27 train_loss=0.017985 validation_loss=0.782961 best_epoch=22
+epoch=28 train_loss=0.019834 validation_loss=0.832129 best_epoch=22
+{"run_id": "ch4_bis_house_prices_lstm_keras_s42_fold1", "status": "PASS", "epochs": 28, "best_epoch": 21, "rmse": 19.06986307780915, "train_seconds": 30.237576141000318}

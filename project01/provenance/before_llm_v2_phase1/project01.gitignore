@@ -1,0 +1,10 @@
+# Only small project metadata and synthetic task JSON override the repository data rule.
+!datasets/
+!datasets/*.json
+!datasets/benchmark/
+!datasets/benchmark/*.json
+
+# Old runtime views, installed packages, raw downloads and local secrets remain ignored.
+web/.runtime/
+artifacts/mplconfig/
+artifacts/plot_style/fontlist-*.json

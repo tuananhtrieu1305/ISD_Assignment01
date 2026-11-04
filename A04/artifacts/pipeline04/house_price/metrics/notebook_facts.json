@@ -1,0 +1,124 @@
+{
+  "assignment": "Assignment 04",
+  "domain": "Housing Price",
+  "task": "Regression: housing/property features -> continuous house price",
+  "dataset_name": "King County House Sales",
+  "source": "Kaggle: House Sales in King County, USA",
+  "source_url": "https://www.kaggle.com/datasets/harlfoxem/housesalesprediction",
+  "license": "Kaggle dataset page does not expose a clear license in the downloaded data; verify before redistribution.",
+  "target": "price",
+  "raw_samples": 21613,
+  "samples_after_preparation": 21436,
+  "raw_engineered_features": 24,
+  "transformed_features": 93,
+  "numerical_features": [
+    "bedrooms",
+    "bathrooms",
+    "sqft_living",
+    "sqft_lot",
+    "floors",
+    "waterfront",
+    "view",
+    "condition",
+    "grade",
+    "sqft_above",
+    "sqft_basement",
+    "yr_built",
+    "yr_renovated",
+    "lat",
+    "long",
+    "sqft_living15",
+    "sqft_lot15",
+    "sale_year",
+    "sale_month",
+    "house_age_at_sale",
+    "renovated_flag",
+    "years_since_renovation",
+    "basement_flag"
+  ],
+  "categorical_features": [
+    "zipcode"
+  ],
+  "missing_values_total": 0,
+  "duplicates_removed": 0,
+  "repeated_property_rows_removed": 177,
+  "invalid_target_rows_removed": 0,
+  "split": {
+    "train": 15005,
+    "validation": 3215,
+    "test": 3216
+  },
+  "target_transform": "standardized log1p(price)",
+  "target_skew_train": 3.699962854385376,
+  "preprocessing": "Numeric median imputation + StandardScaler; zipcode most-frequent imputation + OneHotEncoder; fit on training data only.",
+  "representation": "Tabular vector representation, shape (samples, transformed features).",
+  "cnn_methodology": "CNN not used as production model because feature order is not spatial/sequential.",
+  "models_tested": [
+    "M4 Residual MLP Feature Attention Regressor",
+    "M3 Residual MLP Regressor",
+    "M2 BatchNorm MLP Regressor",
+    "M1 Basic MLP Regressor"
+  ],
+  "framework_baselines": [
+    "PyTorch",
+    "Keras"
+  ],
+  "selection_metric": "Validation RMSE",
+  "selected_model": "M4 Residual MLP Feature Attention Regressor",
+  "test_metrics": {
+    "MAE": 70282.2578125,
+    "MSE": 21396305920.0,
+    "RMSE": 146274.765625,
+    "R2": 0.867289662361145
+  },
+  "artifacts": {
+    "models": [
+      "pipeline04/house_price/models/final_model.keras",
+      "pipeline04/house_price/models/m1_basic_mlp_regressor_best.keras",
+      "pipeline04/house_price/models/m2_batchnorm_mlp_regressor_best.keras",
+      "pipeline04/house_price/models/m3_residual_mlp_regressor_best.keras",
+      "pipeline04/house_price/models/m4_attention_residual_mlp_regressor_best.keras",
+      "pipeline04/house_price/models/preprocessor.joblib",
+      "pipeline04/house_price/models/pytorch_basic_mlp_regressor_best.pt"
+    ],
+    "metrics": [
+      "pipeline04/house_price/metrics/a03_vs_a04_comparison.csv",
+      "pipeline04/house_price/metrics/architecture_comparison.csv",
+      "pipeline04/house_price/metrics/feature_attention_summary.csv",
+      "pipeline04/house_price/metrics/final_results.csv",
+      "pipeline04/house_price/metrics/final_test_metrics.json",
+      "pipeline04/house_price/metrics/keras_basic_mlp_validation_metrics.json",
+      "pipeline04/house_price/metrics/keras_vs_pytorch_comparison.csv",
+      "pipeline04/house_price/metrics/m1_basic_mlp_regressor_history.csv",
+      "pipeline04/house_price/metrics/m2_batchnorm_mlp_regressor_history.csv",
+      "pipeline04/house_price/metrics/m2_batchnorm_mlp_regressor_validation_metrics.json",
+      "pipeline04/house_price/metrics/m3_residual_mlp_regressor_history.csv",
+      "pipeline04/house_price/metrics/m3_residual_mlp_regressor_validation_metrics.json",
+      "pipeline04/house_price/metrics/m4_attention_residual_mlp_regressor_history.csv",
+      "pipeline04/house_price/metrics/m4_attention_residual_mlp_regressor_validation_metrics.json",
+      "pipeline04/house_price/metrics/notebook_facts.json",
+      "pipeline04/house_price/metrics/pytorch_basic_mlp_history.csv",
+      "pipeline04/house_price/metrics/pytorch_basic_mlp_validation_metrics.json",
+      "pipeline04/house_price/metrics/validation_error_analysis.csv",
+      "pipeline04/house_price/metrics/validation_error_by_price_range.csv",
+      "pipeline04/house_price/metrics/validation_large_error_samples.csv"
+    ],
+    "figures": [
+      "pipeline04/house_price/figures/architecture_comparison_rmse.png",
+      "pipeline04/house_price/figures/feature_attention_weights.png",
+      "pipeline04/house_price/figures/final_test_regression_diagnostics.png",
+      "pipeline04/house_price/figures/keras_basic_mlp_training_curves.png",
+      "pipeline04/house_price/figures/keras_validation_regression_diagnostics.png",
+      "pipeline04/house_price/figures/target_price_distribution.png",
+      "pipeline04/house_price/figures/validation_error_analysis.png"
+    ]
+  },
+  "created_at_utc": "2026-09-15T00:39:51.282453+00:00",
+  "limitations": [
+    "King County and A03 Vietnam datasets use different markets and target scales, so scores are not directly comparable.",
+    "Price has a long right tail; log target and Huber loss reduce but do not remove high-price difficulty.",
+    "A few zero-bedroom/zero-bathroom and extreme-bedroom rows remain as source data quality risks.",
+    "CNN is demonstrated only on toy tensors because tabular feature columns have no justified local ordering."
+  ],
+  "total_recorded_train_time_seconds": 82.3860306000006
+}

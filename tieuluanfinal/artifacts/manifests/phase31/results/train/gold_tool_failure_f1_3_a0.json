@@ -1,0 +1,131 @@
+{
+  "category": "tool_failure",
+  "domain": "gold",
+  "metrics": {
+    "answer_completion": 1,
+    "citation_correctness": 1,
+    "latency_ms": 16.625322999971104,
+    "message_count": 1,
+    "numeric_parity": 0,
+    "peak_child_rss_bytes": 179605504,
+    "refusal_correctness": 0,
+    "routing_accuracy": null,
+    "task_success": 0,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 1
+  },
+  "output": {
+    "message_count": 1,
+    "messages": [
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "gold_numeric_022"
+        },
+        "node_id": "node_1",
+        "output": {
+          "payload": {
+            "artifact_refs": [
+              {
+                "path": "data/processed/v3/ch4_gold_pink_sheet/series.csv.gz",
+                "sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee"
+              },
+              {
+                "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_scratch_s42_main/best.npz",
+                "sha256": "084062b50b6bc52a36b73c5e04474952fad4bbd51b9871477ed61455c78b6721"
+              },
+              {
+                "path": "artifacts/manifests/phase29/configs/ch4_gold_pink_sheet_main_s42.json",
+                "sha256": "d6b0fee5f9de30a7d56556946a46a82c0382793c1930c40411d639c6470c38b4"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "evidence_gold_numeric_022",
+                "locator": "parent_train/GOLD/1963-10-01T00:00:00",
+                "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+                "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+              }
+            ],
+            "text": "Frozen NumPy CPU tool output: 35.06389, 34.616068, 36.492498",
+            "unit": "USD/troy oz; horizons1/3/6month",
+            "values": [
+              36.063889750108615,
+              34.61606771325461,
+              36.492498266293495
+            ]
+          },
+          "peak_rss_bytes": 179605504,
+          "receipt_sha256": "4255c13a917ba4338e8beb040bbf023ae5c9292cb36d053529429a296b3d1f04",
+          "status": "ok"
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 179605504,
+    "reason": null,
+    "route": "gold",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "Frozen NumPy CPU tool output: 35.06389, 34.616068, 36.492498",
+      "citations": [
+        {
+          "evidence_id": "evidence_gold_numeric_022",
+          "locator": "parent_train/GOLD/1963-10-01T00:00:00",
+          "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+          "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+        }
+      ],
+      "domain": "gold",
+      "evidence_kind": "measured",
+      "latency_ms": 15.826173999812454,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "direct",
+          "artifact_refs": [
+            {
+              "path": "data/processed/v3/ch4_gold_pink_sheet/series.csv.gz",
+              "sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee"
+            },
+            {
+              "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_scratch_s42_main/best.npz",
+              "sha256": "084062b50b6bc52a36b73c5e04474952fad4bbd51b9871477ed61455c78b6721"
+            },
+            {
+              "path": "artifacts/manifests/phase29/configs/ch4_gold_pink_sheet_main_s42.json",
+              "sha256": "d6b0fee5f9de30a7d56556946a46a82c0382793c1930c40411d639c6470c38b4"
+            }
+          ],
+          "duration_ms": 15.671142000428517,
+          "input_sha256": "c9c35cd2b0b0b4b2eb9599aac5e41d4274333c19c9cd8ae1d9603d6a038a9182",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "579936a6a540f6a37bc5097b4a32ed92689628da403ebd3925a0f3390615cc87",
+          "parent_ids": [],
+          "tool": "forecast_gold"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "succeeded",
+      "task_id": "gold_tool_failure_f1_3",
+      "task_set_sha256": "bad7e9ef791528928971da69d47fe105ba5b24ae6918d9d831639526599ca23f",
+      "trace_id": "trace_c3e58df3eae592691ee7_a0",
+      "variant": "A0"
+    },
+    "values": [
+      36.063889750108615,
+      34.61606771325461,
+      36.492498266293495
+    ],
+    "verification": "not_run",
+    "wall_latency_ms": 16.625322999971104
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "challenge",
+  "task_id": "gold_tool_failure_f1_3",
+  "variant": "A0"
+}

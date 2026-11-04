@@ -1,0 +1,11 @@
+{
+  "status": "FAIL_RETAINED_HISTORY",
+  "candidate": "candidate-r8",
+  "docx_sha256": "32a13fc865bebd1b5b0f79c18e614ed5dee48ca8974c985fc3ee90919e9e6211",
+  "pages": [39,40,42,43],
+  "diagnosis": "Ordinary table rows were allowed to break mid-row; numeric cells ended on one page while the last line of the method label continued alone on the next page.",
+  "recovery": "Use native cantSplit for conservatively estimated rows <=400pt; exceptionally tall appendix rows retain natural flow, with no exact row height. Re-render, refresh page-map and re-review changed pages.",
+  "scientific_values_modified": false,
+  "source_modified_before_phase35": false,
+  "reference": "https://learn.microsoft.com/en-us/dotnet/api/documentformat.openxml.wordprocessing.cantsplit?view=openxml-3.0.1"
+}

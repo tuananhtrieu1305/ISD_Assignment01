@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="6" time="8.185" timestamp="2026-10-18T17:55:25.079185+07:00" hostname="LaptopVJP"><testcase classname="tests.recurrent.test_export_r2" name="test_strict_cpu_reference_keeps_original_gpu_failure_visible" time="0.001" /><testcase classname="tests.recurrent.test_export_r2" name="test_export_rejects_nonfinite_and_mismatched_shapes[nan]" time="0.000" /><testcase classname="tests.recurrent.test_export_r2" name="test_export_rejects_nonfinite_and_mismatched_shapes[inf]" time="0.000" /><testcase classname="tests.recurrent.test_export_r2" name="test_completed_progress_is_not_an_invitation_to_train_again" time="0.001" /><testcase classname="tests.recurrent.test_export_r2" name="test_recovery_schema_only_allows_null_original_training_telemetry" time="0.218"><failure message="jsonschema.exceptions.ValidationError: 0 is not of type 'null'&#10;&#10;Failed validating 'type' in schema['properties']['efficiency']['properties']['train_seconds']:&#10;    {'type': 'null'}&#10;&#10;On instance['efficiency']['train_seconds']:&#10;    0">def test_recovery_schema_only_allows_null_original_training_telemetry():
+        from src.common.contracts import ROOT, read_json
+        release = read_json(ROOT / "artifacts/manifests/phase28/release.json")
+        entry = next(e for e in release["runs"] if e["method"] == "pytorch")
+        original = read_json(ROOT / "artifacts/metrics/phase28/validation" / (entry["run_id"] + ".json"))
+        document = copy.deepcopy(original)
+        document["run_id"] = export_r2.ORPHAN
+        document["schema_version"] = export_r2.RECOVERY_VERSION
+        for key in export_r2.MISSING_TELEMETRY:
+            document["efficiency"][key] = None
+        document["warnings"].append(export_r2.LOST_TELEMETRY_WARNING)
+        export_r2.validate_run(document)
+        with pytest.raises(ValueError):
+            bad = copy.deepcopy(document)
+            bad["efficiency"]["train_seconds"] = 0
+&gt;           export_r2.validate_run(bad)
+
+tests/recurrent/test_export_r2.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/ch04_rnn_lstm/export_r2.py:131: in validate_run
+    Draft202012Validator(recovery_schema(), registry=registry, format_checker=FormatChecker()).validate(document)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Draft202012Validator(schema={'$id': 'urn:ai-paper...ecovery-run:2', '$schema': 'https://json...020-12/schema', 'additi...reference', 'json-pointer', 'regex', 'relative-json-pointer', 'time', 'uri', 'uri-reference', 'uri-template', 'uuid']&gt;)
+args = ({'artifacts': [{'path': 'artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_rnn_pytorch_s17_main/best.npz', 'sha256': '...e15bbc33da23c0bc5558a42ed3662504a5ae018b4d4eb556c70', 'git_commit': 'e7cf49bce94ac9081a19f3cbee3657f027b21986'}, ...},)
+kwargs = {}
+
+    def validate(self, *args, **kwargs):
+        for error in self.iter_errors(*args, **kwargs):
+&gt;           raise error
+E           jsonschema.exceptions.ValidationError: 0 is not of type 'null'
+E           
+E           Failed validating 'type' in schema['properties']['efficiency']['properties']['train_seconds']:
+E               {'type': 'null'}
+E           
+E           On instance['efficiency']['train_seconds']:
+E               0
+
+/home/anhca/.local/share/ai-term-paper-v3/.venv-torch/lib/python3.11/site-packages/jsonschema/validators.py:450: ValidationError</failure></testcase><testcase classname="tests.recurrent.test_export_r2" name="test_unrelated_assertion_never_enters_crash_finalizer" time="0.000" /></testsuite></testsuites>

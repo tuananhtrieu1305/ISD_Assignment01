@@ -1,0 +1,48 @@
+{
+  "task": "binary_classification",
+  "features": [
+    "Glucose",
+    "BMI",
+    "Age",
+    "Pregnancies",
+    "BloodPressure",
+    "DiabetesPedigreeFunction"
+  ],
+  "target": "Outcome",
+  "selected_model": "Logistic Regression",
+  "recommended_model_id": "logistic_regression",
+  "selection_metric": "mean_cv_f1",
+  "available_models": {
+    "logistic_regression": {
+      "name": "Logistic Regression",
+      "artifact": "diabetes_models\\logistic_regression.joblib",
+      "recommended": true
+    },
+    "knn": {
+      "name": "KNN",
+      "artifact": "diabetes_models\\knn.joblib",
+      "recommended": false
+    },
+    "decision_tree": {
+      "name": "Decision Tree",
+      "artifact": "diabetes_models\\decision_tree.joblib",
+      "recommended": false
+    },
+    "random_forest": {
+      "name": "Random Forest",
+      "artifact": "diabetes_models\\random_forest.joblib",
+      "recommended": false
+    },
+    "svm_rbf": {
+      "name": "SVM (RBF)",
+      "artifact": "diabetes_models\\svm_rbf.joblib",
+      "recommended": false
+    }
+  },
+  "test_metrics": {
+    "Accuracy": 0.6948051948051948,
+    "Precision": 0.5777777777777777,
+    "Recall": 0.48148148148148145,
+    "F1": 0.5252525252525253
+  }
+}

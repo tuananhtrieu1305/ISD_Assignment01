@@ -1,0 +1,183 @@
+{
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_rnn_pytorch_s73_main/best.npz",
+    "sha256": "7dba0a96c88d3c49860a900ccf268b238b8cc6320a99e8fb3304aab2f766d864"
+  },
+  "efficiency_scope": "Train/RAM/VRAM/5warmup30repeat TRAIN-input timing copied byte-value from locked validation metric; not claimed as TEST-only measurements",
+  "evaluator_sha256": "8a0c613037ef5360c683c865fd348ec69b113cfc9a106bdf577529313f981145",
+  "metrics": {
+    "by_horizon": {
+      "1": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 0.3618920836187236
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.4919625843004879
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 0.5088164528424376
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 38.830989682120055
+        }
+      },
+      "24": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 0.4619506887942798
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.24626657338271463
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 0.6172862113134923
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 49.276472805524094
+        }
+      },
+      "6": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 0.48016610719662256
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.16682917198596314
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 0.6499632347993913
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 49.59401123527537
+        }
+      }
+    },
+    "by_series": {
+      "HOUSEHOLD": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 0.3618920836187236
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.4919625843004879
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 0.5088164528424376
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 38.830989682120055
+            }
+          },
+          "24": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 0.4619506887942798
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.24626657338271463
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 0.6172862113134923
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 49.276472805524094
+            }
+          },
+          "6": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 0.48016610719662256
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.16682917198596314
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 0.6499632347993913
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 49.59401123527537
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 0.43466962653654206
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.3020601858580202
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 0.5950878523242918
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 45.900491240973174
+        }
+      }
+    },
+    "macro_series_rmse": {
+      "undefined_reason": null,
+      "value": 0.5950878523242918
+    },
+    "mae": {
+      "undefined_reason": null,
+      "value": 0.43466962653654206
+    },
+    "r2": {
+      "undefined_reason": null,
+      "value": 0.3020601858580202
+    },
+    "rmse": {
+      "undefined_reason": null,
+      "value": 0.5950878523242918
+    },
+    "smape": {
+      "undefined_reason": null,
+      "value": 45.900491240973174
+    }
+  },
+  "optimizer_updates": 0,
+  "output_dtype": "float64",
+  "run_id": "ch4_household_power_rnn_pytorch_s73_main",
+  "test_count": 4911,
+  "test_forward_and_model_load_seconds": 1.1391744579996157,
+  "test_forward_passes_per_window": 1,
+  "test_seal_manifest_sha256": "0ef57d11ed0ff159da751f60a4c36d19a1900e04ec9ef3a1d8e207a85fc54eeb",
+  "training_efficiency": {
+    "checkpoint_bytes": 29156,
+    "inference_p50_ms": 0.7777725004416425,
+    "inference_p95_ms": 1.5429277993462163,
+    "peak_ram_bytes": 1916264448,
+    "peak_vram_bytes": 92462080,
+    "timed_repeats": 30,
+    "train_seconds": 69.03156330599813,
+    "warmup_batches": 5
+  },
+  "training_selection": {
+    "path": "artifacts/manifests/phase28/runs/ch4_household_power_rnn_pytorch_s73_main/selection.json",
+    "sha256": "e138112be004710b5c9ee8e3423fec95841b8ba4f84435fade5c211127aaa329"
+  }
+}

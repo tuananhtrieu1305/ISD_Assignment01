@@ -1,0 +1,60 @@
+{
+  "status": "PASS_ONE_DEVELOPMENT_PAIR_NOT_PHASE_ACCEPTANCE",
+  "generation_model": "gemini-3-flash-preview",
+  "endpoint": "v1beta/generateContent",
+  "minimal_probe_seconds": 2.043,
+  "minimal_probe_reply": "OK.",
+  "development_case": "v2-dev-05",
+  "direct_status": "complete",
+  "rag_status": "complete",
+  "citations": 4,
+  "same_LLM_verifier_approved": true,
+  "clinical_expert_review": false,
+  "development_resume_seconds": 13.691,
+  "resume_live_calls": 4,
+  "resume_cache_observations": 6,
+  "latency_note": "Final revision reuses prior successful development responses; not cold full-pipeline latency",
+  "adapter_checks": 13,
+  "core_regression_checks": 28,
+  "saved_UI_checks": 7,
+  "frontend_build": "PASS",
+  "export_parity": "PASS16",
+  "quota_snapshot_after_development": {
+    "provider_day": "2026-11-02",
+    "generation_attempts": 16,
+    "embedding_attempts": 3,
+    "generation_cap": 18,
+    "embedding_cap": 900,
+    "external_usage_unknown": true,
+    "paid_budget_usd": 0,
+    "last_generation_status": "complete",
+    "last_generation_at": 1793624783.8522928,
+    "readiness_is_not_live_provider_probe": true
+  },
+  "all_phase2_claims": [
+    {
+      "kind": "embedding",
+      "status": "complete",
+      "count": 46
+    },
+    {
+      "kind": "generation",
+      "status": "claimed",
+      "count": 1
+    },
+    {
+      "kind": "generation",
+      "status": "complete",
+      "count": 16
+    },
+    {
+      "kind": "generation",
+      "status": "unknown",
+      "count": 7
+    }
+  ],
+  "held_out_outputs": 0,
+  "evaluation_frozen": false,
+  "user_server_restarted": false,
+  "paid_budget_usd": 0
+}

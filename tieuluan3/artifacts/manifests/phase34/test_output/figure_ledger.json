@@ -1,0 +1,187 @@
+[
+  {
+    "label": "Hình 1.1.",
+    "caption": "Timeline các mốc phát triển chính của AI",
+    "image": "../assets/ch1/ai_history_timeline.svg"
+  },
+  {
+    "label": "Hình 2.1.",
+    "caption": "Chất lượng trên full TEST; error bar là độ lệch chuẩn giữa seed, không phải khoảng tin cậy theo dân số.",
+    "image": "../../artifacts/figures/phase26/quality.png"
+  },
+  {
+    "label": "Hình 2.2.",
+    "caption": "Loss train/validation seed 42. Train loss là trung bình trong lúc trọng số thay đổi; validation tính sau epoch, nên không cần bằng nhau ngay cả khi dùng cùng loss.",
+    "image": "../../artifacts/figures/phase26/learning_curves.png"
+  },
+  {
+    "label": "Hình 2.3.",
+    "caption": "Reliability diagram từ prediction TEST đã lưu; bin rỗng không nối thành số 0. Class weighting làm mục tiêu học khác tần suất tự nhiên, nên phân biệt chất lượng phân lớp với hiệu chỉnh xác suất.",
+    "image": "../../artifacts/figures/phase26/calibration.png"
+  },
+  {
+    "label": "Hình 2.4.",
+    "caption": "Confusion matrix seed 42, số đếm thật. Đọc false negative cùng recall lớp 1; accuracy cao không đồng nghĩa phát hiện tốt lớp thiểu số.",
+    "image": "../../artifacts/figures/phase26/confusion.png"
+  },
+  {
+    "label": "Hình 2.5.",
+    "caption": "Giá thật và dự đoán của 440 nhà TEST. Điểm lệch xa đường chéo là ví dụ sai số lớn; không loại chúng khỏi metric.",
+    "image": "../../artifacts/figures/phase26/ames_predictions.png"
+  },
+  {
+    "label": "Hình 3.1.",
+    "caption": "Mẫu ảnh matched train IDRiD và nhãn nguồn; không phải kết quả chẩn đoán.",
+    "image": "../../artifacts/figures/phase24/ch3_idrid_samples.png"
+  },
+  {
+    "label": "Hình 3.2.",
+    "caption": "Mẫu ảnh matched train EuroSAT, nhãn lớp phủ đất.",
+    "image": "../../artifacts/figures/phase24/ch3_eurosat_samples.png"
+  },
+  {
+    "label": "Hình 3.3.",
+    "caption": "Mẫu ảnh matched train CIFAR-10, nhãn vật thể.",
+    "image": "../../artifacts/figures/phase24/ch3_cifar10_samples.png"
+  },
+  {
+    "label": "Hình 3.4.",
+    "caption": "Macro-F1 trên full TEST, matched train, ba seed. Thanh sai số là sample SD, không phải khoảng tin cậy.",
+    "image": "../../artifacts/figures/phase27/quality.png"
+  },
+  {
+    "label": "Hình 3.5.",
+    "caption": "Confusion matrix IDRiD, full TEST, seed42, matched train.",
+    "image": "../../artifacts/figures/phase27/revisions/r2/ch3_idrid_confusion.png"
+  },
+  {
+    "label": "Hình 3.6.",
+    "caption": "Confusion matrix EuroSAT, full TEST, seed42, matched train.",
+    "image": "../../artifacts/figures/phase27/revisions/r2/ch3_eurosat_confusion.png"
+  },
+  {
+    "label": "Hình 3.7.",
+    "caption": "Confusion matrix CIFAR-10, full TEST, seed42, matched train.",
+    "image": "../../artifacts/figures/phase27/revisions/r2/ch3_cifar10_confusion.png"
+  },
+  {
+    "label": "Hình 3.8.",
+    "caption": "Train wall mean trên ba seed; trục log, CPU/GPU và graph/eager được ghi riêng.",
+    "image": "../../artifacts/figures/phase27/train_time.png"
+  },
+  {
+    "label": "Hình 3.9.",
+    "caption": "Train/validation loss theo epoch, seed42; đường dọc chỉ checkpoint được chọn bởi validation.",
+    "image": "../../artifacts/figures/phase27/learning_curves.png"
+  },
+  {
+    "label": "Hình 3.10.",
+    "caption": "Độ nhạy logit trên ảnh TRAIN đầu tiên cố định, seed42; chuẩn hóa riêng mỗi ảnh.",
+    "image": "../../artifacts/figures/phase27/train_saliency.png"
+  },
+  {
+    "label": "Hình 4.1.",
+    "caption": "TEST chung, sai số chính theo từng dataset; trục log, đơn vị riêng. Error bar là sample SD ba seed, đường baseline n=1.",
+    "image": "../../artifacts/figures/phase29/main_test_comparison.png"
+  },
+  {
+    "label": "Hình 4.2.",
+    "caption": "TEST theo cả ba horizon, mean ± sample SD; tháng/quý/giờ theo dataset, không đồng nhất về thời lượng.",
+    "image": "../../artifacts/figures/phase29/horizon_test.png"
+  },
+  {
+    "label": "Hình 4.3.",
+    "caption": "Ba expanding rolling VALIDATION; scaler riêng từng prefix. Đây là development, không phải ba lượt TEST hoặc ba mẫu độc lập.",
+    "image": "../../artifacts/figures/phase29/rolling_validation.png"
+  },
+  {
+    "label": "Hình 4.4.",
+    "caption": "Nhãn thật và dự đoán TEST đã lưu, một chuỗi/dataset; không phát sinh inference TEST để vẽ.",
+    "image": "../../artifacts/figures/phase29/saved_test_forecasts.png"
+  },
+  {
+    "label": "Hình 4.5.",
+    "caption": "BIS TEST: RMSE từng nền kinh tế, trung bình ba seed, màu log10 cùng thang cho sáu cách triển khai.",
+    "image": "../../artifacts/figures/phase29/bis_country_errors.png"
+  },
+  {
+    "label": "Hình 4.6.",
+    "caption": "Validation MSE chuẩn hóa theo epoch, seed42 main; không so giá trị loss giữa dataset như cùng đơn vị vật lý.",
+    "image": "../../artifacts/figures/phase29/learning_curves.png"
+  },
+  {
+    "label": "Hình 4.7.",
+    "caption": "Input/forget/output gates theo bước thời gian, ba tầng LSTM, chỉ dùng TRAIN.",
+    "image": "../../artifacts/figures/phase29/lstm_gate_profiles.png"
+  },
+  {
+    "label": "Hình 4.8.",
+    "caption": "Input-gradient RMS của4 TRAIN windows cố định; floor1e−30 chỉ để hiển thị log nếu bằng0, không dùng cho metric/parity.",
+    "image": "../../artifacts/figures/phase29/train_gradient_profiles.png"
+  },
+  {
+    "label": "Hình 4.9.",
+    "caption": "Train wall chính, mean ± sample SD trên số seed có telemetry; n=2 được ghi riêng, không phải latency TEST.",
+    "image": "../../artifacts/figures/phase29/training_cost.png"
+  },
+  {
+    "label": "Hình 5.1.",
+    "caption": "Phân bố chính của ba nguồn dữ liệu trong snapshot đã khóa.",
+    "image": "../../artifacts/figures/phase30/r2/dataset_overview.png"
+  },
+  {
+    "label": "Hình 5.2.",
+    "caption": "Tập con các cạnh phục vụ truy hồi trong schema property graph; không phải toàn bộ topology.",
+    "image": "../../artifacts/figures/phase30/r2/graph_paths.png"
+  },
+  {
+    "label": "Hình 5.3.",
+    "caption": "Chunk Recall@5 trên public TEST, báo riêng medical và finance.",
+    "image": "../../artifacts/figures/phase30/historical_recall.png"
+  },
+  {
+    "label": "Hình 5.4.",
+    "caption": "Ablation của B4 trên VALIDATION theo miền.",
+    "image": "../../artifacts/figures/phase30/r2/validation_ablation.png"
+  },
+  {
+    "label": "Hình 5.5.",
+    "caption": "Các nhãn lỗi/proxy của B4 trên hai miền public TEST.",
+    "image": "../../artifacts/figures/phase30/r2/test_errors.png"
+  },
+  {
+    "label": "Hình 5.6.",
+    "caption": "p95 latency đọc nguyên artifact Phase15; không đo lại trên runtime mới.",
+    "image": "../../artifacts/figures/phase30/historical_latency.png"
+  },
+  {
+    "label": "Hình 5.7.",
+    "caption": "Citation validity và gold precision lịch sử cho hai miền.",
+    "image": "../../artifacts/figures/phase30/historical_citations.png"
+  },
+  {
+    "label": "Hình 6.1.",
+    "caption": "Luồng có giới hạn của A2; A0/A1 lược bớt vai trò theo định nghĩa.** Nguồn:",
+    "image": "../../artifacts/figures/phase31/architecture.png"
+  },
+  {
+    "label": "Hình 6.2.",
+    "caption": "Task success TEST, mỗi loại4task/miền/variant.** Nguồn: saved outputs900row, không chạy lại predictor TEST.",
+    "image": "../../artifacts/figures/phase31/test_quality.png"
+  },
+  {
+    "label": "Hình 6.3.",
+    "caption": "p50/p95 từ20task mỗi miền/variant, gồm ca có tool và ca từ chối sớm.** Không",
+    "image": "../../artifacts/figures/phase31/latency.png"
+  },
+  {
+    "label": "Hình 6.4.",
+    "caption": "Hai loại tỷ lệ lỗi khác nhau trên challenge TEST.** Cột0 về unsafe chỉ nói",
+    "image": "../../artifacts/figures/phase31/safety.png"
+  },
+  {
+    "label": "Hình 6.5.",
+    "caption": "Một trace TEST đã lưu; mũi tên là thứ tự chuyển message, không chain-of-thought.",
+    "image": "../../artifacts/figures/phase31/presentation_r2/trace_example.png"
+  }
+]

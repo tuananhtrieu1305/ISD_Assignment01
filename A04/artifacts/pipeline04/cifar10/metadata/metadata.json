@@ -1,0 +1,160 @@
+{
+  "assignment": "Assignment 04",
+  "domain": "CIFAR-10 image classification",
+  "dataset_name": "CIFAR-10",
+  "source": "University of Toronto CIFAR-10 Python archive",
+  "source_url": "https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz",
+  "cache_file": "datasets/cifar10/cifar-10-python.tar.gz",
+  "task": "10-class RGB image classification",
+  "image_shape": [
+    32,
+    32,
+    3
+  ],
+  "classes": [
+    "airplane",
+    "automobile",
+    "bird",
+    "cat",
+    "deer",
+    "dog",
+    "frog",
+    "horse",
+    "ship",
+    "truck"
+  ],
+  "train_samples_original": 50000,
+  "train_samples_after_validation_split": 45000,
+  "framework_train_samples": 10000,
+  "framework_validation_samples": 3000,
+  "test_samples": 10000,
+  "normalization": "channel mean/std fitted on train split only",
+  "augmentation": "random crop with padding + horizontal flip for framework training only",
+  "keras_tensor_layout": "B x H x W x C",
+  "pytorch_tensor_layout": "B x C x H x W",
+  "numpy_training_subset": 4000,
+  "models_tested": [
+    "Keras Basic CNN",
+    "PyTorch Basic CNN",
+    "M4 Residual CNN + SE Attention",
+    "M2 Basic CNN + BatchNorm",
+    "M1 Basic CNN",
+    "M3 Residual CNN",
+    "NumPy CNN"
+  ],
+  "selection_basis": "Validation Macro-F1; test set not used for model selection",
+  "selection_comparison": [
+    {
+      "Model": "Keras Basic CNN",
+      "SelectionMetric": "Validation Macro-F1",
+      "ValidationScore": 0.5096059499705659,
+      "Best Epoch": 3
+    },
+    {
+      "Model": "PyTorch Basic CNN",
+      "SelectionMetric": "Validation Macro-F1",
+      "ValidationScore": 0.48934534368003374,
+      "Best Epoch": 3
+    },
+    {
+      "Model": "M4 Residual CNN + SE Attention",
+      "SelectionMetric": "Validation Macro-F1",
+      "ValidationScore": 0.46570665939840417,
+      "Best Epoch": 2
+    },
+    {
+      "Model": "M2 Basic CNN + BatchNorm",
+      "SelectionMetric": "Validation Macro-F1",
+      "ValidationScore": 0.4519415145432638,
+      "Best Epoch": 2
+    },
+    {
+      "Model": "M1 Basic CNN",
+      "SelectionMetric": "Validation Macro-F1",
+      "ValidationScore": 0.43030013446713494,
+      "Best Epoch": 2
+    },
+    {
+      "Model": "M3 Residual CNN",
+      "SelectionMetric": "Validation Macro-F1",
+      "ValidationScore": 0.3911670076473621,
+      "Best Epoch": 2
+    },
+    {
+      "Model": "NumPy CNN",
+      "SelectionMetric": "Validation Macro-F1",
+      "ValidationScore": 0.2325623983104718,
+      "Best Epoch": 2
+    }
+  ],
+  "selected_model": "Keras Basic CNN",
+  "final_metrics": {
+    "Accuracy": 0.5097,
+    "Macro-P": 0.5334820108692419,
+    "Macro-R": 0.5097,
+    "Macro-F1": 0.5118448930605283
+  },
+  "total_recorded_train_time_seconds": 457.2048272000002,
+  "artifacts": {
+    "models": [
+      "pipeline04/cifar10/models/final_model.keras",
+      "pipeline04/cifar10/models/keras_basic_cnn_best.keras",
+      "pipeline04/cifar10/models/m1_basic_cnn_best.pt",
+      "pipeline04/cifar10/models/m2_batchnorm_cnn_best.pt",
+      "pipeline04/cifar10/models/m3_residual_cnn_best.pt",
+      "pipeline04/cifar10/models/m4_residual_se_cnn_best.pt",
+      "pipeline04/cifar10/models/numpy_cnn_best_state.npz",
+      "pipeline04/cifar10/models/pytorch_basic_cnn_best.pt"
+    ],
+    "metrics": [
+      "pipeline04/cifar10/metrics/all_model_comparison.csv",
+      "pipeline04/cifar10/metrics/architecture_comparison.csv",
+      "pipeline04/cifar10/metrics/benchmark.csv",
+      "pipeline04/cifar10/metrics/benchmark.json",
+      "pipeline04/cifar10/metrics/feature_map_summary.csv",
+      "pipeline04/cifar10/metrics/final_metrics.json",
+      "pipeline04/cifar10/metrics/framework_comparison.csv",
+      "pipeline04/cifar10/metrics/high_confidence_errors.csv",
+      "pipeline04/cifar10/metrics/keras_basic_classification_report.csv",
+      "pipeline04/cifar10/metrics/keras_basic_cnn_history.csv",
+      "pipeline04/cifar10/metrics/keras_basic_test_metrics.json",
+      "pipeline04/cifar10/metrics/m1_basic_cnn_history.csv",
+      "pipeline04/cifar10/metrics/m1_basic_cnn_test_metrics.json",
+      "pipeline04/cifar10/metrics/m2_batchnorm_cnn_history.csv",
+      "pipeline04/cifar10/metrics/m2_batchnorm_cnn_test_metrics.json",
+      "pipeline04/cifar10/metrics/m3_residual_cnn_history.csv",
+      "pipeline04/cifar10/metrics/m3_residual_cnn_test_metrics.json",
+      "pipeline04/cifar10/metrics/m4_residual_se_cnn_history.csv",
+      "pipeline04/cifar10/metrics/m4_residual_se_cnn_test_metrics.json",
+      "pipeline04/cifar10/metrics/numpy_cnn_history.csv",
+      "pipeline04/cifar10/metrics/numpy_cnn_test_metrics.json",
+      "pipeline04/cifar10/metrics/per_class_accuracy.csv",
+      "pipeline04/cifar10/metrics/pytorch_basic_classification_report.csv",
+      "pipeline04/cifar10/metrics/pytorch_basic_cnn_history.csv",
+      "pipeline04/cifar10/metrics/pytorch_basic_test_metrics.json",
+      "pipeline04/cifar10/metrics/selection_comparison.csv",
+      "pipeline04/cifar10/metrics/top_confusion_pairs.csv"
+    ],
+    "figures": [
+      "pipeline04/cifar10/figures/architecture_comparison_macro_f1.png",
+      "pipeline04/cifar10/figures/class_distribution.png",
+      "pipeline04/cifar10/figures/feature_maps.png",
+      "pipeline04/cifar10/figures/final_confusion_matrix.png",
+      "pipeline04/cifar10/figures/high_confidence_errors.png",
+      "pipeline04/cifar10/figures/keras_basic_training_curves.png",
+      "pipeline04/cifar10/figures/keras_confusion_matrix.png",
+      "pipeline04/cifar10/figures/normalized_confusion_matrix.png",
+      "pipeline04/cifar10/figures/numpy_confusion_matrix.png",
+      "pipeline04/cifar10/figures/one_example_per_class.png",
+      "pipeline04/cifar10/figures/pytorch_basic_training_curves.png",
+      "pipeline04/cifar10/figures/pytorch_confusion_matrix.png",
+      "pipeline04/cifar10/figures/sample_grid.png"
+    ]
+  },
+  "created_at_utc": "2026-09-15T13:08:27.971643+00:00",
+  "limitations": [
+    "CPU runtime budget uses a stratified subset for framework training and an even smaller subset for NumPy CNN.",
+    "NumPy CNN is educational and intentionally small; framework models are stronger and easier to optimize.",
+    "CIFAR-10 is harder than MNIST, so short training budgets leave visible class confusions."
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "path": {
+      "type": "string",
+      "pattern": "^(data|artifacts|experiments|report)/(?!.*\\.\\.)[A-Za-z0-9_./-]+$"
+    },
+    "artifact_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "$ref": "urn:ai-paper:v3:common#/$defs/path"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ]
+    },
+    "implementation": {
+      "enum": [
+        "scratch",
+        "keras",
+        "pytorch"
+      ]
+    },
+    "family": {
+      "enum": [
+        "mlp",
+        "cnn",
+        "rnn",
+        "lstm"
+      ]
+    },
+    "shape": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "enum": [
+              "batch",
+              "time",
+              "features",
+              "classes"
+            ]
+          }
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 6
+    },
+    "payload": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "tabular"
+            },
+            "features": {
+              "type": "object",
+              "minProperties": 1,
+              "maxProperties": 128,
+              "additionalProperties": {
+                "type": [
+                  "number",
+                  "string",
+                  "boolean",
+                  "null"
+                ]
+              }
+            }
+          },
+          "required": [
+            "kind",
+            "features"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "image"
+            },
+            "encoding": {
+              "const": "base64"
+            },
+            "media_type": {
+              "enum": [
+                "image/png",
+                "image/jpeg"
+              ]
+            },
+            "data": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9+/]+={0,2}$",
+              "minLength": 4,
+              "maxLength": 6291456
+            }
+          },
+          "required": [
+            "kind",
+            "encoding",
+            "media_type",
+            "data"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "sequence"
+            },
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 1,
+                "maxItems": 64
+              },
+              "minItems": 1,
+              "maxItems": 720
+            },
+            "as_of": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "kind",
+            "values",
+            "as_of"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "question"
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "domain": {
+              "enum": [
+                "auto",
+                "medical",
+                "finance",
+                "diabetes",
+                "house",
+                "gold"
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "text",
+            "domain"
+          ]
+        }
+      ]
+    },
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "source_url",
+        "locator",
+        "source_sha256"
+      ]
+    },
+    "formula": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "expression": {
+          "type": "string",
+          "minLength": 1
+        },
+        "symbols": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "symbol": {
+                "type": "string",
+                "minLength": 1
+              },
+              "meaning": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "symbol",
+              "meaning"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 30
+        },
+        "why_needed": {
+          "type": "string",
+          "minLength": 1
+        },
+        "plain_explanation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "example": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "expression",
+        "symbols",
+        "why_needed",
+        "plain_explanation",
+        "example"
+      ]
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-paper:v3:common",
+  "title": "AI term paper V3 common contract"
+}

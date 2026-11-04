@@ -1,0 +1,80 @@
+{
+  "schema_version": "2.0.0",
+  "plan": "FINAL_PROJECT01_LLM_V2_EXECUTION_PLAN.md",
+  "plan_version": "2.0",
+  "created_date": "2026-11-01",
+  "timezone": "Asia/Bangkok",
+  "status": "READY",
+  "active_phase": null,
+  "next_phase": 1,
+  "completed_phases": [],
+  "phases": {
+    "1": {
+      "name": "Chốt API, chuẩn bị KB và thiết kế đánh giá",
+      "status": "READY",
+      "depends_on": [],
+      "report": "docs/final_project01/llm_v2/phase1_report.md"
+    },
+    "2": {
+      "name": "RAG + LLM, web so sánh hai nhánh và đánh giá",
+      "status": "PENDING",
+      "depends_on": [1],
+      "report": "docs/final_project01/llm_v2/phase2_report.md"
+    },
+    "3": {
+      "name": "Tiểu luận final DOCX, tích hợp demo và bàn giao",
+      "status": "PENDING",
+      "depends_on": [2],
+      "report": "docs/final_project01/llm_v2/phase3_report.md"
+    }
+  },
+  "current_step": "Plan v2 registered; waiting for user to request Phase 1. No implementation or API call started.",
+  "completed_steps": [
+    "Read prior plan/checkpoint and current project restrictions",
+    "Preserved v1 plan/checkpoint/root AGENTS/project AGENTS with hash read-back",
+    "Defined three phases including unfinished final DOCX from v1",
+    "Updated root and project dispatchers to route bare phases and FINAL/LLM aliases to v2"
+  ],
+  "remaining_steps": [
+    "Phase 1: provider/model/budget/key configuration, source corpus and new evaluation protocol",
+    "Phase 2: actual RAG+LLM pipeline, same-model direct baseline, web and new held-out evaluation",
+    "Phase 3: integrate pipeline into tieuluan3 and produce final DOCX"
+  ],
+  "pending_configuration": {
+    "provider": null,
+    "generation_model_id": null,
+    "embedding_strategy": null,
+    "reranking_strategy": null,
+    "total_spend_limit": null,
+    "currency": null,
+    "key_storage": "Backend ignored environment file or Render Environment Variables; never store key value in checkpoint",
+    "key_probe_status": "NOT_RUN",
+    "request_when": "Start of requested Phase 1; continue independent corpus/design work while waiting"
+  },
+  "evaluation": {
+    "development_questions_target": 20,
+    "held_out_questions_target": 40,
+    "variants": ["llm_direct", "agentic_rag"],
+    "default_repeats": 1,
+    "default_outputs": 80,
+    "status": "NOT_CREATED_NOT_RUN",
+    "execution_phase": 2,
+    "require_model_corpus_prompts_protocol_freeze": true,
+    "historical_40_question_evaluation_is_not_new_held_out": true
+  },
+  "history": {
+    "v1_plan": "FINAL_PROJECT01_EXECUTION_PLAN.md",
+    "v1_checkpoint_archive": "docs/final_project01/baseline/before_llm_v2/docs/final_project01/checkpoint.json",
+    "preservation": "docs/final_project01/plan_v2_preservation.json",
+    "completed_v1_phases": [1, 2],
+    "v1_phase3": "UNSTARTED_TRANSFERRED_TO_V2_PHASE3",
+    "current_offline_UI_revision": "answer_first_v2",
+    "baseline_verifier": "scripts/verify_final_project01.py",
+    "project_verifier": "project01/scripts/verify_answer_first_v2.py"
+  },
+  "active_processes": [],
+  "api_calls_this_plan": 0,
+  "phase_execution_started": false,
+  "historical_training_or_TEST_rerun_authorized": false,
+  "commit_push_deploy_authorized": false
+}

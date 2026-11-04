@@ -1,0 +1,199 @@
+{
+  "scope": "TRAIN-only UI serving smoke; not historical TEST",
+  "job": {
+    "comparison_blockers": [],
+    "comparison_valid": true,
+    "created_at": "2026-10-21T13:06:19.363927+00:00",
+    "dataset_id": "ch3_cifar10",
+    "expires_at": "2026-10-21T13:36:19.363927+00:00",
+    "family": "cnn",
+    "input_sha256": "a0f8cff84f898f668ea95aa2fc3bf2a26f046439f2d44d4b7a37bd3787d03588",
+    "job_id": "job_1ae7f3d32e35de06a816f53979f8d0468365ba8d",
+    "metric_artifacts": [],
+    "request_id": "request_1ae7f3d32e35de06a816f53979f8d0468365ba8d",
+    "request_sha256": "d1401b367018058919ad5b4d15869b8025d66ef6581e927833f5ce6ae1678a39",
+    "results": [
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "25c051d67d935e364d5dfa5b0def7ce6624f5e00971b3df2118c6f3fbc60cc0e",
+        "comparison_group_sha256": "94cccef652c52d8cc3c3089bd80afbc6db6e1dc8b0dd398705b7f85afd7a35f0",
+        "error": null,
+        "implementation": "scratch",
+        "inference_ms": 2.0572780013026204,
+        "input_sha256": "a0f8cff84f898f668ea95aa2fc3bf2a26f046439f2d44d4b7a37bd3787d03588",
+        "model_id": "ch3_cifar10_cnn_scratch_s42",
+        "prediction": {
+          "kind": "classification",
+          "label": "dog",
+          "probabilities": [
+            {
+              "label": "airplane",
+              "value": 0.005568025163083868
+            },
+            {
+              "label": "automobile",
+              "value": 0.0002992291983815176
+            },
+            {
+              "label": "bird",
+              "value": 0.2255544247499135
+            },
+            {
+              "label": "cat",
+              "value": 0.20017024946719134
+            },
+            {
+              "label": "deer",
+              "value": 0.11730138226652549
+            },
+            {
+              "label": "dog",
+              "value": 0.24991784739400708
+            },
+            {
+              "label": "frog",
+              "value": 0.08457166356025447
+            },
+            {
+              "label": "horse",
+              "value": 0.11363426982249461
+            },
+            {
+              "label": "ship",
+              "value": 0.0009537744206514942
+            },
+            {
+              "label": "truck",
+              "value": 0.002029133957496617
+            }
+          ]
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "27800f04f63f205cfc14243b787a21129eb7af248438b23b45a651f6debfa34e",
+        "comparison_group_sha256": "94cccef652c52d8cc3c3089bd80afbc6db6e1dc8b0dd398705b7f85afd7a35f0",
+        "error": null,
+        "implementation": "keras",
+        "inference_ms": 2.0006009999633534,
+        "input_sha256": "a0f8cff84f898f668ea95aa2fc3bf2a26f046439f2d44d4b7a37bd3787d03588",
+        "model_id": "ch3_cifar10_cnn_keras_s42",
+        "prediction": {
+          "kind": "classification",
+          "label": "cat",
+          "probabilities": [
+            {
+              "label": "airplane",
+              "value": 0.002792119017188594
+            },
+            {
+              "label": "automobile",
+              "value": 0.0007351584522425896
+            },
+            {
+              "label": "bird",
+              "value": 0.10289164764961731
+            },
+            {
+              "label": "cat",
+              "value": 0.4516180402097092
+            },
+            {
+              "label": "deer",
+              "value": 0.03462945280476871
+            },
+            {
+              "label": "dog",
+              "value": 0.15126840634993668
+            },
+            {
+              "label": "frog",
+              "value": 0.24137446486075623
+            },
+            {
+              "label": "horse",
+              "value": 0.00826477536792641
+            },
+            {
+              "label": "ship",
+              "value": 0.002337007840578119
+            },
+            {
+              "label": "truck",
+              "value": 0.004088927447275852
+            }
+          ]
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "1280e361388a7b40ce38154a5a42027cb906e0c2de0d0c527826238fc57a45b5",
+        "comparison_group_sha256": "94cccef652c52d8cc3c3089bd80afbc6db6e1dc8b0dd398705b7f85afd7a35f0",
+        "error": null,
+        "implementation": "pytorch",
+        "inference_ms": 1.9605240013333969,
+        "input_sha256": "a0f8cff84f898f668ea95aa2fc3bf2a26f046439f2d44d4b7a37bd3787d03588",
+        "model_id": "ch3_cifar10_cnn_pytorch_s42",
+        "prediction": {
+          "kind": "classification",
+          "label": "frog",
+          "probabilities": [
+            {
+              "label": "airplane",
+              "value": 0.0024182255349518293
+            },
+            {
+              "label": "automobile",
+              "value": 0.000473711031305081
+            },
+            {
+              "label": "bird",
+              "value": 0.16227121018059162
+            },
+            {
+              "label": "cat",
+              "value": 0.24150970490901633
+            },
+            {
+              "label": "deer",
+              "value": 0.07954367218690647
+            },
+            {
+              "label": "dog",
+              "value": 0.2276795611579991
+            },
+            {
+              "label": "frog",
+              "value": 0.25046827568347524
+            },
+            {
+              "label": "horse",
+              "value": 0.03445761995948446
+            },
+            {
+              "label": "ship",
+              "value": 0.0007623055554196408
+            },
+            {
+              "label": "truck",
+              "value": 0.00041571380085024816
+            }
+          ]
+        },
+        "status": "succeeded"
+      }
+    ],
+    "schema_version": "3.0.0",
+    "status": "succeeded",
+    "trace_ids": []
+  },
+  "input_split": "train",
+  "models_retrained": 0,
+  "source_sha256": "622536a29e86a67dd5f149d1c1f252f7b236e98cb625a7dfd2d3eeb2fda3fb50",
+  "historical_test_evaluation_executed": false
+}

@@ -1,0 +1,55 @@
+{
+  "diagnostics": {
+    "calibration": null,
+    "groups": {
+      "built_before1980": {
+        "count": 257,
+        "mae": 12065.466771547102,
+        "rmse": 16736.31147664345
+      },
+      "built_from1980": {
+        "count": 182,
+        "mae": 16119.188634471595,
+        "rmse": 26326.167118083493
+      }
+    },
+    "groups_are_descriptive_only": true
+  },
+  "inference_scope": "fixed TRAIN sample; model forward and host transfer, no preprocessing or inverse target",
+  "memory": {
+    "backend": "torch",
+    "peak_vram_bytes": 68230144,
+    "peak_vram_reserved_bytes": 69206016,
+    "process_peak_ram_bytes": 1751859200,
+    "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+    "requested_device": "gpu",
+    "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+    "wall_seconds": 6.667816755999411
+  },
+  "metrics": {
+    "mae": {
+      "undefined_reason": null,
+      "value": 13746.053056404182
+    },
+    "mape": {
+      "undefined_reason": null,
+      "value": 8.426138903241439
+    },
+    "r2": {
+      "undefined_reason": null,
+      "value": 0.9372777738989545
+    },
+    "rmse": {
+      "undefined_reason": null,
+      "value": 21244.051397713425
+    },
+    "smape": {
+      "undefined_reason": null,
+      "value": 8.013224695116394
+    }
+  },
+  "numpy": "2.4.6",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "preprocessing_seconds": 0.026397389000521798,
+  "python": "3.11.17"
+}

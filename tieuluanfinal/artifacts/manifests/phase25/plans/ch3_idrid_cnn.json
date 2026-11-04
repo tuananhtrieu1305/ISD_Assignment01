@@ -1,0 +1,244 @@
+{
+  "family": "cnn",
+  "input_shape": [
+    128,
+    128,
+    3
+  ],
+  "output_shape": [
+    5
+  ],
+  "plan_version": "phase25.1",
+  "steps": [
+    {
+      "id": "conv2d_1",
+      "input_shape": [
+        128,
+        128,
+        3
+      ],
+      "kernel_size": 3,
+      "kind": "conv2d",
+      "output_shape": [
+        128,
+        128,
+        8
+      ],
+      "padding": "same"
+    },
+    {
+      "activation": "relu",
+      "id": "activation_2",
+      "input_shape": [
+        128,
+        128,
+        8
+      ],
+      "kind": "activation",
+      "output_shape": [
+        128,
+        128,
+        8
+      ]
+    },
+    {
+      "id": "conv2d_3",
+      "input_shape": [
+        128,
+        128,
+        8
+      ],
+      "kernel_size": 3,
+      "kind": "conv2d",
+      "output_shape": [
+        128,
+        128,
+        8
+      ],
+      "padding": "same"
+    },
+    {
+      "activation": "relu",
+      "id": "activation_4",
+      "input_shape": [
+        128,
+        128,
+        8
+      ],
+      "kind": "activation",
+      "output_shape": [
+        128,
+        128,
+        8
+      ]
+    },
+    {
+      "id": "pooling_5",
+      "input_shape": [
+        128,
+        128,
+        8
+      ],
+      "kind": "pooling",
+      "output_shape": [
+        64,
+        64,
+        8
+      ],
+      "pool": "max2"
+    },
+    {
+      "id": "conv2d_6",
+      "input_shape": [
+        64,
+        64,
+        8
+      ],
+      "kernel_size": 3,
+      "kind": "conv2d",
+      "output_shape": [
+        64,
+        64,
+        16
+      ],
+      "padding": "same"
+    },
+    {
+      "activation": "relu",
+      "id": "activation_7",
+      "input_shape": [
+        64,
+        64,
+        16
+      ],
+      "kind": "activation",
+      "output_shape": [
+        64,
+        64,
+        16
+      ]
+    },
+    {
+      "id": "conv2d_8",
+      "input_shape": [
+        64,
+        64,
+        16
+      ],
+      "kernel_size": 3,
+      "kind": "conv2d",
+      "output_shape": [
+        64,
+        64,
+        16
+      ],
+      "padding": "same"
+    },
+    {
+      "activation": "relu",
+      "id": "activation_9",
+      "input_shape": [
+        64,
+        64,
+        16
+      ],
+      "kind": "activation",
+      "output_shape": [
+        64,
+        64,
+        16
+      ]
+    },
+    {
+      "id": "pooling_10",
+      "input_shape": [
+        64,
+        64,
+        16
+      ],
+      "kind": "pooling",
+      "output_shape": [
+        32,
+        32,
+        16
+      ],
+      "pool": "max2"
+    },
+    {
+      "id": "conv2d_11",
+      "input_shape": [
+        32,
+        32,
+        16
+      ],
+      "kernel_size": 3,
+      "kind": "conv2d",
+      "output_shape": [
+        32,
+        32,
+        32
+      ],
+      "padding": "same"
+    },
+    {
+      "activation": "relu",
+      "id": "activation_12",
+      "input_shape": [
+        32,
+        32,
+        32
+      ],
+      "kind": "activation",
+      "output_shape": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "pooling_13",
+      "input_shape": [
+        32,
+        32,
+        32
+      ],
+      "kind": "pooling",
+      "output_shape": [
+        32
+      ],
+      "pool": "global_average"
+    },
+    {
+      "id": "dense_14",
+      "input_shape": [
+        32
+      ],
+      "kind": "dense",
+      "output_shape": [
+        32
+      ]
+    },
+    {
+      "activation": "relu",
+      "id": "activation_15",
+      "input_shape": [
+        32
+      ],
+      "kind": "activation",
+      "output_shape": [
+        32
+      ]
+    },
+    {
+      "id": "dense_16",
+      "input_shape": [
+        32
+      ],
+      "kind": "dense",
+      "output_shape": [
+        5
+      ]
+    }
+  ],
+  "tiny_synthetic_only": false
+}

@@ -1,0 +1,65 @@
+{
+  "revision": "render-v3-r1",
+  "status": "LOCAL_VERIFICATION_PASS",
+  "kind": "Handoff summary of executed tests and tool results; not a cloud attestation",
+  "unit_tests": {
+    "path": "artifacts/manifests/render_v3_r1/final_tests_r2.xml",
+    "sha256": "1c544e7f7dafc8d0fe207bf29fafc9c6f5c2cac2150c8f2b297581157bc03297",
+    "passed": 46,
+    "skipped": 0
+  },
+  "coverage": {
+    "path": "artifacts/manifests/render_v3_r1/final_coverage_r2.json",
+    "sha256": "850b9d9d1a376ba8f6fbf6acda14cf60a23acb3382b675fe39dc497b65b1610e",
+    "combined_percent": 96.31336405529954,
+    "statement_percent": 97.38562091503267,
+    "branch_percent": 93.75
+  },
+  "ui": {
+    "path": "artifacts/manifests/render_v3_r1/ui.xml",
+    "sha256": "30862017d6c0619bb7a415aa7dfd83aa4d0457be0e42bbee21b5cc2fa40d6a7a",
+    "passed": 8,
+    "retries": 0,
+    "scope": "4 neural TRAIN comparisons; 1 FinQA compact demo_not_benchmark; 1 Gold parent-TRAIN agent task; deep-link refresh; readiness/exact-origin CORS",
+    "live_successful_slots": 20,
+    "actual_backend": "numpy",
+    "actual_device": "cpu",
+    "neural_prediction_and_checkpoint_hash_parity": true
+  },
+  "fresh_cpu_environment": {
+    "python": "3.11.17",
+    "runtime": "/tmp/ai-paper-render-v3-r1-cpu",
+    "installation": "26 CPU packages installed by uv with --require-hashes from the unchanged CPU lock; the pip build command verified afterwards",
+    "cpu_build_command": "PASS",
+    "pip_check": "PASS",
+    "torch_tensorflow_keras_installed": false,
+    "gpu_environments_modified": false
+  },
+  "production_frontend_build": {
+    "status": "PASS",
+    "node": "22.23.4",
+    "api_origin": "https://isd-assignment01-api.onrender.com",
+    "output": "report/build/render-v3-r1/web-production"
+  },
+  "preservation": {
+    "path": "artifacts/manifests/render_v3_r1/preservation.json",
+    "protected_files": 31848,
+    "parent_locks": 12,
+    "status": "PASS",
+    "phase35_release_check": "PASS: 391 files, read_only_no_inference"
+  },
+  "archive": {
+    "path": "deploy/render-v3-r1/api-bundle.zip",
+    "sha256": "1f38247bf5b2a4a1b1a8036d234e8e1bcfb34931a59d4c41655e6d5da319db54",
+    "size_bytes": 74864102,
+    "payload_files": 808,
+    "payload_expanded_bytes": 87996158,
+    "preserved_from_phase32": true
+  },
+  "models_retrained": 0,
+  "historical_test_evaluation_executed": false,
+  "committed_or_pushed_by_agent": false,
+  "revision_cloud_deployed": false,
+  "render_account_settings_modified": false,
+  "free_tier_fit_guaranteed": false
+}

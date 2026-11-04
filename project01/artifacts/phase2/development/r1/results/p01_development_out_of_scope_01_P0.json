@@ -1,0 +1,85 @@
+{
+  "case_id": "p01_development_out_of_scope_01",
+  "split": "development",
+  "category": "out_of_scope",
+  "question": "Predict the sale price of my house.",
+  "variant": "P0",
+  "reference_score": null,
+  "result": {
+    "request_id": "p01_c221f445c23b43a59aa2b8b571cce0c8",
+    "variant": "P0",
+    "status": "refused",
+    "risk": null,
+    "knowledge": null,
+    "profile_validation": null,
+    "verification": {
+      "status": "not_run",
+      "checks": {}
+    },
+    "answer": {
+      "status": "refused",
+      "sections": [
+        {
+          "title": "Giới hạn xử lý",
+          "text": "non_diabetes_domain"
+        }
+      ],
+      "variant": "P0",
+      "limitation": "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh.",
+      "synthesis": "unverified_tool_outputs"
+    },
+    "errors": [
+      "non_diabetes_domain"
+    ],
+    "trace": [
+      {
+        "node_id": "n1",
+        "agent": "Direct",
+        "tool": "plan_request",
+        "parent_ids": [],
+        "duration_ms": 0.13113800014252774,
+        "outcome": "ok",
+        "output": {
+          "need_risk": false,
+          "need_knowledge": true,
+          "mode": "knowledge",
+          "policy": "non_diabetes_domain"
+        }
+      },
+      {
+        "node_id": "n2",
+        "agent": "Direct",
+        "tool": "compose",
+        "parent_ids": [
+          "n1"
+        ],
+        "duration_ms": 0.07082400043145753,
+        "outcome": "ok",
+        "output": {
+          "status": "refused",
+          "section_count": 1
+        }
+      }
+    ],
+    "tool_calls": 0,
+    "retrieval_loops": 0,
+    "latency_ms": 6.059137999727682,
+    "limitations": [
+      "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh."
+    ],
+    "input_sha256": "b3e8a32d13fc0fc4e84b6ff23e14333d47c9419ccf78ced87ae33cfa0ff83eab",
+    "worker_terminated": true
+  },
+  "metrics": {
+    "automatic_success": true,
+    "numeric_parity": null,
+    "citation_integrity_format": null,
+    "known_positive_hit_at_10": null,
+    "known_positive_rr": null,
+    "support_review_required": false,
+    "task_success": null,
+    "manual_support": null
+  },
+  "gold_document_ids": [],
+  "scope": "pipeline/synthetic tasks; not clinical accuracy"
+}

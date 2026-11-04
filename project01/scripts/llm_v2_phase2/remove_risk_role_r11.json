@@ -1,0 +1,8 @@
+[
+  {
+    "module": "agents",
+    "old": "class RiskAgent:\n    def __init__(self,root):self.root=Path(root)\n\n    def run(self,profile):\n        # Original NumPy model implementation is also retained inline in notebook01.\n        from .risk import FrozenRisk\n        runtime=FrozenRisk(self.root/'artifacts/package/v1')\n        return runtime.predict(profile)\n\n",
+    "new": "",
+    "count": 1
+  }
+]

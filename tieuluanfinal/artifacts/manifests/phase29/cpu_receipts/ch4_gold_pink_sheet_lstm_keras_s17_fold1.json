@@ -1,0 +1,115 @@
+{
+  "canonical_x_sha256": "c74b2548959adbeaba470385422bda9424e6810aae2fb62caff3b2c98892c743",
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_keras_s17_fold1/best.npz",
+    "sha256": "5c1c2cf5234e2e1ac5f5f920862d6590593d00138cf02dc523eed890c4c1e081"
+  },
+  "checkpoint_metadata": {
+    "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_keras_s17_fold1/best.json",
+    "sha256": "56f7ed1496c1323e425ec4fd1f595dcf4d48c083835db209ff919ee40e664534"
+  },
+  "comparisons": {
+    "atol": 1e-05,
+    "cpu_reference": {
+      "max_absolute_error": 2.60770320892334e-08,
+      "output": [
+        [
+          -0.009220881387591362,
+          0.013128941878676414,
+          -0.02143588662147522
+        ],
+        [
+          -0.009619022719562054,
+          0.01252218708395958,
+          -0.020426493138074875
+        ],
+        [
+          -0.009609130211174488,
+          0.012537261471152306,
+          -0.02045157179236412
+        ],
+        [
+          -0.009597660973668098,
+          0.012554742395877838,
+          -0.020480651408433914
+        ]
+      ],
+      "status": "PASS"
+    },
+    "original_gpu_cpu_gate": {
+      "max_absolute_error": 3.725290298461914e-08,
+      "output": [
+        [
+          -0.009220883250236511,
+          0.013128940016031265,
+          -0.02143588289618492
+        ],
+        [
+          -0.009619031101465225,
+          0.012522174045443535,
+          -0.020426470786333084
+        ],
+        [
+          -0.009609142318367958,
+          0.012537244707345963,
+          -0.020451541990041733
+        ],
+        [
+          -0.009597666561603546,
+          0.012554733082652092,
+          -0.02048063650727272
+        ]
+      ],
+      "status": "PASS"
+    },
+    "rtol": 0.0001
+  },
+  "config": {
+    "path": "artifacts/manifests/phase29/configs/ch4_gold_pink_sheet_fold1_s17.json",
+    "sha256": "2bb6e08955dbedb3ea425058bedcf1ccd95a80545259e74943ce01af66cc6a67"
+  },
+  "cuda_visible_devices": "-1",
+  "ids": [
+    "GOLD/1961-12-01T00:00:00",
+    "GOLD/1962-01-01T00:00:00",
+    "GOLD/1962-02-01T00:00:00",
+    "GOLD/1962-03-01T00:00:00"
+  ],
+  "input_split": "train",
+  "native_cpu_device": "cpu",
+  "optimizer_updates": 0,
+  "portable_cpu_output": [
+    [
+      -0.009220871143043041,
+      0.013128958642482758,
+      -0.02143591269850731
+    ],
+    [
+      -0.009619028307497501,
+      0.012522177770733833,
+      -0.02042647823691368
+    ],
+    [
+      -0.00960913673043251,
+      0.012537254020571709,
+      -0.020451556891202927
+    ],
+    [
+      -0.009597651660442352,
+      0.012554755434393883,
+      -0.020480673760175705
+    ]
+  ],
+  "run_id": "ch4_gold_pink_sheet_lstm_keras_s17_fold1",
+  "selection": {
+    "path": "artifacts/manifests/phase29/runs/ch4_gold_pink_sheet_lstm_keras_s17_fold1/selection.json",
+    "sha256": "d0fdf1619505e0177e9978a0aee4a4581a9451fba40f346eb86db0fccceae0c9"
+  },
+  "status": "PASS",
+  "test_executed": false,
+  "validation_executed": false,
+  "writer_source": {
+    "path": "scripts/phase29_receipts.py",
+    "sha256": "d653aeef41c013efc4de8252617578241e6b6c9694974bab5f0d67daf0652f04"
+  }
+}

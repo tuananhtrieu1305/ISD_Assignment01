@@ -1,0 +1,220 @@
+{
+  "category": "evidence",
+  "domain": "house",
+  "metrics": {
+    "answer_completion": 1,
+    "citation_correctness": 1,
+    "latency_ms": 9.016898000481888,
+    "message_count": 4,
+    "numeric_parity": 1,
+    "peak_child_rss_bytes": 172724224,
+    "refusal_correctness": null,
+    "routing_accuracy": 1,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 4,
+    "messages": [
+      {
+        "input": {
+          "domain_hint": "house",
+          "operation": "evidence",
+          "question": "Trích nguồn giá nhà theo bản ghi house_evidence_005.",
+          "record_id": "house_evidence_005",
+          "task_id": "house_evidence_f2_2"
+        },
+        "node_id": "node_1",
+        "output": {
+          "policy": null,
+          "route": "house"
+        }
+      },
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "house_evidence_005"
+        },
+        "node_id": "node_2",
+        "output": {
+          "payload": {
+            "artifact_refs": [
+              {
+                "path": "data/processed/v3/ch4_bis_house_prices/series.csv.gz",
+                "sha256": "172b4e53b37e092c9a75876852c64b1deaa504eeafc92f44aecd0d8c7467b3d4"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "evidence_house_evidence_005",
+                "locator": "TRAIN_origin/Q.CA.N.628/2004-10-01T00:00:00;series=Q.CA.N.628",
+                "source_sha256": "172b4e53b37e092c9a75876852c64b1deaa504eeafc92f44aecd0d8c7467b3d4",
+                "source_url": "https://data.bis.org/topics/RPP"
+              }
+            ],
+            "text": "BIS series Q.CA.N.628; TRAIN origin 2004-10-01T00:00:00: 70.0448 index.",
+            "unit": "nominal house-price index",
+            "values": [
+              70.0448
+            ]
+          },
+          "peak_rss_bytes": 172724224,
+          "receipt_sha256": "c2b6f9993e05253edcd9a6890e858584e14fc544c063c3437603c9b653b8041d",
+          "status": "ok"
+        }
+      },
+      {
+        "input": {
+          "receipt": {
+            "payload": {
+              "artifact_refs": [
+                {
+                  "path": "data/processed/v3/ch4_bis_house_prices/series.csv.gz",
+                  "sha256": "172b4e53b37e092c9a75876852c64b1deaa504eeafc92f44aecd0d8c7467b3d4"
+                }
+              ],
+              "citations": [
+                {
+                  "evidence_id": "evidence_house_evidence_005",
+                  "locator": "TRAIN_origin/Q.CA.N.628/2004-10-01T00:00:00;series=Q.CA.N.628",
+                  "source_sha256": "172b4e53b37e092c9a75876852c64b1deaa504eeafc92f44aecd0d8c7467b3d4",
+                  "source_url": "https://data.bis.org/topics/RPP"
+                }
+              ],
+              "text": "BIS series Q.CA.N.628; TRAIN origin 2004-10-01T00:00:00: 70.0448 index.",
+              "unit": "nominal house-price index",
+              "values": [
+                70.0448
+              ]
+            },
+            "peak_rss_bytes": 172724224,
+            "receipt_sha256": "c2b6f9993e05253edcd9a6890e858584e14fc544c063c3437603c9b653b8041d",
+            "status": "ok"
+          }
+        },
+        "node_id": "node_3",
+        "output": {
+          "reason": null,
+          "verification": "passed"
+        }
+      },
+      {
+        "input": {
+          "citations": [
+            {
+              "evidence_id": "evidence_house_evidence_005",
+              "locator": "TRAIN_origin/Q.CA.N.628/2004-10-01T00:00:00;series=Q.CA.N.628",
+              "source_sha256": "172b4e53b37e092c9a75876852c64b1deaa504eeafc92f44aecd0d8c7467b3d4",
+              "source_url": "https://data.bis.org/topics/RPP"
+            }
+          ],
+          "status": "succeeded",
+          "values": [
+            70.0448
+          ]
+        },
+        "node_id": "node_4",
+        "output": {
+          "answer": "BIS series Q.CA.N.628; TRAIN origin 2004-10-01T00:00:00: 70.0448 index.",
+          "warning": "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 172724224,
+    "reason": null,
+    "route": "house",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "BIS series Q.CA.N.628; TRAIN origin 2004-10-01T00:00:00: 70.0448 index.",
+      "citations": [
+        {
+          "evidence_id": "evidence_house_evidence_005",
+          "locator": "TRAIN_origin/Q.CA.N.628/2004-10-01T00:00:00;series=Q.CA.N.628",
+          "source_sha256": "172b4e53b37e092c9a75876852c64b1deaa504eeafc92f44aecd0d8c7467b3d4",
+          "source_url": "https://data.bis.org/topics/RPP"
+        }
+      ],
+      "domain": "house",
+      "evidence_kind": "measured",
+      "latency_ms": 7.920881000245572,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "router",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "94c042867ab096a8ad7da62802d7e8ad5b91d45103918769d52670699bb09ff9",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "bb06b457001fb5dd41e049eb1a0c3ec3a67b5602f5e97015a539f26f20eaad4f",
+          "parent_ids": [],
+          "tool": "none"
+        },
+        {
+          "agent": "specialist",
+          "artifact_refs": [
+            {
+              "path": "data/processed/v3/ch4_bis_house_prices/series.csv.gz",
+              "sha256": "172b4e53b37e092c9a75876852c64b1deaa504eeafc92f44aecd0d8c7467b3d4"
+            }
+          ],
+          "duration_ms": 7.582303000162938,
+          "input_sha256": "39354c3f88757fdc0bb6196d1bc0019f0c538ae8ba95491cd1c148ef20b3736a",
+          "node_id": "node_2",
+          "outcome": "ok",
+          "output_sha256": "db94c9e03104cb7478c3211016f6d12be9b3a95d0c141133a6819b8ed28a8d69",
+          "parent_ids": [
+            "node_1"
+          ],
+          "tool": "lookup_series"
+        },
+        {
+          "agent": "verifier",
+          "artifact_refs": [],
+          "duration_ms": 0.04452800021681469,
+          "input_sha256": "d74f20630ea44dc9615db96fee4ecbde72b662a272ebb94673899486c8f91d0c",
+          "node_id": "node_3",
+          "outcome": "ok",
+          "output_sha256": "74b85fef6af3e54336cd24c01d554053e29c98a538f68e7ce9e1fc671d05e382",
+          "parent_ids": [
+            "node_2"
+          ],
+          "tool": "none"
+        },
+        {
+          "agent": "reporter",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "d3cfcc7c1f326f09286c98817217d79e31e2f5da79bd9c9ad02ca2bd0e20eae9",
+          "node_id": "node_4",
+          "outcome": "ok",
+          "output_sha256": "408c332a4bec34be1bccc7a79c3e5779cd99f87fec124dd501efdd3e07d8f6e3",
+          "parent_ids": [
+            "node_3"
+          ],
+          "tool": "none"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "succeeded",
+      "task_id": "house_evidence_f2_2",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_94c042867ab096a8ad7d_a2",
+      "variant": "A2"
+    },
+    "values": [
+      70.0448
+    ],
+    "verification": "passed",
+    "wall_latency_ms": 9.016898000481888
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "benign",
+  "task_id": "house_evidence_f2_2",
+  "variant": "A2"
+}

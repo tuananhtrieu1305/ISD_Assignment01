@@ -1,0 +1,277 @@
+{
+  "category": "tool_failure",
+  "domain": "gold",
+  "metrics": {
+    "answer_completion": 1,
+    "citation_correctness": 1,
+    "latency_ms": 17.614431999390945,
+    "message_count": 5,
+    "numeric_parity": 1,
+    "peak_child_rss_bytes": 176025600,
+    "refusal_correctness": null,
+    "routing_accuracy": 1,
+    "task_success": 1,
+    "tool_calls": 2,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 5,
+    "messages": [
+      {
+        "input": {
+          "domain_hint": "gold",
+          "operation": "numeric",
+          "question": "giá vàng: gọi công cụ với mã gold_numeric_020.",
+          "record_id": "gold_numeric_020",
+          "task_id": "gold_tool_failure_f1_1"
+        },
+        "node_id": "node_1",
+        "output": {
+          "policy": null,
+          "route": "gold"
+        }
+      },
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "gold_numeric_020"
+        },
+        "node_id": "node_2",
+        "output": {
+          "code": "transient",
+          "peak_rss_bytes": 171831296,
+          "status": "error"
+        }
+      },
+      {
+        "input": {
+          "attempt": 1,
+          "record_id": "gold_numeric_020"
+        },
+        "node_id": "node_3",
+        "output": {
+          "payload": {
+            "artifact_refs": [
+              {
+                "path": "data/processed/v3/ch4_gold_pink_sheet/series.csv.gz",
+                "sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee"
+              },
+              {
+                "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_scratch_s42_main/best.npz",
+                "sha256": "084062b50b6bc52a36b73c5e04474952fad4bbd51b9871477ed61455c78b6721"
+              },
+              {
+                "path": "artifacts/manifests/phase29/configs/ch4_gold_pink_sheet_main_s42.json",
+                "sha256": "d6b0fee5f9de30a7d56556946a46a82c0382793c1930c40411d639c6470c38b4"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "evidence_gold_numeric_020",
+                "locator": "parent_train/GOLD/1963-08-01T00:00:00",
+                "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+                "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+              }
+            ],
+            "text": "Frozen NumPy CPU tool output: 34.936236, 34.34894, 36.312718",
+            "unit": "USD/troy oz; horizons1/3/6month",
+            "values": [
+              34.9362357373852,
+              34.34893987181488,
+              36.31271787177951
+            ]
+          },
+          "peak_rss_bytes": 176025600,
+          "receipt_sha256": "c08ba91d04d265891d5cb794ab289478b0f34d203b48bfb8da4e9db14da04fd3",
+          "status": "ok"
+        }
+      },
+      {
+        "input": {
+          "receipt": {
+            "payload": {
+              "artifact_refs": [
+                {
+                  "path": "data/processed/v3/ch4_gold_pink_sheet/series.csv.gz",
+                  "sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee"
+                },
+                {
+                  "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_scratch_s42_main/best.npz",
+                  "sha256": "084062b50b6bc52a36b73c5e04474952fad4bbd51b9871477ed61455c78b6721"
+                },
+                {
+                  "path": "artifacts/manifests/phase29/configs/ch4_gold_pink_sheet_main_s42.json",
+                  "sha256": "d6b0fee5f9de30a7d56556946a46a82c0382793c1930c40411d639c6470c38b4"
+                }
+              ],
+              "citations": [
+                {
+                  "evidence_id": "evidence_gold_numeric_020",
+                  "locator": "parent_train/GOLD/1963-08-01T00:00:00",
+                  "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+                  "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+                }
+              ],
+              "text": "Frozen NumPy CPU tool output: 34.936236, 34.34894, 36.312718",
+              "unit": "USD/troy oz; horizons1/3/6month",
+              "values": [
+                34.9362357373852,
+                34.34893987181488,
+                36.31271787177951
+              ]
+            },
+            "peak_rss_bytes": 176025600,
+            "receipt_sha256": "c08ba91d04d265891d5cb794ab289478b0f34d203b48bfb8da4e9db14da04fd3",
+            "status": "ok"
+          }
+        },
+        "node_id": "node_4",
+        "output": {
+          "reason": null,
+          "verification": "passed"
+        }
+      },
+      {
+        "input": {
+          "citations": [
+            {
+              "evidence_id": "evidence_gold_numeric_020",
+              "locator": "parent_train/GOLD/1963-08-01T00:00:00",
+              "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+              "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+            }
+          ],
+          "status": "succeeded",
+          "values": [
+            34.9362357373852,
+            34.34893987181488,
+            36.31271787177951
+          ]
+        },
+        "node_id": "node_5",
+        "output": {
+          "answer": "Frozen NumPy CPU tool output: 34.936236, 34.34894, 36.312718",
+          "warning": "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 176025600,
+    "reason": null,
+    "route": "gold",
+    "tool_calls": 2,
+    "trace": {
+      "answer": "Frozen NumPy CPU tool output: 34.936236, 34.34894, 36.312718",
+      "citations": [
+        {
+          "evidence_id": "evidence_gold_numeric_020",
+          "locator": "parent_train/GOLD/1963-08-01T00:00:00",
+          "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+          "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+        }
+      ],
+      "domain": "gold",
+      "evidence_kind": "measured",
+      "latency_ms": 16.585966999628,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "router",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "4a1d45c263364c9e8391ecbfc1d12039345a501a207ac6dcd46eedccf08be43b",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "72dc706c738bf00d701f71cd39899a4124e263d5ae510cbe081339e730aa83cb",
+          "parent_ids": [],
+          "tool": "none"
+        },
+        {
+          "agent": "specialist",
+          "artifact_refs": [],
+          "duration_ms": 5.626292000670219,
+          "input_sha256": "08693664170367a6ccf7dcca1d5287858b72840ecf26ec1c6a480945a2356e47",
+          "node_id": "node_2",
+          "outcome": "error",
+          "output_sha256": "913e1f8b6c1e117d067d34ed317abe340ecd7f2639c4fa7065c4ff3b2a5c00a4",
+          "parent_ids": [
+            "node_1"
+          ],
+          "tool": "forecast_gold"
+        },
+        {
+          "agent": "specialist",
+          "artifact_refs": [
+            {
+              "path": "data/processed/v3/ch4_gold_pink_sheet/series.csv.gz",
+              "sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee"
+            },
+            {
+              "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_scratch_s42_main/best.npz",
+              "sha256": "084062b50b6bc52a36b73c5e04474952fad4bbd51b9871477ed61455c78b6721"
+            },
+            {
+              "path": "artifacts/manifests/phase29/configs/ch4_gold_pink_sheet_main_s42.json",
+              "sha256": "d6b0fee5f9de30a7d56556946a46a82c0382793c1930c40411d639c6470c38b4"
+            }
+          ],
+          "duration_ms": 10.62557899967942,
+          "input_sha256": "5c66c9a6cad39426a5998dc8a33ad3ef6b028ee6dbd33a4228fa434aa434dcef",
+          "node_id": "node_3",
+          "outcome": "ok",
+          "output_sha256": "c18929cf67fc1f8e27b36be87ea2fe9b94e4a97f10bfacb7a24f4c6bedc4d322",
+          "parent_ids": [
+            "node_2"
+          ],
+          "tool": "forecast_gold"
+        },
+        {
+          "agent": "verifier",
+          "artifact_refs": [],
+          "duration_ms": 0.04517900015343912,
+          "input_sha256": "06707899c7d6a6d0aa51089178d3b88382c637cfc8376724f85990514a094fbe",
+          "node_id": "node_4",
+          "outcome": "ok",
+          "output_sha256": "74b85fef6af3e54336cd24c01d554053e29c98a538f68e7ce9e1fc671d05e382",
+          "parent_ids": [
+            "node_3"
+          ],
+          "tool": "none"
+        },
+        {
+          "agent": "reporter",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "b1058a3c1fdafff1526cb9ecd5e160db83445b01d9e1de7db596c3b93f0d20fa",
+          "node_id": "node_5",
+          "outcome": "ok",
+          "output_sha256": "8f44dc3e533294aae23f3bc54d116e147c9290a78ed6a418056be6c0f1051f0f",
+          "parent_ids": [
+            "node_4"
+          ],
+          "tool": "none"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "succeeded",
+      "task_id": "gold_tool_failure_f1_1",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_4a1d45c263364c9e8391_a2",
+      "variant": "A2"
+    },
+    "values": [
+      34.9362357373852,
+      34.34893987181488,
+      36.31271787177951
+    ],
+    "verification": "passed",
+    "wall_latency_ms": 17.614431999390945
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "challenge",
+  "task_id": "gold_tool_failure_f1_1",
+  "variant": "A2"
+}

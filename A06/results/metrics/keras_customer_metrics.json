@@ -1,0 +1,164 @@
+{
+  "experiment": "Keras Customer Vanilla RNN",
+  "seed": 42,
+  "device": "cpu",
+  "framework_versions": {
+    "tensorflow": "2.21.0",
+    "keras": "3.15.1"
+  },
+  "architecture": {
+    "recurrent_layer": "keras.layers.SimpleRNN",
+    "input_size": 5,
+    "sequence_length": 8,
+    "hidden_units": 64,
+    "num_layers": 1,
+    "activation": "tanh",
+    "head": "Dense(1, activation='sigmoid') producing one probability",
+    "parameter_count": 4545
+  },
+  "data": {
+    "feature_names": [
+      "total_spent",
+      "total_quantity",
+      "order_count",
+      "unique_products",
+      "active_flag"
+    ],
+    "split_shapes": {
+      "train": [
+        247458,
+        8,
+        5
+      ],
+      "val": [
+        50354,
+        8,
+        5
+      ],
+      "test": [
+        53052,
+        8,
+        5
+      ]
+    },
+    "source_artifacts": {
+      "test": {
+        "bytes": 418292,
+        "path": "datasets/processed/customer_test.npz",
+        "sha256": "de8cbcec15e1ede07f374573b33bfc1c31816191fc69d83e9a1bfc062b0b0bef"
+      },
+      "train": {
+        "bytes": 1976810,
+        "path": "datasets/processed/customer_train.npz",
+        "sha256": "1f3995f0b2c4295fd824ab1fba35ff6208dc954ceb2d091dc979fd4d71085051"
+      },
+      "val": {
+        "bytes": 343645,
+        "path": "datasets/processed/customer_val.npz",
+        "sha256": "93a417d8570ad087b6a814e1439eaf30ea0db8e932a89cadb5c9f8451c4e5d00"
+      }
+    }
+  },
+  "training": {
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "criterion": "binary_crossentropy",
+    "batch_size": 1024,
+    "max_epochs": 30,
+    "patience": 5,
+    "min_delta": 0.0001,
+    "restore_best_weights": true,
+    "validation_weighting": "sample weights mapped from TRAIN-derived class_weight",
+    "epochs_actually_run": 18,
+    "best_epoch": 16,
+    "best_validation_loss": 0.9599091410636902,
+    "training_duration_seconds": 86.00996199999997,
+    "selection_scope": "validation loss only; TEST unused until final evaluation",
+    "history": {
+      "train_loss": [
+        1.1513432264328003,
+        1.1399211883544922,
+        1.138301968574524,
+        1.1374272108078003,
+        1.136829137802124,
+        1.1363544464111328,
+        1.135946273803711,
+        1.135582447052002,
+        1.1352694034576416,
+        1.1349823474884033,
+        1.1347278356552124,
+        1.1344847679138184,
+        1.134255290031433,
+        1.1340337991714478,
+        1.1338224411010742,
+        1.1336137056350708,
+        1.1334079504013062,
+        1.1332122087478638
+      ],
+      "validation_loss": [
+        0.9696707725524902,
+        0.9691640138626099,
+        0.9665570259094238,
+        0.9644654989242554,
+        0.9630535244941711,
+        0.9620921611785889,
+        0.9613993167877197,
+        0.9609076380729675,
+        0.9605515003204346,
+        0.9603261351585388,
+        0.9601726531982422,
+        0.9600771069526672,
+        0.9600033164024353,
+        0.9599539041519165,
+        0.959920346736908,
+        0.9599091410636902,
+        0.9599164724349976,
+        0.959945797920227
+      ]
+    }
+  },
+  "class_weighting": {
+    "used": true,
+    "type": "Keras class_weight passed to fit()",
+    "class_0_weight": 1.0,
+    "positive_weight": 14.226310607925178,
+    "formula": "TRAIN negatives / TRAIN positives",
+    "fit_scope": "TRAIN y only",
+    "train_class_0": 231206,
+    "train_class_1": 16252
+  },
+  "evaluation": {
+    "split": "TEST",
+    "evaluations_on_test": 1,
+    "threshold": 0.5,
+    "metrics": {
+      "accuracy": 0.760046746588253,
+      "precision": 0.15943232429984147,
+      "recall": 0.56973293768546,
+      "f1": 0.24914474460304353,
+      "roc_auc": 0.7004916961425864
+    },
+    "confusion_matrix_tn_fp_fn_tp": {
+      "tn": 38210,
+      "fp": 11135,
+      "fn": 1595,
+      "tp": 2112
+    }
+  },
+  "artifacts": {
+    "model": {
+      "path": "models/keras/keras_customer_rnn_best.keras",
+      "sha256": "4b3efb2ddbfc4d43ce5ecfe579db7ed8e7c17520aa3c3b566d2c20fef256cde5"
+    },
+    "predictions": {
+      "path": "results/predictions/keras_customer_predictions.csv",
+      "rows": 53052,
+      "sha256": "63fabc48e5c33025e23e270b5ce8cfd9096501fcc68f71a3aeaf87cd981facbb"
+    },
+    "figures": [
+      "results/figures/keras_customer/training_validation_loss.png",
+      "results/figures/keras_customer/test_confusion_matrix.png",
+      "results/figures/keras_customer/test_roc_curve.png"
+    ]
+  }
+}

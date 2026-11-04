@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phòng thí nghiệm mô hình · Tiểu luận AI</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="/" aria-label="Trang chủ">
+      <span class="brand-mark">AI</span>
+      <span><b>Phòng thí nghiệm mô hình</b><small>Tiểu luận môn học · bản triển khai cục bộ</small></span>
+    </a>
+    <div class="health" id="health"><span class="health-dot"></span><span>Đang kiểm tra mô hình…</span></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">PHASE 06 / DEPLOYMENT</p>
+      <h1>Từ notebook<br>đến <em>dự đoán thật.</em></h1>
+      <p class="hero-copy">Bốn artifact đã khóa được phục vụ qua một giao diện duy nhất. Mỗi kết quả đi kèm phiên bản, SHA-256 và giới hạn sử dụng.</p>
+      <div class="hero-stat"><strong>04</strong><span>mô hình<br>đã xác minh hash</span></div>
+    </section>
+
+    <nav class="tabs" aria-label="Nhóm mô hình" role="tablist">
+      <button class="tab active" role="tab" aria-selected="true" data-tab="tabular"><span>01</span>ML cơ bản</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="cnn"><span>02</span>CNN · EuroSAT</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="rnn"><span>03</span>RNN · Chuỗi</button>
+    </nav>
+
+    <section class="panel active" id="panel-tabular" role="tabpanel">
+      <div class="panel-intro">
+        <div><p class="kicker">CHƯƠNG 2 · TABULAR</p><h2>Sàng lọc chỉ báo sức khỏe</h2></div>
+        <p>MLP NumPy nhận 21 đặc trưng hành vi và sức khỏe, sau đó trả về xác suất nguy cơ theo ngưỡng đã khóa.</p>
+      </div>
+      <div class="workspace-grid">
+        <form id="diabetes-form" class="control-card">
+          <div class="card-heading"><h3>Dữ liệu đầu vào</h3><button type="button" class="text-button" data-demo="diabetes">Nạp mẫu kiểm thử</button></div>
+          <div id="diabetes-fields" class="field-grid"></div>
+          <button class="primary" type="submit">Chạy dự đoán <span>→</span></button>
+        </form>
+        <aside class="result-card" id="diabetes-result">
+          <p class="result-label">KẾT QUẢ / CHƯA CHẠY</p>
+          <div class="empty-state"><span>01</span><p>Nạp dữ liệu mẫu hoặc điền đầy đủ 21 trường để bắt đầu.</p></div>
+          <p class="warning">Kết quả học thuật, không phải chẩn đoán y khoa.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-cnn" role="tabpanel" hidden>
+      <div class="panel-intro">
+        <div><p class="kicker">CHƯƠNG 3 · THỊ GIÁC</p><h2>Phân loại ảnh vệ tinh EuroSAT</h2></div>
+        <p>CNN NumPy chuẩn hóa ảnh RGB về 64 × 64 và xếp hạng ba lớp có độ tin cậy cao nhất.</p>
+      </div>
+      <div class="workspace-grid">
+        <div class="control-card">
+          <div class="card-heading"><h3>Ảnh đầu vào</h3><button type="button" class="text-button" data-demo="eurosat">Nạp ảnh EuroSAT mẫu</button></div>
+          <label class="drop-zone" id="drop-zone">
+            <input id="image-input" type="file" accept="image/png,image/jpeg">
+            <img id="image-preview" alt="Ảnh xem trước" hidden>
+            <span class="drop-icon">⌁</span>
+            <strong>Thả ảnh vào đây hoặc chọn tệp</strong>
+            <small>PNG/JPEG · tối đa 5 MB</small>
+          </label>
+          <button class="primary" id="cnn-submit" type="button">Phân loại ảnh <span>→</span></button>
+        </div>
+        <aside class="result-card" id="cnn-result">
+          <p class="result-label">TOP-3 / CHƯA CHẠY</p>
+          <div class="empty-state"><span>02</span><p>Chọn một ảnh vệ tinh để xem ba lớp dự đoán.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-rnn" role="tabpanel" hidden>
+      <div class="panel-intro">
+        <div><p class="kicker">CHƯƠNG 4 · CHUỖI</p><h2>Dự đoán theo thời gian</h2></div>
+        <p>Chọn hành vi khách hàng (8 tuần) hoặc AAPL (30 phiên). Mỗi hàng gồm đúng năm giá trị, phân cách bằng dấu phẩy.</p>
+      </div>
+      <div class="mode-switch" role="group" aria-label="Bài toán RNN">
+        <button class="mode active" data-mode="customer">Customer · 8 tuần</button>
+        <button class="mode" data-mode="aapl">AAPL · 30 phiên</button>
+      </div>
+      <div class="workspace-grid">
+        <div class="control-card">
+          <div class="card-heading"><h3 id="sequence-title">Chuỗi khách hàng</h3><button type="button" class="text-button" id="sequence-demo">Nạp mẫu kiểm thử</button></div>
+          <label class="field-label" for="sequence-input">CSV không tiêu đề · 5 cột</label>
+          <textarea id="sequence-input" rows="12" spellcheck="false" placeholder="Mỗi dòng: 0.0, 0.0, 0.0, 0.0, 1"></textarea>
+          <label class="file-button">Đọc tệp CSV<input id="csv-input" type="file" accept=".csv,text/csv"></label>
+          <button class="primary" id="rnn-submit" type="button">Chạy RNN <span>→</span></button>
+        </div>
+        <aside class="result-card" id="rnn-result">
+          <p class="result-label">KẾT QUẢ / CHƯA CHẠY</p>
+          <div class="empty-state"><span>03</span><p>Nạp chuỗi mẫu để xem dự đoán RNN và baseline tương ứng.</p></div>
+          <p class="warning" id="rnn-warning">Kết quả học thuật; với AAPL, đây không phải khuyến nghị đầu tư.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="provenance">
+      <div><p class="eyebrow">REPRODUCIBILITY</p><h2>Dấu vết mô hình</h2></div>
+      <div id="model-registry" class="registry"><p>Đang đọc model registry…</p></div>
+    </section>
+  </main>
+
+  <footer><span>TIỂU LUẬN AI · 2026</span><span>Local only · không lưu payload</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+{
+  "cases": [
+    {
+      "dataset_id": "ch3_idrid",
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-18T01:54:05.159720+00:00",
+        "dataset_id": "ch3_idrid",
+        "expires_at": "2026-10-18T02:54:05.159720+00:00",
+        "family": "cnn",
+        "input_sha256": "eac6eabcb839b59e088849ea41c921e183996551f2230f209c8a10eba64dea2b",
+        "job_id": "cnn_demo_803206e3863bf554",
+        "metric_artifacts": [
+          {
+            "path": "artifacts/metrics/phase27/validation/ch3_idrid_cnn_scratch_s42.json",
+            "sha256": "5c93d085f0db82a6163f478ce8f28dbe40ea42250408cfe02de696ab11bc6909"
+          },
+          {
+            "path": "artifacts/metrics/phase27/validation/ch3_idrid_cnn_keras_s42.json",
+            "sha256": "0a0eb7fe72caa16215f4ed95706ab640a10c24b69ac840bbb778a58ad7e67c46"
+          },
+          {
+            "path": "artifacts/metrics/phase27/validation/ch3_idrid_cnn_pytorch_s42.json",
+            "sha256": "b000074df91270e20067fdd93a596240654a1e7371c2776d8cfc2d2c63ac0657"
+          }
+        ],
+        "request_id": "cnn_request_803206e3863bf554",
+        "request_sha256": "803206e3863bf5549609d888ce550027351e34a7a4de24745807f0463ab34409",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "1ae8fe723040c34c99e882d3054e14654ff7bd3ed6c131697290e19a45b2a1cc",
+            "comparison_group_sha256": "9781ad59ac32eb1644fdcc85691891dc23bfdd60a54449ce66fc47ed428d609a",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 30.331961999763735,
+            "input_sha256": "eac6eabcb839b59e088849ea41c921e183996551f2230f209c8a10eba64dea2b",
+            "model_id": "ch3_idrid_cnn_scratch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "DR grade 4",
+              "probabilities": [
+                {
+                  "label": "DR grade 0",
+                  "value": 0.11530902981758118
+                },
+                {
+                  "label": "DR grade 1",
+                  "value": 0.17357559502124786
+                },
+                {
+                  "label": "DR grade 2",
+                  "value": 0.2536160945892334
+                },
+                {
+                  "label": "DR grade 3",
+                  "value": 0.20335622131824493
+                },
+                {
+                  "label": "DR grade 4",
+                  "value": 0.254143089056015
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "6de5dcc0c5b173a19efe21eec05708be3650a9a893740a8546cb506b5b06ec28",
+            "comparison_group_sha256": "9781ad59ac32eb1644fdcc85691891dc23bfdd60a54449ce66fc47ed428d609a",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 27.212376000534277,
+            "input_sha256": "eac6eabcb839b59e088849ea41c921e183996551f2230f209c8a10eba64dea2b",
+            "model_id": "ch3_idrid_cnn_keras_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "DR grade 2",
+              "probabilities": [
+                {
+                  "label": "DR grade 0",
+                  "value": 0.11598081141710281
+                },
+                {
+                  "label": "DR grade 1",
+                  "value": 0.1736621856689453
+                },
+                {
+                  "label": "DR grade 2",
+                  "value": 0.25527408719062805
+                },
+                {
+                  "label": "DR grade 3",
+                  "value": 0.20395559072494507
+                },
+                {
+                  "label": "DR grade 4",
+                  "value": 0.2511272728443146
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "460ba7a5d53ad340f00f748f8cf51a664d171c6604af7fe7b7300d82a3be9c44",
+            "comparison_group_sha256": "9781ad59ac32eb1644fdcc85691891dc23bfdd60a54449ce66fc47ed428d609a",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 27.237999998760642,
+            "input_sha256": "eac6eabcb839b59e088849ea41c921e183996551f2230f209c8a10eba64dea2b",
+            "model_id": "ch3_idrid_cnn_pytorch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "DR grade 2",
+              "probabilities": [
+                {
+                  "label": "DR grade 0",
+                  "value": 0.0991656705737114
+                },
+                {
+                  "label": "DR grade 1",
+                  "value": 0.17047271132469177
+                },
+                {
+                  "label": "DR grade 2",
+                  "value": 0.3085922300815582
+                },
+                {
+                  "label": "DR grade 3",
+                  "value": 0.2280220240354538
+                },
+                {
+                  "label": "DR grade 4",
+                  "value": 0.19374732673168182
+                }
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "models_loaded": 3,
+      "preprocessing_scope": "preloaded base64 PNG at MODEL resolution to RGB decode, resize/rescale and frozen contract lookup/hash checks; excludes image-file/network I/O, includes contract metadata I/O; not full-resolution IDRiD cost",
+      "preprocessing_timing": {
+        "inference_p50_ms": 28.190846500365296,
+        "inference_p95_ms": 58.85488080002685,
+        "repeats": 30,
+        "warmup": 5
+      },
+      "sample_id": "train/IDRiD_001",
+      "serving_backend": "numpy_cpu_portable"
+    },
+    {
+      "dataset_id": "ch3_eurosat",
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-18T01:54:08.183125+00:00",
+        "dataset_id": "ch3_eurosat",
+        "expires_at": "2026-10-18T02:54:08.183125+00:00",
+        "family": "cnn",
+        "input_sha256": "1dfafe7cb6ede7e3a4311413dc49ee7f7f00e4e78bcb109f6104d9db721b9bb1",
+        "job_id": "cnn_demo_6673ae118ce6b1c7",
+        "metric_artifacts": [
+          {
+            "path": "artifacts/metrics/phase27/validation/ch3_eurosat_cnn_scratch_s42.json",
+            "sha256": "09bbf6f5918269c18f580ba14fd0ee74587e85fcf792b38ef57d2fad50239ab3"
+          },
+          {
+            "path": "artifacts/metrics/phase27/validation/ch3_eurosat_cnn_keras_s42.json",
+            "sha256": "4b3b815f8f2d232394dbb257a55a6fcbfc13db7042cb62bb161a2ac6335bdcf8"
+          },
+          {
+            "path": "artifacts/metrics/phase27/validation/ch3_eurosat_cnn_pytorch_s42.json",
+            "sha256": "67437bef5fe8a8829679815a5e3f2741a3bb8e05a848616114f288f012fdac01"
+          }
+        ],
+        "request_id": "cnn_request_6673ae118ce6b1c7",
+        "request_sha256": "6673ae118ce6b1c7ae525cf9580aec2fd879d031f23b45bfb6b9536c5af8c191",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "81ac7acf1e5ce8fbab7f30ac63c6cf64ba206946d332519b3eb740f503adf990",
+            "comparison_group_sha256": "0e9d6a5e1ef8f5bd14701bad1e1de451a78c516f709043a23dea1d60fac300ed",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 2.231294000011985,
+            "input_sha256": "1dfafe7cb6ede7e3a4311413dc49ee7f7f00e4e78bcb109f6104d9db721b9bb1",
+            "model_id": "ch3_eurosat_cnn_scratch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "AnnualCrop",
+              "probabilities": [
+                {
+                  "label": "AnnualCrop",
+                  "value": 0.6176431179046631
+                },
+                {
+                  "label": "Forest",
+                  "value": 5.652558684232645e-06
+                },
+                {
+                  "label": "HerbaceousVegetation",
+                  "value": 0.27785924077033997
+                },
+                {
+                  "label": "Highway",
+                  "value": 0.02886102721095085
+                },
+                {
+                  "label": "Industrial",
+                  "value": 0.00126524711959064
+                },
+                {
+                  "label": "Pasture",
+                  "value": 0.000746481295209378
+                },
+                {
+                  "label": "PermanentCrop",
+                  "value": 0.06240217015147209
+                },
+                {
+                  "label": "Residential",
+                  "value": 5.095110827824101e-05
+                },
+                {
+                  "label": "River",
+                  "value": 0.0014043590053915977
+                },
+                {
+                  "label": "SeaLake",
+                  "value": 0.009761709719896317
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "1923b8bcd4af14996507171ba7db2fd805dbf99720eaa07a03dea4b9c195388e",
+            "comparison_group_sha256": "0e9d6a5e1ef8f5bd14701bad1e1de451a78c516f709043a23dea1d60fac300ed",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 2.109890001520398,
+            "input_sha256": "1dfafe7cb6ede7e3a4311413dc49ee7f7f00e4e78bcb109f6104d9db721b9bb1",
+            "model_id": "ch3_eurosat_cnn_keras_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "AnnualCrop",
+              "probabilities": [
+                {
+                  "label": "AnnualCrop",
+                  "value": 0.5416951179504395
+                },
+                {
+                  "label": "Forest",
+                  "value": 0.0017405322287231684
+                },
+                {
+                  "label": "HerbaceousVegetation",
+                  "value": 0.36587125062942505
+                },
+                {
+                  "label": "Highway",
+                  "value": 0.021368566900491714
+                },
+                {
+                  "label": "Industrial",
+                  "value": 0.00044093880569562316
+                },
+                {
+                  "label": "Pasture",
+                  "value": 0.0016185273416340351
+                },
+                {
+                  "label": "PermanentCrop",
+                  "value": 0.045908525586128235
+                },
+                {
+                  "label": "Residential",
+                  "value": 0.0005575347458943725
+                },
+                {
+                  "label": "River",
+                  "value": 0.0013054577866569161
+                },
+                {
+                  "label": "SeaLake",
+                  "value": 0.019493529573082924
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "5139fe6ca9135d5d5838db2bf477e78bf942446bc78f50cceb5fe64b89cf8f4f",
+            "comparison_group_sha256": "0e9d6a5e1ef8f5bd14701bad1e1de451a78c516f709043a23dea1d60fac300ed",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 5.370541000957019,
+            "input_sha256": "1dfafe7cb6ede7e3a4311413dc49ee7f7f00e4e78bcb109f6104d9db721b9bb1",
+            "model_id": "ch3_eurosat_cnn_pytorch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "HerbaceousVegetation",
+              "probabilities": [
+                {
+                  "label": "AnnualCrop",
+                  "value": 0.2839537262916565
+                },
+                {
+                  "label": "Forest",
+                  "value": 0.006748710758984089
+                },
+                {
+                  "label": "HerbaceousVegetation",
+                  "value": 0.4468074142932892
+                },
+                {
+                  "label": "Highway",
+                  "value": 0.052870046347379684
+                },
+                {
+                  "label": "Industrial",
+                  "value": 3.2439204460388282e-06
+                },
+                {
+                  "label": "Pasture",
+                  "value": 0.0021109641529619694
+                },
+                {
+                  "label": "PermanentCrop",
+                  "value": 0.0511806458234787
+                },
+                {
+                  "label": "Residential",
+                  "value": 4.6960289182607085e-05
+                },
+                {
+                  "label": "River",
+                  "value": 0.0019128030398860574
+                },
+                {
+                  "label": "SeaLake",
+                  "value": 0.15436547994613647
+                }
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "models_loaded": 3,
+      "preprocessing_scope": "preloaded base64 PNG at MODEL resolution to RGB decode, resize/rescale and frozen contract lookup/hash checks; excludes image-file/network I/O, includes contract metadata I/O; not full-resolution IDRiD cost",
+      "preprocessing_timing": {
+        "inference_p50_ms": 61.258988499503175,
+        "inference_p95_ms": 75.56332959966312,
+        "repeats": 30,
+        "warmup": 5
+      },
+      "sample_id": "EuroSAT_RGB/AnnualCrop/AnnualCrop_1.jpg",
+      "serving_backend": "numpy_cpu_portable"
+    },
+    {
+      "dataset_id": "ch3_cifar10",
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-18T01:54:14.145151+00:00",
+        "dataset_id": "ch3_cifar10",
+        "expires_at": "2026-10-18T02:54:14.145151+00:00",
+        "family": "cnn",
+        "input_sha256": "4c4bec64cef00784f772aac3d6dc7fc976f9efe317702c9e7c02b2e47755e32a",
+        "job_id": "cnn_demo_d1401b3670180589",
+        "metric_artifacts": [
+          {
+            "path": "artifacts/metrics/phase27/validation/ch3_cifar10_cnn_scratch_s42.json",
+            "sha256": "f7e84c0b8b20b14e780ebf2b3dc535827eca9f0a83a08e2a139d43fe5f74aa8f"
+          },
+          {
+            "path": "artifacts/metrics/phase27/validation/ch3_cifar10_cnn_keras_s42.json",
+            "sha256": "ed734482e7a3f2fd119fb0a64380d7b2a9cf950c7114bfe35d37a7164122a5d0"
+          },
+          {
+            "path": "artifacts/metrics/phase27/validation/ch3_cifar10_cnn_pytorch_s42.json",
+            "sha256": "e5f096ac6caa599c149802cab961b3531f396d8d7b83585b6cb0c63c63c86256"
+          }
+        ],
+        "request_id": "cnn_request_d1401b3670180589",
+        "request_sha256": "d1401b367018058919ad5b4d15869b8025d66ef6581e927833f5ce6ae1678a39",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "25c051d67d935e364d5dfa5b0def7ce6624f5e00971b3df2118c6f3fbc60cc0e",
+            "comparison_group_sha256": "94cccef652c52d8cc3c3089bd80afbc6db6e1dc8b0dd398705b7f85afd7a35f0",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 2.2355990004143678,
+            "input_sha256": "4c4bec64cef00784f772aac3d6dc7fc976f9efe317702c9e7c02b2e47755e32a",
+            "model_id": "ch3_cifar10_cnn_scratch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "dog",
+              "probabilities": [
+                {
+                  "label": "airplane",
+                  "value": 0.005568024702370167
+                },
+                {
+                  "label": "automobile",
+                  "value": 0.0002992291992995888
+                },
+                {
+                  "label": "bird",
+                  "value": 0.225554421544075
+                },
+                {
+                  "label": "cat",
+                  "value": 0.20017026364803314
+                },
+                {
+                  "label": "deer",
+                  "value": 0.11730139702558517
+                },
+                {
+                  "label": "dog",
+                  "value": 0.2499178647994995
+                },
+                {
+                  "label": "frog",
+                  "value": 0.08457166701555252
+                },
+                {
+                  "label": "horse",
+                  "value": 0.11363428086042404
+                },
+                {
+                  "label": "ship",
+                  "value": 0.0009537744335830212
+                },
+                {
+                  "label": "truck",
+                  "value": 0.0020291339606046677
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "27800f04f63f205cfc14243b787a21129eb7af248438b23b45a651f6debfa34e",
+            "comparison_group_sha256": "94cccef652c52d8cc3c3089bd80afbc6db6e1dc8b0dd398705b7f85afd7a35f0",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 2.0799250014533754,
+            "input_sha256": "4c4bec64cef00784f772aac3d6dc7fc976f9efe317702c9e7c02b2e47755e32a",
+            "model_id": "ch3_cifar10_cnn_keras_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "cat",
+              "probabilities": [
+                {
+                  "label": "airplane",
+                  "value": 0.002792119747027755
+                },
+                {
+                  "label": "automobile",
+                  "value": 0.0007351585663855076
+                },
+                {
+                  "label": "bird",
+                  "value": 0.10289165377616882
+                },
+                {
+                  "label": "cat",
+                  "value": 0.4516180753707886
+                },
+                {
+                  "label": "deer",
+                  "value": 0.0346294566988945
+                },
+                {
+                  "label": "dog",
+                  "value": 0.15126842260360718
+                },
+                {
+                  "label": "frog",
+                  "value": 0.24137449264526367
+                },
+                {
+                  "label": "horse",
+                  "value": 0.008264774456620216
+                },
+                {
+                  "label": "ship",
+                  "value": 0.0023370073176920414
+                },
+                {
+                  "label": "truck",
+                  "value": 0.004088927526026964
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "1280e361388a7b40ce38154a5a42027cb906e0c2de0d0c527826238fc57a45b5",
+            "comparison_group_sha256": "94cccef652c52d8cc3c3089bd80afbc6db6e1dc8b0dd398705b7f85afd7a35f0",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 2.138371999535593,
+            "input_sha256": "4c4bec64cef00784f772aac3d6dc7fc976f9efe317702c9e7c02b2e47755e32a",
+            "model_id": "ch3_cifar10_cnn_pytorch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "frog",
+              "probabilities": [
+                {
+                  "label": "airplane",
+                  "value": 0.0024182256311178207
+                },
+                {
+                  "label": "automobile",
+                  "value": 0.00047371102846227586
+                },
+                {
+                  "label": "bird",
+                  "value": 0.16227121651172638
+                },
+                {
+                  "label": "cat",
+                  "value": 0.24150973558425903
+                },
+                {
+                  "label": "deer",
+                  "value": 0.07954367995262146
+                },
+                {
+                  "label": "dog",
+                  "value": 0.22767958045005798
+                },
+                {
+                  "label": "frog",
+                  "value": 0.25046828389167786
+                },
+                {
+                  "label": "horse",
+                  "value": 0.034457623958587646
+                },
+                {
+                  "label": "ship",
+                  "value": 0.0007623055134899914
+                },
+                {
+                  "label": "truck",
+                  "value": 0.00041571378824301064
+                }
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "models_loaded": 3,
+      "preprocessing_scope": "preloaded base64 PNG at MODEL resolution to RGB decode, resize/rescale and frozen contract lookup/hash checks; excludes image-file/network I/O, includes contract metadata I/O; not full-resolution IDRiD cost",
+      "preprocessing_timing": {
+        "inference_p50_ms": 102.84564599987789,
+        "inference_p95_ms": 125.59173554991501,
+        "repeats": 30,
+        "warmup": 5
+      },
+      "sample_id": "data_batch_1.bin/00026",
+      "serving_backend": "numpy_cpu_portable"
+    }
+  ],
+  "status": "PASS",
+  "test_data_accessed": false,
+  "test_model_forward_executed": false
+}

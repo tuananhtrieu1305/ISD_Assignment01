@@ -1,0 +1,104 @@
+[
+  {
+    "module": "agents",
+    "old": "async def verify(self,question,draft,evidence,call_id=None,risk=None):",
+    "new": "async def verify(self,question,draft,evidence,call_id=None,risk=None,check_numeric=True):",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "markers=[int(value) for value in re.findall(r'\\[Nguồn\\s+(\\d+)\\]',draft.answer_vi,re.IGNORECASE)]",
+    "new": "markers=[int(value) for group in re.findall(r'\\[Nguồn\\s+([\\d,\\s]+)\\]',draft.answer_vi,re.IGNORECASE) for value in re.findall(r'\\d+',group)]",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "if not numbers<=allowed:errors.append('unsupported_numeric_claim')",
+    "new": "if check_numeric and not numbers<=allowed:errors.append('unsupported_numeric_claim')",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "class PipelineRecorder:",
+    "new": "class SemanticVerifier:\n    \"\"\"One Gemini review/correction, followed by hard local integrity checks.\"\"\"\n    provider='gemini_semantic_plus_local_integrity'\n\n    def __init__(self,gateway):self.gateway=gateway\n\n    async def verify(self,question,draft,evidence,call_id,risk=None):\n        local=CodeVerifier()\n        hard,_=await local.verify(question,draft,evidence,risk=risk,check_numeric=False)\n        if not hard['approved']:\n            return {**hard,'provider':self.provider,'semantic_review':'not_run_hard_integrity_failure','api_calls':0},{'cache_status':'local_hard_failure','sdk_calls':0}\n        rules=(Path(__file__).resolve().parents[3]/'config/prompts/semantic_verifier_vi.txt').read_text(encoding='utf-8')\n        payload={'question':question,'draft':draft.model_dump(),'evidence':[r.model_dump() for r in evidence],\n                 'risk_tool_summary':risk_summary(risk) or None,'raw_profile_sent':False}\n        prompt=rules+'\\n'+SOURCE_VERIFICATION_POLICY+'\\nINPUT_DATA_JSON:\\n'+json.dumps(payload,ensure_ascii=False)\n        row=await self.gateway.generate(prompt,call_id+':semantic-verifier:r10',1280)\n        try:\n            value=parse_json(row['text'])\n            required={'approved','numeric_ok','scope_ok','answer_matches_claims','claim_reviews','feedback','corrected_draft'}\n            if not isinstance(value,dict) or not required<=set(value):raise ValueError('Incomplete semantic response')\n            if any(type(value[key]) is not bool for key in ['approved','numeric_ok','scope_ok','answer_matches_claims']):raise ValueError('Nonboolean decision')\n            if not isinstance(value['feedback'],str) or not value['feedback'].strip():raise ValueError('Missing review feedback')\n            candidate=Draft.model_validate(value['corrected_draft']) if value['corrected_draft'] is not None else draft\n            candidate_hard,_=await local.verify(question,candidate,evidence,risk=risk,check_numeric=False)\n            claims={claim.id:claim for claim in candidate.claims}\n            reviews=value['claim_reviews']\n            if not isinstance(reviews,list) or len(reviews)!=len(claims):raise ValueError('Review coverage mismatch')\n            seen=set()\n            for item in reviews:\n                if not isinstance(item,dict):raise ValueError('Invalid claim review')\n                cid=item.get('claim_id')\n                if isinstance(cid,int) and not isinstance(cid,bool):cid=str(cid)\n                if cid not in claims or cid in seen:raise ValueError('Unknown or duplicate reviewed claim')\n                seen.add(cid);item['claim_id']=cid\n                if item.get('status') not in {'supported','partially_supported','unsupported','contradicted','not_checkable'}:raise ValueError('Invalid status')\n                refs=item.get('evidence_ids')\n                if not isinstance(refs,list) or not all(isinstance(ref,str) for ref in refs):raise ValueError('Invalid reviewed evidence')\n                if not set(refs)<=set(claims[cid].citation_chunk_ids):raise ValueError('Verifier changed source attribution')\n                if item['status']=='supported' and not refs:raise ValueError('Supported claim without evidence')\n                if not isinstance(item.get('reason_vi'),str):raise ValueError('Missing claim explanation')\n            accepted=(value['approved'] and value['numeric_ok'] and value['scope_ok'] and value['answer_matches_claims']\n                      and all(item['status']=='supported' for item in reviews) and candidate_hard['approved'])\n            review={**candidate_hard,'approved':bool(accepted),'claim_reviews':reviews,'numeric_ok':value['numeric_ok'],\n                    'scope_ok':value['scope_ok'],'answer_matches_claims':value['answer_matches_claims'],\n                    'feedback':value['feedback'][:2500],'provider':self.provider,'api_calls':1,\n                    'semantic_review':'same_Gemini_model_not_independent_clinical_review',\n                    'draft_revised':bool(accepted and value['corrected_draft'] is not None),\n                    'revised_draft':candidate.model_dump() if accepted and value['corrected_draft'] is not None else None}\n            if not accepted and not review['code_errors']:review['code_errors']=['semantic_review_not_approved']\n            return review,row\n        except (ValueError,TypeError,KeyError,AttributeError):\n            return {**hard,'approved':False,'feedback':'Verifier trả kết quả không đầy đủ/hợp lệ; chưa phát hành bản nháp.',\n                    'provider':self.provider,'api_calls':1,'code_errors':['invalid_semantic_response'],\n                    'semantic_review':'invalid_response_no_retry','revised_draft':None},row\n\n\nclass PipelineRecorder:",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'runtime_revision':'source-verification-r9'",
+    "new": "'runtime_revision':'semantic-verifier-r10'",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'generation_calls_per_comparison':3",
+    "new": "'generation_calls_per_comparison':4",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'verifier_provider':'local_code'",
+    "new": "'verifier_provider':'gemini_semantic_plus_local_integrity'",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "recorder.begin('verifier','Code Verifier · kiểm integrity','Code Verifier',{'question':question,'draft':draft.model_dump(),'evidence_chunk_ids':[r.chunk_id for r in ranked],'provider':'local_code','api_calls':0})\n            review,verify_usage=await CodeVerifier().verify(question,draft,ranked,None,risk)\n            usage.extend(reporter.usage);recorder.finish({'review':review,'local_receipt':verify_usage,'next':'release'})",
+    "new": "recorder.begin('verifier','Verifier · Gemini + integrity','Verifier Agent',{'question':question,'draft':draft.model_dump(),'evidence_chunk_ids':[r.chunk_id for r in ranked],'provider':'gemini_semantic_plus_local_integrity','generation_call_budget':1,'raw_profile_sent':False})\n            review,verify_usage=await SemanticVerifier(self.gateway).verify(question,draft,ranked,call_prefix,risk)\n            usage.extend(reporter.usage);recorder.finish({'review':review,'call_metadata':{'cache_status':verify_usage.get('cache_status'),'api_calls':review['api_calls']},'next':'release'})\n            if review['approved'] and review.get('revised_draft'):draft=Draft.model_validate(review['revised_draft'])",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'Tôi chưa kiểm chứng được một câu trả lời đủ căn cứ cho câu hỏi này từ kho nguồn hiện có. Bạn có thể hỏi rõ một khía cạnh cụ thể hơn; hệ thống không đưa ra kết luận y khoa khi kiểm chứng chưa đạt.'",
+    "new": "'Bản nháp chưa được Verifier duyệt. '+review['feedback']",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'trace_revision':'io-r8-full-demo'",
+    "new": "'trace_revision':'io-r10-semantic-verifier'",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'prompt_revision':'source-verification-r9'",
+    "new": "'prompt_revision':'semantic-verifier-r10'",
+    "count": 2
+  },
+  {
+    "module": "agents",
+    "old": "'comparison_total':3,'rag':2,'direct':1",
+    "new": "'comparison_total':4,'rag':3,'direct':1",
+    "count": 2
+  },
+  {
+    "module": "agents",
+    "old": "'reviewer_scope':'local integrity checks only; not semantic or clinical review'",
+    "new": "'reviewer_scope':'one same-model semantic review plus local integrity; not independent clinical review'",
+    "count": 1
+  },
+  {
+    "module": "transport",
+    "old": "            if data.profile is not None:RiskAgent(root).run(data.profile)",
+    "new": "            if data.mode=='combined' and data.profile is None:raise ValueError('combined requires a complete profile')\n            if data.mode=='knowledge' and data.profile is not None:raise ValueError('knowledge mode must not include a profile')\n            if data.profile is not None:\n                from .risk import validate_profile\n                if not validate_profile(data.profile,read_json(root/'datasets/profile_schema.json'))['valid']:raise ValueError('invalid profile')",
+    "count": 1
+  },
+  {
+    "module": "transport",
+    "old": "if remaining<3:return error('insufficient_comparison_budget',f'Cần đủ3 generation request để hoàn tất hai nhánh; hiện chỉ còn {remaining}. Không tạo job dở dang.',429)",
+    "new": "if remaining<4:return error('insufficient_comparison_budget',f'Cần đủ4 generation request để hoàn tất hai nhánh; hiện chỉ còn {remaining}. Không tạo job dở dang.',429)",
+    "count": 1
+  },
+  {
+    "module": "transport",
+    "old": "'results':{},'branch_states':{'llm_direct':'pending','agentic_rag':'pending'},",
+    "new": "'runtime_revision':'semantic-verifier-r10','mode':data.mode,'risk_requested':data.profile is not None,\n                          'results':{},'branch_states':{'llm_direct':'pending','agentic_rag':'pending'},",
+    "count": 1
+  },
+  {
+    "module": "transport",
+    "old": "        if journal.read(path)['status']!='waiting_quota':return error('not_resumable','Chỉ tiếp tục lượt đang chờ quota.',409)",
+    "new": "        previous=journal.read(path)\n        if previous['status']!='waiting_quota':return error('not_resumable','Chỉ tiếp tục lượt đang chờ quota.',409)\n        if previous.get('runtime_revision')!='semantic-verifier-r10':return error('revision_mismatch','Lượt cũ dùng pipeline khác; giữ kết quả cũ, không tự gọi tiếp bằng prompt mới.',409)\n        usage=AgenticRuntime(root,False).readiness()['usage']\n        needed=3 if 'llm_direct' in previous['results'] else 4\n        if usage['generation_cap']-usage['generation_attempts']<needed:return error('insufficient_comparison_budget',f'Cần còn ít nhất {needed} generation request để tiếp tục.',429)",
+    "count": 1
+  }
+]

@@ -1,0 +1,151 @@
+{
+  "datasets": [
+    {
+      "dataset": "ch4_gold_pink_sheet",
+      "last_loss": 1.7148948423564434,
+      "memory": {
+        "backend": "numpy",
+        "peak_vram_bytes": 0,
+        "peak_vram_reserved_bytes": 0,
+        "process_peak_ram_bytes": 228315136,
+        "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+        "requested_device": "cpu",
+        "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+        "wall_seconds": 0.025941469000827055
+      },
+      "parity": {
+        "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+        "max_abs_error": 0.0,
+        "max_relative_l2_error": 0.0,
+        "per_tensor_relative_l2_error": {
+          "dense_4/b": 0.0,
+          "dense_4/w": 0.0,
+          "dense_6/b": 0.0,
+          "dense_6/w": 0.0,
+          "dense_8/b": 0.0,
+          "dense_8/w": 0.0,
+          "lstm_1/b": 0.0,
+          "lstm_1/u": 0.0,
+          "lstm_1/w": 0.0,
+          "lstm_2/b": 0.0,
+          "lstm_2/u": 0.0,
+          "lstm_2/w": 0.0,
+          "lstm_3/b": 0.0,
+          "lstm_3/u": 0.0,
+          "lstm_3/w": 0.0
+        },
+        "tolerance": 0.001
+      },
+      "shape": [
+        32,
+        24,
+        4
+      ],
+      "step_seconds": [
+        0.010588203000224894,
+        0.007808054997440195,
+        0.007538820998888696
+      ],
+      "test_windows_materialized": false
+    },
+    {
+      "dataset": "ch4_bis_house_prices",
+      "last_loss": 0.15515396422779304,
+      "memory": {
+        "backend": "numpy",
+        "peak_vram_bytes": 0,
+        "peak_vram_reserved_bytes": 0,
+        "process_peak_ram_bytes": 244953088,
+        "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+        "requested_device": "cpu",
+        "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+        "wall_seconds": 0.013015557000471745
+      },
+      "parity": {
+        "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+        "max_abs_error": 0.0,
+        "max_relative_l2_error": 0.0,
+        "per_tensor_relative_l2_error": {
+          "dense_4/b": 0.0,
+          "dense_4/w": 0.0,
+          "dense_6/b": 0.0,
+          "dense_6/w": 0.0,
+          "dense_8/b": 0.0,
+          "dense_8/w": 0.0,
+          "lstm_1/b": 0.0,
+          "lstm_1/u": 0.0,
+          "lstm_1/w": 0.0,
+          "lstm_2/b": 0.0,
+          "lstm_2/u": 0.0,
+          "lstm_2/w": 0.0,
+          "lstm_3/b": 0.0,
+          "lstm_3/u": 0.0,
+          "lstm_3/w": 0.0
+        },
+        "tolerance": 0.001
+      },
+      "shape": [
+        32,
+        12,
+        51
+      ],
+      "step_seconds": [
+        0.00419335799961118,
+        0.003971131001890171,
+        0.0048440350001328625
+      ],
+      "test_windows_materialized": false
+    },
+    {
+      "dataset": "ch4_household_power",
+      "last_loss": 2.2087508207187057,
+      "memory": {
+        "backend": "numpy",
+        "peak_vram_bytes": 0,
+        "peak_vram_reserved_bytes": 0,
+        "process_peak_ram_bytes": 344670208,
+        "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+        "requested_device": "cpu",
+        "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+        "wall_seconds": 0.18550371099991025
+      },
+      "parity": {
+        "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+        "max_abs_error": 0.0,
+        "max_relative_l2_error": 0.0,
+        "per_tensor_relative_l2_error": {
+          "dense_4/b": 0.0,
+          "dense_4/w": 0.0,
+          "dense_6/b": 0.0,
+          "dense_6/w": 0.0,
+          "dense_8/b": 0.0,
+          "dense_8/w": 0.0,
+          "lstm_1/b": 0.0,
+          "lstm_1/u": 0.0,
+          "lstm_1/w": 0.0,
+          "lstm_2/b": 0.0,
+          "lstm_2/u": 0.0,
+          "lstm_2/w": 0.0,
+          "lstm_3/b": 0.0,
+          "lstm_3/u": 0.0,
+          "lstm_3/w": 0.0
+        },
+        "tolerance": 0.001
+      },
+      "shape": [
+        32,
+        168,
+        14
+      ],
+      "step_seconds": [
+        0.06954549199872417,
+        0.05617382399941562,
+        0.05977866700050072
+      ],
+      "test_windows_materialized": false
+    }
+  ],
+  "implementation": "scratch",
+  "status": "PASS",
+  "test_evaluation_executed": false
+}

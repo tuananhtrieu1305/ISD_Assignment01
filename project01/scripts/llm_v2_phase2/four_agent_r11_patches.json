@@ -1,0 +1,134 @@
+[
+  {
+    "module": "schemas",
+    "old": "class CompareRequest(APIModel):\n    question:str=Field(min_length=1,max_length=4096)\n    profile:dict|None=None\n    mode:str='knowledge'",
+    "new": "class CompareRequest(APIModel):\n    question:str=Field(min_length=1,max_length=4096)",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'runtime_revision':'semantic-verifier-r10'",
+    "new": "'runtime_revision':'four-agent-r11'",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'agent_roles':['Coordinator','Knowledge Agent','Risk Agent','Reporter','Code Verifier']",
+    "new": "'agent_roles':['Coordinator','Knowledge Agent','Reporter','Verifier Agent']",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "    async def rag(self,question,call_prefix,profile=None,progress=None):\n        started=",
+    "new": "    async def rag(self,question,call_prefix,profile=None,progress=None):\n        if profile is not None:raise ValueError('Question-only four-agent pipeline does not accept profiles')\n        started=",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "{'question':question,'profile_present':profile is not None}",
+    "new": "{'question':question}",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'next':'risk' if profile is not None else 'retrieval'",
+    "new": "'next':'retrieval'",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "            risk=None\n            if profile is not None:\n                recorder.begin('risk','Risk · checkpoint CDC','Risk Agent',{'profile_present':True,'field_count':len(profile),'profile_values_exposed':False})\n                risk=RiskAgent(self.root).run(profile)\n                recorder.finish({**{k:risk[k] for k in ['score','class_name','calibrated_incidence_risk','model_sha256','profile_sha256','unit'] if k in risk},'reporter_context_provided':True})\n            else:recorder.skip('risk','Risk · checkpoint CDC','Risk Agent','Không có hồ sơ; không chạy mô hình hoặc tự điền field.')\n",
+    "new": "",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": ",'risk_tool_summary':risk_summary(risk) or None,'raw_profile_sent':False",
+    "new": "",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "raw=await reporter.generate(question,ranked,risk=risk)",
+    "new": "raw=await reporter.generate(question,ranked)",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "            draft.answer_vi=risk_summary(risk)+draft.answer_vi\n",
+    "new": "",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "call_prefix,risk)\n            usage.extend",
+    "new": "call_prefix)\n            usage.extend",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'verification':review,'risk':risk,'plan':plan",
+    "new": "'verification':review,'plan':plan",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'trace_revision':'io-r10-semantic-verifier'",
+    "new": "'trace_revision':'io-r11-four-agent'",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'prompt_revision':'semantic-verifier-r10'",
+    "new": "'prompt_revision':'four-agent-r11'",
+    "count": 2
+  },
+  {
+    "module": "transport",
+    "old": "from .agents import AgenticRuntime,RiskAgent",
+    "new": "from .agents import AgenticRuntime",
+    "count": 1
+  },
+  {
+    "module": "transport",
+    "old": "    @app.get('/api/v2/examples')\n    def examples():\n        return jsonify(questions=[{'title':'Vận động và đường huyết','question':'Vận động có ích gì cho cân nặng và đường huyết?'},\n                                  {'title':'Kiểm tra chiều quan hệ','question':'Bệnh thận có làm tăng nguy cơ tiểu đường không?'}],\n                       profiles=read_json(root/'datasets/demo_profiles.json')['profiles'],schema=read_json(root/'datasets/profile_schema.json'))\n    @app.get('/api/v2/summary')\n    def summary():return jsonify(summarize_saved(root))\n    @app.post('/api/v2/risk')\n    def risk():\n        try:\n            data=request.get_json()\n            if not isinstance(data,dict) or set(data)!={'profile'}:raise ValueError('profile required')\n            return jsonify(RiskAgent(root).run(data['profile']))\n        except (ValueError,TypeError,KeyError):return error('invalid_profile','Cần đủ21 field hợp lệ; không tự điền field thiếu.',422)\n",
+    "new": "    @app.get('/api/v2/knowledge-graph')\n    def knowledge_graph():\n        try:\n            from .kg import MiniKG\n            from .embedding import load_corpus\n            graph=MiniKG(root,load_corpus(root))\n            return jsonify(schema_version='knowledge-graph-r11',\n                nodes=[{'id':n['id'],'label':n['name'],'type':n['type'],'aliases':n['aliases']} for n in graph.entities.values()],\n                edges=[{'id':e['id'],'source':e['subject'],'target':e['object'],'relation':e['relation'],\n                        'conditions':e.get('conditions',''),'polarity':e.get('polarity',''),\n                        'quote':e['quote'],'source_chunk_ids':e['source_chunk_ids'],'source_url':e['source_url'],\n                        'review_status':e['review']['status']} for e in graph.assertions],\n                source='existing reviewed mini-KG used by retrieval',\n                note='35 concept nodes and source-checked assertions; not all facts in the316-chunk KB or independent clinical review.',\n                generation_API_calls=0,embedding_API_calls=0)\n        except (OSError,ValueError,KeyError):return error('kg_unavailable','Chưa đọc được KG có kiểm nguồn.',503)\n",
+    "count": 1
+  },
+  {
+    "module": "transport",
+    "old": "            if data.mode not in {'knowledge','combined'}:raise ValueError('mode')\n            if data.mode=='combined' and data.profile is None:raise ValueError('combined requires a complete profile')\n            if data.mode=='knowledge' and data.profile is not None:raise ValueError('knowledge mode must not include a profile')\n            if data.profile is not None:\n                from .risk import validate_profile\n                if not validate_profile(data.profile,read_json(root/'datasets/profile_schema.json'))['valid']:raise ValueError('invalid profile')\n",
+    "new": "",
+    "count": 1
+  },
+  {
+    "module": "transport",
+    "old": "'Kiểm tra câu hỏi/phạm vi và21 field nếu có hồ sơ.'",
+    "new": "'Chỉ nhận question (1–4096 ký tự); pipeline mới không nhận hồ sơ CDC.'",
+    "count": 1
+  },
+  {
+    "module": "transport",
+    "old": "state.get('profile'),progress)",
+    "new": "None,progress)",
+    "count": 1
+  },
+  {
+    "module": "transport",
+    "old": "'profile':data.profile,",
+    "new": "",
+    "count": 1
+  },
+  {
+    "module": "transport",
+    "old": "'runtime_revision':'semantic-verifier-r10','mode':data.mode,'risk_requested':data.profile is not None,",
+    "new": "'runtime_revision':'four-agent-r11',",
+    "count": 1
+  },
+  {
+    "module": "transport",
+    "old": "previous.get('runtime_revision')!='semantic-verifier-r10'",
+    "new": "previous.get('runtime_revision')!='four-agent-r11'",
+    "count": 1
+  }
+]

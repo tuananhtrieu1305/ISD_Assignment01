@@ -1,0 +1,111 @@
+{
+  "config_version": "llm-v2-semantic-verifier-r10",
+  "status": "DEVELOPMENT_NOT_HELD_OUT_FROZEN",
+  "provider": "google_ai_studio_gemini_developer_api",
+  "key_env": "GEMINI_API_KEY",
+  "allow_paid_api": false,
+  "paid_spend_limit_usd": 0,
+  "generation_model": "gemini-3-flash-preview",
+  "endpoint": "v1beta/generateContent",
+  "store": false,
+  "temperature": 0,
+  "thinking_level": "minimal",
+  "external_tools": [],
+  "embedding": {
+    "model": "gemini-embedding-001",
+    "dimensions": 768,
+    "normalize": "L2",
+    "document_task": "RETRIEVAL_DOCUMENT",
+    "query_task": "RETRIEVAL_QUERY",
+    "cache": "model+dimension+task+text_sha256"
+  },
+  "quota": {
+    "source": "Gemini3Flash free standard tier checked; one generation probe PASS. Actual model quotas unconfirmed; keep conservative global application caps, handle429, no paid fallback.",
+    "tier": "free_only_user_confirmed",
+    "generation": {
+      "rpm": null,
+      "tpm": null,
+      "rpd": null,
+      "status": "not_yet_confirmed_in_AI_Studio_for_Gemini3Flash"
+    },
+    "embedding": {
+      "rpm": 100,
+      "tpm": 30000,
+      "rpd": 1000
+    },
+    "application_caps": {
+      "generation_rpm": 4,
+      "generation_rpd": 18,
+      "embedding_rpm": 60,
+      "embedding_rpd": 900
+    },
+    "observed_usage_user_snapshot": {
+      "generation_rpm": 1,
+      "generation_tpm": 6,
+      "generation_rpd": 2,
+      "embedding_rpm": 0,
+      "embedding_tpm": 0,
+      "embedding_rpd": 0
+    },
+    "embedding_probe_after_snapshot": 1,
+    "provider_reset_timezone": "America/Los_Angeles",
+    "refresh_usage_before_session": true,
+    "external_usage_not_fully_visible_to_app": true,
+    "user_selected_multi_day_evaluation": true,
+    "no_key_rotation_to_evade_quota": true,
+    "prior_generation_model": "gemini-3.8-flash",
+    "prior_generation_limits": {
+      "rpm": 5,
+      "tpm": 250000,
+      "rpd": 20
+    }
+  },
+  "queue": {
+    "concurrency": 1,
+    "request_timeout_seconds": 180,
+    "comparison_deadline_seconds": 1500,
+    "max_minute_limit_retries": 2,
+    "max_retry_wait_seconds_per_attempt": 60,
+    "daily_quota_action": "checkpoint_stop_no_paid_fallback",
+    "timeout_after_send": "unknown_do_not_automatically_replay_evaluation_claim"
+  },
+  "pipeline": {
+    "candidate_top_k": 20,
+    "evidence_top_n": 6,
+    "max_queries": 3,
+    "rrf_k": 60,
+    "weights": {
+      "dense": 0.4,
+      "sparse": 0.4,
+      "kg": 0.2
+    },
+    "kg_default_hops": 1,
+    "kg_max_hops": 2,
+    "max_feedback_rounds": 0,
+    "reranker_provider": "local_weighted_rrf_lexical_kg",
+    "verifier_provider": "gemini_semantic_plus_local_integrity",
+    "generation_calls_per_rag": 3,
+    "generation_calls_per_direct": 1,
+    "generation_calls_per_comparison": 4,
+    "embedding_calls_are_separate": true
+  },
+  "token_limits": {
+    "answer_output": 768,
+    "planner_output": 512,
+    "reranker_output": null,
+    "verifier_output": 1280,
+    "source_context_max_characters": 24000,
+    "usage_missing_value": null,
+    "provider_min_output_budget_including_thinking": 2048
+  },
+  "run_api_default": false,
+  "run_evaluation_default": false,
+  "run_training_default": false,
+  "evaluation_outputs": 80,
+  "evaluation_phase": 2,
+  "corpus": "datasets/llm_v2/chunks.jsonl",
+  "kg_seed": "artifacts/llm_v2/kg/seed_r2.json",
+  "historical_score_reused": false,
+  "requires_phase2_model_prompt_index_freeze": true,
+  "minimum_output_tokens": 2048
+}

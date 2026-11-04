@@ -1,0 +1,1863 @@
+{
+  "completed": [
+    {
+      "cpu_gpu_parity": [],
+      "dataset_id": "ch2_ames_housing",
+      "details": {
+        "historical_test_evaluation_executed": false,
+        "scope": "inference_only",
+        "serving_mode": "cpu",
+        "serving_runtime": {
+          "historical_test_evaluation_executed": false,
+          "mode": "cpu",
+          "models_retrained": 0,
+          "native_frameworks_imported_in_driver": [],
+          "numpy": "2.4.6",
+          "python": "3.11.17"
+        },
+        "serving_telemetry": {
+          "budget_bytes": 469762048,
+          "definition": "Sampled web worker + all job process-group PSS; RSS conservative fallback; excludes gunicorn master/OS/CUDA VRAM; not a cloud SLA",
+          "group_peak_sampled_pss_or_rss_bytes": 86782976,
+          "used_rss_fallback": false,
+          "web_plus_job_peak_sampled_pss_or_rss_bytes": 194138112,
+          "worker_peak_sampled_rss_bytes": 106311680,
+          "worker_wall_ms": 3235.804932000974
+        },
+        "warning": "Academic retrospective demo; not diagnosis, investment advice or current appraisal. NumPy timing is not native framework timing."
+      },
+      "family": "mlp",
+      "http_wall_ms": 3764.0032899998914,
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-20T14:00:12.955958+00:00",
+        "dataset_id": "ch2_ames_housing",
+        "expires_at": "2026-10-20T14:30:12.955958+00:00",
+        "family": "mlp",
+        "input_sha256": "c3ce1cded4af4e80aa0cbee3a9a41b5a7bb904a6ff768e9ac23c53570ca7ce64",
+        "job_id": "job_b3023ac9e2b45343b83c327f1805d8f274646cf8",
+        "metric_artifacts": [],
+        "request_id": "request_b3023ac9e2b45343b83c327f1805d8f274646cf8",
+        "request_sha256": "6c86aaffdcd2beea880e1abf9ba0dc6709c937311aaecefa3d5e2f8dab795d5d",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "a701995927fa16fcf2d7196660bfdd17050af90d376cdb8e9858c85ba92ce9fe",
+            "comparison_group_sha256": "a54de0583256f9d1871f6604ebdb96e2149f71943768c52ff227d3da19f289d9",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 0.07933599954412784,
+            "input_sha256": "c3ce1cded4af4e80aa0cbee3a9a41b5a7bb904a6ff768e9ac23c53570ca7ce64",
+            "model_id": "ch2_ames_housing_mlp_scratch_s42",
+            "prediction": {
+              "horizons": [
+                1
+              ],
+              "kind": "regression",
+              "unit": "USD",
+              "values": [
+                118115.72406888881
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "aec13dae7e99dcb15ece0ef4192d7519971aebb13ce1ba0ae53daa817a5b4719",
+            "comparison_group_sha256": "a54de0583256f9d1871f6604ebdb96e2149f71943768c52ff227d3da19f289d9",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 0.05978199988021515,
+            "input_sha256": "c3ce1cded4af4e80aa0cbee3a9a41b5a7bb904a6ff768e9ac23c53570ca7ce64",
+            "model_id": "ch2_ames_housing_mlp_keras_s42",
+            "prediction": {
+              "horizons": [
+                1
+              ],
+              "kind": "regression",
+              "unit": "USD",
+              "values": [
+                118069.97718801929
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "ba53b8b1f0cc4aa279eebe227e7b05c466c8c1e9c923afb54b781e02700f74a4",
+            "comparison_group_sha256": "a54de0583256f9d1871f6604ebdb96e2149f71943768c52ff227d3da19f289d9",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 0.06709000081173144,
+            "input_sha256": "c3ce1cded4af4e80aa0cbee3a9a41b5a7bb904a6ff768e9ac23c53570ca7ce64",
+            "model_id": "ch2_ames_housing_mlp_pytorch_s42",
+            "prediction": {
+              "horizons": [
+                1
+              ],
+              "kind": "regression",
+              "unit": "USD",
+              "values": [
+                118069.96354987533
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "sample_id": "row_0000001"
+    },
+    {
+      "cpu_gpu_parity": [],
+      "dataset_id": "ch2_bank_marketing",
+      "details": {
+        "historical_test_evaluation_executed": false,
+        "scope": "inference_only",
+        "serving_mode": "cpu",
+        "serving_runtime": {
+          "historical_test_evaluation_executed": false,
+          "mode": "cpu",
+          "models_retrained": 0,
+          "native_frameworks_imported_in_driver": [],
+          "numpy": "2.4.6",
+          "python": "3.11.17"
+        },
+        "serving_telemetry": {
+          "budget_bytes": 469762048,
+          "definition": "Sampled web worker + all job process-group PSS; RSS conservative fallback; excludes gunicorn master/OS/CUDA VRAM; not a cloud SLA",
+          "group_peak_sampled_pss_or_rss_bytes": 86813696,
+          "used_rss_fallback": false,
+          "web_plus_job_peak_sampled_pss_or_rss_bytes": 194793472,
+          "worker_peak_sampled_rss_bytes": 106545152,
+          "worker_wall_ms": 2916.8187220002437
+        },
+        "warning": "Academic retrospective demo; not diagnosis, investment advice or current appraisal. NumPy timing is not native framework timing."
+      },
+      "family": "mlp",
+      "http_wall_ms": 3143.4682449998945,
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-20T14:00:16.708163+00:00",
+        "dataset_id": "ch2_bank_marketing",
+        "expires_at": "2026-10-20T14:30:16.708163+00:00",
+        "family": "mlp",
+        "input_sha256": "99389aed745e2352dce517774d1d75c90aacec35cdf17ce0d3d3f6e273605975",
+        "job_id": "job_6813cf63e1a9a0e12c912ef16a871bb8af84fbda",
+        "metric_artifacts": [],
+        "request_id": "request_6813cf63e1a9a0e12c912ef16a871bb8af84fbda",
+        "request_sha256": "f3059d5cad1808922945c60cc65f632e99f3c6eb1ceb8c528f696005225667ee",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "8b793b1b51caaaa0be4e277092f31a9754ae7375f9c5aa40b85cc78d9d96d1a4",
+            "comparison_group_sha256": "c561dc3081fd5d255d97199e59c96a6f2dc7bc8a8b70636c346ca3978b5b76a4",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 0.06980500074860174,
+            "input_sha256": "99389aed745e2352dce517774d1d75c90aacec35cdf17ce0d3d3f6e273605975",
+            "model_id": "ch2_bank_marketing_mlp_scratch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "no",
+              "probabilities": [
+                {
+                  "label": "no",
+                  "value": 0.7316338255866806
+                },
+                {
+                  "label": "yes",
+                  "value": 0.26836617441331945
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "45840e16d3295cb2c32d268d435f8901742bc4ffc0b13fdddcc3bb28f322ff8a",
+            "comparison_group_sha256": "c561dc3081fd5d255d97199e59c96a6f2dc7bc8a8b70636c346ca3978b5b76a4",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 0.051321998398634605,
+            "input_sha256": "99389aed745e2352dce517774d1d75c90aacec35cdf17ce0d3d3f6e273605975",
+            "model_id": "ch2_bank_marketing_mlp_keras_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "no",
+              "probabilities": [
+                {
+                  "label": "no",
+                  "value": 0.7353617281901197
+                },
+                {
+                  "label": "yes",
+                  "value": 0.2646382718098803
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "70355014372e2131d9413e340ba9a23e47bd0253c88c900ceda2a17d2983e894",
+            "comparison_group_sha256": "c561dc3081fd5d255d97199e59c96a6f2dc7bc8a8b70636c346ca3978b5b76a4",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 0.05128799966769293,
+            "input_sha256": "99389aed745e2352dce517774d1d75c90aacec35cdf17ce0d3d3f6e273605975",
+            "model_id": "ch2_bank_marketing_mlp_pytorch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "no",
+              "probabilities": [
+                {
+                  "label": "no",
+                  "value": 0.7382908826483501
+                },
+                {
+                  "label": "yes",
+                  "value": 0.26170911735165
+                }
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "sample_id": "row_0000001"
+    },
+    {
+      "cpu_gpu_parity": [],
+      "dataset_id": "ch2_cdc_diabetes",
+      "details": {
+        "historical_test_evaluation_executed": false,
+        "scope": "inference_only",
+        "serving_mode": "cpu",
+        "serving_runtime": {
+          "historical_test_evaluation_executed": false,
+          "mode": "cpu",
+          "models_retrained": 0,
+          "native_frameworks_imported_in_driver": [],
+          "numpy": "2.4.6",
+          "python": "3.11.17"
+        },
+        "serving_telemetry": {
+          "budget_bytes": 469762048,
+          "definition": "Sampled web worker + all job process-group PSS; RSS conservative fallback; excludes gunicorn master/OS/CUDA VRAM; not a cloud SLA",
+          "group_peak_sampled_pss_or_rss_bytes": 86575104,
+          "used_rss_fallback": false,
+          "web_plus_job_peak_sampled_pss_or_rss_bytes": 193939456,
+          "worker_peak_sampled_rss_bytes": 106475520,
+          "worker_wall_ms": 3229.2501159990934
+        },
+        "warning": "Academic retrospective demo; not diagnosis, investment advice or current appraisal. NumPy timing is not native framework timing."
+      },
+      "family": "mlp",
+      "http_wall_ms": 3665.156600998671,
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-20T14:00:19.853637+00:00",
+        "dataset_id": "ch2_cdc_diabetes",
+        "expires_at": "2026-10-20T14:30:19.853637+00:00",
+        "family": "mlp",
+        "input_sha256": "b618b759137f44b5b49e6f7fd385e6f9177bc9e59f800e0dfa6eabf51db2a97d",
+        "job_id": "job_7c11a1267b7673ac2ee541c49892854850bfe20b",
+        "metric_artifacts": [],
+        "request_id": "request_7c11a1267b7673ac2ee541c49892854850bfe20b",
+        "request_sha256": "7e47561eafad13c5375d0f5965c865448613c4c4ba6988ae924c9f499778ee9c",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "cc7d28232eb1a818cc0c10d9047b4a43f4ef25ac7c06b2737870c63ae644fdb8",
+            "comparison_group_sha256": "2a23c008f83abbe7d7880464e2172622f5c5cf01eb99f0c0026cd353e1ac9313",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 0.07868399916333146,
+            "input_sha256": "b618b759137f44b5b49e6f7fd385e6f9177bc9e59f800e0dfa6eabf51db2a97d",
+            "model_id": "ch2_cdc_diabetes_mlp_scratch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "no diabetes",
+              "probabilities": [
+                {
+                  "label": "no diabetes",
+                  "value": 0.7461312931400729
+                },
+                {
+                  "label": "prediabetes or diabetes",
+                  "value": 0.25386870685992713
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "cefbc0936cc05128990bf0ea6910b2a855aa0ff3dc8dc6fd967e08ad4416d67b",
+            "comparison_group_sha256": "2a23c008f83abbe7d7880464e2172622f5c5cf01eb99f0c0026cd353e1ac9313",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 0.07593200098199304,
+            "input_sha256": "b618b759137f44b5b49e6f7fd385e6f9177bc9e59f800e0dfa6eabf51db2a97d",
+            "model_id": "ch2_cdc_diabetes_mlp_keras_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "no diabetes",
+              "probabilities": [
+                {
+                  "label": "no diabetes",
+                  "value": 0.7461312705595218
+                },
+                {
+                  "label": "prediabetes or diabetes",
+                  "value": 0.2538687294404783
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "154d241519f62b30923fc38836be80d6622a60d1ccc56946a23ce0fac8d6a89b",
+            "comparison_group_sha256": "2a23c008f83abbe7d7880464e2172622f5c5cf01eb99f0c0026cd353e1ac9313",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 0.05117299951962195,
+            "input_sha256": "b618b759137f44b5b49e6f7fd385e6f9177bc9e59f800e0dfa6eabf51db2a97d",
+            "model_id": "ch2_cdc_diabetes_mlp_pytorch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "no diabetes",
+              "probabilities": [
+                {
+                  "label": "no diabetes",
+                  "value": 0.7461313383011712
+                },
+                {
+                  "label": "prediabetes or diabetes",
+                  "value": 0.25386866169882877
+                }
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "sample_id": "row_0000015"
+    },
+    {
+      "cpu_gpu_parity": [],
+      "dataset_id": "ch3_cifar10",
+      "details": {
+        "historical_test_evaluation_executed": false,
+        "scope": "inference_only",
+        "serving_mode": "cpu",
+        "serving_runtime": {
+          "historical_test_evaluation_executed": false,
+          "mode": "cpu",
+          "models_retrained": 0,
+          "native_frameworks_imported_in_driver": [],
+          "numpy": "2.4.6",
+          "python": "3.11.17"
+        },
+        "serving_telemetry": {
+          "budget_bytes": 469762048,
+          "definition": "Sampled web worker + all job process-group PSS; RSS conservative fallback; excludes gunicorn master/OS/CUDA VRAM; not a cloud SLA",
+          "group_peak_sampled_pss_or_rss_bytes": 87377920,
+          "used_rss_fallback": false,
+          "web_plus_job_peak_sampled_pss_or_rss_bytes": 195368960,
+          "worker_peak_sampled_rss_bytes": 106991616,
+          "worker_wall_ms": 3029.990914001246
+        },
+        "warning": "Academic retrospective demo; not diagnosis, investment advice or current appraisal. NumPy timing is not native framework timing."
+      },
+      "family": "cnn",
+      "http_wall_ms": 3349.1124770007445,
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-20T14:00:22.742104+00:00",
+        "dataset_id": "ch3_cifar10",
+        "expires_at": "2026-10-20T14:30:22.742104+00:00",
+        "family": "cnn",
+        "input_sha256": "a0f8cff84f898f668ea95aa2fc3bf2a26f046439f2d44d4b7a37bd3787d03588",
+        "job_id": "job_1c4bf9c5ba05324cfcb37f40b4c6f8a29a7df537",
+        "metric_artifacts": [],
+        "request_id": "request_1c4bf9c5ba05324cfcb37f40b4c6f8a29a7df537",
+        "request_sha256": "d1401b367018058919ad5b4d15869b8025d66ef6581e927833f5ce6ae1678a39",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "25c051d67d935e364d5dfa5b0def7ce6624f5e00971b3df2118c6f3fbc60cc0e",
+            "comparison_group_sha256": "94cccef652c52d8cc3c3089bd80afbc6db6e1dc8b0dd398705b7f85afd7a35f0",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 2.003489000344416,
+            "input_sha256": "a0f8cff84f898f668ea95aa2fc3bf2a26f046439f2d44d4b7a37bd3787d03588",
+            "model_id": "ch3_cifar10_cnn_scratch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "dog",
+              "probabilities": [
+                {
+                  "label": "airplane",
+                  "value": 0.005568025163083868
+                },
+                {
+                  "label": "automobile",
+                  "value": 0.0002992291983815176
+                },
+                {
+                  "label": "bird",
+                  "value": 0.2255544247499135
+                },
+                {
+                  "label": "cat",
+                  "value": 0.20017024946719134
+                },
+                {
+                  "label": "deer",
+                  "value": 0.11730138226652549
+                },
+                {
+                  "label": "dog",
+                  "value": 0.24991784739400708
+                },
+                {
+                  "label": "frog",
+                  "value": 0.08457166356025447
+                },
+                {
+                  "label": "horse",
+                  "value": 0.11363426982249461
+                },
+                {
+                  "label": "ship",
+                  "value": 0.0009537744206514942
+                },
+                {
+                  "label": "truck",
+                  "value": 0.002029133957496617
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "27800f04f63f205cfc14243b787a21129eb7af248438b23b45a651f6debfa34e",
+            "comparison_group_sha256": "94cccef652c52d8cc3c3089bd80afbc6db6e1dc8b0dd398705b7f85afd7a35f0",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 1.9796180004050257,
+            "input_sha256": "a0f8cff84f898f668ea95aa2fc3bf2a26f046439f2d44d4b7a37bd3787d03588",
+            "model_id": "ch3_cifar10_cnn_keras_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "cat",
+              "probabilities": [
+                {
+                  "label": "airplane",
+                  "value": 0.002792119017188594
+                },
+                {
+                  "label": "automobile",
+                  "value": 0.0007351584522425896
+                },
+                {
+                  "label": "bird",
+                  "value": 0.10289164764961731
+                },
+                {
+                  "label": "cat",
+                  "value": 0.4516180402097092
+                },
+                {
+                  "label": "deer",
+                  "value": 0.03462945280476871
+                },
+                {
+                  "label": "dog",
+                  "value": 0.15126840634993668
+                },
+                {
+                  "label": "frog",
+                  "value": 0.24137446486075623
+                },
+                {
+                  "label": "horse",
+                  "value": 0.00826477536792641
+                },
+                {
+                  "label": "ship",
+                  "value": 0.002337007840578119
+                },
+                {
+                  "label": "truck",
+                  "value": 0.004088927447275852
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "1280e361388a7b40ce38154a5a42027cb906e0c2de0d0c527826238fc57a45b5",
+            "comparison_group_sha256": "94cccef652c52d8cc3c3089bd80afbc6db6e1dc8b0dd398705b7f85afd7a35f0",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 2.0035119996464346,
+            "input_sha256": "a0f8cff84f898f668ea95aa2fc3bf2a26f046439f2d44d4b7a37bd3787d03588",
+            "model_id": "ch3_cifar10_cnn_pytorch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "frog",
+              "probabilities": [
+                {
+                  "label": "airplane",
+                  "value": 0.0024182255349518293
+                },
+                {
+                  "label": "automobile",
+                  "value": 0.000473711031305081
+                },
+                {
+                  "label": "bird",
+                  "value": 0.16227121018059162
+                },
+                {
+                  "label": "cat",
+                  "value": 0.24150970490901633
+                },
+                {
+                  "label": "deer",
+                  "value": 0.07954367218690647
+                },
+                {
+                  "label": "dog",
+                  "value": 0.2276795611579991
+                },
+                {
+                  "label": "frog",
+                  "value": 0.25046827568347524
+                },
+                {
+                  "label": "horse",
+                  "value": 0.03445761995948446
+                },
+                {
+                  "label": "ship",
+                  "value": 0.0007623055554196408
+                },
+                {
+                  "label": "truck",
+                  "value": 0.00041571380085024816
+                }
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "sample_id": "data_batch_1.bin/00026"
+    },
+    {
+      "cpu_gpu_parity": [],
+      "dataset_id": "ch3_eurosat",
+      "details": {
+        "historical_test_evaluation_executed": false,
+        "scope": "inference_only",
+        "serving_mode": "cpu",
+        "serving_runtime": {
+          "historical_test_evaluation_executed": false,
+          "mode": "cpu",
+          "models_retrained": 0,
+          "native_frameworks_imported_in_driver": [],
+          "numpy": "2.4.6",
+          "python": "3.11.17"
+        },
+        "serving_telemetry": {
+          "budget_bytes": 469762048,
+          "definition": "Sampled web worker + all job process-group PSS; RSS conservative fallback; excludes gunicorn master/OS/CUDA VRAM; not a cloud SLA",
+          "group_peak_sampled_pss_or_rss_bytes": 87312384,
+          "used_rss_fallback": false,
+          "web_plus_job_peak_sampled_pss_or_rss_bytes": 195296256,
+          "worker_peak_sampled_rss_bytes": 106819584,
+          "worker_wall_ms": 2924.6265120000317
+        },
+        "warning": "Academic retrospective demo; not diagnosis, investment advice or current appraisal. NumPy timing is not native framework timing."
+      },
+      "family": "cnn",
+      "http_wall_ms": 3543.501402999027,
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-20T14:00:26.383610+00:00",
+        "dataset_id": "ch3_eurosat",
+        "expires_at": "2026-10-20T14:30:26.383610+00:00",
+        "family": "cnn",
+        "input_sha256": "8352621b538134e18d465e9d8c8c766e647002f47aac2c4dcdab8589870f37b5",
+        "job_id": "job_887b0f2278b9e2216f3c517d60f1b914d9517028",
+        "metric_artifacts": [],
+        "request_id": "request_887b0f2278b9e2216f3c517d60f1b914d9517028",
+        "request_sha256": "6673ae118ce6b1c7ae525cf9580aec2fd879d031f23b45bfb6b9536c5af8c191",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "81ac7acf1e5ce8fbab7f30ac63c6cf64ba206946d332519b3eb740f503adf990",
+            "comparison_group_sha256": "0e9d6a5e1ef8f5bd14701bad1e1de451a78c516f709043a23dea1d60fac300ed",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 2.123616000972106,
+            "input_sha256": "8352621b538134e18d465e9d8c8c766e647002f47aac2c4dcdab8589870f37b5",
+            "model_id": "ch3_eurosat_cnn_scratch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "AnnualCrop",
+              "probabilities": [
+                {
+                  "label": "AnnualCrop",
+                  "value": 0.6176431245989286
+                },
+                {
+                  "label": "Forest",
+                  "value": 5.652561059673374e-06
+                },
+                {
+                  "label": "HerbaceousVegetation",
+                  "value": 0.27785927060465127
+                },
+                {
+                  "label": "Highway",
+                  "value": 0.028861028653410836
+                },
+                {
+                  "label": "Industrial",
+                  "value": 0.0012652470412212998
+                },
+                {
+                  "label": "Pasture",
+                  "value": 0.0007464811817019071
+                },
+                {
+                  "label": "PermanentCrop",
+                  "value": 0.06240217729127935
+                },
+                {
+                  "label": "Residential",
+                  "value": 5.0951125650283554e-05
+                },
+                {
+                  "label": "River",
+                  "value": 0.0014043587124680495
+                },
+                {
+                  "label": "SeaLake",
+                  "value": 0.00976170822962872
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "1923b8bcd4af14996507171ba7db2fd805dbf99720eaa07a03dea4b9c195388e",
+            "comparison_group_sha256": "0e9d6a5e1ef8f5bd14701bad1e1de451a78c516f709043a23dea1d60fac300ed",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 1.9985119997727452,
+            "input_sha256": "8352621b538134e18d465e9d8c8c766e647002f47aac2c4dcdab8589870f37b5",
+            "model_id": "ch3_eurosat_cnn_keras_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "AnnualCrop",
+              "probabilities": [
+                {
+                  "label": "AnnualCrop",
+                  "value": 0.5416951597714268
+                },
+                {
+                  "label": "Forest",
+                  "value": 0.0017405323875855719
+                },
+                {
+                  "label": "HerbaceousVegetation",
+                  "value": 0.36587123206466393
+                },
+                {
+                  "label": "Highway",
+                  "value": 0.021368565158138134
+                },
+                {
+                  "label": "Industrial",
+                  "value": 0.0004409388113320781
+                },
+                {
+                  "label": "Pasture",
+                  "value": 0.0016185274620916308
+                },
+                {
+                  "label": "PermanentCrop",
+                  "value": 0.04590852279835251
+                },
+                {
+                  "label": "Residential",
+                  "value": 0.0005575347202075012
+                },
+                {
+                  "label": "River",
+                  "value": 0.0013054578244316739
+                },
+                {
+                  "label": "SeaLake",
+                  "value": 0.01949352900177017
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "5139fe6ca9135d5d5838db2bf477e78bf942446bc78f50cceb5fe64b89cf8f4f",
+            "comparison_group_sha256": "0e9d6a5e1ef8f5bd14701bad1e1de451a78c516f709043a23dea1d60fac300ed",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 1.9279000007372815,
+            "input_sha256": "8352621b538134e18d465e9d8c8c766e647002f47aac2c4dcdab8589870f37b5",
+            "model_id": "ch3_eurosat_cnn_pytorch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "HerbaceousVegetation",
+              "probabilities": [
+                {
+                  "label": "AnnualCrop",
+                  "value": 0.2839537334489105
+                },
+                {
+                  "label": "Forest",
+                  "value": 0.006748711254942552
+                },
+                {
+                  "label": "HerbaceousVegetation",
+                  "value": 0.44680740720714157
+                },
+                {
+                  "label": "Highway",
+                  "value": 0.05287005282666964
+                },
+                {
+                  "label": "Industrial",
+                  "value": 3.2439200364485694e-06
+                },
+                {
+                  "label": "Pasture",
+                  "value": 0.002110963911490907
+                },
+                {
+                  "label": "PermanentCrop",
+                  "value": 0.051180641227002444
+                },
+                {
+                  "label": "Residential",
+                  "value": 4.696028150682027e-05
+                },
+                {
+                  "label": "River",
+                  "value": 0.0019128027178947063
+                },
+                {
+                  "label": "SeaLake",
+                  "value": 0.15436548320440446
+                }
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "sample_id": "EuroSAT_RGB/AnnualCrop/AnnualCrop_1.jpg"
+    },
+    {
+      "cpu_gpu_parity": [],
+      "dataset_id": "ch3_idrid",
+      "details": {
+        "historical_test_evaluation_executed": false,
+        "scope": "inference_only",
+        "serving_mode": "cpu",
+        "serving_runtime": {
+          "historical_test_evaluation_executed": false,
+          "mode": "cpu",
+          "models_retrained": 0,
+          "native_frameworks_imported_in_driver": [],
+          "numpy": "2.4.6",
+          "python": "3.11.17"
+        },
+        "serving_telemetry": {
+          "budget_bytes": 469762048,
+          "definition": "Sampled web worker + all job process-group PSS; RSS conservative fallback; excludes gunicorn master/OS/CUDA VRAM; not a cloud SLA",
+          "group_peak_sampled_pss_or_rss_bytes": 94071808,
+          "used_rss_fallback": false,
+          "web_plus_job_peak_sampled_pss_or_rss_bytes": 202085376,
+          "worker_peak_sampled_rss_bytes": 113602560,
+          "worker_wall_ms": 3124.8588080015907
+        },
+        "warning": "Academic retrospective demo; not diagnosis, investment advice or current appraisal. NumPy timing is not native framework timing."
+      },
+      "family": "cnn",
+      "http_wall_ms": 3657.8266020005685,
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-20T14:00:29.621807+00:00",
+        "dataset_id": "ch3_idrid",
+        "expires_at": "2026-10-20T14:30:29.621807+00:00",
+        "family": "cnn",
+        "input_sha256": "af86a61d8364946d691dac00248833d84a9f99aab9302d05a95a4c473d9acad9",
+        "job_id": "job_f8bb84b0804bc8020bcfecbdd4b6c3a4bb98ee03",
+        "metric_artifacts": [],
+        "request_id": "request_f8bb84b0804bc8020bcfecbdd4b6c3a4bb98ee03",
+        "request_sha256": "803206e3863bf5549609d888ce550027351e34a7a4de24745807f0463ab34409",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "1ae8fe723040c34c99e882d3054e14654ff7bd3ed6c131697290e19a45b2a1cc",
+            "comparison_group_sha256": "9781ad59ac32eb1644fdcc85691891dc23bfdd60a54449ce66fc47ed428d609a",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 26.18514499954472,
+            "input_sha256": "af86a61d8364946d691dac00248833d84a9f99aab9302d05a95a4c473d9acad9",
+            "model_id": "ch3_idrid_cnn_scratch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "DR grade 4",
+              "probabilities": [
+                {
+                  "label": "DR grade 0",
+                  "value": 0.1153090179812883
+                },
+                {
+                  "label": "DR grade 1",
+                  "value": 0.17357559367598555
+                },
+                {
+                  "label": "DR grade 2",
+                  "value": 0.25361608154032084
+                },
+                {
+                  "label": "DR grade 3",
+                  "value": 0.20335621683480332
+                },
+                {
+                  "label": "DR grade 4",
+                  "value": 0.254143089967602
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "6de5dcc0c5b173a19efe21eec05708be3650a9a893740a8546cb506b5b06ec28",
+            "comparison_group_sha256": "9781ad59ac32eb1644fdcc85691891dc23bfdd60a54449ce66fc47ed428d609a",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 25.16650400139042,
+            "input_sha256": "af86a61d8364946d691dac00248833d84a9f99aab9302d05a95a4c473d9acad9",
+            "model_id": "ch3_idrid_cnn_keras_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "DR grade 2",
+              "probabilities": [
+                {
+                  "label": "DR grade 0",
+                  "value": 0.11598081714097348
+                },
+                {
+                  "label": "DR grade 1",
+                  "value": 0.17366217649547575
+                },
+                {
+                  "label": "DR grade 2",
+                  "value": 0.2552740871551468
+                },
+                {
+                  "label": "DR grade 3",
+                  "value": 0.2039556226583298
+                },
+                {
+                  "label": "DR grade 4",
+                  "value": 0.2511272965500742
+                }
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "460ba7a5d53ad340f00f748f8cf51a664d171c6604af7fe7b7300d82a3be9c44",
+            "comparison_group_sha256": "9781ad59ac32eb1644fdcc85691891dc23bfdd60a54449ce66fc47ed428d609a",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 24.782761000096798,
+            "input_sha256": "af86a61d8364946d691dac00248833d84a9f99aab9302d05a95a4c473d9acad9",
+            "model_id": "ch3_idrid_cnn_pytorch_s42",
+            "prediction": {
+              "kind": "classification",
+              "label": "DR grade 2",
+              "probabilities": [
+                {
+                  "label": "DR grade 0",
+                  "value": 0.09916566789757673
+                },
+                {
+                  "label": "DR grade 1",
+                  "value": 0.17047271034282366
+                },
+                {
+                  "label": "DR grade 2",
+                  "value": 0.3085922408506506
+                },
+                {
+                  "label": "DR grade 3",
+                  "value": 0.22802204690316982
+                },
+                {
+                  "label": "DR grade 4",
+                  "value": 0.19374733400577923
+                }
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "sample_id": "train/IDRiD_001"
+    },
+    {
+      "cpu_gpu_parity": [],
+      "dataset_id": "ch4_bis_house_prices",
+      "details": {
+        "historical_test_evaluation_executed": false,
+        "scope": "inference_only",
+        "serving_mode": "cpu",
+        "serving_runtime": {
+          "historical_test_evaluation_executed": false,
+          "mode": "cpu",
+          "models_retrained": 0,
+          "native_frameworks_imported_in_driver": [],
+          "numpy": "2.4.6",
+          "python": "3.11.17"
+        },
+        "serving_telemetry": {
+          "budget_bytes": 469762048,
+          "definition": "Sampled web worker + all job process-group PSS; RSS conservative fallback; excludes gunicorn master/OS/CUDA VRAM; not a cloud SLA",
+          "group_peak_sampled_pss_or_rss_bytes": 86529024,
+          "used_rss_fallback": false,
+          "web_plus_job_peak_sampled_pss_or_rss_bytes": 194367488,
+          "worker_peak_sampled_rss_bytes": 106291200,
+          "worker_wall_ms": 2913.136740999107
+        },
+        "warning": "Academic retrospective demo; not diagnosis, investment advice or current appraisal. NumPy timing is not native framework timing."
+      },
+      "family": "rnn",
+      "http_wall_ms": 3165.7899109995924,
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-20T14:00:33.282407+00:00",
+        "dataset_id": "ch4_bis_house_prices",
+        "expires_at": "2026-10-20T14:30:33.282407+00:00",
+        "family": "rnn",
+        "input_sha256": "a0f89ea0d86a557bce39a99a0cd677a4520c825772ba64dfbaba9a93243ea4eb",
+        "job_id": "job_47c45e4d8e890ff9935b3a978d0857ab6da6dae5",
+        "metric_artifacts": [],
+        "request_id": "request_47c45e4d8e890ff9935b3a978d0857ab6da6dae5",
+        "request_sha256": "1df217e1ef196db4d370dc2bc8e5679821b375ae2406095bb082fce3184f2966",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "e3971687debe1bdc7b3480f841a5011393e6e1cff8fd9add22584409b80518fc",
+            "comparison_group_sha256": "73b648c0ac2563de86fa88e995e6abe5b88c88962c7d7ff655406c1b8116e622",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 0.2420819982944522,
+            "input_sha256": "a0f89ea0d86a557bce39a99a0cd677a4520c825772ba64dfbaba9a93243ea4eb",
+            "model_id": "ch4_bis_house_prices_rnn_scratch_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                2,
+                4
+              ],
+              "kind": "regression",
+              "unit": "index 2010=100",
+              "values": [
+                76.72028156285828,
+                81.01251561535334,
+                84.33284241528501
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "914ddec75ca5221c5a2a770aa370054f93b074f7990bb31f6d2a965b4642eb7e",
+            "comparison_group_sha256": "73b648c0ac2563de86fa88e995e6abe5b88c88962c7d7ff655406c1b8116e622",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 0.2731180011323886,
+            "input_sha256": "a0f89ea0d86a557bce39a99a0cd677a4520c825772ba64dfbaba9a93243ea4eb",
+            "model_id": "ch4_bis_house_prices_rnn_keras_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                2,
+                4
+              ],
+              "kind": "regression",
+              "unit": "index 2010=100",
+              "values": [
+                75.8253397073624,
+                80.29312147242449,
+                84.07496849609316
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "471ac99bd60b087e6256231c61492f62d8ad8fc111eec3bd907723bbbf894bea",
+            "comparison_group_sha256": "73b648c0ac2563de86fa88e995e6abe5b88c88962c7d7ff655406c1b8116e622",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 0.2380660007474944,
+            "input_sha256": "a0f89ea0d86a557bce39a99a0cd677a4520c825772ba64dfbaba9a93243ea4eb",
+            "model_id": "ch4_bis_house_prices_rnn_pytorch_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                2,
+                4
+              ],
+              "kind": "regression",
+              "unit": "index 2010=100",
+              "values": [
+                75.38697266611884,
+                77.86485558524396,
+                83.51440221281015
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "sample_id": "Q.AT.N.628/2004-10-01T00:00:00"
+    },
+    {
+      "cpu_gpu_parity": [],
+      "dataset_id": "ch4_bis_house_prices",
+      "details": {
+        "historical_test_evaluation_executed": false,
+        "scope": "inference_only",
+        "serving_mode": "cpu",
+        "serving_runtime": {
+          "historical_test_evaluation_executed": false,
+          "mode": "cpu",
+          "models_retrained": 0,
+          "native_frameworks_imported_in_driver": [],
+          "numpy": "2.4.6",
+          "python": "3.11.17"
+        },
+        "serving_telemetry": {
+          "budget_bytes": 469762048,
+          "definition": "Sampled web worker + all job process-group PSS; RSS conservative fallback; excludes gunicorn master/OS/CUDA VRAM; not a cloud SLA",
+          "group_peak_sampled_pss_or_rss_bytes": 86557696,
+          "used_rss_fallback": false,
+          "web_plus_job_peak_sampled_pss_or_rss_bytes": 194382848,
+          "worker_peak_sampled_rss_bytes": 106237952,
+          "worker_wall_ms": 3129.8721200000728
+        },
+        "warning": "Academic retrospective demo; not diagnosis, investment advice or current appraisal. NumPy timing is not native framework timing."
+      },
+      "family": "lstm",
+      "http_wall_ms": 3265.0825709988567,
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-20T14:00:36.439723+00:00",
+        "dataset_id": "ch4_bis_house_prices",
+        "expires_at": "2026-10-20T14:30:36.439723+00:00",
+        "family": "lstm",
+        "input_sha256": "a0f89ea0d86a557bce39a99a0cd677a4520c825772ba64dfbaba9a93243ea4eb",
+        "job_id": "job_d37d018e7c9b2f8b6f04ef5a727bc48fe56fde3c",
+        "metric_artifacts": [],
+        "request_id": "request_d37d018e7c9b2f8b6f04ef5a727bc48fe56fde3c",
+        "request_sha256": "a85807074e77e7edbcb6a487ccbabe371e8f3b0088203091edd27162bc9e2f98",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "d07d75edb09c6b332ea33ba13716769ea2e6dcfd62bc10b01e4e863472e6d6c9",
+            "comparison_group_sha256": "641327eb5529d78aae746993355496140c831417910ec969b2af2465d3a70f62",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 0.8654379998915829,
+            "input_sha256": "a0f89ea0d86a557bce39a99a0cd677a4520c825772ba64dfbaba9a93243ea4eb",
+            "model_id": "ch4_bis_house_prices_lstm_scratch_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                2,
+                4
+              ],
+              "kind": "regression",
+              "unit": "index 2010=100",
+              "values": [
+                78.31360225674926,
+                79.12965390880682,
+                78.78961492957
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "9bf94f984126faba9f32f78d8818daa3667e64e08f705bf08e91eacbbca0bb56",
+            "comparison_group_sha256": "641327eb5529d78aae746993355496140c831417910ec969b2af2465d3a70f62",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 0.719608999133925,
+            "input_sha256": "a0f89ea0d86a557bce39a99a0cd677a4520c825772ba64dfbaba9a93243ea4eb",
+            "model_id": "ch4_bis_house_prices_lstm_keras_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                2,
+                4
+              ],
+              "kind": "regression",
+              "unit": "index 2010=100",
+              "values": [
+                78.31356823691573,
+                79.12963421311372,
+                78.78960418646469
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "b436ca59209068e98d9e8f3909f3d7a15e8293fbba513e2e863e424a169c791d",
+            "comparison_group_sha256": "641327eb5529d78aae746993355496140c831417910ec969b2af2465d3a70f62",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 0.7944260014483007,
+            "input_sha256": "a0f89ea0d86a557bce39a99a0cd677a4520c825772ba64dfbaba9a93243ea4eb",
+            "model_id": "ch4_bis_house_prices_lstm_pytorch_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                2,
+                4
+              ],
+              "kind": "regression",
+              "unit": "index 2010=100",
+              "values": [
+                77.61282412483149,
+                78.65048276302045,
+                78.65892863432363
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "sample_id": "Q.AT.N.628/2004-10-01T00:00:00"
+    },
+    {
+      "cpu_gpu_parity": [],
+      "dataset_id": "ch4_gold_pink_sheet",
+      "details": {
+        "historical_test_evaluation_executed": false,
+        "scope": "inference_only",
+        "serving_mode": "cpu",
+        "serving_runtime": {
+          "historical_test_evaluation_executed": false,
+          "mode": "cpu",
+          "models_retrained": 0,
+          "native_frameworks_imported_in_driver": [],
+          "numpy": "2.4.6",
+          "python": "3.11.17"
+        },
+        "serving_telemetry": {
+          "budget_bytes": 469762048,
+          "definition": "Sampled web worker + all job process-group PSS; RSS conservative fallback; excludes gunicorn master/OS/CUDA VRAM; not a cloud SLA",
+          "group_peak_sampled_pss_or_rss_bytes": 86434816,
+          "used_rss_fallback": false,
+          "web_plus_job_peak_sampled_pss_or_rss_bytes": 194215936,
+          "worker_peak_sampled_rss_bytes": 106037248,
+          "worker_wall_ms": 3454.2803050007933
+        },
+        "warning": "Academic retrospective demo; not diagnosis, investment advice or current appraisal. NumPy timing is not native framework timing."
+      },
+      "family": "rnn",
+      "http_wall_ms": 3751.946749000126,
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-20T14:00:39.699896+00:00",
+        "dataset_id": "ch4_gold_pink_sheet",
+        "expires_at": "2026-10-20T14:30:39.699896+00:00",
+        "family": "rnn",
+        "input_sha256": "e4dfde0ce15e265ff845f4ccc66a527f8f52ec0b28f04ee9756043b52533cb54",
+        "job_id": "job_b54fbce8923a6c9a74bfc996baa6c4abbfb7ffe1",
+        "metric_artifacts": [],
+        "request_id": "request_b54fbce8923a6c9a74bfc996baa6c4abbfb7ffe1",
+        "request_sha256": "77688d39e7a2619e045a4bc2b172f5a6eb77ade1262efceadf6b78600e2620ae",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "83fdf390623e3421744dac3c6fc543657ee34d833b01c0cc658040bb9b16975d",
+            "comparison_group_sha256": "97b6d53f760f289e6287c92d3e871d366b7837cdc51039eeeb124a906d86ed27",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 0.36483799885900225,
+            "input_sha256": "e4dfde0ce15e265ff845f4ccc66a527f8f52ec0b28f04ee9756043b52533cb54",
+            "model_id": "ch4_gold_pink_sheet_rnn_scratch_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                3,
+                6
+              ],
+              "kind": "regression",
+              "unit": "USD/troy ounce",
+              "values": [
+                36.51909781858677,
+                34.96376895581574,
+                40.364948098887766
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "71f63ae610b960e8cc4748c85d9eb247afa2c61228829f0e01ef6dd51f2b5969",
+            "comparison_group_sha256": "97b6d53f760f289e6287c92d3e871d366b7837cdc51039eeeb124a906d86ed27",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 0.3406129999348195,
+            "input_sha256": "e4dfde0ce15e265ff845f4ccc66a527f8f52ec0b28f04ee9756043b52533cb54",
+            "model_id": "ch4_gold_pink_sheet_rnn_keras_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                3,
+                6
+              ],
+              "kind": "regression",
+              "unit": "USD/troy ounce",
+              "values": [
+                36.51909781858677,
+                34.9637888210527,
+                40.364948098887766
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "b9c7516bfcf06078545c9426d432b9982a30ab327dfbef1d4285bbef1dd0748e",
+            "comparison_group_sha256": "97b6d53f760f289e6287c92d3e871d366b7837cdc51039eeeb124a906d86ed27",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 0.35153999851900153,
+            "input_sha256": "e4dfde0ce15e265ff845f4ccc66a527f8f52ec0b28f04ee9756043b52533cb54",
+            "model_id": "ch4_gold_pink_sheet_rnn_pytorch_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                3,
+                6
+              ],
+              "kind": "regression",
+              "unit": "USD/troy ounce",
+              "values": [
+                34.544870703979655,
+                37.57570990740493,
+                36.279582656525434
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "sample_id": "GOLD/1961-12-01T00:00:00"
+    },
+    {
+      "cpu_gpu_parity": [],
+      "dataset_id": "ch4_gold_pink_sheet",
+      "details": {
+        "historical_test_evaluation_executed": false,
+        "scope": "inference_only",
+        "serving_mode": "cpu",
+        "serving_runtime": {
+          "historical_test_evaluation_executed": false,
+          "mode": "cpu",
+          "models_retrained": 0,
+          "native_frameworks_imported_in_driver": [],
+          "numpy": "2.4.6",
+          "python": "3.11.17"
+        },
+        "serving_telemetry": {
+          "budget_bytes": 469762048,
+          "definition": "Sampled web worker + all job process-group PSS; RSS conservative fallback; excludes gunicorn master/OS/CUDA VRAM; not a cloud SLA",
+          "group_peak_sampled_pss_or_rss_bytes": 86487040,
+          "used_rss_fallback": false,
+          "web_plus_job_peak_sampled_pss_or_rss_bytes": 194254848,
+          "worker_peak_sampled_rss_bytes": 106323968,
+          "worker_wall_ms": 2815.884043000551
+        },
+        "warning": "Academic retrospective demo; not diagnosis, investment advice or current appraisal. NumPy timing is not native framework timing."
+      },
+      "family": "lstm",
+      "http_wall_ms": 3648.6703519985895,
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-20T14:00:43.939214+00:00",
+        "dataset_id": "ch4_gold_pink_sheet",
+        "expires_at": "2026-10-20T14:30:43.939214+00:00",
+        "family": "lstm",
+        "input_sha256": "e4dfde0ce15e265ff845f4ccc66a527f8f52ec0b28f04ee9756043b52533cb54",
+        "job_id": "job_9df997a4a1585ef8bb53091047f4f92165306ad5",
+        "metric_artifacts": [],
+        "request_id": "request_9df997a4a1585ef8bb53091047f4f92165306ad5",
+        "request_sha256": "0d56f2e9061532c2e03011f4feb21d66641af25525e8d52fe262f55d22fedebe",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "084062b50b6bc52a36b73c5e04474952fad4bbd51b9871477ed61455c78b6721",
+            "comparison_group_sha256": "5660142245973b80536b0b901da0a3ea1522cfbef9cc6860b94497110230b48e",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 1.5170349997788435,
+            "input_sha256": "e4dfde0ce15e265ff845f4ccc66a527f8f52ec0b28f04ee9756043b52533cb54",
+            "model_id": "ch4_gold_pink_sheet_lstm_scratch_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                3,
+                6
+              ],
+              "kind": "regression",
+              "unit": "USD/troy ounce",
+              "values": [
+                34.041584925525314,
+                32.72447998441302,
+                35.20187368605272
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "d2eaa67b138bd7aa75c19a4923cb9bc01fc08171482b676f36e59c907622071a",
+            "comparison_group_sha256": "5660142245973b80536b0b901da0a3ea1522cfbef9cc6860b94497110230b48e",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 1.3354750008147676,
+            "input_sha256": "e4dfde0ce15e265ff845f4ccc66a527f8f52ec0b28f04ee9756043b52533cb54",
+            "model_id": "ch4_gold_pink_sheet_lstm_keras_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                3,
+                6
+              ],
+              "kind": "regression",
+              "unit": "USD/troy ounce",
+              "values": [
+                34.04154519505141,
+                32.72449984964999,
+                35.201893551289686
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "289c5202a319ba3e55e788f3a0319b1412bdf3aa245856c1869ee22c0b0c384f",
+            "comparison_group_sha256": "5660142245973b80536b0b901da0a3ea1522cfbef9cc6860b94497110230b48e",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 1.326039000559831,
+            "input_sha256": "e4dfde0ce15e265ff845f4ccc66a527f8f52ec0b28f04ee9756043b52533cb54",
+            "model_id": "ch4_gold_pink_sheet_lstm_pytorch_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                3,
+                6
+              ],
+              "kind": "regression",
+              "unit": "USD/troy ounce",
+              "values": [
+                34.04136640791873,
+                32.72610893384399,
+                35.20052284993923
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "sample_id": "GOLD/1961-12-01T00:00:00"
+    },
+    {
+      "cpu_gpu_parity": [],
+      "dataset_id": "ch4_household_power",
+      "details": {
+        "historical_test_evaluation_executed": false,
+        "scope": "inference_only",
+        "serving_mode": "cpu",
+        "serving_runtime": {
+          "historical_test_evaluation_executed": false,
+          "mode": "cpu",
+          "models_retrained": 0,
+          "native_frameworks_imported_in_driver": [],
+          "numpy": "2.4.6",
+          "python": "3.11.17"
+        },
+        "serving_telemetry": {
+          "budget_bytes": 469762048,
+          "definition": "Sampled web worker + all job process-group PSS; RSS conservative fallback; excludes gunicorn master/OS/CUDA VRAM; not a cloud SLA",
+          "group_peak_sampled_pss_or_rss_bytes": 86430720,
+          "used_rss_fallback": false,
+          "web_plus_job_peak_sampled_pss_or_rss_bytes": 194081792,
+          "worker_peak_sampled_rss_bytes": 106119168,
+          "worker_wall_ms": 2927.2056160007196
+        },
+        "warning": "Academic retrospective demo; not diagnosis, investment advice or current appraisal. NumPy timing is not native framework timing."
+      },
+      "family": "rnn",
+      "http_wall_ms": 3256.4295700012735,
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-20T14:00:47.107453+00:00",
+        "dataset_id": "ch4_household_power",
+        "expires_at": "2026-10-20T14:30:47.107453+00:00",
+        "family": "rnn",
+        "input_sha256": "58e7c56c4b41ee0a4a90b65c82027bcece68b50c253ef59f4423bd2da17a5588",
+        "job_id": "job_9c2d0499efaff02419edfd059450abba6aff44cf",
+        "metric_artifacts": [],
+        "request_id": "request_9c2d0499efaff02419edfd059450abba6aff44cf",
+        "request_sha256": "31282b2e005555bed1a9a25b2d6e34602ff0de36bf279277950d79d1dff9f139",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "4b72359c381a7ef8e6e68e4db8e12fa135f9140dafcce8c7c8abbe0a9249d821",
+            "comparison_group_sha256": "0e4e2a43c7ebc500128e440ba34209ae91adcb5a89b33b2cbc59bc1129871857",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 1.8717029997787904,
+            "input_sha256": "58e7c56c4b41ee0a4a90b65c82027bcece68b50c253ef59f4423bd2da17a5588",
+            "model_id": "ch4_household_power_rnn_scratch_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                6,
+                24
+              ],
+              "kind": "regression",
+              "unit": "kW",
+              "values": [
+                3.431226677527273,
+                2.1064544976759176,
+                1.4175071080992083
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "0e58caad391769d9d72e9fced6456be8cf0ea0e349bc769a54a3bbdecd0722a0",
+            "comparison_group_sha256": "0e4e2a43c7ebc500128e440ba34209ae91adcb5a89b33b2cbc59bc1129871857",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 1.690119001068524,
+            "input_sha256": "58e7c56c4b41ee0a4a90b65c82027bcece68b50c253ef59f4423bd2da17a5588",
+            "model_id": "ch4_household_power_rnn_keras_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                6,
+                24
+              ],
+              "kind": "regression",
+              "unit": "kW",
+              "values": [
+                3.4606911835937515,
+                1.8567051223245095,
+                1.727013069391126
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "365e3135f9a38b53c0b3ea004f3ebddc381533e510faf8694eedccf0b5887b0c",
+            "comparison_group_sha256": "0e4e2a43c7ebc500128e440ba34209ae91adcb5a89b33b2cbc59bc1129871857",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 1.7386219988111407,
+            "input_sha256": "58e7c56c4b41ee0a4a90b65c82027bcece68b50c253ef59f4423bd2da17a5588",
+            "model_id": "ch4_household_power_rnn_pytorch_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                6,
+                24
+              ],
+              "kind": "regression",
+              "unit": "kW",
+              "values": [
+                3.3341221008227033,
+                2.016375053865591,
+                1.519222848560913
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "sample_id": "HOUSEHOLD/2006-12-23T20:00:00"
+    },
+    {
+      "cpu_gpu_parity": [],
+      "dataset_id": "ch4_household_power",
+      "details": {
+        "historical_test_evaluation_executed": false,
+        "scope": "inference_only",
+        "serving_mode": "cpu",
+        "serving_runtime": {
+          "historical_test_evaluation_executed": false,
+          "mode": "cpu",
+          "models_retrained": 0,
+          "native_frameworks_imported_in_driver": [],
+          "numpy": "2.4.6",
+          "python": "3.11.17"
+        },
+        "serving_telemetry": {
+          "budget_bytes": 469762048,
+          "definition": "Sampled web worker + all job process-group PSS; RSS conservative fallback; excludes gunicorn master/OS/CUDA VRAM; not a cloud SLA",
+          "group_peak_sampled_pss_or_rss_bytes": 87219200,
+          "used_rss_fallback": false,
+          "web_plus_job_peak_sampled_pss_or_rss_bytes": 195636224,
+          "worker_peak_sampled_rss_bytes": 106774528,
+          "worker_wall_ms": 3028.3607470009883
+        },
+        "warning": "Academic retrospective demo; not diagnosis, investment advice or current appraisal. NumPy timing is not native framework timing."
+      },
+      "family": "lstm",
+      "http_wall_ms": 3272.9668529991613,
+      "input_split": "train",
+      "job": {
+        "comparison_blockers": [],
+        "comparison_valid": true,
+        "created_at": "2026-10-20T14:00:50.378342+00:00",
+        "dataset_id": "ch4_household_power",
+        "expires_at": "2026-10-20T14:30:50.378342+00:00",
+        "family": "lstm",
+        "input_sha256": "58e7c56c4b41ee0a4a90b65c82027bcece68b50c253ef59f4423bd2da17a5588",
+        "job_id": "job_ec22fab759db4743e503f7ef5269b6a93a2b4aaf",
+        "metric_artifacts": [],
+        "request_id": "request_ec22fab759db4743e503f7ef5269b6a93a2b4aaf",
+        "request_sha256": "09b01b23886ea1afbab39adc3a695ffaebdd310ba1ff0254845245aec24ef194",
+        "results": [
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "89938f126e0b5fe95325b7149628babe0747e601ab0f374186375b3be99f1439",
+            "comparison_group_sha256": "fd5460bf001c7dad3d46c75415ad4c3c5d7464585362a3e6490ddc777a6c1b94",
+            "error": null,
+            "implementation": "scratch",
+            "inference_ms": 8.599168999353424,
+            "input_sha256": "58e7c56c4b41ee0a4a90b65c82027bcece68b50c253ef59f4423bd2da17a5588",
+            "model_id": "ch4_household_power_lstm_scratch_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                6,
+                24
+              ],
+              "kind": "regression",
+              "unit": "kW",
+              "values": [
+                3.496552420021808,
+                2.04676865684083,
+                1.5617759187597826
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "42342d83c4aca3227baff87e9ea1849a6641b1007593fa6028925b68542bbbf9",
+            "comparison_group_sha256": "fd5460bf001c7dad3d46c75415ad4c3c5d7464585362a3e6490ddc777a6c1b94",
+            "error": null,
+            "implementation": "keras",
+            "inference_ms": 8.57061100032297,
+            "input_sha256": "58e7c56c4b41ee0a4a90b65c82027bcece68b50c253ef59f4423bd2da17a5588",
+            "model_id": "ch4_household_power_lstm_keras_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                6,
+                24
+              ],
+              "kind": "regression",
+              "unit": "kW",
+              "values": [
+                3.0921855757756704,
+                1.4408776263561824,
+                1.840813324906868
+              ]
+            },
+            "status": "succeeded"
+          },
+          {
+            "actual_backend": "numpy",
+            "actual_device": "cpu",
+            "artifact_sha256": "0f37d69eaefe4ad2cb4a31fcff7653af1647c0f09b3034f010dd2f8a4ee1eaf5",
+            "comparison_group_sha256": "fd5460bf001c7dad3d46c75415ad4c3c5d7464585362a3e6490ddc777a6c1b94",
+            "error": null,
+            "implementation": "pytorch",
+            "inference_ms": 8.784911000475404,
+            "input_sha256": "58e7c56c4b41ee0a4a90b65c82027bcece68b50c253ef59f4423bd2da17a5588",
+            "model_id": "ch4_household_power_lstm_pytorch_s42_main",
+            "prediction": {
+              "horizons": [
+                1,
+                6,
+                24
+              ],
+              "kind": "regression",
+              "unit": "kW",
+              "values": [
+                2.9899884586028973,
+                1.582748963999692,
+                1.2733231029953678
+              ]
+            },
+            "status": "succeeded"
+          }
+        ],
+        "schema_version": "3.0.0",
+        "status": "succeeded",
+        "trace_ids": []
+      },
+      "sample_id": "HOUSEHOLD/2006-12-23T20:00:00"
+    }
+  ],
+  "current_case": {
+    "dataset_id": "ch5_finqa",
+    "details": {
+      "serving_telemetry": {
+        "budget_bytes": 469762048,
+        "definition": "Sampled web worker + all job process-group PSS; RSS conservative fallback; excludes gunicorn master/OS/CUDA VRAM; not a cloud SLA",
+        "group_peak_sampled_pss_or_rss_bytes": 370977792,
+        "used_rss_fallback": false,
+        "web_plus_job_peak_sampled_pss_or_rss_bytes": 479039488,
+        "worker_peak_sampled_rss_bytes": 388079616,
+        "worker_wall_ms": 6528.77743099998
+      }
+    },
+    "family": "kg_rag",
+    "job": {
+      "comparison_blockers": [
+        "memory_budget"
+      ],
+      "comparison_valid": false,
+      "created_at": "2026-10-20T14:00:52.773774+00:00",
+      "dataset_id": "ch5_finqa",
+      "expires_at": "2026-10-20T14:30:52.773774+00:00",
+      "family": "kg_rag",
+      "input_sha256": "b72b9ab383f89fada7a8b0d27608071045df783a987ace4b6378f5508a0e5313",
+      "job_id": "job_717faa197d6579b9b57b0eb17d0365d663e455ff",
+      "metric_artifacts": [],
+      "request_id": "request_717faa197d6579b9b57b0eb17d0365d663e455ff",
+      "request_sha256": "9a9b8f56058a4cc82dbd51938fd326e99be2817ecd524ebe52525bc227f090c6",
+      "results": [
+        {
+          "actual_backend": "not_run",
+          "actual_device": "not_run",
+          "artifact_sha256": null,
+          "comparison_group_sha256": null,
+          "error": {
+            "code": "memory_budget",
+            "message": "Inference unavailable"
+          },
+          "implementation": "B0",
+          "inference_ms": null,
+          "input_sha256": "b72b9ab383f89fada7a8b0d27608071045df783a987ace4b6378f5508a0e5313",
+          "model_id": null,
+          "prediction": null,
+          "status": "unavailable"
+        },
+        {
+          "actual_backend": "not_run",
+          "actual_device": "not_run",
+          "artifact_sha256": null,
+          "comparison_group_sha256": null,
+          "error": {
+            "code": "memory_budget",
+            "message": "Inference unavailable"
+          },
+          "implementation": "B1",
+          "inference_ms": null,
+          "input_sha256": "b72b9ab383f89fada7a8b0d27608071045df783a987ace4b6378f5508a0e5313",
+          "model_id": null,
+          "prediction": null,
+          "status": "unavailable"
+        },
+        {
+          "actual_backend": "not_run",
+          "actual_device": "not_run",
+          "artifact_sha256": null,
+          "comparison_group_sha256": null,
+          "error": {
+            "code": "memory_budget",
+            "message": "Inference unavailable"
+          },
+          "implementation": "B2",
+          "inference_ms": null,
+          "input_sha256": "b72b9ab383f89fada7a8b0d27608071045df783a987ace4b6378f5508a0e5313",
+          "model_id": null,
+          "prediction": null,
+          "status": "unavailable"
+        },
+        {
+          "actual_backend": "not_run",
+          "actual_device": "not_run",
+          "artifact_sha256": null,
+          "comparison_group_sha256": null,
+          "error": {
+            "code": "memory_budget",
+            "message": "Inference unavailable"
+          },
+          "implementation": "B3",
+          "inference_ms": null,
+          "input_sha256": "b72b9ab383f89fada7a8b0d27608071045df783a987ace4b6378f5508a0e5313",
+          "model_id": null,
+          "prediction": null,
+          "status": "unavailable"
+        },
+        {
+          "actual_backend": "not_run",
+          "actual_device": "not_run",
+          "artifact_sha256": null,
+          "comparison_group_sha256": null,
+          "error": {
+            "code": "memory_budget",
+            "message": "Inference unavailable"
+          },
+          "implementation": "B4",
+          "inference_ms": null,
+          "input_sha256": "b72b9ab383f89fada7a8b0d27608071045df783a987ace4b6378f5508a0e5313",
+          "model_id": null,
+          "prediction": null,
+          "status": "unavailable"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "failed",
+      "trace_ids": []
+    }
+  },
+  "exception_type": "AssertionError",
+  "historical_test_evaluation_executed": false,
+  "mode": "cpu",
+  "status": "FAIL"
+}

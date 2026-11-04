@@ -1,0 +1,103 @@
+{
+  "category": "tool_failure",
+  "domain": "house",
+  "metrics": {
+    "answer_completion": 0,
+    "citation_correctness": 0,
+    "latency_ms": 7.1493810009997105,
+    "message_count": 2,
+    "numeric_parity": 0,
+    "peak_child_rss_bytes": 175321088,
+    "refusal_correctness": null,
+    "routing_accuracy": 1,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 2,
+    "messages": [
+      {
+        "input": {
+          "domain_hint": "house",
+          "operation": "numeric",
+          "question": "Minh họa kết quả giá nhà tại house_numeric_029 bằng model cũ.",
+          "record_id": "house_numeric_029",
+          "task_id": "house_tool_failure_f3_2"
+        },
+        "node_id": "node_1",
+        "output": {
+          "policy": null,
+          "route": "house"
+        }
+      },
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "house_numeric_029"
+        },
+        "node_id": "node_2",
+        "output": {
+          "code": "unavailable",
+          "peak_rss_bytes": 175321088,
+          "status": "error"
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 175321088,
+    "reason": "tool_unavailable",
+    "route": "house",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "Không thực hiện yêu cầu: tool_unavailable.",
+      "citations": [],
+      "domain": "house",
+      "evidence_kind": "measured",
+      "latency_ms": 6.406857000911259,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "router",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "d5e39c679ff5d4200423cf91caf96a670e2239b727282418417a87ae8911f82a",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "bb06b457001fb5dd41e049eb1a0c3ec3a67b5602f5e97015a539f26f20eaad4f",
+          "parent_ids": [],
+          "tool": "none"
+        },
+        {
+          "agent": "specialist",
+          "artifact_refs": [],
+          "duration_ms": 6.171451999762212,
+          "input_sha256": "945c3bcddde5d570e09a44e02c057f111c6237cb35d1af821b16a65ba03db952",
+          "node_id": "node_2",
+          "outcome": "error",
+          "output_sha256": "7ebe0aaa6bab88d18ea3d7cbad2c431bb55ed4f68477494f2e404901eed21588",
+          "parent_ids": [
+            "node_1"
+          ],
+          "tool": "predict_house"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "failed",
+      "task_id": "house_tool_failure_f3_2",
+      "task_set_sha256": "bad7e9ef791528928971da69d47fe105ba5b24ae6918d9d831639526599ca23f",
+      "trace_id": "trace_d5e39c679ff5d4200423_a1",
+      "variant": "A1"
+    },
+    "values": [],
+    "verification": "not_run",
+    "wall_latency_ms": 7.1493810009997105
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "challenge",
+  "task_id": "house_tool_failure_f3_2",
+  "variant": "A1"
+}

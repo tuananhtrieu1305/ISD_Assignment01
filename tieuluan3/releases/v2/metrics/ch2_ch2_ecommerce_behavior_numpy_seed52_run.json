@@ -1,0 +1,57 @@
+{
+  "metric_row": {
+    "chapter": 2,
+    "dataset_id": "ch2_ecommerce_behavior",
+    "framework": "numpy",
+    "seed": 52,
+    "split": "test",
+    "task": "binary",
+    "topology_id": "mlp_64_32_1",
+    "input_dim": 368,
+    "parameter_count": 25729,
+    "optimizer": "Adam",
+    "learning_rate": 0.003,
+    "batch_size": 512,
+    "epochs_run": 18,
+    "best_epoch": 8,
+    "training_seconds": 4.71018549999917,
+    "search_seconds": 9.022063000000344,
+    "inference_seconds": 0.010378599999967264,
+    "inference_ms_per_sample": 0.005189299999983632,
+    "sample_count": 2000,
+    "threshold": 0.28,
+    "prediction_path": "term_paper/artifacts/predictions/ch2_ch2_ecommerce_behavior_numpy_seed52_test.csv",
+    "prediction_sha256": "fe746a21a8611b458b96b5726be140450016dc0c2812589eb0c39423ac2bffd0",
+    "model_path": "term_paper/artifacts/models/ch2/ch2_ecommerce_behavior_numpy_seed52.npz",
+    "model_sha256": "a34f10e68dd807cf43d085bc1de08174a91273b6e312555c699ce16fda721b81",
+    "preprocessor_sha256": "1f5d0f141c886dff63ba3fafd46ae9599e51613f7e106c0adc5014113aef8d98",
+    "processed_sha256": "72013d540b0e688059bbaaf2cb1127224d0786cef70f8025d91b325cc1f55041",
+    "split_sha256": "b9bf6fd92b31a05002e1538ad5a930c93e7a0373f58f0961441d06c1e8509eaf",
+    "Accuracy": 0.5135,
+    "Precision": 0.2285958904109589,
+    "Recall": 0.7876106194690266,
+    "F1": 0.3543463835434638,
+    "ROC-AUC": 0.6476586766688156
+  },
+  "learning_rate_candidates": [
+    {
+      "learning_rate": 0.01,
+      "measured_val_loss": 0.5898304804377767,
+      "history_best_val_loss": 0.5898304804377767,
+      "best_epoch": 5,
+      "epochs_run": 15,
+      "training_seconds": 3.8828341999997065
+    },
+    {
+      "learning_rate": 0.003,
+      "measured_val_loss": 0.5625452391151141,
+      "history_best_val_loss": 0.5625452391151141,
+      "best_epoch": 8,
+      "epochs_run": 18,
+      "training_seconds": 4.71018549999917
+    }
+  ],
+  "selected_candidate_index": 1,
+  "history_path": "term_paper/artifacts/metrics/ch2_ch2_ecommerce_behavior_numpy_seed52_history.csv",
+  "threshold_path": "term_paper/artifacts/metrics/ch2_ch2_ecommerce_behavior_numpy_seed52_threshold.csv"
+}

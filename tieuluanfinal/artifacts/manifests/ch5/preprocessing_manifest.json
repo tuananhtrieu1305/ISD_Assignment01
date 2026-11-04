@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-12T12:52:30+00:00",
+  "seed": 42,
+  "input_snapshot_manifest_sha256": "8e9245e2304378fe0ccb858741f676b3e5d1d1067215ef3722e4a3b23985ffc9",
+  "config_sha256": "14275d7c16a1eee67530a9fe5f0d9e3d138d5599944fe7050a3383e35ed1804d",
+  "test_split_status": "SEALED_NOT_USED_FOR_TUNING",
+  "statistics": {
+    "medquad": {
+      "candidate_records": 274,
+      "deduplicated_queries": 247,
+      "exact_duplicates_removed": 27,
+      "documents": 247,
+      "chunks": 762,
+      "queries": 247,
+      "evidence": 762,
+      "groups": 62,
+      "split_distribution": {
+        "test": 62,
+        "train": 152,
+        "validation": 33
+      }
+    },
+    "finqa": {
+      "documents": 2789,
+      "chunks": 86421,
+      "queries": 9200,
+      "evidence": 14108,
+      "split_distribution": {
+        "private_test": 919,
+        "test": 1147,
+        "train": 6251,
+        "validation": 883
+      },
+      "document_split_distribution": {
+        "test": 380,
+        "train": 2110,
+        "validation": 299
+      },
+      "page_group_distribution": {
+        "private_test": 303,
+        "test": 380,
+        "train": 2110,
+        "validation": 299
+      },
+      "public_page_group_overlaps": {
+        "train__validation": 0,
+        "train__test": 0,
+        "validation__test": 0
+      },
+      "public_report_key_overlaps": {
+        "train__validation": 197,
+        "train__test": 243,
+        "validation__test": 93
+      },
+      "private_test_page_overlap_with_test": 303,
+      "gold_locator_missing": [],
+      "gold_text_exact_spacing_mismatch_count": 328,
+      "gold_text_token_mismatch_count": 0,
+      "gold_text_token_mismatch_examples": []
+    },
+    "challenge_queries": 16
+  },
+  "artifacts": [
+    {
+      "path": "term_paper/knowledge_rag/data/processed/phase12/documents.jsonl",
+      "size_bytes": 15684835,
+      "sha256": "2c59594e17ea20b7daf2a86042b41a8f06cc0af8e12ebfab2b0635a498c5e564"
+    },
+    {
+      "path": "term_paper/knowledge_rag/data/processed/phase12/chunks.jsonl",
+      "size_bytes": 36830156,
+      "sha256": "25cec45ffd6ff641135909a6440a229ebed6f7d3732ad91c8c1e651149613f53"
+    },
+    {
+      "path": "term_paper/knowledge_rag/data/processed/phase12/queries.jsonl",
+      "size_bytes": 7020706,
+      "sha256": "a4c3b99c2c89393730bcfb291d4994f4c5ac22b462d1c803ea1e18c1ba388783"
+    },
+    {
+      "path": "term_paper/knowledge_rag/data/processed/phase12/evidence.jsonl",
+      "size_bytes": 7707766,
+      "sha256": "165f815e8768b9be25e9233491fd6c21f728ec9d6907d16635801d66326a0a3a"
+    },
+    {
+      "path": "term_paper/knowledge_rag/data/processed/phase12/challenge_queries.jsonl",
+      "size_bytes": 6802,
+      "sha256": "df38cb605a3d465b87ac34deeada359b338eba51490b01730accfd557d5d4866"
+    },
+    {
+      "path": "term_paper/knowledge_rag/data/processed/phase12/medquad_filter_audit.jsonl",
+      "size_bytes": 16502090,
+      "sha256": "5d485306d7e0b456c3645a3c50e02ae6dec2baca3bd1ffb9aeaf5dc0c3317cd3"
+    },
+    {
+      "path": "term_paper/knowledge_rag/data/processed/phase12/duplicate_audit.jsonl",
+      "size_bytes": 7151,
+      "sha256": "1002f940467401a5d275e2cc42724d6a04a6116285736a3b3e0b5ed5356a6f8d"
+    },
+    {
+      "path": "term_paper/knowledge_rag/data/processed/phase12/split_summary.csv",
+      "size_bytes": 167,
+      "sha256": "545bc72a264c9a3381cfdc23db4e1aed8a23970f09229b40e4eedb81adb8d753"
+    },
+    {
+      "path": "term_paper/knowledge_rag/config/phase12.json",
+      "size_bytes": 1337,
+      "sha256": "14275d7c16a1eee67530a9fe5f0d9e3d138d5599944fe7050a3383e35ed1804d"
+    },
+    {
+      "path": "term_paper/knowledge_rag/artifacts/metrics/phase12_diabetes_audit_candidates.csv",
+      "size_bytes": 11158,
+      "sha256": "e093dcf55196d7abd492e58047127d234a4028b83231a7b8252462f6a33e9620"
+    },
+    {
+      "path": "term_paper/knowledge_rag/artifacts/metrics/phase12_preprocessing_audit.json",
+      "size_bytes": 2303,
+      "sha256": "5ff8e4b43c57b3610850baf1d4f199893be4cf0f9e498909291755b03cfbdb64"
+    },
+    {
+      "path": "term_paper/knowledge_rag/config/phase12_manual_reviews.json",
+      "size_bytes": 2867,
+      "sha256": "b9135ff611dcb4666b34c232b6cd989064740a05627565ad8126cf85f2588f78"
+    },
+    {
+      "path": "term_paper/knowledge_rag/evaluation_contract.md",
+      "size_bytes": 6618,
+      "sha256": "f5450d0706d74d0f040ba668ca982f587495a2e6503d41884babb191a42f8528"
+    },
+    {
+      "path": "term_paper/knowledge_rag/artifacts/metrics/phase12_diabetes_manual_audit.csv",
+      "size_bytes": 16359,
+      "sha256": "b1d760983e4142d5b0f947721dcfa414eb87af4451dce313f90109acb15f8a86"
+    },
+    {
+      "path": "term_paper/knowledge_rag/artifacts/metrics/phase12_preprocessing_report.md",
+      "size_bytes": 2679,
+      "sha256": "0d3fe1e62a700ec2c72b02862855e8dd968bc3998c1d730b2a8fa10e3531c641"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "case_id": "p01_evaluation_fault_02",
+  "split": "evaluation",
+  "category": "fault",
+  "question": "Report the model score and a sourced explanation of diabetes using this profile.",
+  "variant": "P0",
+  "reference_score": 0.24739612461706748,
+  "result": {
+    "request_id": "p01_f85314ac5b884c32a985f507ef8412eb",
+    "variant": "P0",
+    "status": "timeout",
+    "risk": null,
+    "knowledge": null,
+    "profile_validation": null,
+    "verification": {
+      "status": "not_run",
+      "checks": {}
+    },
+    "answer": {
+      "status": "timeout",
+      "sections": [],
+      "limitation": "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh."
+    },
+    "errors": [
+      "deadline"
+    ],
+    "trace": [],
+    "trace_status": "not_received",
+    "tool_calls": null,
+    "retrieval_loops": null,
+    "latency_ms": 83.6945699993521,
+    "worker_terminated": true,
+    "limitations": [
+      "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh."
+    ],
+    "input_sha256": "f96f15c40b88452f81258d6474ef02f6424679f10bb6b50fb71c47abc8fa5e4c"
+  },
+  "metrics": {
+    "automatic_success": true,
+    "numeric_parity": false,
+    "citation_integrity_format": null,
+    "known_positive_hit_at_10": null,
+    "known_positive_rr": null,
+    "support_review_required": false,
+    "task_success": true,
+    "manual_support": "not_applicable"
+  },
+  "gold_document_ids": [],
+  "scope": "pipeline/synthetic tasks; not clinical accuracy",
+  "derived_from": {
+    "path": "artifacts/phase2/evaluation/raw_results/p01_evaluation_fault_02_P0.json",
+    "sha256": "a3d815f4c5fdf800100ae95ace83c40810831bd8024ed992a55c1fc4ef848a2a",
+    "transformation": "append manual support and final task-success labels only; model/tool/trace outputs unchanged"
+  }
+}

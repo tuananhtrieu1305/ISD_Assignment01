@@ -1,0 +1,226 @@
+{
+  "category": "tool_failure",
+  "domain": "house",
+  "metrics": {
+    "answer_completion": 0,
+    "citation_correctness": 0,
+    "latency_ms": 8.444813000096474,
+    "message_count": 4,
+    "numeric_parity": 0,
+    "peak_child_rss_bytes": 175542272,
+    "refusal_correctness": 1,
+    "routing_accuracy": 1,
+    "task_success": 1,
+    "tool_calls": 1,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 4,
+    "messages": [
+      {
+        "input": {
+          "domain_hint": "house",
+          "operation": "numeric",
+          "question": "giá nhà: gọi công cụ với mã house_numeric_022.",
+          "record_id": "house_numeric_022",
+          "task_id": "house_tool_failure_f1_3"
+        },
+        "node_id": "node_1",
+        "output": {
+          "policy": null,
+          "route": "house"
+        }
+      },
+      {
+        "input": {
+          "attempt": 0,
+          "record_id": "house_numeric_022"
+        },
+        "node_id": "node_2",
+        "output": {
+          "payload": {
+            "artifact_refs": [
+              {
+                "path": "data/processed/v3/phase26/r2/ch2_ames_housing_development.npz",
+                "sha256": "c6a9010960cc01cff51b663af8f744144c07f427b6c9a3b26a97eaaa60da687f"
+              },
+              {
+                "path": "artifacts/models/v3/ch02_ml/ch2_ames_housing_mlp_scratch_s42/best.npz",
+                "sha256": "a701995927fa16fcf2d7196660bfdd17050af90d376cdb8e9858c85ba92ce9fe"
+              },
+              {
+                "path": "artifacts/manifests/phase26/revisions/r2/configs/ch2_ames_housing_s42.json",
+                "sha256": "66fc07d2982135325b7c7ca4b6f60c6d66167d47a50dbcb2d57b8365a9231c49"
+              }
+            ],
+            "citations": [
+              {
+                "evidence_id": "evidence_house_numeric_022",
+                "locator": "parent_train/row_0000027",
+                "source_sha256": "c6a9010960cc01cff51b663af8f744144c07f427b6c9a3b26a97eaaa60da687f",
+                "source_url": "https://jse.amstat.org/v19n3/decock.pdf"
+              }
+            ],
+            "text": "Frozen NumPy CPU tool output: 105230.14",
+            "unit": "USD historical sale price",
+            "values": [
+              105231.13744436772
+            ]
+          },
+          "peak_rss_bytes": 175542272,
+          "receipt_sha256": "0528e88f6fd3d4eb51f83fc0400da6670e0f75097e15c9c93c911f699dcf9010",
+          "status": "ok"
+        }
+      },
+      {
+        "input": {
+          "receipt": {
+            "payload": {
+              "artifact_refs": [
+                {
+                  "path": "data/processed/v3/phase26/r2/ch2_ames_housing_development.npz",
+                  "sha256": "c6a9010960cc01cff51b663af8f744144c07f427b6c9a3b26a97eaaa60da687f"
+                },
+                {
+                  "path": "artifacts/models/v3/ch02_ml/ch2_ames_housing_mlp_scratch_s42/best.npz",
+                  "sha256": "a701995927fa16fcf2d7196660bfdd17050af90d376cdb8e9858c85ba92ce9fe"
+                },
+                {
+                  "path": "artifacts/manifests/phase26/revisions/r2/configs/ch2_ames_housing_s42.json",
+                  "sha256": "66fc07d2982135325b7c7ca4b6f60c6d66167d47a50dbcb2d57b8365a9231c49"
+                }
+              ],
+              "citations": [
+                {
+                  "evidence_id": "evidence_house_numeric_022",
+                  "locator": "parent_train/row_0000027",
+                  "source_sha256": "c6a9010960cc01cff51b663af8f744144c07f427b6c9a3b26a97eaaa60da687f",
+                  "source_url": "https://jse.amstat.org/v19n3/decock.pdf"
+                }
+              ],
+              "text": "Frozen NumPy CPU tool output: 105230.14",
+              "unit": "USD historical sale price",
+              "values": [
+                105231.13744436772
+              ]
+            },
+            "peak_rss_bytes": 175542272,
+            "receipt_sha256": "0528e88f6fd3d4eb51f83fc0400da6670e0f75097e15c9c93c911f699dcf9010",
+            "status": "ok"
+          }
+        },
+        "node_id": "node_3",
+        "output": {
+          "reason": "invalid_tool_evidence",
+          "verification": "rejected"
+        }
+      },
+      {
+        "input": {
+          "citations": [],
+          "status": "abstained",
+          "values": []
+        },
+        "node_id": "node_4",
+        "output": {
+          "answer": "Bằng chứng công cụ không hợp lệ; từ chối suy diễn.",
+          "warning": "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 175542272,
+    "reason": "invalid_tool_evidence",
+    "route": "house",
+    "tool_calls": 1,
+    "trace": {
+      "answer": "Không thực hiện yêu cầu: invalid_tool_evidence.",
+      "citations": [],
+      "domain": "house",
+      "evidence_kind": "measured",
+      "latency_ms": 7.448198999554734,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "router",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "94f80af49b621bad7b892e68bc57355268ebd987878d81550d04c14944e91ede",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "bb06b457001fb5dd41e049eb1a0c3ec3a67b5602f5e97015a539f26f20eaad4f",
+          "parent_ids": [],
+          "tool": "none"
+        },
+        {
+          "agent": "specialist",
+          "artifact_refs": [
+            {
+              "path": "data/processed/v3/phase26/r2/ch2_ames_housing_development.npz",
+              "sha256": "c6a9010960cc01cff51b663af8f744144c07f427b6c9a3b26a97eaaa60da687f"
+            },
+            {
+              "path": "artifacts/models/v3/ch02_ml/ch2_ames_housing_mlp_scratch_s42/best.npz",
+              "sha256": "a701995927fa16fcf2d7196660bfdd17050af90d376cdb8e9858c85ba92ce9fe"
+            },
+            {
+              "path": "artifacts/manifests/phase26/revisions/r2/configs/ch2_ames_housing_s42.json",
+              "sha256": "66fc07d2982135325b7c7ca4b6f60c6d66167d47a50dbcb2d57b8365a9231c49"
+            }
+          ],
+          "duration_ms": 7.189371999629657,
+          "input_sha256": "2100ba2e8a751acf5d9285260cc4550ab4dcd249270eb9222eadeaf2329f0801",
+          "node_id": "node_2",
+          "outcome": "ok",
+          "output_sha256": "5716023189b42ed3c5a5492c34d9e629de98225b03d92499832e12970fcbec37",
+          "parent_ids": [
+            "node_1"
+          ],
+          "tool": "predict_house"
+        },
+        {
+          "agent": "verifier",
+          "artifact_refs": [],
+          "duration_ms": 0.021563000700552948,
+          "input_sha256": "06e6d32c8984436ee093e242ac50906ede6cb7234647c39a3c468e75e530db2b",
+          "node_id": "node_3",
+          "outcome": "abstain",
+          "output_sha256": "4c373cacb6f52e2472d9a692c1bcff79e853fc979b7ac269623bfbaef382c557",
+          "parent_ids": [
+            "node_2"
+          ],
+          "tool": "none"
+        },
+        {
+          "agent": "reporter",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "4a82b0b7d65e015b370b2fba8cd28be62abd6b97dcb555ea411f0989301f1380",
+          "node_id": "node_4",
+          "outcome": "ok",
+          "output_sha256": "ca0375ec5a225a2748b8ff80b538b36ab5d2ca431521e83ed7bf495363c8c3e0",
+          "parent_ids": [
+            "node_3"
+          ],
+          "tool": "none"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "abstained",
+      "task_id": "house_tool_failure_f1_3",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_94f80af49b621bad7b89_a2",
+      "variant": "A2"
+    },
+    "values": [],
+    "verification": "rejected",
+    "wall_latency_ms": 8.444813000096474
+  },
+  "parent_model_test_forward": false,
+  "split": "train",
+  "stratum": "challenge",
+  "task_id": "house_tool_failure_f1_3",
+  "variant": "A2"
+}

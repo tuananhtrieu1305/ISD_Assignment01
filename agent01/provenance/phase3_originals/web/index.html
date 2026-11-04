@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Discovering AI Agent — Q-learning Maze</title>
+  <meta name="description" content="Khám phá Q-learning qua mê cung 10×10 từ notebook Discovering AI Agent.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><a class="brand" href="./">D<span class="brand-dot">◆</span> AI LAB</a><a href="Discovering_AI_Agent.ipynb" download>Tải notebook ↗</a></header>
+<main>
+  <div class="intro"><span class="eyebrow">DISCOVERING AI AGENT / INTERACTIVE DEMO</span><h1>Học cách tìm đường.</h1><p>Một mê cung. Bốn hành động. Agent học từ phần thưởng để tìm đến đích bằng Q-learning.</p></div>
+  <div class="workspace">
+    <section class="panel maze-panel" aria-labelledby="maze-title">
+      <div class="panel-heading"><h2 id="maze-title">Mê cung 10 × 10</h2><span class="badge" id="mode-label">Đường đi đã học</span></div>
+      <div id="maze" role="img" aria-label="Mê cung 10 nhân 10, S là điểm bắt đầu, G là đích"></div>
+      <div class="legend"><span>◉ Agent</span><span>S Bắt đầu</span><span>G Đích</span><span>▧ Tường</span><span>· Đã đi</span></div>
+    </section>
+    <aside class="panel controls">
+      <div class="tabs" role="group" aria-label="Chế độ"><button id="replay" aria-pressed="true">Xem agent</button><button id="manual" aria-pressed="false">Tự thử</button></div>
+      <h2 id="control-title">Theo dấu agent</h2><p id="description">Phát lại chính sách greedy từ kết quả notebook đã thực thi, với seed 42.</p>
+      <div class="stats"><div><span>Bước di chuyển</span><strong id="steps">0 <small>/ 24</small></strong></div><div><span>Tổng thưởng</span><strong id="reward">0</strong></div></div>
+      <div class="status" id="status" role="status" aria-live="polite">Sẵn sàng tại ô (0, 0).</div>
+      <div id="playback"><button class="primary" id="play">▶ Chạy demo</button><div class="button-row"><button id="step">Đi 1 bước →</button><button id="reset">↺ Làm lại</button></div><label class="speed">Tốc độ <select id="speed"><option value="600">Chậm</option><option value="250" selected>Vừa</option><option value="90">Nhanh</option></select></label></div>
+      <div id="manual-controls" hidden><div class="arrows" role="group" aria-label="Điều khiển agent"><button data-action="2" class="up" aria-label="Lên">↑</button><button data-action="0" aria-label="Trái">←</button><button data-action="3" aria-label="Xuống">↓</button><button data-action="1" aria-label="Phải">→</button></div><p class="hint">Dùng nút hoặc phím mũi tên. Va tường sẽ kết thúc lượt, giống notebook.</p><button id="manual-reset">↺ Thử lại</button></div>
+      <div class="rewards"><span>Đi hợp lệ <b>−1</b></span><span>Va tường <b>−10</b></span><span>Đến đích <b>+50</b></span></div>
+    </aside>
+  </div>
+  <section class="results" aria-label="Kết quả notebook"><div><span>Huấn luyện</span><strong>5.000 lượt</strong><p>α = 0,1 · γ = 0,9 · seed 42</p></div><div><span>Đường greedy</span><strong>24 bước</strong><p>Bằng đường ngắn nhất BFS</p></div><div><span>1.000 lượt cuối</span><strong>87,6% tới đích</strong><p>Vẫn có khám phá ε = 0,01</p></div></section>
+  <details><summary>Demo này hoạt động thế nào?</summary><p>Agent đã học trong notebook bằng Q-learning: thử hành động, nhận thưởng, rồi cập nhật bảng Q. Khi đánh giá greedy, agent luôn chọn hành động có Q lớn nhất. Đường đi lưu được dài 24 bước, tổng thưởng 27. BFS chỉ được dùng làm đối chứng sau huấn luyện.</p><p>Web phát lại kết quả thực đã lưu và cho bạn tự thử môi trường; không huấn luyện lại mô hình. Tỷ lệ 87,6% thuộc các lượt huấn luyện cuối có khám phá, không phải tỷ lệ thành công của đường greedy. Một seed trên một mê cung không đại diện cho khả năng tổng quát hóa.</p><p>Notebook dùng NumPy CPU; giới hạn 400 bước mỗi lượt, ε từ 0,5 giảm theo hệ số 0,995 và dừng ở 0,01.</p></details>
+  <footer>DISCOVERING AI AGENT <span>Q-learning · Notebook demo · 10 × 10</span></footer>
+</main>
+<script src="data.js"></script><script src="app.js"></script>
+</body></html>

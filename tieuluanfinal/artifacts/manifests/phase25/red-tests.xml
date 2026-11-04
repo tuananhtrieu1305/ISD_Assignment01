@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="3" failures="0" skipped="0" tests="3" time="1.099" timestamp="2026-10-17T14:29:17.304137+07:00" hostname="LaptopVJP"><testcase classname="" name="tests.core.test_model_core" time="0.000"><error message="collection failure">ImportError while importing test module '/mnt/c/DATA/assign/tests/core/test_model_core.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+tests/core/test_model_core.py:8: in &lt;module&gt;
+    from src.common.model_core import ModelRegistry, build_plan, canonical_weights, make_contract, render_functions, validate_model
+E   ModuleNotFoundError: No module named 'src.common.model_core'</error></testcase><testcase classname="" name="tests.core.test_runtime_artifacts" time="0.000"><error message="collection failure">ImportError while importing test module '/mnt/c/DATA/assign/tests/core/test_runtime_artifacts.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+tests/core/test_runtime_artifacts.py:6: in &lt;module&gt;
+    from src.common.training_core import Adam, EarlyStopping, batch_order, clip_gradients, seed_everything
+E   ModuleNotFoundError: No module named 'src.common.training_core'</error></testcase><testcase classname="" name="tests.core.test_tensor_adapters" time="0.000"><error message="collection failure">ImportError while importing test module '/mnt/c/DATA/assign/tests/core/test_tensor_adapters.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+tests/core/test_tensor_adapters.py:10: in &lt;module&gt;
+    from src.common.tensor_adapters import TensorAdapter, image_batch, select_rows, window_batch
+E   ModuleNotFoundError: No module named 'src.common.tensor_adapters'</error></testcase></testsuite></testsuites>

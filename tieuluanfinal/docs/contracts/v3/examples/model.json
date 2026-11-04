@@ -1,0 +1,249 @@
+{
+  "schema_version": "3.0.0",
+  "evidence_kind": "synthetic_fixture",
+  "model_id": "fixture_mlp_scratch",
+  "dataset_id": "ch2_cdc_diabetes",
+  "family": "mlp",
+  "implementation": "scratch",
+  "backend": "numpy",
+  "parameter_count": 40,
+  "input_shape": [
+    "batch",
+    4
+  ],
+  "output_shape": [
+    "batch",
+    2
+  ],
+  "layers": [
+    {
+      "id": "layer_1",
+      "kind": "dense",
+      "parameter_count": 10,
+      "input_shape": [
+        "batch",
+        4
+      ],
+      "output_shape": [
+        "batch",
+        2
+      ],
+      "function_id": "dense_1"
+    },
+    {
+      "id": "layer_2",
+      "kind": "dense",
+      "parameter_count": 6,
+      "input_shape": [
+        "batch",
+        2
+      ],
+      "output_shape": [
+        "batch",
+        2
+      ],
+      "function_id": "dense_2"
+    },
+    {
+      "id": "layer_3",
+      "kind": "dense",
+      "parameter_count": 6,
+      "input_shape": [
+        "batch",
+        2
+      ],
+      "output_shape": [
+        "batch",
+        2
+      ],
+      "function_id": "dense_3"
+    },
+    {
+      "id": "layer_4",
+      "kind": "dense",
+      "parameter_count": 6,
+      "input_shape": [
+        "batch",
+        2
+      ],
+      "output_shape": [
+        "batch",
+        2
+      ],
+      "function_id": "dense_4"
+    },
+    {
+      "id": "layer_5",
+      "kind": "dense",
+      "parameter_count": 6,
+      "input_shape": [
+        "batch",
+        2
+      ],
+      "output_shape": [
+        "batch",
+        2
+      ],
+      "function_id": "dense_5"
+    },
+    {
+      "id": "layer_6",
+      "kind": "dense",
+      "parameter_count": 6,
+      "input_shape": [
+        "batch",
+        2
+      ],
+      "output_shape": [
+        "batch",
+        2
+      ],
+      "function_id": "dense_6"
+    }
+  ],
+  "functions": [
+    {
+      "id": "dense_1",
+      "signature": "dense(x, weights, bias)",
+      "role": "Synthetic shape/parameter fixture only",
+      "input_shape": [
+        "batch",
+        4
+      ],
+      "output_shape": [
+        "batch",
+        2
+      ],
+      "parameters": 10,
+      "corner_case": "Reject wrong feature count",
+      "formula": null,
+      "mapping": {
+        "scratch": "NumpyDense.forward",
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear"
+      }
+    },
+    {
+      "id": "dense_2",
+      "signature": "dense(x, weights, bias)",
+      "role": "Synthetic shape/parameter fixture only",
+      "input_shape": [
+        "batch",
+        2
+      ],
+      "output_shape": [
+        "batch",
+        2
+      ],
+      "parameters": 6,
+      "corner_case": "Reject wrong feature count",
+      "formula": null,
+      "mapping": {
+        "scratch": "NumpyDense.forward",
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear"
+      }
+    },
+    {
+      "id": "dense_3",
+      "signature": "dense(x, weights, bias)",
+      "role": "Synthetic shape/parameter fixture only",
+      "input_shape": [
+        "batch",
+        2
+      ],
+      "output_shape": [
+        "batch",
+        2
+      ],
+      "parameters": 6,
+      "corner_case": "Reject wrong feature count",
+      "formula": null,
+      "mapping": {
+        "scratch": "NumpyDense.forward",
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear"
+      }
+    },
+    {
+      "id": "dense_4",
+      "signature": "dense(x, weights, bias)",
+      "role": "Synthetic shape/parameter fixture only",
+      "input_shape": [
+        "batch",
+        2
+      ],
+      "output_shape": [
+        "batch",
+        2
+      ],
+      "parameters": 6,
+      "corner_case": "Reject wrong feature count",
+      "formula": null,
+      "mapping": {
+        "scratch": "NumpyDense.forward",
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear"
+      }
+    },
+    {
+      "id": "dense_5",
+      "signature": "dense(x, weights, bias)",
+      "role": "Synthetic shape/parameter fixture only",
+      "input_shape": [
+        "batch",
+        2
+      ],
+      "output_shape": [
+        "batch",
+        2
+      ],
+      "parameters": 6,
+      "corner_case": "Reject wrong feature count",
+      "formula": null,
+      "mapping": {
+        "scratch": "NumpyDense.forward",
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear"
+      }
+    },
+    {
+      "id": "dense_6",
+      "signature": "dense(x, weights, bias)",
+      "role": "Synthetic shape/parameter fixture only",
+      "input_shape": [
+        "batch",
+        2
+      ],
+      "output_shape": [
+        "batch",
+        2
+      ],
+      "parameters": 6,
+      "corner_case": "Reject wrong feature count",
+      "formula": null,
+      "mapping": {
+        "scratch": "NumpyDense.forward",
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear"
+      }
+    }
+  ],
+  "composition": [
+    "dense_1",
+    "dense_2",
+    "dense_3",
+    "dense_4",
+    "dense_5",
+    "dense_6"
+  ],
+  "composition_plain": "đầu vào → 5 Dense ẩn → Dense đầu ra",
+  "recurrent_unroll": null,
+  "config_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "dataset_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "comparison_group_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "preprocessing": {
+    "path": "artifacts/manifests/fixture/preprocessing.json",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  }
+}

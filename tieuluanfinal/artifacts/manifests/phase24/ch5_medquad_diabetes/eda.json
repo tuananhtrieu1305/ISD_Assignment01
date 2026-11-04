@@ -1,0 +1,69 @@
+{
+  "comments": [
+    "Nguồn upstream có 47.441 QAPair, nhưng lát cắt diabetes khóa chỉ 247 query/62 nhóm; không đánh đồng hai mẫu số.",
+    "Kế thừa 27 bản trùng đã loại và split 152/33/62; không rebuild filter/split hoặc đánh giá lại TEST."
+  ],
+  "dataset_id": "ch5_medquad_diabetes",
+  "distribution_summary": {
+    "test": 62,
+    "train": 152,
+    "validation": 33
+  },
+  "figures": [
+    {
+      "path": "artifacts/figures/phase24/ch5_medquad_diabetes_distribution.png",
+      "sha256": "c255f1a8bbde90fa3caeb328046a82fd8a43b4e379d9107c97a334fb7ace085b",
+      "size_bytes": 62876
+    },
+    {
+      "path": "artifacts/figures/phase24/ch5_medquad_diabetes_distribution.svg",
+      "sha256": "148eb6c432343d43767891bad2124266ad90067e544c77858b3a43fbd461a313",
+      "size_bytes": 36798
+    }
+  ],
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "sample_note": "FinQA: raw official train. MedQuAD: ánh xạ ID -> trích đoạn corpus retrieval công khai đã đóng gói, không gán train/test vì bundle không có split, không phải QA gold hay output mô hình. Wikidata: cấu trúc snapshot. Không đọc lại TEST query/prediction để tạo ví dụ hay tính metric.",
+  "samples": [
+    {
+      "input": "med-chunk-007e45eccdb7816d5e0c",
+      "known_output": "- Starting a physical activity program can help you lose weight or keep a healthy weight and keep your blood glucose levels on target. - Always talk with your health care team before you start a new physical activity program. - Ask your health care team if you need to change the amount of medicine you take or the food you eat before any physical activity. - Talk with your health care team about what types of physical activity are safe for you, such as walking, weightlifting, or housework. - To m",
+      "scope": "published retrieval corpus evidence, benchmark question split unknown; not a QA query/gold or model output"
+    },
+    {
+      "input": "med-chunk-00bc631490478ac2cf94",
+      "known_output": "well. Children have a higher risk of type 2 diabetes if they are obese, have a family history of diabetes, or are not active, and do not eat well. To lower the risk of type 2 diabetes in children - Have them maintain a healthy weight - Be sure they are physically active - Have them eat smaller portions of healthy foods - Limit time with the TV, computer, and video Children and teens with type 1 diabetes may need to take insulin. Type 2 diabetes may be controlled with diet and exercise. If not, p",
+      "scope": "published retrieval corpus evidence, benchmark question split unknown; not a QA query/gold or model output"
+    },
+    {
+      "input": "med-chunk-00d0cff90bb719155edf",
+      "known_output": "healthy tissues by mistake, signaling the body to attack them. At present, scientists do not know exactly what causes the body's immune system to attack the cells, but many believe that both genetic factors and environmental factors, such as viruses, are involved. Studies are now underway to identify these factors and prevent type 1 diabetes in people at risk. Learn more about the causes of type 1 diabetes. Type 2 Diabetes Type 2 diabetes -- the most common form -- is linked closely to overweigh",
+      "scope": "published retrieval corpus evidence, benchmark question split unknown; not a QA query/gold or model output"
+    }
+  ],
+  "schema_version": "3.0.0",
+  "scope": "historical_baseline_READ_ONLY",
+  "size_and_schema": {
+    "features": null,
+    "frozen_slice": {
+      "candidate_records": 274,
+      "chunks": 762,
+      "deduplicated_queries": 247,
+      "documents": 247,
+      "evidence": 762,
+      "exact_duplicates_removed": 27,
+      "groups": 62,
+      "queries": 247,
+      "split_distribution": {
+        "test": 62,
+        "train": 152,
+        "validation": 33
+      }
+    },
+    "records": 47441,
+    "unit": "QA pairs in entire preserved upstream corpus, NOT diabetes-only split"
+  },
+  "source_manifest_sha256": "f205a30da7fe1215d6a2f081160e8fae57c38bbd5f51f325cf56f23a1d19b328",
+  "split_note": "Kế thừa manifest Phase12 và audit đã khóa; không chia lại, fit lại hay chạy TEST. Ch5 run_count vẫn 1; Wikidata chỉ structural audit.",
+  "test_evaluation_executed": false,
+  "training_executed": false
+}

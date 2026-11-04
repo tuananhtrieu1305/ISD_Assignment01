@@ -1,0 +1,696 @@
+{
+  "case_id": "p01_evaluation_combined_04",
+  "split": "evaluation",
+  "category": "combined",
+  "question": "What does the snapshot document report about vision and diabetes? Also report the model score for the supplied survey profile.",
+  "variant": "P0",
+  "reference_score": 0.2348404595294004,
+  "result": {
+    "request_id": "p01_5c83e58ec8aa442289671fbe450eb896",
+    "variant": "P0",
+    "status": "answered",
+    "risk": {
+      "score": 0.2348404595294004,
+      "class_id": 0,
+      "class_name": "no diabetes",
+      "logit": -1.1811779737472534,
+      "model_sha256": "cc7d28232eb1a818cc0c10d9047b4a43f4ef25ac7c06b2737870c63ae644fdb8",
+      "profile_sha256": "91b28ba19db9fc9ab53857c3d3bccffb9be52b50a1ccadc0f5dfc6a6784ce7ff",
+      "unit": "historical_binary_model_score",
+      "calibrated_incidence_risk": false
+    },
+    "knowledge": {
+      "query_original": "What does the snapshot document report about vision and diabetes? Also report the model score for the supplied survey profile.",
+      "query_normalized": "vision diabetes",
+      "mapping": [],
+      "expanded": false,
+      "ranked_chunk_ids": [
+        "med-chunk-d823ba21282c7148a6c9",
+        "med-chunk-1fd3518bfe75fc88189f",
+        "med-chunk-e5068975c5ccace8d6b0",
+        "med-chunk-53e793bcf6344e35f8a7",
+        "med-chunk-2ab4030592d7d1dbef08",
+        "med-chunk-15dcf0e9aca8105c6a9d",
+        "med-chunk-72846efdeaec62b19014",
+        "med-chunk-846fd8513ef2c171b4f6",
+        "med-chunk-45133b0b0d3547506517",
+        "med-chunk-29cae499c93bcbc28766"
+      ],
+      "evidence": [
+        {
+          "chunk_id": "med-chunk-d823ba21282c7148a6c9",
+          "document_id": "med-doc-e394863eadce10631150",
+          "domain": "medical",
+          "text": "Diabetes is a serious, life-long disease. It can lead to problems such as heart disease, stroke, vision loss, kidney disease, and nerve damage. More than 8 million people in the United States have type 2 diabetes and dont know it. Many people dont find out they have diabetes until they are faced with problems such as blurry vision or heart trouble. Certain factors can increase your risk for diabetes, and its important to know what they are. Type 1 Diabetes Type 1 diabetes is an autoimmune disease. In an autoimmune reaction, antibodies, or immune cells, attach to the bodys own healthy tissues by mistake, signaling the body to attack them. At present, scientists do not know exactly what causes the",
+          "score": 0.01465981682444393,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-e394863eadce10631150/med-chunk-d823ba21282c7148a6c9",
+          "text_sha256": "a5fb081a21c052ee4b9c63667b5f9a42d2ca373e98fc1677f4bd72b46a4952e9",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-d823ba21282c7148a6c9"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-1fd3518bfe75fc88189f",
+          "document_id": "med-doc-789ce78a7120946a49ec",
+          "domain": "medical",
+          "text": "Learn how to cope with stress. Take Care of Your Eyes High blood glucose and high blood pressure from diabetes can hurt your eyes. It can even cause blindness, or other painful eye problems. Here are ways to prevent diabetes eye problems. - Keep your blood glucose and blood pressure as close to normal as you can. - Have an eye care professional examine your eyes once a year. Have this exam even if your vision is okay. Keep your blood glucose and blood pressure as close to normal as you can. Have an eye care professional examine your eyes once a year. Have this exam even if your vision is okay. Learn more about eye disease and diabetes. Protect",
+          "score": 0.014120760959470638,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-789ce78a7120946a49ec/med-chunk-1fd3518bfe75fc88189f",
+          "text_sha256": "86f6e64de0ed751ac3e8776bf43a543a5a5c69292f12fbd535f8bb2a2d600b76",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-1fd3518bfe75fc88189f"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-e5068975c5ccace8d6b0",
+          "document_id": "med-doc-24832e0a12ba7cf022f0",
+          "domain": "medical",
+          "text": "is Important Diabetes is a serious disease that can lead to a number of health problems such as heart disease, stroke, vision problems, kidney disease and even death. Sometimes people have symptoms but do not suspect diabetes. They delay scheduling a checkup because they do not feel sick. Many people do not find out they have the disease until they have diabetes complications, such as a heart attack or stroke. Finding out early if you have diabetes is important because treatment can prevent or delay the complications of the disease.",
+          "score": 0.013324153757888698,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-24832e0a12ba7cf022f0/med-chunk-e5068975c5ccace8d6b0",
+          "text_sha256": "a6e6cc0321f201f3262616b7bb28d9e987cc86e89869c8bab6a0b1e2d54e7117",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-e5068975c5ccace8d6b0"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-53e793bcf6344e35f8a7",
+          "document_id": "med-doc-789ce78a7120946a49ec",
+          "domain": "medical",
+          "text": "once a year. Have this exam even if your vision is okay. Learn more about eye disease and diabetes. Protect Your Kidneys High blood glucose and high blood pressure may damage the kidneys. Damaged kidneys do not do a good job of filtering out wastes and extra fluid. Here are ways to prevent diabetes kidney problems. - Keep your blood glucose and blood pressure as close to your target goal as you can. - Get tested at least once a year for kidney disease. Ask your doctor if you should be tested. - Follow the healthy eating plan you work out with your doctor or dietitian. If you already have kidney problems, your dietitian may suggest you cut back on",
+          "score": 0.011872854691075515,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-789ce78a7120946a49ec/med-chunk-53e793bcf6344e35f8a7",
+          "text_sha256": "c6d580a85b82245b8502049b7c5bd6eafca076384560bf6e6d90638d8296f74d",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-53e793bcf6344e35f8a7"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-2ab4030592d7d1dbef08",
+          "document_id": "med-doc-21820cb8e924d00738a3",
+          "domain": "medical",
+          "text": "Often, no symptoms appear during the early stages of diabetes retina problems. As retina problems worsen, your symptoms might include - blurry or double vision - rings, flashing lights, or blank spots in your vision - dark or floating spots in your vision - pain or pressure in one or both of your eyes - trouble seeing things out of the corners of your eyes",
+          "score": 0.011475409836065573,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-21820cb8e924d00738a3/med-chunk-2ab4030592d7d1dbef08",
+          "text_sha256": "bbb6772c51de7e1f18cd7713e5b9db51269b946e7079888e1a701f95c7a85b33",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-15dcf0e9aca8105c6a9d",
+          "document_id": "med-doc-515b81d955a929e7c962",
+          "domain": "medical",
+          "text": "Can Cause Vision Loss, Blindness Diabetic retinopathy is a complication of diabetes and a leading cause of blindness. It occurs when diabetes damages the tiny blood vessels inside the retina in the back of the eye. A healthy retina is necessary for good vision. If you have diabetic retinopathy, at first you may notice no changes to your vision. But over time, diabetic retinopathy can get worse and cause vision loss. Diabetic retinopathy usually affects both eyes. Four Stages The four stages of diabetic retinopathy are - mild nonproliferative retinopathy - moderate nonproliferative retinopathy - severe nonproliferative retinopathy - proliferative retinopathy. mild nonproliferative retinopathy moderate nonproliferative retinopathy severe nonproliferative retinopathy proliferative retinopathy. The first stage is mild nonproliferative retinopathy. At",
+          "score": 0.011105990783410138,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-515b81d955a929e7c962/med-chunk-15dcf0e9aca8105c6a9d",
+          "text_sha256": "1e89464972208afaceabd7e4180cb64279762489f6917c8ca49e3a6fe0856b8d",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-72846efdeaec62b19014",
+          "document_id": "med-doc-2f6f783b342dead28e1e",
+          "domain": "medical",
+          "text": "Diabetic retinopathy is a complication of diabetes and a leading cause of blindness. It occurs when diabetes damages the tiny blood vessels inside the retina, the light-sensitive tissue at the back of the eye. A healthy retina is necessary for good vision. If you have diabetic retinopathy, at first you may notice no changes to your vision. But over time, diabetic retinopathy can get worse and cause vision loss. Diabetic retinopathy usually affects both eyes. See this graphic for a quick overview of diabetic eye disease, including how many people it affects, whos at risk, what to do if you have it, and how to learn more.",
+          "score": 0.011016346837242359,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-2f6f783b342dead28e1e/med-chunk-72846efdeaec62b19014",
+          "text_sha256": "2a2728c86e896bb47e902e49d22d2a5c362a98cc5447ad049242dffc809d7d60",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-846fd8513ef2c171b4f6",
+          "document_id": "med-doc-d49c7a529be6de0b003b",
+          "domain": "medical",
+          "text": "Diabetic retinopathy often has no early warning signs. Don't wait for symptoms. Be sure to have a comprehensive dilated eye exam at least once a year to detect the disease before it causes damage to your vision. Vision Changes May Indicate Bleeding In the early stages of diabetic retinopathy, you may not notice any changes in your vision. But if diabetic retinopathy reaches its final stage, proliferative retinopathy, bleeding can occur. If this happens, at first, you will see a few specks of blood, or spots, floating in your vision. If spots occur, see your eye care professional as soon as possible. Early Treatment is Important You may need treatment before more serious bleeding or hemorrhages occur causing vision loss",
+          "score": 0.010818070818070817,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-d49c7a529be6de0b003b/med-chunk-846fd8513ef2c171b4f6",
+          "text_sha256": "6162314ac8d44757dfbbf582641eb353565573815755df4e20d5db09753a14ae",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-45133b0b0d3547506517",
+          "document_id": "med-doc-49899f4d1716c2f65662",
+          "domain": "medical",
+          "text": "Who Is at Risk? All people with diabetes -- both type 1 and type 2 -- are at risk for diabetic retinopathy. People with diabetes are also at increased risk for cataract and glaucoma. That's why everyone with diabetes should get a comprehensive dilated eye exam at least once a year. Between 40 to 45 percent of Americans diagnosed with diabetes have some stage of diabetic retinopathy. If you have diabetic retinopathy, your doctor can recommend treatment to help prevent its progression. How Vision Loss Occurs Blood vessels damaged from diabetic retinopathy can cause vision loss in two ways. Fragile, abnormal blood vessels can develop and leak blood into the center of the eye, blurring vision. This is proliferative retinopathy",
+          "score": 0.01074486301369863,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-49899f4d1716c2f65662/med-chunk-45133b0b0d3547506517",
+          "text_sha256": "a6efa0fc473e65f4ae35b8af4673c915e1fafeb55180ba47fcf5eba5e220779c",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-29cae499c93bcbc28766",
+          "document_id": "med-doc-123d4ee06aa94a9f6267",
+          "domain": "medical",
+          "text": "oftentimes leading to complications such as heart disease, stroke, blindness, kidney disease, nerve problems, gum infections, and amputation. Type 1 Diabetes Type 1 diabetes, which used to be called called juvenile diabetes or insulin-dependent diabetes, develops most often in young people. However, type 1 diabetes can also develop in adults. With this form of diabetes, your body no longer makes insulin or doesnt make enough insulin because your immune system has attacked and destroyed the insulin-producing cells. About 5 to 10 percent of people with diabetes have type 1 diabetes. To survive, people with type 1 diabetes must have insulin delivered by injection or a pump. Learn more about type 1 diabetes here. Type 2 Diabetes Type 2 diabetes, which",
+          "score": 0.010537540469705535,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-123d4ee06aa94a9f6267/med-chunk-29cae499c93bcbc28766",
+          "text_sha256": "f99e7e26bf18913902a3f0ec67d9459f39ac0d35de7a556021586a2005a1604f",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-29cae499c93bcbc28766"
+          ]
+        }
+      ],
+      "graph_paths": {
+        "med-chunk-00d0cff90bb719155edf": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-00d0cff90bb719155edf"
+        ],
+        "med-chunk-02742aed14c1dacb7d2a": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-02742aed14c1dacb7d2a"
+        ],
+        "med-chunk-042fc6d1baec3e2d6d52": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-042fc6d1baec3e2d6d52"
+        ],
+        "med-chunk-07f0e7ddf3090a20cda9": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-07f0e7ddf3090a20cda9"
+        ],
+        "med-chunk-142622843d46ae761ad6": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-142622843d46ae761ad6"
+        ],
+        "med-chunk-158d754ecbe5d593e96d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-158d754ecbe5d593e96d"
+        ],
+        "med-chunk-18185f2fcc09fac4293c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-18185f2fcc09fac4293c"
+        ],
+        "med-chunk-1c4cf120827198804eca": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1c4cf120827198804eca"
+        ],
+        "med-chunk-1fd3518bfe75fc88189f": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1fd3518bfe75fc88189f"
+        ],
+        "med-chunk-1ff75a3402733edbb3be": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1ff75a3402733edbb3be"
+        ],
+        "med-chunk-20da3a9768c72180eaee": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-20da3a9768c72180eaee"
+        ],
+        "med-chunk-234ffd24da97a47933dd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-234ffd24da97a47933dd"
+        ],
+        "med-chunk-2637d03c319543c561b0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2637d03c319543c561b0"
+        ],
+        "med-chunk-29cae499c93bcbc28766": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-29cae499c93bcbc28766"
+        ],
+        "med-chunk-2b583989e8d34088d6be": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2b583989e8d34088d6be"
+        ],
+        "med-chunk-2fcb3149d1770e0a595e": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2fcb3149d1770e0a595e"
+        ],
+        "med-chunk-322cf32545ba0d9fccd3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-322cf32545ba0d9fccd3"
+        ],
+        "med-chunk-35d53d10cdf7ca13f130": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-35d53d10cdf7ca13f130"
+        ],
+        "med-chunk-38c7b877bbde527d28df": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-38c7b877bbde527d28df"
+        ],
+        "med-chunk-40a47ef3b3edefc4b445": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-40a47ef3b3edefc4b445"
+        ],
+        "med-chunk-428e5bdb3faa8095da2c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-428e5bdb3faa8095da2c"
+        ],
+        "med-chunk-498ec32b50924f78d269": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-498ec32b50924f78d269"
+        ],
+        "med-chunk-4f099ecb0ff814fae6ce": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-4f099ecb0ff814fae6ce"
+        ],
+        "med-chunk-53e793bcf6344e35f8a7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-53e793bcf6344e35f8a7"
+        ],
+        "med-chunk-54facf2ee3eaff0fdce3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-54facf2ee3eaff0fdce3"
+        ],
+        "med-chunk-57b35921a9722b616aed": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-57b35921a9722b616aed"
+        ],
+        "med-chunk-592697f10ac0f2b0b6f0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-592697f10ac0f2b0b6f0"
+        ],
+        "med-chunk-5acc226aae6524197ef7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5acc226aae6524197ef7"
+        ],
+        "med-chunk-5e0271a3601b45abe4ff": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5e0271a3601b45abe4ff"
+        ],
+        "med-chunk-5edf8024738ce8e9b331": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5edf8024738ce8e9b331"
+        ],
+        "med-chunk-618f309badbf6a5f4b72": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-618f309badbf6a5f4b72"
+        ],
+        "med-chunk-64f932f085704ffa6a2d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-64f932f085704ffa6a2d"
+        ],
+        "med-chunk-68a95f47da58a027b61c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-68a95f47da58a027b61c"
+        ],
+        "med-chunk-6b96fb2799c25ab6f0fd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-6b96fb2799c25ab6f0fd"
+        ],
+        "med-chunk-6e2b4946973d9895a320": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-6e2b4946973d9895a320"
+        ],
+        "med-chunk-7201d90f8c11d3337e58": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7201d90f8c11d3337e58"
+        ],
+        "med-chunk-791eb61fb7e725fe87ee": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-791eb61fb7e725fe87ee"
+        ],
+        "med-chunk-797ef8993da8c25cded4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-797ef8993da8c25cded4"
+        ],
+        "med-chunk-7bfe9ed251eab800454b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7bfe9ed251eab800454b"
+        ],
+        "med-chunk-7f48782ab65e4dae9b0d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7f48782ab65e4dae9b0d"
+        ],
+        "med-chunk-805c768af161958295db": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-805c768af161958295db"
+        ],
+        "med-chunk-821f617f26d18b9824cd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-821f617f26d18b9824cd"
+        ],
+        "med-chunk-82541225c6e95203e992": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-82541225c6e95203e992"
+        ],
+        "med-chunk-8308c56ef25e2cfe22b4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8308c56ef25e2cfe22b4"
+        ],
+        "med-chunk-880bfce90afa02c43573": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-880bfce90afa02c43573"
+        ],
+        "med-chunk-8cc14350e486c23f2bff": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8cc14350e486c23f2bff"
+        ],
+        "med-chunk-8dffeea09fcafba78f9c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8dffeea09fcafba78f9c"
+        ],
+        "med-chunk-8e408fa25b89cf44fe73": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8e408fa25b89cf44fe73"
+        ],
+        "med-chunk-92578e57eaf0de1c605c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-92578e57eaf0de1c605c"
+        ],
+        "med-chunk-926991435686f8baf455": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-926991435686f8baf455"
+        ],
+        "med-chunk-93a7ce4421d6cdfd0019": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-93a7ce4421d6cdfd0019"
+        ],
+        "med-chunk-a1a4b29c41136d4eea36": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a1a4b29c41136d4eea36"
+        ],
+        "med-chunk-a210fbfb5dfd020e7260": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a210fbfb5dfd020e7260"
+        ],
+        "med-chunk-a2e51634f9fa03ae255d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a2e51634f9fa03ae255d"
+        ],
+        "med-chunk-a43cb96d1bc187e62f78": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a43cb96d1bc187e62f78"
+        ],
+        "med-chunk-a7a81505c68f3b1db781": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a7a81505c68f3b1db781"
+        ],
+        "med-chunk-a9074b046b94a319eebf": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a9074b046b94a319eebf"
+        ],
+        "med-chunk-a9c9a9186b08cffa54ac": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a9c9a9186b08cffa54ac"
+        ],
+        "med-chunk-ad2e41d109f2459c61a3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ad2e41d109f2459c61a3"
+        ],
+        "med-chunk-aeaf5140180cca99da80": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-aeaf5140180cca99da80"
+        ],
+        "med-chunk-b34f3a90c5b93bbb7ca3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b34f3a90c5b93bbb7ca3"
+        ],
+        "med-chunk-b439e7011436daf78d70": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b439e7011436daf78d70"
+        ],
+        "med-chunk-b5423d412a5c84a10678": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b5423d412a5c84a10678"
+        ],
+        "med-chunk-b5a68ac2e2f678742241": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b5a68ac2e2f678742241"
+        ],
+        "med-chunk-b6eb5a279443330c2ad3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b6eb5a279443330c2ad3"
+        ],
+        "med-chunk-b77c90bcbbbc928e4b0b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b77c90bcbbbc928e4b0b"
+        ],
+        "med-chunk-b9e463da28dcd8cae5b4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b9e463da28dcd8cae5b4"
+        ],
+        "med-chunk-c15b56a11e231144655e": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c15b56a11e231144655e"
+        ],
+        "med-chunk-c199270e7c9eebf766c4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c199270e7c9eebf766c4"
+        ],
+        "med-chunk-c3b05ea064562d9e4d2d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c3b05ea064562d9e4d2d"
+        ],
+        "med-chunk-c9f36e68e21351fe3f20": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c9f36e68e21351fe3f20"
+        ],
+        "med-chunk-cd312104e143618fd9c1": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-cd312104e143618fd9c1"
+        ],
+        "med-chunk-cf9eb66179943d5cdb43": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-cf9eb66179943d5cdb43"
+        ],
+        "med-chunk-d376529389af5b67695b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d376529389af5b67695b"
+        ],
+        "med-chunk-d4bb83dc775f308fa787": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d4bb83dc775f308fa787"
+        ],
+        "med-chunk-d4c01b61d78fa346a7fe": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d4c01b61d78fa346a7fe"
+        ],
+        "med-chunk-d53899bdb40c38a43edd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d53899bdb40c38a43edd"
+        ],
+        "med-chunk-d7c09f74f870a09ade81": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d7c09f74f870a09ade81"
+        ],
+        "med-chunk-d802b5ae0b11355e4a40": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d802b5ae0b11355e4a40"
+        ],
+        "med-chunk-d823ba21282c7148a6c9": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d823ba21282c7148a6c9"
+        ],
+        "med-chunk-d9234b0b602223bbb3f8": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d9234b0b602223bbb3f8"
+        ],
+        "med-chunk-dadd48872c0963ea3d46": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-dadd48872c0963ea3d46"
+        ],
+        "med-chunk-dc3c1305089057dfa49f": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-dc3c1305089057dfa49f"
+        ],
+        "med-chunk-df9c85fffb8211040522": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-df9c85fffb8211040522"
+        ],
+        "med-chunk-e04453f588452a112b7b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e04453f588452a112b7b"
+        ],
+        "med-chunk-e0a3ecd4fbd4bd1bffa5": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e0a3ecd4fbd4bd1bffa5"
+        ],
+        "med-chunk-e5068975c5ccace8d6b0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e5068975c5ccace8d6b0"
+        ],
+        "med-chunk-efcd1c95f5fdcb645f93": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-efcd1c95f5fdcb645f93"
+        ],
+        "med-chunk-f48938d706c03489bb61": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-f48938d706c03489bb61"
+        ],
+        "med-chunk-f7c195b56a3d5b981b2b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-f7c195b56a3d5b981b2b"
+        ],
+        "med-chunk-fa057772ca3b931e48a7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-fa057772ca3b931e48a7"
+        ],
+        "med-chunk-facc6c9df13f34d09dca": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-facc6c9df13f34d09dca"
+        ],
+        "med-chunk-fb01033fc65d1cfcb493": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-fb01033fc65d1cfcb493"
+        ],
+        "med-chunk-ff497309447bf4900c9c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ff497309447bf4900c9c"
+        ],
+        "med-chunk-ffd2aa901b2714cd9719": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ffd2aa901b2714cd9719"
+        ]
+      },
+      "answer": "It can lead to problems such as heart disease, stroke, vision loss, kidney disease, and nerve damage.",
+      "citations": [
+        "med-chunk-d823ba21282c7148a6c9"
+      ],
+      "support_kind": "verbatim_focused_excerpt_heuristic",
+      "language": "en",
+      "method": "BM25 + LSA + lexical graph / weighted RRF",
+      "citation_scope": "source repository commit plus local document/chunk, not original page URL"
+    },
+    "profile_validation": {
+      "valid": true,
+      "missing": [],
+      "invalid": [],
+      "extra": []
+    },
+    "verification": {
+      "status": "not_run",
+      "checks": {}
+    },
+    "answer": {
+      "status": "answered",
+      "sections": [
+        {
+          "title": "Đầu ra mô hình khảo sát",
+          "text": "Score 0.234840; lớp 0: no diabetes. Không phải xác suất mắc mới đã hiệu chuẩn."
+        },
+        {
+          "title": "Bằng chứng truy hồi · tiếng Anh",
+          "text": "It can lead to problems such as heart disease, stroke, vision loss, kidney disease, and nerve damage."
+        }
+      ],
+      "variant": "P0",
+      "limitation": "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh.",
+      "synthesis": "unverified_tool_outputs"
+    },
+    "errors": [],
+    "trace": [
+      {
+        "node_id": "n1",
+        "agent": "Direct",
+        "tool": "plan_request",
+        "parent_ids": [],
+        "duration_ms": 0.19951600006606895,
+        "outcome": "ok",
+        "output": {
+          "need_risk": true,
+          "need_knowledge": true,
+          "mode": "combined",
+          "policy": null
+        }
+      },
+      {
+        "node_id": "n2",
+        "agent": "Risk Agent",
+        "tool": "validate_profile",
+        "parent_ids": [
+          "n1"
+        ],
+        "duration_ms": 0.11257799997110851,
+        "outcome": "ok",
+        "output": {
+          "valid": true,
+          "missing": [],
+          "invalid": [],
+          "extra": []
+        }
+      },
+      {
+        "node_id": "n3",
+        "agent": "Risk Agent",
+        "tool": "predict_cdc",
+        "parent_ids": [
+          "n2"
+        ],
+        "duration_ms": 0.8549100002710475,
+        "outcome": "ok",
+        "output": {
+          "result_sha256": "398c040555fc7beeb4615fb5fb0520518aad6c0c17ed653f1f29a17f21635433",
+          "attempt": 0
+        }
+      },
+      {
+        "node_id": "n4",
+        "agent": "Knowledge Agent",
+        "tool": "retrieve_medical",
+        "parent_ids": [
+          "n3"
+        ],
+        "duration_ms": 18.10844899955555,
+        "outcome": "ok",
+        "output": {
+          "result_sha256": "34e73347b47f73e3928f65d086d91d6f7114ec70a7f2d5480ce8641d43bbabc1",
+          "attempt": 0
+        }
+      },
+      {
+        "node_id": "n5",
+        "agent": "Direct",
+        "tool": "compose",
+        "parent_ids": [
+          "n4"
+        ],
+        "duration_ms": 0.026898999749391805,
+        "outcome": "ok",
+        "output": {
+          "status": "answered",
+          "section_count": 2
+        }
+      }
+    ],
+    "tool_calls": 2,
+    "retrieval_loops": 0,
+    "latency_ms": 25.961937999454676,
+    "limitations": [
+      "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh."
+    ],
+    "input_sha256": "c2543d9ff05108f536bb166d92f168ab4d0d1f2fb1a4f86b9bcfbc4dc64e1169",
+    "worker_terminated": true
+  },
+  "metrics": {
+    "automatic_success": true,
+    "numeric_parity": true,
+    "citation_integrity_format": true,
+    "known_positive_hit_at_10": false,
+    "known_positive_rr": 0.0,
+    "support_review_required": true,
+    "task_success": true,
+    "manual_support": "supported"
+  },
+  "gold_document_ids": [
+    "med-doc-36902c23243ea17a65bf"
+  ],
+  "scope": "pipeline/synthetic tasks; not clinical accuracy",
+  "derived_from": {
+    "path": "artifacts/phase2/evaluation/raw_results/p01_evaluation_combined_04_P0.json",
+    "sha256": "b66201d1ba9ca825f825fe993bdc925fbbe06b23c06a206f73ccb0cdd8438382",
+    "transformation": "append manual support and final task-success labels only; model/tool/trace outputs unchanged"
+  }
+}

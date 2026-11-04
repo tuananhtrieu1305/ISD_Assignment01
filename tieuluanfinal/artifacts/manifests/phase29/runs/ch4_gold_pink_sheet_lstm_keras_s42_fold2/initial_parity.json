@@ -1,0 +1,33 @@
+{
+  "forward": "PASS",
+  "gradient": {
+    "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+    "max_abs_error": 4.470348358154297e-08,
+    "max_relative_l2_error": 1.9882495599092379e-07,
+    "per_tensor_relative_l2_error": {
+      "dense_4/b": 3.343451078443633e-08,
+      "dense_4/w": 9.052879679367085e-08,
+      "dense_6/b": 1.7459223164447092e-08,
+      "dense_6/w": 7.30087235156461e-08,
+      "dense_8/b": 0.0,
+      "dense_8/w": 3.699094426350533e-08,
+      "lstm_1/b": 1.6046105739718962e-07,
+      "lstm_1/u": 1.8534675738571058e-07,
+      "lstm_1/w": 1.9882495599092379e-07,
+      "lstm_2/b": 1.8901412490296505e-07,
+      "lstm_2/u": 1.9159776371719816e-07,
+      "lstm_2/w": 1.8270252432164415e-07,
+      "lstm_3/b": 1.470985257758869e-07,
+      "lstm_3/u": 1.2646311420716759e-07,
+      "lstm_3/w": 1.1601633103762434e-07
+    },
+    "tolerance": 0.001
+  },
+  "ids": [
+    "GOLD/1961-12-01T00:00:00",
+    "GOLD/1962-01-01T00:00:00",
+    "GOLD/1962-02-01T00:00:00",
+    "GOLD/1962-03-01T00:00:00"
+  ],
+  "input_split": "train"
+}

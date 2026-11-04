@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="15" failures="2" errors="0" time="0.0652656">
+    <testsuite name="src/v3/App.test.tsx" timestamp="2026-10-21T12:05:58.791Z" hostname="LaptopVJP" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="src/v3/App.test.tsx" name="src/v3/App.test.tsx" time="0">
+            <failure message="Failed to resolve import &quot;./App&quot; from &quot;src/v3/App.test.tsx&quot;. Does the file exist?" type="Error">
+Error: Failed to resolve import &quot;./App&quot; from &quot;src/v3/App.test.tsx&quot;. Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/DATA/assign/apps/web/src/v3/App.test.tsx:6:16
+  4  |  import { MemoryRouter } from &quot;react-router-dom&quot;;
+  5  |  import { readFileSync } from &quot;node:fs&quot;;
+  6  |  import App from &quot;./App&quot;;
+     |                   ^
+  7  |  import { ApiClient } from &quot;./client&quot;;
+  8  |  var _jsxFileName = &quot;C:/DATA/assign/apps/web/src/v3/App.test.tsx&quot;;
+ ❯ TransformPluginContext._formatLog node_modules/vite/dist/node/chunks/node.js:8766:39
+ ❯ TransformPluginContext.error node_modules/vite/dist/node/chunks/node.js:8763:14
+ ❯ normalizeUrl node_modules/vite/dist/node/chunks/node.js:26632:18
+ ❯ node_modules/vite/dist/node/chunks/node.js:26702:30
+ ❯ TransformPluginContext.transform node_modules/vite/dist/node/chunks/node.js:26668:4
+ ❯ EnvironmentPluginContainer.transform node_modules/vite/dist/node/chunks/node.js:8545:14
+ ❯ loadAndTransform node_modules/vite/dist/node/chunks/node.js:20184:26
+            </failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="src/v3/core.test.ts" timestamp="2026-10-21T12:05:58.799Z" hostname="LaptopVJP" tests="14" failures="1" errors="0" skipped="0" time="0.0652656">
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /ml" time="0.0022291">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /cnn" time="0.0003668">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /rnn" time="0.0002051">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /rag" time="0.0002688">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /agents" time="0.0002194">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps RNN/LSTM and rejects cross-chapter datasets instead of silent fallback" time="0.0002066">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="safe presentation and comparable historical rows &gt; preserves missing cost, zero, arrays and text without invented metrics" time="0.0449584">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="safe presentation and comparable historical rows &gt; parses quoted CSV and filters before comparing" time="0.001091">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="safe presentation and comparable historical rows &gt; does not accept javascript URLs or probability bars over 100 percent" time="0.0005564">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; matches cancel schema and hashes public artifact bytes" time="0.0100278">
+            <failure message="expected { schema_version: &apos;3.0.0&apos;, …(1) } to deeply equal { reason: &apos;user_cancelled&apos; }" type="AssertionError">
+AssertionError: expected { schema_version: &apos;3.0.0&apos;, …(1) } to deeply equal { reason: &apos;user_cancelled&apos; }
+
+- Expected
++ Received
+
+  {
+    &quot;reason&quot;: &quot;user_cancelled&quot;,
++   &quot;schema_version&quot;: &quot;3.0.0&quot;,
+  }
+
+ ❯ src/v3/core.test.ts:45:55
+            </failure>
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; normalizes only http/https API origins without embedded credentials" time="0.0007553">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; stores 24 random bytes in session storage only and isolates API origins" time="0.0004374">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; uses owner and idempotency headers without leaking tokens in the URL" time="0.0014136">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; keeps structured retryable errors and refuses external polling" time="0.0010521">
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-12T12:52:30+00:00",
+  "config_sha256": "14275d7c16a1eee67530a9fe5f0d9e3d138d5599944fe7050a3383e35ed1804d",
+  "medquad": {
+    "candidate_records": 274,
+    "deduplicated_queries": 247,
+    "exact_duplicates_removed": 27,
+    "documents": 247,
+    "chunks": 762,
+    "queries": 247,
+    "evidence": 762,
+    "groups": 62,
+    "split_distribution": {
+      "test": 62,
+      "train": 152,
+      "validation": 33
+    }
+  },
+  "finqa": {
+    "documents": 2789,
+    "chunks": 86421,
+    "queries": 9200,
+    "evidence": 14108,
+    "split_distribution": {
+      "private_test": 919,
+      "test": 1147,
+      "train": 6251,
+      "validation": 883
+    },
+    "document_split_distribution": {
+      "test": 380,
+      "train": 2110,
+      "validation": 299
+    },
+    "page_group_distribution": {
+      "private_test": 303,
+      "test": 380,
+      "train": 2110,
+      "validation": 299
+    },
+    "public_page_group_overlaps": {
+      "train__validation": 0,
+      "train__test": 0,
+      "validation__test": 0
+    },
+    "public_report_key_overlaps": {
+      "train__validation": 197,
+      "train__test": 243,
+      "validation__test": 93
+    },
+    "private_test_page_overlap_with_test": 303,
+    "gold_locator_missing": [],
+    "gold_text_exact_spacing_mismatch_count": 328,
+    "gold_text_token_mismatch_count": 0,
+    "gold_text_token_mismatch_examples": []
+  },
+  "challenge_queries": 16,
+  "cross_split_group_leakage": [],
+  "filter_decision_distribution": {
+    "answer_only_not_allowed": 790,
+    "excluded_condition": 20,
+    "focus_term": 274,
+    "missing_answer": 31034,
+    "no_diabetes_signal": 15323
+  },
+  "manual_audit_candidates": 60,
+  "manual_review": {
+    "reviewer": "Codex manual semantic review",
+    "reviewed_at": "2026-10-12",
+    "sample_size": 60,
+    "label_distribution": {
+      "FN": 3,
+      "TN": 17,
+      "TP": 40
+    },
+    "inclusion_precision": 1.0,
+    "sampling_note": "Deterministic enriched audit: 40 predicted inclusions plus 20 excluded near-matches. Inclusion precision is estimable; exclusion recall is not a corpus-wide estimate because near-matches were intentionally oversampled."
+  },
+  "test_tuning_performed": false
+}

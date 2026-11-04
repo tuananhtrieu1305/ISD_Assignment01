@@ -1,0 +1,141 @@
+{
+  "schema_version": "llm-v2-contract-v1",
+  "additional_properties": "reject unless explicitly versioned",
+  "QueryPlan": {
+    "required": [
+      "original_question",
+      "language",
+      "intent",
+      "queries",
+      "entity_ids",
+      "relation_direction",
+      "scope"
+    ],
+    "intent": [
+      "knowledge",
+      "risk",
+      "combined",
+      "out_of_scope"
+    ],
+    "queries": "1..3 strings; preserve original and negation",
+    "entity_ids": "allowlisted canonical IDs; unknown not invented",
+    "relation_direction": "subject,relation,object,negated,conditions"
+  },
+  "Evidence": {
+    "required": [
+      "chunk_id",
+      "content",
+      "source_refs",
+      "ranks",
+      "retrieval_channels"
+    ],
+    "source_refs": "document_id,qa_id,title,section,source_url,snapshot_url,answer_start,answer_end",
+    "ranks": "dense_rank,sparse_rank,kg_rank,rrf_score,original_rank,rerank_score",
+    "graph_support": "assertion_ids,quote,source_chunk_ids,direction,conditions; optional"
+  },
+  "Claim": {
+    "required": [
+      "id",
+      "text_vi",
+      "citation_chunk_ids"
+    ],
+    "citation_chunk_ids": "subset of supplied evidence IDs",
+    "clinical_numbers": "must be exact source or immutable server CDC value, not generated probability"
+  },
+  "Draft": {
+    "required": [
+      "answer_vi",
+      "claims",
+      "limitations"
+    ],
+    "answer_vi": "direct answer first; 768 output token cap"
+  },
+  "Verification": {
+    "required": [
+      "approved",
+      "claim_reviews",
+      "direction_ok",
+      "numeric_ok",
+      "source_integrity_ok",
+      "feedback"
+    ],
+    "claim_reviews": "claim_id + supported/partial/unsupported/contradicted + evidence_ids",
+    "release_rule": "release exact approved draft or explicit evidence-limited answer; no free rewrite after verification"
+  },
+  "Usage": {
+    "required": [
+      "model_requested",
+      "model_returned",
+      "endpoint",
+      "attempts",
+      "latency_ms",
+      "cache_status",
+      "usage_source"
+    ],
+    "optional_nullable": [
+      "input_tokens",
+      "output_tokens",
+      "thought_tokens",
+      "cached_tokens",
+      "total_tokens"
+    ],
+    "cache_status": [
+      "live",
+      "local_cache"
+    ],
+    "usage_source": [
+      "provider",
+      "estimate",
+      "unavailable"
+    ],
+    "cost": "free-tier configured USD=0; invoice verification separate"
+  },
+  "Result": {
+    "required": [
+      "variant",
+      "status",
+      "answer_vi",
+      "claims",
+      "citations",
+      "usage",
+      "latency_ms",
+      "freeze_id"
+    ],
+    "variant": [
+      "llm_direct",
+      "agentic_rag"
+    ],
+    "status": [
+      "complete",
+      "limited_evidence",
+      "waiting_quota",
+      "provider_error",
+      "timeout",
+      "verification_failed"
+    ],
+    "direct_claim_citations": "optional; do not invent internal citations",
+    "risk_tool": "optional immutable CDC score + task/limitations; not personal incidence probability"
+  },
+  "CompareJob": {
+    "states": [
+      "queued",
+      "running",
+      "waiting_quota",
+      "complete",
+      "partial",
+      "failed"
+    ],
+    "polling": "separate partial branch status; never label unverified streaming draft as approved"
+  },
+  "validation_required_phase2": [
+    "schema",
+    "all IDs resolve",
+    "quote exact span",
+    "directed relation and qualifiers",
+    "claim support",
+    "prompt-injection data isolation",
+    "frozen CDC score identity",
+    "shared queue/deadline/quota",
+    "no secret in public result"
+  ]
+}

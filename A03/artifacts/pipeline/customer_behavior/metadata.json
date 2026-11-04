@@ -1,0 +1,37 @@
+{
+  "task_name": "Customer Behavior Churn Classification",
+  "task_type": "binary_classification",
+  "dataset_name": "Synthetic E-Commerce Customer Behavior Dataset",
+  "dataset_path": "datasets/customer_behavior",
+  "target": "is_churned",
+  "selected_model": "Improved DNN",
+  "selection_metric": "F1",
+  "metrics": {
+    "Accuracy": 0.611,
+    "Precision": 0.2519774011299435,
+    "Recall": 0.6578171091445427,
+    "F1": 0.36437908496732024,
+    "ROC-AUC": 0.6654696765462751
+  },
+  "feature_count": 51,
+  "numeric_feature_count": 43,
+  "categorical_feature_count": 7,
+  "text_feature": "review_text_all",
+  "transformed_feature_count": 368,
+  "training_date": "2026-09-07T10:17:48+00:00",
+  "preprocessing_summary": "Numeric median imputation + scaling; categorical Unknown imputation + one-hot encoding; review text TF-IDF. All fitted on training split only.",
+  "target_transformation": null,
+  "model_format": "NumPy DNN weights (.npz) + joblib ColumnTransformer",
+  "model_file": "pipeline/customer_behavior/model.npz",
+  "preprocessor_file": "pipeline/customer_behavior/preprocessor.joblib",
+  "decision_threshold": 0.49000000000000005,
+  "class_weight": {
+    "0": 0.6019563581640331,
+    "1": 2.952029520295203
+  },
+  "prediction_cutoff": "2024-10-01 23:59:05",
+  "notes": [
+    "Features are built from pre-cutoff behavior to reduce future-information leakage.",
+    "The dataset supplies is_churned without an exact churn date, so the outcome-window limitation remains documented."
+  ]
+}

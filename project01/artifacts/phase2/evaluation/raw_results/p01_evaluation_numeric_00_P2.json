@@ -1,0 +1,149 @@
+{
+  "case_id": "p01_evaluation_numeric_00",
+  "split": "evaluation",
+  "category": "numeric",
+  "question": "Calculate the checkpoint output for the attached encoded survey fields.",
+  "variant": "P2",
+  "reference_score": 0.6414829715488218,
+  "result": {
+    "request_id": "p01_a6d87785f0754f5e963d560458c25aad",
+    "variant": "P2",
+    "status": "answered",
+    "risk": {
+      "score": 0.6414829715488218,
+      "class_id": 1,
+      "class_name": "prediabetes or diabetes",
+      "logit": 0.581806480884552,
+      "model_sha256": "cc7d28232eb1a818cc0c10d9047b4a43f4ef25ac7c06b2737870c63ae644fdb8",
+      "profile_sha256": "9d8484b681fa12be287fd8d90d549f0e3c1db4ffbd66269c278df8fc39c4c7c8",
+      "unit": "historical_binary_model_score",
+      "calibrated_incidence_risk": false
+    },
+    "knowledge": null,
+    "profile_validation": {
+      "valid": true,
+      "missing": [],
+      "invalid": [],
+      "extra": []
+    },
+    "verification": {
+      "status": "passed",
+      "checks": {
+        "numeric_consistency": true
+      },
+      "errors": [],
+      "support_method": "verbatim span + topic-token heuristic; not expert semantic entailment"
+    },
+    "answer": {
+      "status": "answered",
+      "sections": [
+        {
+          "title": "Đầu ra mô hình khảo sát",
+          "text": "Score 0.641483; lớp 1: prediabetes or diabetes. Không phải xác suất mắc mới đã hiệu chuẩn."
+        }
+      ],
+      "variant": "P2",
+      "limitation": "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh.",
+      "synthesis": "verified_sections"
+    },
+    "errors": [],
+    "trace": [
+      {
+        "node_id": "n1",
+        "agent": "Coordinator",
+        "tool": "plan_request",
+        "parent_ids": [],
+        "duration_ms": 0.1523060000181431,
+        "outcome": "ok",
+        "output": {
+          "need_risk": true,
+          "need_knowledge": false,
+          "mode": "numeric",
+          "policy": null
+        }
+      },
+      {
+        "node_id": "n2",
+        "agent": "Risk Agent",
+        "tool": "validate_profile",
+        "parent_ids": [
+          "n1"
+        ],
+        "duration_ms": 0.09306999982072739,
+        "outcome": "ok",
+        "output": {
+          "valid": true,
+          "missing": [],
+          "invalid": [],
+          "extra": []
+        }
+      },
+      {
+        "node_id": "n3",
+        "agent": "Risk Agent",
+        "tool": "predict_cdc",
+        "parent_ids": [
+          "n2"
+        ],
+        "duration_ms": 0.8479369998894981,
+        "outcome": "ok",
+        "output": {
+          "result_sha256": "67776ffe3bef7b93b2ada98d91309bbc11ceb5c8ecb9f08170f7901979921621",
+          "attempt": 0
+        }
+      },
+      {
+        "node_id": "n4",
+        "agent": "Verifier",
+        "tool": "check_outputs",
+        "parent_ids": [
+          "n3"
+        ],
+        "duration_ms": 0.09646899979998125,
+        "outcome": "ok",
+        "output": {
+          "status": "passed",
+          "checks": {
+            "numeric_consistency": true
+          },
+          "errors": [],
+          "support_method": "verbatim span + topic-token heuristic; not expert semantic entailment"
+        }
+      },
+      {
+        "node_id": "n5",
+        "agent": "Reporter",
+        "tool": "compose",
+        "parent_ids": [
+          "n4"
+        ],
+        "duration_ms": 0.0393169993913034,
+        "outcome": "ok",
+        "output": {
+          "status": "answered",
+          "section_count": 1
+        }
+      }
+    ],
+    "tool_calls": 1,
+    "retrieval_loops": 0,
+    "latency_ms": 7.820452000487421,
+    "limitations": [
+      "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh."
+    ],
+    "input_sha256": "b2ec10a146e461a143ad03b68d78eb01bfe066ec6a0c6581b3a14fecba1087c4",
+    "worker_terminated": true
+  },
+  "metrics": {
+    "automatic_success": true,
+    "numeric_parity": true,
+    "citation_integrity_format": null,
+    "known_positive_hit_at_10": null,
+    "known_positive_rr": null,
+    "support_review_required": false,
+    "task_success": null,
+    "manual_support": null
+  },
+  "gold_document_ids": [],
+  "scope": "pipeline/synthetic tasks; not clinical accuracy"
+}

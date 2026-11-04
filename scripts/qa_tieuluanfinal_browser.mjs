@@ -1,0 +1,61 @@
+import { chromium } from 'playwright';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+const root=process.cwd();
+const out=path.join(root,'tieuluanfinal/artifacts/final_ch06/ui_qa');
+await fs.mkdir(out,{recursive:true});
+const browser=await chromium.launch({headless:true,executablePath:path.join(root,'.local/ms-playwright/chromium-1248/chrome-win64/chrome.exe')});
+const page=await browser.newPage({viewport:{width:1440,height:1000}});
+const errors=[];
+page.on('pageerror',e=>errors.push(e.message));
+const checks=[];
+const check=(name,ok)=>{if(!ok)throw new Error(name);checks.push({name,status:'PASS'});};
+try{
+  const cors=await page.request.get('http://127.0.0.1:8040/ready',{headers:{Origin:'http://127.0.0.1:8040'}});
+  check('Scientific API accepts the final same-origin UI',cors.status()===200);
+  const obsolete=await page.request.post('http://127.0.0.1:8040/api/v3/comparisons',{data:{chapter:6}});
+  check('Old Chapter6 comparison cannot execute through final gateway',obsolete.status()===410);
+  await page.goto('http://127.0.0.1:8040/cnn');
+  await page.getByRole('heading',{name:'Học từ hình ảnh'}).waitFor();
+  await page.getByRole('heading',{name:'Võng mạc · IDRiD',exact:true}).waitFor();
+  check('Ch3 original route and dataset navigation',await page.getByText('Không train trên web',{exact:true}).count()===1);
+  await page.screenshot({path:path.join(out,'chapter3-preserved.png'),fullPage:true});
+  await page.goto('http://127.0.0.1:8040/agents');
+  const frame=page.frameLocator('iframe[title="Chương 6 · Hệ bốn agent và RAG"]');
+  await frame.getByRole('textbox',{name:'Câu hỏi của bạn'}).waitFor();
+  check('Ch6 contains question-only form',await frame.locator('textarea').count()===1 && await frame.locator('input').count()===0);
+  check('Ch6 has no old task dataset selector',await page.getByRole('navigation',{name:'Chọn dataset'}).count()===0);
+  await frame.getByRole('button',{name:/Đồ thị tri thức/}).click();
+  await frame.locator('svg').first().waitFor();
+  await page.screenshot({path:path.join(out,'integrated-knowledge-graph.png'),fullPage:true});
+  check('Real graph SVG loaded through final gateway',await frame.locator('svg').count()>0);
+  const graph=await (await page.request.get('http://127.0.0.1:8040/api/v2/knowledge-graph')).json();
+  check('KG 35 nodes and 35 source backed edges',graph.nodes.length===35 && graph.edges.length===35 && graph.edges.every(e=>e.quote&&e.source_url&&e.source_chunk_ids.length));
+  const job=JSON.parse(await fs.readFile(path.join(root,'tieuluanfinal/artifacts/final_ch06/live_job_r11.json'),'utf8'));
+  // Only browser response routing is intercepted. The displayed answers/trace are
+  // the actual saved r11 job, explicitly recorded as replay in this QA receipt.
+  await page.route('**/api/v2/compare',route=>route.fulfill({status:202,contentType:'application/json',body:JSON.stringify({id:job.id})}));
+  await page.route('**/api/v2/jobs/'+job.id,route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...job,observed_at:Date.now()/1000,elapsed_seconds:job.finished_at-job.created_at})}));
+  await page.route('**/multi-agent/ready',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({status:'ready',live_enabled:true,runtime_revision:'four-agent-r11',generation_model:'gemini-3-flash-preview',usage:{generation_cap:18,generation_attempts:0}})}));
+  await page.reload();
+  await frame.getByRole('textbox',{name:'Câu hỏi của bạn'}).fill(job.question);
+  await frame.getByRole('button',{name:/Trả lời/}).click();
+  await frame.getByRole('heading',{name:job.question,exact:true}).waitFor();
+  await frame.getByText('3.234',{exact:false}).first().waitFor();
+  check('Saved live pair renders in integrated tab',await frame.getByRole('heading',{name:'LLM trực tiếp',exact:true}).count()===1);
+  await page.screenshot({path:path.join(out,'saved-live-output-replay.png'),fullPage:true});
+  await frame.getByRole('button',{name:/03.*Luồng xử lý/}).click();
+  await frame.getByRole('heading',{name:'Một câu hỏi. Bốn agent.'}).waitFor();
+  check('Four agent pipeline with no RiskAgent',!await frame.getByText('Risk Agent',{exact:true}).count());
+  await page.screenshot({path:path.join(out,'saved-live-pipeline-replay.png'),fullPage:true});
+  await page.setViewportSize({width:420,height:900});
+  await page.reload();
+  await frame.getByRole('textbox',{name:'Câu hỏi của bạn'}).waitFor();
+  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2);
+  check('Mobile outer page has no horizontal overflow',!overflow);
+  check('No browser JS errors',errors.length===0);
+  await page.screenshot({path:path.join(out,'mobile.png'),fullPage:true});
+  await fs.writeFile(path.join(out,'verification.json'),JSON.stringify({status:'PASS',checks,errors,new_generation_API_calls:0,new_embedding_API_calls:0,result_rendering:'browser replay of genuine saved live r11 output, no fresh generation',graph:'real final backend endpoint'},null,2));
+  console.log(JSON.stringify({status:'PASS',checks:checks.length,new_API_calls:0}));
+}finally{await browser.close();}

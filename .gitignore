@@ -37,6 +37,31 @@ report/qa*/
 *.cover
 .coverage*
 
+# Reorganization recovery payloads/backups stay local; manifests and plans are versioned.
+docs/reorganization/staging/
+docs/reorganization/backups/
+
+# Canonical per-assignment local data; keep their small catalogs and resolver docs.
+**/datasets/**
+!**/datasets/catalog.json
+!**/datasets/README.md
+!**/datasets/resolve.py
+**/provenance/runtime/
+**/provenance/nested_web_metadata/
+**/.runs/
+**/notebooks/executed/
+**/artifacts/models/**
+docs/reorganization/phase2/unit_tmp_*/
+docs/reorganization/phase2/smoke/*_jobs.db*
+.render-reorg/
+**/web/.runtime/
+**/provenance/build_history/
+docs/reorganization/phase3/clean_checkout/
+docs/reorganization/phase3/unit_tmp/
+docs/reorganization/phase3/servers/*.log
+**/report/build/
+**/report/qa*/
+
 # Compressed inventories are versioned; expanded CSVs are local audit products.
 artifacts/manifests/phase20/*-files.csv
 artifacts/manifests/phase20/keep-list-before.csv

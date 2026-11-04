@@ -1,0 +1,43 @@
+{
+  "contract": {
+    "chapter": 6,
+    "columns": [],
+    "data_card_path": "report/references/dataset_cards/v3_agent/ch6_house_tasks.md",
+    "dataset_id": "ch6_house_tasks",
+    "evidence_kind": "measured",
+    "files": [
+      {
+        "path": "artifacts/manifests/phase31/taskset_v2.json",
+        "sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+        "size_bytes": 401318
+      }
+    ],
+    "kind": "task_view",
+    "logical_size": {
+      "features": null,
+      "records": 100,
+      "unit": "synthetic-template task per domain over real parent TRAIN tool/evidence records"
+    },
+    "parent_dataset_ids": [
+      "ch2_ames_housing",
+      "ch4_bis_house_prices"
+    ],
+    "schema_version": "3.0.0",
+    "source": {
+      "accessed_at": "2026-10-17T01:15:29.511894+00:00",
+      "citation": "De Cock, D. (2011). Ames, Iowa: Alternative to the Boston Housing Data as an End of Semester Regression Project. Journal of Statistics Education 19(3). DOI:10.1080/10691898.2011.11889627.",
+      "license_note": "Derived task view inherits all parent source terms; templates/OOD/unsafe/fault questions are synthetic, numeric/evidence inputs are frozen parent TRAIN records. Not new clinical/financial truth labels.",
+      "license_status": "approved",
+      "url": "https://jse.amstat.org/v19n3/decock/AmesHousing.txt",
+      "version": "Phase31 taskset_v2; sha256:8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab"
+    },
+    "status": "ready",
+    "target": "verified_response"
+  },
+  "historical_test_evaluation_executed": false,
+  "parent_declared_manifest": {
+    "path": "artifacts/manifests/datasets/ch6_house_tasks.json",
+    "sha256": "465084e5d17a461dc23ad69ee29fde3349657787f7815b9457ed0f4577b28144"
+  },
+  "source_phase": 31
+}

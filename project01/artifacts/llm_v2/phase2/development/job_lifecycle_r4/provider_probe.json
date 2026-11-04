@@ -1,0 +1,51 @@
+{
+  "purpose": "single minimal generation probe; no medical question, RAG or held-out evaluation",
+  "generation_model": "gemini-3.8-flash",
+  "endpoint": "v1beta/interactions",
+  "sdk_timeout_seconds": 45,
+  "wall_clock_limit_seconds": 55,
+  "paid_budget_usd": 0,
+  "automatic_retry": false,
+  "quota_before": {
+    "provider_day": "2026-11-02",
+    "generation_attempts": 1,
+    "embedding_attempts": 0,
+    "generation_cap": 18,
+    "embedding_cap": 900,
+    "external_usage_unknown": true,
+    "paid_budget_usd": 0,
+    "last_generation_status": "unknown",
+    "last_generation_at": 1793622202.1414082,
+    "readiness_is_not_live_provider_probe": true
+  },
+  "status": "not_complete",
+  "code": "unknown",
+  "elapsed_seconds": 52.77,
+  "observations": [
+    {
+      "call_id": "50bb859cee22b270a862f5f383b472c70a9561812402e23e1ea27be58387f2a1",
+      "kind": "generation",
+      "status": "unknown",
+      "cache_status": "live",
+      "model_requested": "gemini-3.8-flash",
+      "model_returned": null,
+      "usage": null,
+      "attempts": 1,
+      "latency_ms": 52735.22906500011,
+      "error_type": "InternalServerError",
+      "http_status": 503
+    }
+  ],
+  "quota_after": {
+    "provider_day": "2026-11-02",
+    "generation_attempts": 2,
+    "embedding_attempts": 0,
+    "generation_cap": 18,
+    "embedding_cap": 900,
+    "external_usage_unknown": true,
+    "paid_budget_usd": 0,
+    "last_generation_status": "unknown",
+    "last_generation_at": 1793623023.9420738,
+    "readiness_is_not_live_provider_probe": true
+  }
+}

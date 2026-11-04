@@ -1,0 +1,63 @@
+{
+  "adapter": {
+    "adapter_version": "phase25.1",
+    "canonical_layout": "NTF",
+    "class_names": {},
+    "class_weights_by_id": {},
+    "dataset_id": "ch4_household_power",
+    "dtype": "float32",
+    "feature_order_policy": "numeric input_columns order; then categorical input_columns/vocabulary order",
+    "fold": 1,
+    "kind": "timeseries",
+    "output_feature_names": [
+      "Global_active_power",
+      "Global_active_power_missing",
+      "Global_reactive_power",
+      "Global_reactive_power_missing",
+      "Voltage",
+      "Voltage_missing",
+      "Global_intensity",
+      "Global_intensity_missing",
+      "Sub_metering_1",
+      "Sub_metering_1_missing",
+      "Sub_metering_2",
+      "Sub_metering_2_missing",
+      "Sub_metering_3",
+      "Sub_metering_3_missing"
+    ],
+    "preprocessing": {
+      "path": "data/splits/v3/ch4_household_power/rolling_fold_1/preprocessing.json",
+      "sha256": "da58ce61fc03c037b3911412278ccfd0d76eaed2e5256b8d10f1caee3e14ac7a"
+    },
+    "pytorch_image_layout": null,
+    "source_label_to_id": {}
+  },
+  "baseline_policy": "Observed target history at/before origin; missing seasonal source falls back to last observed within lookback; no target imputation",
+  "dataset_id": "ch4_household_power",
+  "feature_bytes": 1936984,
+  "fold": 1,
+  "fold_index_revision": "phase28.1; source-index gaps reconstructed from immutable IDs/calendar, never alter splits/scalers",
+  "horizons": [
+    1,
+    6,
+    24
+  ],
+  "input_shape": [
+    168,
+    14
+  ],
+  "provenance": {
+    "adapter_sha256": "b0527a8f0c545035a9c25ab2aeb6199b54cdaec10e04114fb15b4cbdc36afe53",
+    "dataset_sha256": "db356f6739f2dbc8f493d383cface41cb84eed4ad572bbfd4b680519034539a1",
+    "preprocessing_sha256": "da58ce61fc03c037b3911412278ccfd0d76eaed2e5256b8d10f1caee3e14ac7a",
+    "split_sha256": "53c6452c5964ba561d1ff55a54220fbd6f5addb498087f522cc54134573c1278",
+    "subset_sha256": "4460668d0820cb480e98d5699b3b18800b1fde0f02fc7bcb83f981522f141708"
+  },
+  "raw_read_scope": "Frozen full row table is read; transform/gather only development context rows; no TEST window predictions or labels used for selection",
+  "reconstructed_fold_ids": [],
+  "test_windows_materialized": false,
+  "train_count": 12000,
+  "train_ids_sha256": "30aca6b8b0bfdd051ad6824234231e6719b4a081a40dc11b294cb95a9af9c084",
+  "validation_count": 4375,
+  "validation_ids_sha256": "6c7c87882b00121d7aa936aed5ae03d9f18b652b38deb94818e82ebd02b53d2c"
+}

@@ -1,0 +1,65 @@
+{
+  "comments": [
+    "Benchmark nhỏ, cân bằng; chỉ minh họa lịch sử phân loại, không có thí nghiệm V3 Ch1."
+  ],
+  "dataset_id": "ch1_iris_history",
+  "distribution_summary": {
+    "Iris-setosa": 50,
+    "Iris-versicolor": 50,
+    "Iris-virginica": 50
+  },
+  "figures": [
+    {
+      "path": "artifacts/figures/phase24/ch1_iris_history_distribution.png",
+      "sha256": "d2b3d2d1d9b44bf0785627ab6b93133c3556731abf3145c2bef762f693ee24e7",
+      "size_bytes": 55952
+    },
+    {
+      "path": "artifacts/figures/phase24/ch1_iris_history_distribution.svg",
+      "sha256": "abae91d7ad37f2a865d4b1e2bb74f85a0d9815b86aefb53d1c8038f9595cf4f7",
+      "size_bytes": 31323
+    }
+  ],
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "sample_note": "Mẫu nguồn phục vụ lịch sử, không phải output của mô hình được train trong Phase24.",
+  "samples": [
+    {
+      "input": [
+        5.1,
+        3.5,
+        1.4,
+        0.2
+      ],
+      "known_output": "Iris-setosa"
+    },
+    {
+      "input": [
+        4.9,
+        3.0,
+        1.4,
+        0.2
+      ],
+      "known_output": "Iris-setosa"
+    },
+    {
+      "input": [
+        4.7,
+        3.2,
+        1.3,
+        0.2
+      ],
+      "known_output": "Iris-setosa"
+    }
+  ],
+  "schema_version": "3.0.0",
+  "scope": "historical_case",
+  "size_and_schema": {
+    "features": 4,
+    "records": 150,
+    "unit": "raw rows"
+  },
+  "source_manifest_sha256": "ee70dd1d725f1caac7b880ae218433374a93df2a7c82413209b9627d18c18b3a",
+  "split_note": "Ch1 không huấn luyện. Giữ official split nếu có; không tạo TEST hay preprocessing fit cho chương lịch sử.",
+  "test_evaluation_executed": false,
+  "training_executed": false
+}

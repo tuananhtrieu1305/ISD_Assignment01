@@ -1,0 +1,205 @@
+{
+  "comparison_blockers": [],
+  "comparison_valid": true,
+  "created_at": "2026-10-18T01:53:55.584128+00:00",
+  "dataset_id": "ch3_cifar10",
+  "expires_at": "2026-10-18T02:53:55.584128+00:00",
+  "family": "cnn",
+  "input_sha256": "4c4bec64cef00784f772aac3d6dc7fc976f9efe317702c9e7c02b2e47755e32a",
+  "job_id": "cnn_demo_d1401b3670180589",
+  "metric_artifacts": [
+    {
+      "path": "artifacts/metrics/phase27/validation/ch3_cifar10_cnn_scratch_s42.json",
+      "sha256": "f7e84c0b8b20b14e780ebf2b3dc535827eca9f0a83a08e2a139d43fe5f74aa8f"
+    },
+    {
+      "path": "artifacts/metrics/phase27/validation/ch3_cifar10_cnn_keras_s42.json",
+      "sha256": "ed734482e7a3f2fd119fb0a64380d7b2a9cf950c7114bfe35d37a7164122a5d0"
+    },
+    {
+      "path": "artifacts/metrics/phase27/validation/ch3_cifar10_cnn_pytorch_s42.json",
+      "sha256": "e5f096ac6caa599c149802cab961b3531f396d8d7b83585b6cb0c63c63c86256"
+    }
+  ],
+  "request_id": "cnn_request_d1401b3670180589",
+  "request_sha256": "d1401b367018058919ad5b4d15869b8025d66ef6581e927833f5ce6ae1678a39",
+  "results": [
+    {
+      "actual_backend": "numpy",
+      "actual_device": "cpu",
+      "artifact_sha256": "25c051d67d935e364d5dfa5b0def7ce6624f5e00971b3df2118c6f3fbc60cc0e",
+      "comparison_group_sha256": "94cccef652c52d8cc3c3089bd80afbc6db6e1dc8b0dd398705b7f85afd7a35f0",
+      "error": null,
+      "implementation": "scratch",
+      "inference_ms": 2.1915189990977524,
+      "input_sha256": "4c4bec64cef00784f772aac3d6dc7fc976f9efe317702c9e7c02b2e47755e32a",
+      "model_id": "ch3_cifar10_cnn_scratch_s42",
+      "prediction": {
+        "kind": "classification",
+        "label": "dog",
+        "probabilities": [
+          {
+            "label": "airplane",
+            "value": 0.005568024702370167
+          },
+          {
+            "label": "automobile",
+            "value": 0.0002992291992995888
+          },
+          {
+            "label": "bird",
+            "value": 0.225554421544075
+          },
+          {
+            "label": "cat",
+            "value": 0.20017026364803314
+          },
+          {
+            "label": "deer",
+            "value": 0.11730139702558517
+          },
+          {
+            "label": "dog",
+            "value": 0.2499178647994995
+          },
+          {
+            "label": "frog",
+            "value": 0.08457166701555252
+          },
+          {
+            "label": "horse",
+            "value": 0.11363428086042404
+          },
+          {
+            "label": "ship",
+            "value": 0.0009537744335830212
+          },
+          {
+            "label": "truck",
+            "value": 0.0020291339606046677
+          }
+        ]
+      },
+      "status": "succeeded"
+    },
+    {
+      "actual_backend": "numpy",
+      "actual_device": "cpu",
+      "artifact_sha256": "27800f04f63f205cfc14243b787a21129eb7af248438b23b45a651f6debfa34e",
+      "comparison_group_sha256": "94cccef652c52d8cc3c3089bd80afbc6db6e1dc8b0dd398705b7f85afd7a35f0",
+      "error": null,
+      "implementation": "keras",
+      "inference_ms": 2.1044289987912634,
+      "input_sha256": "4c4bec64cef00784f772aac3d6dc7fc976f9efe317702c9e7c02b2e47755e32a",
+      "model_id": "ch3_cifar10_cnn_keras_s42",
+      "prediction": {
+        "kind": "classification",
+        "label": "cat",
+        "probabilities": [
+          {
+            "label": "airplane",
+            "value": 0.002792119747027755
+          },
+          {
+            "label": "automobile",
+            "value": 0.0007351585663855076
+          },
+          {
+            "label": "bird",
+            "value": 0.10289165377616882
+          },
+          {
+            "label": "cat",
+            "value": 0.4516180753707886
+          },
+          {
+            "label": "deer",
+            "value": 0.0346294566988945
+          },
+          {
+            "label": "dog",
+            "value": 0.15126842260360718
+          },
+          {
+            "label": "frog",
+            "value": 0.24137449264526367
+          },
+          {
+            "label": "horse",
+            "value": 0.008264774456620216
+          },
+          {
+            "label": "ship",
+            "value": 0.0023370073176920414
+          },
+          {
+            "label": "truck",
+            "value": 0.004088927526026964
+          }
+        ]
+      },
+      "status": "succeeded"
+    },
+    {
+      "actual_backend": "numpy",
+      "actual_device": "cpu",
+      "artifact_sha256": "1280e361388a7b40ce38154a5a42027cb906e0c2de0d0c527826238fc57a45b5",
+      "comparison_group_sha256": "94cccef652c52d8cc3c3089bd80afbc6db6e1dc8b0dd398705b7f85afd7a35f0",
+      "error": null,
+      "implementation": "pytorch",
+      "inference_ms": 2.171436999560683,
+      "input_sha256": "4c4bec64cef00784f772aac3d6dc7fc976f9efe317702c9e7c02b2e47755e32a",
+      "model_id": "ch3_cifar10_cnn_pytorch_s42",
+      "prediction": {
+        "kind": "classification",
+        "label": "frog",
+        "probabilities": [
+          {
+            "label": "airplane",
+            "value": 0.0024182256311178207
+          },
+          {
+            "label": "automobile",
+            "value": 0.00047371102846227586
+          },
+          {
+            "label": "bird",
+            "value": 0.16227121651172638
+          },
+          {
+            "label": "cat",
+            "value": 0.24150973558425903
+          },
+          {
+            "label": "deer",
+            "value": 0.07954367995262146
+          },
+          {
+            "label": "dog",
+            "value": 0.22767958045005798
+          },
+          {
+            "label": "frog",
+            "value": 0.25046828389167786
+          },
+          {
+            "label": "horse",
+            "value": 0.034457623958587646
+          },
+          {
+            "label": "ship",
+            "value": 0.0007623055134899914
+          },
+          {
+            "label": "truck",
+            "value": 0.00041571378824301064
+          }
+        ]
+      },
+      "status": "succeeded"
+    }
+  ],
+  "schema_version": "3.0.0",
+  "status": "succeeded",
+  "trace_ids": []
+}

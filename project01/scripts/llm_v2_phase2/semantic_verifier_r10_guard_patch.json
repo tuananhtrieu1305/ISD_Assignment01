@@ -1,0 +1,8 @@
+[
+  {
+    "module": "agents",
+    "old": "candidate=Draft.model_validate(value['corrected_draft']) if value['corrected_draft'] is not None else draft\n            candidate_hard",
+    "new": "candidate=Draft.model_validate(value['corrected_draft']) if value['corrected_draft'] is not None else draft\n            if draft.claims and not candidate.claims:raise ValueError('Correction removed every claim')\n            candidate_hard",
+    "count": 1
+  }
+]

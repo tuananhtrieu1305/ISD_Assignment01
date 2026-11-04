@@ -1,0 +1,40 @@
+{
+  "augmentation": "none for the locked matched comparison; any extra track needs separate config",
+  "class_names": {
+    "0": "airplane",
+    "1": "automobile",
+    "2": "bird",
+    "3": "cat",
+    "4": "deer",
+    "5": "dog",
+    "6": "frog",
+    "7": "horse",
+    "8": "ship",
+    "9": "truck"
+  },
+  "class_weights": {
+    "0": 1.0,
+    "1": 1.0,
+    "2": 1.0,
+    "3": 1.0,
+    "4": 1.0,
+    "5": 1.0,
+    "6": 1.0,
+    "7": 1.0,
+    "8": 1.0,
+    "9": 1.0
+  },
+  "decode": "Pillow RGB; CIFAR binary channels-first -> HWC",
+  "fit_count": 5000,
+  "fit_ids_sha256": "e928c481a7cbd7c0b6d8f6f04ef47dd948e948e94e055b451ec5f2d255ebb005",
+  "fit_scope": "train_only",
+  "input_shape_hwc": [
+    32,
+    32,
+    3
+  ],
+  "normalization_fit": "no fitted channel mean/std; same 0..1 scaling for all frameworks",
+  "rescale": "float32 / 255",
+  "resize": "Pillow BILINEAR",
+  "schema_version": "3.0.0"
+}

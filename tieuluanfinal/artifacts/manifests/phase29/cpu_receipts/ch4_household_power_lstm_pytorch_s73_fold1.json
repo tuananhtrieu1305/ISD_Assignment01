@@ -1,0 +1,115 @@
+{
+  "canonical_x_sha256": "a57bca9429a0cdfdc0c81ab260776a5b30f0796ce4a059319fe6743f8ee0361e",
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_lstm/ch4_household_power_lstm_pytorch_s73_fold1/best.npz",
+    "sha256": "0c53fbf844f1ac1389b6896e83f6ec259492cff92b55a27a17f96b62671c2564"
+  },
+  "checkpoint_metadata": {
+    "path": "artifacts/models/v3/ch04_lstm/ch4_household_power_lstm_pytorch_s73_fold1/best.json",
+    "sha256": "3516ac0f884adfbc4cca66f1f520fa875b13489d598db5f18be380864a2c0cde"
+  },
+  "comparisons": {
+    "atol": 1e-05,
+    "cpu_reference": {
+      "max_absolute_error": 3.5762786865234375e-07,
+      "output": [
+        [
+          2.5126895904541016,
+          0.4906409978866577,
+          1.430185317993164
+        ],
+        [
+          2.172715902328491,
+          0.4010712206363678,
+          1.1640907526016235
+        ],
+        [
+          1.7985310554504395,
+          0.39333122968673706,
+          0.6800433397293091
+        ],
+        [
+          1.332180380821228,
+          0.4693010151386261,
+          0.39014261960983276
+        ]
+      ],
+      "status": "PASS"
+    },
+    "original_gpu_cpu_gate": {
+      "max_absolute_error": 6.67572021484375e-06,
+      "output": [
+        [
+          2.5126898288726807,
+          0.49063840508461,
+          1.4301854372024536
+        ],
+        [
+          2.172713279724121,
+          0.4010745882987976,
+          1.1640914678573608
+        ],
+        [
+          1.79853355884552,
+          0.3933331370353699,
+          0.6800459623336792
+        ],
+        [
+          1.3321868181228638,
+          0.4693000614643097,
+          0.39014723896980286
+        ]
+      ],
+      "status": "PASS"
+    },
+    "rtol": 0.0001
+  },
+  "config": {
+    "path": "artifacts/manifests/phase29/configs/ch4_household_power_fold1_s73.json",
+    "sha256": "366e8885024042bdc395c8fb68d9c9b369f142131baf7350e06aa2f972389a26"
+  },
+  "cuda_visible_devices": "-1",
+  "ids": [
+    "HOUSEHOLD/2006-12-23T19:00:00",
+    "HOUSEHOLD/2006-12-23T20:00:00",
+    "HOUSEHOLD/2006-12-23T23:00:00",
+    "HOUSEHOLD/2006-12-24T00:00:00"
+  ],
+  "input_split": "train",
+  "native_cpu_device": "cpu",
+  "optimizer_updates": 0,
+  "portable_cpu_output": [
+    [
+      2.5126893520355225,
+      0.49064111709594727,
+      1.4301849603652954
+    ],
+    [
+      2.172715663909912,
+      0.40107107162475586,
+      1.1640903949737549
+    ],
+    [
+      1.7985310554504395,
+      0.39333099126815796,
+      0.6800432205200195
+    ],
+    [
+      1.332180142402649,
+      0.4693012237548828,
+      0.3901424705982208
+    ]
+  ],
+  "run_id": "ch4_household_power_lstm_pytorch_s73_fold1",
+  "selection": {
+    "path": "artifacts/manifests/phase29/runs/ch4_household_power_lstm_pytorch_s73_fold1/selection.json",
+    "sha256": "17a9b04d73c111a8b59eb9ca2ca965bac285b476dd0324631ea0e14c385c9f0d"
+  },
+  "status": "PASS",
+  "test_executed": false,
+  "validation_executed": false,
+  "writer_source": {
+    "path": "scripts/phase29_receipts.py",
+    "sha256": "d653aeef41c013efc4de8252617578241e6b6c9694974bab5f0d67daf0652f04"
+  }
+}

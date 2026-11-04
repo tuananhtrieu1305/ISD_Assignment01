@@ -1,0 +1,153 @@
+{
+  "comments": [
+    "Bỏ duration vì chỉ biết sau cuộc gọi; giữ nhãn y: yes=1, no=0.",
+    "Chuỗi 'unknown' là mức danh mục nguồn, không tự coi là số 0.",
+    "Không có mã khách hàng để bảo đảm độc lập theo khách; giữ hạn chế này."
+  ],
+  "dataset_id": "ch2_bank_marketing",
+  "distribution_summary": {
+    "duplicate_rows": 16,
+    "missing_by_feature": {
+      "age": 0,
+      "balance": 0,
+      "campaign": 0,
+      "contact": 0,
+      "day": 0,
+      "default": 0,
+      "education": 0,
+      "housing": 0,
+      "job": 0,
+      "loan": 0,
+      "marital": 0,
+      "month": 0,
+      "pdays": 0,
+      "poutcome": 0,
+      "previous": 0
+    },
+    "outliers": "feature_profile.json, ngưỡng IQR từ train",
+    "target_by_partition": {
+      "test": {
+        "0": 5988,
+        "1": 794
+      },
+      "train": {
+        "0": 27946,
+        "1": 3702
+      },
+      "validation": {
+        "0": 5988,
+        "1": 793
+      }
+    }
+  },
+  "figures": [
+    {
+      "path": "artifacts/figures/phase24/ch2_bank_marketing_distribution.png",
+      "sha256": "e2ac50c74d2ec7d9094ded5c4b41298a6f979eabba6f9b848b42c9bcb3376c27",
+      "size_bytes": 54304
+    },
+    {
+      "path": "artifacts/figures/phase24/ch2_bank_marketing_distribution.svg",
+      "sha256": "2ac79dc67c5786273b5593e08618d0b5436f1eea2ed78d1e72d35b19f9e47a51",
+      "size_bytes": 34547
+    }
+  ],
+  "memory": {
+    "eda_frame_bytes": 27581889,
+    "input_batch_float32_bytes": 6400,
+    "note": "Input-only planning bound, not measured GPU training peak; probe at Phase25",
+    "transformed_all_rows_bytes": 9042200,
+    "vram_peak": null
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "sample_note": "Ba mẫu thuộc matched train, output là nhãn/giá nguồn, không phải dự đoán. Input hiển thị tối đa 8 biến; samples.json chứa đủ biến.",
+  "samples": [
+    {
+      "id": "row_0030605",
+      "input": {
+        "age": 31,
+        "balance": 0,
+        "default": "no",
+        "education": "secondary",
+        "housing": "no",
+        "job": "self-employed",
+        "loan": "yes",
+        "marital": "single"
+      },
+      "known_output": 0
+    },
+    {
+      "id": "row_0032873",
+      "input": {
+        "age": 32,
+        "balance": 453,
+        "default": "no",
+        "education": "secondary",
+        "housing": "yes",
+        "job": "services",
+        "loan": "no",
+        "marital": "divorced"
+      },
+      "known_output": 0
+    },
+    {
+      "id": "row_0038552",
+      "input": {
+        "age": 28,
+        "balance": 278,
+        "default": "no",
+        "education": "primary",
+        "housing": "yes",
+        "job": "blue-collar",
+        "loan": "yes",
+        "marital": "married"
+      },
+      "known_output": 0
+    }
+  ],
+  "schema_version": "3.0.0",
+  "scope": "measured_tabular",
+  "size_and_schema": {
+    "counts": {
+      "test": 6782,
+      "train": 31648,
+      "validation": 6781
+    },
+    "features": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "balance",
+      "housing",
+      "loan",
+      "contact",
+      "day",
+      "month",
+      "campaign",
+      "pdays",
+      "previous",
+      "poutcome"
+    ],
+    "matched_subset": {
+      "path": "data/splits/v3/ch2_bank_marketing/matched_train.ids.jsonl.gz",
+      "sha256": "b271747e61b6dcdfc4cf3f5b29b8a28643aaf82760b1efa5b14f3fdec3de811d",
+      "size_bytes": 25066
+    },
+    "matched_train_count": 10000,
+    "model_input_width": 50,
+    "quarantine_count": 0,
+    "rows": 45211,
+    "split": {
+      "path": "data/splits/v3/ch2_bank_marketing/split_contract.json",
+      "sha256": "72136591aca9bb338d59aab29106974f1cdf1103624a46074782c3b0182c9035",
+      "size_bytes": 1485
+    },
+    "target": "subscription"
+  },
+  "source_manifest_sha256": "b34904856e0a4412109c99e7cf9556605ec78fa0910f3593aceac25f27f5e461",
+  "split_note": "Gom exact feature duplicates và PID nếu có, rồi stratify theo nhóm 70/15/15 (xấp xỉ theo số dòng). Imputer/scaler/vocabulary/target scaler/class weight chỉ fit matched train; unknown category -> all-zero. Không tự xóa outlier.",
+  "test_evaluation_executed": false,
+  "training_executed": false
+}

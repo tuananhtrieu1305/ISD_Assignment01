@@ -1,0 +1,109 @@
+{
+  "comparison_blockers": [],
+  "comparison_valid": true,
+  "created_at": "2026-10-20T00:25:20.091419+00:00",
+  "dataset_id": "ch4_household_power",
+  "expires_at": "2026-10-20T01:25:20.091419+00:00",
+  "family": "lstm",
+  "input_sha256": "2aad1c78c05518ccbb73b86e7eaa03dbdc1840c93c4ac492c5232cac270a3bac",
+  "job_id": "lstm_demo_09b01b23886ea1af",
+  "metric_artifacts": [
+    {
+      "path": "artifacts/metrics/phase29/validation/ch4_household_power_lstm_scratch_s42_main.json",
+      "sha256": "a6b9770331005b20d5f55c3d9f94c0280ed3acff0f3ae69d328b4d657f9b198b"
+    },
+    {
+      "path": "artifacts/metrics/phase29/validation/ch4_household_power_lstm_keras_s42_main.json",
+      "sha256": "a17b4f0a4a65b67f29268da4cc04b550cb6c56e7ccabfb9d5df23613070b4f1f"
+    },
+    {
+      "path": "artifacts/metrics/phase29/validation/ch4_household_power_lstm_pytorch_s42_main.json",
+      "sha256": "e435fba22b0c296c2e17a66fc28e96a3000b61d11f943d3ff99ea2679f7b55f3"
+    }
+  ],
+  "request_id": "lstm_request_09b01b23886ea1af",
+  "request_sha256": "09b01b23886ea1afbab39adc3a695ffaebdd310ba1ff0254845245aec24ef194",
+  "results": [
+    {
+      "actual_backend": "numpy",
+      "actual_device": "cpu",
+      "artifact_sha256": "89938f126e0b5fe95325b7149628babe0747e601ab0f374186375b3be99f1439",
+      "comparison_group_sha256": "fd5460bf001c7dad3d46c75415ad4c3c5d7464585362a3e6490ddc777a6c1b94",
+      "error": null,
+      "implementation": "scratch",
+      "inference_ms": 15.155598999626818,
+      "input_sha256": "2aad1c78c05518ccbb73b86e7eaa03dbdc1840c93c4ac492c5232cac270a3bac",
+      "model_id": "ch4_household_power_lstm_scratch_s42_main",
+      "prediction": {
+        "horizons": [
+          1,
+          6,
+          24
+        ],
+        "kind": "regression",
+        "unit": "kW",
+        "values": [
+          3.496552420021808,
+          2.04676865684083,
+          1.5617759187597826
+        ]
+      },
+      "status": "succeeded"
+    },
+    {
+      "actual_backend": "numpy",
+      "actual_device": "cpu",
+      "artifact_sha256": "42342d83c4aca3227baff87e9ea1849a6641b1007593fa6028925b68542bbbf9",
+      "comparison_group_sha256": "fd5460bf001c7dad3d46c75415ad4c3c5d7464585362a3e6490ddc777a6c1b94",
+      "error": null,
+      "implementation": "keras",
+      "inference_ms": 12.753147000694298,
+      "input_sha256": "2aad1c78c05518ccbb73b86e7eaa03dbdc1840c93c4ac492c5232cac270a3bac",
+      "model_id": "ch4_household_power_lstm_keras_s42_main",
+      "prediction": {
+        "horizons": [
+          1,
+          6,
+          24
+        ],
+        "kind": "regression",
+        "unit": "kW",
+        "values": [
+          3.0921855757756704,
+          1.4408776263561824,
+          1.840813324906868
+        ]
+      },
+      "status": "succeeded"
+    },
+    {
+      "actual_backend": "numpy",
+      "actual_device": "cpu",
+      "artifact_sha256": "0f37d69eaefe4ad2cb4a31fcff7653af1647c0f09b3034f010dd2f8a4ee1eaf5",
+      "comparison_group_sha256": "fd5460bf001c7dad3d46c75415ad4c3c5d7464585362a3e6490ddc777a6c1b94",
+      "error": null,
+      "implementation": "pytorch",
+      "inference_ms": 11.92986499881954,
+      "input_sha256": "2aad1c78c05518ccbb73b86e7eaa03dbdc1840c93c4ac492c5232cac270a3bac",
+      "model_id": "ch4_household_power_lstm_pytorch_s42_main",
+      "prediction": {
+        "horizons": [
+          1,
+          6,
+          24
+        ],
+        "kind": "regression",
+        "unit": "kW",
+        "values": [
+          2.9899884586028973,
+          1.582748963999692,
+          1.2733231029953678
+        ]
+      },
+      "status": "succeeded"
+    }
+  ],
+  "schema_version": "3.0.0",
+  "status": "succeeded",
+  "trace_ids": []
+}

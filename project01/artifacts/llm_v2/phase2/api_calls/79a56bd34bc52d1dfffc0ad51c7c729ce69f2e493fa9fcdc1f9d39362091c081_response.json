@@ -1,0 +1,38 @@
+{
+  "call_id": "79a56bd34bc52d1dfffc0ad51c7c729ce69f2e493fa9fcdc1f9d39362091c081",
+  "status": "complete",
+  "response": {
+    "text": "```json\n{\n  \"language\": \"Vietnamese\",\n  \"intent\": \"risk\",\n  \"queries\": [\n    \"walking reduce diabetes risk by more than 50 percent\",\n    \"impact of walking on diabetes prevention threshold\"\n  ],\n  \"entity_ids\": [\n    \"activity\",\n    \"diabetes\"\n  ],\n  \"relation_direction\": {\n    \"subject\": \"walking\",\n    \"relation\": \"reduce_risk\",\n    \"object\": \"diabetes\",\n    \"negated\": false,\n    \"conditions\": \"more than 50%\"\n  },\n  \"scope\": \"diabetes_prevention\"\n}\n```",
+    "usage": {
+      "input_tokens": 239,
+      "output_tokens": 149,
+      "thought_tokens": null,
+      "total_tokens": 388,
+      "provider_usage_metadata": {
+        "candidates_token_count": 149,
+        "prompt_token_count": 239,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 239
+          }
+        ],
+        "total_token_count": 388
+      }
+    },
+    "model_returned": "gemini-3-flash-preview",
+    "response_status": "completed",
+    "finish_reasons": [
+      "STOP"
+    ],
+    "cache_status": "live",
+    "model_requested": "gemini-3-flash-preview",
+    "latency_ms": 1627.620835000016,
+    "attempts": 1,
+    "call_id": "79a56bd34bc52d1dfffc0ad51c7c729ce69f2e493fa9fcdc1f9d39362091c081",
+    "paid_cost_usd": 0,
+    "invoice_verified": false,
+    "endpoint": "v1beta/generateContent",
+    "sdk_calls": 1
+  }
+}

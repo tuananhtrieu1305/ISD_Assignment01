@@ -1,0 +1,110 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch02_ml/ch2_ames_housing_mlp_scratch_s17/best.npz",
+      "sha256": "f3ee8193b7514acc25b437b49eb753111fc13ca8d218a60305d7523777c6be9e"
+    },
+    {
+      "path": "artifacts/models/v3/ch02_ml/ch2_ames_housing_mlp_scratch_s17/best.json",
+      "sha256": "1c0d10bed3a4932871f43472425ab27f85058dae047abb203edfa8a4bea689ed"
+    },
+    {
+      "path": "artifacts/predictions/phase26/validation/ch2_ames_housing_mlp_scratch_s17.jsonl.gz",
+      "sha256": "bec57f84c5d0114c3b8556d63db7dce5f5906cd1aa5747253ca572a11bd1ea31"
+    }
+  ],
+  "backend": "numpy",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "f5d5e981628bd99982dcd833a5ec3e67a0eabb3fb0918ef687b64b9e7d4950ea",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "9fe7b26b68e74515daf5f20125891a6bc44a0192a5cd065b41fbf18ad709e84c",
+  "config_sha256": "c7725db93026918d70685731464bbed7b6139da788779f048a31b4140b763aba",
+  "dataset_id": "ch2_ames_housing",
+  "dataset_sha256": "7a9a39099db335cf14f759534ac4d1e29293b9c8392219e42dac1dd456ee4d4e",
+  "device": "cpu",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 114774,
+    "inference_p50_ms": 0.04095450003660517,
+    "inference_p95_ms": 0.11351085001933824,
+    "peak_ram_bytes": 239497216,
+    "peak_vram_bytes": 0,
+    "timed_repeats": 30,
+    "train_seconds": 2.581261836000067,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "mlp",
+  "finished_at": "2026-10-17T13:36:44.682099+00:00",
+  "implementation": "scratch",
+  "metrics": [
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mae",
+      "undefined_reason": null,
+      "unit": "USD",
+      "value": 14027.782983768773
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "rmse",
+      "undefined_reason": null,
+      "unit": "USD",
+      "value": 21579.474374393438
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "smape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 7.999783945926815
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "r2",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.9352814913674974
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "mape",
+      "undefined_reason": null,
+      "unit": "percent",
+      "value": 8.463186094254585
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase26/revisions/r2/runs/ch2_ames_housing_mlp_scratch_s17/model_contract.json",
+    "sha256": "aeb8d2b814620768604552c6a0e7814bd5bbe071da689a7098c386919e3151c4"
+  },
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch2_ames_housing/preprocessing.json",
+    "sha256": "dc651db3cc84578a4fc9981ec1fbf3d14690c0d31efd7aa99651c715f8482e46"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch2_ames_housing_mlp_scratch_s17",
+  "schema_version": "3.0.0",
+  "seed": 17,
+  "split": "validation",
+  "split_id": "ch2_ames_housing_v3_seed42",
+  "split_sha256": "3c0db0100706a3b725b7e7af50a8fc1c9ec4ab9cb37cd18e1e041686b80b6505",
+  "started_at": "2026-10-17T13:36:41.535209+00:00",
+  "status": "succeeded",
+  "subset_sha256": "0542fa4ebf11a3bd430fb84850adf1b1d662be991f88c5ebb76a4c4ac611b5bd",
+  "test_seal_id": null,
+  "track": "matched_subset",
+  "warnings": [
+    "Retrospective group split; no clinical or market-deployment claim",
+    "RAM is process-lifetime peak RSS; VRAM is framework allocator only",
+    "Inference includes transfer; TensorFlow graph versus PyTorch/NumPy eager"
+  ]
+}

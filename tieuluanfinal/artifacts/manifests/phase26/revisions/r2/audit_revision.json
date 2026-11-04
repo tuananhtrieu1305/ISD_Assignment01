@@ -1,0 +1,13 @@
+{
+  "revision": "probability_dtype_roundtrip_v1",
+  "previous_auditor": "scripts/verify_phase26.py",
+  "active_auditor": "scripts/verify_phase26_roundtrip_v1.py",
+  "reason": "JSON reload defaults to float64, whereas MLP and float32 Logistic predictions used float32 bin means in ECE. Only ECE differs, at up to 1.3846367274972238e-8. Restore original prediction dtype from frozen method and checkpoint dtype metadata during audit.",
+  "comparison_rtol_unchanged": 1e-10,
+  "comparison_atol_unchanged": 1e-10,
+  "training_source_or_config_changed": false,
+  "prediction_evaluator_source_changed": false,
+  "metric_or_prediction_artifacts_changed": false,
+  "test_evaluations_before_audit_revision": 0,
+  "original_auditor_preserved": true
+}

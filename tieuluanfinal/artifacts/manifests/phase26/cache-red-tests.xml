@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="2.011" timestamp="2026-10-17T20:17:12.377424+07:00" hostname="LaptopVJP"><testcase classname="tests.ch02_ml.test_diagnostics" name="test_cdc_group_array_is_pickle_free" time="1.200"><failure message="AssertionError: assert 'O' == 'U'&#10;  &#10;  - U&#10;  + O">tmp_path = PosixPath('/tmp/pytest-of-anhca/pytest-0/test_cdc_group_array_is_pickle0')
+
+    def test_cdc_group_array_is_pickle_free(tmp_path):
+        import pandas as pd
+        groups=groups_for_frame("ch2_cdc_diabetes",pd.DataFrame({"sex":[0,1]}))
+&gt;       assert groups.dtype.kind == "U"
+E       AssertionError: assert 'O' == 'U'
+E         
+E         - U
+E         + O
+
+tests/ch02_ml/test_diagnostics.py:10: AssertionError</failure></testcase><testcase classname="tests.ch02_ml.test_diagnostics" name="test_calibration_support_and_group_metrics" time="0.005" /></testsuite></testsuites>

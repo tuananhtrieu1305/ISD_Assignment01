@@ -1,0 +1,190 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "3.0.0"
+    },
+    "evidence_kind": {
+      "enum": [
+        "measured",
+        "synthetic_fixture",
+        "historical_baseline"
+      ]
+    },
+    "trace_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+    },
+    "task_set_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "variant": {
+      "enum": [
+        "A0",
+        "A1",
+        "A2"
+      ]
+    },
+    "domain": {
+      "enum": [
+        "diabetes",
+        "house",
+        "gold"
+      ]
+    },
+    "status": {
+      "enum": [
+        "succeeded",
+        "abstained",
+        "failed",
+        "timeout"
+      ]
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+          },
+          "agent": {
+            "enum": [
+              "direct",
+              "router",
+              "specialist",
+              "verifier",
+              "reporter"
+            ]
+          },
+          "parent_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_-]{0,95}$"
+            },
+            "minItems": 0,
+            "maxItems": 10
+          },
+          "tool": {
+            "enum": [
+              "none",
+              "predict_diabetes",
+              "predict_house",
+              "forecast_gold",
+              "retrieve_medical",
+              "retrieve_finance",
+              "lookup_series"
+            ]
+          },
+          "input_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "output_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "artifact_refs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "$ref": "urn:ai-paper:v3:common#/$defs/path"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              },
+              "required": [
+                "path",
+                "sha256"
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 20
+          },
+          "duration_ms": {
+            "type": "number",
+            "minimum": 0
+          },
+          "outcome": {
+            "enum": [
+              "ok",
+              "abstain",
+              "error",
+              "timeout"
+            ]
+          }
+        },
+        "required": [
+          "node_id",
+          "agent",
+          "parent_ids",
+          "tool",
+          "input_sha256",
+          "output_sha256",
+          "artifact_refs",
+          "duration_ms",
+          "outcome"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 32
+    },
+    "answer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:ai-paper:v3:common#/$defs/citation"
+      },
+      "minItems": 0,
+      "maxItems": 20
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "maxItems": 20
+    },
+    "latency_ms": {
+      "type": "number",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "evidence_kind",
+    "trace_id",
+    "task_id",
+    "task_set_sha256",
+    "variant",
+    "domain",
+    "status",
+    "nodes",
+    "answer",
+    "citations",
+    "limitations",
+    "latency_ms"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-paper:v3:agent",
+  "title": "AI term paper V3 agent contract"
+}

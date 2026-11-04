@@ -1,0 +1,1789 @@
+{
+  "status": "PASS",
+  "components": [
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/retrieval/pre_retrieval.py",
+      "original_sha256": "2e05e5e479b95eb06c28021f2e2a84403a4d0fcff9101ff0c25596244e7d9a09",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/retrieval/pre_retrieval.py",
+      "copied_sha256": "2e05e5e479b95eb06c28021f2e2a84403a4d0fcff9101ff0c25596244e7d9a09",
+      "symbols": "QueryStrategy/_parse_lines, QueryRewriting, QueryDecomposition, QueryExpansion, PreRetriever",
+      "keep_and_adapt": "Keep strategy flow/parser; injected Gemini bridge; remove hardwired ChatOpenAI; medical prompt, cap3, shared Coordinator call",
+      "target_notebook": "project01/notebooks/01_Data_KB_RAG.ipynb",
+      "target_cell_tag": "llm-v2-query",
+      "target_export": "project01/web/backend/project01_llm_v2/query.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [
+        {
+          "symbol": "QueryStrategy.__init__",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "QueryStrategy._invoke",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "QueryStrategy.transform",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "QueryStrategy._parse_lines",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "QueryRewriting.transform",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "QueryDecomposition.transform",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "QueryExpansion.transform",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "QueryExpansion._unique",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "PreRetriever.__init__",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "PreRetriever.process",
+          "status": "ADAPTED_WITH_INTERFACE"
+        }
+      ],
+      "cells": [
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0122",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0123",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0124",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0125",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0126",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0127",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0128",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0129",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0130",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0131",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0132",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0133",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0134",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0135",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0136",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0137",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0139",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0141",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0143",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0145",
+          "module": "query"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0147",
+          "module": "query"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/retrieval/hybrid_searcher.py",
+      "original_sha256": "876ea8f34c2708adbe41debb4099db1dbfd783be8dac8479af6151631335782d",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/retrieval/hybrid_searcher.py",
+      "copied_sha256": "876ea8f34c2708adbe41debb4099db1dbfd783be8dac8479af6151631335782d",
+      "symbols": "HybridSearcher.search/_dense_search/_sparse_search/_fuse",
+      "keep_and_adapt": "Keep rank fusion and metadata; extend KG ranks; local NumPy store; shared queue no API fan-out",
+      "target_notebook": "project01/notebooks/01_Data_KB_RAG.ipynb",
+      "target_cell_tag": "llm-v2-hybrid",
+      "target_export": "project01/web/backend/project01_llm_v2/hybrid.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [
+        {
+          "symbol": "HybridSearcher.__init__",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "HybridSearcher.search",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "HybridSearcher._dense_search",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "HybridSearcher._sparse_search",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "HybridSearcher._fuse",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "HybridSearcher._to_search_result",
+          "status": "ADAPTED_WITH_INTERFACE"
+        }
+      ],
+      "cells": [
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0171",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0172",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0173",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0174",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0175",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0176",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0177",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0178",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0179",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0180",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0181",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0182",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0183",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0185",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0187",
+          "module": "retrieval"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/retrieval/retriever.py",
+      "original_sha256": "437ea720c9689d69875d72ce4e035d64279653721199b5e7ba496f86e2268410",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/retrieval/retriever.py",
+      "copied_sha256": "437ea720c9689d69875d72ce4e035d64279653721199b5e7ba496f86e2268410",
+      "symbols": "Retriever._prepare_queries/retrieve/_merge_results",
+      "keep_and_adapt": "Keep query preparation/dedup and max-score merge initially; enforce query/candidate cap; no hidden provider calls",
+      "target_notebook": "project01/notebooks/01_Data_KB_RAG.ipynb",
+      "target_cell_tag": "llm-v2-retriever",
+      "target_export": "project01/web/backend/project01_llm_v2/retriever.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [
+        {
+          "symbol": "Retriever.__init__",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "Retriever.retrieve",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "Retriever._prepare_queries",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "Retriever._merge_results",
+          "status": "EXACT_AST"
+        }
+      ],
+      "cells": [
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0171",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0172",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0173",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0174",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0175",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0176",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0177",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0178",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0179",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0180",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0181",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0182",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0183",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0185",
+          "module": "retrieval"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0187",
+          "module": "retrieval"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/database/bm25_store.py",
+      "original_sha256": "e7ad2256c3b6d613c25d0e55f7102f73ee51d52b12aa0e68845fe5767bbf0393",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/database/bm25_store.py",
+      "copied_sha256": "e7ad2256c3b6d613c25d0e55f7102f73ee51d52b12aa0e68845fe5767bbf0393",
+      "symbols": "BM25Store.build/search/save/load/_tokenize/_text_for_index",
+      "keep_and_adapt": "Port implementation; medical metadata, new fingerprinted index; do not load legal pickle",
+      "target_notebook": "project01/notebooks/01_Data_KB_RAG.ipynb",
+      "target_cell_tag": "llm-v2-bm25",
+      "target_export": "project01/web/backend/project01_llm_v2/bm25.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [
+        {
+          "symbol": "BM25Store.__init__",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BM25Store.build",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BM25Store.upsert",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BM25Store.search",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BM25Store.save",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BM25Store.load",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BM25Store.check_exists",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BM25Store.delete_document",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BM25Store._ensure_loaded",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BM25Store._build_index",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BM25Store._search",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BM25Store._save_to_disk",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BM25Store._load_from_disk",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BM25Store._tokenize",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BM25Store._text_for_index",
+          "status": "ADAPTED_WITH_INTERFACE"
+        }
+      ],
+      "cells": [
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0088",
+          "module": "bm25"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0089",
+          "module": "bm25"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0090",
+          "module": "bm25"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0091",
+          "module": "bm25"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0092",
+          "module": "bm25"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0093",
+          "module": "bm25"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0094",
+          "module": "bm25"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0095",
+          "module": "bm25"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0096",
+          "module": "bm25"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0097",
+          "module": "bm25"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0098",
+          "module": "bm25"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0099",
+          "module": "bm25"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0100",
+          "module": "bm25"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0102",
+          "module": "bm25"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/indexing/chunking.py",
+      "original_sha256": "a45726ed7403d65f41565841e30b140743c0aebe7c04dd252fbdad09ae8034c2",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/indexing/chunking.py",
+      "copied_sha256": "a45726ed7403d65f41565841e30b140743c0aebe7c04dd252fbdad09ae8034c2",
+      "symbols": "DocumentChunker.split_markdown/split_file/_validate_chunk_config",
+      "keep_and_adapt": "Keep section-first/overlap split and interface; medical section/QA boundaries, exact offsets/content IDs; validate against phase1 prepared data",
+      "target_notebook": "project01/notebooks/01_Data_KB_RAG.ipynb",
+      "target_cell_tag": "llm-v2-indexing",
+      "target_export": "project01/web/backend/project01_llm_v2/indexing.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [
+        {
+          "symbol": "DocumentChunker.__init__",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "DocumentChunker.split_markdown",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "DocumentChunker.split_file",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "DocumentChunker.asplit_file",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "DocumentChunker._validate_chunk_config",
+          "status": "EXACT_AST"
+        }
+      ],
+      "cells": [
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0104",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0105",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0106",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0107",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0108",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0109",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0110",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0111",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0112",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0113",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0114",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0115",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0116",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0118",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0120",
+          "module": "indexing"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/indexing/indexer.py",
+      "original_sha256": "b7d7ba20db222e4d45ccbc1fc80eabd0e8fb3e9e40b52f6ca82a733c939b8a99",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/indexing/indexer.py",
+      "copied_sha256": "b7d7ba20db222e4d45ccbc1fc80eabd0e8fb3e9e40b52f6ca82a733c939b8a99",
+      "symbols": "DocumentIndexer.index_file/_index_dense_chunks/_text_for_embedding/_chunk_payload",
+      "keep_and_adapt": "Keep index flow/payload builder; content+corpus+embedding fingerprint, no document-id-only stale skip",
+      "target_notebook": "project01/notebooks/01_Data_KB_RAG.ipynb",
+      "target_cell_tag": "llm-v2-indexing",
+      "target_export": "project01/web/backend/project01_llm_v2/indexing.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [
+        {
+          "symbol": "DocumentIndexer.__init__",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "DocumentIndexer.index_file",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "DocumentIndexer.index_directory",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "DocumentIndexer._index_dense_chunks",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "DocumentIndexer._text_for_embedding",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "DocumentIndexer._chunk_payload",
+          "status": "EXACT_AST"
+        }
+      ],
+      "cells": [
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0104",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0105",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0106",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0107",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0108",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0109",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0110",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0111",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0112",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0113",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0114",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0115",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0116",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0118",
+          "module": "indexing"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0120",
+          "module": "indexing"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/indexing/embedding.py",
+      "original_sha256": "c97120ee7859178c6eb85a4b8831bf613beaa3715d67495410ee8dbbd30723de",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/indexing/embedding.py",
+      "copied_sha256": "c97120ee7859178c6eb85a4b8831bf613beaa3715d67495410ee8dbbd30723de",
+      "symbols": "Embedder.embed_text/embed_batch",
+      "keep_and_adapt": "Keep async interface; Gemini embedding SDK via queue; 768 dimensions, task-specific L2 vectors and hash cache; no BGE weight download",
+      "target_notebook": "project01/notebooks/01_Data_KB_RAG.ipynb",
+      "target_cell_tag": "llm-v2-embedding",
+      "target_export": "project01/web/backend/project01_llm_v2/embedding.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [
+        {
+          "symbol": "Embedder.__init__",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "Embedder.embed_text",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "Embedder.embed_batch",
+          "status": "ADAPTED_WITH_INTERFACE"
+        }
+      ],
+      "cells": [
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0073",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0074",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0075",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0076",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0077",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0078",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0080",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0082",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0084",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0086",
+          "module": "embedding"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/database/vector_db.py",
+      "original_sha256": "fed48e4fa89bb5396a06c5763fe96ae1502905e512376e226fb40cae82ace53b",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/database/vector_db.py",
+      "copied_sha256": "fed48e4fa89bb5396a06c5763fe96ae1502905e512376e226fb40cae82ace53b",
+      "symbols": "VectorDBClient query/upsert interface",
+      "keep_and_adapt": "Local NumPy implementation adapter; retain interface, omit Qdrant connection/singleton",
+      "target_notebook": "project01/notebooks/01_Data_KB_RAG.ipynb",
+      "target_cell_tag": "llm-v2-vector_store",
+      "target_export": "project01/web/backend/project01_llm_v2/vector_store.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [
+        {
+          "symbol": "VectorDBClient.upsert",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "VectorDBClient.query",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "VectorDBClient.check_exists",
+          "status": "ADAPTED_WITH_INTERFACE"
+        }
+      ],
+      "cells": [
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0073",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0074",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0075",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0076",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0077",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0078",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0080",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0082",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0084",
+          "module": "embedding"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0086",
+          "module": "embedding"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/retrieval/reranker.py",
+      "original_sha256": "a0eb865d86c6436f90ec82edc54809e51ff0cbb5b891c6376152f1344a286dd9",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/retrieval/reranker.py",
+      "copied_sha256": "a0eb865d86c6436f90ec82edc54809e51ff0cbb5b891c6376152f1344a286dd9",
+      "symbols": "BaseReranker.rerank/_to_ranked_result and RankedResult",
+      "keep_and_adapt": "Keep interface/conversion/original_rank; add GeminiReranker and JSON validation; remove top-level CrossEncoder import; no mandatory Cohere/BGE",
+      "target_notebook": "project01/notebooks/01_Data_KB_RAG.ipynb",
+      "target_cell_tag": "llm-v2-reranker",
+      "target_export": "project01/web/backend/project01_llm_v2/reranker.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [
+        {
+          "symbol": "BaseReranker.rerank",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "BaseReranker._to_ranked_result",
+          "status": "EXACT_AST"
+        }
+      ],
+      "cells": [
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0189",
+          "module": "reranker"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0190",
+          "module": "reranker"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0191",
+          "module": "reranker"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0192",
+          "module": "reranker"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0193",
+          "module": "reranker"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0194",
+          "module": "reranker"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0195",
+          "module": "reranker"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0196",
+          "module": "reranker"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0197",
+          "module": "reranker"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0198",
+          "module": "reranker"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0199",
+          "module": "reranker"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0200",
+          "module": "reranker"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0202",
+          "module": "reranker"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0204",
+          "module": "reranker"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/generation/prompt.py",
+      "original_sha256": "836a0db9ae432b8dfe5f3d2fc08e42fbeca33d46028d9ef013b08e0e0bb1c07c",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/generation/prompt.py",
+      "copied_sha256": "836a0db9ae432b8dfe5f3d2fc08e42fbeca33d46028d9ef013b08e0e0bb1c07c",
+      "symbols": "PromptBuilder.build_messages/build_context/_format_source",
+      "keep_and_adapt": "Keep numbered-source formatting and call flow; medical Vietnamese prompt/claim citations; untrusted-evidence delimiters",
+      "target_notebook": "project01/notebooks/02_Diabetes_Multi_Agent.ipynb",
+      "target_cell_tag": "llm-v2-generation",
+      "target_export": "project01/web/backend/project01_llm_v2/generation.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [
+        {
+          "symbol": "PromptBuilder.__init__",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "PromptBuilder.build_messages",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "PromptBuilder.build_context",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "PromptBuilder._format_source",
+          "status": "ADAPTED_WITH_INTERFACE"
+        }
+      ],
+      "cells": [
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0003",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0004",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0005",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0006",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0007",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0008",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0009",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0010",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0011",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0012",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0013",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0014",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0015",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0016",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0017",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0019",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0021",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0023",
+          "module": "generation"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/generation/generator.py",
+      "original_sha256": "3cdb4b8b0cd787d8873466ebabce086ddaac854691317f2c28d9c16878b546ba",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/generation/generator.py",
+      "copied_sha256": "3cdb4b8b0cd787d8873466ebabce086ddaac854691317f2c28d9c16878b546ba",
+      "symbols": "BaseGenerator.generate/_extract_text, GeminiGenerator",
+      "keep_and_adapt": "Keep generation flow/interface; _create_llm shared SDK Interactions bridge compatible with LangChain; typed claims+usage; remove OpenAIGenerator active path",
+      "target_notebook": "project01/notebooks/02_Diabetes_Multi_Agent.ipynb",
+      "target_cell_tag": "llm-v2-generation",
+      "target_export": "project01/web/backend/project01_llm_v2/generation.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [
+        {
+          "symbol": "BaseGenerator.__init__",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "BaseGenerator._create_llm",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "BaseGenerator.generate",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "BaseGenerator._extract_text",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "GeminiGenerator._create_llm",
+          "status": "ADAPTED_WITH_INTERFACE"
+        }
+      ],
+      "cells": [
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0003",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0004",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0005",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0006",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0007",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0008",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0009",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0010",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0011",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0012",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0013",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0014",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0015",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0016",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0017",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0019",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0021",
+          "module": "generation"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0023",
+          "module": "generation"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/pipeline.py",
+      "original_sha256": "7292a722bf371b4ebd58b46d6bec6e2aa79615d815edfb8aa2595544c6604655",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/pipeline.py",
+      "copied_sha256": "7292a722bf371b4ebd58b46d6bec6e2aa79615d815edfb8aa2595544c6604655",
+      "symbols": "ChatbotPipeline.ask",
+      "keep_and_adapt": "Keep retrieve→rerank→generate composition; expose stages to Knowledge/Reporter; add frozen Risk and Verifier without double generation",
+      "target_notebook": "project01/notebooks/02_Diabetes_Multi_Agent.ipynb",
+      "target_cell_tag": "llm-v2-agents",
+      "target_export": "project01/web/backend/project01_llm_v2/agents.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [
+        {
+          "symbol": "ChatbotPipeline.__init__",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "ChatbotPipeline.ask",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "ChatbotPipeline._log_ranked_results",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "ChatbotPipeline._build_sources",
+          "status": "EXACT_AST"
+        }
+      ],
+      "cells": [
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0025",
+          "module": "pipeline"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0026",
+          "module": "pipeline"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0027",
+          "module": "pipeline"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0028",
+          "module": "pipeline"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0029",
+          "module": "pipeline"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0030",
+          "module": "pipeline"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0031",
+          "module": "pipeline"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0032",
+          "module": "pipeline"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0033",
+          "module": "pipeline"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0034",
+          "module": "pipeline"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0035",
+          "module": "pipeline"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0036",
+          "module": "pipeline"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0037",
+          "module": "pipeline"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0038",
+          "module": "pipeline"
+        },
+        {
+          "notebook": "notebooks/02_Diabetes_Multi_Agent.ipynb",
+          "cell_id": "llm-v2-02-0040",
+          "module": "pipeline"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/api/schemas.py",
+      "original_sha256": "447a33f89231a29dc91552ec8d1a5b460d6a6a36f38569dcbfc1bad54d230491",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/api/schemas.py",
+      "copied_sha256": "447a33f89231a29dc91552ec8d1a5b460d6a6a36f38569dcbfc1bad54d230491",
+      "symbols": "APIModel/MetaData/Chunk/SearchResult/RankedResult/SourceResponse",
+      "keep_and_adapt": "Keep Pydantic base and inheritance; replace legal fields with source refs, add KG/claim/usage contract",
+      "target_notebook": "project01/notebooks/01_Data_KB_RAG.ipynb",
+      "target_cell_tag": "llm-v2-schemas",
+      "target_export": "project01/web/backend/project01_llm_v2/schemas.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [],
+      "cells": [
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0003",
+          "module": "schemas"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0004",
+          "module": "schemas"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0006",
+          "module": "schemas"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0008",
+          "module": "schemas"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0010",
+          "module": "schemas"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0012",
+          "module": "schemas"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0014",
+          "module": "schemas"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0016",
+          "module": "schemas"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0018",
+          "module": "schemas"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0020",
+          "module": "schemas"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0022",
+          "module": "schemas"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0024",
+          "module": "schemas"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/core/config.py",
+      "original_sha256": "3161b5472b00a8fd2bde0d8d07b300df819be0daa47f677e03a3d9d66824895d",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/core/config.py",
+      "copied_sha256": "3161b5472b00a8fd2bde0d8d07b300df819be0daa47f677e03a3d9d66824895d",
+      "symbols": "settings factory structure",
+      "keep_and_adapt": "Use explicit config injection; remove legal/provider globals requiring external credentials at import",
+      "target_notebook": "project01/notebooks/02_Diabetes_Multi_Agent.ipynb",
+      "target_cell_tag": "llm-v2-provider",
+      "target_export": "project01/web/backend/project01_llm_v2/provider.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [],
+      "cells": [
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0026",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0027",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0028",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0029",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0030",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0031",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0032",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0033",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0034",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0035",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0036",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0037",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0039",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0041",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0043",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0045",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0047",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0049",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0051",
+          "module": "provider"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/app/core/logging.py",
+      "original_sha256": "f2ea2292a0d981530c55285dbf41c4983a6e37eb28725cd2ca40c3d0bdcf34fa",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/app/core/logging.py",
+      "copied_sha256": "f2ea2292a0d981530c55285dbf41c4983a6e37eb28725cd2ca40c3d0bdcf34fa",
+      "symbols": "get_logger",
+      "keep_and_adapt": "Retain logging interface with redaction; avoid logging raw profile/key/request body",
+      "target_notebook": "project01/notebooks/02_Diabetes_Multi_Agent.ipynb",
+      "target_cell_tag": "llm-v2-provider",
+      "target_export": "project01/web/backend/project01_llm_v2/provider.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [],
+      "cells": [
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0026",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0027",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0028",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0029",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0030",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0031",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0032",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0033",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0034",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0035",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0036",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0037",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0039",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0041",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0043",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0045",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0047",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0049",
+          "module": "provider"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0051",
+          "module": "provider"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    },
+    {
+      "original_path": "RAG_KG_Tham_khao/PTHTTM-RAG/chatbot/Extract_Graph.ipynb",
+      "original_sha256": "984d56c4ac4040bfc8d09597ba1a6accf5efd37966a54509e75a6f33222f00cf",
+      "copied_path": "project01/provenance/group_rag_kg_source/chatbot/Extract_Graph.ipynb",
+      "copied_sha256": "c08befd36161dbf43c3c0a6d48c32ce20ac0292fdda2c219f2104f3b4581edd4",
+      "symbols": "extract_entities_and_relationships,load_extraction_cache,save_extraction_cache,normalize_key,normalize_extraction,build_graph_payload,visualize_graph",
+      "keep_and_adapt": "Port cache/normalizer/aggregation/JSON/PyVis; replace OpenAI/Groq with Gemini; chunk+model+prompt+schema cache; evidence spans; no Cypher/Neo4j I/O",
+      "target_notebook": "project01/notebooks/01_Data_KB_RAG.ipynb",
+      "target_cell_tag": "llm-v2-kg",
+      "target_export": "project01/web/backend/project01_llm_v2/kg.py",
+      "status": "PORTED_NOTEBOOK_EXPORT",
+      "symbols_matched": [
+        {
+          "symbol": "extract_entities_and_relationships",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "visualize_graph",
+          "status": "ADAPTED_WITH_INTERFACE"
+        },
+        {
+          "symbol": "load_extraction_cache",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "save_extraction_cache",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "clean_text_value",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "normalize_key",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "normalize_extraction",
+          "status": "EXACT_AST"
+        },
+        {
+          "symbol": "build_graph_payload",
+          "status": "EXACT_AST"
+        }
+      ],
+      "cells": [
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0149",
+          "module": "kg"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0150",
+          "module": "kg"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0151",
+          "module": "kg"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0153",
+          "module": "kg"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0155",
+          "module": "kg"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0157",
+          "module": "kg"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0159",
+          "module": "kg"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0161",
+          "module": "kg"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0163",
+          "module": "kg"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0165",
+          "module": "kg"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0167",
+          "module": "kg"
+        },
+        {
+          "notebook": "notebooks/01_Data_KB_RAG.ipynb",
+          "cell_id": "llm-v2-01-0169",
+          "module": "kg"
+        }
+      ],
+      "provider_rule": "Gemini SDK only; no mandatory alternate provider or DB service"
+    }
+  ],
+  "exact_ast_symbol_matches": 45,
+  "adapted_symbol_matches": 30,
+  "scope": "Exact AST only where names match. Interface-only vector/embedding/provider adapters are explicitly changed, not claimed byte-identical.",
+  "runtime_import_from_provenance": false,
+  "manual_seed_used_extractor_not_run": true
+}

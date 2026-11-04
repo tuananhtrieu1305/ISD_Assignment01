@@ -1,0 +1,153 @@
+{
+  "version": "project01.profile.1",
+  "required": [
+    "high_bp",
+    "high_chol",
+    "chol_check",
+    "bmi",
+    "smoker",
+    "stroke",
+    "heart_diseaseor_attack",
+    "phys_activity",
+    "fruits",
+    "veggies",
+    "hvy_alcohol_consump",
+    "any_healthcare",
+    "no_docbc_cost",
+    "gen_hlth",
+    "ment_hlth",
+    "phys_hlth",
+    "diff_walk",
+    "sex",
+    "age",
+    "education",
+    "income"
+  ],
+  "feature_order": [
+    "high_bp",
+    "high_chol",
+    "chol_check",
+    "bmi",
+    "smoker",
+    "stroke",
+    "heart_diseaseor_attack",
+    "phys_activity",
+    "fruits",
+    "veggies",
+    "hvy_alcohol_consump",
+    "any_healthcare",
+    "no_docbc_cost",
+    "gen_hlth",
+    "ment_hlth",
+    "phys_hlth",
+    "diff_walk",
+    "sex",
+    "age",
+    "education",
+    "income"
+  ],
+  "class_names": {
+    "0": "no diabetes",
+    "1": "prediabetes or diabetes"
+  },
+  "fit_scope": "train_only",
+  "allow_missing_for_prediction": false,
+  "allowed_extra_fields": [],
+  "semantics": {
+    "age": "BRFSS age category 1–13, not years",
+    "education": "ordinal category 1–6",
+    "income": "ordinal category 1–8",
+    "gen_hlth": "ordinal category 1–5",
+    "sex": "original source code 0/1",
+    "ment_hlth": "days 0–30",
+    "phys_hlth": "days 0–30",
+    "bmi": "BMI input value; not category"
+  },
+  "limits": {
+    "high_bp": [
+      0,
+      1
+    ],
+    "high_chol": [
+      0,
+      1
+    ],
+    "chol_check": [
+      0,
+      1
+    ],
+    "bmi": [
+      1,
+      100
+    ],
+    "smoker": [
+      0,
+      1
+    ],
+    "stroke": [
+      0,
+      1
+    ],
+    "heart_diseaseor_attack": [
+      0,
+      1
+    ],
+    "phys_activity": [
+      0,
+      1
+    ],
+    "fruits": [
+      0,
+      1
+    ],
+    "veggies": [
+      0,
+      1
+    ],
+    "hvy_alcohol_consump": [
+      0,
+      1
+    ],
+    "any_healthcare": [
+      0,
+      1
+    ],
+    "no_docbc_cost": [
+      0,
+      1
+    ],
+    "gen_hlth": [
+      1,
+      5
+    ],
+    "ment_hlth": [
+      0,
+      30
+    ],
+    "phys_hlth": [
+      0,
+      30
+    ],
+    "diff_walk": [
+      0,
+      1
+    ],
+    "sex": [
+      0,
+      1
+    ],
+    "age": [
+      1,
+      13
+    ],
+    "education": [
+      1,
+      6
+    ],
+    "income": [
+      1,
+      8
+    ]
+  },
+  "warning": "Class-weighted model score for historical survey label; not calibrated personal incidence risk or diagnosis"
+}

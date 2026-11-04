@@ -1,0 +1,892 @@
+{
+  "backend": "numpy",
+  "comparison_group_sha256": "9781ad59ac32eb1644fdcc85691891dc23bfdd60a54449ce66fc47ed428d609a",
+  "composition": [
+    "conv2d_1",
+    "activation_2",
+    "conv2d_3",
+    "activation_4",
+    "pooling_5",
+    "conv2d_6",
+    "activation_7",
+    "conv2d_8",
+    "activation_9",
+    "pooling_10",
+    "conv2d_11",
+    "activation_12",
+    "pooling_13",
+    "dense_14",
+    "activation_15",
+    "dense_16"
+  ],
+  "composition_plain": "đầu vào → Tìm đặc trưng trong vùng ảnh [128, 128, 8] → Giữ tín hiệu dương, tạo khả năng học phi tuyến [128, 128, 8] → Tìm đặc trưng trong vùng ảnh [128, 128, 8] → Giữ tín hiệu dương, tạo khả năng học phi tuyến [128, 128, 8] → Rút gọn vùng ảnh [64, 64, 8] → Tìm đặc trưng trong vùng ảnh [64, 64, 16] → Giữ tín hiệu dương, tạo khả năng học phi tuyến [64, 64, 16] → Tìm đặc trưng trong vùng ảnh [64, 64, 16] → Giữ tín hiệu dương, tạo khả năng học phi tuyến [64, 64, 16] → Rút gọn vùng ảnh [32, 32, 16] → Tìm đặc trưng trong vùng ảnh [32, 32, 32] → Giữ tín hiệu dương, tạo khả năng học phi tuyến [32, 32, 32] → Rút gọn vùng ảnh [32] → Kết hợp các đặc trưng [32] → Giữ tín hiệu dương, tạo khả năng học phi tuyến [32] → Kết hợp các đặc trưng [5] → đầu ra (logit/giá trị chuẩn hóa)",
+  "config_sha256": "98a75dbc9363ac2b45aa21ed3d1f4ac3aa6b95d67622698325a7e4a35fb25700",
+  "dataset_id": "ch3_idrid",
+  "dataset_sha256": "8d24ac9b9103feb4d06a7caace78b9658193ede0dd308faaf9a01e16c0ccf764",
+  "evidence_kind": "measured",
+  "family": "cnn",
+  "functions": [
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [128, 128, 3] → [128, 128, 8] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = conv_same(x, W) + b",
+        "plain_explanation": "Tìm đặc trưng cục bộ bằng bộ lọc trượt trên ảnh.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          },
+          {
+            "meaning": "trượt bộ lọc 3×3, đệm 0 để giữ kích thước ảnh",
+            "symbol": "conv_same"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "conv2d_1",
+      "input_shape": [
+        "batch",
+        128,
+        128,
+        3
+      ],
+      "mapping": {
+        "keras": "keras.layers.Conv2D",
+        "pytorch": "torch.nn.Conv2d",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[conv2d]"
+      },
+      "output_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "parameters": 224,
+      "role": "Tìm đặc trưng trong vùng ảnh",
+      "signature": "conv2d(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "activation_2",
+      "input_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "mapping": {
+        "keras": "keras.layers.ReLU",
+        "pytorch": "torch.nn.ReLU",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[activation]"
+      },
+      "output_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "parameters": 0,
+      "role": "Giữ tín hiệu dương, tạo khả năng học phi tuyến",
+      "signature": "activation(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [128, 128, 8] → [128, 128, 8] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = conv_same(x, W) + b",
+        "plain_explanation": "Tìm đặc trưng cục bộ bằng bộ lọc trượt trên ảnh.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          },
+          {
+            "meaning": "trượt bộ lọc 3×3, đệm 0 để giữ kích thước ảnh",
+            "symbol": "conv_same"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "conv2d_3",
+      "input_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "mapping": {
+        "keras": "keras.layers.Conv2D",
+        "pytorch": "torch.nn.Conv2d",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[conv2d]"
+      },
+      "output_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "parameters": 584,
+      "role": "Tìm đặc trưng trong vùng ảnh",
+      "signature": "conv2d(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "activation_4",
+      "input_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "mapping": {
+        "keras": "keras.layers.ReLU",
+        "pytorch": "torch.nn.ReLU",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[activation]"
+      },
+      "output_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "parameters": 0,
+      "role": "Giữ tín hiệu dương, tạo khả năng học phi tuyến",
+      "signature": "activation(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "pooling_5",
+      "input_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "mapping": {
+        "keras": "keras.layers.MaxPooling2D/GlobalAveragePooling2D",
+        "pytorch": "torch.nn.MaxPool2d/AdaptiveAvgPool2d",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[pooling]"
+      },
+      "output_shape": [
+        "batch",
+        64,
+        64,
+        8
+      ],
+      "parameters": 0,
+      "role": "Rút gọn vùng ảnh",
+      "signature": "pooling(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [64, 64, 8] → [64, 64, 16] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = conv_same(x, W) + b",
+        "plain_explanation": "Tìm đặc trưng cục bộ bằng bộ lọc trượt trên ảnh.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          },
+          {
+            "meaning": "trượt bộ lọc 3×3, đệm 0 để giữ kích thước ảnh",
+            "symbol": "conv_same"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "conv2d_6",
+      "input_shape": [
+        "batch",
+        64,
+        64,
+        8
+      ],
+      "mapping": {
+        "keras": "keras.layers.Conv2D",
+        "pytorch": "torch.nn.Conv2d",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[conv2d]"
+      },
+      "output_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "parameters": 1168,
+      "role": "Tìm đặc trưng trong vùng ảnh",
+      "signature": "conv2d(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "activation_7",
+      "input_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "mapping": {
+        "keras": "keras.layers.ReLU",
+        "pytorch": "torch.nn.ReLU",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[activation]"
+      },
+      "output_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "parameters": 0,
+      "role": "Giữ tín hiệu dương, tạo khả năng học phi tuyến",
+      "signature": "activation(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [64, 64, 16] → [64, 64, 16] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = conv_same(x, W) + b",
+        "plain_explanation": "Tìm đặc trưng cục bộ bằng bộ lọc trượt trên ảnh.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          },
+          {
+            "meaning": "trượt bộ lọc 3×3, đệm 0 để giữ kích thước ảnh",
+            "symbol": "conv_same"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "conv2d_8",
+      "input_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "mapping": {
+        "keras": "keras.layers.Conv2D",
+        "pytorch": "torch.nn.Conv2d",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[conv2d]"
+      },
+      "output_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "parameters": 2320,
+      "role": "Tìm đặc trưng trong vùng ảnh",
+      "signature": "conv2d(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "activation_9",
+      "input_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "mapping": {
+        "keras": "keras.layers.ReLU",
+        "pytorch": "torch.nn.ReLU",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[activation]"
+      },
+      "output_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "parameters": 0,
+      "role": "Giữ tín hiệu dương, tạo khả năng học phi tuyến",
+      "signature": "activation(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "pooling_10",
+      "input_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "mapping": {
+        "keras": "keras.layers.MaxPooling2D/GlobalAveragePooling2D",
+        "pytorch": "torch.nn.MaxPool2d/AdaptiveAvgPool2d",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[pooling]"
+      },
+      "output_shape": [
+        "batch",
+        32,
+        32,
+        16
+      ],
+      "parameters": 0,
+      "role": "Rút gọn vùng ảnh",
+      "signature": "pooling(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [32, 32, 16] → [32, 32, 32] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = conv_same(x, W) + b",
+        "plain_explanation": "Tìm đặc trưng cục bộ bằng bộ lọc trượt trên ảnh.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          },
+          {
+            "meaning": "trượt bộ lọc 3×3, đệm 0 để giữ kích thước ảnh",
+            "symbol": "conv_same"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "conv2d_11",
+      "input_shape": [
+        "batch",
+        32,
+        32,
+        16
+      ],
+      "mapping": {
+        "keras": "keras.layers.Conv2D",
+        "pytorch": "torch.nn.Conv2d",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[conv2d]"
+      },
+      "output_shape": [
+        "batch",
+        32,
+        32,
+        32
+      ],
+      "parameters": 4640,
+      "role": "Tìm đặc trưng trong vùng ảnh",
+      "signature": "conv2d(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "activation_12",
+      "input_shape": [
+        "batch",
+        32,
+        32,
+        32
+      ],
+      "mapping": {
+        "keras": "keras.layers.ReLU",
+        "pytorch": "torch.nn.ReLU",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[activation]"
+      },
+      "output_shape": [
+        "batch",
+        32,
+        32,
+        32
+      ],
+      "parameters": 0,
+      "role": "Giữ tín hiệu dương, tạo khả năng học phi tuyến",
+      "signature": "activation(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "pooling_13",
+      "input_shape": [
+        "batch",
+        32,
+        32,
+        32
+      ],
+      "mapping": {
+        "keras": "keras.layers.MaxPooling2D/GlobalAveragePooling2D",
+        "pytorch": "torch.nn.MaxPool2d/AdaptiveAvgPool2d",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[pooling]"
+      },
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameters": 0,
+      "role": "Rút gọn vùng ảnh",
+      "signature": "pooling(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [32] → [32] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = xW + b",
+        "plain_explanation": "Kết hợp các giá trị đầu vào bằng trọng số rồi cộng bias.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "dense_14",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "mapping": {
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[dense]"
+      },
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameters": 1056,
+      "role": "Kết hợp các đặc trưng",
+      "signature": "dense(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "activation_15",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "mapping": {
+        "keras": "keras.layers.ReLU",
+        "pytorch": "torch.nn.ReLU",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[activation]"
+      },
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameters": 0,
+      "role": "Giữ tín hiệu dương, tạo khả năng học phi tuyến",
+      "signature": "activation(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [32] → [5] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = xW + b",
+        "plain_explanation": "Kết hợp các giá trị đầu vào bằng trọng số rồi cộng bias.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "dense_16",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "mapping": {
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[dense]"
+      },
+      "output_shape": [
+        "batch",
+        5
+      ],
+      "parameters": 165,
+      "role": "Kết hợp các đặc trưng",
+      "signature": "dense(x, weights) -> y"
+    }
+  ],
+  "implementation": "scratch",
+  "input_shape": [
+    "batch",
+    128,
+    128,
+    3
+  ],
+  "layers": [
+    {
+      "function_id": "conv2d_1",
+      "id": "conv2d_1",
+      "input_shape": [
+        "batch",
+        128,
+        128,
+        3
+      ],
+      "kind": "conv2d",
+      "output_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "parameter_count": 224
+    },
+    {
+      "function_id": "activation_2",
+      "id": "activation_2",
+      "input_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "kind": "activation",
+      "output_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "conv2d_3",
+      "id": "conv2d_3",
+      "input_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "kind": "conv2d",
+      "output_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "parameter_count": 584
+    },
+    {
+      "function_id": "activation_4",
+      "id": "activation_4",
+      "input_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "kind": "activation",
+      "output_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "pooling_5",
+      "id": "pooling_5",
+      "input_shape": [
+        "batch",
+        128,
+        128,
+        8
+      ],
+      "kind": "pooling",
+      "output_shape": [
+        "batch",
+        64,
+        64,
+        8
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "conv2d_6",
+      "id": "conv2d_6",
+      "input_shape": [
+        "batch",
+        64,
+        64,
+        8
+      ],
+      "kind": "conv2d",
+      "output_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "parameter_count": 1168
+    },
+    {
+      "function_id": "activation_7",
+      "id": "activation_7",
+      "input_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "kind": "activation",
+      "output_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "conv2d_8",
+      "id": "conv2d_8",
+      "input_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "kind": "conv2d",
+      "output_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "parameter_count": 2320
+    },
+    {
+      "function_id": "activation_9",
+      "id": "activation_9",
+      "input_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "kind": "activation",
+      "output_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "pooling_10",
+      "id": "pooling_10",
+      "input_shape": [
+        "batch",
+        64,
+        64,
+        16
+      ],
+      "kind": "pooling",
+      "output_shape": [
+        "batch",
+        32,
+        32,
+        16
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "conv2d_11",
+      "id": "conv2d_11",
+      "input_shape": [
+        "batch",
+        32,
+        32,
+        16
+      ],
+      "kind": "conv2d",
+      "output_shape": [
+        "batch",
+        32,
+        32,
+        32
+      ],
+      "parameter_count": 4640
+    },
+    {
+      "function_id": "activation_12",
+      "id": "activation_12",
+      "input_shape": [
+        "batch",
+        32,
+        32,
+        32
+      ],
+      "kind": "activation",
+      "output_shape": [
+        "batch",
+        32,
+        32,
+        32
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "pooling_13",
+      "id": "pooling_13",
+      "input_shape": [
+        "batch",
+        32,
+        32,
+        32
+      ],
+      "kind": "pooling",
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "dense_14",
+      "id": "dense_14",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "kind": "dense",
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameter_count": 1056
+    },
+    {
+      "function_id": "activation_15",
+      "id": "activation_15",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "kind": "activation",
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "dense_16",
+      "id": "dense_16",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "kind": "dense",
+      "output_shape": [
+        "batch",
+        5
+      ],
+      "parameter_count": 165
+    }
+  ],
+  "model_id": "ch3_idrid_cnn_scratch_s42",
+  "output_shape": [
+    "batch",
+    5
+  ],
+  "parameter_count": 10157,
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch3_idrid/preprocessing.json",
+    "sha256": "dec79d2d31793701f1a4ef6b1653ff318138359ad344570dfb0b1e840e65b790"
+  },
+  "recurrent_unroll": null,
+  "schema_version": "3.0.0"
+}

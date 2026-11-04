@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="24" failures="1" errors="0" time="0.5338686">
+    <testsuite name="src/v3/App.test.tsx" timestamp="2026-10-21T12:22:11.465Z" hostname="LaptopVJP" tests="9" failures="0" errors="0" skipped="0" time="0.5029925">
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; has six knowledge links and three CNN datasets" time="0.1543331">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; shows a useful invalid URL message, not a blank page" time="0.010321">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; renders all dataset data, theory and deployment panels at /ml" time="0.088541">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; renders all dataset data, theory and deployment panels at /cnn" time="0.0669897">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; renders all dataset data, theory and deployment panels at /rnn" time="0.070226">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; renders all dataset data, theory and deployment panels at /rag" time="0.0473549">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; renders all dataset data, theory and deployment panels at /agents" time="0.038634">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="knowledge navigation &gt; keeps original null costs in display" time="0.0233067">
+        </testcase>
+        <testcase classname="src/v3/App.test.tsx" name="cancel contract regression &gt; posts only the cancellation body allowed by frozen OpenAPI" time="0.0019297">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/v3/core.test.ts" timestamp="2026-10-21T12:22:11.470Z" hostname="LaptopVJP" tests="15" failures="1" errors="0" skipped="0" time="0.0308761">
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /ml" time="0.0020366">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /cnn" time="0.0003488">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /rnn" time="0.0001962">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /rag" time="0.0002903">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps dataset and section for /agents" time="0.0001839">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="URL contract &gt; keeps RNN/LSTM and rejects cross-chapter datasets instead of silent fallback" time="0.0001972">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="safe presentation and comparable historical rows &gt; preserves missing cost, zero, arrays and text without invented metrics" time="0.0119627">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="safe presentation and comparable historical rows &gt; parses quoted CSV and filters before comparing" time="0.0010475">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="safe presentation and comparable historical rows &gt; does not accept javascript URLs or probability bars over 100 percent" time="0.0005832">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; calls fetch with the global receiver required by native Window.fetch" time="0.0057629">
+            <failure message="promise rejected &quot;Error: Không thể xử lý yêu cầu (network_e… { …(4) }&quot; instead of resolving" type="AssertionError">
+AssertionError: promise rejected &quot;Error: Không thể xử lý yêu cầu (network_e… { …(4) }&quot; instead of resolving
+ ❯ src/v3/core.test.ts:47:100
+
+Caused by: Caused by: Error: Không thể xử lý yêu cầu (network_error).
+ ❯ ApiClient.request src/v3/client.ts:45:99
+ ❯ ApiClient.get src/v3/client.ts:18:78
+ ❯ src/v3/core.test.ts:47:85
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: &apos;network_error&apos;, status: 0, retryable: true, requestId: &apos;&apos; }
+            </failure>
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; matches cancel schema and hashes public artifact bytes" time="0.0035305">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; normalizes only http/https API origins without embedded credentials" time="0.0006191">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; stores 24 random bytes in session storage only and isolates API origins" time="0.0004404">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; uses owner and idempotency headers without leaking tokens in the URL" time="0.0011748">
+        </testcase>
+        <testcase classname="src/v3/core.test.ts" name="capability-bound API client &gt; keeps structured retryable errors and refuses external polling" time="0.0010017">
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -1,0 +1,127 @@
+{
+  "assignment": "Assignment 04",
+  "domain": "MNIST image classification",
+  "dataset_name": "MNIST",
+  "source": "TensorFlow/Keras official MNIST archive",
+  "source_url": "https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz",
+  "cache_file": "datasets/mnist/mnist.npz",
+  "task": "10-class grayscale image classification",
+  "image_shape": [
+    28,
+    28,
+    1
+  ],
+  "classes": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "train_samples": 54000,
+  "validation_samples": 6000,
+  "test_samples": 10000,
+  "normalization": "float32 pixel / 255.0",
+  "keras_tensor_layout": "B x H x W x C",
+  "pytorch_tensor_layout": "B x C x H x W",
+  "numpy_training_subset": 6000,
+  "models_tested": [
+    "M2 Basic CNN + BatchNorm + Dropout",
+    "Keras CNN",
+    "PyTorch CNN",
+    "NumPy CNN"
+  ],
+  "selection_basis": "Validation Macro-F1; test set not used for model selection",
+  "selection_comparison": [
+    {
+      "Model": "M2 Basic CNN + BatchNorm + Dropout",
+      "SelectionMetric": "Validation Macro-F1",
+      "ValidationScore": 0.9833118400069918,
+      "Best Epoch": 5
+    },
+    {
+      "Model": "Keras CNN",
+      "SelectionMetric": "Validation Macro-F1",
+      "ValidationScore": 0.9804390669647083,
+      "Best Epoch": 5
+    },
+    {
+      "Model": "PyTorch CNN",
+      "SelectionMetric": "Validation Macro-F1",
+      "ValidationScore": 0.9720881194335517,
+      "Best Epoch": 5
+    },
+    {
+      "Model": "NumPy CNN",
+      "SelectionMetric": "Validation Macro-F1",
+      "ValidationScore": 0.7516130940796837,
+      "Best Epoch": 3
+    }
+  ],
+  "selected_model": "M2 Basic CNN + BatchNorm + Dropout",
+  "final_metrics": {
+    "Accuracy": 0.9851,
+    "Macro-P": 0.9849118991206005,
+    "Macro-R": 0.9851559749063397,
+    "Macro-F1": 0.984999748718006
+  },
+  "total_recorded_train_time_seconds": 285.5147741999999,
+  "artifacts": {
+    "models": [
+      "pipeline04/mnist/models/final_model.keras",
+      "pipeline04/mnist/models/keras_basic_cnn_best.keras",
+      "pipeline04/mnist/models/m2_batchnorm_dropout_cnn_best.keras",
+      "pipeline04/mnist/models/numpy_cnn_best_state.npz",
+      "pipeline04/mnist/models/pytorch_basic_cnn_best.pt"
+    ],
+    "metrics": [
+      "pipeline04/mnist/metrics/all_model_comparison.csv",
+      "pipeline04/mnist/metrics/benchmark.csv",
+      "pipeline04/mnist/metrics/benchmark.json",
+      "pipeline04/mnist/metrics/feature_map_summary.csv",
+      "pipeline04/mnist/metrics/final_metrics.json",
+      "pipeline04/mnist/metrics/framework_comparison.csv",
+      "pipeline04/mnist/metrics/high_confidence_errors.csv",
+      "pipeline04/mnist/metrics/improved_model_comparison.csv",
+      "pipeline04/mnist/metrics/keras_basic_classification_report.csv",
+      "pipeline04/mnist/metrics/keras_basic_cnn_history.csv",
+      "pipeline04/mnist/metrics/keras_basic_test_metrics.json",
+      "pipeline04/mnist/metrics/m2_batchnorm_dropout_cnn_history.csv",
+      "pipeline04/mnist/metrics/m2_batchnorm_dropout_history.csv",
+      "pipeline04/mnist/metrics/m2_batchnorm_dropout_test_metrics.json",
+      "pipeline04/mnist/metrics/numpy_cnn_history.csv",
+      "pipeline04/mnist/metrics/numpy_cnn_test_metrics.json",
+      "pipeline04/mnist/metrics/pytorch_basic_classification_report.csv",
+      "pipeline04/mnist/metrics/pytorch_basic_history.csv",
+      "pipeline04/mnist/metrics/pytorch_basic_test_metrics.json",
+      "pipeline04/mnist/metrics/selection_comparison.csv",
+      "pipeline04/mnist/metrics/top_confusion_pairs.csv"
+    ],
+    "figures": [
+      "pipeline04/mnist/figures/class_distribution.png",
+      "pipeline04/mnist/figures/feature_maps.png",
+      "pipeline04/mnist/figures/final_confusion_matrix.png",
+      "pipeline04/mnist/figures/high_confidence_errors.png",
+      "pipeline04/mnist/figures/keras_basic_training_curves.png",
+      "pipeline04/mnist/figures/keras_confusion_matrix.png",
+      "pipeline04/mnist/figures/m2_batchnorm_dropout_training_curves.png",
+      "pipeline04/mnist/figures/model_comparison_macro_f1.png",
+      "pipeline04/mnist/figures/numpy_confusion_matrix.png",
+      "pipeline04/mnist/figures/one_example_per_class.png",
+      "pipeline04/mnist/figures/pytorch_basic_training_curves.png",
+      "pipeline04/mnist/figures/pytorch_confusion_matrix.png",
+      "pipeline04/mnist/figures/sample_grid.png"
+    ]
+  },
+  "created_at_utc": "2026-09-15T12:58:16.765518+00:00",
+  "limitations": [
+    "NumPy CNN uses a stratified subset and a very small architecture to keep CPU runtime reasonable.",
+    "MNIST is an easy benchmark; CIFAR-10 will be more appropriate for deeper CNN improvements.",
+    "Framework runtime depends on hardware and backend, so timing is not a universal benchmark."
+  ]
+}

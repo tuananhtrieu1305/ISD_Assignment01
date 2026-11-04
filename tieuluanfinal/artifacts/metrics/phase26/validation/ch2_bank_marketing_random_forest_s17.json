@@ -1,0 +1,138 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch02_ml/ch2_bank_marketing_random_forest_s17/best.npz",
+      "sha256": "e60b6a725f482b637267aaf21f1654d6e1a673d843b1484f7ef23f3d55ae6226"
+    },
+    {
+      "path": "artifacts/models/v3/ch02_ml/ch2_bank_marketing_random_forest_s17/best.json",
+      "sha256": "369e7926297b65308f80c7fe625567bf5391932d7f1565f011697955a64c07d5"
+    },
+    {
+      "path": "artifacts/predictions/phase26/validation/ch2_bank_marketing_random_forest_s17.jsonl.gz",
+      "sha256": "3379c6711e796946116d6b5c0aabdb51ac50cca0d3646c81a87a611dffdfbcd2"
+    }
+  ],
+  "backend": "sklearn_fit_numpy_portable_predict",
+  "code": {
+    "dirty_tree_sha256": "f5d5e981628bd99982dcd833a5ec3e67a0eabb3fb0918ef687b64b9e7d4950ea",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "config": {
+    "path": "artifacts/manifests/phase26/revisions/r2/configs/ch2_bank_marketing_s17.json",
+    "sha256": "d9eb19e1e5d6a5b9d9df92a8fd97fbda0ac783be1bd956046247203362761445"
+  },
+  "dataset_id": "ch2_bank_marketing",
+  "device": "cpu",
+  "efficiency": {
+    "checkpoint_bytes": 4814822,
+    "inference_p50_ms": 16.935634999754257,
+    "inference_p95_ms": 18.60668584986342,
+    "peak_ram_bytes": 251232256,
+    "peak_vram_bytes": 0,
+    "timed_repeats": 30,
+    "train_seconds": 0.7482907420007905,
+    "warmup_batches": 5
+  },
+  "family": "classical",
+  "finished_at": "2026-10-17T13:42:45.361530+00:00",
+  "implementation": "scikit_learn",
+  "method": "random_forest",
+  "metrics": [
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "accuracy",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.8149240524996313
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "macro_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.6586683406453586
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "weighted_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.8355969420147891
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "auroc",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.7758389835576998
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "average_precision",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.4032712406374755
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "brier",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.15859613967144598
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "ece",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.2569936305001004
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_0",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.8445223780895124
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.5914249684741488
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase26/revisions/r2/runs/ch2_bank_marketing_random_forest_s17/model_contract.json",
+    "sha256": "076081ea961457648ee3e7dc79beaa7a19bd5e1d3ed415240b2d3ef2153424f0"
+  },
+  "provenance": {
+    "adapter_sha256": "6c8c7f0fb3465b0af66b93774a4e101da4a9cdae6cee80d288e08f84350b1c7d",
+    "code_sha256": "f5d5e981628bd99982dcd833a5ec3e67a0eabb3fb0918ef687b64b9e7d4950ea",
+    "config_sha256": "d9eb19e1e5d6a5b9d9df92a8fd97fbda0ac783be1bd956046247203362761445",
+    "dataset_sha256": "b34904856e0a4412109c99e7cf9556605ec78fa0910f3593aceac25f27f5e461",
+    "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+    "model_contract_sha256": "076081ea961457648ee3e7dc79beaa7a19bd5e1d3ed415240b2d3ef2153424f0",
+    "preprocessing_sha256": "1bf39f9cc012b04bb0b46fa2eee7cbd4d3bb2ae6d3f6abaed5977ca89ad89ea7",
+    "split_sha256": "72136591aca9bb338d59aab29106974f1cdf1103624a46074782c3b0182c9035",
+    "subset_sha256": "b271747e61b6dcdfc4cf3f5b29b8a28643aaf82760b1efa5b14f3fdec3de811d"
+  },
+  "run_id": "ch2_bank_marketing_random_forest_s17",
+  "schema_version": "phase26.classical_run.1",
+  "seed": 17,
+  "split": "validation",
+  "started_at": "2026-10-17T13:42:43.010703+00:00",
+  "status": "succeeded",
+  "test_seal_id": null,
+  "track": "matched_subset"
+}

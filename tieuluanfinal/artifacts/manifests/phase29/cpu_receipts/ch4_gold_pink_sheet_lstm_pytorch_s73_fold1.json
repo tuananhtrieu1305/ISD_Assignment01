@@ -1,0 +1,115 @@
+{
+  "canonical_x_sha256": "c74b2548959adbeaba470385422bda9424e6810aae2fb62caff3b2c98892c743",
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_pytorch_s73_fold1/best.npz",
+    "sha256": "e50821a298ddb6374f06d076f0da1564736bc367a0c771c380cb1525e2107887"
+  },
+  "checkpoint_metadata": {
+    "path": "artifacts/models/v3/ch04_lstm/ch4_gold_pink_sheet_lstm_pytorch_s73_fold1/best.json",
+    "sha256": "c4b5823f5d15c852416538b94a9f892fabb00ee1be2540846877f31fc8b44787"
+  },
+  "comparisons": {
+    "atol": 1e-05,
+    "cpu_reference": {
+      "max_absolute_error": 1.1920928955078125e-07,
+      "output": [
+        [
+          0.012888539582490921,
+          -0.3144184947013855,
+          -0.5788354277610779
+        ],
+        [
+          0.012953683733940125,
+          -0.31434366106987,
+          -0.5789237022399902
+        ],
+        [
+          0.012950677424669266,
+          -0.3143446445465088,
+          -0.5789156556129456
+        ],
+        [
+          0.012947048991918564,
+          -0.3143438696861267,
+          -0.5789024233818054
+        ]
+      ],
+      "status": "PASS"
+    },
+    "original_gpu_cpu_gate": {
+      "max_absolute_error": 7.152557373046875e-07,
+      "output": [
+        [
+          0.012888722121715546,
+          -0.31441816687583923,
+          -0.5788355469703674
+        ],
+        [
+          0.012953884899616241,
+          -0.3143436312675476,
+          -0.5789243578910828
+        ],
+        [
+          0.012950897216796875,
+          -0.3143446445465088,
+          -0.5789162516593933
+        ],
+        [
+          0.01294725388288498,
+          -0.31434381008148193,
+          -0.5789030194282532
+        ]
+      ],
+      "status": "PASS"
+    },
+    "rtol": 0.0001
+  },
+  "config": {
+    "path": "artifacts/manifests/phase29/configs/ch4_gold_pink_sheet_fold1_s73.json",
+    "sha256": "37abd24261a981daccb992f6616bcd0497846936ec46057a1b2c3831c39d8cf2"
+  },
+  "cuda_visible_devices": "-1",
+  "ids": [
+    "GOLD/1961-12-01T00:00:00",
+    "GOLD/1962-01-01T00:00:00",
+    "GOLD/1962-02-01T00:00:00",
+    "GOLD/1962-03-01T00:00:00"
+  ],
+  "input_split": "train",
+  "native_cpu_device": "cpu",
+  "optimizer_updates": 0,
+  "portable_cpu_output": [
+    [
+      0.012888547033071518,
+      -0.3144184947013855,
+      -0.5788354873657227
+    ],
+    [
+      0.012953683733940125,
+      -0.3143436908721924,
+      -0.5789238214492798
+    ],
+    [
+      0.012950681149959564,
+      -0.3143446147441864,
+      -0.578915536403656
+    ],
+    [
+      0.012947052717208862,
+      -0.3143438994884491,
+      -0.5789024829864502
+    ]
+  ],
+  "run_id": "ch4_gold_pink_sheet_lstm_pytorch_s73_fold1",
+  "selection": {
+    "path": "artifacts/manifests/phase29/runs/ch4_gold_pink_sheet_lstm_pytorch_s73_fold1/selection.json",
+    "sha256": "6f30aadabdf1ce3b0eccaac254bd6c39fc2334b009e3148e67cc97a68d3a7023"
+  },
+  "status": "PASS",
+  "test_executed": false,
+  "validation_executed": false,
+  "writer_source": {
+    "path": "scripts/phase29_receipts.py",
+    "sha256": "d653aeef41c013efc4de8252617578241e6b6c9694974bab5f0d67daf0652f04"
+  }
+}

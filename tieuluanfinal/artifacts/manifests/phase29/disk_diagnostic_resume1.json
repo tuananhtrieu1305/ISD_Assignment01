@@ -1,0 +1,33 @@
+{
+  "phase": 29,
+  "date": "2026-10-19",
+  "evidence_kind": "measured",
+  "source": "Read-only Windows .NET DriveInfo and Win32_PageFileUsage/Win32_OperatingSystem snapshots",
+  "before_resume": {
+    "host_free_gib": 11.84,
+    "pagefile_path": "C:\\pagefile.sys",
+    "allocated_base_size_wmi_mb": 19307,
+    "current_usage_wmi_mb": 2453,
+    "peak_usage_wmi_mb": 3889
+  },
+  "during_gpu_worker_snapshot": {
+    "host_free_gib": 2.387,
+    "pagefile_path": "C:\\pagefile.sys",
+    "allocated_base_size_wmi_mb": 23099,
+    "current_usage_wmi_mb": 3611,
+    "peak_usage_wmi_mb": 3947,
+    "total_visible_memory_wmi_kib": 16395496,
+    "free_physical_memory_wmi_kib": 4113572,
+    "default_temp_swap_vhdx_observed": false
+  },
+  "after_controller_exit_snapshot": {"host_free_gib": 11.46},
+  "interpretation": "Pagefile allocation grew by 3792 reported MB, explaining part but not all of the host free-space drop. Snapshots do not identify every cause or prove new dataset/checkpoint files caused the drop. Free space at rest is not active GPU headroom.",
+  "queue_result": {"completed_before": 3, "completed_after": 5, "expected": 108, "remaining": 103},
+  "failed_before_update_run_id": "ch4_gold_pink_sheet_lstm_pytorch_s42_main",
+  "historical_controller_pid": 2531,
+  "controller_exited": true,
+  "settings_changed": false,
+  "files_deleted": false,
+  "test_evaluation_executed": false,
+  "user_requested_pause": true
+}

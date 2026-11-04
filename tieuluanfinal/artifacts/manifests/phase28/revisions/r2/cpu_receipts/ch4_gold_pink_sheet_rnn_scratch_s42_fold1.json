@@ -1,0 +1,94 @@
+{
+  "canonical_x_sha256": "c74b2548959adbeaba470385422bda9424e6810aae2fb62caff3b2c98892c743",
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_rnn_scratch_s42_fold1/best.npz",
+    "sha256": "c255d3e40eb5b62042f0da699a0564ab327bf93143c826ac0fa9a818e45f0625"
+  },
+  "checkpoint_metadata": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_rnn_scratch_s42_fold1/best.json",
+    "sha256": "a92b336fb62675c2d7d86924012c96531d003c2e5d4b2935a2e61e4de257c496"
+  },
+  "comparisons": {
+    "atol": 1e-05,
+    "cpu_reference": {
+      "max_absolute_error": 0.0,
+      "output": [
+        [
+          -0.26750004291534424,
+          -0.6677757501602173,
+          -0.3575018644332886
+        ],
+        [
+          -0.26759809255599976,
+          -0.6680405139923096,
+          -0.35770383477211
+        ],
+        [
+          -0.26755306124687195,
+          -0.6676366925239563,
+          -0.35795527696609497
+        ],
+        [
+          -0.2675624489784241,
+          -0.668100118637085,
+          -0.35744041204452515
+        ]
+      ],
+      "status": "PASS"
+    },
+    "original_gpu_cpu_gate": {
+      "max_absolute_error": 0.0,
+      "output": null,
+      "source": {
+        "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_scratch_s42_fold1/cpu_demo.json",
+        "sha256": "f6019b47ee15f85a09f95fcb42fb1bb2a23f684d5eb4a04a125db421312fc781"
+      },
+      "status": "PASS"
+    },
+    "rtol": 0.0001
+  },
+  "ids": [
+    "GOLD/1961-12-01T00:00:00",
+    "GOLD/1962-01-01T00:00:00",
+    "GOLD/1962-02-01T00:00:00",
+    "GOLD/1962-03-01T00:00:00"
+  ],
+  "input_split": "train",
+  "native_cpu_device": "cpu",
+  "native_cpu_engine": "numpy_manual",
+  "portable_cpu_output": [
+    [
+      -0.26750004291534424,
+      -0.6677757501602173,
+      -0.3575018644332886
+    ],
+    [
+      -0.26759809255599976,
+      -0.6680405139923096,
+      -0.35770383477211
+    ],
+    [
+      -0.26755306124687195,
+      -0.6676366925239563,
+      -0.35795527696609497
+    ],
+    [
+      -0.2675624489784241,
+      -0.668100118637085,
+      -0.35744041204452515
+    ]
+  ],
+  "revision": {
+    "path": "artifacts/manifests/phase28/revisions/r2/revision.json",
+    "sha256": "11c7251f5dd092ba7c109f4ea512d3062de3cc6dd1514f683dd7aa06bbc771b7"
+  },
+  "run_id": "ch4_gold_pink_sheet_rnn_scratch_s42_fold1",
+  "selection": {
+    "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_scratch_s42_fold1/selection.json",
+    "sha256": "9ff34d7741ab4bf07a8e8dc201eaaa6c9a3c2864703e4cdafb8c90e16eacb276"
+  },
+  "status": "PASS",
+  "test_executed": false,
+  "validation_executed": false,
+  "weights_updated": false
+}

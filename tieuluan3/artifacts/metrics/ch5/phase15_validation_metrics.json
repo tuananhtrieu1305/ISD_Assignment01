@@ -1,0 +1,281 @@
+{
+  "ablation": [
+    {
+      "domain": "medical",
+      "metric": "chunk_recall_at_5",
+      "value": 0.666667,
+      "variant": "full"
+    },
+    {
+      "domain": "medical",
+      "metric": "chunk_recall_at_5",
+      "value": 0.363636,
+      "variant": "no_graph"
+    },
+    {
+      "domain": "medical",
+      "metric": "chunk_recall_at_5",
+      "value": 0.666667,
+      "variant": "no_dense"
+    },
+    {
+      "domain": "medical",
+      "metric": "chunk_recall_at_5",
+      "value": 0.666667,
+      "variant": "no_sparse"
+    },
+    {
+      "domain": "medical",
+      "metric": "chunk_recall_at_5",
+      "value": 0.363636,
+      "variant": "hop_1"
+    },
+    {
+      "domain": "medical",
+      "metric": "chunk_recall_at_5",
+      "value": 0.666667,
+      "variant": "hop_2"
+    },
+    {
+      "domain": "medical",
+      "metric": "chunk_recall_at_3",
+      "value": 0.545455,
+      "variant": "full_top_k_3"
+    },
+    {
+      "domain": "medical",
+      "metric": "chunk_recall_at_5",
+      "value": 0.666667,
+      "variant": "full_top_k_5"
+    },
+    {
+      "domain": "medical",
+      "metric": "chunk_recall_at_10",
+      "value": 0.818182,
+      "variant": "full_top_k_10"
+    },
+    {
+      "domain": "finance",
+      "metric": "chunk_recall_at_5",
+      "value": 0.499434,
+      "variant": "full"
+    },
+    {
+      "domain": "finance",
+      "metric": "chunk_recall_at_5",
+      "value": 0.465459,
+      "variant": "no_graph"
+    },
+    {
+      "domain": "finance",
+      "metric": "chunk_recall_at_5",
+      "value": 0.530011,
+      "variant": "no_dense"
+    },
+    {
+      "domain": "finance",
+      "metric": "chunk_recall_at_5",
+      "value": 0.261608,
+      "variant": "no_sparse"
+    },
+    {
+      "domain": "finance",
+      "metric": "chunk_recall_at_5",
+      "value": 0.499434,
+      "variant": "hop_1"
+    },
+    {
+      "domain": "finance",
+      "metric": "chunk_recall_at_5",
+      "value": 0.499434,
+      "variant": "hop_2"
+    },
+    {
+      "domain": "finance",
+      "metric": "chunk_recall_at_3",
+      "value": 0.430351,
+      "variant": "full_top_k_3"
+    },
+    {
+      "domain": "finance",
+      "metric": "chunk_recall_at_5",
+      "value": 0.499434,
+      "variant": "full_top_k_5"
+    },
+    {
+      "domain": "finance",
+      "metric": "chunk_recall_at_10",
+      "value": 0.610419,
+      "variant": "full_top_k_10"
+    }
+  ],
+  "challenge": {
+    "finance": {
+      "B3": {
+        "abstention_rate": 1.0,
+        "by_challenge_type": {
+          "adversarial": {
+            "abstention_rate": 1.0,
+            "citation_free_rate": 1.0,
+            "expected_behavior_match_rate": 1.0,
+            "query_count": 4
+          },
+          "ood": {
+            "abstention_rate": 1.0,
+            "citation_free_rate": 1.0,
+            "expected_behavior_match_rate": 1.0,
+            "query_count": 4
+          }
+        },
+        "citation_free_rate": 1.0,
+        "expected_behavior_match_rate": 1.0,
+        "query_count": 8
+      },
+      "B4": {
+        "abstention_rate": 1.0,
+        "by_challenge_type": {
+          "adversarial": {
+            "abstention_rate": 1.0,
+            "citation_free_rate": 1.0,
+            "expected_behavior_match_rate": 1.0,
+            "query_count": 4
+          },
+          "ood": {
+            "abstention_rate": 1.0,
+            "citation_free_rate": 1.0,
+            "expected_behavior_match_rate": 1.0,
+            "query_count": 4
+          }
+        },
+        "citation_free_rate": 1.0,
+        "expected_behavior_match_rate": 1.0,
+        "query_count": 8
+      }
+    },
+    "medical": {
+      "B3": {
+        "abstention_rate": 1.0,
+        "by_challenge_type": {
+          "adversarial": {
+            "abstention_rate": 1.0,
+            "citation_free_rate": 1.0,
+            "expected_behavior_match_rate": 1.0,
+            "query_count": 4
+          },
+          "ood": {
+            "abstention_rate": 1.0,
+            "citation_free_rate": 1.0,
+            "expected_behavior_match_rate": 1.0,
+            "query_count": 4
+          }
+        },
+        "citation_free_rate": 1.0,
+        "expected_behavior_match_rate": 1.0,
+        "query_count": 8
+      },
+      "B4": {
+        "abstention_rate": 1.0,
+        "by_challenge_type": {
+          "adversarial": {
+            "abstention_rate": 1.0,
+            "citation_free_rate": 1.0,
+            "expected_behavior_match_rate": 1.0,
+            "query_count": 4
+          },
+          "ood": {
+            "abstention_rate": 1.0,
+            "citation_free_rate": 1.0,
+            "expected_behavior_match_rate": 1.0,
+            "query_count": 4
+          }
+        },
+        "citation_free_rate": 1.0,
+        "expected_behavior_match_rate": 1.0,
+        "query_count": 8
+      }
+    }
+  },
+  "config_sha256": "560c671a3920bd6bde9f7fc005f3c952f857c55969c989bb6109932623210c9e",
+  "validation": {
+    "finance": {
+      "B3": {
+        "abstention_rate": 0.896942,
+        "chunk_recall_at_1": 0.024915,
+        "chunk_recall_at_10": 0.041903,
+        "chunk_recall_at_3": 0.033975,
+        "chunk_recall_at_5": 0.03624,
+        "citation_gold_precision": 0.241758,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.030578,
+        "document_recall_at_10": 0.07248,
+        "document_recall_at_3": 0.047565,
+        "document_recall_at_5": 0.048698,
+        "latency_ms_p50": 31.4701,
+        "latency_ms_p95": 55.01888,
+        "mrr_at_10": 0.029891,
+        "normalized_exact_match": 0.002265,
+        "query_count": 883,
+        "token_f1": 0.002265
+      },
+      "B4": {
+        "abstention_rate": 0.006795,
+        "chunk_recall_at_1": 0.270668,
+        "chunk_recall_at_10": 0.610419,
+        "chunk_recall_at_3": 0.430351,
+        "chunk_recall_at_5": 0.499434,
+        "citation_gold_precision": 0.269099,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.329558,
+        "document_recall_at_10": 0.759909,
+        "document_recall_at_3": 0.543601,
+        "document_recall_at_5": 0.625142,
+        "latency_ms_p50": 88.179258,
+        "latency_ms_p95": 111.998508,
+        "mrr_at_10": 0.371939,
+        "normalized_exact_match": 0.0,
+        "query_count": 883,
+        "token_f1": 0.000119
+      }
+    },
+    "medical": {
+      "B3": {
+        "abstention_rate": 0.0,
+        "chunk_recall_at_1": 0.363636,
+        "chunk_recall_at_10": 0.969697,
+        "chunk_recall_at_3": 0.545455,
+        "chunk_recall_at_5": 0.666667,
+        "citation_gold_precision": 0.363636,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.363636,
+        "document_recall_at_10": 0.969697,
+        "document_recall_at_3": 0.545455,
+        "document_recall_at_5": 0.666667,
+        "latency_ms_p50": 2.2462,
+        "latency_ms_p95": 3.19844,
+        "mrr_at_10": 0.507131,
+        "normalized_exact_match": 0.0,
+        "query_count": 33,
+        "token_f1": 0.267904
+      },
+      "B4": {
+        "abstention_rate": 0.0,
+        "chunk_recall_at_1": 0.363636,
+        "chunk_recall_at_10": 0.818182,
+        "chunk_recall_at_3": 0.545455,
+        "chunk_recall_at_5": 0.666667,
+        "citation_gold_precision": 0.363636,
+        "citation_validity": 1.0,
+        "document_recall_at_1": 0.363636,
+        "document_recall_at_10": 0.818182,
+        "document_recall_at_3": 0.545455,
+        "document_recall_at_5": 0.666667,
+        "latency_ms_p50": 7.378115,
+        "latency_ms_p95": 8.631435,
+        "mrr_at_10": 0.490729,
+        "normalized_exact_match": 0.0,
+        "query_count": 33,
+        "token_f1": 0.265479
+      }
+    }
+  }
+}

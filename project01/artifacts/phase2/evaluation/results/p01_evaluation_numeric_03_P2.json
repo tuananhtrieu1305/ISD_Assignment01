@@ -1,0 +1,154 @@
+{
+  "case_id": "p01_evaluation_numeric_03",
+  "split": "evaluation",
+  "category": "numeric",
+  "question": "Calculate the checkpoint output for the attached encoded survey fields.",
+  "variant": "P2",
+  "reference_score": 0.4084082928766422,
+  "result": {
+    "request_id": "p01_cf0994df114840d5bc1260387cff9566",
+    "variant": "P2",
+    "status": "answered",
+    "risk": {
+      "score": 0.4084082928766422,
+      "class_id": 0,
+      "class_name": "no diabetes",
+      "logit": -0.3705493211746216,
+      "model_sha256": "cc7d28232eb1a818cc0c10d9047b4a43f4ef25ac7c06b2737870c63ae644fdb8",
+      "profile_sha256": "cea565f9f13c8e326e3defe4ff5531fd087d3a11007dc97b1c68a005972d21c9",
+      "unit": "historical_binary_model_score",
+      "calibrated_incidence_risk": false
+    },
+    "knowledge": null,
+    "profile_validation": {
+      "valid": true,
+      "missing": [],
+      "invalid": [],
+      "extra": []
+    },
+    "verification": {
+      "status": "passed",
+      "checks": {
+        "numeric_consistency": true
+      },
+      "errors": [],
+      "support_method": "verbatim span + topic-token heuristic; not expert semantic entailment"
+    },
+    "answer": {
+      "status": "answered",
+      "sections": [
+        {
+          "title": "Đầu ra mô hình khảo sát",
+          "text": "Score 0.408408; lớp 0: no diabetes. Không phải xác suất mắc mới đã hiệu chuẩn."
+        }
+      ],
+      "variant": "P2",
+      "limitation": "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh.",
+      "synthesis": "verified_sections"
+    },
+    "errors": [],
+    "trace": [
+      {
+        "node_id": "n1",
+        "agent": "Coordinator",
+        "tool": "plan_request",
+        "parent_ids": [],
+        "duration_ms": 0.1991159997487557,
+        "outcome": "ok",
+        "output": {
+          "need_risk": true,
+          "need_knowledge": false,
+          "mode": "numeric",
+          "policy": null
+        }
+      },
+      {
+        "node_id": "n2",
+        "agent": "Risk Agent",
+        "tool": "validate_profile",
+        "parent_ids": [
+          "n1"
+        ],
+        "duration_ms": 0.0847549999889452,
+        "outcome": "ok",
+        "output": {
+          "valid": true,
+          "missing": [],
+          "invalid": [],
+          "extra": []
+        }
+      },
+      {
+        "node_id": "n3",
+        "agent": "Risk Agent",
+        "tool": "predict_cdc",
+        "parent_ids": [
+          "n2"
+        ],
+        "duration_ms": 0.6918299995959387,
+        "outcome": "ok",
+        "output": {
+          "result_sha256": "1b5f4504edd5114c4b8748c4939571b8474e70c64fe589268860c34199d352c0",
+          "attempt": 0
+        }
+      },
+      {
+        "node_id": "n4",
+        "agent": "Verifier",
+        "tool": "check_outputs",
+        "parent_ids": [
+          "n3"
+        ],
+        "duration_ms": 0.08077799975581001,
+        "outcome": "ok",
+        "output": {
+          "status": "passed",
+          "checks": {
+            "numeric_consistency": true
+          },
+          "errors": [],
+          "support_method": "verbatim span + topic-token heuristic; not expert semantic entailment"
+        }
+      },
+      {
+        "node_id": "n5",
+        "agent": "Reporter",
+        "tool": "compose",
+        "parent_ids": [
+          "n4"
+        ],
+        "duration_ms": 0.027469999622553587,
+        "outcome": "ok",
+        "output": {
+          "status": "answered",
+          "section_count": 1
+        }
+      }
+    ],
+    "tool_calls": 1,
+    "retrieval_loops": 0,
+    "latency_ms": 6.3120610002442845,
+    "limitations": [
+      "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh."
+    ],
+    "input_sha256": "e7aa4335bfe022c531a2450bf405f09b4922a9c307e851211fe79e7f3c7388c4",
+    "worker_terminated": true
+  },
+  "metrics": {
+    "automatic_success": true,
+    "numeric_parity": true,
+    "citation_integrity_format": null,
+    "known_positive_hit_at_10": null,
+    "known_positive_rr": null,
+    "support_review_required": false,
+    "task_success": true,
+    "manual_support": "not_applicable"
+  },
+  "gold_document_ids": [],
+  "scope": "pipeline/synthetic tasks; not clinical accuracy",
+  "derived_from": {
+    "path": "artifacts/phase2/evaluation/raw_results/p01_evaluation_numeric_03_P2.json",
+    "sha256": "fd6ae9a82d53e6774aa87d3ddfccb842392fa50d762659d7cca92cbdcce7aaaf",
+    "transformation": "append manual support and final task-success labels only; model/tool/trace outputs unchanged"
+  }
+}

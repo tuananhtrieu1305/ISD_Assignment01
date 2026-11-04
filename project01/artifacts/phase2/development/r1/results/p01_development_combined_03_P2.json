@@ -1,0 +1,732 @@
+{
+  "case_id": "p01_development_combined_03",
+  "split": "development",
+  "category": "combined",
+  "question": "Explain the preserved evidence about blood glucose in diabetes. Also report the model score for the supplied survey profile.",
+  "variant": "P2",
+  "reference_score": 0.6647939225950723,
+  "result": {
+    "request_id": "p01_3c8df62d5cba4b8db04e235145d616e0",
+    "variant": "P2",
+    "status": "answered",
+    "risk": {
+      "score": 0.6647939225950723,
+      "class_id": 1,
+      "class_name": "prediabetes or diabetes",
+      "logit": 0.6847316026687622,
+      "model_sha256": "cc7d28232eb1a818cc0c10d9047b4a43f4ef25ac7c06b2737870c63ae644fdb8",
+      "profile_sha256": "db046b30cab70b1d9bbdb42d6842ad58cd35d08600bc36b3c56f7b5394b3c72d",
+      "unit": "historical_binary_model_score",
+      "calibrated_incidence_risk": false
+    },
+    "knowledge": {
+      "query_original": "Explain the preserved evidence about blood glucose in diabetes. Also report the model score for the supplied survey profile.",
+      "query_normalized": "blood glucose diabetes",
+      "mapping": [],
+      "expanded": false,
+      "ranked_chunk_ids": [
+        "med-chunk-dadd48872c0963ea3d46",
+        "med-chunk-a9074b046b94a319eebf",
+        "med-chunk-b6eb5a279443330c2ad3",
+        "med-chunk-d376529389af5b67695b",
+        "med-chunk-d4bb83dc775f308fa787",
+        "med-chunk-880bfce90afa02c43573",
+        "med-chunk-dc3c1305089057dfa49f",
+        "med-chunk-d4c01b61d78fa346a7fe",
+        "med-chunk-592697f10ac0f2b0b6f0",
+        "med-chunk-a9c9a9186b08cffa54ac"
+      ],
+      "evidence": [
+        {
+          "chunk_id": "med-chunk-dadd48872c0963ea3d46",
+          "document_id": "med-doc-b842fa97d1ec8758d0ec",
+          "domain": "medical",
+          "text": "Diabetes is a disease in which your blood glucose, or blood sugar, levels are too high. Glucose comes from the foods you eat. Insulin is a hormone that helps the glucose get into your cells to give them energy. With type 1 diabetes, your body does not make insulin. With type 2 diabetes, the more common type, your body does not make or use insulin well. Without enough insulin, the glucose stays in your blood. You can also have prediabetes. This means that your blood sugar is higher than normal but not high enough to be called diabetes. Having prediabetes puts you at a higher risk of getting type 2 diabetes. Over time, having too much glucose in your blood",
+          "score": 0.01576362102217936,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-b842fa97d1ec8758d0ec/med-chunk-dadd48872c0963ea3d46",
+          "text_sha256": "6b10da23a3c79aec8f4987fb3c41662b5a186cf4a83f000c97b8dcba47b003ab",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-dadd48872c0963ea3d46"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-a9074b046b94a319eebf",
+          "document_id": "med-doc-123d4ee06aa94a9f6267",
+          "domain": "medical",
+          "text": "Too Much Glucose in the Blood Diabetes means your blood glucose (often called blood sugar) is too high. Your blood always has some glucose in it because your body needs glucose for energy to keep you going. But too much glucose in the blood isn't good for your health. Glucose comes from the food you eat and is also made in your liver and muscles. Your blood carries the glucose to all of the cells in your body. Insulin is a chemical (a hormone) made by the pancreas. The pancreas releases insulin into the blood. Insulin helps the glucose from food get into your cells. If your body does not make enough insulin or if the insulin doesn't work the",
+          "score": 0.015261264557039203,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-123d4ee06aa94a9f6267/med-chunk-a9074b046b94a319eebf",
+          "text_sha256": "5fdb20e674e03c15ac4a17c3575599659b091441b4472b46e7e95cc253b77027",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-a9074b046b94a319eebf"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-b6eb5a279443330c2ad3",
+          "document_id": "med-doc-24832e0a12ba7cf022f0",
+          "domain": "medical",
+          "text": "or FPG test, measures your blood glucose after you have gone at least 8 hours without eating. Doctors use this test to detect diabetes or prediabetes. - In a random plasma glucose test, your doctor checks your blood glucose without regard to when you ate your last meal. This test, along with an assessment of symptoms, is used to diagnose diabetes but not prediabetes. In a random plasma glucose test, your doctor checks your blood glucose without regard to when you ate your last meal. This test, along with an assessment of symptoms, is used to diagnose diabetes but not prediabetes. - An oral glucose tolerance test, or OGTT, measures your blood glucose after you have gone at least 8",
+          "score": 0.015079579918289595,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-24832e0a12ba7cf022f0/med-chunk-b6eb5a279443330c2ad3",
+          "text_sha256": "e6331fc137d5533a814759e2bdfb73b7416c90c6a6aa947d0d8a7d8840c6a0db",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-b6eb5a279443330c2ad3"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-d376529389af5b67695b",
+          "document_id": "med-doc-a62f2b3665782f35b7df",
+          "domain": "medical",
+          "text": "Diabetes means your blood glucose (often called blood sugar) is too high. Your blood always has some glucose in it because your body needs glucose for energy to keep you going. But too much glucose in the blood isn't good for your health. Glucose comes from the food you eat and is also made in your liver and muscles. Your blood carries the glucose to all of the cells in your body. Insulin is a chemical (a hormone) made by the pancreas. The pancreas releases insulin into the blood. Insulin helps the glucose from food get into your cells. If your body does not make enough insulin or if the insulin doesn't work the way it should, glucose can't get",
+          "score": 0.01480877704084795,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-a62f2b3665782f35b7df/med-chunk-d376529389af5b67695b",
+          "text_sha256": "0f917be327d4becd8a6f487237d13cc3d8024512376b47ec0b9b8343e2f0335f",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-d376529389af5b67695b"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-d4bb83dc775f308fa787",
+          "document_id": "med-doc-24832e0a12ba7cf022f0",
+          "domain": "medical",
+          "text": "2 diabetes and prediabetes. It does not require fasting and blood can be drawn for the test any time of the day. An A1C test measures your average blood glucose levels over the past 3 months. It can be used to diagnose type 2 diabetes and prediabetes. It does not require fasting and blood can be drawn for the test any time of the day. - A fasting plasma glucose, or FPG test, measures your blood glucose after you have gone at least 8 hours without eating. Doctors use this test to detect diabetes or prediabetes. A fasting plasma glucose, or FPG test, measures your blood glucose after you have gone at least 8 hours without eating. Doctors use this",
+          "score": 0.014792149167953336,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-24832e0a12ba7cf022f0/med-chunk-d4bb83dc775f308fa787",
+          "text_sha256": "8a3d9b83fe844a205704ba0943d1dd0eb7ed73c2833e8ab71a4e44574a25a09b",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-d4bb83dc775f308fa787"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-880bfce90afa02c43573",
+          "document_id": "med-doc-e2f8ade8507590324cae",
+          "domain": "medical",
+          "text": "this test to see what your blood glucose level is most of the time. This test should be done at least twice a year for all people with diabetes and for some people more often as needed. For many people with diabetes, an A1C test result of under 7 percent usually means that their diabetes treatment is working well and their blood glucose is under control. The A1C test (A-one-C) shows you what your blood glucose has been over the last three months. Your health care provider does this test to see what your blood glucose level is most of the time. This test should be done at least twice a year for all people with diabetes and for some",
+          "score": 0.013996158770806658,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-e2f8ade8507590324cae/med-chunk-880bfce90afa02c43573",
+          "text_sha256": "3c7e33fbf5013973344c2a18fe0f170347927808a70c421749bcffb0b5e2d762",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-880bfce90afa02c43573"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-dc3c1305089057dfa49f",
+          "document_id": "med-doc-123d4ee06aa94a9f6267",
+          "domain": "medical",
+          "text": "food get into your cells. If your body does not make enough insulin or if the insulin doesn't work the way it should, glucose can't get into your cells. It stays in your blood instead. Your blood glucose level then gets too high, causing pre-diabetes or diabetes. Types of Diabetes There are three main kinds of diabetes: type 1, type 2, and gestational diabetes. The result of type 1 and type 2 diabetes is the same: glucose builds up in the blood, while the cells are starved of energy. Over the years, high blood glucose damages nerves and blood vessels, oftentimes leading to complications such as heart disease, stroke, blindness, kidney disease, nerve problems, gum infections, and amputation. Type 1",
+          "score": 0.013820385528108266,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-123d4ee06aa94a9f6267/med-chunk-dc3c1305089057dfa49f",
+          "text_sha256": "e01a67dd31748cd939623ac007c61a9d945107e4285fb6678eed7606173248f4",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-dc3c1305089057dfa49f"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-d4c01b61d78fa346a7fe",
+          "document_id": "med-doc-e2f8ade8507590324cae",
+          "domain": "medical",
+          "text": "Heart disease and stroke are the leading causes of death for people with diabetes. Controlling the ABCs of diabetes -- your blood glucose, your blood pressure, and your cholesterol, as well as stopping smoking -- can help prevent these and other complications from diabetes. - A is for the A1C test - B is for Blood pressure - C is for Cholesterol. A is for the A1C test B is for Blood pressure C is for Cholesterol. - The A1C test (A-one-C) shows you what your blood glucose has been over the last three months. Your health care provider does this test to see what your blood glucose level is most of the time. This test should be done at",
+          "score": 0.013266863095864464,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-e2f8ade8507590324cae/med-chunk-d4c01b61d78fa346a7fe",
+          "text_sha256": "b679f057846d8b43eb61cb7857721a58360cb1d23ae25a05653a434383bfaf9e",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-d4c01b61d78fa346a7fe"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-592697f10ac0f2b0b6f0",
+          "document_id": "med-doc-789ce78a7120946a49ec",
+          "domain": "medical",
+          "text": "often you should check your blood glucose. Some people check their blood glucose once a day. Others do it three a day or even more. You may be told to check before eating, before bed, and sometimes in the middle of the night. Your doctor or diabetes educator will show you how to check your blood using a blood glucose meter. Your health insurance or Medicare may pay for some of the supplies and equipment you need to check your glucose levels. See what diabetes supplies and services Medicare covers. Check Your Blood Pressure Check your blood pressure if your doctor advises and keep a record of it. You can check your pressure at home with a home blood pressure",
+          "score": 0.012070824092086188,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-789ce78a7120946a49ec/med-chunk-592697f10ac0f2b0b6f0",
+          "text_sha256": "c678430618189edc0f2aa6a1d898902b5ff76b1933e1ef78db4dd9c9f14f1906",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-592697f10ac0f2b0b6f0"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-a9c9a9186b08cffa54ac",
+          "document_id": "med-doc-a62f2b3665782f35b7df",
+          "domain": "medical",
+          "text": "your body does not make enough insulin or if the insulin doesn't work the way it should, glucose can't get into your cells. It stays in your blood instead. Your blood glucose level then gets too high, causing pre-diabetes or diabetes.",
+          "score": 0.011604971373594309,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-a62f2b3665782f35b7df/med-chunk-a9c9a9186b08cffa54ac",
+          "text_sha256": "c3adfd4103839eb8999db81fa7e4a3de3c0073fe97b42e740cbf95de3ac82a5d",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-a9c9a9186b08cffa54ac"
+          ]
+        }
+      ],
+      "graph_paths": {
+        "med-chunk-00d0cff90bb719155edf": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-00d0cff90bb719155edf"
+        ],
+        "med-chunk-02742aed14c1dacb7d2a": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-02742aed14c1dacb7d2a"
+        ],
+        "med-chunk-042fc6d1baec3e2d6d52": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-042fc6d1baec3e2d6d52"
+        ],
+        "med-chunk-07f0e7ddf3090a20cda9": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-07f0e7ddf3090a20cda9"
+        ],
+        "med-chunk-142622843d46ae761ad6": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-142622843d46ae761ad6"
+        ],
+        "med-chunk-158d754ecbe5d593e96d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-158d754ecbe5d593e96d"
+        ],
+        "med-chunk-18185f2fcc09fac4293c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-18185f2fcc09fac4293c"
+        ],
+        "med-chunk-1c4cf120827198804eca": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1c4cf120827198804eca"
+        ],
+        "med-chunk-1fd3518bfe75fc88189f": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1fd3518bfe75fc88189f"
+        ],
+        "med-chunk-1ff75a3402733edbb3be": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1ff75a3402733edbb3be"
+        ],
+        "med-chunk-20da3a9768c72180eaee": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-20da3a9768c72180eaee"
+        ],
+        "med-chunk-234ffd24da97a47933dd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-234ffd24da97a47933dd"
+        ],
+        "med-chunk-2637d03c319543c561b0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2637d03c319543c561b0"
+        ],
+        "med-chunk-29cae499c93bcbc28766": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-29cae499c93bcbc28766"
+        ],
+        "med-chunk-2b583989e8d34088d6be": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2b583989e8d34088d6be"
+        ],
+        "med-chunk-2fcb3149d1770e0a595e": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2fcb3149d1770e0a595e"
+        ],
+        "med-chunk-322cf32545ba0d9fccd3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-322cf32545ba0d9fccd3"
+        ],
+        "med-chunk-35d53d10cdf7ca13f130": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-35d53d10cdf7ca13f130"
+        ],
+        "med-chunk-38c7b877bbde527d28df": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-38c7b877bbde527d28df"
+        ],
+        "med-chunk-40a47ef3b3edefc4b445": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-40a47ef3b3edefc4b445"
+        ],
+        "med-chunk-428e5bdb3faa8095da2c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-428e5bdb3faa8095da2c"
+        ],
+        "med-chunk-498ec32b50924f78d269": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-498ec32b50924f78d269"
+        ],
+        "med-chunk-4f099ecb0ff814fae6ce": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-4f099ecb0ff814fae6ce"
+        ],
+        "med-chunk-53e793bcf6344e35f8a7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-53e793bcf6344e35f8a7"
+        ],
+        "med-chunk-54facf2ee3eaff0fdce3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-54facf2ee3eaff0fdce3"
+        ],
+        "med-chunk-57b35921a9722b616aed": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-57b35921a9722b616aed"
+        ],
+        "med-chunk-592697f10ac0f2b0b6f0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-592697f10ac0f2b0b6f0"
+        ],
+        "med-chunk-5acc226aae6524197ef7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5acc226aae6524197ef7"
+        ],
+        "med-chunk-5e0271a3601b45abe4ff": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5e0271a3601b45abe4ff"
+        ],
+        "med-chunk-5edf8024738ce8e9b331": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5edf8024738ce8e9b331"
+        ],
+        "med-chunk-618f309badbf6a5f4b72": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-618f309badbf6a5f4b72"
+        ],
+        "med-chunk-64f932f085704ffa6a2d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-64f932f085704ffa6a2d"
+        ],
+        "med-chunk-68a95f47da58a027b61c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-68a95f47da58a027b61c"
+        ],
+        "med-chunk-6b96fb2799c25ab6f0fd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-6b96fb2799c25ab6f0fd"
+        ],
+        "med-chunk-6e2b4946973d9895a320": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-6e2b4946973d9895a320"
+        ],
+        "med-chunk-7201d90f8c11d3337e58": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7201d90f8c11d3337e58"
+        ],
+        "med-chunk-791eb61fb7e725fe87ee": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-791eb61fb7e725fe87ee"
+        ],
+        "med-chunk-797ef8993da8c25cded4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-797ef8993da8c25cded4"
+        ],
+        "med-chunk-7bfe9ed251eab800454b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7bfe9ed251eab800454b"
+        ],
+        "med-chunk-7f48782ab65e4dae9b0d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7f48782ab65e4dae9b0d"
+        ],
+        "med-chunk-805c768af161958295db": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-805c768af161958295db"
+        ],
+        "med-chunk-821f617f26d18b9824cd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-821f617f26d18b9824cd"
+        ],
+        "med-chunk-82541225c6e95203e992": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-82541225c6e95203e992"
+        ],
+        "med-chunk-8308c56ef25e2cfe22b4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8308c56ef25e2cfe22b4"
+        ],
+        "med-chunk-880bfce90afa02c43573": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-880bfce90afa02c43573"
+        ],
+        "med-chunk-8cc14350e486c23f2bff": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8cc14350e486c23f2bff"
+        ],
+        "med-chunk-8dffeea09fcafba78f9c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8dffeea09fcafba78f9c"
+        ],
+        "med-chunk-8e408fa25b89cf44fe73": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8e408fa25b89cf44fe73"
+        ],
+        "med-chunk-92578e57eaf0de1c605c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-92578e57eaf0de1c605c"
+        ],
+        "med-chunk-926991435686f8baf455": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-926991435686f8baf455"
+        ],
+        "med-chunk-93a7ce4421d6cdfd0019": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-93a7ce4421d6cdfd0019"
+        ],
+        "med-chunk-a1a4b29c41136d4eea36": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a1a4b29c41136d4eea36"
+        ],
+        "med-chunk-a210fbfb5dfd020e7260": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a210fbfb5dfd020e7260"
+        ],
+        "med-chunk-a2e51634f9fa03ae255d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a2e51634f9fa03ae255d"
+        ],
+        "med-chunk-a43cb96d1bc187e62f78": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a43cb96d1bc187e62f78"
+        ],
+        "med-chunk-a7a81505c68f3b1db781": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a7a81505c68f3b1db781"
+        ],
+        "med-chunk-a9074b046b94a319eebf": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a9074b046b94a319eebf"
+        ],
+        "med-chunk-a9c9a9186b08cffa54ac": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a9c9a9186b08cffa54ac"
+        ],
+        "med-chunk-ad2e41d109f2459c61a3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ad2e41d109f2459c61a3"
+        ],
+        "med-chunk-aeaf5140180cca99da80": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-aeaf5140180cca99da80"
+        ],
+        "med-chunk-b34f3a90c5b93bbb7ca3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b34f3a90c5b93bbb7ca3"
+        ],
+        "med-chunk-b439e7011436daf78d70": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b439e7011436daf78d70"
+        ],
+        "med-chunk-b5423d412a5c84a10678": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b5423d412a5c84a10678"
+        ],
+        "med-chunk-b5a68ac2e2f678742241": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b5a68ac2e2f678742241"
+        ],
+        "med-chunk-b6eb5a279443330c2ad3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b6eb5a279443330c2ad3"
+        ],
+        "med-chunk-b77c90bcbbbc928e4b0b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b77c90bcbbbc928e4b0b"
+        ],
+        "med-chunk-b9e463da28dcd8cae5b4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b9e463da28dcd8cae5b4"
+        ],
+        "med-chunk-c15b56a11e231144655e": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c15b56a11e231144655e"
+        ],
+        "med-chunk-c199270e7c9eebf766c4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c199270e7c9eebf766c4"
+        ],
+        "med-chunk-c3b05ea064562d9e4d2d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c3b05ea064562d9e4d2d"
+        ],
+        "med-chunk-c9f36e68e21351fe3f20": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c9f36e68e21351fe3f20"
+        ],
+        "med-chunk-cd312104e143618fd9c1": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-cd312104e143618fd9c1"
+        ],
+        "med-chunk-cf9eb66179943d5cdb43": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-cf9eb66179943d5cdb43"
+        ],
+        "med-chunk-d376529389af5b67695b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d376529389af5b67695b"
+        ],
+        "med-chunk-d4bb83dc775f308fa787": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d4bb83dc775f308fa787"
+        ],
+        "med-chunk-d4c01b61d78fa346a7fe": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d4c01b61d78fa346a7fe"
+        ],
+        "med-chunk-d53899bdb40c38a43edd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d53899bdb40c38a43edd"
+        ],
+        "med-chunk-d7c09f74f870a09ade81": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d7c09f74f870a09ade81"
+        ],
+        "med-chunk-d802b5ae0b11355e4a40": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d802b5ae0b11355e4a40"
+        ],
+        "med-chunk-d823ba21282c7148a6c9": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d823ba21282c7148a6c9"
+        ],
+        "med-chunk-d9234b0b602223bbb3f8": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d9234b0b602223bbb3f8"
+        ],
+        "med-chunk-dadd48872c0963ea3d46": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-dadd48872c0963ea3d46"
+        ],
+        "med-chunk-dc3c1305089057dfa49f": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-dc3c1305089057dfa49f"
+        ],
+        "med-chunk-df9c85fffb8211040522": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-df9c85fffb8211040522"
+        ],
+        "med-chunk-e04453f588452a112b7b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e04453f588452a112b7b"
+        ],
+        "med-chunk-e0a3ecd4fbd4bd1bffa5": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e0a3ecd4fbd4bd1bffa5"
+        ],
+        "med-chunk-e5068975c5ccace8d6b0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e5068975c5ccace8d6b0"
+        ],
+        "med-chunk-efcd1c95f5fdcb645f93": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-efcd1c95f5fdcb645f93"
+        ],
+        "med-chunk-f48938d706c03489bb61": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-f48938d706c03489bb61"
+        ],
+        "med-chunk-f7c195b56a3d5b981b2b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-f7c195b56a3d5b981b2b"
+        ],
+        "med-chunk-fa057772ca3b931e48a7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-fa057772ca3b931e48a7"
+        ],
+        "med-chunk-facc6c9df13f34d09dca": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-facc6c9df13f34d09dca"
+        ],
+        "med-chunk-fb01033fc65d1cfcb493": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-fb01033fc65d1cfcb493"
+        ],
+        "med-chunk-ff497309447bf4900c9c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ff497309447bf4900c9c"
+        ],
+        "med-chunk-ffd2aa901b2714cd9719": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ffd2aa901b2714cd9719"
+        ]
+      },
+      "answer": "Over time, having too much glucose in your blood",
+      "citations": [
+        "med-chunk-dadd48872c0963ea3d46"
+      ],
+      "support_kind": "verbatim_focused_excerpt_heuristic",
+      "language": "en",
+      "method": "BM25 + LSA + lexical graph / weighted RRF",
+      "citation_scope": "source repository commit plus local document/chunk, not original page URL"
+    },
+    "profile_validation": {
+      "valid": true,
+      "missing": [],
+      "invalid": [],
+      "extra": []
+    },
+    "verification": {
+      "status": "passed",
+      "checks": {
+        "numeric_consistency": true,
+        "citation_integrity": true,
+        "verbatim_focused_claim_support": true
+      },
+      "errors": [],
+      "support_method": "verbatim span + topic-token heuristic; not expert semantic entailment"
+    },
+    "answer": {
+      "status": "answered",
+      "sections": [
+        {
+          "title": "Đầu ra mô hình khảo sát",
+          "text": "Score 0.664794; lớp 1: prediabetes or diabetes. Không phải xác suất mắc mới đã hiệu chuẩn."
+        },
+        {
+          "title": "Bằng chứng truy hồi · tiếng Anh",
+          "text": "Over time, having too much glucose in your blood"
+        }
+      ],
+      "variant": "P2",
+      "limitation": "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh.",
+      "synthesis": "verified_sections"
+    },
+    "errors": [],
+    "trace": [
+      {
+        "node_id": "n1",
+        "agent": "Coordinator",
+        "tool": "plan_request",
+        "parent_ids": [],
+        "duration_ms": 0.1492100000177743,
+        "outcome": "ok",
+        "output": {
+          "need_risk": true,
+          "need_knowledge": true,
+          "mode": "combined",
+          "policy": null
+        }
+      },
+      {
+        "node_id": "n2",
+        "agent": "Risk Agent",
+        "tool": "validate_profile",
+        "parent_ids": [
+          "n1"
+        ],
+        "duration_ms": 0.08244499986176379,
+        "outcome": "ok",
+        "output": {
+          "valid": true,
+          "missing": [],
+          "invalid": [],
+          "extra": []
+        }
+      },
+      {
+        "node_id": "n3",
+        "agent": "Risk Agent",
+        "tool": "predict_cdc",
+        "parent_ids": [
+          "n2"
+        ],
+        "duration_ms": 0.7346169995798846,
+        "outcome": "ok",
+        "output": {
+          "result_sha256": "96b75389da00bccf3bfb272ffa74af6f723594f656b4ffe20f2a78fe50862b53",
+          "attempt": 0
+        }
+      },
+      {
+        "node_id": "n4",
+        "agent": "Knowledge Agent",
+        "tool": "retrieve_medical",
+        "parent_ids": [
+          "n3"
+        ],
+        "duration_ms": 15.534311000010348,
+        "outcome": "ok",
+        "output": {
+          "result_sha256": "161e3288d4b1a21e06eba2fff6ddfc930014362448ecb603f1a8b8e270312322",
+          "attempt": 0
+        }
+      },
+      {
+        "node_id": "n5",
+        "agent": "Verifier",
+        "tool": "check_outputs",
+        "parent_ids": [
+          "n4"
+        ],
+        "duration_ms": 0.11114700009784428,
+        "outcome": "ok",
+        "output": {
+          "status": "passed",
+          "checks": {
+            "numeric_consistency": true,
+            "citation_integrity": true,
+            "verbatim_focused_claim_support": true
+          },
+          "errors": [],
+          "support_method": "verbatim span + topic-token heuristic; not expert semantic entailment"
+        }
+      },
+      {
+        "node_id": "n6",
+        "agent": "Reporter",
+        "tool": "compose",
+        "parent_ids": [
+          "n5"
+        ],
+        "duration_ms": 0.023864000468165614,
+        "outcome": "ok",
+        "output": {
+          "status": "answered",
+          "section_count": 2
+        }
+      }
+    ],
+    "tool_calls": 2,
+    "retrieval_loops": 0,
+    "latency_ms": 22.066967999307963,
+    "limitations": [
+      "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh."
+    ],
+    "input_sha256": "352c2f0593b065868d68603632ffa8365dd6a0a32325cb73a9ae37eaa649224e",
+    "worker_terminated": true
+  },
+  "metrics": {
+    "automatic_success": true,
+    "numeric_parity": true,
+    "citation_integrity_format": true,
+    "known_positive_hit_at_10": false,
+    "known_positive_rr": 0.0,
+    "support_review_required": true,
+    "task_success": null,
+    "manual_support": null
+  },
+  "gold_document_ids": [
+    "med-doc-f47adb42fe80d4ea67b3"
+  ],
+  "scope": "pipeline/synthetic tasks; not clinical accuracy"
+}

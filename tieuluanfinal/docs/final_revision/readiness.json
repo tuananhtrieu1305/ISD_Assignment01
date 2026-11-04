@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "index_ready": true,
+  "key_present": true,
+  "generation_model": "gemini-3-flash-preview",
+  "generation_endpoint": "v1beta/generateContent",
+  "runtime_revision": "four-agent-r11",
+  "embedding_model": "gemini-embedding-001",
+  "chunks": 316,
+  "kg_assertions": 35,
+  "generation_calls_per_comparison": 4,
+  "reranker_provider": "local_weighted_rrf_lexical_kg",
+  "verifier_provider": "gemini_semantic_plus_local_integrity",
+  "agent_roles": [
+    "Coordinator",
+    "Knowledge Agent",
+    "Reporter",
+    "Verifier Agent"
+  ],
+  "usage": {
+    "provider_day": "2026-11-03",
+    "generation_attempts": 17,
+    "embedding_attempts": 7,
+    "generation_cap": 18,
+    "embedding_cap": 900,
+    "external_usage_unknown": true,
+    "paid_budget_usd": 0,
+    "last_generation_status": "complete",
+    "last_generation_at": 1793710910.117298,
+    "readiness_is_not_live_provider_probe": true
+  },
+  "api_calls_on_health": 0,
+  "network_disabled": true,
+  "key_value_logged_or_copied": false,
+  "new_generation_API_calls": 0,
+  "new_embedding_API_calls": 0,
+  "shared_quota_ledger": true
+}

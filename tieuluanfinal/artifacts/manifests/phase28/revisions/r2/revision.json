@@ -1,0 +1,431 @@
+{
+  "authorization": {
+    "path": "docs/phase28_r2_authorization.md",
+    "sha256": "edbd88de1477f31c4a6053c9cadc083eb0b1ac8b3f806910b869a98d52a4461c"
+  },
+  "gate": {
+    "all_neural_runs_require_receipt": 108,
+    "atol": 1e-05,
+    "original_gpu_cpu_results_preserved": true,
+    "portable": "numpy_cpu",
+    "reference": "native_cpu",
+    "rtol": 0.0001
+  },
+  "missing_original_telemetry_policy": "null in single-run recovery schema; exclude from train/RAM/VRAM aggregates",
+  "original_release": {
+    "path": "artifacts/manifests/phase28/release.json",
+    "sha256": "7947b266ef5eeafb2c72506e012b41c2b37194506e7b2a8d8b501ad46f9b75e6"
+  },
+  "orphan_training_updates_allowed": 0,
+  "phase": 28,
+  "preserved_orphan": [
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_rnn_pytorch_s17_main/best.npz",
+      "sha256": "e3437f37fab6f26196f9a7d72601d4de29a1518a96f9143ed9167316bc054e82"
+    },
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_rnn_pytorch_s17_main/best.json",
+      "sha256": "5511295b71f317c738334c27aea3e5a118ef4abd7d933de4de0a82ecaa1e2911"
+    },
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_rnn_pytorch_s17_main/progress.json",
+      "sha256": "ef364b3b6e9cc6fd8da2eed0207181e4d5a2fed4cb2cbe2d61400cc7d3a779c4"
+    },
+    {
+      "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_rnn_pytorch_s17_main/resume/epoch_011.json",
+      "sha256": "d2e2078d2d38ef05d9a25379c8d406d06d1d0541fe3216dbbafedcd40d9c28a4"
+    }
+  ],
+  "preserved_selections": [
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_scratch_s17_main/selection.json",
+      "sha256": "f26b0ed049d7afb9b6c2ccf1b34538801e8e42738dee73a00b36360a89c67692"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s17_main/selection.json",
+      "sha256": "697c14e8e0ee3a5e3ed0e71e486d6365193cb5af7ba28e1f15dea05442141971"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s17_main/selection.json",
+      "sha256": "60aa4041d1cd66a156e7ba4c15206ac6834d3f2a77f216e63ad0a4be6d73a8db"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_scratch_s42_main/selection.json",
+      "sha256": "43f6ba0db283fc671a560421aed723427928dffda7d51ab78d40e317f08d88ce"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s42_main/selection.json",
+      "sha256": "efbb534e369ea73f0f47d23596a7ab2f98dab5385b4f798bedd988a1e403b1a5"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s42_main/selection.json",
+      "sha256": "046854596b1d3f5500fa8f8672c9025dc92b6ecda41f4ba383e43c39b548e3fc"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_last_value_s42_main/selection.json",
+      "sha256": "fba1b5ffd249f2a9f014fc25a7618b13c8fe963a984f42f470eb6480b77e4576"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_seasonal_naive_s42_main/selection.json",
+      "sha256": "53515083765f5ecc1588dca0463b9c0a0ec2dbdc9ca6e32fbf45517cab9d275b"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_scratch_s73_main/selection.json",
+      "sha256": "232afd1bbe398f904f7f35f211bf1f84d1730ffa9561b9d9387e8e039c6ccca6"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s73_main/selection.json",
+      "sha256": "381d650e7a85b6f6bb8bd36f130671dda7fdc89243d420ee3363e1462042aa91"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s73_main/selection.json",
+      "sha256": "1d873735d1bcf262b31dfadd88227c7029205c2f0a8561bcf674695386f6da75"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_scratch_s17_fold1/selection.json",
+      "sha256": "be5f515d9fbff24b13d79ee9c3b630cda44af842093be3e930bdbfcaf870daa7"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s17_fold1/selection.json",
+      "sha256": "5c89636f19379bad0f937aa04a3c072eaef5d247c5a2ada5a199b508c84f3b68"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s17_fold1/selection.json",
+      "sha256": "f030b3c11963bee0bd23f386b91251c39b842b0a718171cfab6e62cca3872d5f"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_scratch_s42_fold1/selection.json",
+      "sha256": "9ff34d7741ab4bf07a8e8dc201eaaa6c9a3c2864703e4cdafb8c90e16eacb276"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s42_fold1/selection.json",
+      "sha256": "ade96615ac9b4d1d81b2b560babecbc32666f73aa4e6995ec3699f99f8b679cf"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s42_fold1/selection.json",
+      "sha256": "5cb4dcbcc4ff4f89a1c84df07b16f46c774645752693487bcd3fc181ea2ae584"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_last_value_s42_fold1/selection.json",
+      "sha256": "706915a23fc4e10c925e12941eccafb9bfe8900910ac73fb7b90969b725a5d56"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_seasonal_naive_s42_fold1/selection.json",
+      "sha256": "b18bf3502436db4ad648b10d8cbbe0ba62a10fcb74f13fb5fbbdd19e0cc5065f"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_scratch_s73_fold1/selection.json",
+      "sha256": "5ae51e2f028da2f3e19b6cc40249d8ddc021d60ab87f19f31439f71f93cf95ed"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s73_fold1/selection.json",
+      "sha256": "b0bec516915ce86e9d7e89a979fcd5cdbcfab6723584dd250d1a08e1335e310e"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s73_fold1/selection.json",
+      "sha256": "ed9400e88ebfd5435a7e2cff1f7c1ddda25d3e917a7f4fd9e43a62f72486444e"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_scratch_s17_fold2/selection.json",
+      "sha256": "8e2b4985e6b519e6f60ac1d6613e5784a0cd2739ae12e755e3cc11817abb76cd"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s17_fold2/selection.json",
+      "sha256": "868fec79deab69785c6fd97198349092f7ed129abefa03b48f61a06c6e0b7e88"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s17_fold2/selection.json",
+      "sha256": "918087f1f9b589c23343a7f1eef30c0d7e7c8fdaf9d57ab634f814a74f7842ac"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_scratch_s42_fold2/selection.json",
+      "sha256": "7a8ab11c0bbe0c3630a61fc743b955891d522ce7307150e533faa9b18d0fc14f"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s42_fold2/selection.json",
+      "sha256": "9cbbf9f39bfd56a959cbb8924fd1aaabb4acde12eec82fb33d3611b5925e6857"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s42_fold2/selection.json",
+      "sha256": "833a78d397f96693d92cd901a5c6368f11033be75f27f633a9a12820fff00cde"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_last_value_s42_fold2/selection.json",
+      "sha256": "e17daa6dafe722a2d40c1c8a14d4b9eec0864c78058421b98017b8fd40e00e47"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_seasonal_naive_s42_fold2/selection.json",
+      "sha256": "a566fdbf3318f208c40a346796e5e3624dbd4c3cea7cb68438c4baa7edaa68c2"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_scratch_s73_fold2/selection.json",
+      "sha256": "feae76aa4b0c9bd84601e4570315ed4d0404259526210ea5916d7728f72a73e0"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s73_fold2/selection.json",
+      "sha256": "e36a61c2c3c3859543ece99113c756a31c8205d4d3873de09999cde4e4e1693b"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s73_fold2/selection.json",
+      "sha256": "110047aa7926a3c8243871a4fd59054e5f97606a3a78dd6d6c601b41725bea37"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_scratch_s17_fold3/selection.json",
+      "sha256": "e1f0dbab5f33f926792a09393255d3fe8239385cf271e67e785a847b46e06012"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s17_fold3/selection.json",
+      "sha256": "cd08f0645e2c3a1ae70fd4f016eec8c980734635e161a8191dfc8257e82feaaa"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s17_fold3/selection.json",
+      "sha256": "21bf8443ba64038d974480968e45de613fd4d4f3486bbe94a6af9623c4ab966d"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_scratch_s42_fold3/selection.json",
+      "sha256": "333eed0e71f05b313ca04b2db91800cd59cbe904e4da85d567b5b6e6086a58d5"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s42_fold3/selection.json",
+      "sha256": "342f07bef90f0d199c0a20f68cd90b7cebf554ebd2cd2976e62a70da2f3070cc"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s42_fold3/selection.json",
+      "sha256": "564ff5f4c45920f44d750eeece81a3035d3336386eae1b519f27e0544b9aee44"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_last_value_s42_fold3/selection.json",
+      "sha256": "f68d9d1401e84d90419100f861579f427bde5e29f4ccefcbd54deadbd2869527"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_seasonal_naive_s42_fold3/selection.json",
+      "sha256": "7e3bde3db261e24a51f5e94dc0d95b4c6c6c4cf52819efa981a931f54a9faf93"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_scratch_s73_fold3/selection.json",
+      "sha256": "4270786c02fb3e684be287c120a6ceb5119a2fb79722e5b273802c2cce75eab0"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s73_fold3/selection.json",
+      "sha256": "e9c05d08bdfa47e1d9822887705a5cc3bb992b7fcc90abb76bfead9a78ab2c3a"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_pytorch_s73_fold3/selection.json",
+      "sha256": "1caa4c2425585dc151148f85c51e2a1a5122f7de9bbd81fa6ce38b1deca85141"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_scratch_s17_main/selection.json",
+      "sha256": "7eed2f3d040d68918f4473f80578d2d469325e3370ea9201f0fa24590d09bff4"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s17_main/selection.json",
+      "sha256": "7432ff2619bd5ee7af2ce6c6b972181eb7063c67296ec67f72a85cc14c5850f6"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_pytorch_s17_main/selection.json",
+      "sha256": "d61462284b1969b478c10465731a673e1b9ec41f54bfbe28c9eb7e5ec5d9201f"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_scratch_s42_main/selection.json",
+      "sha256": "48767b5188043f3d37974a97dabb31dbe03ea8d782776669cf4ee01151c6781c"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s42_main/selection.json",
+      "sha256": "155cb227af4ff0a29e55ed0be8f15c66b3245ef9c8b4709acfb7d6939cbaa4ea"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_pytorch_s42_main/selection.json",
+      "sha256": "21eb9d16819b712c66ac4293a9e522228b18dabbadbed72b8adc1390b823fbea"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_last_value_s42_main/selection.json",
+      "sha256": "a914fe6ac5ea4cc0f8bf2dbc559ca5f2756ffc24e30d04ca076b0fbbebc52cfc"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_seasonal_naive_s42_main/selection.json",
+      "sha256": "34d9a42f6beb9a4de5049e60ca274ba99013df1ee3cebbb61bb30c50fad83983"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_scratch_s73_main/selection.json",
+      "sha256": "22d7f3d39fdd41177d3841da1d4aca7b080eb4929f1e6826e272303981364f03"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s73_main/selection.json",
+      "sha256": "24f14c01e5f6199c613d9aba64cdb4ff746ab0e26ede5f81ec1acfea1beb0321"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_pytorch_s73_main/selection.json",
+      "sha256": "53b9fd3ab615497751fbeef3e12f71914c8cedfdafa630a47637c50df6ccc3f0"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_scratch_s17_fold1/selection.json",
+      "sha256": "64d77d262a1e4e93502b575f889c551c8872b89af3896de1357508e3b90aa300"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s17_fold1/selection.json",
+      "sha256": "44063087f4f84f2d936678deb937622910aa975adb7972f8ae85a3169dcd556e"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_pytorch_s17_fold1/selection.json",
+      "sha256": "3d315a351beea12d47770b5595a579f643ec25f39053298983eb0cf0577a2ca6"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_scratch_s42_fold1/selection.json",
+      "sha256": "47c6e65b79bfbbd1c09a16a183418c7753dfe0e458ba5cb6f655e086e79c4aed"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s42_fold1/selection.json",
+      "sha256": "e8fb381253a1cb7515d04d177d01908a035de4f81e24b0bbcc9cff6673034415"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_pytorch_s42_fold1/selection.json",
+      "sha256": "3f3704fb433241ac31176e798414012fcccc369bed62a53c12102c27f5b4baf0"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_last_value_s42_fold1/selection.json",
+      "sha256": "c73923bda9d034f5ea968678bfbd9a98167cfe954d90977720c62d1f311eb586"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_seasonal_naive_s42_fold1/selection.json",
+      "sha256": "dd378325aacf0f632812dfdb8c96b6416fc4daad35187feaa51266c3465bf7e3"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_scratch_s73_fold1/selection.json",
+      "sha256": "360f04f0d7b1ab17017af9c6bcdbe747d5f05a309c0f2ad64ab26881f71056dd"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s73_fold1/selection.json",
+      "sha256": "752fa3af9800539022b01895341c74dc1c27faf30d60479453fb82f652dd9b0e"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_pytorch_s73_fold1/selection.json",
+      "sha256": "fd43324d9dd44a87d785be916e239ecd4e8cc0a5498bdd50f46a477f1a6e0dc8"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_scratch_s17_fold2/selection.json",
+      "sha256": "07774fd322a66ff836e5a215cb41037868b018027e9f09a63bd460c6431ee4e2"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s17_fold2/selection.json",
+      "sha256": "1fa2d171e32d4b23b0f77f340c8925df27ec2e5afce32fd9458f48db8b7a8d26"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_pytorch_s17_fold2/selection.json",
+      "sha256": "1e379ba4e1a4505bf3984b509138a5662d946b2bcb1550b4493179c375e0fb15"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_scratch_s42_fold2/selection.json",
+      "sha256": "31784abb4f5ae80048d1666fa899cd9255f98cd31662f34afd171538c7ad30a5"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s42_fold2/selection.json",
+      "sha256": "d36a79536167fd3565b2a4ccfe570a345c52be0fe0536799462a32eefe42ac85"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_pytorch_s42_fold2/selection.json",
+      "sha256": "6a7421c206a1e967bda8ab67a98bd8aa225a792511c9201d456edc76d8adf452"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_last_value_s42_fold2/selection.json",
+      "sha256": "a0082732187b325933791c9c9d0906021e77b4ecf6814ffacf71018db9664090"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_seasonal_naive_s42_fold2/selection.json",
+      "sha256": "d74586e2c10f8ae2705fc75d812aa845b571a97a9acb6719247b105b59ab6fbe"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_scratch_s73_fold2/selection.json",
+      "sha256": "2ff83d3c6f9bfbfbab3cf2efac43ad077c32b9901b019ac00121dbbc1125b2c8"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s73_fold2/selection.json",
+      "sha256": "42097bd25bce20a5c12f0f7c7dd4fcca0a335f2d5b59bf03a628ee8e43ff3080"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_pytorch_s73_fold2/selection.json",
+      "sha256": "c742a24c99400053abe1324ccd9d60b56c0011e1c2c7b16532b1e142e3c24f1a"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_scratch_s17_fold3/selection.json",
+      "sha256": "e46c8c08a14a395bcc8eb0c0f5df0d2f8a6946d0f56ac18a9889bdadc9b77452"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s17_fold3/selection.json",
+      "sha256": "2e19a77095611e93dbe9cd09c7d027d2e139b87fe9c0f85b3de0a47ff74e2df3"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_pytorch_s17_fold3/selection.json",
+      "sha256": "99a6f716f8a3fa73a05771b38b7e4c45200e646f357824dcd54d3d980917b01a"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_scratch_s42_fold3/selection.json",
+      "sha256": "0a6d688494a3502d7cf598bfc36c283dd8b9aab6c0be419edb322d45da0bf928"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s42_fold3/selection.json",
+      "sha256": "cc42e4f65fe98ffa1fef062792c945384d22eda4407853dc6e886c962ceedf83"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_pytorch_s42_fold3/selection.json",
+      "sha256": "760ac9f6a388f577edb74d8d39fcc70f5bd82e872f539a27a8a44f94b48bbca2"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_last_value_s42_fold3/selection.json",
+      "sha256": "13bf747b969e3d856e41393cd3d7b83029958466adb04446db9944ded4b26f15"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_seasonal_naive_s42_fold3/selection.json",
+      "sha256": "8dc571fbc8ee854661c4e2ce4bf9721e804f653e6f176182078fc0d984917976"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_scratch_s73_fold3/selection.json",
+      "sha256": "68c43f309f063e849f26605a3b25bc0f6c3b7e9c67d22a5e864e9986761c3708"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s73_fold3/selection.json",
+      "sha256": "ffc900b9a863ee2b230b3cc4934d542cc33563b57aac961db5196e44c34abc18"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_pytorch_s73_fold3/selection.json",
+      "sha256": "ad9523d65ce553399a90d4aa0399993a4c825df928871602584e0c927bb25489"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_household_power_rnn_scratch_s17_main/selection.json",
+      "sha256": "c363a7bcedc3960136c8dbc51abc076008e3c254ca66b63b15534e6e3163fac0"
+    },
+    {
+      "path": "artifacts/manifests/phase28/runs/ch4_household_power_rnn_keras_s17_main/selection.json",
+      "sha256": "1d2f81c0d3ab7b815bc92f5a59f48bba50630ad8eef6dc2b9086027e82afe195"
+    }
+  ],
+  "recovery_schema": {
+    "path": "artifacts/manifests/phase28/revisions/r2/recovery_run.schema.json",
+    "sha256": "f9cb3db7410a0f9a4df945428cedd8a63b71d0687db6e5f1077f058b5be70be6"
+  },
+  "revision": "r2",
+  "source_files": [
+    {
+      "path": "src/ch04_rnn_lstm/export_r2.py",
+      "sha256": "563fe634d7f17c443ffa1ebe6a97d6e279e0e7834f2be36bb523fa9f672ad49e"
+    },
+    {
+      "path": "scripts/phase28_r2.py",
+      "sha256": "aaa2b88b7e767c4e8a0b51a2bac25c35bb4bf14a20e9451e1a90adc1f1f774ed"
+    },
+    {
+      "path": "tests/recurrent/test_export_r2.py",
+      "sha256": "44d90c74852852775181634deba3761e5a215095d4561b8f14da72d87819c777"
+    },
+    {
+      "path": "tests/recurrent/test_experiment.py",
+      "sha256": "c7c074b5bedb68c3a3e278edb1b4d355a2cb6230a2226df6e8b790ec32d9b979"
+    },
+    {
+      "path": "docs/phase28_r2_authorization.md",
+      "sha256": "edbd88de1477f31c4a6053c9cadc083eb0b1ac8b3f806910b869a98d52a4461c"
+    }
+  ],
+  "status": "DECLARED",
+  "test_executed": false,
+  "training_source_unchanged": true
+}

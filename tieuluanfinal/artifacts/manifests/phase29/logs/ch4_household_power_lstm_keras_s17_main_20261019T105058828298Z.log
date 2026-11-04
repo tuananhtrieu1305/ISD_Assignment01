@@ -1,0 +1,27 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792407068.732599    8312 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792407068.779352    8312 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792407072.185698    8312 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1792407074.579167    8312 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1792407077.392084    8312 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1792407077.687176    8312 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5262 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+I0000 00:00:1792407078.824625    8331 cuda_dnn.cc:461] Loaded cuDNN version 92700
+epoch=1 train_loss=0.872622 validation_loss=0.714555 best_epoch=1
+epoch=2 train_loss=0.704242 validation_loss=0.702998 best_epoch=2
+epoch=3 train_loss=0.638030 validation_loss=0.631637 best_epoch=3
+epoch=4 train_loss=0.591532 validation_loss=0.627169 best_epoch=4
+epoch=5 train_loss=0.561611 validation_loss=0.571517 best_epoch=5
+epoch=6 train_loss=0.541399 validation_loss=0.572791 best_epoch=5
+epoch=7 train_loss=0.522080 validation_loss=0.588633 best_epoch=5
+epoch=8 train_loss=0.506939 validation_loss=0.572883 best_epoch=5
+epoch=9 train_loss=0.497517 validation_loss=0.582244 best_epoch=5
+epoch=10 train_loss=0.484656 validation_loss=0.570742 best_epoch=10
+epoch=11 train_loss=0.474927 validation_loss=0.595364 best_epoch=10
+epoch=12 train_loss=0.464020 validation_loss=0.588183 best_epoch=10
+epoch=13 train_loss=0.458086 validation_loss=0.578251 best_epoch=10
+epoch=14 train_loss=0.447380 validation_loss=0.607890 best_epoch=10
+epoch=15 train_loss=0.438688 validation_loss=0.618027 best_epoch=10
+epoch=16 train_loss=0.434281 validation_loss=0.700407 best_epoch=10
+{"run_id": "ch4_household_power_lstm_keras_s17_main", "status": "PASS", "epochs": 16, "best_epoch": 9, "rmse": 0.7016256301010606, "train_seconds": 269.1874820720004}

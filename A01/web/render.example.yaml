@@ -1,0 +1,8 @@
+# Static replay only; A01–A03 live API uses local Python runner.
+services:
+  - type: web
+    name: isd-a01-demo
+    runtime: static
+    rootDir: A01/web
+    buildCommand: echo "Static assets ready"
+    staticPublishPath: .

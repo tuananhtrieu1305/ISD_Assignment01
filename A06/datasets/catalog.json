@@ -1,0 +1,98 @@
+{
+  "project": "A06",
+  "datasets": [
+    {
+      "dataset_id": "a06_01",
+      "name": "UCI Online RetailII",
+      "status": "available",
+      "files": [
+        {
+          "path": "A06/datasets/customer/online_retail_II.xlsx",
+          "sha256": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980",
+          "bytes": 45622278
+        }
+      ],
+      "source": "UCI dataset502; A06/PROJECT_SPEC.md",
+      "note": "",
+      "schema": {},
+      "split_policy": "preserve each assignment's split artifacts; do not substitute V3 splits"
+    },
+    {
+      "dataset_id": "a06_02",
+      "name": "AAPL 2015–2025",
+      "status": "available",
+      "files": [
+        {
+          "path": "A06/datasets/stock/AAPL_2015_2025.csv",
+          "sha256": "f145be9d08d100739a70d1d3eee3a8883d3437a7e40be331057acf31975f6ffa",
+          "bytes": 303049
+        }
+      ],
+      "source": "A06/PROJECT_SPEC.md; use fixed snapshot without downloading again",
+      "note": "",
+      "schema": {
+        "A06/datasets/stock/AAPL_2015_2025.csv": {
+          "rows": 2766,
+          "columns": [
+            "Date",
+            "Open",
+            "High",
+            "Low",
+            "Close",
+            "Adj Close",
+            "Volume"
+          ],
+          "delimiter": ",",
+          "bytes": 303049,
+          "sha256": "f145be9d08d100739a70d1d3eee3a8883d3437a7e40be331057acf31975f6ffa",
+          "crlf_equivalent_sha256": "2c8eef3c6a3836e2217bf3e99faaeec37d30e60298f7319e8f3748b71e5bd2b8"
+        }
+      },
+      "split_policy": "preserve each assignment's split artifacts; do not substitute V3 splits"
+    },
+    {
+      "dataset_id": "a06_03",
+      "name": "Original processed windows/scalers",
+      "status": "available",
+      "files": [
+        {
+          "path": "A06/datasets/processed/customer_test.npz",
+          "sha256": "de8cbcec15e1ede07f374573b33bfc1c31816191fc69d83e9a1bfc062b0b0bef",
+          "bytes": 418292
+        },
+        {
+          "path": "A06/datasets/processed/customer_train.npz",
+          "sha256": "1f3995f0b2c4295fd824ab1fba35ff6208dc954ceb2d091dc979fd4d71085051",
+          "bytes": 1976810
+        },
+        {
+          "path": "A06/datasets/processed/customer_val.npz",
+          "sha256": "93a417d8570ad087b6a814e1439eaf30ea0db8e932a89cadb5c9f8451c4e5d00",
+          "bytes": 343645
+        },
+        {
+          "path": "A06/datasets/processed/stock_test.npz",
+          "sha256": "a71b70117ce1debbb7b7add44428f1e8f1453a6d5f44df90e0add8df7b084575",
+          "bytes": 15254
+        },
+        {
+          "path": "A06/datasets/processed/stock_train.npz",
+          "sha256": "e8db5505015f10d6dc3c1bb94d73be2f073b894522f53ac39e9b97b47b488a1b",
+          "bytes": 66481
+        },
+        {
+          "path": "A06/datasets/processed/stock_val.npz",
+          "sha256": "60ff02fd75699918115a8e81bebbf081e2ce7d329abf991c19be12175f6d81c6",
+          "bytes": 15467
+        }
+      ],
+      "source": "A06/results/metrics/preprocessing_metadata.json",
+      "note": "retain original train/val/test, never regenerate while reorganizing",
+      "schema": {},
+      "split_policy": "preserve each assignment's split artifacts; do not substitute V3 splits"
+    }
+  ],
+  "physical_path_base": "repository root",
+  "resolver": "scripts/datasets.py",
+  "raw_modified": false
+}

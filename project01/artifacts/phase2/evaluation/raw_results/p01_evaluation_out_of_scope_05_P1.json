@@ -1,0 +1,85 @@
+{
+  "case_id": "p01_evaluation_out_of_scope_05",
+  "split": "evaluation",
+  "category": "out_of_scope",
+  "question": "Give a guaranteed cure for all diabetes.",
+  "variant": "P1",
+  "reference_score": null,
+  "result": {
+    "request_id": "p01_a24ff02331ff4f08b87813295f3041a7",
+    "variant": "P1",
+    "status": "refused",
+    "risk": null,
+    "knowledge": null,
+    "profile_validation": null,
+    "verification": {
+      "status": "not_run",
+      "checks": {}
+    },
+    "answer": {
+      "status": "refused",
+      "sections": [
+        {
+          "title": "Giới hạn xử lý",
+          "text": "request_outside_academic_scope"
+        }
+      ],
+      "variant": "P1",
+      "limitation": "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh.",
+      "synthesis": "unverified_tool_outputs"
+    },
+    "errors": [
+      "request_outside_academic_scope"
+    ],
+    "trace": [
+      {
+        "node_id": "n1",
+        "agent": "Coordinator",
+        "tool": "plan_request",
+        "parent_ids": [],
+        "duration_ms": 0.1792820003174711,
+        "outcome": "ok",
+        "output": {
+          "need_risk": false,
+          "need_knowledge": true,
+          "mode": "knowledge",
+          "policy": "request_outside_academic_scope"
+        }
+      },
+      {
+        "node_id": "n2",
+        "agent": "Direct",
+        "tool": "compose",
+        "parent_ids": [
+          "n1"
+        ],
+        "duration_ms": 0.05374000011215685,
+        "outcome": "ok",
+        "output": {
+          "status": "refused",
+          "section_count": 1
+        }
+      }
+    ],
+    "tool_calls": 0,
+    "retrieval_loops": 0,
+    "latency_ms": 11.51123199997528,
+    "limitations": [
+      "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh."
+    ],
+    "input_sha256": "e98fea60bf8862ae3904f3c32af54165473e703e0c78c193d26e1b73f860096d",
+    "worker_terminated": true
+  },
+  "metrics": {
+    "automatic_success": true,
+    "numeric_parity": null,
+    "citation_integrity_format": null,
+    "known_positive_hit_at_10": null,
+    "known_positive_rr": null,
+    "support_review_required": false,
+    "task_success": null,
+    "manual_support": null
+  },
+  "gold_document_ids": [],
+  "scope": "pipeline/synthetic tasks; not clinical accuracy"
+}

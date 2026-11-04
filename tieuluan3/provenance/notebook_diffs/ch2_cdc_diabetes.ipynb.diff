@@ -1,0 +1,51 @@
+--- tieuluan3/provenance/originals/experiments/notebooks/v3/ch02_ml/ch2_cdc_diabetes.ipynb
++++ tieuluan3/notebooks/ch02_ml/ch2_cdc_diabetes.ipynb
+@@ -3,12 +3,46 @@
+   "nbformat_minor": 5,
+   "metadata": {
+     "kernelspec": {
+-      "display_name": "AI V3 (torch, WSL GPU)",
++      "display_name": "Python3.11 WSL NumPy-PyTorch",
+       "language": "python",
+-      "name": "ai-v3-torch"
++      "name": "python3"
++    },
++    "migration": {
++      "revision": "r2",
++      "original_sha256": "ac5904043a878fd90e3fea4b7063725d3ffc309125187af5ca8e475fe08736eb",
++      "original_path": "tieuluan3/provenance/originals/experiments/notebooks/v3/ch02_ml/ch2_cdc_diabetes.ipynb",
++      "project": "tieuluan3",
++      "framework": "torch"
+     }
+   },
+   "cells": [
++    {
++      "cell_type": "markdown",
++      "metadata": {},
++      "id": "migration-notes-r2",
++      "source": [
++        "**Bản đường dẫn r2.** Notebook gốc và output được giữ trong provenance. Kernel: Python3.11 WSL NumPy/PyTorch. Không Run All pipeline huấn luyện chỉ để xem kết quả đã lưu.\n"
++      ]
++    },
++    {
++      "cell_type": "code",
++      "execution_count": null,
++      "metadata": {
++        "migration_revision": "r2"
++      },
++      "outputs": [],
++      "source": [
++        "# Migration r2: select this assignment's original logical paths, preserving frozen source.\n",
++        "from pathlib import Path as _Path\n",
++        "import sys as _sys\n",
++        "_repo = next(p for p in (_Path.cwd(), *_Path.cwd().parents) if (p / 'ASSIGN_REORGANIZATION_EXECUTION_PLAN.md').exists())\n",
++        "_sys.path.insert(0, str(_repo / '_shared'))\n",
++        "from assignment_runtime import activate as _activate\n",
++        "_migration = _activate('tieuluan3', 'torch')\n",
++        "_migration\n"
++      ],
++      "id": "migration-bootstrap-r2"
++    },
+     {
+       "cell_type": "markdown",
+       "metadata": {},

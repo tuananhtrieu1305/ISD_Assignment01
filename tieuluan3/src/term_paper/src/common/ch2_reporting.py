@@ -1,0 +1,295 @@
+"""Build aggregate tables and report figures from Chapter 2 artifacts."""
+
+import json
+from pathlib import Path
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+from .ch2_experiment import artifact_suffix, sha256_file
+
+
+DATASET_IDS = (
+    "ch2_diabetes_binary",
+    "ch2_vietnam_housing",
+    "ch2_ecommerce_behavior",
+)
+FRAMEWORKS = ("numpy", "keras", "pytorch")
+DISPLAY_NAMES = {
+    "ch2_diabetes_binary": "CDC Diabetes",
+    "ch2_vietnam_housing": "Vietnam Housing",
+    "ch2_ecommerce_behavior": "E-Commerce Churn",
+}
+FRAMEWORK_NAMES = {"numpy": "NumPy scratch", "keras": "Keras", "pytorch": "PyTorch"}
+
+
+def reconcile_preprocessor_provenance(workspace):
+    """Align run metadata with the retained logically identical preprocessor artifact."""
+    workspace = Path(workspace).resolve()
+    metrics_dir = workspace / "term_paper" / "artifacts" / "metrics"
+    comparison_path = metrics_dir / "ch2_framework_comparison.csv"
+    comparison = pd.read_csv(comparison_path)
+    changes = 0
+    for dataset_id in DATASET_IDS:
+        metadata_path = (
+            workspace
+            / "term_paper"
+            / "artifacts"
+            / "manifests"
+            / "ch2"
+            / f"{dataset_id}_metadata.json"
+        )
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        retained_hash = metadata["preprocessor_sha256"]
+        indices = comparison.index[comparison["dataset_id"] == dataset_id]
+        for index in indices:
+            row = comparison.loc[index]
+            prediction_path = workspace / row["prediction_path"]
+            prediction = pd.read_csv(prediction_path)
+            if (
+                str(row["preprocessor_sha256"]) == retained_hash
+                and prediction["preprocessor_sha256"].astype(str).nunique() == 1
+                and prediction["preprocessor_sha256"].astype(str).iloc[0] == retained_hash
+            ):
+                continue
+            prediction["preprocessor_sha256"] = retained_hash
+            prediction.to_csv(prediction_path, index=False)
+            prediction_hash = sha256_file(prediction_path)
+            comparison.loc[index, "preprocessor_sha256"] = retained_hash
+            comparison.loc[index, "prediction_sha256"] = prediction_hash
+            suffix = artifact_suffix(int(row["seed"]))
+            run_path = metrics_dir / f"ch2_{dataset_id}_{row['framework']}{suffix}_run.json"
+            run_payload = json.loads(run_path.read_text(encoding="utf-8"))
+            run_payload["metric_row"]["preprocessor_sha256"] = retained_hash
+            run_payload["metric_row"]["prediction_sha256"] = prediction_hash
+            run_path.write_text(
+                json.dumps(run_payload, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+            changes += 1
+    comparison.to_csv(comparison_path, index=False)
+    return changes
+
+
+def aggregate_framework_metrics(frame):
+    frame = frame.copy()
+    value_columns = [
+        column
+        for column in (
+            "Accuracy",
+            "Precision",
+            "Recall",
+            "F1",
+            "ROC-AUC",
+            "MAE",
+            "MSE",
+            "RMSE",
+            "R2",
+            "MAPE",
+            "training_seconds",
+            "inference_ms_per_sample",
+            "epochs_run",
+            "best_epoch",
+        )
+        if column in frame.columns
+    ]
+    rows = []
+    for (dataset_id, framework), group in frame.groupby(["dataset_id", "framework"]):
+        row = {
+            "dataset_id": dataset_id,
+            "framework": framework,
+            "task": group["task"].iloc[0],
+            "seed_count": int(group["seed"].nunique()),
+            "seeds": ",".join(str(int(seed)) for seed in sorted(group["seed"].unique())),
+            "parameter_count": int(group["parameter_count"].iloc[0]),
+            "input_dim": int(group["input_dim"].iloc[0]) if "input_dim" in group else np.nan,
+            "split_sha256": group["split_sha256"].iloc[0] if "split_sha256" in group else None,
+            "processed_sha256": (
+                group["processed_sha256"].iloc[0] if "processed_sha256" in group else None
+            ),
+        }
+        for column in value_columns:
+            values = pd.to_numeric(group[column], errors="coerce").dropna()
+            row[f"{column}_mean"] = float(values.mean()) if len(values) else np.nan
+            row[f"{column}_std"] = float(values.std(ddof=1)) if len(values) > 1 else 0.0
+        rows.append(row)
+    return pd.DataFrame(rows).sort_values(["dataset_id", "framework"]).reset_index(drop=True)
+
+
+def _load_split_targets(workspace, dataset_id):
+    path = (
+        workspace
+        / "term_paper"
+        / "artifacts"
+        / "manifests"
+        / "ch2"
+        / f"{dataset_id}_split_keys.csv"
+    )
+    return pd.read_csv(path)
+
+
+def _build_dataset_summary(workspace):
+    raw_rows = {
+        "ch2_diabetes_binary": 70692,
+        "ch2_vietnam_housing": 30229,
+        "ch2_ecommerce_behavior": 10000,
+    }
+    rows = []
+    for dataset_id in DATASET_IDS:
+        metadata_path = (
+            workspace
+            / "term_paper"
+            / "artifacts"
+            / "manifests"
+            / "ch2"
+            / f"{dataset_id}_metadata.json"
+        )
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        targets = _load_split_targets(workspace, dataset_id)
+        row = {
+            "dataset_id": dataset_id,
+            "task": metadata["task"],
+            "raw_rows": raw_rows[dataset_id],
+            "model_rows": len(targets),
+            "raw_feature_count": metadata["raw_feature_count"],
+            "transformed_feature_count": metadata["transformed_feature_count"],
+            "train_rows": metadata["split_sizes"]["train"],
+            "val_rows": metadata["split_sizes"]["val"],
+            "test_rows": metadata["split_sizes"]["test"],
+            "split_sha256": metadata["split_sha256"],
+        }
+        if metadata["task"] == "binary":
+            counts = targets["y_true"].astype(int).value_counts().sort_index()
+            row["class_0"] = int(counts.get(0, 0))
+            row["class_1"] = int(counts.get(1, 0))
+            row["positive_rate"] = float((targets["y_true"] == 1).mean())
+        else:
+            row["target_min"] = float(targets["y_true"].min())
+            row["target_median"] = float(targets["y_true"].median())
+            row["target_mean"] = float(targets["y_true"].mean())
+            row["target_max"] = float(targets["y_true"].max())
+        rows.append(row)
+    return pd.DataFrame(rows)
+
+
+def _best_classical_and_matched(classical, aggregate):
+    rows = []
+    for dataset_id in DATASET_IDS:
+        classical_subset = classical[classical["dataset_id"] == dataset_id].copy()
+        matched_subset = aggregate[aggregate["dataset_id"] == dataset_id].copy()
+        if dataset_id == "ch2_vietnam_housing":
+            metric = "RMSE"
+            classical_row = classical_subset.loc[
+                pd.to_numeric(classical_subset[metric]).idxmin()
+            ]
+            matched_row = matched_subset.loc[matched_subset[f"{metric}_mean"].idxmin()]
+        else:
+            metric = "F1"
+            classical_row = classical_subset.loc[
+                pd.to_numeric(classical_subset[metric]).idxmax()
+            ]
+            matched_row = matched_subset.loc[matched_subset[f"{metric}_mean"].idxmax()]
+        rows.append(
+            {
+                "dataset_id": dataset_id,
+                "metric": metric,
+                "best_classical_model": classical_row["Model"],
+                "best_classical_value": float(classical_row[metric]),
+                "best_matched_framework": matched_row["framework"],
+                "best_matched_mean": float(matched_row[f"{metric}_mean"]),
+                "best_matched_std": float(matched_row[f"{metric}_std"]),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def _plot_distributions(workspace, figure_dir):
+    fig, axes = plt.subplots(1, 3, figsize=(14, 4.4))
+    diabetes = _load_split_targets(workspace, "ch2_diabetes_binary")
+    counts = diabetes["y_true"].astype(int).value_counts().sort_index()
+    axes[0].bar(["Không diabetes", "Diabetes"], counts.values, color=["#2F75B5", "#E69F00"])
+    axes[0].set_title("CDC Diabetes sau loại duplicate")
+    axes[0].set_ylabel("Số mẫu")
+    housing = _load_split_targets(workspace, "ch2_vietnam_housing")
+    axes[1].hist(housing["y_true"], bins=25, color="#009E73", edgecolor="white")
+    axes[1].set_title("Vietnam Housing")
+    axes[1].set_xlabel("Giá (tỷ VND)")
+    axes[1].set_ylabel("Số mẫu")
+    customer = _load_split_targets(workspace, "ch2_ecommerce_behavior")
+    counts = customer["y_true"].astype(int).value_counts().sort_index()
+    axes[2].bar(["Không churn", "Churn"], counts.values, color=["#2F75B5", "#D55E00"])
+    axes[2].set_title("Synthetic E-Commerce")
+    axes[2].set_ylabel("Số khách hàng")
+    fig.suptitle("Phân bố target của ba dataset Chương 2")
+    fig.tight_layout()
+    path = figure_dir / "ch2_dataset_distributions.png"
+    fig.savefig(path, dpi=220, bbox_inches="tight")
+    plt.close(fig)
+    return path
+
+
+def _plot_classical_comparison(classical, aggregate, figure_dir):
+    fig, axes = plt.subplots(1, 3, figsize=(14, 4.5))
+    colors = ["#777777", "#2F75B5", "#E69F00", "#009E73"]
+    for axis, dataset_id in zip(axes, DATASET_IDS):
+        classical_subset = classical[classical["dataset_id"] == dataset_id].copy()
+        matched_subset = aggregate[aggregate["dataset_id"] == dataset_id].set_index("framework")
+        metric = "RMSE" if dataset_id == "ch2_vietnam_housing" else "F1"
+        if metric == "RMSE":
+            classical_row = classical_subset.loc[
+                pd.to_numeric(classical_subset[metric]).idxmin()
+            ]
+        else:
+            classical_row = classical_subset.loc[
+                pd.to_numeric(classical_subset[metric]).idxmax()
+            ]
+        labels = [str(classical_row["Model"])] + [FRAMEWORK_NAMES[name] for name in FRAMEWORKS]
+        values = [float(classical_row[metric])] + [
+            float(matched_subset.loc[name, f"{metric}_mean"]) for name in FRAMEWORKS
+        ]
+        errors = [0.0] + [
+            float(matched_subset.loc[name, f"{metric}_std"]) for name in FRAMEWORKS
+        ]
+        axis.bar(labels, values, yerr=errors, capsize=4, color=colors)
+        axis.set_title(DISPLAY_NAMES[dataset_id])
+        axis.set_ylabel(metric + (" (tỷ VND)" if metric == "RMSE" else ""))
+        axis.tick_params(axis="x", rotation=24, labelsize=8)
+    fig.suptitle("Baseline cổ điển mạnh nhất và matched MLP (mean ± SD, 3 seed)")
+    fig.tight_layout()
+    path = figure_dir / "ch2_classical_vs_mlp.png"
+    fig.savefig(path, dpi=220, bbox_inches="tight")
+    plt.close(fig)
+    return path
+
+
+def build_reporting_assets(workspace):
+    workspace = Path(workspace).resolve()
+    metrics_dir = workspace / "term_paper" / "artifacts" / "metrics"
+    figure_dir = workspace / "term_paper" / "artifacts" / "figures" / "ch2"
+    figure_dir.mkdir(parents=True, exist_ok=True)
+    reconcile_preprocessor_provenance(workspace)
+    comparison = pd.read_csv(metrics_dir / "ch2_framework_comparison.csv")
+    classical = pd.read_csv(metrics_dir / "ch2_classical_baselines.csv")
+    aggregate = aggregate_framework_metrics(comparison)
+    aggregate_path = metrics_dir / "ch2_framework_summary.csv"
+    aggregate.to_csv(aggregate_path, index=False)
+    dataset_summary = _build_dataset_summary(workspace)
+    dataset_summary_path = metrics_dir / "ch2_dataset_summary.csv"
+    dataset_summary.to_csv(dataset_summary_path, index=False)
+    best_comparison = _best_classical_and_matched(classical, aggregate)
+    best_path = metrics_dir / "ch2_best_vs_classical.csv"
+    best_comparison.to_csv(best_path, index=False)
+    figures = [
+        _plot_distributions(workspace, figure_dir),
+        _plot_classical_comparison(classical, aggregate, figure_dir),
+    ]
+    return {
+        "aggregate": aggregate_path,
+        "dataset_summary": dataset_summary_path,
+        "best_vs_classical": best_path,
+        "figures": figures,
+    }
+
+
+if __name__ == "__main__":
+    build_reporting_assets(Path.cwd())

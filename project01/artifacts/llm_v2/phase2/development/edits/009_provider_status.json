@@ -1,0 +1,4 @@
+[
+ {"module":"provider","old":"counts=dict(db.execute('SELECT kind,count(*) FROM calls WHERE day=? GROUP BY kind',(day,)))","new":"counts=dict(db.execute('SELECT kind,count(*) FROM calls WHERE day=? GROUP BY kind',(day,)))\n            last=db.execute(\"SELECT status,created FROM calls WHERE kind='generation' ORDER BY created DESC LIMIT 1\").fetchone()","count":1},
+ {"module":"provider","old":"'generation_cap':18,'embedding_cap':900,'external_usage_unknown':True,'paid_budget_usd':0}","new":"'generation_cap':18,'embedding_cap':900,'external_usage_unknown':True,'paid_budget_usd':0,\n                'last_generation_status':last[0] if last else None,'last_generation_at':last[1] if last else None,\n                'readiness_is_not_live_provider_probe':True}","count":1}
+]

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.935" timestamp="2026-10-22T12:30:10.460020+07:00" hostname="LaptopVJP"><testcase classname="tests.report35.test_docx" name="test_latex_name_normalization_is_narrow" time="0.008"><failure message="AssertionError: assert ('Vrandečić' in '# TÀI LIỆU THAM KHẢO\n\n[1] Patrick Lewis and Ethan Perez and Aleksandra Piktus and Fabio Petroni and Vladimir Karpuk... Language Models. International Conference on Learning Representations. [Nguồn](https://arxiv.org/abs/2210.03629).\n\n')">def test_latex_name_normalization_is_narrow():
+        assert normalize_bibliography(r"K\"uttler, L\Lukasz, L\'eon") == "Küttler, LŁukasz, Léon"
+        assert normalize_bibliography("accuracy 0.123; C:\\data") == "accuracy 0.123; C:\\data"
+        text = Path("report/phase34/sections/08_references.md").read_text(encoding="utf-8")
+        clean = normalize_bibliography(text)
+        assert "Küttler" in clean and "Jürgen" in clean and "Łukasz" in clean
+        assert "K\\" not in clean and "L\\" not in clean
+&gt;       assert 'Vrandečić' in clean and 'Krötzsch' in clean and 'Büttcher' in clean
+E       AssertionError: assert ('Vrandečić' in '# TÀI LIỆU THAM KHẢO\n\n[1] Patrick Lewis and Ethan Perez and Aleksandra Piktus and Fabio Petroni and Vladimir Karpuk... Language Models. International Conference on Learning Representations. [Nguồn](https://arxiv.org/abs/2210.03629).\n\n')
+
+tests/report35/test_docx.py:28: AssertionError</failure></testcase></testsuite></testsuites>

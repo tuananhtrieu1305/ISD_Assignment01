@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "inspection": "Viewed all five generated PNGs after generation; charts read saved results only.",
+  "figures": [
+    {
+      "path": "artifacts/figures/phase26/ames_predictions.png",
+      "sha256": "43fa230ec53b69384ace0689dd9e9b63281bf34d5634ca449d051ed649c7ff15"
+    },
+    {
+      "path": "artifacts/figures/phase26/calibration.png",
+      "sha256": "18ef94f05e94cd6d2e4d3ef9862b102b6fa9fa00977572cc207657ccbbb215ae"
+    },
+    {
+      "path": "artifacts/figures/phase26/confusion.png",
+      "sha256": "21bcfb6c3eecd54b4ddc892dfd3ba30ea6e1cc332e888c0bee2b73c1425c4a43"
+    },
+    {
+      "path": "artifacts/figures/phase26/learning_curves.png",
+      "sha256": "46f23fbd2c822020ae5c1cdd62a8a91c317e92618e8886b09580ce575d464e8d"
+    },
+    {
+      "path": "artifacts/figures/phase26/quality.png",
+      "sha256": "ce1642048781f3f77d51c734cfad76dd899a4d52cd24f7f3fca2b55821c64f43"
+    }
+  ],
+  "checks": [
+    "Titles, legends, labels and confusion counts readable, no clipping",
+    "Units and metric directions explicit",
+    "Quality classification axes 0..1; errors are three-seed sample SD, not confidence intervals",
+    "Learning curves distinguish validation from train",
+    "Calibration bins descriptive, no calibrator fit",
+    "Ames retains all 440 TEST points including large errors"
+  ],
+  "test_model_forward_executed": false
+}

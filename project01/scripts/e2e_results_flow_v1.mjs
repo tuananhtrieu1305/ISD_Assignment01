@@ -1,0 +1,68 @@
+import {chromium} from '@playwright/test';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+const root=path.resolve(import.meta.dirname,'../..');
+const out=path.join(root,'project01/artifacts/ui_revisions/results_flow_v1');
+const base='http://127.0.0.1:8041';
+const browser=await chromium.launch({executablePath:path.join(root,'.local/ms-playwright/chromium-1248/chrome-win64/chrome.exe'),headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1060},deviceScaleFactor:1});
+const errors=[];page.on('pageerror',error=>errors.push(error.message));
+const checks=[];const outputs={};
+page.on('response',async response=>{if(response.url().endsWith('/api/v1/assist')&&response.status()===200){const row=await response.json();outputs[row.variant]=row;}});
+function assert(condition,label){if(!condition)throw Error(label);checks.push(label);}
+async function run(){await page.getByRole('button',{name:/^Chạy P0, P1 và P2/}).click();await page.getByRole('heading',{name:'Kết quả đi cùng nguồn.'}).waitFor({timeout:100000});}
+async function variant(name){await page.locator('.variant-tabs').getByRole('button',{name:new RegExp('^'+name)}).click();}
+try{
+  await page.goto(base);await page.getByText('CPU sẵn sàng',{exact:true}).waitFor();
+  await run();
+  const summary=page.getByRole('region',{name:'So sánh cách xử lý'});
+  assert(await summary.getByRole('heading',{name:'P2 · Điều phối, kiểm chứng và tổng hợp',exact:true}).isVisible(),'P2 processing heading');
+  assert(await summary.locator('.verification-detail .check-mark.pass').count()===3,'P2 shows actual three passing checks');
+  assert(await summary.locator('.processing-stages li.recorded').count()===5,'P2 five recorded roles');
+  assert(await summary.getByText('Giống nhau ở cả ba lượt.',{exact:true}).count()===3,'identical model/excerpt/citations stated honestly');
+  assert(outputs.P0.input_sha256===outputs.P1.input_sha256&&outputs.P1.input_sha256===outputs.P2.input_sha256,'same input across variants');
+  assert(new Set(Object.values(outputs).map(row=>row.risk.score)).size===1,'real backend model score identical');
+  await page.screenshot({path:path.join(out,'result-P2-desktop.png'),fullPage:true});
+  await variant('P0');
+  assert(await summary.getByRole('heading',{name:'P0 · Gọi công cụ trực tiếp',exact:true}).isVisible(),'P0 direct heading changes');
+  assert(await summary.locator('.verification-stage.not-recorded').count()===1,'P0 verifier visibly not recorded');
+  assert(await summary.locator('.verification-detail .check-mark').count()===0,'P0 no fabricated verification');
+  await page.screenshot({path:path.join(out,'result-P0-desktop.png'),fullPage:true});
+  await variant('P1');
+  assert(await summary.getByRole('heading',{name:'P1 · Điều phối và chia nhiệm vụ',exact:true}).isVisible(),'P1 routing heading changes');
+  assert(await summary.locator('.processing-stages').getByRole('heading',{name:'Coordinator',exact:true}).isVisible(),'P1 coordinator from trace');
+  assert(await summary.locator('.verification-stage.not-recorded').count()===1,'P1 verifier not recorded');
+  await summary.locator('.processing-matrix > summary').click();
+  const table=summary.getByRole('table');
+  assert(await table.locator('tbody tr').count()===5,'actual trace comparison has five rows');
+  const row=table.locator('tbody tr').filter({hasText:'Bước Verifier'});
+  assert(await row.locator('td').nth(0).innerText()==='Chưa ghi nhận'&&await row.locator('td').nth(2).innerText()==='1 lần kiểm tra','matrix distinguishes P0 and P2 verifier');
+  await summary.getByRole('button',{name:'Xem trace đầy đủ ↗'}).click();
+  assert(await page.getByRole('heading',{name:'Theo dõi từng bước xử lý.',exact:true}).isVisible(),'link opens trace without rerunning');
+  await page.getByRole('button',{name:'01 Câu hỏi & hồ sơ'}).click();
+  await page.getByRole('button',{name:'Kiến thức · vận động ↗'}).click();await run();
+  assert(await summary.locator('.processing-stages li').nth(1).getByText('Không chạy',{exact:true}).isVisible(),'knowledge-only risk is skipped');
+  assert(await summary.locator('.verification-detail .check-mark.pass').count()===2,'knowledge-only has two actual checks');
+  assert(await summary.getByText('Không có đầu ra này để đối chiếu.',{exact:true}).count()===1,'no model output is not called identical');
+  await page.getByRole('button',{name:'01 Câu hỏi & hồ sơ'}).click();
+  await page.getByRole('button',{name:'Kết hợp model + kiến thức ↗'}).click();
+  await page.getByRole('spinbutton',{name:'BMI',exact:true}).fill('');await run();
+  assert(await summary.locator('.processing-stages li').nth(1).getByText('Cần bổ sung hồ sơ',{exact:true}).isVisible(),'missing BMI shown as clarification');
+  assert(await summary.getByText('Có đầu ra mô hình theo yêu cầu',{exact:true}).isVisible(),'missing model availability check explained');
+  assert(await summary.locator('.verification-detail .check-mark.fail').count()===1,'missing model check false is visible');
+  await page.getByRole('button',{name:'01 Câu hỏi & hồ sơ'}).click();
+  await page.getByRole('button',{name:'Kiến thức · vận động ↗'}).click();
+  await page.getByRole('textbox',{name:'Câu hỏi của bạn'}).fill('What is the price of gold?');await run();
+  assert(await summary.locator('.verification-stage.not-recorded').count()===1,'refused P2 does not pretend verifier ran');
+  assert(await summary.locator('.verification-detail .check-mark').count()===0,'refused P2 has no checks');
+  await page.getByRole('button',{name:'01 Câu hỏi & hồ sơ'}).click();
+  await page.getByRole('button',{name:'Kết hợp model + kiến thức ↗'}).click();
+  await page.getByRole('button',{name:'Khôi phục mẫu',exact:true}).click();await run();
+  await page.setViewportSize({width:390,height:844});
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'mobile no page overflow');
+  assert(await summary.locator('.processing-stages li').count()===5,'mobile all stages available');
+  await page.screenshot({path:path.join(out,'result-P2-mobile.png'),fullPage:true});
+  assert(errors.length===0,'no uncaught browser errors');
+  await fs.writeFile(path.join(out,'browser_verification.json'),JSON.stringify({status:'PASS',checks,errors,base,mocked:false,benchmark_rerun:false},null,2));
+  console.log('Results flow revision E2E PASS',checks.length);
+}finally{await browser.close();}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A03 · Model Demo</title>
+  <link rel="stylesheet" href="/_demo-ui/simple-demo.css">
+</head>
+<body>
+  <header>
+    <strong class="brand" id="brand">A03 · MODEL DEMO</strong>
+    <span class="connection" id="connection">Đang kiểm tra backend…</span>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">ASSIGNMENT DEMO</p>
+      <h1 id="title"></h1>
+      <p id="summary"></p>
+    </section>
+    <nav class="dataset-tabs" id="datasets" aria-label="Chọn bài toán"></nav>
+    <section class="demo-grid">
+      <form class="panel" id="demo-form">
+        <h2 id="task-title"></h2>
+        <p class="task-help" id="task-help"></p>
+        <div class="form-grid" id="input-fields"></div>
+        <p class="small-note" id="defaults-note"></p>
+        <button class="primary" id="submit" type="submit">Kiểm tra và so sánh</button>
+        <p id="status" role="status" aria-live="polite"></p>
+      </form>
+      <section class="panel" aria-live="polite">
+        <div class="result-header">
+          <h2>Kết quả</h2>
+          <span class="mode-pill" id="mode-pill"></span>
+        </div>
+        <div class="result-grid" id="results"></div>
+      </section>
+    </section>
+    <details class="resources">
+      <summary>Xem notebook nguồn</summary>
+      <div id="notebooks"></div>
+    </details>
+    <footer>Demo học thuật · Không huấn luyện lại khi bấm kiểm tra</footer>
+  </main>
+  <script src="data.js"></script>
+  
+  <script src="/_demo-ui/simple-demo.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,118 @@
+{
+  "task_name": "Vietnam House Price Regression",
+  "target": "Price_BillionVND",
+  "target_unit": "billion VND",
+  "prediction_time_input": "One listing row with normalized numeric fields and parsed location/categorical fields.",
+  "feature_order": [
+    "Area_m2",
+    "Frontage_m",
+    "Access_Road_m",
+    "Floors",
+    "Bedrooms",
+    "Bathrooms",
+    "city",
+    "district",
+    "Legal status",
+    "Furniture state",
+    "House direction",
+    "Balcony direction"
+  ],
+  "features": [
+    {
+      "name": "Area_m2",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Positive property area after unit normalization.",
+      "unit": "m2",
+      "description": "Property area."
+    },
+    {
+      "name": "Frontage_m",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Positive frontage width or missing.",
+      "unit": "m",
+      "description": "Street frontage width."
+    },
+    {
+      "name": "Access_Road_m",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Positive access-road width or missing.",
+      "unit": "m",
+      "description": "Road/access width."
+    },
+    {
+      "name": "Floors",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Positive floor count or missing.",
+      "unit": "floors",
+      "description": "Number of floors."
+    },
+    {
+      "name": "Bedrooms",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Non-negative bedroom count or missing.",
+      "unit": "rooms",
+      "description": "Number of bedrooms."
+    },
+    {
+      "name": "Bathrooms",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Non-negative bathroom count or missing.",
+      "unit": "rooms",
+      "description": "Number of bathrooms."
+    },
+    {
+      "name": "city",
+      "type": "string",
+      "required": true,
+      "allowed_or_category_notes": "Seen city values; unseen values handled by encoder.",
+      "unit": null,
+      "description": "City/province parsed from address."
+    },
+    {
+      "name": "district",
+      "type": "string",
+      "required": true,
+      "allowed_or_category_notes": "Seen district values; unseen values handled by encoder.",
+      "unit": null,
+      "description": "District parsed from address."
+    },
+    {
+      "name": "Legal status",
+      "type": "string",
+      "required": true,
+      "allowed_or_category_notes": "Seen legal-status values; Unknown allowed for missing.",
+      "unit": null,
+      "description": "Legal status from source listing."
+    },
+    {
+      "name": "Furniture state",
+      "type": "string",
+      "required": true,
+      "allowed_or_category_notes": "Seen furniture-state values; Unknown allowed for missing.",
+      "unit": null,
+      "description": "Furniture condition from source listing."
+    },
+    {
+      "name": "House direction",
+      "type": "string",
+      "required": true,
+      "allowed_or_category_notes": "Seen direction values; Unknown allowed for missing.",
+      "unit": null,
+      "description": "House direction from source listing."
+    },
+    {
+      "name": "Balcony direction",
+      "type": "string",
+      "required": true,
+      "allowed_or_category_notes": "Seen direction values; Unknown allowed for missing.",
+      "unit": null,
+      "description": "Balcony direction from source listing."
+    }
+  ]
+}

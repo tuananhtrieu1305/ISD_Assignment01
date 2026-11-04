@@ -1,0 +1,138 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_majority_s42/best.npz",
+      "sha256": "7b7c27b5dbe695344f35d0ae7c9ba9b2004ecd1dff9c63137a5fa8f9c769f9bc"
+    },
+    {
+      "path": "artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_majority_s42/best.json",
+      "sha256": "bccc1feb69734f6eec155bb30fc1f46dd0222c082edd2fda026cf026b1465c99"
+    },
+    {
+      "path": "artifacts/predictions/phase26/validation/ch2_cdc_diabetes_majority_s42.jsonl.gz",
+      "sha256": "51b1abe59a866495082c93cae5d52164f5db921a394d8c2d63690b7709f143f3"
+    }
+  ],
+  "backend": "sklearn_fit_numpy_portable_predict",
+  "code": {
+    "dirty_tree_sha256": "f5d5e981628bd99982dcd833a5ec3e67a0eabb3fb0918ef687b64b9e7d4950ea",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "config": {
+    "path": "artifacts/manifests/phase26/revisions/r2/configs/ch2_cdc_diabetes_s42.json",
+    "sha256": "507cafad70aa974bb739decc54d0cf3f8a10a232eed7a3b7ad927a0a3d31a4d6"
+  },
+  "dataset_id": "ch2_cdc_diabetes",
+  "device": "cpu",
+  "efficiency": {
+    "checkpoint_bytes": 274,
+    "inference_p50_ms": 0.00737450000087847,
+    "inference_p95_ms": 0.008142200067595693,
+    "peak_ram_bytes": 264617984,
+    "peak_vram_bytes": 0,
+    "timed_repeats": 30,
+    "train_seconds": 0.0233588129999589,
+    "warmup_batches": 5
+  },
+  "family": "classical",
+  "finished_at": "2026-10-17T13:33:15.694819+00:00",
+  "implementation": "scikit_learn",
+  "method": "majority",
+  "metrics": [
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "accuracy",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.8605103408404068
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "macro_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.4625130653408288
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "weighted_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.795994550999156
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "auroc",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.5
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "average_precision",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.1394896591595932
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "brier",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.1394896591595932
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "ece",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.1394896591595932
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_0",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 1.0
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.0
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase26/revisions/r2/runs/ch2_cdc_diabetes_majority_s42/model_contract.json",
+    "sha256": "2341143708d19a275c8ad97682d56cf0fc31fa8e58c2b5126d30912805175db1"
+  },
+  "provenance": {
+    "adapter_sha256": "67abb4d387aeb846d9be76c08423a411eb6a76d2901929454c19463074e70e6d",
+    "code_sha256": "f5d5e981628bd99982dcd833a5ec3e67a0eabb3fb0918ef687b64b9e7d4950ea",
+    "config_sha256": "507cafad70aa974bb739decc54d0cf3f8a10a232eed7a3b7ad927a0a3d31a4d6",
+    "dataset_sha256": "1e446b32f553e0af95f69b8e55372cdcf4acfc63180ad0e768c2f5f558dc95b6",
+    "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+    "model_contract_sha256": "2341143708d19a275c8ad97682d56cf0fc31fa8e58c2b5126d30912805175db1",
+    "preprocessing_sha256": "6bdfa497095f3b88eec51c979c13810becb7ab955d6b87daa7467747848a31ae",
+    "split_sha256": "557c1b646bf0259b9d475c2f0d25bf5bde33b8c4d8ed93d17fc4af2c1f813df4",
+    "subset_sha256": "5319b90adc4a6ae52918700506ae66054de74640f4012cb09b71f2a79d8c3759"
+  },
+  "run_id": "ch2_cdc_diabetes_majority_s42",
+  "schema_version": "phase26.classical_run.1",
+  "seed": 42,
+  "split": "validation",
+  "started_at": "2026-10-17T13:33:14.760179+00:00",
+  "status": "succeeded",
+  "test_seal_id": null,
+  "track": "matched_subset"
+}

@@ -1,0 +1,198 @@
+{
+  "comments": [
+    "Ảnh RGB 64×64 gốc, track so sánh dùng 32×32 như protocol.",
+    "Không có tọa độ/group địa lý được xác minh trong gói này; split không chứng minh độc lập không gian.",
+    "Kiểm trùng pixel gốc và sau resize, không tự lọc ảnh theo kết quả mô hình."
+  ],
+  "dataset_id": "ch3_eurosat",
+  "distribution_summary": {
+    "class_by_partition": {
+      "test": {
+        "AnnualCrop": 450,
+        "Forest": 450,
+        "HerbaceousVegetation": 450,
+        "Highway": 375,
+        "Industrial": 375,
+        "Pasture": 300,
+        "PermanentCrop": 375,
+        "Residential": 450,
+        "River": 375,
+        "SeaLake": 450
+      },
+      "train": {
+        "AnnualCrop": 2100,
+        "Forest": 2100,
+        "HerbaceousVegetation": 2100,
+        "Highway": 1750,
+        "Industrial": 1750,
+        "Pasture": 1400,
+        "PermanentCrop": 1750,
+        "Residential": 2100,
+        "River": 1750,
+        "SeaLake": 2100
+      },
+      "validation": {
+        "AnnualCrop": 450,
+        "Forest": 450,
+        "HerbaceousVegetation": 450,
+        "Highway": 375,
+        "Industrial": 375,
+        "Pasture": 300,
+        "PermanentCrop": 375,
+        "Residential": 450,
+        "River": 375,
+        "SeaLake": 450
+      }
+    },
+    "class_counts": {
+      "AnnualCrop": 3000,
+      "Forest": 3000,
+      "HerbaceousVegetation": 3000,
+      "Highway": 2500,
+      "Industrial": 2500,
+      "Pasture": 2000,
+      "PermanentCrop": 2500,
+      "Residential": 3000,
+      "River": 2500,
+      "SeaLake": 3000
+    },
+    "decode_or_label_missing": 0,
+    "outlier_note": "IQR brightness/black fraction, no clinical quality claim or row deletion; feature_profile.json",
+    "pixel_duplicate_rows": 0,
+    "quarantine": 0
+  },
+  "figures": [
+    {
+      "path": "artifacts/figures/phase24/ch3_eurosat_samples.png",
+      "sha256": "b7f975aef2c4c56bb415f3c535c40eb5b926b32f62e1908f303163622bfc6967",
+      "size_bytes": 108771
+    },
+    {
+      "path": "artifacts/figures/phase24/ch3_eurosat_samples.svg",
+      "sha256": "bee7b529516d989340e91e8e3dd4b2889ecfd27c88a4b3ae884726486cf46f39",
+      "size_bytes": 105452
+    },
+    {
+      "path": "artifacts/figures/phase24/ch3_eurosat_distribution.png",
+      "sha256": "4d98b15b0a88fe33f4013ba6ecef6d4871e014043289993eb9ffbfa94da53650",
+      "size_bytes": 101648
+    },
+    {
+      "path": "artifacts/figures/phase24/ch3_eurosat_distribution.svg",
+      "sha256": "c75d1262be69ad7236832eb9aa0c9743e80bde8f45bff84372d10449ac3d7f32",
+      "size_bytes": 47586
+    }
+  ],
+  "memory": {
+    "cache_all_images": false,
+    "input_batch_float32_bytes": 196608,
+    "note": "Stream/decode per image; input-only lower bound, no claim about GPU peak",
+    "one_native_decoded_rgb_bytes": 12288,
+    "vram_peak": null
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "sample_note": "Mẫu và hình chỉ lấy matched train. known_output là nhãn gốc, không phải dự đoán.",
+  "samples": [
+    {
+      "id": "EuroSAT_RGB/AnnualCrop/AnnualCrop_1.jpg",
+      "input": {
+        "member": "EuroSAT_RGB/AnnualCrop/AnnualCrop_1.jpg",
+        "model_shape": [
+          32,
+          32,
+          3
+        ],
+        "native_shape": [
+          64,
+          64,
+          3
+        ]
+      },
+      "known_output": "AnnualCrop"
+    },
+    {
+      "id": "EuroSAT_RGB/Forest/Forest_100.jpg",
+      "input": {
+        "member": "EuroSAT_RGB/Forest/Forest_100.jpg",
+        "model_shape": [
+          32,
+          32,
+          3
+        ],
+        "native_shape": [
+          64,
+          64,
+          3
+        ]
+      },
+      "known_output": "Forest"
+    },
+    {
+      "id": "EuroSAT_RGB/HerbaceousVegetation/HerbaceousVegetation_1003.jpg",
+      "input": {
+        "member": "EuroSAT_RGB/HerbaceousVegetation/HerbaceousVegetation_1003.jpg",
+        "model_shape": [
+          32,
+          32,
+          3
+        ],
+        "native_shape": [
+          64,
+          64,
+          3
+        ]
+      },
+      "known_output": "HerbaceousVegetation"
+    }
+  ],
+  "schema_version": "3.0.0",
+  "scope": "measured_image",
+  "size_and_schema": {
+    "classes": 10,
+    "counts": {
+      "test": 4050,
+      "train": 18900,
+      "validation": 4050
+    },
+    "images": 27000,
+    "label_mapping": {
+      "AnnualCrop": "AnnualCrop",
+      "Forest": "Forest",
+      "HerbaceousVegetation": "HerbaceousVegetation",
+      "Highway": "Highway",
+      "Industrial": "Industrial",
+      "Pasture": "Pasture",
+      "PermanentCrop": "PermanentCrop",
+      "Residential": "Residential",
+      "River": "River",
+      "SeaLake": "SeaLake"
+    },
+    "matched_subset": {
+      "path": "data/splits/v3/ch3_eurosat/matched_train.ids.jsonl.gz",
+      "sha256": "f3b1bb18695870b08fd2aec5548a79b308df5688570f11a844eacd00680138ec",
+      "size_bytes": 9001
+    },
+    "matched_train_count": 3000,
+    "model_shape_hwc": [
+      32,
+      32,
+      3
+    ],
+    "native_shapes": [
+      [
+        64,
+        64
+      ]
+    ],
+    "quarantine_count": 0,
+    "split": {
+      "path": "data/splits/v3/ch3_eurosat/split_contract.json",
+      "sha256": "369ba3a92317273cad5340c6a723da12515c95ee545fb64e36fbf1d7d85a8e50",
+      "size_bytes": 1443
+    }
+  },
+  "source_manifest_sha256": "8b6306b317c8ef119144c9360da8c7c58a3180da3a564d8cadd21330bc9ffe22",
+  "split_note": "Gom trùng pixel gốc và sau resize. Nếu có official TEST: giữ nguyên TEST, loại bản trùng TEST khỏi development bằng quarantine; validation chỉ lấy official train. Các phép fit/class weight dùng train. Không có augmentation khác nhau giữa framework.",
+  "test_evaluation_executed": false,
+  "training_executed": false
+}

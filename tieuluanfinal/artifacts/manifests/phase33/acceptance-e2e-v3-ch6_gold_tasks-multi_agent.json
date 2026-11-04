@@ -1,0 +1,104 @@
+{
+  "scope": "TRAIN-only UI serving smoke; not historical TEST",
+  "job": {
+    "comparison_blockers": [],
+    "comparison_valid": true,
+    "created_at": "2026-10-21T13:08:17.531176+00:00",
+    "dataset_id": "ch6_gold_tasks",
+    "expires_at": "2026-10-21T13:38:17.531176+00:00",
+    "family": "multi_agent",
+    "input_sha256": "e454ad80285df8044a1b40633efa06fd4f929da4b4a32c9596e29f280f29463f",
+    "job_id": "job_17230c86ed17370d035560c48ef55351bbd82306",
+    "metric_artifacts": [],
+    "request_id": "request_17230c86ed17370d035560c48ef55351bbd82306",
+    "request_sha256": "27532167cda2d6604ac7384e3f62603cf4d39092c02787e62e3fd5a30679ca7e",
+    "results": [
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "1dadab77ebc6b8d8ec481f2908f34035765d152fc6ab607216a578833d3907ad",
+        "comparison_group_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+        "error": null,
+        "implementation": "A0",
+        "inference_ms": 16.448729000330786,
+        "input_sha256": "e454ad80285df8044a1b40633efa06fd4f929da4b4a32c9596e29f280f29463f",
+        "model_id": "ch6_gold_tasks_a0",
+        "prediction": {
+          "abstained": false,
+          "citations": [
+            {
+              "evidence_id": "evidence_gold_numeric_000",
+              "locator": "parent_train/GOLD/1961-12-01T00:00:00",
+              "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+              "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+            }
+          ],
+          "kind": "answer",
+          "text": "Frozen NumPy CPU tool output: 34.041585, 32.72448, 35.201874"
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "1dadab77ebc6b8d8ec481f2908f34035765d152fc6ab607216a578833d3907ad",
+        "comparison_group_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+        "error": null,
+        "implementation": "A1",
+        "inference_ms": 10.360616000980372,
+        "input_sha256": "e454ad80285df8044a1b40633efa06fd4f929da4b4a32c9596e29f280f29463f",
+        "model_id": "ch6_gold_tasks_a1",
+        "prediction": {
+          "abstained": false,
+          "citations": [
+            {
+              "evidence_id": "evidence_gold_numeric_000",
+              "locator": "parent_train/GOLD/1961-12-01T00:00:00",
+              "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+              "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+            }
+          ],
+          "kind": "answer",
+          "text": "Frozen NumPy CPU tool output: 34.041585, 32.72448, 35.201874"
+        },
+        "status": "succeeded"
+      },
+      {
+        "actual_backend": "numpy",
+        "actual_device": "cpu",
+        "artifact_sha256": "1dadab77ebc6b8d8ec481f2908f34035765d152fc6ab607216a578833d3907ad",
+        "comparison_group_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+        "error": null,
+        "implementation": "A2",
+        "inference_ms": 8.554347999961465,
+        "input_sha256": "e454ad80285df8044a1b40633efa06fd4f929da4b4a32c9596e29f280f29463f",
+        "model_id": "ch6_gold_tasks_a2",
+        "prediction": {
+          "abstained": false,
+          "citations": [
+            {
+              "evidence_id": "evidence_gold_numeric_000",
+              "locator": "parent_train/GOLD/1961-12-01T00:00:00",
+              "source_sha256": "7eca5bf902616687788dbb141c53eb3e82f8e48bd41b956f171d667a444c08ee",
+              "source_url": "https://www.worldbank.org/en/research/commodity-markets"
+            }
+          ],
+          "kind": "answer",
+          "text": "Frozen NumPy CPU tool output: 34.041585, 32.72448, 35.201874"
+        },
+        "status": "succeeded"
+      }
+    ],
+    "schema_version": "3.0.0",
+    "status": "succeeded",
+    "trace_ids": [
+      "trace_17230c86ed17370d035560c48ef55351bbd82306_a0",
+      "trace_17230c86ed17370d035560c48ef55351bbd82306_a1",
+      "trace_17230c86ed17370d035560c48ef55351bbd82306_a2"
+    ]
+  },
+  "input_split": "parent_train",
+  "models_retrained": 0,
+  "source_sha256": "622536a29e86a67dd5f149d1c1f252f7b236e98cb625a7dfd2d3eeb2fda3fb50",
+  "historical_test_evaluation_executed": false
+}

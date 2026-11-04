@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0.0",
+  "plan": "ASSIGN_REORGANIZATION_EXECUTION_PLAN.md",
+  "plan_version": "1.0.0",
+  "created_date": "2026-10-30",
+  "timezone": "Asia/Bangkok",
+  "status": "COMPLETE",
+  "active_phase": null,
+  "next_phase": null,
+  "completed_phases": [
+    1,
+    2,
+    3
+  ],
+  "phases": {
+    "1": {
+      "status": "COMPLETE",
+      "depends_on": [],
+      "report": "docs/reorganization/phase1_report.md",
+      "evidence": "docs/reorganization/phase1_handoff.json"
+    },
+    "2": {
+      "status": "COMPLETE",
+      "depends_on": [
+        1
+      ],
+      "report": "docs/reorganization/phase2_report.md",
+      "evidence": "docs/reorganization/phase2_handoff.json"
+    },
+    "3": {
+      "status": "COMPLETE",
+      "depends_on": [
+        2
+      ],
+      "report": "docs/reorganization/phase3_report.md",
+      "evidence": "docs/reorganization/phase3_handoff.json"
+    }
+  },
+  "observed_head_abbrev": "73305eea7",
+  "preserve_untracked": [
+    "discovering_ai_agent/web-demo/",
+    "agent02_assignment/web-demo/"
+  ],
+  "target_projects": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "tieuluan1",
+    "tieuluan2",
+    "tieuluan3",
+    "agent01",
+    "agent02"
+  ],
+  "required_subdirectories": [
+    "datasets",
+    "notebooks",
+    "web"
+  ],
+  "migration_started": true,
+  "training_authorized_by_plan": false,
+  "scientific_test_replay_authorized": false,
+  "commit_push_deploy_authorized": false,
+  "last_action": "REORG complete:11projects/33folders,11web,3builds,3source-only serving checkouts, original hashes PASS; cleanup gated; no train/TEST/env changes/commit/push/deploy.",
+  "next_action": "No active REORG phase. User may run an individual web or request deployment; use phase3_runtime.md/render_handoff.md.",
+  "active_processes": []
+}

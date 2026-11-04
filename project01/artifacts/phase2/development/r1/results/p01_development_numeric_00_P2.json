@@ -1,0 +1,149 @@
+{
+  "case_id": "p01_development_numeric_00",
+  "split": "development",
+  "category": "numeric",
+  "question": "Report the historical binary model score for this structured survey profile.",
+  "variant": "P2",
+  "reference_score": 0.15279086162339933,
+  "result": {
+    "request_id": "p01_0e0e1506f2cb4516893001ab576b1f6e",
+    "variant": "P2",
+    "status": "answered",
+    "risk": {
+      "score": 0.15279086162339933,
+      "class_id": 0,
+      "class_name": "no diabetes",
+      "logit": -1.7128775119781494,
+      "model_sha256": "cc7d28232eb1a818cc0c10d9047b4a43f4ef25ac7c06b2737870c63ae644fdb8",
+      "profile_sha256": "2d50df34d5e26aa1cb0696836aca8e7e99c6e91e2d6d03a86ff548e75ce0c6e6",
+      "unit": "historical_binary_model_score",
+      "calibrated_incidence_risk": false
+    },
+    "knowledge": null,
+    "profile_validation": {
+      "valid": true,
+      "missing": [],
+      "invalid": [],
+      "extra": []
+    },
+    "verification": {
+      "status": "passed",
+      "checks": {
+        "numeric_consistency": true
+      },
+      "errors": [],
+      "support_method": "verbatim span + topic-token heuristic; not expert semantic entailment"
+    },
+    "answer": {
+      "status": "answered",
+      "sections": [
+        {
+          "title": "Đầu ra mô hình khảo sát",
+          "text": "Score 0.152791; lớp 0: no diabetes. Không phải xác suất mắc mới đã hiệu chuẩn."
+        }
+      ],
+      "variant": "P2",
+      "limitation": "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh.",
+      "synthesis": "verified_sections"
+    },
+    "errors": [],
+    "trace": [
+      {
+        "node_id": "n1",
+        "agent": "Coordinator",
+        "tool": "plan_request",
+        "parent_ids": [],
+        "duration_ms": 0.16929800040088594,
+        "outcome": "ok",
+        "output": {
+          "need_risk": true,
+          "need_knowledge": false,
+          "mode": "numeric",
+          "policy": null
+        }
+      },
+      {
+        "node_id": "n2",
+        "agent": "Risk Agent",
+        "tool": "validate_profile",
+        "parent_ids": [
+          "n1"
+        ],
+        "duration_ms": 0.06969900005060481,
+        "outcome": "ok",
+        "output": {
+          "valid": true,
+          "missing": [],
+          "invalid": [],
+          "extra": []
+        }
+      },
+      {
+        "node_id": "n3",
+        "agent": "Risk Agent",
+        "tool": "predict_cdc",
+        "parent_ids": [
+          "n2"
+        ],
+        "duration_ms": 0.7042549996185699,
+        "outcome": "ok",
+        "output": {
+          "result_sha256": "dc125e250ff0a777def6c3b6cd4b2a7c1be6e56722e27df078be5a19ab671680",
+          "attempt": 0
+        }
+      },
+      {
+        "node_id": "n4",
+        "agent": "Verifier",
+        "tool": "check_outputs",
+        "parent_ids": [
+          "n3"
+        ],
+        "duration_ms": 0.06008099990140181,
+        "outcome": "ok",
+        "output": {
+          "status": "passed",
+          "checks": {
+            "numeric_consistency": true
+          },
+          "errors": [],
+          "support_method": "verbatim span + topic-token heuristic; not expert semantic entailment"
+        }
+      },
+      {
+        "node_id": "n5",
+        "agent": "Reporter",
+        "tool": "compose",
+        "parent_ids": [
+          "n4"
+        ],
+        "duration_ms": 0.0262120001934818,
+        "outcome": "ok",
+        "output": {
+          "status": "answered",
+          "section_count": 1
+        }
+      }
+    ],
+    "tool_calls": 1,
+    "retrieval_loops": 0,
+    "latency_ms": 6.4405110006191535,
+    "limitations": [
+      "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh."
+    ],
+    "input_sha256": "df00833b15eaf8404fcda6370af26f5512eeef704a825d8bef50d78578b3db13",
+    "worker_terminated": true
+  },
+  "metrics": {
+    "automatic_success": true,
+    "numeric_parity": true,
+    "citation_integrity_format": null,
+    "known_positive_hit_at_10": null,
+    "known_positive_rr": null,
+    "support_review_required": false,
+    "task_success": null,
+    "manual_support": null
+  },
+  "gold_document_ids": [],
+  "scope": "pipeline/synthetic tasks; not clinical accuracy"
+}

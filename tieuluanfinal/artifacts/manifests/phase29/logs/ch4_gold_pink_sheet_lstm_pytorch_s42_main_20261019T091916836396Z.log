@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/mnt/c/DATA/assign/scripts/phase29_worker.py", line 43, in <module>
+    main()
+  File "/mnt/c/DATA/assign/scripts/phase29_worker.py", line 27, in main
+    print(json.dumps(train_run(args.run_id)), flush=True)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/DATA/assign/src/ch04_rnn_lstm/phase29/experiment.py", line 221, in train_run
+    raise OSError("Host disk below 5 GiB reserve")
+OSError: Host disk below 5 GiB reserve

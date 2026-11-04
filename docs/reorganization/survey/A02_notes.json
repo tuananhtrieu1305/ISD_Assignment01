@@ -1,0 +1,98 @@
+{
+  "project": "A02",
+  "commit": "0c27b1d2f1c5d81ab25d34fd6fa9a765235b9db5",
+  "notebooks": [
+    {
+      "path": "A02_CT_anhtt.053.ipynb",
+      "cells": 158,
+      "code_cells": 72,
+      "output_cells": 72,
+      "imports": [
+        "collections",
+        "joblib",
+        "json",
+        "matplotlib.pyplot",
+        "numpy",
+        "os",
+        "pandas",
+        "pathlib",
+        "re",
+        "shutil",
+        "sklearn",
+        "sklearn.base",
+        "sklearn.compose",
+        "sklearn.dummy",
+        "sklearn.ensemble",
+        "sklearn.feature_extraction.text",
+        "sklearn.impute",
+        "sklearn.linear_model",
+        "sklearn.metrics",
+        "sklearn.model_selection",
+        "sklearn.neighbors",
+        "sklearn.pipeline",
+        "sklearn.preprocessing",
+        "sklearn.svm",
+        "sklearn.tree",
+        "sys",
+        "warnings"
+      ],
+      "headings": [
+        "# INTELLIGENT SYSTEM DEVELOPMENT — ASSIGNMENT 02\n\n## Development of Three Traditional Machine-Learning Intelligent Systems\n\n### Case Study A: Diabetes Prediction\n\n### Case Study B: Vietnam House Price Prediction\n\n### Case Study C: E-commerce customer behavior and interest discovery\n\nBài thực hành xây dựng ba hệ thống thông minh dựa trên dữ liệu có cấu trúc và các mô hình học máy truyền thống. Cả ba hệ thống được phát triển theo cùng một tiến trình:\n\n`Real-world problem → Data → Feature representation → Preprocessing → Learning model → Prediction → Application`\n",
+        "# PART A — DIABETES PREDICTION\n\n## 1. Định nghĩa hệ thống và bài toán\n\nBài toán thứ nhất xây dựng một hệ thống dự đoán `Outcome` từ các chỉ số sức khỏe có cấu trúc của bệnh nhân. `Outcome` nhận hai giá trị `0` và `1`, vì vậy đây là một bài toán **binary classification**.\n\n**Formal problem statement:**\n\n> Given a feature vector describing a previously unseen subject's health measurements, predict the binary diabetes outcome class and provide a model-estimated probability for the positive class.\n\nDataset gốc cung cấp tám chỉ số sức khỏe làm predictor. Số lượng và danh sách đặc trưng thực sự được đưa vào mô hình không được cố định trước, mà được",
+        "## 2. Sơ đồ hệ thống thông minh\n\n```text\nUser / Environment\n        │\n        ▼\nứng dụng Web / ứng dụng Android Mobile\n        │\n        ▼\nSix health measurements\n        │\n        ▼\nFlask REST API\n        │\n        ▼\nFeature vector x ∈ R^6\n        │\n        ▼\nImputation + Scaling when required\n        │\n        ▼\nTraditional ML Classifier\n        │\n        ▼\nClass prediction + probability\n        │\n        ▼\nWeb / Mobile Result\n```\n",
+        "## 3. Nguồn dữ liệu\n\nBộ dữ liệu sử dụng trong nghiên cứu là `diabetes.csv`, thuộc nhóm dữ liệu **Pima Indians Diabetes Database**. Nguồn tham khảo của bộ dữ liệu:\n\n`https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database`\n\nToàn bộ phân tích, thí nghiệm và đánh giá trong Nghiên cứu tình huống A sử dụng trực tiếp file dữ liệu này.\n",
+        "## 4. Mô tả dữ liệu\n\nMỗi dòng dữ liệu biểu diễn một đối tượng quan sát. Bộ dữ liệu có **768 dòng quan sát** và **9 cột**, gồm **8 đặc trưng đầu vào** và một target `Outcome`. Tám đặc trưng đầu vào đều là numerical; dataset không có categorical input feature. `Outcome` là binary categorical target với hai lớp `0` và `1`, vì vậy đây là bài toán classification.\n\nPhân tích mô tả tập trung vào số lượng quan sát, kiểu dữ liệu, giá trị thiếu và các thống kê mô tả cơ bản của toàn bộ tám đặc trưng đầu vào trước khi lựa chọn representation chính.\n",
+        "### 4.1. Phân tích lựa chọn đặc trưng\n\nTrước khi xác định representation đầu vào ở Mục 5, tám predictor gốc của dataset được phân tích theo các tiêu chí kỹ thuật để làm rõ lý do chỉ sáu trong số đó được giữ lại cho hệ thống. Với mỗi feature, các đại lượng sau được tính toán: tỉ lệ giá trị thiếu (`Missing_%`), số giá trị duy nhất, giá trị xuất hiện nhiều nhất (mode) cùng tỉ lệ của nó, độ lệch phân phối (`Skewness`) và tỉ lệ outlier theo phương pháp IQR.\n"
+      ],
+      "io_and_execution_lines": [
+        "Path(filename),",
+        "Path(\"/mnt/data\") / filename,",
+        "search_roots = [Path.cwd() / \"datasets\", Path.cwd(), Path(\"/mnt/data\")]",
+        "f\"Không tìm thấy {filename}. Hãy đặt file trong thư mục notebook hoặc datasets/.\"",
+        "ARTIFACT_DIR = Path(\"artifacts\")",
+        "diabetes_raw = pd.read_csv(DIABETES_PATH)",
+        "final_diabetes_model.fit(X_train_d, y_train_d)",
+        "fitted_model.fit(X_train_d, y_train_d)",
+        "\"artifact\": str(Path(\"diabetes_models\") / f\"{model_id}.joblib\"),",
+        "NEO4J_DIR = Path(\"neo4j_scripts\")",
+        "house_raw = pd.read_csv(HOUSE_PATH)",
+        "final_house_model.fit(X_train_h, y_train_h)",
+        "fitted_model.fit(X_train_h, y_train_h)",
+        "\"artifact\": str(Path(\"house_models\") / f\"{model_id}.joblib\"),",
+        "customers_raw = pd.read_csv(CUSTOMERS_PATH, parse_dates=[\"signup_date\"])",
+        "products_raw = pd.read_csv(PRODUCTS_PATH)",
+        "transactions_raw = pd.read_csv(TRANSACTIONS_PATH, parse_dates=[\"transaction_date\"])",
+        "sessions_raw = pd.read_csv(SESSIONS_PATH, parse_dates=[\"session_date\"])",
+        "reviews_raw = pd.read_csv(REVIEWS_PATH, parse_dates=[\"review_date\"])",
+        "customers_raw = pd.read_csv(CUSTOMERS_PATH, parse_dates=[\"signup_date\"])",
+        "products_raw = pd.read_csv(PRODUCTS_PATH)",
+        "transactions_raw = pd.read_csv(TRANSACTIONS_PATH, parse_dates=[\"transaction_date\"])",
+        "sessions_raw = pd.read_csv(SESSIONS_PATH, parse_dates=[\"session_date\"])",
+        "reviews_raw = pd.read_csv(REVIEWS_PATH, parse_dates=[\"review_date\"])",
+        "final_customer_model.fit(X_train_c, y_train_c)",
+        "fitted_model.fit(X_train_c, y_train_c)",
+        "\"artifact\": str(Path(\"customer_behavior_models\") / f\"{model_id}.joblib\"),"
+      ],
+      "contains_training_calls": true,
+      "kernel": {
+        "display_name": "base",
+        "language": "python",
+        "name": "python3"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "backend/requirements.txt",
+      "text": "Flask>=3.0,<4\nflask-cors>=4.0,<7\njoblib==1.5.2\nnumpy==2.4.6\npandas==3.0.3\nscikit-learn==1.9.0\npytest>=8.0,<10\ngunicorn>=23,<24"
+    },
+    {
+      "path": "datasets/customer_behavior/README.md",
+      "text": "# Synthetic E-Commerce Customer Behavior Dataset\n\n> 10K customers, 120K transactions, 25K reviews for ML projects\n\n**License:** GPL-3.0  \n\n**Kaggle:** [lorenzoscaturchio/ecommerce-behavior](https://www.kaggle.com/datasets/lorenzoscaturchio/ecommerce-behavior)  \n\n## Description\n\nFive relational tables covering the full e-commerce lifecycle: 10K customer profiles, 1K products across 8 categories, 120K transactions, 80K browsing sessions, and 25K product reviews. Tables join cleanly on customer_id and product_id — ready for multi-table ML pipelines without extra preprocessing.\n\nBuilt for: churn prediction (is_churned label on customers), customer lifetime value regression, product recommendation systems, market basket analysis and association rules, RFM segmentation, conversion rate optimization (converted/bounced on sessions), and sentiment analysis on review text.\n\nNotable design choices: transactions include refunded and cancelled statuses for realistic imbalance; sessions capture device, channel, and cart additions for funnel analysis; customers include Premium/Regular/Budget segments for stratified modeling. All data is synthetic.\n\n## Tags\n\n`business`, `classification`, `clustering`, `regression`, `beginner`\n\n## Authors\n\n- **Lorenzo Scaturchio**: Independent ML engineer building synthetic, education-first datasets for reproducible benchmarking and prototyping.\n\n## Coverage\n\n- Temporal: 2023-01-01 to 2025-12-31\n- Geospatial: Global (synthetic)\n\n## DOI and Citations\n\n- DOI: Not assigned\n- Scaturchio, Lorenzo (2026). Synthetic E-Commerce Customer Behavior Dataset. Kaggle Dataset. https://www.kaggle.com/datasets/lorenzoscaturchio/ecommerce-behavior\n\n## Provenance\n\n- Source: Synthetic data generation scripts in this repository\n- Source: Public domain schemas and domain conventions for educational simulation\n- Collection methodology: Programmatic synthetic generation using seeded statistical distributions and rule-based constraints to mimic realistic structure while avoiding direct personal data.\n\n## customers.csv\n\n**Rows:** 5,000  |  **Columns:** 10  |  **Size:** 497.5 KB\n\n| Column | Type | Null% | Unique | Sample values |\n|--------|------|-------|--------|---------------|\n| `customer_id` | string | 0.0% | 5,000 | `C00000`, `C00001`, `C00002` |\n| `signup_date` | string | 0.0% | 1,529 | `2020-02-13`, `2021-10-01`, `2022-06-26` |\n| `age` | integer | 0.0% | 55 | `28`, `22`, `30` |\n| `gender` | string | 0.0% | 4 | `F`, `M`, `Prefer not to say` |\n| `country` | string | 0.0% | 10 | `US`, `UK`, `CA` |\n| `segment` | string | 0.0% | 5 | `Regular`, `Budget Shopper`, `Premium` |\n| `is_churned` | integer | 0.0% | 2 | `0`, `1` |\n| `lifetime_value` | float | 0.0% | 4,939 | `1595.27`, `1160.61`, `3093.32` |\n| `email_opt_in` | integer | 0.0% | 2 | `1`, `0` |\n| `has_app` | integer | 0.0% | 2 | `1`, `0` |\n\n## products.csv\n\n**Rows:** 1,000  |  **Columns:** 11  |  **Size:** 75.0 KB\n\n| Column | Type | Null% | Unique | Sample values |\n|--------|------|-------|--------|---------------|\n| `product_id` | string | 0.0% | 1,000 | `P0000`, `P0001`, `P0002` |\n| `product_name` | string | 0.0% | 1,000 | `PetLife Health #0`, `GlowUp Beauty #1`, `EcoLiving Office Supplies #2` |\n| `category` | string | 0.0% | 15 | `Health`, `Sports`, `Beauty` |\n| `brand` | string | 0.0% | 20 | `PetLife`, `GlowUp`, `EcoLiving` |\n| `price` | float | 0.0% | 948 | `34.82`, `53.35`, `51.45` |\n| `avg_rating` | float | 0.0% | 37 | `4.0`, `3.4`, `5.0` |\n| `num_ratings` | integer | 0.0% | 437 | `137`, `494`, `433` |\n| `stock_quantity` | integer | 0.0% | 625 | `126`, `51`, `928` |\n| `discount_pct` | integer | 0.0% | 9 | `0`, `5`, `50` |\n| `is_featured` | integer | 0.0% | 2 | `0`, `1` |\n| `weight_kg` | float | 0.0% | 349 | `0.35`, `1.76`, `0.21` |\n\n## reviews.csv\n\n**Rows:** 5,000  |  **Columns:** 8  |  **Size:** 1,656.0 KB\n\n| Column | Type | Null% | Unique | Sample values |\n|--------|------|-------|--------|---------------|\n| `review_id` | string | 0.0% | 5,000 | `R22520`, `R11296`, `R15342` |\n| `customer_id` | string | 0.0% | 3,943 | `C06622`, `C01152`, `C05432` |\n| `product_id` | string | 0.0% | 988 | `P0077`, `P0726`, `P0167` |\n| `review_date` | string | 0.0% | 149 | `2023-01-05`, `2023-01-01`, `2023-01-09` |\n| `rating` | integer | 0.0% | 5 | `3`, `4`, `2` |\n| `review_text` | string | 0.0% | 15 | `Amazing value for the price.`, `Love it! Exactly what I needed.`, `Great product! Highly recommend.` |\n| `helpful_votes` | integer | 0.0% | 50 | `44`, `0`, `3` |\n| `verified_purchase` | integer | 0.0% | 2 | `1`, `0` |\n\n## sessions.csv\n\n**Rows:** 5,000  |  **Columns:** 10  |  **Size:** 4,896.2 KB\n\n| Column | Type | Null% | Unique | Sample values |\n|--------|------|-------|--------|---------------|\n| `session_id` | string | 0.0% | 5,000 | `S049064`, `S015939`, `S003166` |\n| `customer_id` | string | 0.0% | 3,695 | `C03202`, `C09526`, `C07034` |\n| `session_date` | string | 0.0% | 4,996 | `2023-01-01 00:24:50`, `2023-01-01 00:42:04`, `2023-01-01 00:55:56` |\n| `device` | string | 0.0% | 3 | `mobile`, `desktop`, `tablet` |\n| `channel` | string | 0.0% | 6 | `organic`, `paid_search`, `direct` |\n| `duration_seconds` | integer | 0.0% | 1,185 | `284`, `72`, `36` |\n| `pages_viewed` | integer | 0.0% | 66 | `1`, `3`, `5` |\n| `converted` | integer | 0.0% | 2 | `0`, `1` |\n| `bounced` | integer | 0.0% | 2 | `0`, `1` |\n| `cart_additions` | integer | 0.0% | 6 | `0`, `1`, `2` |\n\n## transactions.csv\n\n**Rows:** 5,000  |  **Columns:** 11  |  **Size:** 9,606.7 KB\n\n| Column | Type | Null% | Unique | Sample values |\n|--------|------|-------|--------|---------------|\n| `transaction_id` | string | 0.0% | 5,000 | `T077767`, `T021376`, `T117783` |\n| `customer_id` | string | 0.0% | 3,720 | `C08119`, `C08883`, `C05855` |\n| `product_id` | string | 0.0% | 986 | `P0932`, `P0889`, `P0065` |\n| `transaction_date` | string | 0.0% | 4,995 | `2023-01-01 00:23:39`, `2023-01-01 00:26:51`, `2023-01-01 00:45:53` |\n| `quantity` | integer | 0.0% | 7 | `1`, `2`, `3` |\n| `unit_price` | float | 0.0% | 938 | `23.87`, `31.53`, `67.75` |\n| `total_amount` | float | 0.0% | 1,538 | `23.87`, `31.53`, `67.75` |\n| `discount_applied` | integer | 0.0% | 9 | `0`, `5`, `50` |\n| `status` | string | 0.0% | 4 | `completed`, `cancelled`, `refunded` |\n| `payment_method` | string | 0.0% | 6 | `credit_card`, `debit_card`, `paypal` |\n| `shipping_cost` | float | 0.0% | 593 | `0.0`, `8.15`, `6.13` |\n\n## Suggested Use Cases\n\n- Text classification (TF-IDF, BERT embeddings)\n- Named entity recognition or topic modeling\n\n---\n*Generated by `dataset_optimizer.py` — dataset_optimizer.py*\n"
+    },
+    {
+      "path": "web/package.json",
+      "text": "{\n  \"name\": \"assignment01-intelligent-systems-web\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"type\": \"module\",\n  \"scripts\": {\n    \"dev\": \"vite\",\n    \"build\": \"tsc --noEmit && vite build\",\n    \"type-check\": \"tsc --noEmit\",\n    \"lint\": \"tsc --noEmit\"\n  },\n  \"dependencies\": {\n    \"react\": \"^18.3.1\",\n    \"react-dom\": \"^18.3.1\",\n    \"react-router-dom\": \"^6.30.1\"\n  },\n  \"devDependencies\": {\n    \"@types/react\": \"^18.3.18\",\n    \"@types/react-dom\": \"^18.3.5\",\n    \"@vitejs/plugin-react\": \"^4.3.4\",\n    \"typescript\": \"^5.9.2\",\n    \"vite\": \"^5.4.21\"\n  }\n}\n"
+    }
+  ]
+}

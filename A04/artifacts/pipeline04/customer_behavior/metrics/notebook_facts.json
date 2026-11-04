@@ -1,0 +1,151 @@
+{
+  "assignment": "Assignment 04",
+  "domain": "Customer Behavior",
+  "business_problem": "Predict customer churn from e-commerce customer behavior.",
+  "task": "Binary classification: customer behavior features -> is_churned",
+  "dataset_name": "Olist Brazilian E-Commerce Public Dataset - Customer Churn A04 Prepared",
+  "source": "Kaggle: Brazilian E-Commerce Public Dataset by Olist",
+  "source_url": "https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce",
+  "license": "CC BY-NC-SA 4.0",
+  "target": "is_churned",
+  "label_interpretation": {
+    "0": "not churned / returned in outcome window",
+    "1": "churned / no valid repeat order in 180-day outcome window"
+  },
+  "raw_samples": 58101,
+  "samples_after_preparation": 58101,
+  "raw_features": 29,
+  "transformed_features": 169,
+  "numerical_features": [
+    "customer_tenure_days",
+    "days_since_last_order",
+    "order_count",
+    "created_orders",
+    "approved_orders",
+    "invoiced_orders",
+    "processing_orders",
+    "shipped_orders",
+    "delivered_orders",
+    "total_item_price",
+    "total_freight_value",
+    "avg_order_value",
+    "total_payment_value",
+    "item_count",
+    "distinct_products",
+    "category_diversity",
+    "avg_payment_installments",
+    "payment_type_diversity",
+    "avg_review_score",
+    "review_count",
+    "low_review_share",
+    "review_comment_count",
+    "avg_delivery_time_days",
+    "avg_delivery_delay_days",
+    "on_time_delivery_rate"
+  ],
+  "categorical_features": [
+    "primary_category",
+    "primary_payment_type",
+    "customer_city",
+    "customer_state"
+  ],
+  "missing_values_total": 0,
+  "duplicates_removed": 0,
+  "class_distribution": {
+    "0": 665,
+    "1": 57436
+  },
+  "split": {
+    "train": 40670,
+    "validation": 8715,
+    "test": 8716
+  },
+  "preprocessing": "Numeric median imputation + StandardScaler; train-fitted rare category grouping + categorical imputation + OneHotEncoder.",
+  "representation": "Prepared customer-level aggregate tabular vector, shape (samples, transformed features).",
+  "sequence_assessment": "Raw Olist has timestamped orders, but prepared A04 model input is aggregate tabular; no production Conv1D/CNN.",
+  "cnn_methodology": "CNN not used as production model because feature columns have no justified local order.",
+  "models_tested": [
+    "M4 Residual MLP Feature Attention",
+    "M3 Residual MLP",
+    "M1 Basic MLP",
+    "M2 BatchNorm MLP"
+  ],
+  "framework_baselines": [
+    "PyTorch",
+    "Keras"
+  ],
+  "selection_metric": "Validation Macro F1",
+  "selected_model": "M4 Residual MLP Feature Attention",
+  "decision_threshold": 0.2,
+  "test_metrics": {
+    "Threshold": 0.2,
+    "Accuracy": 0.9840523175768702,
+    "Precision": 0.98903888311988,
+    "Recall": 0.9948932219127206,
+    "F1": 0.9919574148006712,
+    "MacroF1": 0.5295357543802014,
+    "BalancedAccuracy": 0.5224466109563602,
+    "ROC-AUC": 0.6545206592386258,
+    "TN": 5,
+    "FP": 95,
+    "FN": 44,
+    "TP": 8572
+  },
+  "artifacts": {
+    "models": [
+      "pipeline04/customer_behavior/models/final_model.keras",
+      "pipeline04/customer_behavior/models/m1_basic_mlp_best.keras",
+      "pipeline04/customer_behavior/models/m2_batchnorm_mlp_best.keras",
+      "pipeline04/customer_behavior/models/m3_residual_mlp_best.keras",
+      "pipeline04/customer_behavior/models/m4_attention_residual_mlp_best.keras",
+      "pipeline04/customer_behavior/models/preprocessor.joblib",
+      "pipeline04/customer_behavior/models/pytorch_basic_mlp_best.pt"
+    ],
+    "metrics": [
+      "pipeline04/customer_behavior/metrics/a03_vs_a04_comparison.csv",
+      "pipeline04/customer_behavior/metrics/architecture_comparison.csv",
+      "pipeline04/customer_behavior/metrics/feature_attention_summary.csv",
+      "pipeline04/customer_behavior/metrics/final_classification_report.csv",
+      "pipeline04/customer_behavior/metrics/final_results.csv",
+      "pipeline04/customer_behavior/metrics/final_test_metrics.json",
+      "pipeline04/customer_behavior/metrics/keras_basic_mlp_classification_report.csv",
+      "pipeline04/customer_behavior/metrics/keras_basic_mlp_thresholds.csv",
+      "pipeline04/customer_behavior/metrics/keras_basic_mlp_validation_metrics.json",
+      "pipeline04/customer_behavior/metrics/keras_vs_pytorch_comparison.csv",
+      "pipeline04/customer_behavior/metrics/m1_basic_mlp_history.csv",
+      "pipeline04/customer_behavior/metrics/m2_batchnorm_mlp_history.csv",
+      "pipeline04/customer_behavior/metrics/m2_batchnorm_mlp_thresholds.csv",
+      "pipeline04/customer_behavior/metrics/m2_batchnorm_mlp_validation_metrics.json",
+      "pipeline04/customer_behavior/metrics/m3_residual_mlp_history.csv",
+      "pipeline04/customer_behavior/metrics/m3_residual_mlp_thresholds.csv",
+      "pipeline04/customer_behavior/metrics/m3_residual_mlp_validation_metrics.json",
+      "pipeline04/customer_behavior/metrics/m4_attention_residual_mlp_history.csv",
+      "pipeline04/customer_behavior/metrics/m4_attention_residual_mlp_thresholds.csv",
+      "pipeline04/customer_behavior/metrics/m4_attention_residual_mlp_validation_metrics.json",
+      "pipeline04/customer_behavior/metrics/notebook_facts.json",
+      "pipeline04/customer_behavior/metrics/pytorch_basic_mlp_classification_report.csv",
+      "pipeline04/customer_behavior/metrics/pytorch_basic_mlp_history.csv",
+      "pipeline04/customer_behavior/metrics/pytorch_basic_mlp_thresholds.csv",
+      "pipeline04/customer_behavior/metrics/pytorch_basic_mlp_validation_metrics.json",
+      "pipeline04/customer_behavior/metrics/validation_error_summary.csv",
+      "pipeline04/customer_behavior/metrics/validation_fp_fn_feature_means.csv",
+      "pipeline04/customer_behavior/metrics/validation_high_confidence_errors.csv"
+    ],
+    "figures": [
+      "pipeline04/customer_behavior/figures/architecture_comparison_macro_f1.png",
+      "pipeline04/customer_behavior/figures/feature_attention_weights.png",
+      "pipeline04/customer_behavior/figures/final_confusion_matrix.png",
+      "pipeline04/customer_behavior/figures/final_roc_curve.png",
+      "pipeline04/customer_behavior/figures/keras_basic_mlp_training_curves.png",
+      "pipeline04/customer_behavior/figures/target_churn_distribution.png"
+    ]
+  },
+  "created_at_utc": "2026-09-15T00:35:45.057434+00:00",
+  "limitations": [
+    "Olist has very low repeat purchase rate, so is_churned=1 is the dominant class and positive-class F1 alone is misleading.",
+    "The churn label is reconstructed from repeat-purchase behavior, not supplied directly by Olist.",
+    "Prepared data collapses timestamps into customer aggregates; sequence models would require a separate leakage-aware event tensor design.",
+    "A03 and A04 datasets differ, so metric differences are not direct benchmarks."
+  ],
+  "total_recorded_train_time_seconds": 118.22730509999928
+}

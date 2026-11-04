@@ -1,0 +1,198 @@
+{
+  "task_name": "Diabetes Classification",
+  "target": "Diabetes_binary",
+  "prediction_time_input": "One row with the CDC/BRFSS health-indicator features in feature_order.",
+  "feature_order": [
+    "HighBP",
+    "HighChol",
+    "CholCheck",
+    "BMI",
+    "Smoker",
+    "Stroke",
+    "HeartDiseaseorAttack",
+    "PhysActivity",
+    "Fruits",
+    "Veggies",
+    "HvyAlcoholConsump",
+    "AnyHealthcare",
+    "NoDocbcCost",
+    "GenHlth",
+    "MentHlth",
+    "PhysHlth",
+    "DiffWalk",
+    "Sex",
+    "Age",
+    "Education",
+    "Income"
+  ],
+  "features": [
+    {
+      "name": "HighBP",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "0 or 1 survey indicator.",
+      "unit": null,
+      "description": "High blood pressure survey indicator."
+    },
+    {
+      "name": "HighChol",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "0 or 1 survey indicator.",
+      "unit": null,
+      "description": "High cholesterol survey indicator."
+    },
+    {
+      "name": "CholCheck",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "0 or 1 survey indicator.",
+      "unit": null,
+      "description": "Cholesterol check in recent years."
+    },
+    {
+      "name": "BMI",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Positive numeric body-mass-index value.",
+      "unit": "kg/m2",
+      "description": "Body mass index."
+    },
+    {
+      "name": "Smoker",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "0 or 1 survey indicator.",
+      "unit": null,
+      "description": "Smoked at least 100 cigarettes in lifetime."
+    },
+    {
+      "name": "Stroke",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "0 or 1 survey indicator.",
+      "unit": null,
+      "description": "Stroke history indicator."
+    },
+    {
+      "name": "HeartDiseaseorAttack",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "0 or 1 survey indicator.",
+      "unit": null,
+      "description": "Coronary heart disease or myocardial infarction history."
+    },
+    {
+      "name": "PhysActivity",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "0 or 1 survey indicator.",
+      "unit": null,
+      "description": "Physical activity in past 30 days, excluding job activity."
+    },
+    {
+      "name": "Fruits",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "0 or 1 survey indicator.",
+      "unit": null,
+      "description": "Consumes fruit at least once per day."
+    },
+    {
+      "name": "Veggies",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "0 or 1 survey indicator.",
+      "unit": null,
+      "description": "Consumes vegetables at least once per day."
+    },
+    {
+      "name": "HvyAlcoholConsump",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "0 or 1 survey indicator.",
+      "unit": null,
+      "description": "Heavy alcohol consumption indicator."
+    },
+    {
+      "name": "AnyHealthcare",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "0 or 1 survey indicator.",
+      "unit": null,
+      "description": "Has any healthcare coverage."
+    },
+    {
+      "name": "NoDocbcCost",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "0 or 1 survey indicator.",
+      "unit": null,
+      "description": "Could not see a doctor because of cost."
+    },
+    {
+      "name": "GenHlth",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Ordinal code 1 to 5.",
+      "unit": null,
+      "description": "General health ordinal survey code."
+    },
+    {
+      "name": "MentHlth",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Integer count from 0 to 30.",
+      "unit": "days",
+      "description": "Days of poor mental health in the last 30 days."
+    },
+    {
+      "name": "PhysHlth",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Integer count from 0 to 30.",
+      "unit": "days",
+      "description": "Days of poor physical health in the last 30 days."
+    },
+    {
+      "name": "DiffWalk",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "0 or 1 survey indicator.",
+      "unit": null,
+      "description": "Difficulty walking or climbing stairs."
+    },
+    {
+      "name": "Sex",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "0 or 1 survey indicator.",
+      "unit": null,
+      "description": "Sex survey code from the source dataset."
+    },
+    {
+      "name": "Age",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Ordinal age-group code 1 to 13.",
+      "unit": null,
+      "description": "Age group ordinal code from the source dataset."
+    },
+    {
+      "name": "Education",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Ordinal education code 1 to 6.",
+      "unit": null,
+      "description": "Education-level ordinal code from the source dataset."
+    },
+    {
+      "name": "Income",
+      "type": "number",
+      "required": true,
+      "allowed_or_category_notes": "Ordinal income code 1 to 8.",
+      "unit": null,
+      "description": "Income-level ordinal code from the source dataset."
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "project": "A04",
+  "framework": "torch",
+  "status": "PASS",
+  "records": [
+    {
+      "task": "diabetes",
+      "checkpoint": "pytorch_basic_mlp_best.pt",
+      "class": "TorchMLP",
+      "shape": [
+        1,
+        21
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "input_scope": "synthetic tensor matching trained model signature",
+      "device": "cpu"
+    },
+    {
+      "task": "house_price",
+      "checkpoint": "pytorch_basic_mlp_regressor_best.pt",
+      "class": "TorchMLPRegressor",
+      "shape": [
+        1,
+        93
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "input_scope": "synthetic tensor matching trained model signature",
+      "device": "cpu"
+    },
+    {
+      "task": "customer_behavior",
+      "checkpoint": "pytorch_basic_mlp_best.pt",
+      "class": "TorchMLP",
+      "shape": [
+        1,
+        169
+      ],
+      "output_shape": [
+        1,
+        1
+      ],
+      "input_scope": "synthetic tensor matching trained model signature",
+      "device": "cpu"
+    },
+    {
+      "task": "mnist",
+      "checkpoint": "pytorch_basic_cnn_best.pt",
+      "class": "TorchBasicCNN",
+      "shape": [
+        1,
+        1,
+        28,
+        28
+      ],
+      "output_shape": [
+        1,
+        10
+      ],
+      "input_scope": "synthetic tensor matching trained model signature",
+      "device": "cpu"
+    },
+    {
+      "task": "cifar10",
+      "checkpoint": "pytorch_basic_cnn_best.pt",
+      "class": "TorchBasicCNN",
+      "shape": [
+        1,
+        3,
+        32,
+        32
+      ],
+      "output_shape": [
+        1,
+        10
+      ],
+      "input_scope": "synthetic tensor matching trained model signature",
+      "device": "cpu"
+    }
+  ],
+  "python": "/home/tuananh/.local/share/ai-term-paper-v3/.venv-torch/bin/python",
+  "training_steps": 0,
+  "scientific_TEST_forward": 0,
+  "input_policy": "synthetic fixture or explicitly saved TRAIN/demo input only"
+}

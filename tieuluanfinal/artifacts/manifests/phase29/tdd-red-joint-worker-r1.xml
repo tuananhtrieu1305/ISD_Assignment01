@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="6.346" timestamp="2026-10-19T17:09:36.256819+07:00" hostname="LaptopVJP"><testcase classname="tests.lstm29.test_joint_worker" name="test_synthetic_joint_worker_saves_one_pass_predictions_and_never_updates_weights" time="0.239"><failure message="AttributeError: &lt;module 'src.ch04_rnn_lstm.phase29.joint_evaluation' from '/mnt/c/DATA/assign/src/ch04_rnn_lstm/phase29/joint_evaluation.py'&gt; has no attribute 'METRICS'">synthetic_run = (PosixPath('/tmp/pytest-of-tuananh/pytest-3/test_synthetic_joint_worker_sa0'), PosixPath('/tmp/pytest-of-tuananh/pytes...ker_sa0/experiments/config.json'), &lt;tests.lstm29.test_experiment.synthetic_run.&lt;locals&gt;.Data object at 0x7cd6591857d0&gt;)
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7cd659f71a90&gt;
+
+    def test_synthetic_joint_worker_saves_one_pass_predictions_and_never_updates_weights(synthetic_run, monkeypatch):
+        root, config_path, data = synthetic_run
+        run = "synthetic_lstm_joint"
+        folder = experiment.BASE / "runs" / run
+        contract = folder / "model_contract.json"
+        write_once(contract, {"synthetic": True})
+        entry = {"run_id": run, "dataset_id": "ch4_gold_pink_sheet", "fold": None, "seed": 17,
+                 "method": "scratch", "config": protocol.ref(config_path),
+                 "model_contract": protocol.ref(contract), "comparison_group_sha256": "b" * 64}
+        monkeypatch.setattr(experiment, "check_sources", lambda: {"runs": [entry]})
+        experiment.train_run(run)
+        selected_ref = protocol.ref(folder / "selection.json")
+        selected = read_json(protocol.checked(selected_ref))
+        member = {**entry, "family": "lstm", "owner_phase": 29, "selection": selected_ref}
+        before = protocol.ref(protocol.checked(selected["checkpoint"]))
+        gate = JointGate(root / "synthetic_seal")
+        gate.lock({"phase": 29, "dataset_id": "ch4_gold_pink_sheet", "evidence_kind": "synthetic_fixture",
+                   "evaluator_sha256": "a" * 64, "pretest_verification_sha256": "b" * 64,
+                   "families_locked": ["rnn", "lstm"], "approved_run_ids": [run], "members": [member]})
+        gate.begin("a" * 64)
+        gate.materialize("a" * 64)
+        calls = []
+    
+        class Cache:
+            ids = ["synthetic_test_a", "synthetic_test_b"]
+            horizons = data.horizons
+            metadata = {"dataset_id": entry["dataset_id"], "input_shape": [5, 2],
+                        "preprocessing": data.contract()["preprocessing"]}
+            rows = {key: {"series": "S", "target_times": ["2000-01-01"] * 3} for key in ("synthetic_test_a", "synthetic_test_b")}
+    
+            def batch(self, ids):
+                calls.extend(ids)
+                return data.batch(["a" if k.endswith("a") else "b" for k in ids])
+    
+            def targets(self, ids):
+                return data.targets(["a" if k.endswith("a") else "b" for k in ids])
+    
+            def series(self, ids):
+                return ["S"] * len(ids)
+    
+        for name in ("METRICS", "PREDICTIONS", "BASE"):
+&gt;           monkeypatch.setattr(joint_evaluation, name, root / "joint" / name.lower())
+E           AttributeError: &lt;module 'src.ch04_rnn_lstm.phase29.joint_evaluation' from '/mnt/c/DATA/assign/src/ch04_rnn_lstm/phase29/joint_evaluation.py'&gt; has no attribute 'METRICS'
+
+tests/lstm29/test_joint_worker.py:56: AttributeError</failure></testcase></testsuite></testsuites>

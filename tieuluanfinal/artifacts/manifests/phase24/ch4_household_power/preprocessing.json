@@ -1,0 +1,141 @@
+{
+  "categorical": {},
+  "features": [
+    "Global_active_power",
+    "Global_active_power_missing",
+    "Global_reactive_power",
+    "Global_reactive_power_missing",
+    "Voltage",
+    "Voltage_missing",
+    "Global_intensity",
+    "Global_intensity_missing",
+    "Sub_metering_1",
+    "Sub_metering_1_missing",
+    "Sub_metering_2",
+    "Sub_metering_2_missing",
+    "Sub_metering_3",
+    "Sub_metering_3_missing"
+  ],
+  "fit_count": 24212,
+  "fit_ids_sha256": "132932f37c7f059206e831dcc877e811c73630c09ac0c867befbcdf3ac37e5d6",
+  "fit_scope": "train_only",
+  "fit_track": "all_observed_training_prefix_times_only; same contract for all implementations",
+  "horizons": [
+    1,
+    6,
+    24
+  ],
+  "input_columns": [
+    "Global_active_power",
+    "Global_active_power_missing",
+    "Global_reactive_power",
+    "Global_reactive_power_missing",
+    "Voltage",
+    "Voltage_missing",
+    "Global_intensity",
+    "Global_intensity_missing",
+    "Sub_metering_1",
+    "Sub_metering_1_missing",
+    "Sub_metering_2",
+    "Sub_metering_2_missing",
+    "Sub_metering_3",
+    "Sub_metering_3_missing"
+  ],
+  "lookback": 168,
+  "numeric": {
+    "Global_active_power": {
+      "all_missing_fallback": false,
+      "mean": 1.0845318918744768,
+      "median": 0.7641666666666667,
+      "std": 0.9264772667927292
+    },
+    "Global_active_power_missing": {
+      "all_missing_fallback": false,
+      "mean": 0.005906162233603172,
+      "median": 0.0,
+      "std": 0.07662427475202314
+    },
+    "Global_intensity": {
+      "all_missing_fallback": false,
+      "mean": 4.610863804880407,
+      "median": 3.29,
+      "std": 3.882857096295149
+    },
+    "Global_intensity_missing": {
+      "all_missing_fallback": false,
+      "mean": 0.005906162233603172,
+      "median": 0.0,
+      "std": 0.07662427475202314
+    },
+    "Global_reactive_power": {
+      "all_missing_fallback": false,
+      "mean": 0.12097702295515873,
+      "median": 0.10410000000000001,
+      "std": 0.06661757531048923
+    },
+    "Global_reactive_power_missing": {
+      "all_missing_fallback": false,
+      "mean": 0.005906162233603172,
+      "median": 0.0,
+      "std": 0.07662427475202314
+    },
+    "Sub_metering_1": {
+      "all_missing_fallback": false,
+      "mean": 1.1433177977929807,
+      "median": 0.0,
+      "std": 3.596542282254486
+    },
+    "Sub_metering_1_missing": {
+      "all_missing_fallback": false,
+      "mean": 0.005906162233603172,
+      "median": 0.0,
+      "std": 0.07662427475202314
+    },
+    "Sub_metering_2": {
+      "all_missing_fallback": false,
+      "mean": 1.3625410382918188,
+      "median": 0.3333333333333333,
+      "std": 4.384896305387753
+    },
+    "Sub_metering_2_missing": {
+      "all_missing_fallback": false,
+      "mean": 0.005906162233603172,
+      "median": 0.0,
+      "std": 0.07662427475202314
+    },
+    "Sub_metering_3": {
+      "all_missing_fallback": false,
+      "mean": 6.041706525542479,
+      "median": 1.6,
+      "std": 7.216743622344401
+    },
+    "Sub_metering_3_missing": {
+      "all_missing_fallback": false,
+      "mean": 0.005906162233603172,
+      "median": 0.0,
+      "std": 0.07662427475202314
+    },
+    "Voltage": {
+      "all_missing_fallback": false,
+      "mean": 240.49118838042457,
+      "median": 240.70716666666667,
+      "std": 3.04290092789739
+    },
+    "Voltage_missing": {
+      "all_missing_fallback": false,
+      "mean": 0.005906162233603172,
+      "median": 0.0,
+      "std": 0.07662427475202314
+    }
+  },
+  "output_dtype": "float32",
+  "output_width": 14,
+  "schema_version": "3.0.0",
+  "target_imputation": "never",
+  "target_transform": {
+    "mean": 1.0864845599475577,
+    "name": "standardize",
+    "std": 0.9287213729270289
+  },
+  "unknown_category": "all_zero_one_hot"
+}

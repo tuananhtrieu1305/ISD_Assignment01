@@ -1,0 +1,108 @@
+{
+  "case_id": "p01_development_missing_00",
+  "split": "development",
+  "category": "missing",
+  "question": "Use this incomplete profile to produce a numeric diabetes classification.",
+  "variant": "P0",
+  "reference_score": null,
+  "result": {
+    "request_id": "p01_0ca1677fb9664f1ebc1b1b371dbeb89c",
+    "variant": "P0",
+    "status": "clarification",
+    "risk": null,
+    "knowledge": null,
+    "profile_validation": {
+      "valid": false,
+      "missing": [
+        "income"
+      ],
+      "invalid": [],
+      "extra": []
+    },
+    "verification": {
+      "status": "not_run",
+      "checks": {}
+    },
+    "answer": {
+      "status": "clarification",
+      "sections": [
+        {
+          "title": "Cần bổ sung hồ sơ",
+          "text": "Thiếu: income; sai: "
+        }
+      ],
+      "variant": "P0",
+      "limitation": "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh.",
+      "synthesis": "unverified_tool_outputs"
+    },
+    "errors": [],
+    "trace": [
+      {
+        "node_id": "n1",
+        "agent": "Direct",
+        "tool": "plan_request",
+        "parent_ids": [],
+        "duration_ms": 0.14114899931882974,
+        "outcome": "ok",
+        "output": {
+          "need_risk": true,
+          "need_knowledge": false,
+          "mode": "numeric",
+          "policy": null
+        }
+      },
+      {
+        "node_id": "n2",
+        "agent": "Risk Agent",
+        "tool": "validate_profile",
+        "parent_ids": [
+          "n1"
+        ],
+        "duration_ms": 0.07843900039006257,
+        "outcome": "clarification",
+        "output": {
+          "valid": false,
+          "missing": [
+            "income"
+          ],
+          "invalid": [],
+          "extra": []
+        }
+      },
+      {
+        "node_id": "n3",
+        "agent": "Direct",
+        "tool": "compose",
+        "parent_ids": [
+          "n2"
+        ],
+        "duration_ms": 0.02955599939014064,
+        "outcome": "ok",
+        "output": {
+          "status": "clarification",
+          "section_count": 1
+        }
+      }
+    ],
+    "tool_calls": 0,
+    "retrieval_loops": 0,
+    "latency_ms": 5.884272000002966,
+    "limitations": [
+      "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh."
+    ],
+    "input_sha256": "9efc913d7d7c3a3472879772eb0e2126809ec322591edd9adb5028f3763b1f36",
+    "worker_terminated": true
+  },
+  "metrics": {
+    "automatic_success": true,
+    "numeric_parity": null,
+    "citation_integrity_format": null,
+    "known_positive_hit_at_10": null,
+    "known_positive_rr": null,
+    "support_review_required": false,
+    "task_success": null,
+    "manual_support": null
+  },
+  "gold_document_ids": [],
+  "scope": "pipeline/synthetic tasks; not clinical accuracy"
+}

@@ -1,0 +1,81 @@
+{
+  "project": "A01",
+  "datasets": [
+    {
+      "dataset_id": "a01_01",
+      "name": "Pima diabetes",
+      "status": "available",
+      "files": [
+        {
+          "path": "A01/datasets/diabetes/diabetes.csv",
+          "sha256": "d943613ee7b914cea44b1063467217c6d7a10ac9537c3be70845ceb54259d78c",
+          "bytes": 24938
+        }
+      ],
+      "source": "https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database",
+      "note": "",
+      "schema": {
+        "diabetes.csv": {
+          "rows": 768,
+          "columns": [
+            "Pregnancies",
+            "Glucose",
+            "BloodPressure",
+            "SkinThickness",
+            "Insulin",
+            "BMI",
+            "DiabetesPedigreeFunction",
+            "Age",
+            "Outcome"
+          ],
+          "delimiter": ",",
+          "bytes": 24938,
+          "sha256": "d943613ee7b914cea44b1063467217c6d7a10ac9537c3be70845ceb54259d78c",
+          "crlf_equivalent_sha256": "e25ebf48cce3c03cacbbdd007e356ad0a2f7818747cf471f79371f9753869697"
+        }
+      },
+      "split_policy": "preserve each assignment's split artifacts; do not substitute V3 splits"
+    },
+    {
+      "dataset_id": "a01_02",
+      "name": "Vietnam house prices",
+      "status": "available",
+      "files": [
+        {
+          "path": "A01/datasets/housing_price/vietnam_housing_dataset.csv",
+          "sha256": "b184ef7884b9fe50077fe1e15674d044e48e2a266f87e27ec44f941b9cd3b161",
+          "bytes": 3502455
+        }
+      ],
+      "source": "notebook source/metadata; preserve the original local snapshot",
+      "note": "",
+      "schema": {
+        "vietnam_housing_dataset.csv": {
+          "rows": 30229,
+          "columns": [
+            "Address",
+            "Area",
+            "Frontage",
+            "Access Road",
+            "House direction",
+            "Balcony direction",
+            "Floors",
+            "Bedrooms",
+            "Bathrooms",
+            "Legal status",
+            "Furniture state",
+            "Price"
+          ],
+          "delimiter": ",",
+          "bytes": 3502455,
+          "sha256": "b184ef7884b9fe50077fe1e15674d044e48e2a266f87e27ec44f941b9cd3b161",
+          "crlf_equivalent_sha256": "7ee188d69aca06349a81bac0c2d2d1503058d5aec7124edfd075154fa87d97c8"
+        }
+      },
+      "split_policy": "preserve each assignment's split artifacts; do not substitute V3 splits"
+    }
+  ],
+  "physical_path_base": "repository root",
+  "resolver": "scripts/datasets.py",
+  "raw_modified": false
+}

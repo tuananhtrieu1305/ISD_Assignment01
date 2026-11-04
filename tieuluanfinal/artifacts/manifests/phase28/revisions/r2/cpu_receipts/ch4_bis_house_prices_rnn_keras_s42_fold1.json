@@ -1,0 +1,94 @@
+{
+  "canonical_x_sha256": "5e770ce7f0b4ef101f531035bd2a21d0c32d9321aaa3afece53be2f941127467",
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_bis_house_prices_rnn_keras_s42_fold1/best.npz",
+    "sha256": "9c3c3d4b7ce9e7956d1fd53d4545df4d5e68c81547a878fb5acb0f2492040057"
+  },
+  "checkpoint_metadata": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_bis_house_prices_rnn_keras_s42_fold1/best.json",
+    "sha256": "1ae71a07cd97042725ea228e5132d56da0593ba4da64ed3787667920dba43bed"
+  },
+  "comparisons": {
+    "atol": 1e-05,
+    "cpu_reference": {
+      "max_absolute_error": 1.7881393432617188e-07,
+      "output": [
+        [
+          -0.396618127822876,
+          -0.42030006647109985,
+          -0.30382561683654785
+        ],
+        [
+          -0.26293379068374634,
+          -0.3410685658454895,
+          -0.23460644483566284
+        ],
+        [
+          -0.41133201122283936,
+          -0.46942138671875,
+          -0.33528196811676025
+        ],
+        [
+          -0.31260812282562256,
+          -0.3680401146411896,
+          -0.25542527437210083
+        ]
+      ],
+      "status": "PASS"
+    },
+    "original_gpu_cpu_gate": {
+      "max_absolute_error": 1.1920928955078125e-07,
+      "output": null,
+      "source": {
+        "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s42_fold1/cpu_demo.json",
+        "sha256": "ac0df8b51836afd1cc634ea30fdc4f929f00d47536ac4dfcde45ff3d5375db03"
+      },
+      "status": "PASS"
+    },
+    "rtol": 0.0001
+  },
+  "ids": [
+    "Q.AT.N.628/2004-10-01T00:00:00",
+    "Q.AT.N.628/2005-01-01T00:00:00",
+    "Q.AT.N.628/2005-04-01T00:00:00",
+    "Q.AT.N.628/2005-07-01T00:00:00"
+  ],
+  "input_split": "train",
+  "native_cpu_device": "cpu",
+  "native_cpu_engine": "tensorflow",
+  "portable_cpu_output": [
+    [
+      -0.3966180682182312,
+      -0.42030006647109985,
+      -0.30382561683654785
+    ],
+    [
+      -0.26293373107910156,
+      -0.3410685360431671,
+      -0.23460644483566284
+    ],
+    [
+      -0.4113318920135498,
+      -0.4694212079048157,
+      -0.3352817893028259
+    ],
+    [
+      -0.31260809302330017,
+      -0.3680401146411896,
+      -0.25542527437210083
+    ]
+  ],
+  "revision": {
+    "path": "artifacts/manifests/phase28/revisions/r2/revision.json",
+    "sha256": "11c7251f5dd092ba7c109f4ea512d3062de3cc6dd1514f683dd7aa06bbc771b7"
+  },
+  "run_id": "ch4_bis_house_prices_rnn_keras_s42_fold1",
+  "selection": {
+    "path": "artifacts/manifests/phase28/runs/ch4_bis_house_prices_rnn_keras_s42_fold1/selection.json",
+    "sha256": "e8fb381253a1cb7515d04d177d01908a035de4f81e24b0bbcc9cff6673034415"
+  },
+  "status": "PASS",
+  "test_executed": false,
+  "validation_executed": false,
+  "weights_updated": false
+}

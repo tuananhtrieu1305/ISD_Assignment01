@@ -1,0 +1,44 @@
+[
+  {
+    "module": "generation",
+    "old": "SYSTEM_PROMPT=",
+    "new": "def load_source_verification_policy(path=None):\n    \"\"\"Read the same explicit source standard used by direct and RAG prompts.\"\"\"\n    target=Path(path) if path is not None else Path(__file__).resolve().parents[3]/'config/prompts/source_verification_vi.txt'\n    text=target.read_text(encoding='utf-8').strip()\n    if not text:raise ValueError('Shared source-verification policy is empty')\n    return text\n\n\nSOURCE_VERIFICATION_POLICY=load_source_verification_policy()\nSOURCE_POLICY_SHA256=hashlib.sha256(SOURCE_VERIFICATION_POLICY.encode('utf-8')).hexdigest()\n\nSYSTEM_PROMPT=",
+    "count": 1
+  },
+  {
+    "module": "generation",
+    "old": "(\"system\", SYSTEM_PROMPT),",
+    "new": "(\"system\", SYSTEM_PROMPT+\" \"+SOURCE_VERIFICATION_POLICY),",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "from .generation import GeminiGenerator,CALIBRATION_POLICY,risk_summary",
+    "new": "from .generation import GeminiGenerator,CALIBRATION_POLICY,risk_summary,SOURCE_VERIFICATION_POLICY,SOURCE_POLICY_SHA256",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'runtime_revision':'full-demo-r8'",
+    "new": "'runtime_revision':'source-verification-r9'",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'raw_profile_sent':False",
+    "new": "'raw_profile_sent':False,'source_policy_sha256':SOURCE_POLICY_SHA256",
+    "count": 1
+  },
+  {
+    "module": "agents",
+    "old": "'prompt_revision':'full-demo-r8'",
+    "new": "'prompt_revision':'source-verification-r9','source_policy_sha256':SOURCE_POLICY_SHA256",
+    "count": 2
+  },
+  {
+    "module": "agents",
+    "old": "+CALIBRATION_POLICY+' QUESTION='+question",
+    "new": "+CALIBRATION_POLICY+' '+SOURCE_VERIFICATION_POLICY+' QUESTION='+question",
+    "count": 1
+  }
+]

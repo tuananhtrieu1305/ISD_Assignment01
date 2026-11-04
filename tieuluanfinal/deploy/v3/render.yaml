@@ -1,0 +1,27 @@
+# Import only after user reviews service settings. This does not deploy automatically.
+services:
+  - type: web
+    name: ai-term-paper-v3-api
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: pip install --require-hashes -r deploy/v3/requirements-cpu.lock && python -m apps.api.v3.check_bundle
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 2 --timeout 120 'apps.api.v3.server:create_app()'
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.17
+      - key: AI_SERVING_MODE
+        value: cpu
+      - key: AI_JOB_DB
+        value: /tmp/ai-paper-v3/jobs.db
+      - key: AI_CORS_ORIGINS
+        sync: false
+      - key: AI_TRUSTED_HOSTS
+        value: localhost,127.0.0.1,.onrender.com
+      - key: OPENBLAS_NUM_THREADS
+        value: '1'
+      - key: OMP_NUM_THREADS
+        value: '1'
+      - key: PYTHONDONTWRITEBYTECODE
+        value: '1'

@@ -1,0 +1,153 @@
+{
+  "categories": {
+    "contact": {
+      "cellular": 29285,
+      "telephone": 2906,
+      "unknown": 13020
+    },
+    "default": {
+      "no": 44396,
+      "yes": 815
+    },
+    "education": {
+      "primary": 6851,
+      "secondary": 23202,
+      "tertiary": 13301,
+      "unknown": 1857
+    },
+    "housing": {
+      "no": 20081,
+      "yes": 25130
+    },
+    "job": {
+      "admin.": 5171,
+      "blue-collar": 9732,
+      "entrepreneur": 1487,
+      "housemaid": 1240,
+      "management": 9458,
+      "retired": 2264,
+      "self-employed": 1579,
+      "services": 4154,
+      "student": 938,
+      "technician": 7597,
+      "unemployed": 1303,
+      "unknown": 288
+    },
+    "loan": {
+      "no": 37967,
+      "yes": 7244
+    },
+    "marital": {
+      "divorced": 5207,
+      "married": 27214,
+      "single": 12790
+    },
+    "month": {
+      "apr": 2932,
+      "aug": 6247,
+      "dec": 214,
+      "feb": 2649,
+      "jan": 1403,
+      "jul": 6895,
+      "jun": 5341,
+      "mar": 477,
+      "may": 13766,
+      "nov": 3970,
+      "oct": 738,
+      "sep": 579
+    },
+    "poutcome": {
+      "failure": 4901,
+      "other": 1840,
+      "success": 1511,
+      "unknown": 36959
+    }
+  },
+  "columns": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "contact",
+    "day",
+    "month",
+    "campaign",
+    "pdays",
+    "previous",
+    "poutcome"
+  ],
+  "frame_memory_bytes": 27581889,
+  "missing": {
+    "age": 0,
+    "balance": 0,
+    "campaign": 0,
+    "contact": 0,
+    "day": 0,
+    "default": 0,
+    "education": 0,
+    "housing": 0,
+    "job": 0,
+    "loan": 0,
+    "marital": 0,
+    "month": 0,
+    "pdays": 0,
+    "poutcome": 0,
+    "previous": 0
+  },
+  "numeric": {
+    "age": {
+      "iqr_lower_train": 10.5,
+      "iqr_upper_train": 70.5,
+      "max": 95,
+      "median": 39.0,
+      "min": 18,
+      "outlier_count_full_source": 487
+    },
+    "balance": {
+      "iqr_lower_train": -1925.375,
+      "iqr_upper_train": 3395.625,
+      "max": 102127,
+      "median": 448.0,
+      "min": -8019,
+      "outlier_count_full_source": 4854
+    },
+    "campaign": {
+      "iqr_lower_train": -2.0,
+      "iqr_upper_train": 6.0,
+      "max": 63,
+      "median": 2.0,
+      "min": 1,
+      "outlier_count_full_source": 3064
+    },
+    "day": {
+      "iqr_lower_train": -11.5,
+      "iqr_upper_train": 40.5,
+      "max": 31,
+      "median": 16.0,
+      "min": 1,
+      "outlier_count_full_source": 0
+    },
+    "pdays": {
+      "iqr_lower_train": -1.0,
+      "iqr_upper_train": -1.0,
+      "max": 871,
+      "median": -1.0,
+      "min": -1,
+      "outlier_count_full_source": 8257
+    },
+    "previous": {
+      "iqr_lower_train": 0.0,
+      "iqr_upper_train": 0.0,
+      "max": 275,
+      "median": 0.0,
+      "min": 0,
+      "outlier_count_full_source": 8257
+    }
+  },
+  "outlier_policy": "1.5 IQR bounds from train only; descriptive flags, no automatic row deletion",
+  "records": 45211
+}

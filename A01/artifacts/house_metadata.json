@@ -1,0 +1,50 @@
+{
+  "task": "regression",
+  "features": [
+    "Area",
+    "Frontage",
+    "Access Road",
+    "Floors",
+    "Bedrooms",
+    "Bathrooms"
+  ],
+  "target": "Price",
+  "selected_model": "Gradient Boosting Regressor",
+  "recommended_model_id": "gradient_boosting_regressor",
+  "selection_metric": "mean_cv_rmse",
+  "available_models": {
+    "linear_regression": {
+      "name": "Linear Regression",
+      "artifact": "house_models\\linear_regression.joblib",
+      "recommended": false
+    },
+    "knn_regressor": {
+      "name": "KNN Regressor",
+      "artifact": "house_models\\knn_regressor.joblib",
+      "recommended": false
+    },
+    "decision_tree_regressor": {
+      "name": "Decision Tree Regressor",
+      "artifact": "house_models\\decision_tree_regressor.joblib",
+      "recommended": false
+    },
+    "random_forest_regressor": {
+      "name": "Random Forest Regressor",
+      "artifact": "house_models\\random_forest_regressor.joblib",
+      "recommended": false
+    },
+    "gradient_boosting_regressor": {
+      "name": "Gradient Boosting Regressor",
+      "artifact": "house_models\\gradient_boosting_regressor.joblib",
+      "recommended": true
+    }
+  },
+  "test_metrics": {
+    "MAE": 1.5022895820556208,
+    "MSE": 3.456910367640384,
+    "RMSE": 1.859276839967729,
+    "R2": 0.29102295662466127,
+    "MAPE": 0.3477578836385956
+  },
+  "price_unit_note": "Prediction is in the same unit as dataset Price."
+}

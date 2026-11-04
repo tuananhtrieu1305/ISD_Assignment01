@@ -1,0 +1,42 @@
+{
+  "available": false,
+  "composition": [
+    "browse"
+  ],
+  "composition_plain": "Đọc entity JSON và kiểm revision/hash",
+  "config_refs": [
+    {
+      "path": "experiments/configs/ch5/phase14_locked.json",
+      "sha256": "ea5b3546a8e408648f5024d62bd0cb3584784ead2f594e126d2dea356240653d"
+    },
+    {
+      "path": "experiments/configs/ch5/phase15_locked.json",
+      "sha256": "560c671a3920bd6bde9f7fc005f3c952f857c55969c989bb6109932623210c9e"
+    },
+    {
+      "path": "apps/api/models/kg_manifest.json",
+      "sha256": "8b58e70d6d892cd697e8174ccdbaad78bcd0098a9cd2bc23ca2fda5724823073"
+    }
+  ],
+  "dataset_id": "ch5_wikidata_subgraphs",
+  "demo_scope": "phase30.compact_free_question_demo.1; compact label matching is not historic query-ID graph evaluation; LSA is not a pretrained transformer",
+  "functions": [
+    {
+      "corner_case": "Không có QID: không tải mạng hoặc tạo QA score",
+      "formula": null,
+      "id": "browse",
+      "input": "one of ten allowlisted QIDs",
+      "output": "claims/revision/citation",
+      "role": "Đọc entity JSON và kiểm revision/hash",
+      "signature": "inspect_entity(qid)",
+      "source": "src/ch05_knowledge_rag/structural.py"
+    }
+  ],
+  "historical_test_rerun": false,
+  "learnable_layers": null,
+  "lifecycle": "structural_only_unavailable_for_qa",
+  "method": "B2",
+  "model_id": "ch5_wikidata_subgraphs_b2_compact_demo",
+  "parameter_count": null,
+  "schema_version": "phase30.retrieval_pipeline.1"
+}

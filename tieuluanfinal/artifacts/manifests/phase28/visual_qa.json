@@ -1,0 +1,46 @@
+{
+  "phase": 28,
+  "status": "PASS",
+  "reviewer": "assistant_visual_inspection",
+  "date": "2026-10-18",
+  "method": "Viewed all seven PNGs with view_image; viewed the two revised legend layouts again. Other five final PNG hashes are unchanged from the viewed versions.",
+  "scope": "Scientific figures only; DOCX page rendering remains Phase34-35.",
+  "figures": [
+    {
+      "path": "artifacts/figures/phase28/horizon_errors.png",
+      "sha256": "01144e65881dca92c53284859f0570d76d7a38ef0af19f0b3e77913051d75c7c",
+      "notes": "Three separate unit/log axes, correctly ordered source horizons, implementation/baseline legend and readable mean/SD marks; no clipping or label overlap. Similar curves overlap naturally; tables retain exact numbers."
+    },
+    {
+      "path": "artifacts/figures/phase28/rolling_validation.png",
+      "sha256": "8720c6fade2f0195296407cd22d98c91f17dcebc376314a5bf49217ba0c72ffd",
+      "notes": "Three expanding folds, per-panel units, log/error-bar labels readable. Shared legend moved outside axes before sealing so no forecast/error curve is obscured."
+    },
+    {
+      "path": "artifacts/figures/phase28/forecast_examples.png",
+      "sha256": "df0b5e0482ff38b110edf223601fede69781406e5473a26d027ac950e11970cf",
+      "notes": "Observed and all five methods visible; original units and date ticks readable. Shared legend below panels no longer covers the Gold peak. Fixed seed42/first-series/first120 selection and largest horizon stated in manuscript."
+    },
+    {
+      "path": "artifacts/figures/phase28/bis_per_series.png",
+      "sha256": "44a9ee97fccf8f8156871b417d4de163cd8201da63530c9cf0797eccfd02e5b1",
+      "notes": "49 economy-code rows and three implementation columns, one common linear count-free RMSE color scale with index-point units. Labels legible without crowded cell annotations."
+    },
+    {
+      "path": "artifacts/figures/phase28/learning_curves.png",
+      "sha256": "9b9544fc38e8b23699e7fa55d4b1394bdeb3426ea102b82eac3387394246daf9",
+      "notes": "All nine panels readable; train/validation distinguished by solid/dashed lines, log normalized-MSE and selected-epoch marker stated. Poor Gold validation performance remains visible."
+    },
+    {
+      "path": "artifacts/figures/phase28/train_gradient_by_time.png",
+      "sha256": "b1c5cc1d10ec6233d28e29896e2264bd89eb1654334b674825afc53e259a9978",
+      "notes": "All nine TRAIN-only panels show oldest-to-newest positions and log RMS sensitivity; no inserted epsilon, clipped titles or causal-explanation claim."
+    },
+    {
+      "path": "artifacts/figures/phase28/train_time.png",
+      "sha256": "ff7dc289de5620eb7606fb945dc7326da3928a5e07d62bb1adeaa48df14a0ed3",
+      "notes": "Seconds/log axes and actual CPU/GPU/XLA/eager labels readable; n=3 shown except Power/PyTorch n=2. Missing training telemetry is not shown as zero or a recovery-process substitute."
+    }
+  ],
+  "test_evaluation_executed": false
+}

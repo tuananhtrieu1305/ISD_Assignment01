@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "revision": "three-generation-r7",
+  "declared_at": "2026-11-03T12:27:33+07:00",
+  "purpose": "Reduce one comparison to exactly three generation calls while keeping reranking and integrity verification local.",
+  "baseline_archive": "project01/provenance/before_three_generation_r7",
+  "baseline_files": [
+    {"path": "notebooks/01_Data_KB_RAG.ipynb", "sha256": "553D32AEF813EE2E1035F0D87670356266B5752EB39DBBA671E910D6BBB8C758"},
+    {"path": "notebooks/02_Diabetes_Multi_Agent.ipynb", "sha256": "02CEE62F9D190BDBB569D8F2512D72DE2AB7D42B45411CEBBBA61CF6A6443657"},
+    {"path": "web/backend/project01_llm_v2/reranker.py", "sha256": "CF65A5F18D78B0B5A23BA308661F73ACDEF7F9069F0DA52C2D559C0D631B9B84"},
+    {"path": "web/backend/project01_llm_v2/agents.py", "sha256": "E6CD6F477EF1A86942335806E0354FD18EF0E0285E684B7DE5D74F6A969FC689"},
+    {"path": "web/frontend/src/main.jsx", "sha256": "D7D17FC414E90444677621269111C8D2967C9231BE2A8F917F4FEC6E3D6DB80F"},
+    {"path": "web/frontend/src/PipelineFlow.jsx", "sha256": "62E75513BED3662D77AAC5F6ECA3EB5668087117E0B957F1945B81C31DC631A6"},
+    {"path": "docs/llm_v2/runtime_config.json", "sha256": "D1F4E45914247FB884E17EEB35D2815A6EB01BF7231028DE0DE45FC722F5D51E"},
+    {"path": "docs/llm_v2/architecture.md", "sha256": "ABBA02560192EEBCF72E8F1476886D9B393FDCB4E44E21A8B3C93F80DCA1CCCF"}
+  ],
+  "baseline_css_note": {
+    "path": "web/frontend/src/pipeline-flow.css",
+    "sha256": "D46FC3746E27E7AD6F1D3952829174FB1AA59ADB477DBD297A00FB46591E84E5",
+    "archive_copy_present": false,
+    "provenance": "Hash is retained in the prior r6 source manifest; no archive copy is claimed."
+  },
+  "constraints": {
+    "generation_calls_per_comparison": 3,
+    "embedding_calls_are_separate": true,
+    "reranker_generation_calls": 0,
+    "code_verifier_generation_calls": 0,
+    "repair_generation_calls": 0,
+    "live_api_calls_during_revision": 0
+  }
+}

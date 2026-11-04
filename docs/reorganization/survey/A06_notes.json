@@ -1,0 +1,340 @@
+{
+  "project": "A06",
+  "commit": "f1ff9c6a1ec84210e6817cc5d71796db2f12bb8d",
+  "notebooks": [
+    {
+      "path": "A06/notebooks/01_RNN_Fundamentals.ipynb",
+      "cells": 29,
+      "code_cells": 10,
+      "output_cells": 10,
+      "imports": [
+        "matplotlib.pyplot",
+        "numpy",
+        "os",
+        "random",
+        "sys",
+        "tensorflow",
+        "torch"
+      ],
+      "headings": [
+        "# 01 — RNN từ nền tảng: trực giác, toán học và code\n\nNotebook này xây dựng trực giác về **Recurrent Neural Network (RNN)** từ những ví dụ số nhỏ. Mục tiêu là hiểu RNN lưu thông tin theo thời gian như thế nào, tensor đi qua framework với shape gì, và vì sao gradient có thể biến mất hoặc bùng nổ.\n\nPhạm vi của notebook:\n\n- chỉ dùng dữ liệu giả lập rất nhỏ để học khái niệm;\n- không đọc hai dataset của assignment;\n- không train model dự báo cuối cùng;\n- Vanilla RNN / `SimpleRNN` là trọng tâm, LSTM và GRU chỉ được giới thiệu như phần mở rộng.\n",
+        "## Thiết lập tái lập\n\nTa dùng `SEED = 42` cho Python, NumPy, PyTorch và TensorFlow/Keras. Seed giúp các ví dụ ngẫu nhiên trong **cùng môi trường** dễ lặp lại hơn, nhưng không bảo đảm kết quả bit-for-bit giống nhau giữa mọi framework, phiên bản thư viện hay phần cứng.\n",
+        "## 1. Sequence data là gì?\n\n**Sequence data** là dữ liệu gồm các phần tử có thứ tự. Vị trí của một quan sát mang ý nghĩa, vì quan sát hiện tại thường liên quan đến những gì xảy ra trước đó.\n\n- **Chứng khoán theo ngày:** giá ngày thứ Ba xuất hiện sau giá ngày thứ Hai; đảo thứ tự ngày sẽ phá vỡ diễn biến thị trường.\n- **Hành vi khách hàng theo tuần:** chuỗi `[không mua, không mua, mua]` gợi ý hành vi vừa quay lại, khác với `[mua, không mua, không mua]` dù tổng số tuần mua hàng bằng nhau.\n- **Text/token:** “mèo đuổi chuột” và “chuột đuổi mèo” có cùng token nhưng nghĩa khác do thứ tự.\n\nMột phép tổng hợp không xét thứ tự như mean có thể cho cùng k",
+        "## 2. Vì sao Feed-Forward Neural Network không có memory?\n\nVới một Feed-Forward Neural Network thông thường, mỗi thời điểm được xử lý như một ví dụ độc lập:\n\n```text\nx_t ──> NN ──> y_t\n```\n\nMạng không tự biết `x_(t-1)` là gì nếu ta không chủ động ghép quá khứ vào input. Cùng một `x_t` sẽ tạo cùng output khi weights cố định, bất kể trước đó chuỗi đã diễn ra thế nào.\n\nRNN thêm một đường truyền trạng thái:\n\n```text\nh_(t-1) ──┐\n          ├──> RNN cell ──> h_t ──> y_t\nx_t ──────┘\n```\n\n`h_(t-1)` là **hidden state**: một vector tóm tắt có học của quá khứ. Vì vậy dự đoán tại thời điểm `t` phụ thuộc cả input hiện tại lẫn ngữ cảnh trước đó.\n",
+        "## 3. RNN cell và hidden state\n\nMột Vanilla RNN cell thường được viết:\n\n$$\nh_t = \\tanh(W_{xh}x_t + W_{hh}h_{t-1} + b_h)\n$$\n\nvà output tuyến tính tại thời điểm `t` có thể là:\n\n$$\ny_t = W_{hy}h_t + b_y\n$$\n\n| Ký hiệu       | Ý nghĩa                                                     |\n| ------------- | ----------------------------------------------------------- |\n| $x_t$         | vector input tại time step $t$                              |\n| $h_{t-1}$     | hidden state từ bước trước; $h_0$ thường khởi tạo bằng zero |\n| $h_t$         | hidden state mới sau khi kết hợp hiện tại và quá khứ        |\n| $W_{xh}$      | weights nối input với hidden",
+        "## 4. Manual RNN forward pass bằng NumPy\n\nTa dùng 3 time steps, mỗi input có 2 features, hidden state có 2 phần tử và output có 1 phần tử. Mọi ma trận đều được ghi tường minh để có thể theo dõi phép tính.\n"
+      ],
+      "io_and_execution_lines": [],
+      "contains_training_calls": false,
+      "kernel": {
+        "display_name": "Python 3 (rnn312)",
+        "language": "python",
+        "name": "python3"
+      }
+    },
+    {
+      "path": "A06/notebooks/02_Customer_Behavior_Data.ipynb",
+      "cells": 34,
+      "code_cells": 14,
+      "output_cells": 14,
+      "imports": [
+        "IPython.display",
+        "gc",
+        "matplotlib.pyplot",
+        "numpy",
+        "pandas",
+        "pathlib",
+        "random",
+        "sys"
+      ],
+      "headings": [
+        "# 02 — Hiểu dữ liệu hành vi khách hàng theo thời gian\n\nNotebook này thực hiện **data understanding** và **EDA** cho UCI Online Retail II. Mục tiêu là hiểu dữ liệu giao dịch, xác định cleaning phù hợp với bài toán purchase-behavior forecasting, và minh họa cách chuyển từ transaction lines sang customer-week observations.\n\nGiới hạn của notebook:\n\n- chỉ đọc workbook raw đã khóa tại `datasets/customer/online_retail_II.xlsx`;\n- không sửa hoặc ghi đè workbook raw;\n- không tạo train/validation/test sequences cuối cùng;\n- không fit scaler, không tính class weight và không train PyTorch/Keras RNN.\n",
+        "## Thiết lập\n\n`SEED = 42` được giữ nhất quán với experiment contract. Toàn bộ figures tái sử dụng được lưu vào `results/figures/customer_eda/`.\n",
+        "## 1. Giới thiệu dataset\n\n**Online Retail II** ghi lại các transaction lines của một nhà bán lẻ trực tuyến tại Anh trong khoảng **01/12/2009–09/12/2011**. Mỗi dòng không nhất thiết là một đơn hàng: một invoice có thể chứa nhiều sản phẩm và vì vậy xuất hiện trên nhiều dòng.\n\nCác trường chính mô tả invoice, sản phẩm, số lượng, thời điểm, đơn giá, khách hàng và quốc gia. Dữ liệu phù hợp với phân tích hành vi theo thời gian vì mỗi giao dịch có `InvoiceDate` và có thể liên kết các lần mua của cùng `CustomerID`.\n\nBài toán RNN ở milestone sau sẽ là:\n\n> Từ 8 tuần hành vi gần nhất của một khách hàng, dự đoán khách hàng có mua trong tuần kế tiếp hay kh",
+        "## 2. Đọc và xác thực các raw sheets\n\nTa hỏi workbook về sheet names trước, đọc từng sheet riêng, ghi lại shape/columns/dtypes, rồi chỉ `concat` sau khi xác nhận schema giống nhau. Không giả định tên cột theo tài liệu phiên bản mới.\n",
+        "Hai sheets có cùng 8 raw columns và lần lượt 525.461 và 541.910 dòng, nên có thể ghép theo hàng. Tổng cộng là **1.067.371 transaction lines**.\n\nWorkbook dùng tên cột lịch sử. Ta chuẩn hóa **chỉ trong DataFrame memory**:\n\n- `Invoice → InvoiceNo`\n- `Price → UnitPrice`\n- `Customer ID → CustomerID`\n\nFile `.xlsx` trên đĩa không bị thay đổi.\n",
+        "## 3. Data integrity audit\n\nAudit bên dưới đo shape, exact duplicates, missing values, ngày lỗi, phân phối `Quantity`/`UnitPrice`, quy mô khách hàng/invoice/quốc gia và date range. Ta chưa lọc dữ liệu trong bước này để các vấn đề không bị che mất.\n"
+      ],
+      "io_and_execution_lines": [
+        "PROJECT_ROOT = Path.cwd()",
+        "if PROJECT_ROOT.name == \"notebooks\":",
+        "PROJECT_ROOT = PROJECT_ROOT.parent",
+        "RAW_PATH = PROJECT_ROOT / \"datasets\" / \"customer\" / \"online_retail_II.xlsx\"",
+        "FIGURE_DIR = PROJECT_ROOT / \"results\" / \"figures\" / \"customer_eda\"",
+        "frame = pd.read_excel(RAW_PATH, sheet_name=sheet_name)"
+      ],
+      "contains_training_calls": false,
+      "kernel": {
+        "display_name": "Python 3 (rnn312)",
+        "language": "python",
+        "name": "python3"
+      }
+    },
+    {
+      "path": "A06/notebooks/03_Stock_Data.ipynb",
+      "cells": 29,
+      "code_cells": 9,
+      "output_cells": 9,
+      "imports": [
+        "IPython.display",
+        "matplotlib.pyplot",
+        "matplotlib.ticker",
+        "numpy",
+        "pandas",
+        "pathlib",
+        "random",
+        "sys"
+      ],
+      "headings": [
+        "# 03 — Hiểu dữ liệu AAPL theo thời gian\n\nNotebook này thực hiện **data understanding** và **EDA** cho snapshot AAPL cục bộ đã khóa. Mục tiêu là hiểu đặc điểm chuỗi giá và chuẩn bị cơ sở khái niệm cho task:\n\n> 30 trading days gần nhất → Close của trading day kế tiếp.\n\nGiới hạn của notebook:\n\n- chỉ đọc `datasets/stock/AAPL_2015_2025.csv`;\n- không gọi `yfinance` hoặc bất kỳ nguồn dữ liệu trực tuyến nào;\n- không tạo production split/scaler/window files;\n- không train RNN và không đưa ra khuyến nghị đầu tư.\n",
+        "## Thiết lập\n\nFigures tái sử dụng được lưu vào `results/figures/stock_eda/`. `SEED = 42` được giữ theo experiment contract, dù các phép EDA trong notebook này không dùng sampling ngẫu nhiên.\n",
+        "## 1. Mô tả dataset\n\nMỗi row là một trading day của AAPL:\n\n| Cột         | Ý nghĩa trực giác                                                                                |\n| ----------- | ------------------------------------------------------------------------------------------------ |\n| `Date`      | ngày giao dịch                                                                                   |\n| `Open`      | giá khi phiên mở cửa                                                                             |\n| `High`      | giá cao nhất trong phiên                                                                         |\n| `Low`       | ",
+        "## 2. Data audit\n\nTa đọc đúng CSV cục bộ, giữ lại dtypes ban đầu để audit, sau đó parse `Date` và các cột số trong memory. Các kiểm tra invalid price gồm giá không dương và quan hệ OHLC bất hợp lý (`High` phải không nhỏ hơn các mức còn lại; `Low` phải không lớn hơn các mức còn lại).\n",
+        "**Integrity findings**\n\n- CSV có 2.766 rows và đúng 7 columns đã khóa.\n- Không có missing values, duplicate dates, giá không dương, OHLC inconsistency hoặc non-positive Volume.\n- Dữ liệu nguồn đã ở thứ tự tăng dần theo ngày; notebook vẫn sort và assert tường minh ở bước tiếp theo.\n- Khoảng calendar yêu cầu là 2015-01-01 đến 2025-12-31. Ngày giao dịch thực tế đầu tiên là **2015-01-02** vì 2015-01-01 không có phiên; ngày cuối là **2025-12-31**.\n",
+        "## 3. Sắp xếp theo thời gian tăng dần\n\nMọi window và target sau này phụ thuộc row order. Vì vậy ta không dựa vào thứ tự tình cờ của file mà chủ động sort, reset index và assert tính đơn điệu.\n"
+      ],
+      "io_and_execution_lines": [
+        "PROJECT_ROOT = Path.cwd()",
+        "if PROJECT_ROOT.name == \"notebooks\":",
+        "PROJECT_ROOT = PROJECT_ROOT.parent",
+        "STOCK_PATH = PROJECT_ROOT / \"datasets\" / \"stock\" / \"AAPL_2015_2025.csv\"",
+        "FIGURE_DIR = PROJECT_ROOT / \"results\" / \"figures\" / \"stock_eda\"",
+        "raw_stock = pd.read_csv(STOCK_PATH)"
+      ],
+      "contains_training_calls": false,
+      "kernel": {
+        "display_name": "Python 3 (rnn312)",
+        "language": "python",
+        "name": "python3"
+      }
+    },
+    {
+      "path": "A06/notebooks/04_PyTorch_Customer_RNN.ipynb",
+      "cells": 23,
+      "code_cells": 11,
+      "output_cells": 11,
+      "imports": [
+        "IPython.display",
+        "hashlib",
+        "json",
+        "matplotlib.pyplot",
+        "numpy",
+        "os",
+        "pandas",
+        "pathlib",
+        "sklearn.metrics",
+        "src.config",
+        "src.preprocessing_utils",
+        "src.pytorch_customer",
+        "src.reproducibility",
+        "sys",
+        "torch",
+        "torch.utils.data"
+      ],
+      "headings": [
+        "# 04 — PyTorch Vanilla RNN dự đoán hành vi mua tuần kế tiếp\n\nNotebook này huấn luyện một **Vanilla RNN** cho bài toán:\n\n```text\n8 customer-weeks trước đó × 5 behavior features\n                    ↓\nkhách hàng có mua trong tuần kế tiếp hay không?\n```\n\nPhạm vi được khóa chặt:\n\n- chỉ đọc ba artifact `customer_train.npz`, `customer_val.npz`, `customer_test.npz` đã hoàn tất ở preprocessing;\n- không đọc lại workbook raw, không tạo lại sequence, không fit lại scaler và không thay đổi split;\n- validation loss quyết định early stopping và checkpoint tốt nhất;\n- TEST chỉ được đánh giá **một lần** sau khi đã khôi phục best validation state.\n",
+        "## 1. Thiết lập và reproducibility\n\n`SEED = 42` được áp dụng cho Python, NumPy và PyTorch. Máy hiện tại không có CUDA nên thí nghiệm chạy trên CPU. `torch.use_deterministic_algorithms(True)` tăng tính lặp lại trên cùng môi trường; điều này không phải lời hứa bit-for-bit giữa phần cứng hoặc framework khác nhau.\n",
+        "## 2. Nạp đúng shared artifacts\n\nNotebook đọc đường dẫn và SHA-256 từ `preprocessing_metadata.json`, rồi kiểm tra hash trước khi dùng. Mỗi artifact phải có:\n\n- `X`: tensor đã được scale, shape `(samples, 8, 5)`;\n- `y`: nhãn nhị phân của tuần kế tiếp;\n- `customer_id`, `target_week`: metadata để truy vết prediction, **không** đưa vào model.\n\nViệc kiểm tra này ngăn notebook âm thầm dùng một bản preprocessing khác với Keras sau này.\n",
+        "Class 1 chỉ chiếm khoảng 5–7% tùy split. Một classifier luôn đoán “không mua” vẫn có accuracy rất cao, vì vậy accuracy phải được đọc cùng precision, recall, F1 và ROC-AUC.\n\n## 3. Dataset và DataLoader\n\n`CustomerSequenceDataset` chỉ bọc các arrays đã xử lý thành tensor `float32`; nó không sửa feature hay label. `DataLoader` chia dữ liệu thành mini-batches:\n\n- TRAIN dùng `shuffle=True` để optimizer không luôn thấy samples theo cùng thứ tự;\n- validation và TEST dùng `shuffle=False` để evaluation ổn định và giữ đúng thứ tự metadata;\n- shuffle chỉ đổi thứ tự đưa sample vào optimizer, **không** thay đổi chronological split đã khóa.\n",
+        "## 4. Vanilla RNN và forward pass\n\nModel dùng một lớp `torch.nn.RNN` với `batch_first=True`:\n\n```text\nX: (batch, 8 weeks, 5 features)\n            ↓ nn.RNN, hidden_size=64\nh_n[-1]: (batch, 64)\n            ↓ Linear(64, 1)\nlogit: (batch,)\n```\n\nỞ mỗi tuần, hidden state cập nhật từ feature tuần hiện tại và hidden state trước đó. Sau time step thứ 8, `h_n[-1]` là biểu diễn nén của toàn bộ 8 tuần theo thứ tự. Lớp `Linear` biến biểu diễn này thành **một logit**.\n\nLogit chưa phải xác suất và có thể nhận mọi giá trị thực. Model cố ý **không chứa Sigmoid** vì `BCEWithLogitsLoss` kết hợp Sigmoid và binary cross-entropy theo cách ổn định số học hơn.\n",
+        "## 5. Loss, class imbalance và optimizer\n\nVới logit $z$ và nhãn $y\\in\\{0,1\\}$, `BCEWithLogitsLoss` đo độ sai của binary prediction. Vì positive class hiếm, ta dùng:\n\n$$\\text{pos\\_weight}=\\frac{N_{negative,\\ TRAIN}}{N_{positive,\\ TRAIN}}$$\n\nGiá trị này chỉ được tính từ `train y`; validation và TEST không tham gia. Nó tăng chi phí khi bỏ sót positive sample, nhưng không tự động bảo đảm precision/recall tốt—kết quả vẫn phải được đo trên TEST.\n\nOptimizer là Adam với learning rate nhỏ. Sau `backward()`, gradient norm được clip ở 1.0 để hạn chế exploding gradient của Vanilla RNN.\n"
+      ],
+      "io_and_execution_lines": [
+        "PROJECT_ROOT = Path.cwd()",
+        "if PROJECT_ROOT.name == \"notebooks\":",
+        "PROJECT_ROOT = PROJECT_ROOT.parent",
+        "if str(PROJECT_ROOT) not in sys.path:",
+        "sys.path.insert(0, str(PROJECT_ROOT))",
+        "PROCESSED_DIR = PROJECT_ROOT / \"datasets\" / \"processed\"",
+        "METADATA_PATH = PROJECT_ROOT / \"results\" / \"metrics\" / \"preprocessing_metadata.json\"",
+        "FIGURE_DIR = PROJECT_ROOT / \"results\" / \"figures\" / \"pytorch_customer\"",
+        "MODEL_DIR = PROJECT_ROOT / \"models\" / \"pytorch\"",
+        "METRICS_PATH = PROJECT_ROOT / \"results\" / \"metrics\" / \"pytorch_customer_metrics.json\"",
+        "PROJECT_ROOT / \"results\" / \"predictions\" / \"pytorch_customer_predictions.csv\"",
+        "artifact_path = PROJECT_ROOT / artifact_info[\"path\"]",
+        "\"path\": CHECKPOINT_PATH.relative_to(PROJECT_ROOT).as_posix(),",
+        "\"path\": PREDICTIONS_PATH.relative_to(PROJECT_ROOT).as_posix(),",
+        "loss_figure_path.relative_to(PROJECT_ROOT).as_posix(),",
+        "confusion_figure_path.relative_to(PROJECT_ROOT).as_posix(),",
+        "roc_figure_path.relative_to(PROJECT_ROOT).as_posix(),"
+      ],
+      "contains_training_calls": false,
+      "kernel": {
+        "display_name": "Python (rnn312)",
+        "language": "python",
+        "name": "python3"
+      }
+    },
+    {
+      "path": "A06/notebooks/05_PyTorch_Stock_RNN.ipynb",
+      "cells": 27,
+      "code_cells": 13,
+      "output_cells": 13,
+      "imports": [
+        "hashlib",
+        "joblib",
+        "json",
+        "matplotlib.pyplot",
+        "numpy",
+        "pandas",
+        "pathlib",
+        "random",
+        "src.pytorch_stock",
+        "sys",
+        "torch",
+        "torch.utils.data"
+      ],
+      "headings": [
+        "# A06 — PyTorch Vanilla RNN dự báo giá đóng cửa AAPL\n\nNotebook này huấn luyện đúng một mô hình **Vanilla RNN** cho bài toán đã khóa:\n\n$$\n\\underbrace{30\\ \\text{ngày giao dịch trước} \\times 5\\ \\text{đặc trưng}}_{X}\n\\longrightarrow\n\\underbrace{\\text{Close của ngày giao dịch kế tiếp}}_{y}.\n$$\n\nChỉ các artifact đã hoàn tất ở bước tiền xử lý chung được sử dụng. Notebook không đọc lại CSV gốc, không tạo split mới, không fit scaler và không dùng TEST để chọn mô hình. Đây là thực hành kỹ thuật, **không phải khuyến nghị tài chính**.\n",
+        "## 1. Thiết lập tái lập và đường dẫn\n\n`SEED = 42` được áp dụng cho Python, NumPy và PyTorch. Môi trường hiện tại chỉ có CPU; cấu hình nhỏ giúp notebook chạy nhanh và dễ kiểm tra. Các thư mục output được tạo nếu chưa có, nhưng dữ liệu đầu vào chỉ được đọc.\n",
+        "## 2. Nạp đúng artifact đã khóa\n\nMỗi NPZ phải có `X`, `y`, `y_scaled`, `target_date` và `naive_last_close`. Notebook đối chiếu SHA-256 với `preprocessing_metadata.json`, kiểm tra shape `(samples, 30, 5)`, ngày tăng nghiêm ngặt trong từng split và thứ tự thời gian `TRAIN < validation < TEST`.\n\nNăm đặc trưng theo đúng thứ tự là `Open`, `High`, `Low`, `Close`, `Volume`. `target_date` chỉ là metadata để truy vết và vẽ biểu đồ; nó không đi vào mô hình.\n",
+        "## 3. Regression, target scaling và đơn vị đánh giá\n\nĐây là **regression** vì đầu ra là một giá trị liên tục (giá `Close`), khác classification vốn dự đoán nhãn rời rạc. Pipeline chung đã chuẩn hóa cả đầu vào và target bằng thống kê từ **chỉ TRAIN**. Mô hình học `y_scaled`; vì vậy `MSELoss` trong quá trình huấn luyện nằm trong **không gian chuẩn hóa**, không phải USD².\n\nSau khi chọn checkpoint bằng validation loss, dự đoán TEST sẽ được `inverse_transform` bằng target scaler đã khóa. Chỉ khi đó MAE và RMSE mới có đơn vị USD. Không được fit lại scaler trên validation hay TEST.\n",
+        "## 4. Dataset và DataLoader\n\n`StockSequenceDataset` ánh xạ mỗi mẫu thành tensor `X` có shape `(30, 5)` và một target vô hướng đã scale. Khi ghép batch, mô hình nhận `(batch_size, 30, 5)`.\n\n`DataLoader` chia dữ liệu thành mini-batch. Chỉ TRAIN dùng `shuffle=True` để thay đổi thứ tự cập nhật gradient; validation và TEST giữ `shuffle=False`. Việc shuffle các mẫu TRAIN không làm thay đổi thứ tự 30 time step bên trong từng sequence.\n",
+        "## 5. Kiến trúc Vanilla RNN\n\nVới `batch_first=True`, RNN đọc lần lượt 30 vector đặc trưng. Hidden state được cập nhật qua thời gian:\n\n$$h_t = \\tanh(W_{xh}x_t + W_{hh}h_{t-1} + b).$$\n\n`h_n[-1]` là hidden state sau ngày thứ 30: một biểu diễn cô đọng của cửa sổ lịch sử. Lớp `Linear(64, 1)` biến biểu diễn này thành một giá trị target đã scale. Không có Sigmoid vì regression không cần ép đầu ra vào `[0, 1]`; mô hình chính cũng không được thay bằng LSTM/GRU.\n"
+      ],
+      "io_and_execution_lines": [
+        "if str(ROOT) not in sys.path:",
+        "sys.path.insert(0, str(ROOT))",
+        "target_scaler = joblib.load(target_scaler_path)"
+      ],
+      "contains_training_calls": false,
+      "kernel": {
+        "display_name": "Python 3 (rnn312)",
+        "language": "python",
+        "name": "python3"
+      }
+    },
+    {
+      "path": "A06/notebooks/06_Keras_Customer_RNN.ipynb",
+      "cells": 24,
+      "code_cells": 11,
+      "output_cells": 11,
+      "imports": [
+        "hashlib",
+        "json",
+        "matplotlib.pyplot",
+        "numpy",
+        "os",
+        "pandas",
+        "pathlib",
+        "random",
+        "sklearn.metrics",
+        "src.keras_customer",
+        "sys",
+        "tensorflow",
+        "time"
+      ],
+      "headings": [
+        "# A06 — Keras Vanilla RNN dự báo hành vi mua hàng\n\nNotebook này huấn luyện baseline Keras cho đúng bài toán đã khóa:\n\n$$\n\\underbrace{8\\ \\text{tuần hành vi trước} \\times 5\\ \\text{đặc trưng}}_{X}\n\\longrightarrow\n\\underbrace{\\text{có mua trong tuần kế tiếp hay không}}_{y \\in \\{0,1\\}}.\n$$\n\nMục tiêu là triển khai `SimpleRNN` có ý nghĩa tương đương baseline PyTorch, không thay đổi dữ liệu và chưa kết luận framework nào tốt hơn. Notebook chỉ đọc ba artifact dùng chung; không tạo sequence, không chia lại split và không fit lại scaler.",
+        "## 1. Thiết lập tái lập\n\n`SEED = 42` được áp dụng cho Python, NumPy và TensorFlow/Keras. Deterministic operations được yêu cầu khi runtime hỗ trợ; điều này giúp giảm dao động trong cùng môi trường nhưng không hứa hẹn kết quả bit-for-bit giữa phần cứng hoặc phiên bản thư viện khác nhau.",
+        "## 2. Nạp đúng dữ liệu dùng chung và kiểm tra phép so sánh công bằng\n\nMỗi NPZ phải chứa đúng `X`, `y`, `customer_id`, `target_week`. Checksum được đối chiếu với metadata tiền xử lý, shape phải là `(samples, 8, 5)`, và ranh giới `target_week` phải theo thứ tự TRAIN → validation → TEST.\n\nNăm feature theo thứ tự cố định là `total_spent`, `total_quantity`, `order_count`, `unique_products`, `active_flag`. `CustomerID` và `target_week` chỉ phục vụ truy vết, hoàn toàn không đi vào tensor đầu vào.",
+        "## 3. Mất cân bằng lớp và class weight\n\nChỉ khoảng 5–7% mẫu thuộc lớp mua hàng. Accuracy vì thế có thể cao ngay cả khi mô hình gần như luôn dự đoán lớp 0; Precision, Recall, F1 và ROC-AUC phải được xem cùng nhau.\n\nPyTorch đã dùng `positive_weight = n_negative / n_positive`, tính **chỉ từ TRAIN**. Keras dùng cơ chế tương đương qua `class_weight={0: 1, 1: positive_weight}` trong `fit()`. Validation và TEST không tham gia tính trọng số.",
+        "## 4. Keras `SimpleRNN` và sự tương ứng với PyTorch\n\nHai baseline có cùng ý tưởng:\n\n| PyTorch | Keras | Vai trò |\n|---|---|---|\n| `nn.RNN(input_size=5, hidden_size=64, batch_first=True)` | `SimpleRNN(64, input_shape=(8, 5))` | Đọc 8 time steps và tạo hidden state cuối |\n| `Linear(64, 1)` | `Dense(1, activation=\"sigmoid\")` | Biến hidden state thành đầu ra nhị phân |\n| một logit + `BCEWithLogitsLoss` | xác suất sigmoid + `binary_crossentropy` | Tối ưu binary cross-entropy theo cách ổn định của từng framework |\n\nInput Keras có shape `(batch_size, 8, 5)`. `SimpleRNN(64)` trả về hidden state cuối có 64 phần tử cho mỗi sequence vì mặc định `return_",
+        "## 5. `fit()`, binary cross-entropy và EarlyStopping\n\n`model.fit()` lặp qua mini-batch TRAIN, tính binary cross-entropy và dùng Adam để cập nhật trọng số. `validation_data` chỉ đo `val_loss`; nó không được dùng để cập nhật gradient. Để tương ứng với PyTorch, validation loss dùng lại đúng hai trọng số lớp đã tính từ TRAIN (không tính lại từ validation).\n\n`EarlyStopping(monitor=\"val_loss\", patience=5, restore_best_weights=True)` dừng khi validation loss không còn cải thiện đủ lâu và khôi phục trọng số tốt nhất. `ModelCheckpoint` đồng thời lưu mô hình có validation loss thấp nhất dưới định dạng `.keras`. TEST chưa được dùng ở giai đoạn này."
+      ],
+      "io_and_execution_lines": [
+        "if str(ROOT) not in sys.path:",
+        "sys.path.insert(0, str(ROOT))",
+        "history = model.fit(",
+        "model = keras.models.load_model(MODEL_PATH)",
+        "reloaded = keras.models.load_model(MODEL_PATH)"
+      ],
+      "contains_training_calls": true,
+      "kernel": {
+        "display_name": "Python 3 (rnn312)",
+        "language": "python",
+        "name": "python3"
+      }
+    },
+    {
+      "path": "A06/notebooks/07_Keras_Stock_RNN.ipynb",
+      "cells": 25,
+      "code_cells": 12,
+      "output_cells": 12,
+      "imports": [
+        "hashlib",
+        "joblib",
+        "json",
+        "matplotlib.pyplot",
+        "numpy",
+        "os",
+        "pandas",
+        "pathlib",
+        "random",
+        "src.keras_stock",
+        "sys",
+        "tensorflow",
+        "time"
+      ],
+      "headings": [
+        "# A06 — Keras Vanilla RNN dự báo giá đóng cửa AAPL\n\nNotebook này huấn luyện Keras baseline cho đúng bài toán đã khóa:\n\n$$\n\\underbrace{30\\ \\text{ngày giao dịch trước} \\times 5\\ \\text{đặc trưng}}_{X}\n\\longrightarrow\n\\underbrace{\\text{Close của ngày giao dịch kế tiếp}}_{y}.\n$$\n\nKeras dùng chính các artifact, split, scalers, target và naive baseline của thí nghiệm PyTorch. Notebook không đọc lại CSV gốc, không tạo cửa sổ mới, không chia lại dữ liệu và không fit scaler. Nội dung chỉ phục vụ học thuật, **không phải khuyến nghị tài chính**.",
+        "## 1. Thiết lập tái lập\n\n`SEED = 42` được áp dụng cho Python, NumPy và TensorFlow/Keras. Deterministic operations được bật khi runtime hỗ trợ; điều này giảm dao động trong cùng môi trường nhưng không đảm bảo bit-for-bit giữa các framework hoặc phần cứng khác nhau.",
+        "## 2. Nạp đúng artifact dùng chung\n\nMỗi NPZ phải chứa `X`, raw `y`, `y_scaled`, `target_date` và `naive_last_close`. Notebook kiểm tra SHA-256, shape `(samples, 30, 5)`, ngày tăng nghiêm ngặt và thứ tự `TRAIN < validation < TEST`.\n\nNăm feature giữ nguyên thứ tự `Open`, `High`, `Low`, `Close`, `Volume`. `target_date` chỉ là metadata để truy vết và vẽ biểu đồ; nó không đi vào mô hình.",
+        "## 3. Regression, scaling và thang đo thực\n\nĐây là **regression** vì đầu ra là giá `Close` liên tục. Pipeline chung đã chuẩn hóa input và target bằng thống kê chỉ từ TRAIN. Mô hình học `y_scaled`, nên MSE trong `fit()` nằm trong **không gian chuẩn hóa**, không phải USD².\n\nTarget scaler sau đây là đúng scaler PyTorch đã dùng. Validation và TEST không fit lại scaler. Sau khi validation chọn xong mô hình, prediction TEST mới được inverse-transform về giá thực để tính MAE, RMSE và R².",
+        "## 4. `SimpleRNN` và `Dense` tuyến tính\n\n`SimpleRNN(64)` đọc 30 time steps, mỗi time step có 5 feature. Với `return_sequences=False` mặc định, layer trả về hidden state cuối gồm 64 giá trị — bản tóm tắt học được của cửa sổ lịch sử.\n\n`Dense(1, activation=\"linear\")` ánh xạ hidden state thành một số thực. Không dùng sigmoid vì giá trị regression không bị giới hạn trong `[0,1]`.\n\n| PyTorch | Keras | Vai trò |\n|---|---|---|\n| `nn.RNN(5, 64, batch_first=True)` | `SimpleRNN(64, input_shape=(30, 5))` | Xử lý chuỗi và lấy hidden state cuối |\n| `Linear(64, 1)` | `Dense(1, activation=\"linear\")` | Dự đoán một target đã scale |\n\nSố tham số hơi khác vì các",
+        "## 5. MSE, `fit()` và EarlyStopping\n\nMSE lấy trung bình bình phương sai số giữa target scaled và prediction scaled, nên phạt mạnh các sai số lớn. Adam cập nhật trọng số từ TRAIN mini-batches. `validation_data` chỉ cung cấp `val_loss`; không cập nhật gradient.\n\n`EarlyStopping` theo dõi validation loss với patience 5 và `restore_best_weights=True`. `ModelCheckpoint` lưu mô hình có validation loss thấp nhất. TEST không được dùng để dừng, chọn epoch hay điều chỉnh hyperparameter."
+      ],
+      "io_and_execution_lines": [
+        "if str(ROOT) not in sys.path:",
+        "sys.path.insert(0, str(ROOT))",
+        "target_scaler = joblib.load(target_scaler_path)",
+        "history = model.fit(",
+        "model = keras.models.load_model(MODEL_PATH)",
+        "reloaded = keras.models.load_model(MODEL_PATH)"
+      ],
+      "contains_training_calls": true,
+      "kernel": {
+        "display_name": "Python 3 (rnn312)",
+        "language": "python",
+        "name": "python3"
+      }
+    },
+    {
+      "path": "A06/notebooks/08_Framework_Comparison.ipynb",
+      "cells": 26,
+      "code_cells": 11,
+      "output_cells": 11,
+      "imports": [
+        "hashlib",
+        "json",
+        "matplotlib.pyplot",
+        "numpy",
+        "pandas",
+        "pathlib",
+        "sklearn.metrics",
+        "src.framework_comparison",
+        "sys"
+      ],
+      "headings": [
+        "# A06 — So sánh PyTorch RNN và Keras SimpleRNN\n\nNotebook cuối tổng hợp **chỉ các artifact thật đã được tạo ở Notebook 04–07**. Không model nào được khởi tạo, nạp checkpoint hoặc huấn luyện lại tại đây.\n\nHai bài toán được xem riêng:\n\n1. Customer: 8 tuần × 5 feature → mua hàng tuần kế tiếp (binary classification).\n2. Stock: 30 ngày × 5 feature → `Close` ngày kế tiếp (regression), kèm naive baseline `next Close = last Close`.\n\nMục tiêu là đối chiếu công bằng, giải thích khác biệt thực tế và nêu giới hạn; không lựa chọn “framework tốt nhất” chỉ từ một lần chạy.",
+        "## 1. Nguồn artifact và nguyên tắc kiểm tra\n\nNotebook đọc bốn metrics JSON, `preprocessing_metadata.json` và bốn prediction CSV. Các metric được tính lại từ CSV rồi so với JSON. Checksum được kiểm tra khi source JSON có lưu checksum; mọi cặp framework phải mô tả cùng quan sát TEST trước khi so sánh.",
+        "## 2. Nạp và xác minh prediction CSV\n\nCustomer phải trùng `CustomerID`, `target_week`, `true_label`. Stock phải trùng `target_date`, `actual_close`, `naive_close`. Đây là điều kiện tiên quyết để chênh lệch metric phản ánh model thay vì lệch mẫu.",
+        "Kết quả audit: hai customer file cùng 53.052 quan sát TEST; hai stock file cùng 410 ngày TEST. Naive prediction stock trùng tuyệt đối ở mọi dòng, nên baseline chỉ xuất hiện một lần trong bảng so sánh.",
+        "# Phần A — Customer classification\n\n## 3. Bảng metric và metadata huấn luyện\n\nHai model dùng cùng input `(8, 5)`, class weight TRAIN-only `14.2263`, threshold `0.5` và cùng TEST. Metrics dưới đây được đọc từ JSON và được đối chiếu lại từ probability CSV.",
+        "### Phân tích kết quả customer\n\n- Các metric gần như trùng nhau: ROC-AUC là `0.7009` (PyTorch) và `0.7005` (Keras); F1 là `0.2485` và `0.2491`.\n- Keras có Accuracy/Precision/F1 cao hơn rất nhẹ; PyTorch có Recall/ROC-AUC cao hơn rất nhẹ. Chênh lệch đều nhỏ hơn 0,25 điểm phần trăm tuyệt đối và không đủ để tuyên bố một framework thắng tổng quát.\n- Precision thấp (`~0.159`) phản ánh nhiều false positive khi dùng class weighting để ưu tiên tìm lớp mua hàng hiếm. Recall khoảng `0.57`, cao hơn tỷ lệ bắt được nếu model chỉ dự đoán lớp 0.\n- PyTorch có 4.609 tham số, Keras 4.545 do cách triển khai bias RNN khác nhau; cả hai vẫn là một recurrent layer 6"
+      ],
+      "io_and_execution_lines": [
+        "if str(ROOT) not in sys.path:",
+        "sys.path.insert(0, str(ROOT))",
+        "predictions = {name: pd.read_csv(path) for name, path in prediction_paths.items()}",
+        "\"keras\": [\"NumPy input to model.fit()\", \"callbacks\", \"higher-level training API\", \"concise model definition\"],"
+      ],
+      "contains_training_calls": true,
+      "kernel": {
+        "display_name": "Python 3 (rnn312)",
+        "language": "python",
+        "name": "python3"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "A06/README.md",
+      "text": "# Assignment 06 — RNN on Customer Behavior and AAPL\n\nA06 is an isolated project for learning and applying Vanilla RNN models with PyTorch and Keras. The two locked tasks are next-week customer purchase classification and next-trading-day AAPL Close regression.\n\nInitialization is complete. Raw data and environment checks pass; no notebook has been implemented and no model has been trained yet.\n\n## Source of truth\n\n- `PROJECT_SPEC.md` is the permanent experiment contract.\n- `CURRENT_STATE.md` records actual versions, data metadata, completed work, and pending work.\n- Every later milestone must read both files before making changes.\n\n## Environment\n\n```powershell\n& 'C:\\Users\\anhca\\anaconda3\\shell\\condabin\\conda-hook.ps1'\nconda activate rnn312\nSet-Location 'C:\\DATA\\assign\\A06'\n```\n\nIf shell activation is unavailable, call the interpreter directly:\n\n```powershell\n& 'C:\\Users\\anhca\\anaconda3\\envs\\rnn312\\python.exe' --version\n```\n\n## Verify the initialization\n\n```powershell\n& 'C:\\Users\\anhca\\anaconda3\\envs\\rnn312\\python.exe' .\\src\\verify_environment.py\n```\n\nThis rewrites the small verification reports at:\n\n- `results/metrics/environment_verification.json`\n- `results/metrics/environment_verification.md`\n\n## Locked raw data\n\n- `datasets/customer/online_retail_II.xlsx`: UCI Online Retail II, Dataset ID 502\n- `datasets/stock/AAPL_2015_2025.csv`: fixed unadjusted-download snapshot for 2015-01-01 through 2025-12-31 inclusive\n\nDo not edit either raw file. Later notebooks must use the local AAPL CSV and must not redownload market data. The acquisition helper in `src/download_stock_data.py` refuses to overwrite an existing snapshot.\n\n## Planned notebooks\n\n```text\n01_RNN_Fundamentals.ipynb\n02_Customer_Behavior_Data.ipynb\n03_Stock_Data.ipynb\n04_PyTorch_Customer_RNN.ipynb\n05_PyTorch_Stock_RNN.ipynb\n06_Keras_Customer_RNN.ipynb\n07_Keras_Stock_RNN.ipynb\n08_Framework_Comparison.ipynb\n```\n\nNotebook narrative must be in Vietnamese, with standard English technical terms retained where natural. The next authorized milestone is Notebook 01 only.\n"
+    },
+    {
+      "path": "A06/src/config.py",
+      "text": "\"\"\"Single source of truth for deterministic A06 preprocessing.\"\"\"\n\nfrom __future__ import annotations\n\nfrom pathlib import Path\n\n\nPROJECT_ROOT = Path(__file__).resolve().parents[1]\n\nSEED = 42\nSPLIT_RATIOS = {\"train\": 0.70, \"val\": 0.15, \"test\": 0.15}\n\nRAW_CUSTOMER_PATH = PROJECT_ROOT / \"datasets\" / \"customer\" / \"online_retail_II.xlsx\"\nRAW_STOCK_PATH = PROJECT_ROOT / \"datasets\" / \"stock\" / \"AAPL_2015_2025.csv\"\nPROCESSED_DIR = PROJECT_ROOT / \"datasets\" / \"processed\"\nPREPROCESSING_MODEL_DIR = PROJECT_ROOT / \"models\" / \"preprocessing\"\nMETRICS_DIR = PROJECT_ROOT / \"results\" / \"metrics\"\nPREPROCESSING_METADATA_PATH = METRICS_DIR / \"preprocessing_metadata.json\"\n\nEXPECTED_CUSTOMER_SHA256 = (\n    \"bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980\"\n)\nEXPECTED_STOCK_SHA256 = (\n    \"2c8eef3c6a3836e2217bf3e99faaeec37d30e60298f7319e8f3748b71e5bd2b8\"\n)\n\nCUSTOMER_COLUMN_ALIASES = {\n    \"Invoice\": \"InvoiceNo\",\n    \"Price\": \"UnitPrice\",\n    \"Customer ID\": \"CustomerID\",\n}\nCUSTOMER_REQUIRED_COLUMNS = (\n    \"InvoiceNo\",\n    \"StockCode\",\n    \"Description\",\n    \"Quantity\",\n    \"InvoiceDate\",\n    \"UnitPrice\",\n    \"CustomerID\",\n    \"Country\",\n)\nCUSTOMER_FEATURES = (\n    \"total_spent\",\n    \"total_quantity\",\n    \"order_count\",\n    \"unique_products\",\n    \"active_flag\",\n)\nCUSTOMER_SEQUENCE_LENGTH = 8\nCUSTOMER_WEEK_FREQUENCY = \"W-MON\"\n\nSTOCK_REQUIRED_COLUMNS = (\n    \"Date\",\n    \"Open\",\n    \"High\",\n    \"Low\",\n    \"Close\",\n    \"Adj Close\",\n    \"Volume\",\n)\nSTOCK_FEATURES = (\"Open\", \"High\", \"Low\", \"Close\", \"Volume\")\nSTOCK_SEQUENCE_LENGTH = 30\n\n\ndef ensure_output_directories() -> None:\n    \"\"\"Create only the directories owned by the preprocessing milestone.\"\"\"\n\n    for directory in (PROCESSED_DIR, PREPROCESSING_MODEL_DIR, METRICS_DIR):\n        directory.mkdir(parents=True, exist_ok=True)\n\n"
+    }
+  ]
+}

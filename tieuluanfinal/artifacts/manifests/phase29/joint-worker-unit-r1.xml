@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="12" time="5.917" timestamp="2026-10-19T17:12:04.351579+07:00" hostname="LaptopVJP"><testcase classname="tests.lstm29.test_joint_worker" name="test_synthetic_joint_worker_saves_one_pass_predictions_and_never_updates_weights" time="0.194"><failure message="src.common.contracts.ContractError: $.artifacts[3].path: 'joint/predictions/test/synthetic_lstm_joint.jsonl.gz' does not match '^(data|artifacts|experiments|report)/(?!.*\\.\\.)[A-Za-z0-9_./-]+$'; $.artifacts[4].path: 'joint/base/test_details/synthetic_lstm_joint.json' does not match '^(data|artifacts|experiments|report)/(?!.*\\.\\.)[A-Za-z0-9_./-]+$'">synthetic_run = (PosixPath('/tmp/pytest-of-tuananh/pytest-4/test_synthetic_joint_worker_sa0'), PosixPath('/tmp/pytest-of-tuananh/pytes...ker_sa0/experiments/config.json'), &lt;tests.lstm29.test_experiment.synthetic_run.&lt;locals&gt;.Data object at 0x7ef7af085c50&gt;)
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7ef7af77c790&gt;
+
+    def test_synthetic_joint_worker_saves_one_pass_predictions_and_never_updates_weights(synthetic_run, monkeypatch):
+        root, config_path, data = synthetic_run
+        run = "synthetic_lstm_joint"
+        folder = experiment.BASE / "runs" / run
+        contract = folder / "model_contract.json"
+        write_once(contract, {"synthetic": True})
+        entry = {"run_id": run, "dataset_id": "ch4_gold_pink_sheet", "fold": None, "seed": 17,
+                 "method": "scratch", "config": protocol.ref(config_path),
+                 "model_contract": protocol.ref(contract), "comparison_group_sha256": "b" * 64}
+        monkeypatch.setattr(experiment, "check_sources", lambda: {"runs": [entry]})
+        experiment.train_run(run)
+        selected_ref = protocol.ref(folder / "selection.json")
+        selected = read_json(protocol.checked(selected_ref))
+        member = {**entry, "family": "lstm", "owner_phase": 29, "selection": selected_ref}
+        before = protocol.ref(protocol.checked(selected["checkpoint"]))
+        gate = JointGate(root / "synthetic_seal")
+        gate.lock({"phase": 29, "dataset_id": "ch4_gold_pink_sheet", "evidence_kind": "synthetic_fixture",
+                   "evaluator_sha256": "a" * 64, "pretest_verification_sha256": "b" * 64,
+                   "families_locked": ["rnn", "lstm"], "approved_run_ids": [run], "members": [member]})
+        gate.begin("a" * 64)
+        gate.materialize("a" * 64)
+        calls = []
+    
+        class Cache:
+            ids = ["synthetic_test_a", "synthetic_test_b"]
+            horizons = data.horizons
+            metadata = {"dataset_id": entry["dataset_id"], "input_shape": [5, 2],
+                        "preprocessing": data.contract()["preprocessing"]}
+            rows = {key: {"series": "S", "target_times": ["2000-01-01"] * 3} for key in ("synthetic_test_a", "synthetic_test_b")}
+    
+            def batch(self, ids):
+                calls.extend(ids)
+                return data.batch(["a" if k.endswith("a") else "b" for k in ids])
+    
+            def targets(self, ids):
+                return data.targets(["a" if k.endswith("a") else "b" for k in ids])
+    
+            def series(self, ids):
+                return ["S"] * len(ids)
+    
+        for name in ("METRICS", "PREDICTIONS", "BASE"):
+            monkeypatch.setattr(joint_evaluation, name, root / "joint" / name.lower())
+        monkeypatch.setattr(joint_evaluation, "TensorAdapter", lambda state: data.adapter)
+        original = experiment.make_trainer
+    
+        def inference_only(method, plan, weights):
+            trainer = original(method, plan, weights)
+            trainer.step = lambda *args: pytest.fail("TEST must never update weights")
+            return trainer
+    
+        monkeypatch.setattr(joint_evaluation, "make_native", lambda member, config, weights: inference_only(member["method"], config["plan"], weights))
+&gt;       result = joint_evaluation.evaluate_member(gate, "a" * 64, run, Cache())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/lstm29/test_joint_worker.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/ch04_rnn_lstm/phase29/joint_evaluation.py:153: in evaluate_member
+    validate_run(metric)
+src/ch04_rnn_lstm/export_r2.py:126: in validate_run
+    return validate_document("run", document, publish=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'run'
+document = {'artifacts': [{'path': 'artifacts/models/synthetic_lstm_joint/best.npz', 'sha256': '63664a6f28e8652023e95b9d7b223bd73...aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'git_commit': '0000000000000000000000000000000000000000'}, ...}
+publish = True
+
+    def validate_document(name: str, document: dict, *, publish: bool = False) -&gt; None:
+        schema_name, _, definition = name.partition("#")
+        schemas = load_schemas()
+        if schema_name not in schemas or (definition and definition not in schemas[schema_name].get("$defs", {})):
+            raise ContractError(f"Unknown schema: {name}")
+        _finite(document)
+        registry = Registry().with_resources(
+            (schema["$id"], Resource.from_contents(schema)) for schema in schemas.values()
+        )
+        schema = (
+            {"$ref": schemas[schema_name]["$id"] + f"#/$defs/{definition}"}
+            if definition
+            else schemas[schema_name]
+        )
+        validator = Draft202012Validator(schema, registry=registry, format_checker=FormatChecker())
+        errors = sorted(validator.iter_errors(document), key=lambda error: error.json_path)
+        if errors:
+&gt;           raise ContractError("; ".join(f"{error.json_path}: {error.message}" for error in errors[:5]))
+E           src.common.contracts.ContractError: $.artifacts[3].path: 'joint/predictions/test/synthetic_lstm_joint.jsonl.gz' does not match '^(data|artifacts|experiments|report)/(?!.*\\.\\.)[A-Za-z0-9_./-]+$'; $.artifacts[4].path: 'joint/base/test_details/synthetic_lstm_joint.json' does not match '^(data|artifacts|experiments|report)/(?!.*\\.\\.)[A-Za-z0-9_./-]+$'
+
+src/common/contracts.py:291: ContractError</failure></testcase><testcase classname="tests.lstm29.test_joint_evaluation" name="test_exact_main_joint_members_and_preserved_baselines" time="0.000" /><testcase classname="tests.lstm29.test_joint_evaluation" name="test_member_matrix_rejects_invalid_or_partial_declaration[duplicate]" time="0.000" /><testcase classname="tests.lstm29.test_joint_evaluation" name="test_member_matrix_rejects_invalid_or_partial_declaration[missing]" time="0.001" /><testcase classname="tests.lstm29.test_joint_evaluation" name="test_member_matrix_rejects_invalid_or_partial_declaration[wrong_seed]" time="0.000" /><testcase classname="tests.lstm29.test_joint_evaluation" name="test_member_matrix_rejects_invalid_or_partial_declaration[unknown_method]" time="0.001" /><testcase classname="tests.lstm29.test_joint_evaluation" name="test_member_matrix_rejects_invalid_or_partial_declaration[unknown_dataset]" time="0.001" /><testcase classname="tests.lstm29.test_joint_evaluation" name="test_interrupted_claim_is_not_an_invitation_to_repeat_test" time="0.016" /><testcase classname="tests.lstm29.test_holdout_cache" name="test_compact_cache_all_pixel_free_window_parity_and_float64_targets" time="0.005" /><testcase classname="tests.lstm29.test_holdout_cache" name="test_cache_requires_matching_authorization_hash_and_artifact_hash" time="0.005" /><testcase classname="tests.lstm29.test_holdout_cache" name="test_cache_rejects_nan_context_duplicate_ids_and_budget_overflow" time="0.001" /><testcase classname="tests.lstm29.test_holdout_cache" name="test_cache_hash_is_checked_on_the_exact_loaded_bytes" time="0.003" /></testsuite></testsuites>

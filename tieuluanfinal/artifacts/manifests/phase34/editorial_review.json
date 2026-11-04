@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "reviewed_on": "2026-10-22",
+  "manuscript_sha256": "dcb895acfd76f1ad616baecd7fdc7fa099becbc0cc508a80b3c0432eabef2b19",
+  "scope": "Content integration review plus reuse of previously accepted scientific chapters; not DOCX visual/page QA or a new scientific evaluation",
+  "source_fidelity": {
+    "active_revisions": "Ch2 r2 release; Ch3 presentation r2; Ch4 combined RNN-LSTM; Ch5 presentation r2; Ch6 active_report_r2",
+    "original_tables_preserved": 43,
+    "metric_and_checkpoint_changed": false,
+    "docx_reference": "Read-only A06 OOXML/text evidence; full rendered template distillation deferred35"
+  },
+  "chapters": [
+    {"chapter": 1, "review": "Keep historical arc, remove obsolete Conv1D/RNN-only scope; add Iris/MNIST/ImageNet cards. ImageNet metadata-only, no invented photos or results."},
+    {"chapter": 2, "review": "Basic ML and 6-layer MLP; three implementations; matched train/full TEST, source-label samples, imbalance and baseline findings retained. Deployment updated to actual local API/UI."},
+    {"chapter": 3, "review": "7 learned layers; conv/pooling/softmax explained with shapes, scratch backward and independent native paths. Augmentation none, quarantine and low IDRiD quality retained."},
+    {"chapter": 4, "review": "RNN and LSTM both have theory, six-layer architecture, code and comparison. Time/layer axes, gate symbols, units and horizon distinctions explained. Gold/BIS negative findings retained."},
+    {"chapter": 5, "review": "Keep old TEST/citation; two QA domains plus structural Wikidata, not third QA benchmark. LSA not neural embedding, graph-guided local RAG not full GraphRAG, entity TEST vs challenge separated."},
+    {"chapter": 6, "review": "Deterministic ID-bound local roles, not LLM autonomy. A2 success gain is tamper containment, not predictive accuracy; completion can be lower. Node duration0 is uninstrumented, not measured0ms."}
+  ],
+  "theory": {
+    "reading_order": "Purpose/example, intuition, flow and shape, functions, minimal core expression, implementation, evaluation and limits",
+    "math": "Dense, convolution, recurrence and LSTM gate expressions kept for scratch explanation. No lengthy derivative expansion added. Full formula contract/symbol/why/example ledger remains technical evidence.",
+    "composition": "Plain-language flows plus function composition; learned layers are not activation/pooling/time steps or individual gates.",
+    "code": "5 method excerpts exact to frozen source line/hash; full code stays in repo. Not runnable standalone scripts or new runs."
+  },
+  "critical_caveats": [
+    "Power RNN/PyTorch seed17 original cost fields null; quality n3/cost n2, GPU-CPU FAIL and failed seal preserved",
+    "Gold/BIS snapshot is not real-time vintage; power timezone/DST unknown and one household",
+    "CPU NumPy portable timing is not native Keras/PyTorch or Render SLA",
+    "KG free-question demo differs from historical candidate-per-split benchmark; citations identify container/locator",
+    "Agent template synthetic questions on real parent values; parent TRAIN is not a new predictor holdout",
+    "Ames/BIS units differ; no mixed-unit or mixed-horizon ranking",
+    "No cloud deployment, full WCAG certification or final Word/render claim"
+  ],
+  "navigation": "6 chapters and continuous content sections; deployment last in Ch2-6; 37 figures and143 captioned tables; local links and numeric references audited",
+  "scope_exclusions": ["DOCX creation", "Word layout and page counts", "full-page render", "cloud deploy", "training or TEST inference"]
+}

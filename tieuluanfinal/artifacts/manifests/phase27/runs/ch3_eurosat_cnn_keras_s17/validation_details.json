@@ -1,0 +1,219 @@
+{
+  "best_epoch": 27,
+  "class_names": {
+    "0": "AnnualCrop",
+    "1": "Forest",
+    "2": "HerbaceousVegetation",
+    "3": "Highway",
+    "4": "Industrial",
+    "5": "Pasture",
+    "6": "PermanentCrop",
+    "7": "Residential",
+    "8": "River",
+    "9": "SeaLake"
+  },
+  "memory": {
+    "backend": "tensorflow",
+    "peak_vram_bytes": 69077504,
+    "peak_vram_reserved_bytes": 0,
+    "process_peak_ram_bytes": 1908023296,
+    "ram_scope": "Linux process lifetime high-water RSS; not per-model incremental RAM",
+    "requested_device": "gpu",
+    "vram_scope": "Framework allocator peak since reset; excludes driver/other processes; TensorFlow reserved not reported",
+    "wall_seconds": 106.41478953000001
+  },
+  "metrics": {
+    "accuracy": {
+      "undefined_reason": null,
+      "value": 0.6928395061728395
+    },
+    "auroc": {
+      "undefined_reason": null,
+      "value": 0.953562877702192
+    },
+    "average_precision": {
+      "undefined_reason": null,
+      "value": 0.7306498953793253
+    },
+    "confusion_matrix": [
+      [
+        331,
+        3,
+        17,
+        7,
+        0,
+        18,
+        27,
+        4,
+        29,
+        14
+      ],
+      [
+        0,
+        388,
+        0,
+        0,
+        0,
+        26,
+        0,
+        1,
+        1,
+        34
+      ],
+      [
+        6,
+        3,
+        274,
+        20,
+        16,
+        14,
+        43,
+        54,
+        14,
+        6
+      ],
+      [
+        29,
+        0,
+        10,
+        92,
+        12,
+        13,
+        46,
+        27,
+        146,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        4,
+        342,
+        0,
+        3,
+        21,
+        5,
+        0
+      ],
+      [
+        10,
+        1,
+        12,
+        5,
+        0,
+        173,
+        3,
+        0,
+        52,
+        44
+      ],
+      [
+        45,
+        0,
+        99,
+        33,
+        0,
+        14,
+        150,
+        14,
+        20,
+        0
+      ],
+      [
+        0,
+        0,
+        23,
+        13,
+        14,
+        0,
+        6,
+        394,
+        0,
+        0
+      ],
+      [
+        19,
+        10,
+        5,
+        35,
+        2,
+        30,
+        2,
+        2,
+        269,
+        1
+      ],
+      [
+        0,
+        36,
+        7,
+        0,
+        0,
+        10,
+        0,
+        0,
+        4,
+        393
+      ]
+    ],
+    "macro_f1": {
+      "undefined_reason": null,
+      "value": 0.6713437955832638
+    },
+    "per_class_recall": {
+      "0": {
+        "undefined_reason": null,
+        "value": 0.7355555555555555
+      },
+      "1": {
+        "undefined_reason": null,
+        "value": 0.8622222222222222
+      },
+      "2": {
+        "undefined_reason": null,
+        "value": 0.6088888888888889
+      },
+      "3": {
+        "undefined_reason": null,
+        "value": 0.24533333333333332
+      },
+      "4": {
+        "undefined_reason": null,
+        "value": 0.912
+      },
+      "5": {
+        "undefined_reason": null,
+        "value": 0.5766666666666667
+      },
+      "6": {
+        "undefined_reason": null,
+        "value": 0.4
+      },
+      "7": {
+        "undefined_reason": null,
+        "value": 0.8755555555555555
+      },
+      "8": {
+        "undefined_reason": null,
+        "value": 0.7173333333333334
+      },
+      "9": {
+        "undefined_reason": null,
+        "value": 0.8733333333333333
+      }
+    },
+    "weighted_f1": {
+      "undefined_reason": null,
+      "value": 0.6826584787322901
+    }
+  },
+  "no_augmentation": true,
+  "numpy": "2.4.6",
+  "output_dtype": "float32",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "preprocessing_seconds": 0.4624448449999363,
+  "python": "3.11.17",
+  "train_count": 3000,
+  "validation_count": 4050
+}

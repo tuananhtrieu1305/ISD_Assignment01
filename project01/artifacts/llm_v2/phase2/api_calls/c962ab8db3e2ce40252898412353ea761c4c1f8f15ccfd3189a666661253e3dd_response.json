@@ -1,0 +1,38 @@
+{
+  "call_id": "c962ab8db3e2ce40252898412353ea761c4c1f8f15ccfd3189a666661253e3dd",
+  "status": "complete",
+  "response": {
+    "text": "```json\n{\n \"approved\": true,\n \"numeric_ok\": true,\n \"scope_ok\": true,\n \"answer_matches_claims\": true,\n \"claim_reviews\": [\n  {\n   \"claim_id\": \"1\",\n   \"status\": \"supported\",\n   \"evidence_ids\": [\n    \"m2c-7e5aa9c96d176641246d\",\n    \"m2c-91cdf62148f4f6938cfb\",\n    \"m2c-51d5ae97c76915bbd395\"\n   ],\n   \"reason_vi\": \"Nguồn xác nhận nghiên cứu DPP trên 3.234 người cho thấy việc giảm 5-7% trọng lượng thông qua đi bộ 30 phút/ngày (5 ngày/tuần) và giảm calo giúp giảm hơn một nửa (cut their risk in half) nguy cơ tiểu đường.\"\n  },\n  {\n   \"claim_id\": \"2\",\n   \"status\": \"supported\",\n   \"evidence_ids\": [\n    \"m2c-91cdf62148f4f6938cfb\"\n   ],\n   \"reason_vi\": \"Nguồn nêu rõ người trên 60 tuổi có thể giảm 71% nguy cơ thông qua thay đổi lối sống khiêm tốn.\"\n  },\n  {\n   \"claim_id\": \"3\",\n   \"status\": \"supported\",\n   \"evidence_ids\": [\n    \"m2c-588ce571ca436c0c6d55\",\n    \"m2c-9b59253aa406abb4c8c5\"\n   ],\n   \"reason_vi\": \"Nguồn xác nhận đi bộ giúp giảm cân, kiểm soát huyết áp và cải thiện việc sử dụng insulin.\"\n  }\n ],\n \"feedback\": \"Bản thảo phản ánh chính xác các con số và điều kiện từ nghiên cứu DPP được cung cấp trong nguồn. Các trích dẫn phù hợp với nội dung.\",\n \"corrected_draft\": null\n}\n```",
+    "usage": {
+      "input_tokens": 5469,
+      "output_tokens": 493,
+      "thought_tokens": null,
+      "total_tokens": 5962,
+      "provider_usage_metadata": {
+        "candidates_token_count": 493,
+        "prompt_token_count": 5469,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 5469
+          }
+        ],
+        "total_token_count": 5962
+      }
+    },
+    "model_returned": "gemini-3-flash-preview",
+    "response_status": "completed",
+    "finish_reasons": [
+      "STOP"
+    ],
+    "cache_status": "live",
+    "model_requested": "gemini-3-flash-preview",
+    "latency_ms": 2985.7946700003595,
+    "attempts": 1,
+    "call_id": "c962ab8db3e2ce40252898412353ea761c4c1f8f15ccfd3189a666661253e3dd",
+    "paid_cost_usd": 0,
+    "invoice_verified": false,
+    "endpoint": "v1beta/generateContent",
+    "sdk_calls": 1
+  }
+}

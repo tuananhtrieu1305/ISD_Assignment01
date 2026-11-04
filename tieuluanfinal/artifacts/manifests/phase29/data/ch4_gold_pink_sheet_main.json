@@ -1,0 +1,53 @@
+{
+  "adapter": {
+    "adapter_version": "phase25.1",
+    "canonical_layout": "NTF",
+    "class_names": {},
+    "class_weights_by_id": {},
+    "dataset_id": "ch4_gold_pink_sheet",
+    "dtype": "float32",
+    "feature_order_policy": "numeric input_columns order; then categorical input_columns/vocabulary order",
+    "fold": null,
+    "kind": "timeseries",
+    "output_feature_names": [
+      "gold",
+      "silver_lag1",
+      "platinum_lag1",
+      "crude_oil_lag1"
+    ],
+    "preprocessing": {
+      "path": "artifacts/manifests/phase24/ch4_gold_pink_sheet/preprocessing.json",
+      "sha256": "82dcdf6733898fc2b818ef6aac3ee19dd299c65a4803cdb601a2204a28e4729e"
+    },
+    "pytorch_image_layout": null,
+    "source_label_to_id": {}
+  },
+  "baseline_policy": "Observed target history at/before origin; missing seasonal source falls back to last observed within lookback; no target imputation",
+  "dataset_id": "ch4_gold_pink_sheet",
+  "feature_bytes": 12816,
+  "fold": null,
+  "fold_index_revision": "phase28.1; source-index gaps reconstructed from immutable IDs/calendar, never alter splits/scalers",
+  "horizons": [
+    1,
+    3,
+    6
+  ],
+  "input_shape": [
+    24,
+    4
+  ],
+  "provenance": {
+    "adapter_sha256": "3e4e234cc5d79b6468921af477b514733c4a67751be37f6a5df35fa22b50e839",
+    "dataset_sha256": "dfaba9c931ef045fa98ba4bd5d51e478f17cd7fb1b9911e1a3a07a1123bdbef3",
+    "preprocessing_sha256": "82dcdf6733898fc2b818ef6aac3ee19dd299c65a4803cdb601a2204a28e4729e",
+    "split_sha256": "91a1fb8d745b1017b056636d2d90c6ec3da35ce27b7c046a8045cf8d29f51ddb",
+    "subset_sha256": "c9b193cc6d8d16d76c4d1343fbf7aa71723a01bbdbb0bf0e861a6f3a3ceab60a"
+  },
+  "raw_read_scope": "Frozen full row table is read; transform/gather only development context rows; no TEST window predictions or labels used for selection",
+  "reconstructed_fold_ids": [],
+  "test_windows_materialized": false,
+  "train_count": 531,
+  "train_ids_sha256": "2cb16c76d36afbdd9ade75d477e92316d796090ba08a200743a3eb5d35d9e130",
+  "validation_count": 115,
+  "validation_ids_sha256": "a71e2f15f18345e6e4da7062aac86dd748b49bd30ee9e5c0b11da1aa2b4910af"
+}

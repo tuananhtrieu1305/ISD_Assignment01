@@ -1,0 +1,197 @@
+{
+  "comments": [
+    "Giá vàng USD/troy ounce; silver/platinum/crude oil giữ đơn vị nguồn và trễ một tháng.",
+    "Snapshot đã chỉnh sửa hồi tố, không phải mô phỏng dữ liệu sẵn có theo vintage tại thời điểm thật.",
+    "Chuỗi tháng ít mẫu; không tuyên bố khả năng giao dịch hoặc khuyến nghị đầu tư."
+  ],
+  "dataset_id": "ch4_gold_pink_sheet",
+  "distribution_summary": {
+    "calendar_boundaries": [
+      "2006-08-01T00:00:00",
+      "2016-08-01T00:00:00"
+    ],
+    "excluded_windows": {
+      "cross_boundary": 10,
+      "missing_target": 0,
+      "unresolved_input": 0
+    },
+    "missing_target_rows": 0,
+    "per_series_counts": {
+      "GOLD": 801
+    },
+    "selected_series_count": 1,
+    "selection": {
+      "publication_lag": "explanatory commodities lagged one month; revised vintage, not realtime"
+    },
+    "target_observed_summary": {
+      "25%": 159.0,
+      "50%": 379.0,
+      "75%": 1095.0,
+      "count": 801.0,
+      "max": 5020.0,
+      "mean": 668.4631710362047,
+      "min": 35.0,
+      "std": 794.7810210708558
+    }
+  },
+  "figures": [
+    {
+      "path": "artifacts/figures/phase24/ch4_gold_pink_sheet_time.png",
+      "sha256": "d3facfb6624f5b251ad5221144e9f6c0d6d60cb0919b8fcccb990ccad10663ce",
+      "size_bytes": 124111
+    },
+    {
+      "path": "artifacts/figures/phase24/ch4_gold_pink_sheet_time.svg",
+      "sha256": "b53be436bf0ee5adc9c15bec3718b22df67d8d63e26bcfb13b236cc94580b8e6",
+      "size_bytes": 51808
+    }
+  ],
+  "memory": {
+    "all_windows_input_float32_bytes_if_materialized": 292608,
+    "canonical_frame_bytes": 87441,
+    "input_batch_float32_bytes": 12288,
+    "materialize_all_windows": false,
+    "note": "Lazily slice ranges; input-only bound, actual peak requires Phase25 probe",
+    "vram_peak": null
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "sample_note": "Mẫu window thuộc matched train; known_output là giá trị tương lai đã có trong nguồn train, không phải dự đoán. Target thiếu không bao giờ được điền.",
+  "samples": [
+    {
+      "id": "GOLD/1961-12-01T00:00:00",
+      "input": {
+        "context_end": "1961-12-01T00:00:00",
+        "context_start": "1960-01-01T00:00:00",
+        "last_values": {
+          "crude_oil_lag1": 1.6,
+          "gold": 35.0,
+          "platinum_lag1": 84.0,
+          "silver_lag1": 0.9
+        }
+      },
+      "known_output": {
+        "horizons": [
+          1,
+          3,
+          6
+        ],
+        "target_times": [
+          "1962-01-01T00:00:00",
+          "1962-03-01T00:00:00",
+          "1962-06-01T00:00:00"
+        ],
+        "values": [
+          35,
+          35,
+          35
+        ]
+      }
+    },
+    {
+      "id": "GOLD/1962-01-01T00:00:00",
+      "input": {
+        "context_end": "1962-01-01T00:00:00",
+        "context_start": "1960-02-01T00:00:00",
+        "last_values": {
+          "crude_oil_lag1": 1.6,
+          "gold": 35.0,
+          "platinum_lag1": 84.0,
+          "silver_lag1": 1.0
+        }
+      },
+      "known_output": {
+        "horizons": [
+          1,
+          3,
+          6
+        ],
+        "target_times": [
+          "1962-02-01T00:00:00",
+          "1962-04-01T00:00:00",
+          "1962-07-01T00:00:00"
+        ],
+        "values": [
+          35,
+          35,
+          35
+        ]
+      }
+    },
+    {
+      "id": "GOLD/1962-02-01T00:00:00",
+      "input": {
+        "context_end": "1962-02-01T00:00:00",
+        "context_start": "1960-03-01T00:00:00",
+        "last_values": {
+          "crude_oil_lag1": 1.5,
+          "gold": 35.0,
+          "platinum_lag1": 84.0,
+          "silver_lag1": 1.0
+        }
+      },
+      "known_output": {
+        "horizons": [
+          1,
+          3,
+          6
+        ],
+        "target_times": [
+          "1962-03-01T00:00:00",
+          "1962-05-01T00:00:00",
+          "1962-08-01T00:00:00"
+        ],
+        "values": [
+          35,
+          35,
+          35
+        ]
+      }
+    }
+  ],
+  "schema_version": "3.0.0",
+  "scope": "measured_timeseries",
+  "size_and_schema": {
+    "canonical_time_rows": 801,
+    "contract_time_encoding": "+00:00 is a normalized calendar coordinate for schema/ordering, NOT a claim that source measurements were timestamped in UTC",
+    "counts": {
+      "test": 116,
+      "train": 531,
+      "validation": 115
+    },
+    "features": [
+      "gold",
+      "silver_lag1",
+      "platinum_lag1",
+      "crude_oil_lag1"
+    ],
+    "horizons": [
+      1,
+      3,
+      6
+    ],
+    "lookback": 24,
+    "matched_subset": {
+      "path": "data/splits/v3/ch4_gold_pink_sheet/matched_train.ids.jsonl.gz",
+      "sha256": "c9b193cc6d8d16d76c4d1343fbf7aa71723a01bbdbb0bf0e861a6f3a3ceab60a",
+      "size_bytes": 1216
+    },
+    "matched_train_count": 531,
+    "quarantine_count": 0,
+    "range": [
+      "1960-01-01 00:00:00",
+      "2026-09-01 00:00:00"
+    ],
+    "series": 1,
+    "source_clock": "calendar markers; power civil clock as recorded, timezone/DST not reconstructed",
+    "split": {
+      "path": "data/splits/v3/ch4_gold_pink_sheet/split_contract.json",
+      "sha256": "91a1fb8d745b1017b056636d2d90c6ec3da35ce27b7c046a8045cf8d29f51ddb",
+      "size_bytes": 1578
+    },
+    "valid_windows": 762
+  },
+  "source_manifest_sha256": "dfaba9c931ef045fa98ba4bd5d51e478f17cd7fb1b9911e1a3a07a1123bdbef3",
+  "split_note": "Split 70/15/15 theo lịch target chung. Mọi horizon của window phải ở cùng partition; context chỉ dùng quan sát trước target. Scaler/imputer chính fit prefix train, riêng từng rolling fold fit prefix của chính fold; không fit validation/test. Matched cap chỉ áp dụng train; giữ full validation/test. TEST RNN/LSTM mở chung ở Phase29 sau khóa cả hai họ.",
+  "test_evaluation_executed": false,
+  "training_executed": false
+}

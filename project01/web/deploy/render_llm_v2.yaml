@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: project01-gemini-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r project01/web/backend/requirements_llm_v2.txt
+    startCommand: gunicorn --chdir project01/web/backend app:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 1800
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.17
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: PROJECT01_ENABLE_LIVE_API
+        value: "1"
+      - key: WEB_ORIGIN
+        sync: false
+  - type: web
+    name: project01-gemini-web
+    runtime: static
+    rootDir: project01/web/frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        sync: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

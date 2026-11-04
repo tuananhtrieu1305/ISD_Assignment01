@@ -1,0 +1,38 @@
+{
+  "call_id": "ecc689395f925cbfa603db000ee02a2ecdf605b0d848cb61e35824efe43cec73",
+  "status": "complete",
+  "response": {
+    "text": "```json\n{\n  \"language\": \"vi\",\n  \"intent\": \"risk\",\n  \"queries\": [\n    \"Does kidney disease increase the risk of diabetes?\",\n    \"Relationship between kidney damage and diabetes development\"\n  ],\n  \"entity_ids\": [\n    \"kidney_damage\",\n    \"diabetes\"\n  ],\n  \"relation_direction\": {\n    \"subject\": \"kidney_damage\",\n    \"relation\": \"increase_risk\",\n    \"object\": \"diabetes\",\n    \"negated\": false,\n    \"conditions\": null\n  },\n  \"scope\": \"medical_knowledge\"\n}\n```",
+    "usage": {
+      "input_tokens": 234,
+      "output_tokens": 144,
+      "thought_tokens": null,
+      "total_tokens": 378,
+      "provider_usage_metadata": {
+        "candidates_token_count": 144,
+        "prompt_token_count": 234,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 234
+          }
+        ],
+        "total_token_count": 378
+      }
+    },
+    "model_returned": "gemini-3-flash-preview",
+    "response_status": "completed",
+    "finish_reasons": [
+      "STOP"
+    ],
+    "cache_status": "live",
+    "model_requested": "gemini-3-flash-preview",
+    "latency_ms": 1578.629563999982,
+    "attempts": 1,
+    "call_id": "ecc689395f925cbfa603db000ee02a2ecdf605b0d848cb61e35824efe43cec73",
+    "paid_cost_usd": 0,
+    "invoice_verified": false,
+    "endpoint": "v1beta/generateContent",
+    "sdk_calls": 1
+  }
+}

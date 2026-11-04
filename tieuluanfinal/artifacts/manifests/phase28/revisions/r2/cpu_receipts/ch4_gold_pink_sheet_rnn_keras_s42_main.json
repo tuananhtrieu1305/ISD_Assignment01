@@ -1,0 +1,94 @@
+{
+  "canonical_x_sha256": "9d7970b48b928378e42a280f5224a3fc4394d9412154ef0666eaea04e4241de1",
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_rnn_keras_s42_main/best.npz",
+    "sha256": "71f63ae610b960e8cc4748c85d9eb247afa2c61228829f0e01ef6dd51f2b5969"
+  },
+  "checkpoint_metadata": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_rnn_keras_s42_main/best.json",
+    "sha256": "9ea4ed156188781c1bf7a5ac0a57732491135697d2f7234b2fbcf852e1020c77"
+  },
+  "comparisons": {
+    "atol": 1e-05,
+    "cpu_reference": {
+      "max_absolute_error": 2.384185791015625e-07,
+      "output": [
+        [
+          -1.3045026063919067,
+          -1.313835859298706,
+          -1.2814240455627441
+        ],
+        [
+          -1.3053098917007446,
+          -1.3157552480697632,
+          -1.2821322679519653
+        ],
+        [
+          -1.3049947023391724,
+          -1.3151427507400513,
+          -1.2818408012390137
+        ],
+        [
+          -1.3036863803863525,
+          -1.3141344785690308,
+          -1.2804640531539917
+        ]
+      ],
+      "status": "PASS"
+    },
+    "original_gpu_cpu_gate": {
+      "max_absolute_error": 2.384185791015625e-07,
+      "output": null,
+      "source": {
+        "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s42_main/cpu_demo.json",
+        "sha256": "1a7d3a8c4a2aa85e717f45342fd0982ab6df1353e1087bbd9a5326fd22be133f"
+      },
+      "status": "PASS"
+    },
+    "rtol": 0.0001
+  },
+  "ids": [
+    "GOLD/1961-12-01T00:00:00",
+    "GOLD/1962-01-01T00:00:00",
+    "GOLD/1962-02-01T00:00:00",
+    "GOLD/1962-03-01T00:00:00"
+  ],
+  "input_split": "train",
+  "native_cpu_device": "cpu",
+  "native_cpu_engine": "tensorflow",
+  "portable_cpu_output": [
+    [
+      -1.3045023679733276,
+      -1.313835620880127,
+      -1.281423807144165
+    ],
+    [
+      -1.3053100109100342,
+      -1.3157551288604736,
+      -1.2821323871612549
+    ],
+    [
+      -1.3049947023391724,
+      -1.3151427507400513,
+      -1.2818408012390137
+    ],
+    [
+      -1.303686499595642,
+      -1.3141344785690308,
+      -1.2804641723632812
+    ]
+  ],
+  "revision": {
+    "path": "artifacts/manifests/phase28/revisions/r2/revision.json",
+    "sha256": "11c7251f5dd092ba7c109f4ea512d3062de3cc6dd1514f683dd7aa06bbc771b7"
+  },
+  "run_id": "ch4_gold_pink_sheet_rnn_keras_s42_main",
+  "selection": {
+    "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_rnn_keras_s42_main/selection.json",
+    "sha256": "efbb534e369ea73f0f47d23596a7ab2f98dab5385b4f798bedd988a1e403b1a5"
+  },
+  "status": "PASS",
+  "test_executed": false,
+  "validation_executed": false,
+  "weights_updated": false
+}

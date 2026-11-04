@@ -1,0 +1,80 @@
+import {chromium} from '@playwright/test';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+const root=path.resolve(import.meta.dirname,'../..');
+const out=path.join(root,'project01/artifacts/ui_revisions/answer_first_v2');
+const base='http://127.0.0.1:8042';
+const browser=await chromium.launch({executablePath:path.join(root,'.local/ms-playwright/chromium-1248/chrome-win64/chrome.exe'),headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1060},deviceScaleFactor:1});
+const errors=[];page.on('pageerror',error=>errors.push(error.message));
+const checks=[];const outputs={};let calls=0;
+page.on('response',async response=>{if(response.url().endsWith('/api/v1/assist')&&response.status()===200){const row=await response.json();outputs[row.variant]=row;calls++;}});
+function assert(condition,label){if(!condition)throw Error(label);checks.push(label);}
+async function run(){await page.getByRole('button',{name:/^Chạy P0, P1 và P2/}).click();await page.getByRole('heading',{name:'Câu trả lời & bằng chứng.',exact:true}).waitFor({timeout:100000});}
+async function variant(name){await page.locator('.variant-tabs').getByRole('button',{name:new RegExp('^'+name)}).click();}
+const answer=page.getByRole('region',{name:'Câu trả lời cuối cùng'});
+const flow=page.getByRole('region',{name:'So sánh cách xử lý'});
+try{
+  await page.goto(base);await page.getByText('CPU sẵn sàng',{exact:true}).waitFor();
+  const nav=page.getByRole('navigation',{name:'Khu vực demo'});
+  assert(await nav.getByRole('button').count()===3,'three navigation tabs');
+  assert(await nav.getByRole('button',{name:/Luồng agent/}).count()===0,'standalone trace tab removed');
+  await run();
+  assert(await answer.getByRole('heading',{name:'Câu trả lời cho bạn',exact:true}).isVisible(),'final answer prominent');
+  assert((await answer.locator('.answered-question p').innerText())==='Explain physical activity and diabetes.','submitted question visible');
+  assert((await answer.locator('.answer-text p').innerText())===outputs.P2.knowledge.answer,'primary answer exactly backend excerpt');
+  assert((await answer.locator('.answer-model p').innerText())===outputs.P2.answer.sections.find(row=>row.title==='Đầu ra mô hình khảo sát').text,'primary score message exactly backend final section');
+  assert(await answer.locator('.answer-text').evaluate(node=>node.compareDocumentPosition(document.querySelector('.answer-model'))&Node.DOCUMENT_POSITION_FOLLOWING),'knowledge response before model detail');
+  assert((await answer.boundingBox()).y<(await flow.boundingBox()).y,'final answer before processing explanation');
+  assert(await page.locator('#supporting-details').getAttribute('open')===null,'supporting sources initially collapsed');
+  assert(await answer.locator('.answer-text p').evaluate(node=>{const box=node.getBoundingClientRect();return box.top<innerHeight&&box.bottom>0;}),'answer text within first desktop viewport');
+  await page.screenshot({path:path.join(out,'answer-desktop.png'),fullPage:true});
+  await answer.getByRole('link',{name:/Đối chiếu 1 đoạn/}).click();
+  assert(await page.locator('#supporting-details').getAttribute('open')!==null,'citation link opens sources');
+  assert(await page.locator('.evidence details[open]').count()>=1,'cited evidence available for comparison');
+  await page.locator('#supporting-details > summary').click();
+  await flow.locator('.processing-trace > summary').click();
+  assert(await flow.getByRole('region',{name:'Nhật ký xử lý chi tiết'}).isVisible(),'trace available inline');
+  assert(await flow.locator('.inline-trace').getByRole('heading',{name:'Reporter',exact:true}).isVisible(),'actual reporter trace shown inline');
+  await flow.locator('.processing-trace > summary').click();
+  for(const key of ['P0','P1']){
+    await variant(key);
+    assert((await answer.locator('.answer-text p').innerText())===outputs[key].knowledge.answer,key+' displays its actual final answer');
+    assert(await flow.locator('.verification-detail .check-mark').count()===0,key+' no invented verifier checks');
+  }
+  await page.getByRole('button',{name:'03 So sánh phương pháp'}).click();
+  assert(await page.getByRole('table').count()===2,'comparison live and saved tables retained');
+  await page.getByRole('button',{name:'01 Câu hỏi & hồ sơ'}).click();
+  await page.getByRole('button',{name:'Kiến thức · vận động ↗'}).click();await run();
+  assert(await answer.locator('.answer-model').count()===0,'knowledge-only no fabricated model answer');
+  assert((await answer.locator('.answer-text p').innerText())===outputs.P2.knowledge.answer,'knowledge-only final answer present');
+  await page.getByRole('button',{name:'01 Câu hỏi & hồ sơ'}).click();
+  await page.getByRole('button',{name:'Chỉ mô hình',exact:true}).click();await run();
+  assert(await answer.locator('.answer-text').count()===0,'numeric-only no fabricated knowledge answer');
+  assert(await answer.locator('.answer-model').count()===1,'numeric-only final answer present');
+  await page.getByRole('button',{name:'01 Câu hỏi & hồ sơ'}).click();
+  await page.getByRole('button',{name:'Kết hợp model + kiến thức ↗'}).click();
+  await page.getByRole('spinbutton',{name:'BMI',exact:true}).fill('');await run();
+  assert(await answer.getByRole('heading',{name:'Cần bổ sung hồ sơ',exact:true}).isVisible(),'missing BMI included in final answer');
+  assert(await answer.locator('.answer-model').count()===0,'missing BMI no final score');
+  assert(await answer.locator('.answer-text').count()===1,'partial result retains actual knowledge answer');
+  await page.getByRole('button',{name:'01 Câu hỏi & hồ sơ'}).click();
+  await page.getByRole('button',{name:'Kiến thức · vận động ↗'}).click();
+  await page.getByRole('textbox',{name:'Câu hỏi của bạn'}).fill('What is the price of gold?');await run();
+  assert(await answer.getByText('Câu hỏi nằm ngoài chủ đề tiểu đường mà demo này hỗ trợ.',{exact:true}).isVisible(),'refusal explained in final answer');
+  assert(await answer.locator('.answer-text').count()===0,'refusal no medical answer invented');
+  await page.getByRole('button',{name:'01 Câu hỏi & hồ sơ'}).click();
+  await page.getByRole('textbox',{name:'Câu hỏi của bạn'}).fill('This is an unsent edited question.');
+  await page.getByRole('button',{name:'02 Kết quả & nguồn'}).click();
+  assert((await answer.locator('.answered-question p').innerText())==='What is the price of gold?','answer stays tied to submitted input after editing form');
+  await page.getByRole('button',{name:'01 Câu hỏi & hồ sơ'}).click();
+  await page.getByRole('button',{name:'Kết hợp model + kiến thức ↗'}).click();
+  await page.getByRole('button',{name:'Khôi phục mẫu',exact:true}).click();await run();
+  await page.setViewportSize({width:390,height:844});await page.evaluate(()=>scrollTo(0,0));
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'mobile no horizontal overflow');
+  assert(await answer.getByRole('heading',{name:'Câu trả lời cho bạn',exact:true}).evaluate(node=>{const box=node.getBoundingClientRect();return box.top<innerHeight&&box.bottom>0;}),'mobile answer heading visible before support and flow');
+  await page.screenshot({path:path.join(out,'answer-mobile.png'),fullPage:true});
+  assert(errors.length===0,'no uncaught JavaScript errors');
+  await fs.writeFile(path.join(out,'browser_verification.json'),JSON.stringify({status:'PASS',checks,errors,base,mocked:false,benchmark_rerun:false,demo_api_calls:calls},null,2));
+  console.log('Answer-first E2E PASS',checks.length);
+}finally{await browser.close();}

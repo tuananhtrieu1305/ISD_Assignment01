@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="16.861" timestamp="2026-10-22T06:17:37.075658+07:00" hostname="LaptopVJP"><testcase classname="tests.report34.test_audit" name="test_traceability_includes_implementation_evidence_before_phase24" time="13.813"><failure message="assert False&#10; +  where False = any(&lt;generator object test_traceability_includes_implementation_evidence_before_phase24.&lt;locals&gt;.&lt;genexpr&gt; at 0x736481f9b440&gt;)">def test_traceability_includes_implementation_evidence_before_phase24():
+        from scripts.verify_phase34 import audit
+    
+        _, trace = audit()
+        cleanup = next(r for r in trace if r['requirement_id'] == 'REQ-32')
+        environment = next(r for r in trace if r['requirement_id'] == 'REQ-33')
+&gt;       assert any(r['path'] == 'docs/phase20_report.md' for r in cleanup['evidence'])
+E       assert False
+E        +  where False = any(&lt;generator object test_traceability_includes_implementation_evidence_before_phase24.&lt;locals&gt;.&lt;genexpr&gt; at 0x736481f9b440&gt;)
+
+tests/report34/test_audit.py:50: AssertionError</failure></testcase></testsuite></testsuites>

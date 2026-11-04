@@ -1,0 +1,173 @@
+{
+  "comments": [
+    "Dữ liệu nhỏ và mất cân bằng; nhãn DR grade không phải chẩn đoán cho người dùng.",
+    "Giảm về 128×128 cho track so sánh đã khóa có thể mất chi tiết tổn thương.",
+    "ID gồm split/basename. Không có patient key xác minh; chỉ bảo đảm không trùng pixel giữa tập."
+  ],
+  "dataset_id": "ch3_idrid",
+  "distribution_summary": {
+    "class_by_partition": {
+      "test": {
+        "0": 34,
+        "1": 5,
+        "2": 32,
+        "3": 19,
+        "4": 13
+      },
+      "train": {
+        "0": 113,
+        "1": 16,
+        "2": 116,
+        "3": 63,
+        "4": 40
+      },
+      "validation": {
+        "0": 20,
+        "1": 4,
+        "2": 20,
+        "3": 11,
+        "4": 9
+      }
+    },
+    "class_counts": {
+      "0": 168,
+      "1": 25,
+      "2": 168,
+      "3": 93,
+      "4": 62
+    },
+    "decode_or_label_missing": 0,
+    "outlier_note": "IQR brightness/black fraction, no clinical quality claim or row deletion; feature_profile.json",
+    "pixel_duplicate_rows": 6,
+    "quarantine": 1
+  },
+  "figures": [
+    {
+      "path": "artifacts/figures/phase24/ch3_idrid_samples.png",
+      "sha256": "ba996ddc24f5bf2ae636bcdb401ec57d32ba206dcaa84b26094af83d01409545",
+      "size_bytes": 204237
+    },
+    {
+      "path": "artifacts/figures/phase24/ch3_idrid_samples.svg",
+      "sha256": "92fcb82acdeea60b4b64234c312a84fafce1a37b59daa8d279acb0771d0926c4",
+      "size_bytes": 251436
+    },
+    {
+      "path": "artifacts/figures/phase24/ch3_idrid_distribution.png",
+      "sha256": "3d103ad0255988c47b49debeebfdc48fbf8f7eb3ad1b5e3923933df6cd0f849b",
+      "size_bytes": 51581
+    },
+    {
+      "path": "artifacts/figures/phase24/ch3_idrid_distribution.svg",
+      "sha256": "9506bcbbba69c83a0cb0c749ad36eb7d69cd4ec7d286f1d83c1309685aa84131",
+      "size_bytes": 32489
+    }
+  ],
+  "memory": {
+    "cache_all_images": false,
+    "input_batch_float32_bytes": 3145728,
+    "note": "Stream/decode per image; input-only lower bound, no claim about GPU peak",
+    "one_native_decoded_rgb_bytes": 36636672,
+    "vram_peak": null
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "sample_note": "Mẫu và hình chỉ lấy matched train. known_output là nhãn gốc, không phải dự đoán.",
+  "samples": [
+    {
+      "id": "train/IDRiD_001",
+      "input": {
+        "member": "B. Disease Grading/1. Original Images/a. Training Set/IDRiD_001.jpg",
+        "model_shape": [
+          128,
+          128,
+          3
+        ],
+        "native_shape": [
+          2848,
+          4288,
+          3
+        ]
+      },
+      "known_output": "3"
+    },
+    {
+      "id": "train/IDRiD_003",
+      "input": {
+        "member": "B. Disease Grading/1. Original Images/a. Training Set/IDRiD_003.jpg",
+        "model_shape": [
+          128,
+          128,
+          3
+        ],
+        "native_shape": [
+          2848,
+          4288,
+          3
+        ]
+      },
+      "known_output": "2"
+    },
+    {
+      "id": "train/IDRiD_006",
+      "input": {
+        "member": "B. Disease Grading/1. Original Images/a. Training Set/IDRiD_006.jpg",
+        "model_shape": [
+          128,
+          128,
+          3
+        ],
+        "native_shape": [
+          2848,
+          4288,
+          3
+        ]
+      },
+      "known_output": "4"
+    }
+  ],
+  "schema_version": "3.0.0",
+  "scope": "measured_image",
+  "size_and_schema": {
+    "classes": 5,
+    "counts": {
+      "test": 103,
+      "train": 348,
+      "validation": 64
+    },
+    "images": 516,
+    "label_mapping": {
+      "0": "0",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4"
+    },
+    "matched_subset": {
+      "path": "data/splits/v3/ch3_idrid/matched_train.ids.jsonl.gz",
+      "sha256": "28328c2a0de708b03fd8022efcdaf88beb2c6966007b7c58776d4fe6d19f6847",
+      "size_bytes": 784
+    },
+    "matched_train_count": 348,
+    "model_shape_hwc": [
+      128,
+      128,
+      3
+    ],
+    "native_shapes": [
+      [
+        2848,
+        4288
+      ]
+    ],
+    "quarantine_count": 1,
+    "split": {
+      "path": "data/splits/v3/ch3_idrid/split_contract.json",
+      "sha256": "e4ba938f293fca2787d6670e4f0c989299e90df2c5dbc91081be47ab5160946b",
+      "size_bytes": 1418
+    }
+  },
+  "source_manifest_sha256": "8d24ac9b9103feb4d06a7caace78b9658193ede0dd308faaf9a01e16c0ccf764",
+  "split_note": "Gom trùng pixel gốc và sau resize. Nếu có official TEST: giữ nguyên TEST, loại bản trùng TEST khỏi development bằng quarantine; validation chỉ lấy official train. Các phép fit/class weight dùng train. Không có augmentation khác nhau giữa framework.",
+  "test_evaluation_executed": false,
+  "training_executed": false
+}

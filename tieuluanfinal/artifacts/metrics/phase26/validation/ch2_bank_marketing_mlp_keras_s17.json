@@ -1,0 +1,142 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/models/v3/ch02_ml/ch2_bank_marketing_mlp_keras_s17/best.npz",
+      "sha256": "00277ea1ef442490483e2726dfafc8d354f7c42c6a33e42f5a7d7b1318cb1905"
+    },
+    {
+      "path": "artifacts/models/v3/ch02_ml/ch2_bank_marketing_mlp_keras_s17/best.json",
+      "sha256": "0a42d3771c3fad2bd21585e9f7300555296f5d064a909683eb68d827fd64e9ce"
+    },
+    {
+      "path": "artifacts/predictions/phase26/validation/ch2_bank_marketing_mlp_keras_s17.jsonl.gz",
+      "sha256": "3c386d6fa301d7eb3cf07fcae97b9f1d16a4145e73355eb474e9b35f8049b69c"
+    }
+  ],
+  "backend": "tensorflow",
+  "batch_size": 32,
+  "code": {
+    "dirty_tree_sha256": "f5d5e981628bd99982dcd833a5ec3e67a0eabb3fb0918ef687b64b9e7d4950ea",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "comparison_group_sha256": "2fd6346cc3b2a39347ea331eb7c174159e4eea010cbc1461770ce8550d8d56ff",
+  "config_sha256": "d9eb19e1e5d6a5b9d9df92a8fd97fbda0ac783be1bd956046247203362761445",
+  "dataset_id": "ch2_bank_marketing",
+  "dataset_sha256": "b34904856e0a4412109c99e7cf9556605ec78fa0910f3593aceac25f27f5e461",
+  "device": "cuda:0",
+  "dtype": "float32",
+  "efficiency": {
+    "checkpoint_bytes": 47446,
+    "inference_p50_ms": 1.3848365001649654,
+    "inference_p95_ms": 2.542325850527046,
+    "peak_ram_bytes": 1523785728,
+    "peak_vram_bytes": 3094528,
+    "timed_repeats": 30,
+    "train_seconds": 30.8702575669995,
+    "warmup_batches": 5
+  },
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "evidence_kind": "measured",
+  "family": "mlp",
+  "finished_at": "2026-10-17T13:41:46.236594+00:00",
+  "implementation": "keras",
+  "metrics": [
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "accuracy",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.7928034213242885
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "macro_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.641414423696678
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "weighted_f1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.8199132531736268
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "auroc",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.7690327060173311
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "average_precision",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.3884385965201336
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "brier",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.17716645104011458
+    },
+    {
+      "direction": "min",
+      "horizon": null,
+      "name": "ece",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.2836461517926321
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_0",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.8168002672010688
+    },
+    {
+      "direction": "max",
+      "horizon": null,
+      "name": "recall_class_1",
+      "undefined_reason": null,
+      "unit": "ratio",
+      "value": 0.6116015132408575
+    }
+  ],
+  "model_contract": {
+    "path": "artifacts/manifests/phase26/revisions/r2/runs/ch2_bank_marketing_mlp_keras_s17/model_contract.json",
+    "sha256": "ca0e3cc37b51d18f10b2b496b7be43266c7b9f1ac80a825e0f8a17b04cb0e4b6"
+  },
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch2_bank_marketing/preprocessing.json",
+    "sha256": "1bf39f9cc012b04bb0b46fa2eee7cbd4d3bb2ae6d3f6abaed5977ca89ad89ea7"
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "run_id": "ch2_bank_marketing_mlp_keras_s17",
+  "schema_version": "3.0.0",
+  "seed": 17,
+  "split": "validation",
+  "split_id": "ch2_bank_marketing_v3_seed42",
+  "split_sha256": "72136591aca9bb338d59aab29106974f1cdf1103624a46074782c3b0182c9035",
+  "started_at": "2026-10-17T13:41:14.318268+00:00",
+  "status": "succeeded",
+  "subset_sha256": "b271747e61b6dcdfc4cf3f5b29b8a28643aaf82760b1efa5b14f3fdec3de811d",
+  "test_seal_id": null,
+  "track": "matched_subset",
+  "warnings": [
+    "Retrospective group split; no clinical or market-deployment claim",
+    "RAM is process-lifetime peak RSS; VRAM is framework allocator only",
+    "Inference includes transfer; TensorFlow graph versus PyTorch/NumPy eager"
+  ]
+}

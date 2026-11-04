@@ -1,4 +1,4 @@
-# V3 monorepo integration r1. Prior config: deploy/render-v3-r1/render-v2-before.yaml.
+# REORG Phase3. Existing manual services need a one-time Settings update.
 # Existing manual services require a one-time Dashboard configuration update.
 services:
   - type: web
@@ -6,8 +6,16 @@ services:
     runtime: python
     plan: free
     region: singapore
-    buildCommand: python -B scripts/render_v3.py build
-    startCommand: python -B scripts/render_v3.py start
+    buildCommand: python -B scripts/render_project.py build --project tieuluan3
+    startCommand: python -B scripts/render_project.py start --project tieuluan3
+    buildFilter:
+      paths:
+        - scripts/render_project.py
+        - tieuluan3/src/**
+        - tieuluan3/scripts/render_v3.py
+        - tieuluan3/web/backend/**
+        - tieuluan3/web/deploy/**
+        - render.yaml
     healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
@@ -32,7 +40,11 @@ services:
   - type: web
     name: isd-assignment01-web
     runtime: static
-    rootDir: apps/web
+    buildFilter:
+      paths:
+        - tieuluan3/web/frontend/**
+        - render.yaml
+    rootDir: tieuluan3/web/frontend
     buildCommand: npm ci --no-fund --no-audit && npm run build
     staticPublishPath: dist
     envVars:

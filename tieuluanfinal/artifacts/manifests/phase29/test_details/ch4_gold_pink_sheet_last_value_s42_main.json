@@ -1,0 +1,183 @@
+{
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_gold_pink_sheet_last_value_s42_main/best.npz",
+    "sha256": "34085f7b90804837cd96abc1cfe955abe4c503f2471f559fb84ccd5c13459db2"
+  },
+  "efficiency_scope": "Train/RAM/VRAM/5warmup30repeat TRAIN-input timing copied byte-value from locked validation metric; not claimed as TEST-only measurements",
+  "evaluator_sha256": "d57fe9be8d8a075525a30f2d7693d77080a79cc3c7f96a50960641995c2ae32c",
+  "metrics": {
+    "by_horizon": {
+      "1": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 58.69827586206897
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.9879785378212539
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 93.36316744028535
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 2.703035023924749
+        }
+      },
+      "3": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 143.4655172413793
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.9388033685169183
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 223.58351058809447
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 6.250869433793565
+        }
+      },
+      "6": {
+        "mae": {
+          "undefined_reason": null,
+          "value": 237.39655172413794
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.8519591501429313
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 369.6091131881412
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 9.822410012581198
+        }
+      }
+    },
+    "by_series": {
+      "GOLD": {
+        "by_horizon": {
+          "1": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 58.69827586206897
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.9879785378212539
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 93.36316744028535
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 2.703035023924749
+            }
+          },
+          "3": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 143.4655172413793
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.9388033685169183
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 223.58351058809447
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 6.250869433793565
+            }
+          },
+          "6": {
+            "mae": {
+              "undefined_reason": null,
+              "value": 237.39655172413794
+            },
+            "r2": {
+              "undefined_reason": null,
+              "value": 0.8519591501429313
+            },
+            "rmse": {
+              "undefined_reason": null,
+              "value": 369.6091131881412
+            },
+            "smape": {
+              "undefined_reason": null,
+              "value": 9.822410012581198
+            }
+          }
+        },
+        "mae": {
+          "undefined_reason": null,
+          "value": 146.52011494252875
+        },
+        "r2": {
+          "undefined_reason": null,
+          "value": 0.9207559006986298
+        },
+        "rmse": {
+          "undefined_reason": null,
+          "value": 255.15822789862727
+        },
+        "smape": {
+          "undefined_reason": null,
+          "value": 6.2587714900998375
+        }
+      }
+    },
+    "macro_series_rmse": {
+      "undefined_reason": null,
+      "value": 255.15822789862727
+    },
+    "mae": {
+      "undefined_reason": null,
+      "value": 146.52011494252875
+    },
+    "r2": {
+      "undefined_reason": null,
+      "value": 0.9207559006986298
+    },
+    "rmse": {
+      "undefined_reason": null,
+      "value": 255.15822789862727
+    },
+    "smape": {
+      "undefined_reason": null,
+      "value": 6.2587714900998375
+    }
+  },
+  "optimizer_updates": 0,
+  "output_dtype": "float64",
+  "run_id": "ch4_gold_pink_sheet_last_value_s42_main",
+  "test_count": 116,
+  "test_forward_and_model_load_seconds": 9.430700083612464e-05,
+  "test_forward_passes_per_window": 1,
+  "test_seal_manifest_sha256": "597bff62544f81cd9021c8567899734be5bb33a2a9ad1f97ed10c716e693dff9",
+  "training_efficiency": {
+    "checkpoint_bytes": 288,
+    "inference_p50_ms": 0.04336549955041846,
+    "inference_p95_ms": 0.0517221009431523,
+    "peak_ram_bytes": 237182976,
+    "peak_vram_bytes": 0,
+    "timed_repeats": 30,
+    "train_seconds": 5.604000762104988e-06,
+    "warmup_batches": 5
+  },
+  "training_selection": {
+    "path": "artifacts/manifests/phase28/runs/ch4_gold_pink_sheet_last_value_s42_main/selection.json",
+    "sha256": "fba1b5ffd249f2a9f014fc25a7618b13c8fe963a984f42f470eb6480b77e4576"
+  }
+}

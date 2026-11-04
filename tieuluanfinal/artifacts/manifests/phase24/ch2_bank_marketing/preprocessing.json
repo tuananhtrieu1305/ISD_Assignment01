@@ -1,0 +1,140 @@
+{
+  "categorical": {
+    "contact": [
+      "cellular",
+      "telephone",
+      "unknown"
+    ],
+    "default": [
+      "no",
+      "yes"
+    ],
+    "education": [
+      "primary",
+      "secondary",
+      "tertiary",
+      "unknown"
+    ],
+    "housing": [
+      "no",
+      "yes"
+    ],
+    "job": [
+      "admin.",
+      "blue-collar",
+      "entrepreneur",
+      "housemaid",
+      "management",
+      "retired",
+      "self-employed",
+      "services",
+      "student",
+      "technician",
+      "unemployed",
+      "unknown"
+    ],
+    "loan": [
+      "no",
+      "yes"
+    ],
+    "marital": [
+      "divorced",
+      "married",
+      "single"
+    ],
+    "month": [
+      "apr",
+      "aug",
+      "dec",
+      "feb",
+      "jan",
+      "jul",
+      "jun",
+      "mar",
+      "may",
+      "nov",
+      "oct",
+      "sep"
+    ],
+    "poutcome": [
+      "failure",
+      "other",
+      "success",
+      "unknown"
+    ]
+  },
+  "class_weights": {
+    "0": 0.5662514156285391,
+    "1": 4.273504273504273
+  },
+  "excluded_features": [
+    "duration",
+    "target"
+  ],
+  "fit_count": 10000,
+  "fit_ids_sha256": "aa4df401c15335f63c79b1f6bb56998fe1ccac2e28594dbd976ea1953dc10b9a",
+  "fit_scope": "train_only",
+  "fit_scope_note": "IDs hash is sorted; statistics use the same set of source rows regardless of row order",
+  "fit_track": "matched_subset_train",
+  "input_columns": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "contact",
+    "day",
+    "month",
+    "campaign",
+    "pdays",
+    "previous",
+    "poutcome"
+  ],
+  "numeric": {
+    "age": {
+      "all_missing_fallback": false,
+      "mean": 40.8229,
+      "median": 39.0,
+      "std": 10.606683533979883
+    },
+    "balance": {
+      "all_missing_fallback": false,
+      "mean": 1322.5539,
+      "median": 431.0,
+      "std": 2825.2170326002906
+    },
+    "campaign": {
+      "all_missing_fallback": false,
+      "mean": 2.8029,
+      "median": 2.0,
+      "std": 3.1914654298613354
+    },
+    "day": {
+      "all_missing_fallback": false,
+      "mean": 15.8843,
+      "median": 16.0,
+      "std": 8.331045163123292
+    },
+    "pdays": {
+      "all_missing_fallback": false,
+      "mean": 38.7669,
+      "median": -1.0,
+      "std": 98.8381078551689
+    },
+    "previous": {
+      "all_missing_fallback": false,
+      "mean": 0.5625,
+      "median": 0.0,
+      "std": 1.8650184315443106
+    }
+  },
+  "output_dtype": "float32",
+  "output_width": 50,
+  "schema_version": "3.0.0",
+  "target_is_not_a_feature": true,
+  "target_name": "subscription",
+  "unknown_category": "all_zero_one_hot"
+}

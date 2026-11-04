@@ -1,0 +1,4 @@
+[
+ {"module":"provider","old":"response=self.client.interactions.create(**body)","new":"response=self.client.interactions.create(**body,api_version='v1beta',timeout=90.0,automatic_continuation=False)","count":1},
+ {"module":"provider","old":"paid_cost_usd=0,invoice_verified=False)","new":"paid_cost_usd=0,invoice_verified=False,endpoint='v1beta/interactions' if kind=='generation' else 'v1beta/embedding',sdk_calls=1)","count":1}
+]

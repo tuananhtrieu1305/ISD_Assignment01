@@ -1,0 +1,302 @@
+"""Run the reproducible matched NumPy/Keras/PyTorch Chapter 4 benchmark."""
+
+import argparse
+import gc
+import json
+import platform
+import time
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+import sklearn
+
+from term_paper.src.common.ch4_data import (
+    A06_ROOT, WORKSPACE_ROOT, prepare_customer_benchmark, prepare_stock_benchmark,
+)
+from term_paper.src.common.ch4_experiment import (
+    artifact_suffix, build_prediction_frame, sha256_file,
+)
+from term_paper.src.common.ch4_metrics import (
+    binary_metrics, regression_metrics, select_f1_threshold,
+)
+
+
+TERM_ROOT = WORKSPACE_ROOT / "term_paper"
+CONFIG_PATH = TERM_ROOT / "config" / "ch4_experiment.json"
+MANIFEST_DIR = TERM_ROOT / "artifacts" / "manifests" / "ch4"
+MODEL_DIR = TERM_ROOT / "artifacts" / "models" / "ch4"
+METRIC_DIR = TERM_ROOT / "artifacts" / "metrics"
+PREDICTION_DIR = TERM_ROOT / "artifacts" / "predictions"
+
+
+def validate_matched_prediction_keys(frames):
+    required = {"numpy", "keras", "pytorch"}
+    if set(frames) != required:
+        raise ValueError(f"framework set must be {sorted(required)}")
+    reference = frames["numpy"][["sample_key", "y_true"]].reset_index(drop=True)
+    for framework in ("keras", "pytorch"):
+        candidate = frames[framework][["sample_key", "y_true"]].reset_index(drop=True)
+        if not reference.equals(candidate):
+            raise ValueError(f"sample keys or targets differ for {framework}")
+
+
+def _json_default(value):
+    if isinstance(value, np.integer):
+        return int(value)
+    if isinstance(value, np.floating):
+        return float(value)
+    if isinstance(value, np.ndarray):
+        return value.tolist()
+    raise TypeError(type(value).__name__)
+
+
+def _create_model(framework, prepared, config, seed, learning_rate):
+    common = {
+        "input_size": prepared["input_size"],
+        "hidden_size": config["topology"]["hidden_size"],
+        "task": prepared["task"], "seed": int(seed),
+        "learning_rate": float(learning_rate),
+        "gradient_clip_norm": config["gradient_clip_norm"],
+    }
+    if framework == "numpy":
+        from term_paper.src.scratch.rnn import NumpyRNN
+        return NumpyRNN(**common)
+    if framework == "keras":
+        from term_paper.src.keras_impl.rnn import KerasRNN
+        return KerasRNN(**common)
+    if framework == "pytorch":
+        from term_paper.src.pytorch_impl.rnn import TorchRNN
+        return TorchRNN(**common)
+    raise ValueError(framework)
+
+
+def _load_model(framework, path):
+    if framework == "numpy":
+        from term_paper.src.scratch.rnn import NumpyRNN
+        return NumpyRNN.load(path)
+    if framework == "keras":
+        from term_paper.src.keras_impl.rnn import KerasRNN
+        return KerasRNN.load(path)
+    if framework == "pytorch":
+        from term_paper.src.pytorch_impl.rnn import TorchRNN
+        return TorchRNN.load(path)
+    raise ValueError(framework)
+
+
+def _model_path(dataset_id, framework, seed):
+    extension = {"numpy": ".npz", "keras": ".keras", "pytorch": ".pt"}[framework]
+    return MODEL_DIR / f"{dataset_id}_{framework}_seed{int(seed)}{extension}"
+
+
+def prepare_datasets(config):
+    return {
+        "ch4_online_retail_customer_week": prepare_customer_benchmark(
+            config["datasets"]["ch4_online_retail_customer_week"]["subset_sizes"],
+            seed=config["subset_seed"],
+        ),
+        "ch4_aapl_next_close": prepare_stock_benchmark(),
+    }
+
+
+def save_prepared_dataset(prepared):
+    MANIFEST_DIR.mkdir(parents=True, exist_ok=True)
+    MODEL_DIR.mkdir(parents=True, exist_ok=True)
+    dataset_id = prepared["dataset_id"]
+    processed_path = MANIFEST_DIR / f"{dataset_id}_processed.npz"
+    values = {}
+    for split in ("train", "val", "test"):
+        values[f"x_{split}"] = prepared[f"x_{split}"]
+        values[f"y_{split}"] = prepared[f"y_{split}"]
+        values[f"keys_{split}"] = np.asarray(prepared["keys"][split])
+        values[f"dates_{split}"] = np.asarray(prepared["dates"][split])
+        if prepared["task"] == "regression":
+            values[f"y_{split}_real"] = prepared[f"y_{split}_real"]
+            values[f"naive_{split}"] = prepared[f"naive_{split}"]
+    np.savez_compressed(processed_path, **values)
+    rows = []
+    for split in ("train", "val", "test"):
+        for key, date, target in zip(prepared["keys"][split], prepared["dates"][split], prepared[f"y_{split}"]):
+            rows.append({"split": split, "sample_key": str(key), "target_date": str(date), "target_model_scale": float(target)})
+    split_path = MANIFEST_DIR / f"{dataset_id}_subset_keys.csv"
+    pd.DataFrame(rows).to_csv(split_path, index=False)
+    preprocessing_sources = [prepared["preprocessor_path"]]
+    if "feature_scaler_path" in prepared:
+        preprocessing_sources.append(prepared["feature_scaler_path"])
+    preprocessor_record = {
+        "fit_scope": "A06 TRAIN only",
+        "sources": [{
+            "path": str(path.relative_to(WORKSPACE_ROOT)).replace("\\", "/"),
+            "sha256": sha256_file(path),
+        } for path in sorted(set(preprocessing_sources), key=str)]
+    }
+    preprocessor_path = MODEL_DIR / f"{dataset_id}_preprocessor_manifest.json"
+    preprocessor_path.write_text(json.dumps(preprocessor_record, indent=2), encoding="utf-8")
+    source_files = [A06_ROOT / "datasets" / "processed" / f"{'customer' if prepared['task']=='binary' else 'stock'}_{split}.npz" for split in ("train", "val", "test")]
+    metadata = {
+        "dataset_id": dataset_id, "task": prepared["task"],
+        "input_size": prepared["input_size"], "sequence_length": prepared["sequence_length"],
+        "split_sizes": {split: int(len(prepared[f"y_{split}"])) for split in ("train", "val", "test")},
+        "date_ranges": {split: [str(prepared["dates"][split][0]), str(prepared["dates"][split][-1])] for split in ("train", "val", "test")},
+        "class_distribution": ({split: {str(int(label)): int(count) for label, count in zip(*np.unique(prepared[f"y_{split}"], return_counts=True))} for split in ("train", "val", "test")} if prepared["task"] == "binary" else None),
+        "class_weight": prepared["class_weight"], "split_sha256": prepared["split_sha256"],
+        "processed_sha256": sha256_file(processed_path),
+        "preprocessor_sha256": sha256_file(preprocessor_path),
+        "split_manifest_sha256": sha256_file(split_path),
+        "source_artifacts": [{"path": str(path.relative_to(WORKSPACE_ROOT)).replace("\\", "/"), "sha256": sha256_file(path)} for path in source_files],
+    }
+    (MANIFEST_DIR / f"{dataset_id}_metadata.json").write_text(
+        json.dumps(metadata, indent=2, ensure_ascii=False, default=_json_default), encoding="utf-8"
+    )
+    return metadata
+
+
+def _real_values(prepared, split, model_values):
+    if prepared["task"] == "binary":
+        return np.asarray(model_values, dtype=float)
+    return prepared["target_scaler"].inverse_transform(np.asarray(model_values).reshape(-1, 1)).reshape(-1)
+
+
+def _fit_candidate(framework, prepared, config, dataset_config, seed, learning_rate):
+    model = _create_model(framework, prepared, config, seed, learning_rate)
+    start = time.perf_counter()
+    history = model.fit(
+        prepared["x_train"], prepared["y_train"], prepared["x_val"], prepared["y_val"],
+        epochs=dataset_config["max_epochs"], batch_size=dataset_config["batch_size"],
+        patience=dataset_config["patience"], min_delta=config["min_delta"],
+        class_weight=prepared["class_weight"] if dataset_config["class_weight"] else None,
+    )
+    seconds = time.perf_counter() - start
+    val_output = model.predict_score(prepared["x_val"], batch_size=dataset_config["batch_size"])
+    if prepared["task"] == "binary":
+        threshold, threshold_table = select_f1_threshold(prepared["y_val"], val_output)
+        metrics = binary_metrics(prepared["y_val"], val_output, threshold)
+        selection_value = metrics["f1"]
+    else:
+        threshold, threshold_table = None, None
+        real_prediction = _real_values(prepared, "val", val_output)
+        metrics = regression_metrics(prepared["y_val_real"], real_prediction)
+        selection_value = -metrics["rmse"]
+    return {"model": model, "history": history, "training_seconds": seconds,
+            "learning_rate": float(learning_rate), "threshold": threshold,
+            "threshold_table": threshold_table, "validation_metrics": metrics,
+            "selection_value": float(selection_value), "best_val_loss": float(min(history["val_loss"]))}
+
+
+def run_one(prepared, metadata, framework, seed, config):
+    dataset_id = prepared["dataset_id"]
+    dataset_config = config["datasets"][dataset_id]
+    search_start = time.perf_counter()
+    candidates = [_fit_candidate(framework, prepared, config, dataset_config, seed, lr) for lr in config["learning_rate_candidates"]]
+    search_seconds = time.perf_counter() - search_start
+    selected = sorted(candidates, key=lambda row: (-row["selection_value"], row["best_val_loss"], row["learning_rate"]))[0]
+    model = selected["model"]
+    suffix = artifact_suffix(seed)
+    stem = f"ch4_{dataset_id}_{framework}{suffix}"
+    model_path = _model_path(dataset_id, framework, seed)
+    model.save(model_path)
+    model_sha256 = sha256_file(model_path)
+    model.predict_score(prepared["x_test"][:min(8, len(prepared["x_test"]))])
+    inference_start = time.perf_counter()
+    raw_prediction = model.predict_score(prepared["x_test"], batch_size=dataset_config["batch_size"])
+    inference_seconds = time.perf_counter() - inference_start
+    prediction = _real_values(prepared, "test", raw_prediction)
+    y_true = prepared["y_test"] if prepared["task"] == "binary" else prepared["y_test_real"]
+    loaded = _load_model(framework, model_path)
+    np.testing.assert_allclose(raw_prediction[:8], loaded.predict_score(prepared["x_test"][:8]), atol=1e-6, rtol=0)
+    frame = build_prediction_frame(
+        dataset_id, framework, prepared["keys"]["test"], y_true, prediction,
+        seed=seed, task=prepared["task"], threshold=selected["threshold"],
+        model_sha256=model_sha256, preprocessor_sha256=metadata["preprocessor_sha256"],
+        split_sha256=metadata["split_sha256"],
+        baseline=prepared.get("naive_test"),
+    )
+    PREDICTION_DIR.mkdir(parents=True, exist_ok=True)
+    METRIC_DIR.mkdir(parents=True, exist_ok=True)
+    prediction_path = PREDICTION_DIR / f"{stem}_test.csv"
+    frame.to_csv(prediction_path, index=False)
+    # The serialized prediction artifact is the metric source of truth.  Reading it
+    # back also handles tie-sensitive ROC-AUC reproducibly after CSV float encoding.
+    frame = pd.read_csv(prediction_path)
+    if prepared["task"] == "binary":
+        metrics = binary_metrics(frame["y_true"], frame["score_or_prediction"], selected["threshold"])
+        primary, secondary = metrics["f1"], metrics["pr_auc"]
+        baseline_metrics = {}
+    else:
+        metrics = regression_metrics(frame["y_true"], frame["score_or_prediction"])
+        baseline_metrics = {f"naive_{key}": value for key, value in regression_metrics(frame["y_true"], frame["naive_last_close"]).items()}
+        primary, secondary = metrics["rmse"], metrics["mae"]
+    history = selected["history"]
+    pd.DataFrame({"epoch": np.arange(1, len(history["train_loss"]) + 1), "train_loss": history["train_loss"], "val_loss": history["val_loss"]}).to_csv(METRIC_DIR / f"{stem}_history.csv", index=False)
+    search_rows = []
+    for candidate in candidates:
+        row = {"learning_rate": candidate["learning_rate"], "selection_value": candidate["selection_value"], "best_val_loss": candidate["best_val_loss"], "epochs_run": len(candidate["history"]["train_loss"]), "training_seconds": candidate["training_seconds"], "selected": candidate is selected}
+        row.update({f"val_{key}": value for key, value in candidate["validation_metrics"].items()})
+        search_rows.append(row)
+    pd.DataFrame(search_rows).to_csv(METRIC_DIR / f"{stem}_lr_search.csv", index=False)
+    if selected["threshold_table"] is not None:
+        selected["threshold_table"].to_csv(METRIC_DIR / f"{stem}_threshold.csv", index=False)
+    row = {
+        "dataset_id": dataset_id, "task": prepared["task"], "framework": framework,
+        "seed": int(seed), "split": "test", "topology_id": "vanilla_rnn_h32_many_to_one",
+        "learning_rate": selected["learning_rate"], "threshold": selected["threshold"],
+        "parameter_count": model.parameter_count, "epochs_run": len(history["train_loss"]),
+        "best_epoch": int(history["best_epoch"]), "training_seconds": float(selected["training_seconds"]),
+        "search_seconds": float(search_seconds), "inference_seconds": float(inference_seconds),
+        "inference_ms_per_sample": float(1000 * inference_seconds / len(frame)), "sample_count": len(frame),
+        "primary_metric": primary, "secondary_metric": secondary, **metrics, **baseline_metrics,
+        "prediction_path": str(prediction_path.relative_to(TERM_ROOT)).replace("\\", "/"),
+        "prediction_sha256": sha256_file(prediction_path),
+        "model_path": str(model_path.relative_to(TERM_ROOT)).replace("\\", "/"),
+        "model_sha256": model_sha256, "preprocessor_sha256": metadata["preprocessor_sha256"],
+        "split_sha256": metadata["split_sha256"],
+    }
+    (METRIC_DIR / f"{stem}_run.json").write_text(json.dumps(row, indent=2, ensure_ascii=False, default=_json_default), encoding="utf-8")
+    for candidate in candidates:
+        candidate["model"] = None
+    del loaded
+    gc.collect()
+    return row, frame
+
+
+def _environment_manifest():
+    import keras
+    import tensorflow as tf
+    import torch
+    return {"python": platform.python_version(), "platform": platform.platform(),
+            "numpy": np.__version__, "pandas": pd.__version__, "scikit_learn": sklearn.__version__,
+            "tensorflow": tf.__version__, "keras": keras.__version__, "torch": torch.__version__, "device": "CPU"}
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--seeds", nargs="+", type=int)
+    args = parser.parse_args(argv)
+    config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    seeds = args.seeds or [int(value) for value in config["model_seeds"]]
+    datasets = prepare_datasets(config)
+    metadata = {key: save_prepared_dataset(value) for key, value in datasets.items()}
+    all_rows = []
+    for seed in seeds:
+        for dataset_id, prepared in datasets.items():
+            frames = {}
+            for framework in config["frameworks"]:
+                print(f"RUN {dataset_id} {framework} seed={seed}", flush=True)
+                row, frame = run_one(prepared, metadata[dataset_id], framework, seed, config)
+                all_rows.append(row); frames[framework] = frame
+                metric_name = "f1" if prepared["task"] == "binary" else "rmse"
+                print(f"DONE {metric_name}={row[metric_name]:.4f} lr={row['learning_rate']} train={row['training_seconds']:.1f}s", flush=True)
+            validate_matched_prediction_keys(frames)
+    comparison_path = METRIC_DIR / "ch4_framework_comparison.csv"
+    new_rows = pd.DataFrame(all_rows)
+    if comparison_path.exists():
+        existing = pd.read_csv(comparison_path)
+        new_rows = pd.concat([existing.loc[~existing["seed"].astype(int).isin(seeds)], new_rows], ignore_index=True)
+    new_rows.sort_values(["dataset_id", "framework", "seed"]).to_csv(comparison_path, index=False)
+    MANIFEST_DIR.mkdir(parents=True, exist_ok=True)
+    (MANIFEST_DIR / "environment.json").write_text(json.dumps(_environment_manifest(), indent=2), encoding="utf-8")
+    print(f"WROTE {len(all_rows)} run rows to {comparison_path}", flush=True)
+
+
+if __name__ == "__main__":
+    main()

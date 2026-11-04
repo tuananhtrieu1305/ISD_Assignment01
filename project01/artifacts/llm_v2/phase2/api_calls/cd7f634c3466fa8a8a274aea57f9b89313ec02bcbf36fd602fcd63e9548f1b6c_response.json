@@ -1,0 +1,33 @@
+{
+  "call_id": "cd7f634c3466fa8a8a274aea57f9b89313ec02bcbf36fd602fcd63e9548f1b6c",
+  "status": "complete",
+  "response": {
+    "text": "```json\n{\n  \"language\": \"vi\",\n  \"intent\": \"risk\",\n  \"queries\": [\n    \"does chronic kidney disease increase the risk of diabetes\",\n    \"kidney damage as a risk factor for diabetes incidence\"\n  ],\n  \"entity_ids\": [\n    \"kidney_damage\",\n    \"diabetes\"\n  ],\n  \"relation_direction\": {\n    \"subject\": \"kidney_damage\",\n    \"relation\": \"increases_risk_of\",\n    \"object\": \"diabetes\",\n    \"negated\": false,\n    \"conditions\": []\n  },\n  \"scope\": \"diabetes\"\n}\n```",
+    "usage": {
+      "initial_input_tokens": 233,
+      "input_tokens_by_modality": [
+        {
+          "modality": "text",
+          "tokens": 234
+        }
+      ],
+      "total_cached_tokens": 0,
+      "total_input_tokens": 234,
+      "total_output_tokens": 148,
+      "total_thought_tokens": 0,
+      "total_tokens": 382,
+      "total_tool_use_tokens": 0
+    },
+    "model_returned": "gemini-3.8-flash",
+    "response_status": "completed",
+    "cache_status": "live",
+    "model_requested": "gemini-3.8-flash",
+    "latency_ms": 54150.65755799969,
+    "attempts": 1,
+    "call_id": "cd7f634c3466fa8a8a274aea57f9b89313ec02bcbf36fd602fcd63e9548f1b6c",
+    "paid_cost_usd": 0,
+    "invoice_verified": false,
+    "endpoint": "v1beta/interactions",
+    "sdk_calls": 1
+  }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="0.193" timestamp="2026-10-30T21:24:43.044178+07:00" hostname="LaptopVJP"><testcase classname=".mnt" name="c" time="0.000"><error message="collection failure">/home/tuananh/.local/share/ai-term-paper-v3/.venv-torch/lib/python3.11/site-packages/pluggy/_caller.py:197: in __call__
+    return self._hookexec(
+/home/tuananh/.local/share/ai-term-paper-v3/.venv-torch/lib/python3.11/site-packages/pluggy/_manager.py:183: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/tuananh/.local/share/ai-term-paper-v3/.venv-torch/lib/python3.11/site-packages/_pytest/main.py:467: in pytest_ignore_collect
+    if collection_path.is_dir():
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+/home/tuananh/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1250: in is_dir
+    return S_ISDIR(self.stat().st_mode)
+                   ^^^^^^^^^^^
+/home/tuananh/.local/share/ai-term-paper-v3/python/cpython-3.11.17-linux-x86_64-gnu/lib/python3.11/pathlib.py:1013: in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   PermissionError: [Errno 13] Permission denied: '/mnt/c/DumpStack.log.tmp'</error></testcase></testsuite></testsuites>

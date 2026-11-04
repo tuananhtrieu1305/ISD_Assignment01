@@ -1,0 +1,103 @@
+{
+  "artifact_refs": 1334,
+  "at": "2026-10-18T15:09:00.276252+00:00",
+  "auditor": {
+    "path": "scripts/verify_phase28.py",
+    "sha256": "0379f1e1b0d8a6694cb56f25e433f127e7981005464956dbb9b2871fb7bc8494"
+  },
+  "auditor_revision": "phase28.metric-order-roundtrip.2",
+  "baseline_runs": 24,
+  "code_sha256": "c7aaafbe11688e15bbc33da23c0bc5558a42ed3662504a5ae018b4d4eb556c70",
+  "coverage": {
+    "path": "artifacts/manifests/phase28/final_coverage.json",
+    "sha256": "308ead4bb92df5d0270affaf95b32aa8108f9c8fa137ca21214af6f0432ffe1d"
+  },
+  "coverage_percent": 90.22164276401564,
+  "cpu_reference_revision": {
+    "path": "artifacts/manifests/phase28/revisions/r2/revision.json",
+    "sha256": "11c7251f5dd092ba7c109f4ea512d3062de3cc6dd1514f683dd7aa06bbc771b7"
+  },
+  "data_views": 12,
+  "main_neural_runs": 27,
+  "metric_comparison": "Exact complete rows keyed by name/horizon; no numerical tolerance change",
+  "neural_runs": 108,
+  "original_auditor": {
+    "path": "artifacts/manifests/phase28/attempts/auditor_metric_order_v1.py",
+    "sha256": "35f40f70b78cd27154c8b73e9a241941b0e8cd9f8cd7e46016ecf01c924c5b9f"
+  },
+  "original_gpu_cpu_failures_preserved": [
+    "ch4_household_power_rnn_pytorch_s17_main"
+  ],
+  "original_training_telemetry_unavailable": [
+    "ch4_household_power_rnn_pytorch_s17_main"
+  ],
+  "phase": 28,
+  "protected_locks": {
+    "core25": {
+      "path": "artifacts/manifests/phase25/core_lock.json",
+      "sha256": "596e500edf30f4ab6440eb050f3ff2c274c30a9e02e062831a338ad83fa647d1",
+      "verified_files": 219
+    },
+    "data24": {
+      "path": "artifacts/manifests/phase24/data_lock.json",
+      "sha256": "5ae1091892262b0b2e52a570e19963005da6724a736447bd11b4e9be3b60e37e",
+      "verified_files": 294
+    },
+    "experiment26": {
+      "path": "artifacts/manifests/phase26/revisions/r2/experiment_lock.json",
+      "sha256": "dcf18106ea7ccdd75843cd44f2061ccab492b9e274eaea9e63900a6125198d1c",
+      "verified_files": 1032
+    },
+    "experiment27": {
+      "path": "artifacts/manifests/phase27/experiment_lock.json",
+      "sha256": "f66f1b5b3793bce8f3a79c0603a2882a7f4173ac11bb51e21c8c3e9c5856522b",
+      "verified_files": 2378
+    },
+    "spec22": {
+      "path": "artifacts/manifests/phase22/spec_lock.json",
+      "sha256": "ae78989e584b41539623803fb2a85ae9e0e233617920d0b14826bdfb9603f939",
+      "verified_files": 31
+    }
+  },
+  "rolling_neural_runs": 81,
+  "status": "PASS",
+  "strict_native_cpu_receipts": 108,
+  "test_evaluation_executed": false,
+  "test_evidence": [
+    {
+      "path": "artifacts/manifests/phase28/rnn-tests.xml",
+      "sha256": "7562f12ed7ae1e5343c74c7c8426bd11ea653b285dcfcf4cb7aedccae9d0f02a"
+    },
+    {
+      "path": "artifacts/manifests/phase28/keras-final-tests.xml",
+      "sha256": "34389b0d39f608ad4ded5ab886c87b47bc6a7490d3b47c2bba1c5851bddcc35d"
+    },
+    {
+      "path": "artifacts/manifests/phase28/regression-tests.xml",
+      "sha256": "2aa1f9ad6202f332d8ff7e0690ec14c0e59875c9b428805a89b688f762e514c0"
+    },
+    {
+      "path": "artifacts/manifests/phase28/preservation-tests.xml",
+      "sha256": "3f03dbc1b2896c8020991a563b5562a3a6c08fd9a961169ae1da2346add3876e"
+    },
+    {
+      "path": "artifacts/manifests/phase28/report-tests.xml",
+      "sha256": "468f817d383a1f6a1d42c025e2578000d5b104880cbea850325e6d8f66ba13d4"
+    },
+    {
+      "path": "artifacts/manifests/phase28/powershell-entrypoint-green-tests.xml",
+      "sha256": "4a66bad4e1e3fac6029be647cc20c9bf9a812bbc77c837a88c5644241f341db7"
+    }
+  ],
+  "test_forward_executed": false,
+  "tests": {
+    "keras-final-tests.xml": 1,
+    "powershell-entrypoint-green-tests.xml": 2,
+    "preservation-tests.xml": 1,
+    "regression-tests.xml": 263,
+    "report-tests.xml": 3,
+    "rnn-tests.xml": 39
+  },
+  "validation_forward_executed_by_auditor": false,
+  "validation_rows_audited": 223861
+}

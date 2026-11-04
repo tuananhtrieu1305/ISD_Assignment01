@@ -1,0 +1,61 @@
+{
+  "categorical": {},
+  "features": [
+    "gold",
+    "silver_lag1",
+    "platinum_lag1",
+    "crude_oil_lag1"
+  ],
+  "fit_count": 560,
+  "fit_ids_sha256": "47476dfb3ddd767250b8c667e83a1d6bd9eed5e772998eb5599e508b49bcfe6d",
+  "fit_scope": "train_only",
+  "fit_track": "all_observed_training_prefix_times_only; same contract for all implementations",
+  "horizons": [
+    1,
+    3,
+    6
+  ],
+  "input_columns": [
+    "gold",
+    "silver_lag1",
+    "platinum_lag1",
+    "crude_oil_lag1"
+  ],
+  "lookback": 24,
+  "numeric": {
+    "crude_oil_lag1": {
+      "all_missing_fallback": false,
+      "mean": 16.848035714285718,
+      "median": 16.3,
+      "std": 13.843947738948037
+    },
+    "gold": {
+      "all_missing_fallback": false,
+      "mean": 253.90357142857144,
+      "median": 296.0,
+      "std": 166.6416857086375
+    },
+    "platinum_lag1": {
+      "all_missing_fallback": false,
+      "mean": 346.3482142857143,
+      "median": 360.0,
+      "std": 227.6099228089517
+    },
+    "silver_lag1": {
+      "all_missing_fallback": false,
+      "mean": 5.000178571428571,
+      "median": 4.8,
+      "std": 3.8513981649856848
+    }
+  },
+  "output_dtype": "float32",
+  "output_width": 4,
+  "schema_version": "3.0.0",
+  "target_imputation": "never",
+  "target_transform": {
+    "mean": 253.90357142857144,
+    "name": "standardize",
+    "std": 166.6416857086375
+  },
+  "unknown_category": "all_zero_one_hot"
+}

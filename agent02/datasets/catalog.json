@@ -1,0 +1,29 @@
+{
+  "project": "agent02",
+  "datasets": [
+    {
+      "dataset_id": "agent02_01",
+      "name": "e-commerce simulation + Gold TRAIN calibration",
+      "status": "available",
+      "files": [
+        {
+          "path": "agent02/datasets/derived/gold_train_prefix_v1.csv",
+          "sha256": "7f4f177f18aee3f368dc9555a4dbe7199e428a67bc41a07d307b908efbf2318b",
+          "bytes": 6589
+        },
+        {
+          "path": "agent02/datasets/derived/gold_regime_kernel_v1.json",
+          "sha256": "af85ad5bd933df60202d267b30c2d975ac993c91a0ee8709cec06e1aab5018f0",
+          "bytes": 76437
+        }
+      ],
+      "source": "see original source cards",
+      "note": "Gold proxy TRAINonly; do not use V3 future/TEST or force static diabetes/house data into causal RL",
+      "schema": {},
+      "split_policy": "preserve original experiment state"
+    }
+  ],
+  "physical_path_base": "repository root",
+  "resolver": "scripts/datasets.py",
+  "raw_modified": false
+}

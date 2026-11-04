@@ -1,0 +1,33 @@
+{
+  "forward": "PASS",
+  "gradient": {
+    "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+    "max_abs_error": 6.198883056640625e-06,
+    "max_relative_l2_error": 6.859002401068617e-06,
+    "per_tensor_relative_l2_error": {
+      "dense_4/b": 7.828955865119462e-07,
+      "dense_4/w": 4.358775918131574e-06,
+      "dense_6/b": 6.49156958090985e-07,
+      "dense_6/w": 3.280306597087418e-06,
+      "dense_8/b": 3.4994417375873613e-07,
+      "dense_8/w": 1.2156684132495058e-06,
+      "rnn_1/b": 6.859002401068617e-06,
+      "rnn_1/u": 6.730256360433373e-06,
+      "rnn_1/w": 6.2832896764644916e-06,
+      "rnn_2/b": 5.396789175444313e-06,
+      "rnn_2/u": 6.401079345428312e-06,
+      "rnn_2/w": 6.069468281330429e-06,
+      "rnn_3/b": 4.687935193882635e-06,
+      "rnn_3/u": 5.7064990167423585e-06,
+      "rnn_3/w": 5.989216016471763e-06
+    },
+    "tolerance": 0.001
+  },
+  "ids": [
+    "HOUSEHOLD/2006-12-23T20:00:00",
+    "HOUSEHOLD/2006-12-23T23:00:00",
+    "HOUSEHOLD/2006-12-24T00:00:00",
+    "HOUSEHOLD/2006-12-24T01:00:00"
+  ],
+  "input_split": "train"
+}

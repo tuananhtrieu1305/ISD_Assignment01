@@ -1,0 +1,12 @@
+{
+    "status":  "PASS",
+    "typescript":  "TypeScript --noEmit paper2 derived React source",
+    "command":  ".local/node-v22.23.4-win-x64/node.exe apps/web/node_modules/typescript/bin/tsc --noEmit -p docs/reorganization/phase2/tsconfig_paper2.json",
+    "dependency_cache":  "existing local node_modules, no install",
+    "vite_client_declaration":  "included from original dependency cache in migration harness",
+    "production_build":  "deferred Phase3",
+    "python_lint":  "ruff check --select F,E9 passed on migration helpers/adapters",
+    "powershell_parser":  "PASS run_assignment, catalog_check, preserve",
+    "git_diff_check":  "PASS scoped root navigation and migration files",
+    "powershell_runner_from_subdirectory":  "PASS A06 Inspect, canonical root resolved independent of cwd; wslpath uses forward slashes and --exec"
+}

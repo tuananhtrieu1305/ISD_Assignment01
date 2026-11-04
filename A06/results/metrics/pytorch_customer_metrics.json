@@ -1,0 +1,146 @@
+{
+  "experiment": "PyTorch Customer Vanilla RNN",
+  "seed": 42,
+  "device": "cpu",
+  "architecture": {
+    "recurrent_layer": "torch.nn.RNN",
+    "input_size": 5,
+    "sequence_length": 8,
+    "hidden_size": 64,
+    "num_layers": 1,
+    "batch_first": true,
+    "nonlinearity": "tanh",
+    "head": "Linear(64, 1) producing one logit",
+    "sigmoid_inside_model": false,
+    "parameter_count": 4609
+  },
+  "data": {
+    "feature_names": [
+      "total_spent",
+      "total_quantity",
+      "order_count",
+      "unique_products",
+      "active_flag"
+    ],
+    "split_shapes": {
+      "train": [
+        247458,
+        8,
+        5
+      ],
+      "val": [
+        50354,
+        8,
+        5
+      ],
+      "test": [
+        53052,
+        8,
+        5
+      ]
+    },
+    "source_artifacts": {
+      "test": {
+        "bytes": 418292,
+        "path": "datasets/processed/customer_test.npz",
+        "sha256": "de8cbcec15e1ede07f374573b33bfc1c31816191fc69d83e9a1bfc062b0b0bef"
+      },
+      "train": {
+        "bytes": 1976810,
+        "path": "datasets/processed/customer_train.npz",
+        "sha256": "1f3995f0b2c4295fd824ab1fba35ff6208dc954ceb2d091dc979fd4d71085051"
+      },
+      "val": {
+        "bytes": 343645,
+        "path": "datasets/processed/customer_val.npz",
+        "sha256": "93a417d8570ad087b6a814e1439eaf30ea0db8e932a89cadb5c9f8451c4e5d00"
+      }
+    }
+  },
+  "training": {
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "criterion": "BCEWithLogitsLoss",
+    "batch_size": 1024,
+    "max_epochs": 30,
+    "patience": 5,
+    "min_delta": 0.0001,
+    "gradient_clip_norm": 1.0,
+    "epochs_actually_run": 11,
+    "best_epoch": 9,
+    "best_validation_loss": 0.9559116967739453,
+    "training_duration_seconds": 151.06363829999998,
+    "selection_scope": "validation loss only; TEST unused until final evaluation",
+    "history": {
+      "train_loss": [
+        1.152559393281538,
+        1.1390158078111476,
+        1.1383110730747799,
+        1.1377841279181975,
+        1.1373121983116905,
+        1.1379007447340033,
+        1.1365866561574138,
+        1.1377920537775383,
+        1.1356485221658985,
+        1.1363810730804815,
+        1.1358941293776135
+      ],
+      "validation_loss": [
+        0.9680779307433183,
+        0.9657355896619881,
+        0.9730734010408836,
+        0.9670471918518049,
+        0.9766354638977057,
+        0.9559840125276613,
+        0.9834528700941848,
+        0.9606463670512788,
+        0.9559116967739453,
+        0.9641130471828985,
+        0.9967333555420421
+      ]
+    }
+  },
+  "class_weighting": {
+    "used": true,
+    "type": "positive class weight in BCEWithLogitsLoss",
+    "positive_weight": 14.226310607925178,
+    "formula": "TRAIN negatives / TRAIN positives",
+    "fit_scope": "TRAIN y only",
+    "train_class_0": 231206,
+    "train_class_1": 16252
+  },
+  "evaluation": {
+    "split": "TEST",
+    "evaluations_on_test": 1,
+    "threshold": 0.5,
+    "metrics": {
+      "accuracy": 0.7581618035135339,
+      "precision": 0.15869809203142538,
+      "recall": 0.5721607769085514,
+      "f1": 0.24847703842549204,
+      "roc_auc": 0.7009347868460704
+    },
+    "confusion_matrix_tn_fp_fn_tp": {
+      "tn": 38101,
+      "fp": 11244,
+      "fn": 1586,
+      "tp": 2121
+    }
+  },
+  "artifacts": {
+    "checkpoint": {
+      "path": "models/pytorch/pytorch_customer_rnn_best.pt",
+      "sha256": "6eac526856bbd7c669b45668df01712b94551cbd15f83808823dce7947a43eab"
+    },
+    "predictions": {
+      "path": "results/predictions/pytorch_customer_predictions.csv",
+      "rows": 53052,
+      "sha256": "39ef1e482e1d260e77c75ed2fab64b8e2099d7389498601651b604ee65275f0e"
+    },
+    "figures": [
+      "results/figures/pytorch_customer/training_validation_loss.png",
+      "results/figures/pytorch_customer/test_confusion_matrix.png",
+      "results/figures/pytorch_customer/test_roc_curve.png"
+    ]
+  }
+}

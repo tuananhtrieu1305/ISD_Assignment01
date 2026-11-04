@@ -1,0 +1,57 @@
+{
+  "metric_row": {
+    "chapter": 2,
+    "dataset_id": "ch2_ecommerce_behavior",
+    "framework": "keras",
+    "seed": 42,
+    "split": "test",
+    "task": "binary",
+    "topology_id": "mlp_64_32_1",
+    "input_dim": 368,
+    "parameter_count": 25729,
+    "optimizer": "Adam",
+    "learning_rate": 0.01,
+    "batch_size": 512,
+    "epochs_run": 15,
+    "best_epoch": 5,
+    "training_seconds": 1.6658441999998104,
+    "search_seconds": 4.398755000000165,
+    "inference_seconds": 0.09649590000026365,
+    "inference_ms_per_sample": 0.04824795000013182,
+    "sample_count": 2000,
+    "threshold": 0.2,
+    "prediction_path": "term_paper/artifacts/predictions/ch2_ch2_ecommerce_behavior_keras_test.csv",
+    "prediction_sha256": "7a6106b41b11e9ebfc2741a466e944c8d8366ac01a427f4c23c4035189d32d6a",
+    "model_path": "term_paper/artifacts/models/ch2/ch2_ecommerce_behavior_keras_seed42.keras",
+    "model_sha256": "a88b73fd88567901c499fd37e4016777354d1463c79cd5f423d1301df89c9a13",
+    "preprocessor_sha256": "1f5d0f141c886dff63ba3fafd46ae9599e51613f7e106c0adc5014113aef8d98",
+    "processed_sha256": "72013d540b0e688059bbaaf2cb1127224d0786cef70f8025d91b325cc1f55041",
+    "split_sha256": "b9bf6fd92b31a05002e1538ad5a930c93e7a0373f58f0961441d06c1e8509eaf",
+    "Accuracy": 0.456,
+    "Precision": 0.2053501180173092,
+    "Recall": 0.7699115044247787,
+    "F1": 0.3242236024844721,
+    "ROC-AUC": 0.6061742668435512
+  },
+  "learning_rate_candidates": [
+    {
+      "learning_rate": 0.01,
+      "measured_val_loss": 0.5920478518266338,
+      "history_best_val_loss": 0.5920478701591492,
+      "best_epoch": 5,
+      "epochs_run": 15,
+      "training_seconds": 1.6658441999998104
+    },
+    {
+      "learning_rate": 0.003,
+      "measured_val_loss": 0.6038695151735783,
+      "history_best_val_loss": 0.6038694977760315,
+      "best_epoch": 9,
+      "epochs_run": 19,
+      "training_seconds": 2.0977818999999727
+    }
+  ],
+  "selected_candidate_index": 0,
+  "history_path": "term_paper/artifacts/metrics/ch2_ch2_ecommerce_behavior_keras_history.csv",
+  "threshold_path": "term_paper/artifacts/metrics/ch2_ch2_ecommerce_behavior_keras_threshold.csv"
+}

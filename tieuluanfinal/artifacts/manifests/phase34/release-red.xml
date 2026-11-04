@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="14" time="6.843" timestamp="2026-10-22T06:09:12.645519+07:00" hostname="LaptopVJP"><testcase classname="tests.report34.test_audit" name="test_navigation_accepts_continuous_chapters" time="0.001" /><testcase classname="tests.report34.test_audit" name="test_navigation_rejects_bad_number_or_last_section[# CH\u01af\u01a0NG 6.-# CH\u01af\u01a0NG 7.]" time="0.000" /><testcase classname="tests.report34.test_audit" name="test_navigation_rejects_bad_number_or_last_section[## 2.2.-## 2.4.]" time="0.000" /><testcase classname="tests.report34.test_audit" name="test_navigation_rejects_bad_number_or_last_section[## 2.2. Tri\u1ec3n khai ng\u1eafn-## 2.2. Kh\xe1c]" time="0.000" /><testcase classname="tests.report34.test_audit" name="test_scope_rejects_placeholder_and_unresolved_citation" time="0.001" /><testcase classname="tests.report34.test_audit" name="test_scope_allows_explicit_code_fragment" time="0.000" /><testcase classname="tests.report34.test_audit" name="test_actual_manuscript_audit_reads_saved_artifacts_only" time="5.017" /><testcase classname="tests.report34.test_audit" name="test_integrity_ref_rejects_mismatch" time="0.004" /><testcase classname="tests.report34.test_audit" name="test_test_xml_rejects_failed_or_skipped[&lt;failure/&gt;]" time="0.001" /><testcase classname="tests.report34.test_audit" name="test_test_xml_rejects_failed_or_skipped[&lt;skipped/&gt;]" time="0.001" /><testcase classname="tests.report34.test_audit" name="test_test_xml_rejects_failed_or_skipped[&lt;error/&gt;]" time="0.002" /><testcase classname="tests.report34.test_audit" name="test_test_xml_accepts_pass_and_rejects_empty" time="0.001" /><testcase classname="tests.report34.test_audit" name="test_test_xml_rejects_duplicate_cases" time="0.001"><failure message="Failed: DID NOT RAISE ValueError">tmp_path = PosixPath('/tmp/pytest-of-tuananh/pytest-1/test_test_xml_rejects_duplicat0')
+
+    def test_test_xml_rejects_duplicate_cases(tmp_path):
+        from scripts.verify_phase34 import xml_tests
+        path = tmp_path / 'tests.xml'
+        path.write_text('&lt;testsuites&gt;&lt;testsuite&gt;&lt;testcase name="x"/&gt;&lt;testcase name="x"/&gt;&lt;/testsuite&gt;&lt;/testsuites&gt;')
+&gt;       with pytest.raises(ValueError, match='duplicate'):
+E       Failed: DID NOT RAISE ValueError
+
+tests/report34/test_audit.py:80: Failed</failure></testcase><testcase classname="tests.report34.test_audit" name="test_release_packaging_and_readonly_verification" time="0.008"><failure message="Failed: DID NOT RAISE ValueError">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x724229dacad0&gt;
+tmp_path = PosixPath('/tmp/pytest-of-tuananh/pytest-1/test_release_packaging_and_rea0')
+
+    def test_release_packaging_and_readonly_verification(monkeypatch, tmp_path):
+        """Synthetic release with no model/assets. Real publication audited separately."""
+        import hashlib
+        import json
+        from scripts import verify_phase34 as verifier
+        root = tmp_path
+        base = root / 'artifacts/manifests/phase34'
+        out = root / 'report/phase34'
+        base.mkdir(parents=True); out.mkdir(parents=True)
+        monkeypatch.setattr(verifier, 'ROOT', root)
+        monkeypatch.setattr(verifier, 'BASE', base)
+        monkeypatch.setattr(verifier, 'OUT', out)
+        monkeypatch.setattr(verifier, 'ref', lambda path: {'path': path.relative_to(root).as_posix(), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
+        monkeypatch.setattr(verifier, 'audit', lambda: ({'source_manuscript': {'sha256': 'synthetic'}, 'status': 'PASS'}, []))
+        def put(name, value):
+            (base / name).write_text(json.dumps(value))
+        proof = {'status': 'PASS', 'locks': [], 'unique_protected_files': 2}
+        put('preserve_before.json', proof); put('preserve_after.json', proof)
+        put('editorial_review.json', {'status': 'PASS', 'manuscript_sha256': 'synthetic'})
+        put('acceptance_coverage.json', {'totals': {'percent_covered': 90}})
+        put('manuscript_manifest.json', {name: [] for name in ['data_cards','eda_sources','source_manifests','model_contracts','figures','chapters']})
+        put('lint.json', {'status': 'FAIL', 'source': []})
+        (base / 'acceptance-tests.xml').write_text('&lt;testsuites&gt;&lt;testsuite&gt;&lt;testcase name="x"/&gt;&lt;/testsuite&gt;&lt;/testsuites&gt;')
+&gt;       with pytest.raises(ValueError, match='Lint'):
+E       Failed: DID NOT RAISE ValueError
+
+tests/report34/test_audit.py:107: Failed</failure></testcase></testsuite></testsuites>

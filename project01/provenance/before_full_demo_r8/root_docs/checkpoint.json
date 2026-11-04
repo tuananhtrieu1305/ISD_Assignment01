@@ -1,0 +1,455 @@
+{
+  "schema_version": "2.0.0",
+  "plan": "FINAL_PROJECT01_LLM_V2_EXECUTION_PLAN.md",
+  "plan_version": "2.4",
+  "created_date": "2026-11-01",
+  "timezone": "Asia/Bangkok",
+  "status": "IN_PROGRESS",
+  "active_phase": 2,
+  "next_phase": 2,
+  "completed_phases": [
+    1
+  ],
+  "phases": {
+    "1": {
+      "name": "Chốt cách port RAG nhóm, API, dữ liệu và mini-KG seed",
+      "status": "COMPLETE",
+      "depends_on": [],
+      "report": "docs/final_project01/llm_v2/phase1_report.md",
+      "handoff": "docs/final_project01/llm_v2/phase1_handoff.json"
+    },
+    "2": {
+      "name": "Port RAG nhóm sang Gemini, nối mini-KG/agent, web và đánh giá",
+      "status": "IN_PROGRESS",
+      "depends_on": [
+        1
+      ],
+      "report": "docs/final_project01/llm_v2/phase2_report.md"
+    },
+    "3": {
+      "name": "Tiểu luận final DOCX, tích hợp demo và bàn giao",
+      "status": "PENDING",
+      "depends_on": [
+        2
+      ],
+      "report": "docs/final_project01/llm_v2/phase3_report.md"
+    }
+  },
+  "current_step": "Phase2 IN_PROGRESS. Three-generation r7 is complete offline: one direct call, one Coordinator call and one Reporter call; reranker and Code Verifier are local and the repair loop is removed. Embedding calls remain a separately disclosed quota. Restart the user-owned backend before a live demo; r7 has not been validated by a new Gemini call. Freeze/held-out/Phase3 remain unstarted.",
+  "completed_steps": [
+    "Read prior plan/checkpoint and current project restrictions",
+    "Preserved v1 plan/checkpoint/root AGENTS/project AGENTS with hash read-back",
+    "Defined three phases including unfinished final DOCX from v1",
+    "Updated root and project dispatchers to route bare phases and FINAL/LLM aliases to v2",
+    "Updated plan to Gemini free-tier only, zero paid spend, quota scheduling and backend-only key handling; no API call made",
+    "Updated plan 2.2 to directly reuse group RAG/KG source, replace all active OpenAI/Groq paths with Gemini, and prioritize a small source-checked KG for fastest useful demo",
+    "Updated plan 2.3: explicit file transfer into project01, no runtime reference dependency, independent build/test and final reference-folder removal gate",
+    "Phase1 transferred36 source files, recorded21 omissions and resolved63 internal imports; original57 hashes checked",
+    "Saved user-authorized key only in ignored project01/.env; secret scan PASS",
+    "Generation Interactions gemini-3.8-flash PASS; embedding-001 768D PASS; earlier timeout/404 retained",
+    "User confirmed free quotas and chose same model with multi-day evaluation",
+    "Prepared new MedQuAD corpus45 docs/210 QA/316 chunks/409 refs with original URLs/offsets",
+    "Curated mini-KG r2:35 entities/35 reviewed assertions/20 source chunks; first seed retained",
+    "Authored new20 dev/40 held-out questions, references and rubric; zero model outputs",
+    "Locked72 serving dependencies with existing WSL Python; no install or GPU env change",
+    "Read-only old evidence and Phase1 input audits PASS; handoff hash read-back PASS",
+    "Trace I/O r6 records real stage inputs/outputs and reranker decisions; legacy output gaps are labelled, not fabricated",
+    "Short kidney question and shared calibration prompt added;28 regression +12 trace +11 UI checks PASS with zero new model calls",
+    "Three-generation r7: local reranker and local Code Verifier, no repair generation loop;16 architecture +28 regression +10 UI checks PASS with zero new API calls"
+  ],
+  "remaining_steps": [
+    "Phase2: archive and port local group snapshot into3 notebooks/export, isolated serving env, quota-aware RAG/KG+Gemini comparison/UI, development then freeze and multi-day40x2 evaluation; independent clean-start",
+    "Phase3: integrate live implementation into tieuluan3 Chapter6/final DOCX, independence gate then delete only reference folder and smoke again"
+  ],
+  "pending_configuration": {
+    "provider": "google_ai_studio_gemini_developer_api",
+    "generation_model_id": "gemini-3-flash-preview",
+    "embedding_strategy": "Gemini embedding through ported group Embedder/VectorDBClient interface; local NumPy vector store default",
+    "reranking_strategy": "LocalEvidenceReranker using the ported BaseReranker/RankedResult interface; weighted RRF, lexical coverage and KG/source boost. Reference BGE remains provenance only because the small serving runtime does not include its large local model stack.",
+    "total_spend_limit": 0,
+    "currency": "USD",
+    "key_storage": "GEMINI_API_KEY in backend environment/ignored local .env or Render Environment Variables; never store key value in plan/checkpoint",
+    "key_probe_status": "GEMINI3_FLASH_PASS",
+    "request_when": "Configuration ready; refresh usage at Phase2 start, do not request provider/budget/key again",
+    "usage_tier": "free_only",
+    "paid_fallback_allowed": false,
+    "preferred_generation_model_id": "gemini-3-flash-preview",
+    "preferred_embedding_model_id": "gemini-embedding-001",
+    "model_selection_status": "USER_REQUESTED_PROBE_AND_ONE_DEVELOPMENT_PAIR_PASS",
+    "credential_status": "PRESENT_IN_IGNORED_PROJECT01_DOTENV",
+    "key_rotation_recommended": true,
+    "project_tier_verification": "USER_CONFIRMED_AI_STUDIO_FREE_QUOTA; INVOICE_NOT_INDEPENDENTLY_VERIFIED",
+    "embedding_model_id": "gemini-embedding-001",
+    "generation_endpoint": "v1beta/generateContent",
+    "embedding_dimensions": 768,
+    "quota": {
+      "generation": {
+        "rpm": null,
+        "tpm": null,
+        "rpd": null,
+        "status": "CONFIRM_GEMINI3_FLASH_MODEL_LIMITS_IN_AI_STUDIO_BEFORE_BENCHMARK"
+      },
+      "embedding": {
+        "rpm": 100,
+        "tpm": 30000,
+        "rpd": 1000
+      }
+    },
+    "user_selected_multi_day_evaluation": true,
+    "refresh_usage_before_next_session": true,
+    "previous_generation_model": "gemini-3.8-flash",
+    "previous_generation_quota": {
+      "rpm": 5,
+      "tpm": 250000,
+      "rpd": 20
+    }
+  },
+  "evaluation": {
+    "development_questions_target": 20,
+    "held_out_questions_target": 40,
+    "variants": [
+      "llm_direct",
+      "agentic_rag"
+    ],
+    "default_repeats": 1,
+    "default_outputs": 80,
+    "status": "NOT_OPENED_DEVELOPMENT_PROVIDER_FAILURE",
+    "execution_phase": 2,
+    "require_model_corpus_prompts_protocol_freeze": true,
+    "historical_40_question_evaluation_is_not_new_held_out": true,
+    "actual_development_questions": 20,
+    "actual_held_out_questions": 40,
+    "model_outputs": 0,
+    "protocol": "project01/docs/llm_v2/evaluation_protocol.md",
+    "expected_generation_calls_nominal": 120,
+    "expected_generation_calls_with_max_feedback": 120
+  },
+  "history": {
+    "v1_plan": "FINAL_PROJECT01_EXECUTION_PLAN.md",
+    "v1_checkpoint_archive": "docs/final_project01/baseline/before_llm_v2/docs/final_project01/checkpoint.json",
+    "preservation": "docs/final_project01/plan_v2_preservation.json",
+    "completed_v1_phases": [
+      1,
+      2
+    ],
+    "v1_phase3": "UNSTARTED_TRANSFERRED_TO_V2_PHASE3",
+    "current_offline_UI_revision": "answer_first_v2",
+    "baseline_verifier": "scripts/verify_final_project01.py",
+    "project_verifier": "project01/scripts/verify_answer_first_v2.py"
+  },
+  "active_processes": [
+    {
+      "owner": "user",
+      "command": "serve_llm_v2.py --port8031 --live",
+      "note": "Existing server left running; still imports previous backend source until restarted. No agent evaluation worker."
+    }
+  ],
+  "api_calls_this_plan": 75,
+  "phase_execution_started": true,
+  "historical_training_or_TEST_rerun_authorized": false,
+  "commit_push_deploy_authorized": false,
+  "quota_policy": {
+    "scope": "project_and_model_not_key",
+    "concurrency": 1,
+    "on_daily_exhaustion": "save_checkpoint_and_stop_API",
+    "paid_upgrade_allowed": false,
+    "rotate_keys_to_bypass_quota": false,
+    "resume": "only_unconsumed_claims_under_unchanged_frozen_configuration",
+    "evaluation_outputs_are_not_API_call_count": true
+  },
+  "current_plan_registration": "docs/final_project01/llm_v2/standalone_update.json",
+  "reference_review": {
+    "date": "2026-11-02",
+    "report": "docs/final_project01/llm_v2/reference_rag_kg_review.md",
+    "snapshot": "docs/final_project01/llm_v2/reference_rag_kg_snapshot.json",
+    "status": "TRANSFERRED_AND_PORT_MAP_READY",
+    "instruction": "At Phase 1 copy required modules/helpers/assets into project01 with original/copy hashes; thereafter port only local snapshot into notebook/export. No runtime reference-folder dependency; clean-start test without folder before deletion in Phase 3.",
+    "reference_source_modified": false
+  },
+  "reuse_policy": {
+    "source_root": "RAG_KG_Tham_khao/PTHTTM-RAG",
+    "strategy": "MAXIMAL_DIRECT_SOURCE_PORT_NOT_IDEA_ONLY",
+    "mapping_required": true,
+    "port_targets": [
+      "query strategies",
+      "hybrid RRF",
+      "retriever/dedup",
+      "BM25",
+      "chunking/indexer",
+      "embedding/vector interfaces",
+      "reranker interface",
+      "GeminiGenerator/PromptBuilder",
+      "pipeline/schemas",
+      "KG cache/normalize/aggregate/export/visualize"
+    ],
+    "provider_conversion": "All active OpenAI/Groq calls -> shared Gemini adapter; no extra provider key",
+    "notebook_source_of_truth": true,
+    "extra_DB_service_required": false,
+    "runtime": "Reuse WSL; if group-core dependencies missing, one small locked serving env without altering GPU envs",
+    "reference_source_policy": "Keep original unchanged until selected files are transferred and final independence gate passes; then remove reference folder per user request",
+    "local_source_snapshot": "project01/provenance/group_rag_kg_source/",
+    "transfer_manifest": "project01/provenance/group_rag_kg_source/transfer_manifest.json",
+    "runtime_must_not_depend_on_reference_folder": true,
+    "copy_required_transitive_helpers_and_assets": true
+  },
+  "mini_kg": {
+    "status": "CURATED_SOURCE_CHECKED_SEED_R2_READY_RUNTIME_PENDING_PHASE2",
+    "data_source": "Medical text corpus, not CDC row correlations",
+    "phase1": "Small curated seed with quote/direction/source review",
+    "source_chunks_target": [
+      20,
+      40
+    ],
+    "concepts_reference_target": [
+      20,
+      50
+    ],
+    "assertions_reference_target": [
+      25,
+      60
+    ],
+    "counts_are_not_hard_acceptance_gates": true,
+    "phase2": "Port group Gemini extraction/cache/aggregate/visualization, supplement only if needed, integrate graph candidates into RRF/reranking",
+    "storage": "JSON + adjacency",
+    "max_hops": 2,
+    "default_hops": 1,
+    "require_source_for_every_demo_assertion": true,
+    "extract_full_corpus": false,
+    "neo4j_required": false,
+    "active_seed": "project01/artifacts/llm_v2/kg/seed_r2.json",
+    "entities": 35,
+    "assertions": 35,
+    "source_chunks": 20,
+    "source_documents": 17,
+    "automatic_extraction_calls": 0,
+    "reviewer": "Codex assistant; not clinical expert"
+  },
+  "reference_cleanup": {
+    "requested_by_user_date": "2026-11-02",
+    "scope": "C:\\DATA\\assign\\RAG_KG_Tham_khao",
+    "execute_phase": 3,
+    "authorized_after_conditions": [
+      "Required source/helper/asset transfer and hashes complete",
+      "Active implementation/notebook/config/prompt/package inside project01",
+      "Clean-start without reference folder PASS",
+      "Integrated tieuluan3 Chapter 6 independent of reference folder PASS",
+      "Review new or changed reference files before deletion",
+      "Resolve exact workspace-contained target before recursive deletion"
+    ],
+    "phase1_transfer_status": "COMPLETE_36_COPIED_21_OMITTED_WITH_REASONS",
+    "phase2_independence_check": "SOURCE_ONLY_API_RISK_KG_AND_REACT_BUILD_PASS; FRESH_LIVE_LLM_PENDING",
+    "phase3_gate": "NOT_RUN",
+    "reference_deleted": false,
+    "delete_during_plan_update": false,
+    "skip_copy": [
+      ".git",
+      ".env/keys",
+      "venv",
+      "node_modules",
+      "unused legal raw/index/graph",
+      "unused large model caches"
+    ],
+    "retain_attribution_and_original_hashes": true
+  },
+  "api_usage_summary": {
+    "http_requests": 5,
+    "model_list": 1,
+    "generation_attempts": 3,
+    "generation_successes": 1,
+    "embedding_attempts": 1,
+    "embedding_successes": 1,
+    "generation_timeout_usage": "unknown",
+    "old_model_404_retained": true,
+    "held_out_outputs": 0,
+    "paid_budget_usd": 0,
+    "actual_invoice_verified": false,
+    "phase2_sdk_attempts": 70,
+    "count_unit_note": "api_calls_this_plan = Phase1 HTTP attempts5 + Phase2 logical SDK attempts; exact wire HTTP total not separately instrumented"
+  },
+  "last_updated": "2026-11-03T12:27:33+07:00",
+  "phase2_progress": {
+    "status": "IN_PROGRESS",
+    "execution_state": "DEVELOPMENT_ONE_PAIR_PASS_GEMINI3_FLASH",
+    "date": "2026-11-02T06:27:14.358632+00:00",
+    "new_sdk_attempts": 70,
+    "by_kind_and_status": [
+      {
+        "kind": "embedding",
+        "status": "complete",
+        "count": 46
+      },
+      {
+        "kind": "generation",
+        "status": "claimed",
+        "count": 1
+      },
+      {
+        "kind": "generation",
+        "status": "complete",
+        "count": 16
+      },
+      {
+        "kind": "generation",
+        "status": "unknown",
+        "count": 7
+      }
+    ],
+    "source_modules": 16,
+    "notebooks": 3,
+    "old_pins_resolved": 502,
+    "index_chunks": 316,
+    "kg_assertions": 35,
+    "unit_checks": 28,
+    "unit_receipt": "artifacts/llm_v2/phase2/unit_checks_1793599976702834823.json",
+    "layout_checks": 6,
+    "saved_result_ui_checks": 8,
+    "source_only_clean_start": "PASS",
+    "full_live_RAG_answer": "PASS_ONE_DEVELOPMENT_CASE_WITH_CACHE_LINEAGE",
+    "verifier_live_acceptance": "PASS_ONE_CASE_SAME_LLM_NOT_CLINICAL_REVIEW",
+    "full_development_pairs_complete": 1,
+    "held_out_outputs": 0,
+    "evaluation_frozen": false,
+    "secret_scanned_files": 221,
+    "paid_budget_usd": 0,
+    "billing_invoice_verified": false,
+    "scientific_training_or_TEST_forward": 0,
+    "SDK_count_is_not_independently_verified_wire_HTTP_count": true,
+    "local_workers_remaining": false,
+    "installed_packages": 88,
+    "python": "3.11.17",
+    "report": "docs/final_project01/llm_v2/phase2_report.md",
+    "source_checkpoint": "project01/artifacts/llm_v2/phase2/source_checkpoint_20261102.json",
+    "provider_errors": [
+      {
+        "call_id": "d203e69833611dba8ebe032b903e4cdbd2b6a1fb5cdaf733d0d3cd292b3abd17",
+        "kind": "generation",
+        "error_type": "APITimeoutError",
+        "http_status": null
+      },
+      {
+        "call_id": "964c4decd183c30c976685f98f6c23ea79e3b505ddda5239b9e42d28a605cd23",
+        "kind": "generation",
+        "error_type": "APITimeoutError",
+        "http_status": null
+      },
+      {
+        "call_id": "357370b4016ff179d0d059a91bf34ea5253e4586c143ff7359391e5b9d5d06e4",
+        "kind": "generation",
+        "error_type": "InternalServerError",
+        "http_status": 503
+      },
+      {
+        "call_id": "931d01c6e25c415cdb51d0d6911ff2eea405a1f74de0c72e42e4f443baa19452",
+        "kind": "generation",
+        "error_type": "APITimeoutError",
+        "http_status": null
+      }
+    ],
+    "generation_rerank_floor": 0.5,
+    "timeout_seconds": 180,
+    "deadline_seconds": 1500,
+    "resume_steps": [
+      "Read plan/checkpoint and three_generation_r7_report.md. Active generation model is Gemini3Flash/generateContent; comparison contract is exactly3 generation calls.",
+      "User must restart the existing8031 backend and then Ctrl+F5. Do not kill or restart the user-owned process automatically.",
+      "Before one explicit live comparison, confirm at least3 generation slots remain. Query embeddings use a separate quota and may add up to3 embedding requests when cache misses.",
+      "Do not automatically test multiple candidates, rerun until RAG wins, or restore Gemini reranking/verifier/repair. Keep local reranker and Code Verifier.",
+      "After one fresh development acceptance and freeze: execute40 paired questions over multiple days, requiring120 generation calls nominal; do not begin Phase3 yet."
+    ],
+    "job_lifecycle_r4": {
+      "report": "docs/final_project01/llm_v2/job_lifecycle_r4_report.md",
+      "verification": "project01/artifacts/llm_v2/phase2/development/job_lifecycle_r4/verification.json",
+      "backend_checks": 18,
+      "regression_checks": 28,
+      "UI_checks": 9,
+      "minimal_probe_status": "HTTP503",
+      "full_live_acceptance": false,
+      "user_backend_needs_restart": true
+    },
+    "reference_model_probe_v1": {
+      "requested_by_user": true,
+      "model": "gemini-2.5-flash",
+      "SDK_attempts": 1,
+      "endpoint": "v1beta/models/gemini-2.5-flash:generateContent",
+      "status": "API_REJECTED",
+      "http_status": 404,
+      "elapsed_seconds": 0.764,
+      "pipeline_model_changed": false,
+      "receipt": "project01/artifacts/llm_v2/phase2/development/reference_model_probe_v1/result.json",
+      "reason": "API explicitly rejects this model for new users; same model found in reference code config, .env.example and README."
+    },
+    "gemini3_switch_r5": {
+      "report": "docs/final_project01/llm_v2/gemini3_switch_r5_report.md",
+      "verification": "project01/artifacts/llm_v2/phase2/development/gemini3_switch_r5/verification.json",
+      "active_revision": "r5d",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "v1beta/generateContent",
+      "case": "v2-dev-05",
+      "pair_complete": true,
+      "citations": 4,
+      "user_backend_needs_restart": true,
+      "provider_model_quota_confirmed": false
+    },
+    "edge_case_selection_v1": {
+      "guide": "project01/docs/llm_v2/DEMO_EDGE_CASES.md",
+      "evidence": "project01/artifacts/llm_v2/phase2/development/edge_case_selection_v1/selection.json",
+      "candidates": 6,
+      "new_API_calls": 0,
+      "compared_with_current_model": false,
+      "first_choice": "edge-01",
+      "note": "Do not treat oldGemini3.8direct as a Gemini3Flash comparison or proof of clinical error."
+    },
+    "trace_io_r6": {
+      "status": "PASS_OFFLINE_NO_API",
+      "report": "docs/final_project01/llm_v2/trace_io_r6_report.md",
+      "manifest": "project01/artifacts/llm_v2/phase2/development/trace_io_r6/source_manifest.json",
+      "default_question": "Bệnh thận có làm tăng nguy cơ tiểu đường không?",
+      "prompt_revision": "calibration-r6",
+      "prompt_live_validated": false,
+      "runtime_revision": "trace-io-r6",
+      "dedicated_pipeline_tab": true,
+      "notebook_export_parity": "PASS_16_MODULES_3_NOTEBOOKS",
+      "regression_checks": 28,
+      "trace_prompt_rerank_checks": 12,
+      "UI_checks": 11,
+      "react_build_modules": 18,
+      "new_generation_calls": 0,
+      "new_embedding_calls": 0,
+      "historical_result_policy": "Reconstruct only recorded fields; label missing Reporter draft, do not fabricate it.",
+      "user_backend_needs_restart": true
+    },
+    "three_generation_r7": {
+      "status": "PASS_OFFLINE_NO_API",
+      "report": "docs/final_project01/llm_v2/three_generation_r7_report.md",
+      "manifest": "project01/artifacts/llm_v2/phase2/development/three_generation_r7/source_manifest.json",
+      "declaration": "project01/artifacts/llm_v2/phase2/development/three_generation_r7/declaration.json",
+      "runtime_revision": "three-generation-r7",
+      "generation_calls_per_comparison": 3,
+      "generation_calls_direct": 1,
+      "generation_calls_coordinator": 1,
+      "generation_calls_reporter": 1,
+      "reranker_provider": "local_weighted_rrf_lexical_kg",
+      "verifier_provider": "local_code",
+      "repair_generation_calls": 0,
+      "embedding_calls_are_separate": true,
+      "architecture_checks": 16,
+      "regression_checks": 28,
+      "UI_checks": 10,
+      "notebook_export_parity": "PASS_16_MODULES_3_NOTEBOOKS",
+      "react_build_modules": 18,
+      "new_generation_calls": 0,
+      "new_embedding_calls": 0,
+      "live_validated": false,
+      "user_backend_needs_restart": true
+    }
+  },
+  "api_execution_policy": {
+    "updated_by_user": "2026-11-03",
+    "current_request": "OFFLINE_THREE_GENERATION_R7_ONLY",
+    "automatic_multi_case_API_testing": false,
+    "automatic_search_until_RAG_wins": false,
+    "manual_demo_default": "At most one explicitly requested comparison; require and announce exactly3 generation slots before start. Disclose query embeddings separately and stop at quota/errors.",
+    "no_API_calls_in_this_turn": true,
+    "held_out_policy_unchanged": true,
+    "generation_model": "gemini-3-flash-preview"
+  }
+}

@@ -1,0 +1,27 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792250874.422763   12404 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1792250875.053689   12404 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792250879.562991   12404 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+W0000 00:00:1792250882.100460   12404 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1792250882.285200   12404 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1792250882.420156   12404 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5262 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5050 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 12.0a
+I0000 00:00:1792250883.496644   13141 cuda_dnn.cc:461] Loaded cuDNN version 92700
+epoch=1 train_loss=1.615521 validation_loss=1.609725 best_epoch=1
+epoch=2 train_loss=1.611949 validation_loss=1.613235 best_epoch=1
+epoch=3 train_loss=1.602347 validation_loss=1.606555 best_epoch=3
+epoch=4 train_loss=1.591018 validation_loss=1.635538 best_epoch=3
+epoch=5 train_loss=1.568666 validation_loss=1.681807 best_epoch=3
+epoch=6 train_loss=1.517241 validation_loss=1.750025 best_epoch=3
+epoch=7 train_loss=1.545742 validation_loss=2.028748 best_epoch=3
+epoch=8 train_loss=1.534088 validation_loss=1.729522 best_epoch=3
+epoch=9 train_loss=1.594200 validation_loss=1.874073 best_epoch=3
+{
+  "run_id": "ch3_idrid_cnn_keras_s17",
+  "status": "succeeded",
+  "epochs": 9,
+  "best_epoch": 2,
+  "macro_f1": 0.21073013311819283,
+  "train_seconds": 6.740336090999335
+}

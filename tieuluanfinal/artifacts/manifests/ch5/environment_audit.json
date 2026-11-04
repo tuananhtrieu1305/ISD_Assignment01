@@ -1,0 +1,325 @@
+{
+  "schema_version": 1,
+  "phase": 10,
+  "audited_at": "2026-10-12T16:02:25+07:00",
+  "machine": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "logical_cpu_count": 16,
+    "memory_total_bytes": 16788987904,
+    "memory_available_bytes_at_audit": 2879754240,
+    "workspace_drive": {
+      "total_bytes": 450433978368,
+      "used_bytes": 448002859008,
+      "free_bytes": 2431119360
+    }
+  },
+  "commands": {
+    "git": {
+      "available": true,
+      "path": "C:\\Program Files\\Git\\cmd\\git.EXE",
+      "version": "git version 2.53.0.windows.1"
+    },
+    "node": {
+      "available": false,
+      "path": null,
+      "version": null
+    },
+    "npm": {
+      "available": false,
+      "path": null,
+      "version": null
+    },
+    "docker": {
+      "available": true,
+      "path": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.EXE",
+      "version": "Docker version 29.2.0, build 0b9d198"
+    }
+  },
+  "python_environments": [
+    {
+      "available": true,
+      "path": "C:\\DATA\\assign\\backend\\.venv\\Scripts\\python.exe",
+      "version": "3.12.3",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "packages": {
+        "Flask": "3.1.3",
+        "numpy": "2.5.3",
+        "pandas": "3.0.6",
+        "scikit-learn": "1.9.0",
+        "torch": null,
+        "tensorflow": null,
+        "networkx": null,
+        "sentence-transformers": null,
+        "rank-bm25": null,
+        "onnxruntime": null,
+        "faiss-cpu": null,
+        "pytest": "9.1.1",
+        "coverage": "7.16.2"
+      }
+    },
+    {
+      "available": true,
+      "path": "C:\\Users\\anhca\\anaconda3\\envs\\tf312\\python.exe",
+      "version": "3.12.14",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "packages": {
+        "Flask": null,
+        "numpy": "2.5.3",
+        "pandas": "3.0.5",
+        "scikit-learn": "1.9.1",
+        "torch": "2.14.0",
+        "tensorflow": "2.21.0",
+        "networkx": "3.6.1",
+        "sentence-transformers": null,
+        "rank-bm25": null,
+        "onnxruntime": null,
+        "faiss-cpu": null,
+        "pytest": null,
+        "coverage": null
+      }
+    },
+    {
+      "available": true,
+      "path": "C:\\Users\\anhca\\anaconda3\\envs\\rnn312\\python.exe",
+      "version": "3.12.14",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "packages": {
+        "Flask": null,
+        "numpy": "2.5.3",
+        "pandas": "3.0.6",
+        "scikit-learn": "1.9.1",
+        "torch": "2.14.0",
+        "tensorflow": "2.21.0",
+        "networkx": "3.7",
+        "sentence-transformers": null,
+        "rank-bm25": null,
+        "onnxruntime": null,
+        "faiss-cpu": null,
+        "pytest": "9.1.1",
+        "coverage": null
+      }
+    }
+  ],
+  "source_inventory": {
+    "backend": {
+      "files": 9,
+      "bytes": 187230,
+      "extensions": {
+        ".example": 1,
+        ".py": 4,
+        ".joblib": 2,
+        ".txt": 2
+      }
+    },
+    "web": {
+      "files": 32,
+      "bytes": 200018,
+      "extensions": {
+        ".example": 1,
+        ".html": 1,
+        ".json": 3,
+        ".ts": 6,
+        ".tsx": 20,
+        ".css": 1
+      }
+    },
+    "term_paper/deployment": {
+      "files": 19,
+      "bytes": 69470,
+      "extensions": {
+        "<none>": 2,
+        ".py": 9,
+        ".js": 1,
+        ".html": 1,
+        ".css": 1,
+        ".md": 2,
+        ".json": 2,
+        ".txt": 1
+      }
+    },
+    "neo4j_scripts": {
+      "files": 2,
+      "bytes": 1403,
+      "extensions": {
+        ".cypher": 2
+      }
+    }
+  },
+  "render_target": {
+    "runtime": "python",
+    "plan": "free",
+    "region": "singapore",
+    "cpu": 0.1,
+    "ram_bytes": 536870912,
+    "idle_spin_down_minutes": 15,
+    "filesystem": "ephemeral",
+    "source_urls": [
+      "https://render.com/docs/compute-plans",
+      "https://render.com/docs/free"
+    ],
+    "accessed_at": "2026-10-12"
+  },
+  "selected_stack": {
+    "sparse_retriever": "pure_python_bm25",
+    "dense_retriever": "scikit_learn_tfidf_truncated_svd_lsa_128d",
+    "optional_multilingual_embedding": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 (offline experiment only)",
+    "vector_search": "numpy_cosine_on_precomputed_float32_matrix",
+    "graph_runtime": "pure_python_adjacency_primary_networkx_optional_offline",
+    "answer_mode": "extractive_grounded_with_citations_and_abstention",
+    "calculator": "allowlisted_finance_program_interpreter_no_eval",
+    "external_api_required": false
+  },
+  "model_candidates": [
+    {
+      "name": "TF-IDF + TruncatedSVD/LSA",
+      "status": "SELECTED_REQUIRED",
+      "license": "BSD-3-Clause via scikit-learn",
+      "dimensions": 128,
+      "quality_role": "Reproducible dense baseline; benchmark quality will be measured on MedQuAD/FinQA in Phase 14.",
+      "deployment_budget": "30k vocabulary components ≈15.4 MB float32; 60k chunk vectors ≈30.7 MB float32 before metadata.",
+      "source_url": "https://scikit-learn.org/stable/modules/decomposition.html"
+    },
+    {
+      "name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "status": "OPTIONAL_OFFLINE_ABLATION_NOT_RENDER_DEFAULT",
+      "license": "Apache-2.0",
+      "languages": 50,
+      "dimensions": 384,
+      "parameters": "0.1B",
+      "quality_role": "Cross-lingual semantic-search candidate; only retained if Phase 14 shows measurable gain.",
+      "deployment_reason": "Transformer runtime and ~0.1B parameters are unsafe as the default beside existing models on a 512 MB Render instance.",
+      "source_url": "https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+    }
+  ],
+  "generator_candidates": [
+    {
+      "name": "Extractive grounded answer composer",
+      "status": "SELECTED_REQUIRED",
+      "model_bytes": 0,
+      "reason": "Runs without API key/GPU, only cites retrieved IDs and can abstain."
+    },
+    {
+      "name": "External/local generative LLM adapter",
+      "status": "OPTIONAL_DISABLED_BY_DEFAULT",
+      "reason": "Must never be required for tests, Render startup or final demo."
+    }
+  ],
+  "resource_budgets": {
+    "render_process_peak_ram_bytes": 419430400,
+    "packaged_rag_artifacts_bytes": 201326592,
+    "cold_start_target_seconds_excluding_render_spin_up": 20,
+    "reason": "Reserve at least ~112 MB beneath Render free 512 MB for interpreter, Flask and existing model services."
+  },
+  "selection_rationale": [
+    "The official Render free plan exposes only 0.1 CPU and 512 MB RAM and uses an ephemeral filesystem.",
+    "The backend environment already contains NumPy and scikit-learn but not sentence-transformers, ONNX Runtime, FAISS or rank-bm25.",
+    "Pure-Python BM25, precomputed float32 LSA vectors and adjacency lists avoid a database, GPU and external API key.",
+    "The multilingual MiniLM candidate is retained for offline quality ablation, not as the mandatory Render runtime.",
+    "The required answer layer is extractive and citation-bound; generation adapters remain optional."
+  ],
+  "reuse_assessment": [
+    {
+      "area": "backend/",
+      "decision": "REUSE",
+      "evidence": "Flask factory, CORS allow-list, rate limit, security headers, health and error schema."
+    },
+    {
+      "area": "web/",
+      "decision": "REUSE",
+      "evidence": "React Router layout, cards, loading/error components, API URL normalization and established visual style."
+    },
+    {
+      "area": "term_paper/deployment/",
+      "decision": "PARTIAL_REUSE",
+      "evidence": "Model hash validation, schema and deterministic demo patterns; legacy static UI/server are not the public deployment target."
+    },
+    {
+      "area": "neo4j_scripts/",
+      "decision": "REFERENCE_ONLY",
+      "evidence": "Two 19-line toy prediction graphs; no corpus ingestion, provenance, ontology or graph retrieval."
+    },
+    {
+      "area": "render.yaml",
+      "decision": "REUSE_AND_EXTEND_IN_PHASE_16",
+      "evidence": "Existing Python web service + React static service topology is appropriate."
+    }
+  ],
+  "smoke_benchmark": {
+    "status": "PASS",
+    "document_count": 6,
+    "query_count": 3,
+    "cpu_only": true,
+    "bm25": {
+      "implementation": "pure_python_bm25_smoke",
+      "top1_correct": 3,
+      "query_ms_total": 5.038,
+      "rankings": [
+        [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          3,
+          1,
+          5,
+          0,
+          2,
+          4
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          4,
+          5
+        ]
+      ]
+    },
+    "tfidf_svd_lsa": {
+      "dimensions": 4,
+      "top1_correct": 3,
+      "build_ms": 206.89,
+      "query_ms_total": 85.446,
+      "serialized_bytes": 3502,
+      "rankings": [
+        [
+          1,
+          0,
+          4,
+          5,
+          3,
+          2
+        ],
+        [
+          3,
+          4,
+          2,
+          5,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          3,
+          5,
+          1,
+          4
+        ]
+      ]
+    },
+    "python_peak_traced_bytes": 311780,
+    "note": "Micro-smoke validates code path and CPU portability only; it is not a quality result for MedQuAD or FinQA."
+  },
+  "documented_limitations": [
+    "Node/npm are unavailable on the current shell PATH; package-lock and previous Phase 6 build evidence exist, so this does not block Phase 10.",
+    "The smoke corpus is deliberately tiny and cannot establish retrieval quality; real comparison starts after Phase 12 data contracts.",
+    "No transformer model was downloaded in Phase 10; this avoids changing the environment before dataset acquisition and keeps Render sizing conservative."
+  ]
+}

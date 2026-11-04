@@ -1,0 +1,318 @@
+{
+  "adapter": {
+    "path": "artifacts/manifests/phase27/adapters/ch3_eurosat.json",
+    "sha256": "3f093082423f6b866249fd47952343d342ac8453f57cd47ee5f867bdc729ac97"
+  },
+  "augmentation": "none; inherited frozen Phase24 preprocessing, any extra track needs new config",
+  "cache_manifest": {
+    "path": "data/processed/v3/phase27/ch3_eurosat_development/manifest.json",
+    "sha256": "7bcaf97214b9f6272c4bddf08a5f259951bba4a0c023d27803bd877d6a84b2dd"
+  },
+  "canonical_initial_weights_sha256": "b6be6dd7c5e9a1333c6e706fac14dd71e32d62b6764468d1c75cedc4db45e58d",
+  "class_names": {
+    "0": "AnnualCrop",
+    "1": "Forest",
+    "2": "HerbaceousVegetation",
+    "3": "Highway",
+    "4": "Industrial",
+    "5": "Pasture",
+    "6": "PermanentCrop",
+    "7": "Residential",
+    "8": "River",
+    "9": "SeaLake"
+  },
+  "class_weights": null,
+  "code": {
+    "dirty_tree_sha256": "01e3a9025202e8e5f047f10f0d0cb9add4a482642c39db3d4fbb5b96688fc2d6",
+    "git_commit": "e7cf49bce94ac9081a19f3cbee3657f027b21986"
+  },
+  "dataset_id": "ch3_eurosat",
+  "efficiency_policy": "Train wall includes validation/batch conversion/progress I/O; inference batch1/5warmup/30repeat model+transfer, preprocessing separate; process-lifetime RSS; framework allocator VRAM",
+  "environment_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "execution_policy": {
+    "keras": "Keras TensorFlow CUDA tf.function canonical Adam, no XLA",
+    "pytorch": "PyTorch native CUDA eager Adam",
+    "scratch": "NumPy CPU manual conv/pool/backward/Adam eager"
+  },
+  "majority_policy": "argmax unweighted matched TRAIN class counts; one-hot probabilities; no fitting to validation/TEST",
+  "phase": 27,
+  "plan": {
+    "family": "cnn",
+    "input_shape": [
+      32,
+      32,
+      3
+    ],
+    "output_shape": [
+      10
+    ],
+    "plan_version": "phase25.1",
+    "steps": [
+      {
+        "id": "conv2d_1",
+        "input_shape": [
+          32,
+          32,
+          3
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "output_shape": [
+          32,
+          32,
+          8
+        ],
+        "padding": "same"
+      },
+      {
+        "activation": "relu",
+        "id": "activation_2",
+        "input_shape": [
+          32,
+          32,
+          8
+        ],
+        "kind": "activation",
+        "output_shape": [
+          32,
+          32,
+          8
+        ]
+      },
+      {
+        "id": "conv2d_3",
+        "input_shape": [
+          32,
+          32,
+          8
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "output_shape": [
+          32,
+          32,
+          8
+        ],
+        "padding": "same"
+      },
+      {
+        "activation": "relu",
+        "id": "activation_4",
+        "input_shape": [
+          32,
+          32,
+          8
+        ],
+        "kind": "activation",
+        "output_shape": [
+          32,
+          32,
+          8
+        ]
+      },
+      {
+        "id": "pooling_5",
+        "input_shape": [
+          32,
+          32,
+          8
+        ],
+        "kind": "pooling",
+        "output_shape": [
+          16,
+          16,
+          8
+        ],
+        "pool": "max2"
+      },
+      {
+        "id": "conv2d_6",
+        "input_shape": [
+          16,
+          16,
+          8
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "output_shape": [
+          16,
+          16,
+          16
+        ],
+        "padding": "same"
+      },
+      {
+        "activation": "relu",
+        "id": "activation_7",
+        "input_shape": [
+          16,
+          16,
+          16
+        ],
+        "kind": "activation",
+        "output_shape": [
+          16,
+          16,
+          16
+        ]
+      },
+      {
+        "id": "conv2d_8",
+        "input_shape": [
+          16,
+          16,
+          16
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "output_shape": [
+          16,
+          16,
+          16
+        ],
+        "padding": "same"
+      },
+      {
+        "activation": "relu",
+        "id": "activation_9",
+        "input_shape": [
+          16,
+          16,
+          16
+        ],
+        "kind": "activation",
+        "output_shape": [
+          16,
+          16,
+          16
+        ]
+      },
+      {
+        "id": "pooling_10",
+        "input_shape": [
+          16,
+          16,
+          16
+        ],
+        "kind": "pooling",
+        "output_shape": [
+          8,
+          8,
+          16
+        ],
+        "pool": "max2"
+      },
+      {
+        "id": "conv2d_11",
+        "input_shape": [
+          8,
+          8,
+          16
+        ],
+        "kernel_size": 3,
+        "kind": "conv2d",
+        "output_shape": [
+          8,
+          8,
+          32
+        ],
+        "padding": "same"
+      },
+      {
+        "activation": "relu",
+        "id": "activation_12",
+        "input_shape": [
+          8,
+          8,
+          32
+        ],
+        "kind": "activation",
+        "output_shape": [
+          8,
+          8,
+          32
+        ]
+      },
+      {
+        "id": "pooling_13",
+        "input_shape": [
+          8,
+          8,
+          32
+        ],
+        "kind": "pooling",
+        "output_shape": [
+          32
+        ],
+        "pool": "global_average"
+      },
+      {
+        "id": "dense_14",
+        "input_shape": [
+          32
+        ],
+        "kind": "dense",
+        "output_shape": [
+          32
+        ]
+      },
+      {
+        "activation": "relu",
+        "id": "activation_15",
+        "input_shape": [
+          32
+        ],
+        "kind": "activation",
+        "output_shape": [
+          32
+        ]
+      },
+      {
+        "id": "dense_16",
+        "input_shape": [
+          32
+        ],
+        "kind": "dense",
+        "output_shape": [
+          10
+        ]
+      }
+    ],
+    "tiny_synthetic_only": false
+  },
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "provenance": {
+    "adapter_sha256": "2d7e310c410d5ea876fcbd937549debf6c4874eafe10fbff1e5599f63e2c2c91",
+    "dataset_sha256": "8b6306b317c8ef119144c9360da8c7c58a3180da3a564d8cadd21330bc9ffe22",
+    "preprocessing_sha256": "b4ea371485d86eda5fad7cd09ae93aa897aa4c8b65c8bca2fc0b21f7a0fbc542",
+    "split_sha256": "369ba3a92317273cad5340c6a723da12515c95ee545fb64e36fbf1d7d85a8e50",
+    "subset_sha256": "f3b1bb18695870b08fd2aec5548a79b308df5688570f11a844eacd00680138ec"
+  },
+  "saliency_policy": "seed42 first fixed TRAIN image, gradient of predicted logit; illustration only, not clinical interpretation",
+  "seed": 42,
+  "task": "multiclass",
+  "test_policy": "Full TEST once, only after all validation-selected configurations/checkpoints/evaluator approved; no retry/tuning",
+  "track": "matched_subset",
+  "training": {
+    "batch_size": 16,
+    "checkpoint_selection": "minimum validation loss; never TEST",
+    "dtype": "float32",
+    "failure_policy": "Record timeout/OOM/NaN as failed, never silently reduce samples, architecture or epochs for one implementation.",
+    "gradient_clip_global_norm": 1,
+    "hyperparameter_search_trials": 1,
+    "initialization": "Generate canonical NumPy weights once per seed; convert layouts for each adapter; paired forward/gradient checks before training.",
+    "max_epochs": 40,
+    "min_delta": 1e-05,
+    "optimizer": {
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "epsilon": 1e-07,
+      "epsilon_convention": "denominator sqrt(v_hat)+epsilon; adapters must normalize or disclose numerical deviations",
+      "learning_rate": 0.001,
+      "name": "adam"
+    },
+    "patience": 6,
+    "shuffle_policy": "Saved common train batch order per seed; no split/time shuffle.",
+    "wall_time_limit_minutes": 120
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "seed": 42,
+  "medquad": {
+    "filter_version": "diabetes-focus-question-v1",
+    "require_answer": true,
+    "allow_answer_only_match": false,
+    "split": {
+      "strategy": "normalized-focus-group-hash",
+      "train_ratio": 0.7,
+      "validation_ratio": 0.15,
+      "test_ratio": 0.15
+    },
+    "chunking": {
+      "unit": "whitespace_word",
+      "max_words": 120,
+      "overlap_words": 20
+    }
+  },
+  "finqa": {
+    "split": "official",
+    "dev_output_name": "validation",
+    "private_test_usage": "inference_only_no_gold_scoring",
+    "group_key": "page-level id after removing final QA suffix",
+    "chunking": "one chunk per official text_i or table_i evidence unit",
+    "table_linearization": "official FinQA table_row_to_text implementation"
+  },
+  "evaluation": {
+    "top_k": [1, 3, 5, 10],
+    "retrieval_metrics": ["document_recall_at_k", "chunk_recall_at_k", "mrr_at_10"],
+    "answer_metrics": ["normalized_exact_match", "token_f1"],
+    "finqa_metrics": ["execution_accuracy", "program_accuracy"],
+    "tuning_splits": ["train", "validation"],
+    "sealed_splits": ["test"],
+    "abstention_required_for": ["challenge"]
+  },
+  "manual_audit": {
+    "included_sample": 40,
+    "excluded_near_match_sample": 20,
+    "minimum_reviewed": 40,
+    "minimum_inclusion_precision": 0.9
+  }
+}

@@ -1,0 +1,567 @@
+{
+  "backend": "tensorflow",
+  "comparison_group_sha256": "0fe808cf090fd65435f390c9919c41848b676cb023572ab6b5c5473a7e086a1d",
+  "composition": [
+    "dense_1",
+    "activation_2",
+    "dense_3",
+    "activation_4",
+    "dense_5",
+    "activation_6",
+    "dense_7",
+    "activation_8",
+    "dense_9",
+    "activation_10",
+    "dense_11"
+  ],
+  "composition_plain": "đầu vào → Kết hợp các đặc trưng [64] → Giữ tín hiệu dương, tạo khả năng học phi tuyến [64] → Kết hợp các đặc trưng [64] → Giữ tín hiệu dương, tạo khả năng học phi tuyến [64] → Kết hợp các đặc trưng [32] → Giữ tín hiệu dương, tạo khả năng học phi tuyến [32] → Kết hợp các đặc trưng [32] → Giữ tín hiệu dương, tạo khả năng học phi tuyến [32] → Kết hợp các đặc trưng [16] → Giữ tín hiệu dương, tạo khả năng học phi tuyến [16] → Kết hợp các đặc trưng [1] → đầu ra (logit/giá trị chuẩn hóa)",
+  "config_sha256": "e97872046f909b9cccbddda6620207c26be5c613f06377192057e3a6858f94eb",
+  "dataset_id": "ch2_bank_marketing",
+  "dataset_sha256": "b34904856e0a4412109c99e7cf9556605ec78fa0910f3593aceac25f27f5e461",
+  "evidence_kind": "measured",
+  "family": "mlp",
+  "functions": [
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [50] → [64] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = xW + b",
+        "plain_explanation": "Kết hợp các giá trị đầu vào bằng trọng số rồi cộng bias.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "dense_1",
+      "input_shape": [
+        "batch",
+        50
+      ],
+      "mapping": {
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[dense]"
+      },
+      "output_shape": [
+        "batch",
+        64
+      ],
+      "parameters": 3264,
+      "role": "Kết hợp các đặc trưng",
+      "signature": "dense(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "activation_2",
+      "input_shape": [
+        "batch",
+        64
+      ],
+      "mapping": {
+        "keras": "keras.layers.ReLU",
+        "pytorch": "torch.nn.ReLU",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[activation]"
+      },
+      "output_shape": [
+        "batch",
+        64
+      ],
+      "parameters": 0,
+      "role": "Giữ tín hiệu dương, tạo khả năng học phi tuyến",
+      "signature": "activation(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [64] → [64] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = xW + b",
+        "plain_explanation": "Kết hợp các giá trị đầu vào bằng trọng số rồi cộng bias.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "dense_3",
+      "input_shape": [
+        "batch",
+        64
+      ],
+      "mapping": {
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[dense]"
+      },
+      "output_shape": [
+        "batch",
+        64
+      ],
+      "parameters": 4160,
+      "role": "Kết hợp các đặc trưng",
+      "signature": "dense(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "activation_4",
+      "input_shape": [
+        "batch",
+        64
+      ],
+      "mapping": {
+        "keras": "keras.layers.ReLU",
+        "pytorch": "torch.nn.ReLU",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[activation]"
+      },
+      "output_shape": [
+        "batch",
+        64
+      ],
+      "parameters": 0,
+      "role": "Giữ tín hiệu dương, tạo khả năng học phi tuyến",
+      "signature": "activation(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [64] → [32] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = xW + b",
+        "plain_explanation": "Kết hợp các giá trị đầu vào bằng trọng số rồi cộng bias.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "dense_5",
+      "input_shape": [
+        "batch",
+        64
+      ],
+      "mapping": {
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[dense]"
+      },
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameters": 2080,
+      "role": "Kết hợp các đặc trưng",
+      "signature": "dense(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "activation_6",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "mapping": {
+        "keras": "keras.layers.ReLU",
+        "pytorch": "torch.nn.ReLU",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[activation]"
+      },
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameters": 0,
+      "role": "Giữ tín hiệu dương, tạo khả năng học phi tuyến",
+      "signature": "activation(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [32] → [32] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = xW + b",
+        "plain_explanation": "Kết hợp các giá trị đầu vào bằng trọng số rồi cộng bias.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "dense_7",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "mapping": {
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[dense]"
+      },
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameters": 1056,
+      "role": "Kết hợp các đặc trưng",
+      "signature": "dense(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "activation_8",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "mapping": {
+        "keras": "keras.layers.ReLU",
+        "pytorch": "torch.nn.ReLU",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[activation]"
+      },
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameters": 0,
+      "role": "Giữ tín hiệu dương, tạo khả năng học phi tuyến",
+      "signature": "activation(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [32] → [16] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = xW + b",
+        "plain_explanation": "Kết hợp các giá trị đầu vào bằng trọng số rồi cộng bias.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "dense_9",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "mapping": {
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[dense]"
+      },
+      "output_shape": [
+        "batch",
+        16
+      ],
+      "parameters": 528,
+      "role": "Kết hợp các đặc trưng",
+      "signature": "dense(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "activation_10",
+      "input_shape": [
+        "batch",
+        16
+      ],
+      "mapping": {
+        "keras": "keras.layers.ReLU",
+        "pytorch": "torch.nn.ReLU",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[activation]"
+      },
+      "output_shape": [
+        "batch",
+        16
+      ],
+      "parameters": 0,
+      "role": "Giữ tín hiệu dương, tạo khả năng học phi tuyến",
+      "signature": "activation(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [16] → [1] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = xW + b",
+        "plain_explanation": "Kết hợp các giá trị đầu vào bằng trọng số rồi cộng bias.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "dense_11",
+      "input_shape": [
+        "batch",
+        16
+      ],
+      "mapping": {
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[dense]"
+      },
+      "output_shape": [
+        "batch",
+        1
+      ],
+      "parameters": 17,
+      "role": "Kết hợp các đặc trưng",
+      "signature": "dense(x, weights) -> y"
+    }
+  ],
+  "implementation": "keras",
+  "input_shape": [
+    "batch",
+    50
+  ],
+  "layers": [
+    {
+      "function_id": "dense_1",
+      "id": "dense_1",
+      "input_shape": [
+        "batch",
+        50
+      ],
+      "kind": "dense",
+      "output_shape": [
+        "batch",
+        64
+      ],
+      "parameter_count": 3264
+    },
+    {
+      "function_id": "activation_2",
+      "id": "activation_2",
+      "input_shape": [
+        "batch",
+        64
+      ],
+      "kind": "activation",
+      "output_shape": [
+        "batch",
+        64
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "dense_3",
+      "id": "dense_3",
+      "input_shape": [
+        "batch",
+        64
+      ],
+      "kind": "dense",
+      "output_shape": [
+        "batch",
+        64
+      ],
+      "parameter_count": 4160
+    },
+    {
+      "function_id": "activation_4",
+      "id": "activation_4",
+      "input_shape": [
+        "batch",
+        64
+      ],
+      "kind": "activation",
+      "output_shape": [
+        "batch",
+        64
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "dense_5",
+      "id": "dense_5",
+      "input_shape": [
+        "batch",
+        64
+      ],
+      "kind": "dense",
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameter_count": 2080
+    },
+    {
+      "function_id": "activation_6",
+      "id": "activation_6",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "kind": "activation",
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "dense_7",
+      "id": "dense_7",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "kind": "dense",
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameter_count": 1056
+    },
+    {
+      "function_id": "activation_8",
+      "id": "activation_8",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "kind": "activation",
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "dense_9",
+      "id": "dense_9",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "kind": "dense",
+      "output_shape": [
+        "batch",
+        16
+      ],
+      "parameter_count": 528
+    },
+    {
+      "function_id": "activation_10",
+      "id": "activation_10",
+      "input_shape": [
+        "batch",
+        16
+      ],
+      "kind": "activation",
+      "output_shape": [
+        "batch",
+        16
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "dense_11",
+      "id": "dense_11",
+      "input_shape": [
+        "batch",
+        16
+      ],
+      "kind": "dense",
+      "output_shape": [
+        "batch",
+        1
+      ],
+      "parameter_count": 17
+    }
+  ],
+  "model_id": "ch2_bank_marketing_mlp_keras_s73",
+  "output_shape": [
+    "batch",
+    1
+  ],
+  "parameter_count": 11105,
+  "preprocessing": {
+    "path": "artifacts/manifests/phase24/ch2_bank_marketing/preprocessing.json",
+    "sha256": "1bf39f9cc012b04bb0b46fa2eee7cbd4d3bb2ae6d3f6abaed5977ca89ad89ea7"
+  },
+  "recurrent_unroll": null,
+  "schema_version": "3.0.0"
+}

@@ -1,0 +1,37 @@
+{
+  "project": "A06",
+  "framework": "keras",
+  "status": "PASS",
+  "records": [
+    {
+      "task": "customer",
+      "model": "keras_customer_rnn_best.keras",
+      "input_scope": "first original TRAIN window",
+      "output_shape": [
+        1,
+        1
+      ],
+      "output": [
+        0.6812062859535217
+      ],
+      "device": "cpu"
+    },
+    {
+      "task": "stock",
+      "model": "keras_stock_rnn_best.keras",
+      "input_scope": "first original TRAIN window",
+      "output_shape": [
+        1,
+        1
+      ],
+      "output": [
+        -0.8355079889297485
+      ],
+      "device": "cpu"
+    }
+  ],
+  "python": "/home/tuananh/.local/share/ai-term-paper-v3/.venv-keras/bin/python",
+  "training_steps": 0,
+  "scientific_TEST_forward": 0,
+  "input_policy": "synthetic fixture or explicitly saved TRAIN/demo input only"
+}

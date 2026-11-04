@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-paper:phase30:retrieval-pipeline:1",
+  "type": "object",
+  "required": ["schema_version", "dataset_id", "method", "model_id", "available", "lifecycle", "parameter_count", "learnable_layers", "functions", "composition", "composition_plain", "config_refs", "demo_scope", "historical_test_rerun"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "phase30.retrieval_pipeline.1"},
+    "dataset_id": {"enum": ["ch5_medquad_diabetes", "ch5_finqa", "ch5_wikidata_subgraphs"]},
+    "method": {"enum": ["B0", "B1", "B2", "B3", "B4"]},
+    "model_id": {"type": "string", "pattern": "^ch5_[a-z0-9_]+$"},
+    "available": {"type": "boolean"},
+    "lifecycle": {"enum": ["reused_legacy_index_demo", "structural_only_unavailable_for_qa"]},
+    "parameter_count": {"type": "null"},
+    "learnable_layers": {"type": "null"},
+    "composition_plain": {"type": "string", "minLength": 1},
+    "composition": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "functions": {"type": "array", "minItems": 1, "items": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "signature", "role", "input", "output", "corner_case", "source", "formula"],
+      "properties": {
+        "id": {"type": "string"}, "signature": {"type": "string"}, "role": {"type": "string"},
+        "input": {"type": "string"}, "output": {"type": "string"}, "corner_case": {"type": "string"},
+        "source": {"type": "string"}, "formula": {"type": ["string", "null"]}
+      }
+    }},
+    "config_refs": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["path", "sha256"], "additionalProperties": false,
+      "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}}},
+    "demo_scope": {"type": "string", "minLength": 1},
+    "historical_test_rerun": {"const": false}
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "comments": [
+    "MNIST là case study lịch sử; không thay IDRiD/EuroSAT/CIFAR trong ma trận CNN V3.",
+    "Official train có 0 ảnh trùng pixel; không tạo random split mới hay train Ch1."
+  ],
+  "dataset_id": "ch1_mnist_history",
+  "distribution_summary": {
+    "0": 6903,
+    "1": 7877,
+    "2": 6990,
+    "3": 7141,
+    "4": 6824,
+    "5": 6313,
+    "6": 6876,
+    "7": 7293,
+    "8": 6825,
+    "9": 6958
+  },
+  "figures": [
+    {
+      "path": "artifacts/figures/phase24/ch1_mnist_history_samples.png",
+      "sha256": "13e3a39dd25f3fb8e6fe2052772e5f062058fcb029c8c94b45ee3305a08c912f",
+      "size_bytes": 28942
+    },
+    {
+      "path": "artifacts/figures/phase24/ch1_mnist_history_samples.svg",
+      "sha256": "ee3adfffa3c4e733112ef89c219062554087f5be4100ad638d6e14f931d80f81",
+      "size_bytes": 39279
+    },
+    {
+      "path": "artifacts/figures/phase24/ch1_mnist_history_distribution.png",
+      "sha256": "d5cd67870121157df2560e4bef743ee81a1e35c053006a38c7f56733ca86ed3f",
+      "size_bytes": 58039
+    },
+    {
+      "path": "artifacts/figures/phase24/ch1_mnist_history_distribution.svg",
+      "sha256": "315a94e85b9212919deb8f255885a9b3ca57f96f86f20112b78552232550900d",
+      "size_bytes": 37391
+    }
+  ],
+  "protocol_sha256": "25e197517f28075e760d1f5c3f110a8a0307203eaa04261d7271e0798fc06d6c",
+  "sample_note": "Mẫu nguồn phục vụ lịch sử, không phải output của mô hình được train trong Phase24.",
+  "samples": [
+    {
+      "input": "official train index 0, uint8 28x28",
+      "known_output": 5
+    },
+    {
+      "input": "official train index 1, uint8 28x28",
+      "known_output": 0
+    },
+    {
+      "input": "official train index 2, uint8 28x28",
+      "known_output": 4
+    }
+  ],
+  "schema_version": "3.0.0",
+  "scope": "historical_case",
+  "size_and_schema": {
+    "features": 784,
+    "records": 70000,
+    "unit": "images (official 60000 train + 10000 test)"
+  },
+  "source_manifest_sha256": "e611fe447119dd1260c591d131ba3aa6a7a5e85e2ee9d628ba4b4d5134e192e9",
+  "split_note": "Ch1 không huấn luyện. Giữ official split nếu có; không tạo TEST hay preprocessing fit cho chương lịch sử.",
+  "test_evaluation_executed": false,
+  "training_executed": false
+}

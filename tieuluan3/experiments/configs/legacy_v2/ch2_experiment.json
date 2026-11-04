@@ -1,0 +1,23 @@
+{
+  "protocol_version": "ch2-matched-mlp-v1",
+  "seed": 42,
+  "seeds": [42, 52, 62],
+  "hidden_units": [64, 32],
+  "learning_rate_candidates": [0.01, 0.003],
+  "optimizer": "Adam",
+  "batch_size": 512,
+  "max_epochs": 80,
+  "patience": 10,
+  "min_delta": 0.00001,
+  "l2": 0.0,
+  "threshold_candidates": {
+    "start": 0.2,
+    "stop": 0.8,
+    "count": 61,
+    "selection_metric": "validation F1"
+  },
+  "selection_rule": "lowest validation loss for learning rate; validation F1 for binary threshold",
+  "test_policy": "evaluate once after learning rate and threshold are locked",
+  "device_policy": "CPU for NumPy, Keras, and PyTorch",
+  "repeat_decision": "The seed-42 full matched run took 67.38 seconds, below the 20-minute bound; seeds 52 and 62 are therefore required by the experiment contract."
+}

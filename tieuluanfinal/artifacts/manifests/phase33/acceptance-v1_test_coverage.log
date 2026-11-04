@@ -1,0 +1,65 @@
+
+> ai-term-paper-web@3.0.0 test:coverage
+> vitest run --config vitest.v3.config.ts --coverage
+
+
+ RUN  v5.0.5 C:/DATA/assign/apps/web
+      Coverage enabled with v8
+
+ ✓ src/v3/core.test.ts (18 tests) 48ms
+ ✓ src/v3/hooks.test.tsx (3 tests) 176ms
+ ✓ src/v3/App.test.tsx (9 tests) 694ms
+ ✓ src/v3/widgets.test.tsx (28 tests) 873ms
+
+ Test Files  4 passed (4)
+      Tests  58 passed (58)
+   Start at  19:43:39
+   Duration  2.33s (environment 50%, tests 28%, import 14%, transform 6%, worker 2%)
+
+JUNIT report written to C:/DATA/assign/artifacts/manifests/phase33/acceptance-v1_unit.xml
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   97.17 |    88.82 |   95.45 |   97.66 |                   
+ AgentTrace.tsx    |     100 |    84.61 |     100 |     100 | 41-43,69,94       
+ App.tsx           |   88.88 |       84 |      80 |    87.5 | 144,183,196       
+ Comparison.tsx    |     100 |    84.84 |     100 |     100 | 15,27,60,128      
+ DataCard.tsx      |     100 |       75 |     100 |     100 | 19-43             
+ Deployment.tsx    |     100 |    83.33 |     100 |     100 | 23                
+ ...omposition.tsx |    92.3 |    78.78 |   88.88 |    90.9 | 58                
+ ...calResults.tsx |    97.5 |    82.53 |   95.83 |   97.43 | 147               
+ ModelRunner.tsx   |   94.68 |    85.57 |   95.23 |   97.61 | 247,309           
+ client.ts         |   98.27 |       98 |     100 |   98.18 | 120               
+ presentation.ts   |     100 |    96.92 |     100 |     100 | 47,59             
+ ui.tsx            |   98.46 |      100 |   96.55 |   98.24 | 213               
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 97.17% ( 413/425 )
+Branches     : 88.82% ( 453/510 )
+Functions    : 95.45% ( 147/154 )
+Lines        : 97.66% ( 377/386 )
+================================================================================
+Error: fixture_only
+    at Throw (C:/DATA/assign/apps/web/src/v3/widgets.test.tsx:391:13)
+    at renderWithHooks (C:\DATA\assign\apps\web\node_modules\react-dom\cjs\react-dom.development.js:15486:18)
+    at mountIndeterminateComponent (C:\DATA\assign\apps\web\node_modules\react-dom\cjs\react-dom.development.js:20103:13)
+    at beginWork (C:\DATA\assign\apps\web\node_modules\react-dom\cjs\react-dom.development.js:21626:16)
+    at HTMLUnknownElement.callCallback (C:\DATA\assign\apps\web\node_modules\react-dom\cjs\react-dom.development.js:4164:14)
+    at HTMLUnknownElement.callTheUserObjectsOperation (C:\DATA\assign\apps\web\node_modules\jsdom\lib\generated\idl\EventListener.js:26:30)
+    at innerInvokeEventListeners (C:\DATA\assign\apps\web\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:378:16)
+    at invokeEventListeners (C:\DATA\assign\apps\web\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:320:3)
+    at HTMLUnknownElementImpl._dispatch (C:\DATA\assign\apps\web\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:269:9)
+    at HTMLUnknownElementImpl.dispatchEvent (C:\DATA\assign\apps\web\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:137:17)
+Error: fixture_only
+    at Throw (C:/DATA/assign/apps/web/src/v3/widgets.test.tsx:391:13)
+    at renderWithHooks (C:\DATA\assign\apps\web\node_modules\react-dom\cjs\react-dom.development.js:15486:18)
+    at mountIndeterminateComponent (C:\DATA\assign\apps\web\node_modules\react-dom\cjs\react-dom.development.js:20103:13)
+    at beginWork (C:\DATA\assign\apps\web\node_modules\react-dom\cjs\react-dom.development.js:21626:16)
+    at HTMLUnknownElement.callCallback (C:\DATA\assign\apps\web\node_modules\react-dom\cjs\react-dom.development.js:4164:14)
+    at HTMLUnknownElement.callTheUserObjectsOperation (C:\DATA\assign\apps\web\node_modules\jsdom\lib\generated\idl\EventListener.js:26:30)
+    at innerInvokeEventListeners (C:\DATA\assign\apps\web\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:378:16)
+    at invokeEventListeners (C:\DATA\assign\apps\web\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:320:3)
+    at HTMLUnknownElementImpl._dispatch (C:\DATA\assign\apps\web\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:269:9)
+    at HTMLUnknownElementImpl.dispatchEvent (C:\DATA\assign\apps\web\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:137:17)

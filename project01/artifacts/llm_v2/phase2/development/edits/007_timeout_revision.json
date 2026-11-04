@@ -1,0 +1,9 @@
+[
+ {"module":"provider","old":"self.root=Path(root);self.config=read_json(self.root/'docs/llm_v2/provider_config.example.json')","new":"self.root=Path(root)\n        active=self.root/'docs/llm_v2/runtime_config.json'\n        self.config=read_json(active if active.exists() else self.root/'docs/llm_v2/provider_config.example.json')","count":1},
+ {"module":"provider","old":"types.HttpOptions(timeout=90000,","new":"types.HttpOptions(timeout=180000,","count":1},
+ {"module":"provider","old":"api_version='v1beta',timeout=90.0,automatic_continuation=False","new":"api_version='v1beta',timeout=180.0,automatic_continuation=False","count":1},
+ {"module":"reranker","old":"self.call_prefix+':rerank'","new":"self.call_prefix+':rerank:r2'","count":1},
+ {"module":"kg","old":"for subject in frontier:","new":"for subject in sorted(frontier):","count":1},
+ {"module":"evaluation","old":"progress=None,deadline=900):","new":"progress=None,deadline=None):","count":1},
+ {"module":"evaluation","old":"started=time.monotonic();usage_start=len(runtime.gateway.observations);minute_retries=0","new":"deadline=deadline or runtime.gateway.config['queue']['comparison_deadline_seconds']\n    started=time.monotonic();usage_start=len(runtime.gateway.observations);minute_retries=0","count":1}
+]

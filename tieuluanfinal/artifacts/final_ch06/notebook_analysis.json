@@ -1,0 +1,158 @@
+{
+  "question": "Đi bộ có giúp tôi giảm hơn 50% nguy cơ tiểu đường không?",
+  "job_id": "56d62ac4-77f4-4cf8-a2e7-f01584c2e240",
+  "model": "gemini-3-flash-preview",
+  "revision": "four-agent-r11",
+  "metrics": [
+    {
+      "variant": "llm_direct",
+      "seconds": 5.325,
+      "generation_live": 1,
+      "generation_tokens": 1015,
+      "embedding_live": 0,
+      "embedding_cache": 0,
+      "citations": 0
+    },
+    {
+      "variant": "agentic_rag",
+      "seconds": 11.175,
+      "generation_live": 3,
+      "generation_tokens": 9849,
+      "embedding_live": 1,
+      "embedding_cache": 2,
+      "citations": 5
+    }
+  ],
+  "rerank_top6": [
+    {
+      "chunk_id": "m2c-7e5aa9c96d176641246d",
+      "title": "Am I at Risk for Type 2 Diabetes? Taking Steps to Lower Your Risk of Getting Diabetes",
+      "input_rank": 1,
+      "model_rank": 1,
+      "rerank_score": 0.55,
+      "selected": true,
+      "reason": "selected"
+    },
+    {
+      "chunk_id": "m2c-1cee35b8e949e3d92c5e",
+      "title": "Diagnosis of Diabetes and Prediabetes",
+      "input_rank": 2,
+      "model_rank": 2,
+      "rerank_score": 0.54099269,
+      "selected": true,
+      "reason": "selected"
+    },
+    {
+      "chunk_id": "m2c-588ce571ca436c0c6d55",
+      "title": "Diabetes",
+      "input_rank": 3,
+      "model_rank": 3,
+      "rerank_score": 0.5287518,
+      "selected": true,
+      "reason": "selected"
+    },
+    {
+      "chunk_id": "m2c-9b59253aa406abb4c8c5",
+      "title": "Diabetes",
+      "input_rank": 4,
+      "model_rank": 4,
+      "rerank_score": 0.51510535,
+      "selected": true,
+      "reason": "selected"
+    },
+    {
+      "chunk_id": "m2c-91cdf62148f4f6938cfb",
+      "title": "Diabetes",
+      "input_rank": 5,
+      "model_rank": 5,
+      "rerank_score": 0.50600361,
+      "selected": true,
+      "reason": "selected"
+    },
+    {
+      "chunk_id": "m2c-51d5ae97c76915bbd395",
+      "title": "I Can Lower My Risk for Type 2 Diabetes: A Guide for American Indians",
+      "input_rank": 6,
+      "model_rank": 6,
+      "rerank_score": 0.49816109,
+      "selected": true,
+      "reason": "selected"
+    }
+  ],
+  "stages": [
+    {
+      "id": "pre_retrieval",
+      "duration_ms": 2562.225554000179,
+      "calls": {
+        "live": 1,
+        "cache": 0
+      }
+    },
+    {
+      "id": "retrieval",
+      "duration_ms": 825.8421370001088,
+      "calls": {
+        "live": 1,
+        "cache": 2
+      }
+    },
+    {
+      "id": "rerank",
+      "duration_ms": 30.53680799985159,
+      "calls": {
+        "live": 0,
+        "cache": 0
+      }
+    },
+    {
+      "id": "reporter",
+      "duration_ms": 4219.1188800006785,
+      "calls": {
+        "live": 1,
+        "cache": 0
+      }
+    },
+    {
+      "id": "verifier",
+      "duration_ms": 3195.423547000246,
+      "calls": {
+        "live": 1,
+        "cache": 0
+      }
+    },
+    {
+      "id": "release",
+      "duration_ms": 88.33402900017973,
+      "calls": {
+        "live": 0,
+        "cache": 0
+      }
+    }
+  ],
+  "corpus_stats": {
+    "documents": 45,
+    "qa_contexts": 210,
+    "unique_chunks": 316,
+    "source_references": 409,
+    "characters": {
+      "min": 71,
+      "max": 2579,
+      "mean": 1102.5221518987341
+    },
+    "document_distribution": {
+      "8_NHLBI_QA_XML": 1,
+      "5_NIDDK_QA": 27,
+      "4_MPlus_Health_Topics_QA": 14,
+      "7_SeniorHealth_QA": 2,
+      "6_NINDS_QA": 1
+    },
+    "chunk_policy": "Soft 1600 character target, complete sentence boundaries, one sentence overlap, long sentence retained, exact QA answer offsets; duplicate chunk text merged with all source refs",
+    "original_urls": 45,
+    "language": "en",
+    "old_corpus_unchanged": true,
+    "fit_or_model_evaluation": false
+  },
+  "new_API_calls": 0,
+  "new_training_steps": 0,
+  "new_TEST_forward": 0
+}

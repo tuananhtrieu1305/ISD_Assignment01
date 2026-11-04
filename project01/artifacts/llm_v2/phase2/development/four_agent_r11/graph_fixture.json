@@ -1,0 +1,829 @@
+{
+  "edges": [
+    {
+      "conditions": "type1",
+      "id": "kg2-a001",
+      "polarity": "positive",
+      "quote": "With type 1 diabetes, your body does not make insulin.",
+      "relation": "SUBTYPE_OF",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "type1",
+      "source_chunk_ids": [
+        "m2c-35e182afdb145d782fe8"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabetes.html",
+      "target": "diabetes"
+    },
+    {
+      "conditions": "type2",
+      "id": "kg2-a002",
+      "polarity": "positive",
+      "quote": "With type 2 diabetes, the more common type, your body does not make or use insulin well.",
+      "relation": "SUBTYPE_OF",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "type2",
+      "source_chunk_ids": [
+        "m2c-35e182afdb145d782fe8"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabetes.html",
+      "target": "diabetes"
+    },
+    {
+      "conditions": "pregnancy",
+      "id": "kg2-a003",
+      "polarity": "positive",
+      "quote": "Pregnant women can also get diabetes, called gestational diabetes.",
+      "relation": "SUBTYPE_OF",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "gestational",
+      "source_chunk_ids": [
+        "m2c-35e182afdb145d782fe8"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabetes.html",
+      "target": "diabetes"
+    },
+    {
+      "conditions": "pancreas does not make insulin",
+      "id": "kg2-a004",
+      "polarity": "negative",
+      "quote": "With type 1 diabetes, your pancreas does not make insulin.",
+      "relation": "CHARACTERIZED_BY",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "type1",
+      "source_chunk_ids": [
+        "m2c-670500b709fe9da77fb1"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabetestype1.html",
+      "target": "insulin"
+    },
+    {
+      "conditions": "cellular glucose uptake",
+      "id": "kg2-a005",
+      "polarity": "positive",
+      "quote": "Insulin is a hormone that helps glucose get into your cells to give them energy.",
+      "relation": "SUPPORTS",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "insulin",
+      "source_chunk_ids": [
+        "m2c-670500b709fe9da77fb1"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabetestype1.html",
+      "target": "glucose"
+    },
+    {
+      "conditions": "ineffective use despite production",
+      "id": "kg2-a006",
+      "polarity": "negative",
+      "quote": "Insulin resistance is a condition in which the body produces insulin but does not use it effectively.",
+      "relation": "CHARACTERIZED_BY",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "insulin_resistance",
+      "source_chunk_ids": [
+        "m2c-9a2dee03c5997b893063"
+      ],
+      "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/insulin-resistance-prediabetes/Pages/index.aspx",
+      "target": "insulin"
+    },
+    {
+      "conditions": "increased likelihood, not certainty",
+      "id": "kg2-a007",
+      "polarity": "positive",
+      "quote": "If you have prediabetes, you are more likely to develop type 2 diabetes, heart disease, and stroke.",
+      "relation": "INCREASES_RISK_OF",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "prediabetes",
+      "source_chunk_ids": [
+        "m2c-097492093ef5320f0427"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/prediabetes.html",
+      "target": "type2"
+    },
+    {
+      "conditions": "increased likelihood",
+      "id": "kg2-a008",
+      "polarity": "positive",
+      "quote": "If you have prediabetes, you are more likely to develop type 2 diabetes, heart disease, and stroke.",
+      "relation": "INCREASES_RISK_OF",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "prediabetes",
+      "source_chunk_ids": [
+        "m2c-097492093ef5320f0427"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/prediabetes.html",
+      "target": "heart_disease"
+    },
+    {
+      "conditions": "increased likelihood",
+      "id": "kg2-a009",
+      "polarity": "positive",
+      "quote": "If you have prediabetes, you are more likely to develop type 2 diabetes, heart disease, and stroke.",
+      "relation": "INCREASES_RISK_OF",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "prediabetes",
+      "source_chunk_ids": [
+        "m2c-097492093ef5320f0427"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/prediabetes.html",
+      "target": "stroke"
+    },
+    {
+      "conditions": "type 2; population risk",
+      "id": "kg2-a010",
+      "polarity": "positive",
+      "quote": "You have a higher risk of type 2 diabetes if you are older, obese, have a family history of diabetes, or do not exercise.",
+      "relation": "INCREASES_RISK_OF",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "obesity",
+      "source_chunk_ids": [
+        "m2c-814add47622a55e3ea51"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabetestype2.html",
+      "target": "type2"
+    },
+    {
+      "conditions": "type 2",
+      "id": "kg2-a011",
+      "polarity": "positive",
+      "quote": "You have a higher risk of type 2 diabetes if you are older, obese, have a family history of diabetes, or do not exercise.",
+      "relation": "INCREASES_RISK_OF",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "family_history",
+      "source_chunk_ids": [
+        "m2c-814add47622a55e3ea51"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabetestype2.html",
+      "target": "type2"
+    },
+    {
+      "conditions": "type 2",
+      "id": "kg2-a012",
+      "polarity": "positive",
+      "quote": "You have a higher risk of type 2 diabetes if you are older, obese, have a family history of diabetes, or do not exercise.",
+      "relation": "INCREASES_RISK_OF",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "inactivity",
+      "source_chunk_ids": [
+        "m2c-814add47622a55e3ea51"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabetestype2.html",
+      "target": "type2"
+    },
+    {
+      "conditions": "type 2; no threshold inferred",
+      "id": "kg2-a013",
+      "polarity": "positive",
+      "quote": "You have a higher risk of type 2 diabetes if you are older, obese, have a family history of diabetes, or do not exercise.",
+      "relation": "INCREASES_RISK_OF",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "older_age",
+      "source_chunk_ids": [
+        "m2c-814add47622a55e3ea51"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabetestype2.html",
+      "target": "type2"
+    },
+    {
+      "conditions": "over time; hyperglycemia",
+      "id": "kg2-a014",
+      "polarity": "positive",
+      "quote": "If you have diabetes, your blood glucose, or blood sugar, levels are too high. Over time, this can damage your kidneys.",
+      "relation": "MAY_DAMAGE",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "diabetes",
+      "source_chunk_ids": [
+        "m2c-62f2377845eb99ad274e"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabetickidneyproblems.html",
+      "target": "kidney_damage"
+    },
+    {
+      "conditions": "early stage",
+      "id": "kg2-a015",
+      "polarity": "negative",
+      "quote": "People with diabetic kidney disease do not have symptoms in the early stages.",
+      "relation": "CHARACTERIZED_BY",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "kidney_damage",
+      "source_chunk_ids": [
+        "m2c-131e0f145d30a97a8bfc"
+      ],
+      "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/diabetic-kidney-disease/Pages/index.aspx",
+      "target": "early_asymptomatic"
+    },
+    {
+      "conditions": "later progression; full parent context required",
+      "id": "kg2-a016",
+      "polarity": "positive",
+      "quote": "As kidney disease progresses, a person can develop edema, or swelling.",
+      "relation": "HAS_SYMPTOM",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "kidney_damage",
+      "source_chunk_ids": [
+        "m2c-131e0f145d30a97a8bfc"
+      ],
+      "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/diabetic-kidney-disease/Pages/index.aspx",
+      "target": "edema"
+    },
+    {
+      "conditions": "can help, not guarantee",
+      "id": "kg2-a017",
+      "polarity": "positive",
+      "quote": "Starting a physical activity program can help you lose weight or keep a healthy weight and keep your blood glucose levels on target.",
+      "relation": "SUPPORTS",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "activity",
+      "source_chunk_ids": [
+        "m2c-670a97431189b868aa1c"
+      ],
+      "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/physical-activity-diabetes/Pages/physical-activity-diabetes.aspx",
+      "target": "healthy_weight"
+    },
+    {
+      "conditions": "glycemic management",
+      "id": "kg2-a018",
+      "polarity": "positive",
+      "quote": "Starting a physical activity program can help you lose weight or keep a healthy weight and keep your blood glucose levels on target.",
+      "relation": "SUPPORTS",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "activity",
+      "source_chunk_ids": [
+        "m2c-670a97431189b868aa1c"
+      ],
+      "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/physical-activity-diabetes/Pages/physical-activity-diabetes.aspx",
+      "target": "glucose"
+    },
+    {
+      "conditions": "individual target range",
+      "id": "kg2-a019",
+      "polarity": "positive",
+      "quote": "Healthy eating helps keep your blood sugar in your target range.",
+      "relation": "SUPPORTS",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "healthy_eating",
+      "source_chunk_ids": [
+        "m2c-28769805c3e1683a637a"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabeticdiet.html",
+      "target": "glucose"
+    },
+    {
+      "conditions": "individualized planning",
+      "id": "kg2-a020",
+      "polarity": "positive",
+      "quote": "A registered dietitian can help make an eating plan just for you.",
+      "relation": "SUPPORTS",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "dietitian",
+      "source_chunk_ids": [
+        "m2c-28769805c3e1683a637a"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabeticdiet.html",
+      "target": "meal_plan"
+    },
+    {
+      "conditions": "can cause sensory loss",
+      "id": "kg2-a021",
+      "polarity": "positive",
+      "quote": "Nerve damage from diabetes can cause you to lose feeling in your feet.",
+      "relation": "MAY_DAMAGE",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "neuropathy",
+      "source_chunk_ids": [
+        "m2c-854649e13c047c002105"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabeticfoot.html",
+      "target": "foot_sensation"
+    },
+    {
+      "conditions": "diabetic foot parent context",
+      "id": "kg2-a022",
+      "polarity": "positive",
+      "quote": "Damage to the blood vessels can also mean that your feet do not get enough blood and oxygen.",
+      "relation": "MAY_DAMAGE",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "diabetes",
+      "source_chunk_ids": [
+        "m2c-854649e13c047c002105"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabeticfoot.html",
+      "target": "foot_blood_supply"
+    },
+    {
+      "conditions": "retinal microvasculature",
+      "id": "kg2-a023",
+      "polarity": "positive",
+      "quote": "Diabetic retinopathy damages the tiny blood vessels inside your retina.",
+      "relation": "MAY_DAMAGE",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "retinopathy",
+      "source_chunk_ids": [
+        "m2c-dd1462c6cebc74291582"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabeticeyeproblems.html",
+      "target": "retina"
+    },
+    {
+      "conditions": "after gestational diabetes; later life",
+      "id": "kg2-a024",
+      "polarity": "positive",
+      "quote": "Most of the time, it goes away after you have your baby. But it does increase your risk for developing type 2 diabetes later on.",
+      "relation": "INCREASES_RISK_OF",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "gestational",
+      "source_chunk_ids": [
+        "m2c-40065c12b54e7ecace76"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabetesandpregnancy.html",
+      "target": "type2"
+    },
+    {
+      "conditions": "management monitoring",
+      "id": "kg2-a025",
+      "polarity": "positive",
+      "quote": "A blood test called the A1C can check to see how well you are managing your diabetes.",
+      "relation": "ASSESSES",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "a1c",
+      "source_chunk_ids": [
+        "m2c-670500b709fe9da77fb1"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabetestype1.html",
+      "target": "glucose"
+    },
+    {
+      "conditions": "production or utilization impairment",
+      "id": "kg2-a026",
+      "polarity": "negative",
+      "quote": "With type 2 diabetes, the more common type, your body does not make or use insulin well.",
+      "relation": "CHARACTERIZED_BY",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "type2",
+      "source_chunk_ids": [
+        "m2c-814add47622a55e3ea51"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabetestype2.html",
+      "target": "insulin"
+    },
+    {
+      "conditions": "destruction of insulin-producing cells",
+      "id": "kg2-a027",
+      "polarity": "positive",
+      "quote": "Type 1 diabetes is caused by a lack of insulin due to the destruction of insulin-producing beta cells in the pancreas.",
+      "relation": "CHARACTERIZED_BY",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "type1",
+      "source_chunk_ids": [
+        "m2c-37f0d9af3a6ed3abe419"
+      ],
+      "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/causes-diabetes/Pages/index.aspx#gestational",
+      "target": "beta_cells"
+    },
+    {
+      "conditions": "diabetic nephropathy definition",
+      "id": "kg2-a028",
+      "polarity": "positive",
+      "quote": "Diabetic kidney disease, also called diabetic nephropathy, is kidney disease caused by diabetes.",
+      "relation": "MAY_DAMAGE",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "diabetes",
+      "source_chunk_ids": [
+        "m2c-11c910d8c9c26aefef1f"
+      ],
+      "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/diabetic-kidney-disease/Pages/index.aspx",
+      "target": "kidney_damage"
+    },
+    {
+      "conditions": "part of clinical assessment, not sufficient alone",
+      "id": "kg2-a029",
+      "polarity": "positive",
+      "quote": "A health care provider diagnoses diabetic kidney disease based on - a medical and family history - a physical exam - urine tests - a blood test",
+      "relation": "ASSESSES",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "urine_test",
+      "source_chunk_ids": [
+        "m2c-984ed6059869d4c136f4"
+      ],
+      "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/diabetic-kidney-disease/Pages/index.aspx",
+      "target": "kidney_damage"
+    },
+    {
+      "conditions": "part of clinical assessment",
+      "id": "kg2-a030",
+      "polarity": "positive",
+      "quote": "A health care provider diagnoses diabetic kidney disease based on - a medical and family history - a physical exam - urine tests - a blood test",
+      "relation": "ASSESSES",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "blood_test",
+      "source_chunk_ids": [
+        "m2c-984ed6059869d4c136f4"
+      ],
+      "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/diabetic-kidney-disease/Pages/index.aspx",
+      "target": "kidney_damage"
+    },
+    {
+      "conditions": "supports prevention/slowing; not cure, read full source",
+      "id": "kg2-a031",
+      "polarity": "positive",
+      "quote": "People can prevent or slow the progression of diabetic kidney disease by - taking medications to control high blood pressure - managing blood glucose levels - making changes in their eating, diet, and nutrition - losing weight if they are overweight or obese - getting regular physical activity",
+      "relation": "SUPPORTS",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "activity",
+      "source_chunk_ids": [
+        "m2c-651f780ceb14ed0ef220"
+      ],
+      "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/diabetic-kidney-disease/Pages/index.aspx",
+      "target": "kidney_damage"
+    },
+    {
+      "conditions": "early stage; may notice no change",
+      "id": "kg2-a032",
+      "polarity": "negative",
+      "quote": "If you have diabetic retinopathy, at first you may notice no changes to your vision.",
+      "relation": "CHARACTERIZED_BY",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "retinopathy",
+      "source_chunk_ids": [
+        "m2c-2a2728c86e896bb47e90"
+      ],
+      "source_url": "http://nihseniorhealth.gov/diabeticretinopathy/toc.html",
+      "target": "early_asymptomatic"
+    },
+    {
+      "conditions": "diabetes or prediabetes to heart disease",
+      "id": "kg2-a033",
+      "polarity": "positive",
+      "quote": "If you have diabetes or pre-diabetes you have an increased risk for heart disease.",
+      "relation": "INCREASES_RISK_OF",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "diabetes",
+      "source_chunk_ids": [
+        "m2c-95571f08bc82c78f43cf"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabeticheartdisease.html",
+      "target": "heart_disease"
+    },
+    {
+      "conditions": "over time; high glucose damages nerve covering or blood supply",
+      "id": "kg2-a034",
+      "polarity": "positive",
+      "quote": "If you have diabetes, your blood glucose, or blood sugar, levels are too high. Over time, this can damage the covering on your nerves or the blood vessels that bring oxygen to your nerves.",
+      "relation": "MAY_DAMAGE",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "diabetes",
+      "source_chunk_ids": [
+        "m2c-ba3b4bf7ac059d9541d6"
+      ],
+      "source_url": "https://www.nlm.nih.gov/medlineplus/diabeticnerveproblems.html",
+      "target": "neuropathy"
+    },
+    {
+      "conditions": "safe glycemic levels support nerve protection, not elevated glucose",
+      "id": "kg2-a035",
+      "polarity": "positive",
+      "quote": "Maintaining safe blood glucose levels protects nerves throughout the body.",
+      "relation": "SUPPORTS",
+      "review_status": "SOURCE_CHECKED_ASSISTANT",
+      "source": "glucose",
+      "source_chunk_ids": [
+        "m2c-00924c7eaf6f74576861"
+      ],
+      "source_url": "http://www.niddk.nih.gov/health-information/health-topics/Diabetes/diabetic-neuropathies-nerve-damage-diabetes/Pages/diabetic-neuropathies-nerve-damage.aspx",
+      "target": "neuropathy"
+    }
+  ],
+  "embedding_API_calls": 0,
+  "generation_API_calls": 0,
+  "nodes": [
+    {
+      "aliases": [
+        "tiểu đường",
+        "đái tháo đường",
+        "diabetes mellitus"
+      ],
+      "id": "diabetes",
+      "label": "Diabetes mellitus",
+      "type": "Disease"
+    },
+    {
+      "aliases": [
+        "tiểu đường type 1",
+        "đái tháo đường típ 1",
+        "type 1 diabetes"
+      ],
+      "id": "type1",
+      "label": "Type 1 diabetes",
+      "type": "Subtype"
+    },
+    {
+      "aliases": [
+        "tiểu đường type 2",
+        "đái tháo đường típ 2",
+        "type 2 diabetes"
+      ],
+      "id": "type2",
+      "label": "Type 2 diabetes",
+      "type": "Subtype"
+    },
+    {
+      "aliases": [
+        "tiểu đường thai kỳ",
+        "gestational diabetes"
+      ],
+      "id": "gestational",
+      "label": "Gestational diabetes",
+      "type": "Subtype"
+    },
+    {
+      "aliases": [
+        "tiền tiểu đường",
+        "tiền đái tháo đường",
+        "prediabetes"
+      ],
+      "id": "prediabetes",
+      "label": "Prediabetes",
+      "type": "MedicalConcept"
+    },
+    {
+      "aliases": [
+        "insulin"
+      ],
+      "id": "insulin",
+      "label": "Insulin",
+      "type": "MedicalConcept"
+    },
+    {
+      "aliases": [
+        "kháng insulin",
+        "insulin resistance"
+      ],
+      "id": "insulin_resistance",
+      "label": "Insulin resistance",
+      "type": "MedicalConcept"
+    },
+    {
+      "aliases": [
+        "tuyến tụy",
+        "pancreas"
+      ],
+      "id": "pancreas",
+      "label": "Pancreas",
+      "type": "MedicalConcept"
+    },
+    {
+      "aliases": [
+        "tế bào beta",
+        "beta cells"
+      ],
+      "id": "beta_cells",
+      "label": "Beta cells",
+      "type": "MedicalConcept"
+    },
+    {
+      "aliases": [
+        "đường huyết",
+        "đường máu",
+        "blood glucose",
+        "blood sugar"
+      ],
+      "id": "glucose",
+      "label": "Blood glucose",
+      "type": "MedicalConcept"
+    },
+    {
+      "aliases": [
+        "bệnh thận do tiểu đường",
+        "bệnh thận",
+        "diabetic nephropathy",
+        "kidney disease"
+      ],
+      "id": "kidney_damage",
+      "label": "Diabetic kidney disease",
+      "type": "Complication"
+    },
+    {
+      "aliases": [
+        "bệnh tim",
+        "heart disease"
+      ],
+      "id": "heart_disease",
+      "label": "Heart disease",
+      "type": "Complication"
+    },
+    {
+      "aliases": [
+        "đột quỵ",
+        "stroke"
+      ],
+      "id": "stroke",
+      "label": "Stroke",
+      "type": "Complication"
+    },
+    {
+      "aliases": [
+        "bệnh thần kinh do tiểu đường",
+        "diabetic neuropathy",
+        "nerve damage"
+      ],
+      "id": "neuropathy",
+      "label": "Diabetic neuropathy",
+      "type": "Complication"
+    },
+    {
+      "aliases": [
+        "bệnh võng mạc tiểu đường",
+        "diabetic retinopathy"
+      ],
+      "id": "retinopathy",
+      "label": "Diabetic retinopathy",
+      "type": "Complication"
+    },
+    {
+      "aliases": [
+        "mạch máu võng mạc",
+        "retina"
+      ],
+      "id": "retina",
+      "label": "Retinal blood vessels",
+      "type": "MedicalConcept"
+    },
+    {
+      "aliases": [
+        "mất cảm giác bàn chân",
+        "lose feeling in your feet"
+      ],
+      "id": "foot_sensation",
+      "label": "Loss of foot sensation",
+      "type": "Symptom"
+    },
+    {
+      "aliases": [
+        "thiếu máu bàn chân",
+        "feet do not get enough blood"
+      ],
+      "id": "foot_blood_supply",
+      "label": "Inadequate foot blood supply",
+      "type": "MedicalConcept"
+    },
+    {
+      "aliases": [
+        "béo phì",
+        "obese",
+        "obesity"
+      ],
+      "id": "obesity",
+      "label": "Obesity",
+      "type": "RiskFactor"
+    },
+    {
+      "aliases": [
+        "tiền sử gia đình",
+        "family history of diabetes"
+      ],
+      "id": "family_history",
+      "label": "Family history of diabetes",
+      "type": "RiskFactor"
+    },
+    {
+      "aliases": [
+        "ít vận động",
+        "không tập thể dục",
+        "do not exercise"
+      ],
+      "id": "inactivity",
+      "label": "Physical inactivity",
+      "type": "RiskFactor"
+    },
+    {
+      "aliases": [
+        "tuổi cao",
+        "older"
+      ],
+      "id": "older_age",
+      "label": "Older age",
+      "type": "RiskFactor"
+    },
+    {
+      "aliases": [
+        "vận động",
+        "tập thể dục",
+        "physical activity",
+        "exercise"
+      ],
+      "id": "activity",
+      "label": "Physical activity",
+      "type": "Lifestyle"
+    },
+    {
+      "aliases": [
+        "cân nặng hợp lý",
+        "healthy weight"
+      ],
+      "id": "healthy_weight",
+      "label": "Healthy weight",
+      "type": "MedicalConcept"
+    },
+    {
+      "aliases": [
+        "ăn uống lành mạnh",
+        "healthy eating"
+      ],
+      "id": "healthy_eating",
+      "label": "Healthy eating",
+      "type": "Lifestyle"
+    },
+    {
+      "aliases": [
+        "chuyên gia dinh dưỡng",
+        "dietitian"
+      ],
+      "id": "dietitian",
+      "label": "Registered dietitian",
+      "type": "MedicalConcept"
+    },
+    {
+      "aliases": [
+        "kế hoạch ăn uống",
+        "eating plan",
+        "meal plan"
+      ],
+      "id": "meal_plan",
+      "label": "Individual eating plan",
+      "type": "Lifestyle"
+    },
+    {
+      "aliases": [
+        "hba1c",
+        "a1c"
+      ],
+      "id": "a1c",
+      "label": "A1C test",
+      "type": "Test"
+    },
+    {
+      "aliases": [
+        "xét nghiệm nước tiểu",
+        "urine tests"
+      ],
+      "id": "urine_test",
+      "label": "Urine tests",
+      "type": "Test"
+    },
+    {
+      "aliases": [
+        "xét nghiệm máu",
+        "blood test"
+      ],
+      "id": "blood_test",
+      "label": "Blood test",
+      "type": "Test"
+    },
+    {
+      "aliases": [
+        "khát nhiều",
+        "increased thirst"
+      ],
+      "id": "thirst",
+      "label": "Increased thirst",
+      "type": "Symptom"
+    },
+    {
+      "aliases": [
+        "tiểu nhiều",
+        "frequent urination"
+      ],
+      "id": "urination",
+      "label": "Frequent urination",
+      "type": "Symptom"
+    },
+    {
+      "aliases": [
+        "nhìn mờ",
+        "blurred vision"
+      ],
+      "id": "blurred_vision",
+      "label": "Blurred vision",
+      "type": "Symptom"
+    },
+    {
+      "aliases": [
+        "phù",
+        "edema"
+      ],
+      "id": "edema",
+      "label": "Edema",
+      "type": "Symptom"
+    },
+    {
+      "aliases": [
+        "không có triệu chứng sớm",
+        "no symptoms in the early stages"
+      ],
+      "id": "early_asymptomatic",
+      "label": "No early symptoms",
+      "type": "Symptom"
+    }
+  ],
+  "note": "35 concept nodes and source-checked assertions; not all facts in the316-chunk KB or independent clinical review.",
+  "schema_version": "knowledge-graph-r11",
+  "source": "existing reviewed mini-KG used by retrieval"
+}

@@ -1,0 +1,184 @@
+{
+  "chunks": 762,
+  "documents": 247,
+  "files": [
+    {
+      "bytes": 425,
+      "path": "ATTRIBUTION.md",
+      "sha256": "ab53cfa42d4b94c59d54a45996b55a29e7db033c1883b33958f47b93f9cb61be"
+    },
+    {
+      "bytes": 142342,
+      "path": "kg_medical_bm25.joblib",
+      "sha256": "63705962bea49667c1d6db724c968640b8cbb0d0c986c2e13c8ec3e0707bf6bf"
+    },
+    {
+      "bytes": 3956275,
+      "path": "kg_medical_dense_lsa.joblib",
+      "sha256": "d32a33a2ae7e3db9c5d24726937406134f094bd11ae24ef7d324d97bd0b3ae6a"
+    },
+    {
+      "bytes": 578546,
+      "path": "medical_chunks.jsonl",
+      "sha256": "c0bcb54a8338711d79cf33eafa05d2cceee243a7c5676fa50da00ab79b0b1fa3"
+    },
+    {
+      "bytes": 41658,
+      "path": "medical_graph.json",
+      "sha256": "12776ffbe64837cc11aa4d4a9325ea15f0bd6183d8b8a7a51355f11cc2a1e5db"
+    },
+    {
+      "bytes": 40022,
+      "path": "model.npz",
+      "sha256": "cc7d28232eb1a818cc0c10d9047b4a43f4ef25ac7c06b2737870c63ae644fdb8"
+    },
+    {
+      "bytes": 5603,
+      "path": "model_config.json",
+      "sha256": "507cafad70aa974bb739decc54d0cf3f8a10a232eed7a3b7ad927a0a3d31a4d6"
+    },
+    {
+      "bytes": 3954,
+      "path": "preprocessing.json",
+      "sha256": "6bdfa497095f3b88eec51c979c13810becb7ab955d6b87daa7467747848a31ae"
+    },
+    {
+      "bytes": 2381,
+      "path": "profile_schema.json",
+      "sha256": "b831d152c0533380faf699e569b81864b2b93c40e2bfd85759f719a690efacd7"
+    },
+    {
+      "bytes": 986,
+      "path": "query_glossary.json",
+      "sha256": "8b4774e253bdcbfe2baa5b9443663ef590c8234c53adb56aa4162a1c68a94a4b"
+    },
+    {
+      "bytes": 167,
+      "path": "retrieval.json",
+      "sha256": "bd9b427c0753b20dc73861e4c0775fab3e24f7c2814c31da1224eb715baf1a1c"
+    }
+  ],
+  "finance_included": false,
+  "graph_anchors": 62,
+  "indexes_refitted": false,
+  "model_retrained": false,
+  "package_bytes": 4772359,
+  "source_corpus_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+  "source_graph_sha256": "09d55e54f30b9657a692be6ae713608f825e19e038088361c1225b42b0019f09",
+  "source_refs": {
+    "answer_layer": {
+      "maximum_characters": 420,
+      "minimum_overlap_ratio": 0.3,
+      "minimum_overlap_terms": 2,
+      "strategy": "grounded_extractive_first_supported_chunk",
+      "unsafe_patterns": [
+        "ignore the report",
+        "stop prescribed",
+        "personalized insulin dose",
+        "permanently cures every",
+        "same disease as diabetes mellitus",
+        "best stock to buy",
+        "stock price be tomorrow",
+        "return a positive answer",
+        "assume every missing value is zero",
+        "use a 2020 value as if it were reported for 2025",
+        "acute lymphoblastic leukemia",
+        "urinary tract infection",
+        "migraine",
+        "cures every viral infection",
+        "usd to vnd exchange rate",
+        "football championship"
+      ]
+    },
+    "classification_threshold": 0.5,
+    "model": {
+      "adapter": {
+        "bytes": 1100,
+        "logical_path": "artifacts/manifests/phase26/revisions/r2/adapters/ch2_cdc_diabetes.json",
+        "path": "tieuluan3/artifacts/manifests/phase26/revisions/r2/adapters/ch2_cdc_diabetes.json",
+        "sha256": "67abb4d387aeb846d9be76c08423a411eb6a76d2901929454c19463074e70e6d"
+      },
+      "checkpoint": {
+        "bytes": 40022,
+        "logical_path": "artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_mlp_scratch_s42/best.npz",
+        "path": "tieuluan3/artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_mlp_scratch_s42/best.npz",
+        "sha256": "cc7d28232eb1a818cc0c10d9047b4a43f4ef25ac7c06b2737870c63ae644fdb8"
+      },
+      "checkpoint_metadata": {
+        "bytes": 2217,
+        "logical_path": "artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_mlp_scratch_s42/best.json",
+        "path": "tieuluan3/artifacts/models/v3/ch02_ml/ch2_cdc_diabetes_mlp_scratch_s42/best.json",
+        "sha256": "8a9fcdf9f29d93d7c228b943d0d42b6adcb1380dc190fd16c68595a014124d8a"
+      },
+      "config": {
+        "bytes": 5603,
+        "logical_path": "artifacts/manifests/phase26/revisions/r2/configs/ch2_cdc_diabetes_s42.json",
+        "path": "tieuluan3/artifacts/manifests/phase26/revisions/r2/configs/ch2_cdc_diabetes_s42.json",
+        "sha256": "507cafad70aa974bb739decc54d0cf3f8a10a232eed7a3b7ad927a0a3d31a4d6"
+      },
+      "model_contract": {
+        "bytes": 15949,
+        "logical_path": "artifacts/manifests/phase26/revisions/r2/runs/ch2_cdc_diabetes_mlp_scratch_s42/model_contract.json",
+        "path": "tieuluan3/artifacts/manifests/phase26/revisions/r2/runs/ch2_cdc_diabetes_mlp_scratch_s42/model_contract.json",
+        "sha256": "7b15a53fd12075a2c752c7764c01a14012eee0029efce7c09e3d27c58e825cec"
+      },
+      "preprocessing": {
+        "bytes": 3954,
+        "logical_path": "artifacts/manifests/phase24/ch2_cdc_diabetes/preprocessing.json",
+        "path": "tieuluan3/artifacts/manifests/phase24/ch2_cdc_diabetes/preprocessing.json",
+        "sha256": "6bdfa497095f3b88eec51c979c13810becb7ab955d6b87daa7467747848a31ae"
+      }
+    },
+    "positive_when": "p > threshold, ties class 0; inherited Phase25 convention",
+    "rag_files": {
+      "kg_chunks.jsonl.gz": {
+        "bytes": 7082594,
+        "logical_path": "apps/api/models/kg_chunks.jsonl.gz",
+        "path": "tieuluan3/provenance/phase3_originals/web/backend/models/kg_chunks.jsonl.gz",
+        "sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29"
+      },
+      "kg_graph_anchors.json.gz": {
+        "bytes": 1217627,
+        "logical_path": "apps/api/models/kg_graph_anchors.json.gz",
+        "path": "tieuluan3/provenance/phase3_originals/web/backend/models/kg_graph_anchors.json.gz",
+        "sha256": "09d55e54f30b9657a692be6ae713608f825e19e038088361c1225b42b0019f09"
+      },
+      "kg_medical_bm25.joblib": {
+        "bytes": 142342,
+        "logical_path": "apps/api/models/kg_medical_bm25.joblib",
+        "path": "tieuluan3/provenance/phase3_originals/web/backend/models/kg_medical_bm25.joblib",
+        "sha256": "63705962bea49667c1d6db724c968640b8cbb0d0c986c2e13c8ec3e0707bf6bf"
+      },
+      "kg_medical_dense_lsa.joblib": {
+        "bytes": 3956275,
+        "logical_path": "apps/api/models/kg_medical_dense_lsa.joblib",
+        "path": "tieuluan3/provenance/phase3_originals/web/backend/models/kg_medical_dense_lsa.joblib",
+        "sha256": "d32a33a2ae7e3db9c5d24726937406134f094bd11ae24ef7d324d97bd0b3ae6a"
+      }
+    },
+    "rag_manifest": {
+      "bytes": 3652,
+      "logical_path": "apps/api/models/kg_manifest.json",
+      "path": "tieuluan3/provenance/phase3_originals/web/backend/models/kg_manifest.json",
+      "sha256": "8b58e70d6d892cd697e8174ccdbaad78bcd0098a9cd2bc23ca2fda5724823073"
+    },
+    "read_only": true,
+    "retrieval": {
+      "candidate_depth": 100,
+      "max_hops": 2,
+      "model": "B4",
+      "rrf_k": 60,
+      "top_k": 10,
+      "weights": {
+        "dense": 0.1,
+        "graph": 0.3,
+        "sparse": 0.6
+      }
+    },
+    "run_id": "ch2_cdc_diabetes_mlp_scratch_s42",
+    "source_runtime": "tieuluan3/provenance/runtime/assign",
+    "sparse_weight": 0.75,
+    "version": "project01.foundation.1"
+  },
+  "version": "project01.medical-package.1"
+}

@@ -1,0 +1,30 @@
+{
+  "forward": "PASS",
+  "gradient": {
+    "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+    "max_abs_error": 2.5331974029541016e-07,
+    "max_relative_l2_error": 5.450359351164529e-07,
+    "per_tensor_relative_l2_error": {
+      "conv2d_1/b": 5.450359351164529e-07,
+      "conv2d_1/w": 4.927884747008182e-07,
+      "conv2d_11/b": 4.177705944286094e-07,
+      "conv2d_11/w": 7.907065205152467e-08,
+      "conv2d_3/b": 2.080896574071711e-07,
+      "conv2d_3/w": 2.5825172981001125e-07,
+      "conv2d_6/b": 2.7755524426568285e-07,
+      "conv2d_6/w": 2.5349819361432096e-07,
+      "conv2d_8/b": 1.514880552547456e-07,
+      "conv2d_8/w": 1.5285378243474033e-07,
+      "dense_14/b": 3.913433508002412e-08,
+      "dense_14/w": 5.4895207787237265e-08,
+      "dense_16/b": 2.215833335399378e-08,
+      "dense_16/w": 9.593774838375327e-08
+    },
+    "tolerance": 0.001
+  },
+  "ids": [
+    "EuroSAT_RGB/AnnualCrop/AnnualCrop_1.jpg",
+    "EuroSAT_RGB/AnnualCrop/AnnualCrop_1000.jpg"
+  ],
+  "input_split": "train"
+}

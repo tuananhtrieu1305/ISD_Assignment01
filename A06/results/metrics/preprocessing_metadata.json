@@ -1,0 +1,408 @@
+{
+  "customer": {
+    "artifacts": {
+      "test": {
+        "bytes": 418292,
+        "path": "datasets/processed/customer_test.npz",
+        "sha256": "de8cbcec15e1ede07f374573b33bfc1c31816191fc69d83e9a1bfc062b0b0bef"
+      },
+      "train": {
+        "bytes": 1976810,
+        "path": "datasets/processed/customer_train.npz",
+        "sha256": "1f3995f0b2c4295fd824ab1fba35ff6208dc954ceb2d091dc979fd4d71085051"
+      },
+      "val": {
+        "bytes": 343645,
+        "path": "datasets/processed/customer_val.npz",
+        "sha256": "93a417d8570ad087b6a814e1439eaf30ea0db8e932a89cadb5c9f8451c4e5d00"
+      }
+    },
+    "class_weight": {
+      "fit_scope": "TRAIN y only",
+      "formula": "TRAIN class_0 count / TRAIN class_1 count",
+      "positive_weight": 14.226310607925178
+    },
+    "cleaned_date_range": {
+      "max": "2011-12-09T12:50:00",
+      "min": "2009-12-01T07:45:00"
+    },
+    "cleaning_counts": {
+      "cancellation_lines_raw": 19494,
+      "cleaned_customers": 5878,
+      "cleaned_invoices": 36969,
+      "cleaned_rows": 779425,
+      "exact_duplicates_removed": 34335,
+      "invalid_invoice_date_raw": 0,
+      "invalid_or_missing_customer_id_raw": 243007,
+      "nonpositive_quantity_lines_raw": 22950,
+      "nonpositive_unit_price_lines_raw": 6207,
+      "raw_rows": 1067371
+    },
+    "cleaning_rules": [
+      "remove exact duplicate rows",
+      "require positive integer CustomerID",
+      "require valid InvoiceDate",
+      "exclude InvoiceNo values beginning with C (case-insensitive)",
+      "require Quantity > 0",
+      "require UnitPrice > 0",
+      "Revenue = Quantity * UnitPrice"
+    ],
+    "column_normalization": {
+      "Customer ID": "CustomerID",
+      "Invoice": "InvoiceNo",
+      "Price": "UnitPrice"
+    },
+    "eligibility_policy": {
+      "first_full_week": "2009-12-07",
+      "inactive_week_fill": 0,
+      "last_full_week": "2011-11-28",
+      "required_history_weeks": 8,
+      "timeline_end": "last_full_week for every eligible customer",
+      "timeline_start": "max(customer first purchase week, first_full_week)"
+    },
+    "feature_names": [
+      "total_spent",
+      "total_quantity",
+      "order_count",
+      "unique_products",
+      "active_flag"
+    ],
+    "feature_scaler": {
+      "bytes": 687,
+      "fit_scope": "flattened TRAIN X only",
+      "mean": [
+        39.213828835454976,
+        24.222857515214702,
+        0.08370410332258403,
+        1.6267699973328806,
+        0.06947694154159494
+      ],
+      "n_samples_seen": 1979664,
+      "path": "models/preprocessing/customer_feature_scaler.joblib",
+      "scale": [
+        388.8439978254876,
+        417.57701102486493,
+        0.3652759847611727,
+        8.54101531557512,
+        0.25426343844921767
+      ],
+      "sha256": "4da83eacfcca7758d9d4289d9e0671b2e560d70b38a701cd42fd5fd86dddb7ee",
+      "type": "sklearn.preprocessing.StandardScaler"
+    },
+    "raw_source": {
+      "path": "datasets/customer/online_retail_II.xlsx",
+      "sha256_after": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980",
+      "sha256_before": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980",
+      "workbook": {
+        "sheet_names": [
+          "Year 2009-2010",
+          "Year 2010-2011"
+        ],
+        "sheets": [
+          {
+            "columns": [
+              "Invoice",
+              "StockCode",
+              "Description",
+              "Quantity",
+              "InvoiceDate",
+              "Price",
+              "Customer ID",
+              "Country"
+            ],
+            "dtypes": {
+              "Country": "str",
+              "Customer ID": "float64",
+              "Description": "object",
+              "Invoice": "object",
+              "InvoiceDate": "datetime64[us]",
+              "Price": "float64",
+              "Quantity": "int64",
+              "StockCode": "object"
+            },
+            "name": "Year 2009-2010",
+            "rows": 525461
+          },
+          {
+            "columns": [
+              "Invoice",
+              "StockCode",
+              "Description",
+              "Quantity",
+              "InvoiceDate",
+              "Price",
+              "Customer ID",
+              "Country"
+            ],
+            "dtypes": {
+              "Country": "str",
+              "Customer ID": "float64",
+              "Description": "object",
+              "Invoice": "object",
+              "InvoiceDate": "datetime64[us]",
+              "Price": "float64",
+              "Quantity": "int64",
+              "StockCode": "object"
+            },
+            "name": "Year 2010-2011",
+            "rows": 541910
+          }
+        ]
+      }
+    },
+    "sequence_length": 8,
+    "split_strategy": {
+      "basis": "target_week",
+      "boundary_rule": "nearest cumulative sample count without splitting a target_week",
+      "context_rule": "validation/test inputs may use earlier known history",
+      "ratios_requested": {
+        "test": 0.15,
+        "train": 0.7,
+        "val": 0.15
+      }
+    },
+    "splits": {
+      "test": {
+        "X_shape": [
+          53052,
+          8,
+          5
+        ],
+        "class_distribution": {
+          "class_0": 49345,
+          "class_0_rate": 0.9301251602201613,
+          "class_1": 3707,
+          "class_1_rate": 0.06987483977983865
+        },
+        "sample_ratio": 0.151203885266086,
+        "target_week_max": "2011-11-28",
+        "target_week_min": "2011-09-26",
+        "y_shape": [
+          53052
+        ]
+      },
+      "train": {
+        "X_shape": [
+          247458,
+          8,
+          5
+        ],
+        "class_distribution": {
+          "class_0": 231206,
+          "class_0_rate": 0.9343242085525625,
+          "class_1": 16252,
+          "class_1_rate": 0.06567579144743754
+        },
+        "sample_ratio": 0.7052818185963792,
+        "target_week_max": "2011-07-11",
+        "target_week_min": "2010-02-01",
+        "y_shape": [
+          247458
+        ]
+      },
+      "val": {
+        "X_shape": [
+          50354,
+          8,
+          5
+        ],
+        "class_distribution": {
+          "class_0": 47893,
+          "class_0_rate": 0.9511260277237161,
+          "class_1": 2461,
+          "class_1_rate": 0.04887397227628391
+        },
+        "sample_ratio": 0.14351429613753477,
+        "target_week_max": "2011-09-19",
+        "target_week_min": "2011-07-18",
+        "y_shape": [
+          50354
+        ]
+      }
+    },
+    "target_definition": "active_flag of the immediately following week",
+    "task": "binary classification",
+    "weekly_definition": {
+      "active_customer_week_rows": 31362,
+      "active_flag": "1 for at least one valid purchase, otherwise 0 after reindexing",
+      "order_count": "number of unique InvoiceNo values within customer-week",
+      "total_quantity": "sum of positive Quantity within customer-week",
+      "total_spent": "sum of Revenue within customer-week",
+      "unique_products": "number of unique StockCode values within customer-week",
+      "week": "Monday through Sunday; WeekStart is Monday"
+    }
+  },
+  "generator": "src.run_preprocessing",
+  "raw_dataset_paths": {
+    "customer": "datasets/customer/online_retail_II.xlsx",
+    "stock": "datasets/stock/AAPL_2015_2025.csv"
+  },
+  "runtime": {
+    "executable": "C:\\Users\\anhca\\anaconda3\\envs\\rnn312\\python.exe",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "python": "3.12.14",
+    "scikit_learn": "1.9.1"
+  },
+  "schema_version": 1,
+  "seed": 42,
+  "split_ratios_requested": {
+    "test": 0.15,
+    "train": 0.7,
+    "val": 0.15
+  },
+  "stock": {
+    "artifacts": {
+      "test": {
+        "bytes": 15254,
+        "path": "datasets/processed/stock_test.npz",
+        "sha256": "a71b70117ce1debbb7b7add44428f1e8f1453a6d5f44df90e0add8df7b084575"
+      },
+      "train": {
+        "bytes": 66481,
+        "path": "datasets/processed/stock_train.npz",
+        "sha256": "e8db5505015f10d6dc3c1bb94d73be2f073b894522f53ac39e9b97b47b488a1b"
+      },
+      "val": {
+        "bytes": 15467,
+        "path": "datasets/processed/stock_val.npz",
+        "sha256": "60ff02fd75699918115a8e81bebbf081e2ce7d329abf991c19be12175f6d81c6"
+      }
+    },
+    "feature_names": [
+      "Open",
+      "High",
+      "Low",
+      "Close",
+      "Volume"
+    ],
+    "feature_scaler": {
+      "bytes": 687,
+      "fit_scope": "flattened TRAIN X only",
+      "mean": [
+        70.1110652456126,
+        70.89992167334229,
+        69.3583766090652,
+        70.16362389679885,
+        132908750.88598782
+      ],
+      "n_samples_seen": 57450,
+      "path": "models/preprocessing/stock_feature_scaler.joblib",
+      "scale": [
+        47.49898745188907,
+        48.11935172369354,
+        46.900622680775506,
+        47.53676590196874,
+        67709684.23658116
+      ],
+      "sha256": "150970d87ebd1b04fa55b56e89002cc9462fb7b6e29255fd6ab54778e3567f80",
+      "type": "sklearn.preprocessing.StandardScaler"
+    },
+    "integrity": {
+      "chronological_before_sort": true,
+      "date_max": "2025-12-31",
+      "date_min": "2015-01-02",
+      "duplicate_dates": 0,
+      "invalid_high_rows": 0,
+      "invalid_low_rows": 0,
+      "missing_values": {
+        "Adj Close": 0,
+        "Close": 0,
+        "Date": 0,
+        "High": 0,
+        "Low": 0,
+        "Open": 0,
+        "Volume": 0
+      },
+      "nonpositive_price_rows": 0,
+      "nonpositive_volume_rows": 0,
+      "raw_rows": 2766,
+      "rows_after_validation": 2766
+    },
+    "raw_source": {
+      "path": "datasets/stock/AAPL_2015_2025.csv",
+      "sha256_after": "2c8eef3c6a3836e2217bf3e99faaeec37d30e60298f7319e8f3748b71e5bd2b8",
+      "sha256_before": "2c8eef3c6a3836e2217bf3e99faaeec37d30e60298f7319e8f3748b71e5bd2b8"
+    },
+    "sequence_length": 30,
+    "split_strategy": {
+      "basis": "target_date",
+      "boundary_rule": "nearest cumulative sample count without splitting a target_date",
+      "context_rule": "validation/test inputs may use immediately preceding known history",
+      "ratios_requested": {
+        "test": 0.15,
+        "train": 0.7,
+        "val": 0.15
+      }
+    },
+    "splits": {
+      "test": {
+        "X_shape": [
+          410,
+          30,
+          5
+        ],
+        "sample_ratio": 0.14985380116959066,
+        "target_date_max": "2025-12-31",
+        "target_date_min": "2024-05-14",
+        "target_range_raw_close": {
+          "max": 286.19000244140625,
+          "min": 172.4199981689453
+        },
+        "y_shape": [
+          410
+        ]
+      },
+      "train": {
+        "X_shape": [
+          1915,
+          30,
+          5
+        ],
+        "sample_ratio": 0.6999269005847953,
+        "target_date_max": "2022-09-22",
+        "target_date_min": "2015-02-17",
+        "target_range_raw_close": {
+          "max": 182.00999450683594,
+          "min": 22.584999084472656
+        },
+        "y_shape": [
+          1915
+        ]
+      },
+      "val": {
+        "X_shape": [
+          411,
+          30,
+          5
+        ],
+        "sample_ratio": 0.15021929824561403,
+        "target_date_max": "2024-05-13",
+        "target_date_min": "2022-09-23",
+        "target_range_raw_close": {
+          "max": 198.11000061035156,
+          "min": 125.0199966430664
+        },
+        "y_shape": [
+          411
+        ]
+      }
+    },
+    "target_definition": "unadjusted Close of the immediately following trading day",
+    "target_scaler": {
+      "bytes": 591,
+      "fit_scope": "TRAIN y only",
+      "mean": [
+        71.20342297765667
+      ],
+      "n_samples_seen": 1915,
+      "path": "models/preprocessing/stock_target_scaler.joblib",
+      "scale": [
+        48.03794871690628
+      ],
+      "sha256": "153a0aa8ac97885b07d5fb0eacf461e5882ab1bb7fb6da9df53486116ff937cb",
+      "type": "sklearn.preprocessing.StandardScaler"
+    },
+    "task": "regression"
+  }
+}

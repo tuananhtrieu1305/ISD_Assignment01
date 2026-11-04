@@ -1,0 +1,23 @@
+{
+  "status": "measured",
+  "captured_date": "2026-10-18",
+  "host_cpu": {
+    "name": "13th Gen Intel(R) Core(TM) i7-13620H",
+    "physical_cores": 10,
+    "logical_processors": 16,
+    "evidence_command": "Get-CimInstance -ClassName Win32_Processor | Select-Object Name,NumberOfCores,NumberOfLogicalProcessors"
+  },
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 5050 Laptop GPU",
+    "driver_version": "591.74",
+    "reported_memory_mib": 8151,
+    "reported_compute_capability": "12.0",
+    "evidence_command": "wsl.exe --distribution Ubuntu-24.04 --exec /usr/lib/wsl/lib/nvidia-smi --query-gpu=name,driver_version,memory.total,compute_cap --format=csv,noheader",
+    "raw_stdout": "NVIDIA GeForce RTX 5050 Laptop GPU, 591.74, 8151 MiB, 12.0"
+  },
+  "runtime_policy": "WSL2 with separately locked Torch and Keras/TensorFlow venvs; no framework or environment changes",
+  "software_manifest": "artifacts/manifests/environment.json",
+  "software_manifest_sha256": "91ba6c68d5a297a3c32d1eb4aacc190b692dc7c3aa73171fba51ac2c98db76b5",
+  "uv_lock_sha256": "b0c71fd20e221ed3456278e1916079c46ac206831a98dcf40d3b8f7a83477862",
+  "probe_scope": "metadata only, no GPU workload or TEST evaluation"
+}

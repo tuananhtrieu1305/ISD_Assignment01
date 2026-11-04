@@ -1,0 +1,38 @@
+{
+  "call_id": "4cc6bc2a27d278749b52747236de3b4b764a0a4dc1db0921f99311e78199183a",
+  "status": "complete",
+  "response": {
+    "text": "```json\n{\n  \"language\": \"vi\",\n  \"intent\": \"knowledge\",\n  \"queries\": [\n    \"benefits of physical activity for weight management in diabetes\",\n    \"effect of exercise on blood glucose levels\"\n  ],\n  \"entity_ids\": [\n    \"activity\"\n  ],\n  \"relation_direction\": [\n    {\n      \"subject\": \"activity\",\n      \"relation\": \"benefits\",\n      \"object\": \"weight\",\n      \"negated\": false,\n      \"conditions\": null\n    },\n    {\n      \"subject\": \"activity\",\n      \"relation\": \"benefits\",\n      \"object\": \"blood glucose\",\n      \"negated\": false,\n      \"conditions\": null\n    }\n  ],\n  \"scope\": \"diabetes_knowledge\"\n}\n```",
+    "usage": {
+      "input_tokens": 235,
+      "output_tokens": 183,
+      "thought_tokens": null,
+      "total_tokens": 418,
+      "provider_usage_metadata": {
+        "candidates_token_count": 183,
+        "prompt_token_count": 235,
+        "prompt_tokens_details": [
+          {
+            "modality": "TEXT",
+            "token_count": 235
+          }
+        ],
+        "total_token_count": 418
+      }
+    },
+    "model_returned": "gemini-3-flash-preview",
+    "response_status": "completed",
+    "finish_reasons": [
+      "STOP"
+    ],
+    "cache_status": "live",
+    "model_requested": "gemini-3-flash-preview",
+    "latency_ms": 1611.855285999809,
+    "attempts": 1,
+    "call_id": "4cc6bc2a27d278749b52747236de3b4b764a0a4dc1db0921f99311e78199183a",
+    "paid_cost_usd": 0,
+    "invoice_verified": false,
+    "endpoint": "v1beta/generateContent",
+    "sdk_calls": 1
+  }
+}

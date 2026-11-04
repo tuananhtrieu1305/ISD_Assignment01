@@ -1,0 +1,47 @@
+﻿import {chromium} from '@playwright/test';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+const root=path.resolve(import.meta.dirname,'../..');
+const out=path.join(root,'project01/artifacts/phase2/ui');await fs.mkdir(out,{recursive:true});
+const browser=await chromium.launch({executablePath:path.join(root,'.local/ms-playwright/chromium-1248/chrome-win64/chrome.exe'),headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1060},deviceScaleFactor:1});
+const errors=[];page.on('pageerror',error=>errors.push(error.message));const checks=[];
+const assert=(condition,label)=>{if(!condition)throw new Error(label);checks.push(label);};
+try {
+ await page.goto('http://127.0.0.1:8031');await page.getByText('CPU sẵn sàng',{exact:true}).waitFor();
+ await page.screenshot({path:path.join(out,'input-desktop.png'),fullPage:true});
+ await page.getByRole('button',{name:/Chạy P0, P1 và P2/}).click();
+ await page.getByRole('heading',{name:'Kết quả đi cùng nguồn.'}).waitFor({timeout:90000});
+ assert(await page.getByText('Đã trả lời',{exact:true}).isVisible(),'combined returns answered');
+ assert(await page.locator('.score').isVisible(),'actual model score displayed');
+ assert(await page.locator('blockquote').innerText()!=='','actual source excerpt displayed');
+ assert(await page.locator('.evidence details').count()===10,'ten retrieved evidence candidates displayed');
+ await page.screenshot({path:path.join(out,'result-desktop.png'),fullPage:true});
+ await page.getByRole('button',{name:'03 Luồng agent'}).click();
+ for(const role of ['Coordinator','Risk Agent','Knowledge Agent','Verifier','Reporter'])assert(await page.getByRole('heading',{name:role,exact:true}).first().isVisible(),role+' trace visible');
+ await page.screenshot({path:path.join(out,'trace-desktop.png'),fullPage:true});
+ await page.getByRole('button',{name:'04 So sánh phương pháp'}).click();
+ assert(await page.locator('table').first().locator('tbody tr').count()===3,'live P0/P1/P2 comparison');
+ assert(await page.locator('table').nth(1).locator('tbody tr').count()===3,'saved reviewed benchmark has three rows');
+ assert((await page.locator('table').nth(1).innerText()).includes('82,5%'),'saved benchmark values displayed from reviewed outputs');
+ await page.getByRole('button',{name:'01 Câu hỏi & hồ sơ'}).click();
+ await page.getByRole('spinbutton',{name:'BMI',exact:true}).fill('');
+ await page.getByRole('button',{name:/Chạy P0, P1 và P2/}).click();
+ await page.getByRole('heading',{name:'Kết quả đi cùng nguồn.'}).waitFor({timeout:90000});
+ assert(await page.getByText('Thiếu trường: bmi',{exact:true}).isVisible(),'missing BMI does not produce prediction');
+ await page.getByRole('button',{name:'01 Câu hỏi & hồ sơ'}).click();
+ await page.getByRole('button',{name:'Tiếng Việt · phạm vi glossary ↗'}).click();
+ assert(await page.getByRole('spinbutton',{name:'BMI',exact:true}).isDisabled(),'knowledge-only mode ignores profile validity');
+ await page.getByRole('button',{name:/Chạy P0, P1 và P2/}).click();
+ await page.getByRole('heading',{name:'Kết quả đi cùng nguồn.'}).waitFor({timeout:90000});
+ assert((await page.locator('.query-value').innerText()).includes('kidney'),'Vietnamese query mapping is visible');
+ const bad=await page.request.post('http://127.0.0.1:8031/api/v1/assist',{data:{mode:'knowledge',question:'diabetes',language:'en',fault:'deadline'}});
+ assert(bad.status()===422,'public API refuses internal fault field');
+ await page.setViewportSize({width:390,height:844});await page.getByRole('button',{name:'01 Câu hỏi & hồ sơ'}).click();
+ assert(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),'mobile no horizontal page overflow');
+ await page.screenshot({path:path.join(out,'input-mobile.png'),fullPage:true});
+ assert(errors.length===0,'no uncaught browser errors');
+ await fs.writeFile(path.join(out,'verification_final.json'),JSON.stringify({status:'PASS',checks,errors,base:'http://127.0.0.1:8031',mocked:false},null,2));
+ console.log('E2E PASS',checks.length);
+} finally {await browser.close();}
+

@@ -1,0 +1,166 @@
+<testsuites id="" name="" tests="23" failures="3" skipped="0" errors="0" time="569.688151">
+<testsuite name="lab.spec.ts" timestamp="2026-10-22T00:32:16.564Z" hostname="" tests="23" failures="3" skipped="0" time="553.873" errors="0">
+<testcase name="live TRAIN comparison ch2_cdc_diabetes/mlp" classname="lab.spec.ts" time="12.663">
+</testcase>
+<testcase name="live TRAIN comparison ch2_ames_housing/mlp" classname="lab.spec.ts" time="15.091">
+</testcase>
+<testcase name="live TRAIN comparison ch2_bank_marketing/mlp" classname="lab.spec.ts" time="12.519">
+</testcase>
+<testcase name="live TRAIN comparison ch3_idrid/cnn" classname="lab.spec.ts" time="9.281">
+</testcase>
+<testcase name="live TRAIN comparison ch3_eurosat/cnn" classname="lab.spec.ts" time="17.497">
+</testcase>
+<testcase name="live TRAIN comparison ch3_cifar10/cnn" classname="lab.spec.ts" time="11.927">
+</testcase>
+<testcase name="live TRAIN comparison ch4_gold_pink_sheet/rnn" classname="lab.spec.ts" time="11.823">
+</testcase>
+<testcase name="live TRAIN comparison ch4_gold_pink_sheet/lstm" classname="lab.spec.ts" time="18.015">
+</testcase>
+<testcase name="live TRAIN comparison ch4_bis_house_prices/rnn" classname="lab.spec.ts" time="13.383">
+</testcase>
+<testcase name="live TRAIN comparison ch4_bis_house_prices/lstm" classname="lab.spec.ts" time="8.263">
+</testcase>
+<testcase name="live TRAIN comparison ch4_household_power/rnn" classname="lab.spec.ts" time="12.829">
+</testcase>
+<testcase name="live TRAIN comparison ch4_household_power/lstm" classname="lab.spec.ts" time="19.117">
+</testcase>
+<testcase name="live TRAIN comparison ch5_medquad_diabetes/kg_rag" classname="lab.spec.ts" time="25.902">
+</testcase>
+<testcase name="live TRAIN comparison ch5_finqa/kg_rag" classname="lab.spec.ts" time="25.387">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|ui-r1-artifacts\lab-live-TRAIN-comparison-ch5-finqa-kg-rag\test-failed-1.png]]
+
+[[ATTACHMENT|ui-r1-artifacts\lab-live-TRAIN-comparison-ch5-finqa-kg-rag\error-context.md]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  lab.spec.ts:89:7 › live TRAIN comparison ch5_finqa/kg_rag ────────────────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('model-runner')
+    Expected: visible
+    Timeout: 25000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('model-runner') with timeout 25000ms
+      - waiting for getByTestId('model-runner')
+
+
+      60 |   async open(route: string) {
+      61 |     await this.page.goto(route);
+    > 62 |     await expect(this.page.getByTestId("model-runner")).toBeVisible();
+         |                                                         ^
+      63 |   }
+      64 |   async run(count: number) {
+      65 |     let job: Job | null = null;
+        at LabPage.open (C:\DATA\assign\apps\web\tests\v3\lab.spec.ts:62:57)
+        at C:\DATA\assign\apps\web\tests\v3\lab.spec.ts:93:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\..\..\artifacts\manifests\phase35\ui-r1-artifacts\lab-live-TRAIN-comparison-ch5-finqa-kg-rag\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\..\..\artifacts\manifests\phase35\ui-r1-artifacts\lab-live-TRAIN-comparison-ch5-finqa-kg-rag\error-context.md
+]]>
+</failure>
+</testcase>
+<testcase name="live TRAIN comparison ch5_wikidata_subgraphs/kg_rag" classname="lab.spec.ts" time="25.404">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|ui-r1-artifacts\lab-live-TRAIN-comparison-ch5-wikidata-subgraphs-kg-rag\test-failed-1.png]]
+
+[[ATTACHMENT|ui-r1-artifacts\lab-live-TRAIN-comparison-ch5-wikidata-subgraphs-kg-rag\error-context.md]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  lab.spec.ts:89:7 › live TRAIN comparison ch5_wikidata_subgraphs/kg_rag ───────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('model-runner')
+    Expected: visible
+    Timeout: 25000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('model-runner') with timeout 25000ms
+      - waiting for getByTestId('model-runner')
+
+
+      60 |   async open(route: string) {
+      61 |     await this.page.goto(route);
+    > 62 |     await expect(this.page.getByTestId("model-runner")).toBeVisible();
+         |                                                         ^
+      63 |   }
+      64 |   async run(count: number) {
+      65 |     let job: Job | null = null;
+        at LabPage.open (C:\DATA\assign\apps\web\tests\v3\lab.spec.ts:62:57)
+        at C:\DATA\assign\apps\web\tests\v3\lab.spec.ts:93:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\..\..\artifacts\manifests\phase35\ui-r1-artifacts\lab-live-TRAIN-comparison-ch5-wikidata-subgraphs-kg-rag\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\..\..\artifacts\manifests\phase35\ui-r1-artifacts\lab-live-TRAIN-comparison-ch5-wikidata-subgraphs-kg-rag\error-context.md
+]]>
+</failure>
+</testcase>
+<testcase name="live TRAIN comparison ch6_diabetes_tasks/multi_agent" classname="lab.spec.ts" time="29.129">
+</testcase>
+<testcase name="live TRAIN comparison ch6_house_tasks/multi_agent" classname="lab.spec.ts" time="27.453">
+</testcase>
+<testcase name="live TRAIN comparison ch6_gold_tasks/multi_agent" classname="lab.spec.ts" time="14.669">
+</testcase>
+<testcase name="deep link, back/forward, RNN toggle and refresh keep selections" classname="lab.spec.ts" time="19.418">
+</testcase>
+<testcase name="all18dataset cards, function contracts, historical panels and deployment load" classname="lab.spec.ts" time="129.606">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|ui-r1-artifacts\lab-all18dataset-cards-fun-7c2bc--panels-and-deployment-load\test-failed-1.png]]
+
+[[ATTACHMENT|ui-r1-artifacts\lab-all18dataset-cards-fun-7c2bc--panels-and-deployment-load\error-context.md]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  lab.spec.ts:185:1 › all18dataset cards, function contracts, historical panels and deployment load 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('data-card')
+    Expected: visible
+    Timeout: 25000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('data-card') with timeout 25000ms
+      - waiting for getByTestId('data-card')
+
+
+      192 |         `${chapter.route}?dataset=${dataset}&family=${chapter.family}&section=data`,
+      193 |       );
+    > 194 |       await expect(page.getByTestId("data-card")).toBeVisible();
+          |                                                   ^
+      195 |       await expect(
+      196 |         page
+      197 |           .getByRole("navigation", { name: "Chọn dataset" })
+        at C:\DATA\assign\apps\web\tests\v3\lab.spec.ts:194:51
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\..\..\artifacts\manifests\phase35\ui-r1-artifacts\lab-all18dataset-cards-fun-7c2bc--panels-and-deployment-load\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\..\..\artifacts\manifests\phase35\ui-r1-artifacts\lab-all18dataset-cards-fun-7c2bc--panels-and-deployment-load\error-context.md
+]]>
+</failure>
+</testcase>
+<testcase name="desktop accessibility on each chapter" classname="lab.spec.ts" time="81.203">
+</testcase>
+<testcase name="offline API and invalid deep link show recoverable errors" classname="lab.spec.ts" time="5.628">
+</testcase>
+<testcase name="mobile layout, keyboard and WCAG checks on home and CNN" classname="lab.spec.ts" time="7.666">
+</testcase>
+</testsuite>
+</testsuites>

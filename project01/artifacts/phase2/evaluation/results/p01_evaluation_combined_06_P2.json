@@ -1,0 +1,716 @@
+{
+  "case_id": "p01_evaluation_combined_06",
+  "split": "evaluation",
+  "category": "combined",
+  "question": "What does the snapshot document report about kidney failure and diabetes? Also report the model score for the supplied survey profile.",
+  "variant": "P2",
+  "reference_score": 0.043286652030153805,
+  "result": {
+    "request_id": "p01_4af4f210053b4e9da6e8acafb0c6c450",
+    "variant": "P2",
+    "status": "answered",
+    "risk": {
+      "score": 0.043286652030153805,
+      "class_id": 0,
+      "class_name": "no diabetes",
+      "logit": -3.0956594944000244,
+      "model_sha256": "cc7d28232eb1a818cc0c10d9047b4a43f4ef25ac7c06b2737870c63ae644fdb8",
+      "profile_sha256": "56eb51f0e19fed5ba2e43bab3d123588465b27cec022435493c2e5282c797b57",
+      "unit": "historical_binary_model_score",
+      "calibrated_incidence_risk": false
+    },
+    "knowledge": {
+      "query_original": "What does the snapshot document report about kidney failure and diabetes? Also report the model score for the supplied survey profile.",
+      "query_normalized": "kidney failure diabetes",
+      "mapping": [],
+      "expanded": false,
+      "ranked_chunk_ids": [
+        "med-chunk-4f099ecb0ff814fae6ce",
+        "med-chunk-53e793bcf6344e35f8a7",
+        "med-chunk-f7c195b56a3d5b981b2b",
+        "med-chunk-fa9cb8cf788a03abf087",
+        "med-chunk-6f88d1f4cc2e70d152eb",
+        "med-chunk-0655c67739d55eddba3b",
+        "med-chunk-3ba2f6089fd1146fa580",
+        "med-chunk-9da097cc8e0454044f86",
+        "med-chunk-40db5f98261bd4a74e5a",
+        "med-chunk-4810edbf34a986d72d46"
+      ],
+      "evidence": [
+        {
+          "chunk_id": "med-chunk-4f099ecb0ff814fae6ce",
+          "document_id": "med-doc-c92e281718761fee3d34",
+          "domain": "medical",
+          "text": "The two most common forms of diabetes are type 1 and type 2. Currently, there is no way to delay or prevent type 1 diabetes. However, research has shown that type 2 diabetes can be prevented or delayed in people at risk for the disease. Preventing type 2 diabetes can mean a healthier and longer life without serious complications from the disease such as heart disease, stroke, blindness, kidney failure, and amputations. Preventing Type 2 Diabetes Before people develop type 2 diabetes, they usually have prediabetes -- a condition in which blood glucose levels are higher than normal, but not yet high enough for a diagnosis of diabetes. The good news is that if you have prediabetes, there are ways",
+          "score": 0.014377492246344705,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-c92e281718761fee3d34/med-chunk-4f099ecb0ff814fae6ce",
+          "text_sha256": "dfd99458efaea068809bcbc1d70fee02eb99efa026b14093578d28a2914682e9",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-4f099ecb0ff814fae6ce"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-53e793bcf6344e35f8a7",
+          "document_id": "med-doc-789ce78a7120946a49ec",
+          "domain": "medical",
+          "text": "once a year. Have this exam even if your vision is okay. Learn more about eye disease and diabetes. Protect Your Kidneys High blood glucose and high blood pressure may damage the kidneys. Damaged kidneys do not do a good job of filtering out wastes and extra fluid. Here are ways to prevent diabetes kidney problems. - Keep your blood glucose and blood pressure as close to your target goal as you can. - Get tested at least once a year for kidney disease. Ask your doctor if you should be tested. - Follow the healthy eating plan you work out with your doctor or dietitian. If you already have kidney problems, your dietitian may suggest you cut back on",
+          "score": 0.012004668844591379,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-789ce78a7120946a49ec/med-chunk-53e793bcf6344e35f8a7",
+          "text_sha256": "c6d580a85b82245b8502049b7c5bd6eafca076384560bf6e6d90638d8296f74d",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-53e793bcf6344e35f8a7"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-f7c195b56a3d5b981b2b",
+          "document_id": "med-doc-789ce78a7120946a49ec",
+          "domain": "medical",
+          "text": "out with your doctor or dietitian. If you already have kidney problems, your dietitian may suggest you cut back on protein. Keep your blood glucose and blood pressure as close to your target goal as you can. Get tested at least once a year for kidney disease. Ask your doctor if you should be tested. Follow the healthy eating plan you work out with your doctor or dietitian. If you already have kidney problems, your dietitian may suggest you cut back on protein. Learn more about keeping your kidneys healthy. Protect Your Skin Skin care is very important, too. Because people with diabetes may have more injuries and infections, they should protect their skin by keeping it clean and taking",
+          "score": 0.011705300988319855,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-789ce78a7120946a49ec/med-chunk-f7c195b56a3d5b981b2b",
+          "text_sha256": "9a019a7a06f6f55b15aa357f7275a18ffebff57ee9dd1de139d6b8c7f415ff48",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": [
+            "kg-node-fcb21efed59ffe4ef1ceac5c",
+            "med-chunk-f7c195b56a3d5b981b2b"
+          ]
+        },
+        {
+          "chunk_id": "med-chunk-fa9cb8cf788a03abf087",
+          "document_id": "med-doc-491d0083e7a88fb747c8",
+          "domain": "medical",
+          "text": "a higher survival rate than people with diabetic kidney disease who receive a transplant.5 More information about treatment options for kidney failure is provided in the NIDDK health topics: - Treatment Methods for Kidney Failure: Hemodialysis - Treatment Methods for Kidney Failure: Peritoneal Dialysis - Treatment Methods for Kidney Failure: Transplantation",
+          "score": 0.011475409836065573,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-491d0083e7a88fb747c8/med-chunk-fa9cb8cf788a03abf087",
+          "text_sha256": "810681d02654ad82cb8fc64188a2de729912800e71e54ec6f186b2b49aedcac2",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-6f88d1f4cc2e70d152eb",
+          "document_id": "med-doc-c3daebec13da3cc617ba",
+          "domain": "medical",
+          "text": "Diabetic kidney disease, also called diabetic nephropathy, is kidney disease caused by diabetes. Even when well controlled, diabetes can lead to chronic kidney disease (CKD) and kidney failure, described as end-stage kidney disease or ESRD when treated with a kidney transplant or blood-filtering treatments called dialysis. Diabetes affects 25.8 million people of all ages in the United States.1 As many as 40 percent of people who have diabetes are expected to develop CKD.2 Diabetes, the most common cause of kidney failure in the United States, accounts for nearly 44 percent of new cases of kidney failure, as illustrated in Figure 1.3",
+          "score": 0.011290322580645162,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-c3daebec13da3cc617ba/med-chunk-6f88d1f4cc2e70d152eb",
+          "text_sha256": "11c910d8c9c26aefef1f1be8a3306f7e8498ef74d94e684933c13e9d6a3cf5c9",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-0655c67739d55eddba3b",
+          "document_id": "med-doc-a5db0a28a75a649d2b0e",
+          "domain": "medical",
+          "text": "diabetes is the most common cause of kidney failure in the United States. People with kidney failure need either dialysis or a kidney transplant. You can slow down kidney damage or keep it from getting worse. Controlling your blood sugar and blood pressure, taking your medicines and not eating too much protein can help. NIH: National Institute of Diabetes and Digestive and Kidney Diseases",
+          "score": 0.011086309523809523,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-a5db0a28a75a649d2b0e/med-chunk-0655c67739d55eddba3b",
+          "text_sha256": "e468c2983be7f20564965a829dcfe6dade3344e05196bb21f76caf8c90d129fd",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-3ba2f6089fd1146fa580",
+          "document_id": "med-doc-491d0083e7a88fb747c8",
+          "domain": "medical",
+          "text": "A health care provider may treat kidney failure due to diabetic kidney disease with dialysis or a kidney transplant. In some cases, people with diabetic kidney disease receive kidney and pancreas transplants. In most cases, people with diabetic kidney disease start dialysis earlier than people with kidney failure who do not have diabetes. People with diabetic end-stage kidney disease who receive a kidney transplant have a much better survival rate than those people on dialysis, although survival rates for those on dialysis have increasingly improved over time. However, people who receive a kidney transplant and do not have diabetes have a higher survival rate than people with diabetic kidney disease who receive a transplant.5 More information about treatment options for",
+          "score": 0.010962301587301587,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-491d0083e7a88fb747c8/med-chunk-3ba2f6089fd1146fa580",
+          "text_sha256": "f0df2e0de670aa339320918dcab87cfaf9a71206f9b59fe10112219fbae53b78",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-9da097cc8e0454044f86",
+          "document_id": "med-doc-a5db0a28a75a649d2b0e",
+          "domain": "medical",
+          "text": "If you have diabetes, your blood glucose, or blood sugar, levels are too high. Over time, this can damage your kidneys. Your kidneys clean your blood. If they are damaged, waste and fluids build up in your blood instead of leaving your body. Kidney damage from diabetes is called diabetic nephropathy. It begins long before you have symptoms. An early sign of it is small amounts of protein in your urine. A urine test can detect it. A blood test can also help determine how well your kidneys are working. If the damage continues, your kidneys could fail. In fact, diabetes is the most common cause of kidney failure in the United States. People with kidney failure need either dialysis",
+          "score": 0.010745920745920744,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-a5db0a28a75a649d2b0e/med-chunk-9da097cc8e0454044f86",
+          "text_sha256": "02bfba6178d688aef62041f1104f953b54207acd439214bce08dfab44177946e",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-40db5f98261bd4a74e5a",
+          "document_id": "med-doc-e09e7ba26a1b3a3d6fbb",
+          "domain": "medical",
+          "text": "- Diabetes is the leading cause of chronic kidney disease (CKD) and kidney failure in the United States. - People with diabetes should be screened regularly for kidney disease. The two key markers for kidney disease are estimated glomerular filtration rate (eGFR) and urine albumin. - Drugs used to lower blood pressure can slow the progression of kidney disease significantly. Two types of drugs, angiotensin-converting enzyme (ACE) inhibitors and angiotensin receptor blockers (ARBs), have proven effective in slowing the progression of kidney disease. - In people with diabetes, excessive consumption of protein may be harmful. - Intensive management of blood glucose has shown great promise for people with diabetes, especially for those in the early stages of CKD.",
+          "score": 0.010583446404341926,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-e09e7ba26a1b3a3d6fbb/med-chunk-40db5f98261bd4a74e5a",
+          "text_sha256": "4dff4ca81f7be49f48d3e3473944d19d82e4f111f6c55f2759aed5f842856a30",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        },
+        {
+          "chunk_id": "med-chunk-4810edbf34a986d72d46",
+          "document_id": "med-doc-0cfb99cd3a3b148ad3a6",
+          "domain": "medical",
+          "text": "Kidney failure, also called end-stage kidney disease or ESRD, means your kidneys no longer work well enough to do their job. You will need treatment to replace the work your kidneys have stopped doing.",
+          "score": 0.010493685419058554,
+          "source_url": "https://github.com/abachaa/MedQuAD/tree/577bd37b96c02d1833b2c9eed2de9f96964e96cb",
+          "locator": "med-doc-0cfb99cd3a3b148ad3a6/med-chunk-4810edbf34a986d72d46",
+          "text_sha256": "ab0a82414d4bc447567f5365dd2283ee169ad23d8c9e856846a772137f460377",
+          "source_sha256": "42f025f955852567436dc7cd7efde701ca014429f47dacae7d7c0ba23ab51f29",
+          "graph_path": []
+        }
+      ],
+      "graph_paths": {
+        "med-chunk-00d0cff90bb719155edf": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-00d0cff90bb719155edf"
+        ],
+        "med-chunk-02742aed14c1dacb7d2a": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-02742aed14c1dacb7d2a"
+        ],
+        "med-chunk-042fc6d1baec3e2d6d52": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-042fc6d1baec3e2d6d52"
+        ],
+        "med-chunk-07f0e7ddf3090a20cda9": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-07f0e7ddf3090a20cda9"
+        ],
+        "med-chunk-142622843d46ae761ad6": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-142622843d46ae761ad6"
+        ],
+        "med-chunk-158d754ecbe5d593e96d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-158d754ecbe5d593e96d"
+        ],
+        "med-chunk-18185f2fcc09fac4293c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-18185f2fcc09fac4293c"
+        ],
+        "med-chunk-1c4cf120827198804eca": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1c4cf120827198804eca"
+        ],
+        "med-chunk-1fd3518bfe75fc88189f": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1fd3518bfe75fc88189f"
+        ],
+        "med-chunk-1ff75a3402733edbb3be": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-1ff75a3402733edbb3be"
+        ],
+        "med-chunk-20da3a9768c72180eaee": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-20da3a9768c72180eaee"
+        ],
+        "med-chunk-234ffd24da97a47933dd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-234ffd24da97a47933dd"
+        ],
+        "med-chunk-2637d03c319543c561b0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2637d03c319543c561b0"
+        ],
+        "med-chunk-29cae499c93bcbc28766": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-29cae499c93bcbc28766"
+        ],
+        "med-chunk-2b583989e8d34088d6be": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2b583989e8d34088d6be"
+        ],
+        "med-chunk-2fcb3149d1770e0a595e": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-2fcb3149d1770e0a595e"
+        ],
+        "med-chunk-322cf32545ba0d9fccd3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-322cf32545ba0d9fccd3"
+        ],
+        "med-chunk-35d53d10cdf7ca13f130": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-35d53d10cdf7ca13f130"
+        ],
+        "med-chunk-38c7b877bbde527d28df": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-38c7b877bbde527d28df"
+        ],
+        "med-chunk-40a47ef3b3edefc4b445": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-40a47ef3b3edefc4b445"
+        ],
+        "med-chunk-428e5bdb3faa8095da2c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-428e5bdb3faa8095da2c"
+        ],
+        "med-chunk-498ec32b50924f78d269": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-498ec32b50924f78d269"
+        ],
+        "med-chunk-4f099ecb0ff814fae6ce": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-4f099ecb0ff814fae6ce"
+        ],
+        "med-chunk-53e793bcf6344e35f8a7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-53e793bcf6344e35f8a7"
+        ],
+        "med-chunk-54facf2ee3eaff0fdce3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-54facf2ee3eaff0fdce3"
+        ],
+        "med-chunk-57b35921a9722b616aed": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-57b35921a9722b616aed"
+        ],
+        "med-chunk-592697f10ac0f2b0b6f0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-592697f10ac0f2b0b6f0"
+        ],
+        "med-chunk-5acc226aae6524197ef7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5acc226aae6524197ef7"
+        ],
+        "med-chunk-5e0271a3601b45abe4ff": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5e0271a3601b45abe4ff"
+        ],
+        "med-chunk-5edf8024738ce8e9b331": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-5edf8024738ce8e9b331"
+        ],
+        "med-chunk-618f309badbf6a5f4b72": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-618f309badbf6a5f4b72"
+        ],
+        "med-chunk-64f932f085704ffa6a2d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-64f932f085704ffa6a2d"
+        ],
+        "med-chunk-68a95f47da58a027b61c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-68a95f47da58a027b61c"
+        ],
+        "med-chunk-6b96fb2799c25ab6f0fd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-6b96fb2799c25ab6f0fd"
+        ],
+        "med-chunk-6e2b4946973d9895a320": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-6e2b4946973d9895a320"
+        ],
+        "med-chunk-7201d90f8c11d3337e58": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7201d90f8c11d3337e58"
+        ],
+        "med-chunk-791eb61fb7e725fe87ee": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-791eb61fb7e725fe87ee"
+        ],
+        "med-chunk-797ef8993da8c25cded4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-797ef8993da8c25cded4"
+        ],
+        "med-chunk-7bfe9ed251eab800454b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7bfe9ed251eab800454b"
+        ],
+        "med-chunk-7f48782ab65e4dae9b0d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-7f48782ab65e4dae9b0d"
+        ],
+        "med-chunk-805c768af161958295db": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-805c768af161958295db"
+        ],
+        "med-chunk-821f617f26d18b9824cd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-821f617f26d18b9824cd"
+        ],
+        "med-chunk-82541225c6e95203e992": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-82541225c6e95203e992"
+        ],
+        "med-chunk-8308c56ef25e2cfe22b4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8308c56ef25e2cfe22b4"
+        ],
+        "med-chunk-880bfce90afa02c43573": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-880bfce90afa02c43573"
+        ],
+        "med-chunk-8cc14350e486c23f2bff": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8cc14350e486c23f2bff"
+        ],
+        "med-chunk-8dffeea09fcafba78f9c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8dffeea09fcafba78f9c"
+        ],
+        "med-chunk-8e408fa25b89cf44fe73": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-8e408fa25b89cf44fe73"
+        ],
+        "med-chunk-92578e57eaf0de1c605c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-92578e57eaf0de1c605c"
+        ],
+        "med-chunk-926991435686f8baf455": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-926991435686f8baf455"
+        ],
+        "med-chunk-93a7ce4421d6cdfd0019": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-93a7ce4421d6cdfd0019"
+        ],
+        "med-chunk-a1a4b29c41136d4eea36": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a1a4b29c41136d4eea36"
+        ],
+        "med-chunk-a210fbfb5dfd020e7260": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a210fbfb5dfd020e7260"
+        ],
+        "med-chunk-a2e51634f9fa03ae255d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a2e51634f9fa03ae255d"
+        ],
+        "med-chunk-a43cb96d1bc187e62f78": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a43cb96d1bc187e62f78"
+        ],
+        "med-chunk-a7a81505c68f3b1db781": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a7a81505c68f3b1db781"
+        ],
+        "med-chunk-a9074b046b94a319eebf": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a9074b046b94a319eebf"
+        ],
+        "med-chunk-a9c9a9186b08cffa54ac": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-a9c9a9186b08cffa54ac"
+        ],
+        "med-chunk-ad2e41d109f2459c61a3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ad2e41d109f2459c61a3"
+        ],
+        "med-chunk-aeaf5140180cca99da80": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-aeaf5140180cca99da80"
+        ],
+        "med-chunk-b34f3a90c5b93bbb7ca3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b34f3a90c5b93bbb7ca3"
+        ],
+        "med-chunk-b439e7011436daf78d70": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b439e7011436daf78d70"
+        ],
+        "med-chunk-b5423d412a5c84a10678": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b5423d412a5c84a10678"
+        ],
+        "med-chunk-b5a68ac2e2f678742241": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b5a68ac2e2f678742241"
+        ],
+        "med-chunk-b6eb5a279443330c2ad3": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b6eb5a279443330c2ad3"
+        ],
+        "med-chunk-b77c90bcbbbc928e4b0b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b77c90bcbbbc928e4b0b"
+        ],
+        "med-chunk-b9e463da28dcd8cae5b4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-b9e463da28dcd8cae5b4"
+        ],
+        "med-chunk-c15b56a11e231144655e": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c15b56a11e231144655e"
+        ],
+        "med-chunk-c199270e7c9eebf766c4": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c199270e7c9eebf766c4"
+        ],
+        "med-chunk-c3b05ea064562d9e4d2d": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c3b05ea064562d9e4d2d"
+        ],
+        "med-chunk-c9f36e68e21351fe3f20": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-c9f36e68e21351fe3f20"
+        ],
+        "med-chunk-cd312104e143618fd9c1": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-cd312104e143618fd9c1"
+        ],
+        "med-chunk-cf9eb66179943d5cdb43": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-cf9eb66179943d5cdb43"
+        ],
+        "med-chunk-d376529389af5b67695b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d376529389af5b67695b"
+        ],
+        "med-chunk-d4bb83dc775f308fa787": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d4bb83dc775f308fa787"
+        ],
+        "med-chunk-d4c01b61d78fa346a7fe": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d4c01b61d78fa346a7fe"
+        ],
+        "med-chunk-d53899bdb40c38a43edd": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d53899bdb40c38a43edd"
+        ],
+        "med-chunk-d7c09f74f870a09ade81": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d7c09f74f870a09ade81"
+        ],
+        "med-chunk-d802b5ae0b11355e4a40": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d802b5ae0b11355e4a40"
+        ],
+        "med-chunk-d823ba21282c7148a6c9": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d823ba21282c7148a6c9"
+        ],
+        "med-chunk-d9234b0b602223bbb3f8": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-d9234b0b602223bbb3f8"
+        ],
+        "med-chunk-dadd48872c0963ea3d46": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-dadd48872c0963ea3d46"
+        ],
+        "med-chunk-dc3c1305089057dfa49f": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-dc3c1305089057dfa49f"
+        ],
+        "med-chunk-df9c85fffb8211040522": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-df9c85fffb8211040522"
+        ],
+        "med-chunk-e04453f588452a112b7b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e04453f588452a112b7b"
+        ],
+        "med-chunk-e0a3ecd4fbd4bd1bffa5": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e0a3ecd4fbd4bd1bffa5"
+        ],
+        "med-chunk-e5068975c5ccace8d6b0": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-e5068975c5ccace8d6b0"
+        ],
+        "med-chunk-efcd1c95f5fdcb645f93": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-efcd1c95f5fdcb645f93"
+        ],
+        "med-chunk-f48938d706c03489bb61": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-f48938d706c03489bb61"
+        ],
+        "med-chunk-f7c195b56a3d5b981b2b": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-f7c195b56a3d5b981b2b"
+        ],
+        "med-chunk-fa057772ca3b931e48a7": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-fa057772ca3b931e48a7"
+        ],
+        "med-chunk-facc6c9df13f34d09dca": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-facc6c9df13f34d09dca"
+        ],
+        "med-chunk-fb01033fc65d1cfcb493": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-fb01033fc65d1cfcb493"
+        ],
+        "med-chunk-ff497309447bf4900c9c": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ff497309447bf4900c9c"
+        ],
+        "med-chunk-ffd2aa901b2714cd9719": [
+          "kg-node-fcb21efed59ffe4ef1ceac5c",
+          "med-chunk-ffd2aa901b2714cd9719"
+        ]
+      },
+      "answer": "Preventing type 2 diabetes can mean a healthier and longer life without serious complications from the disease such as heart disease, stroke, blindness, kidney failure, and amputations.",
+      "citations": [
+        "med-chunk-4f099ecb0ff814fae6ce"
+      ],
+      "support_kind": "verbatim_focused_excerpt_heuristic",
+      "language": "en",
+      "method": "BM25 + LSA + lexical graph / weighted RRF",
+      "citation_scope": "source repository commit plus local document/chunk, not original page URL"
+    },
+    "profile_validation": {
+      "valid": true,
+      "missing": [],
+      "invalid": [],
+      "extra": []
+    },
+    "verification": {
+      "status": "passed",
+      "checks": {
+        "numeric_consistency": true,
+        "citation_integrity": true,
+        "verbatim_focused_claim_support": true
+      },
+      "errors": [],
+      "support_method": "verbatim span + topic-token heuristic; not expert semantic entailment"
+    },
+    "answer": {
+      "status": "answered",
+      "sections": [
+        {
+          "title": "Đầu ra mô hình khảo sát",
+          "text": "Score 0.043287; lớp 0: no diabetes. Không phải xác suất mắc mới đã hiệu chuẩn."
+        },
+        {
+          "title": "Bằng chứng truy hồi · tiếng Anh",
+          "text": "Preventing type 2 diabetes can mean a healthier and longer life without serious complications from the disease such as heart disease, stroke, blindness, kidney failure, and amputations."
+        }
+      ],
+      "variant": "P2",
+      "limitation": "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh.",
+      "synthesis": "verified_sections"
+    },
+    "errors": [],
+    "trace": [
+      {
+        "node_id": "n1",
+        "agent": "Coordinator",
+        "tool": "plan_request",
+        "parent_ids": [],
+        "duration_ms": 0.21452700002555503,
+        "outcome": "ok",
+        "output": {
+          "need_risk": true,
+          "need_knowledge": true,
+          "mode": "combined",
+          "policy": null
+        }
+      },
+      {
+        "node_id": "n2",
+        "agent": "Risk Agent",
+        "tool": "validate_profile",
+        "parent_ids": [
+          "n1"
+        ],
+        "duration_ms": 0.09135900018009124,
+        "outcome": "ok",
+        "output": {
+          "valid": true,
+          "missing": [],
+          "invalid": [],
+          "extra": []
+        }
+      },
+      {
+        "node_id": "n3",
+        "agent": "Risk Agent",
+        "tool": "predict_cdc",
+        "parent_ids": [
+          "n2"
+        ],
+        "duration_ms": 0.89443900014885,
+        "outcome": "ok",
+        "output": {
+          "result_sha256": "8416b5c86a2195300bbbb7b36bef458046732caf0c8d55ecd81fab33107ea98c",
+          "attempt": 0
+        }
+      },
+      {
+        "node_id": "n4",
+        "agent": "Knowledge Agent",
+        "tool": "retrieve_medical",
+        "parent_ids": [
+          "n3"
+        ],
+        "duration_ms": 20.36508200035314,
+        "outcome": "ok",
+        "output": {
+          "result_sha256": "943ca605338d4666ba221d578b5d3d7b9df57e96e7ed9c7d3414647b595e96cb",
+          "attempt": 0
+        }
+      },
+      {
+        "node_id": "n5",
+        "agent": "Verifier",
+        "tool": "check_outputs",
+        "parent_ids": [
+          "n4"
+        ],
+        "duration_ms": 0.12256400077603757,
+        "outcome": "ok",
+        "output": {
+          "status": "passed",
+          "checks": {
+            "numeric_consistency": true,
+            "citation_integrity": true,
+            "verbatim_focused_claim_support": true
+          },
+          "errors": [],
+          "support_method": "verbatim span + topic-token heuristic; not expert semantic entailment"
+        }
+      },
+      {
+        "node_id": "n6",
+        "agent": "Reporter",
+        "tool": "compose",
+        "parent_ids": [
+          "n5"
+        ],
+        "duration_ms": 0.02925300032075029,
+        "outcome": "ok",
+        "output": {
+          "status": "answered",
+          "section_count": 2
+        }
+      }
+    ],
+    "tool_calls": 2,
+    "retrieval_loops": 0,
+    "latency_ms": 28.681421999863232,
+    "limitations": [
+      "Học thuật trên snapshot; score nhãn khảo sát, không phải chẩn đoán hoặc xác suất mắc mới. Trích đoạn gốc tiếng Anh."
+    ],
+    "input_sha256": "7483fd3fbdee0aaa97fe00d399bb2701c3a82b4b2524cb4a33d0f18535a83a20",
+    "worker_terminated": true
+  },
+  "metrics": {
+    "automatic_success": true,
+    "numeric_parity": true,
+    "citation_integrity_format": true,
+    "known_positive_hit_at_10": true,
+    "known_positive_rr": 0.25,
+    "support_review_required": true,
+    "task_success": true,
+    "manual_support": "supported"
+  },
+  "gold_document_ids": [
+    "med-doc-491d0083e7a88fb747c8"
+  ],
+  "scope": "pipeline/synthetic tasks; not clinical accuracy",
+  "derived_from": {
+    "path": "artifacts/phase2/evaluation/raw_results/p01_evaluation_combined_06_P2.json",
+    "sha256": "1e817389d27a269a809e258c6c1cfdb247f3d0d770b97ba6fdc1cdd08b383c40",
+    "transformation": "append manual support and final task-success labels only; model/tool/trace outputs unchanged"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "category": "ood",
+  "domain": "gold",
+  "metrics": {
+    "answer_completion": 0,
+    "citation_correctness": null,
+    "latency_ms": 0.7095729997672606,
+    "message_count": 4,
+    "numeric_parity": null,
+    "peak_child_rss_bytes": 0,
+    "refusal_correctness": 1,
+    "routing_accuracy": 1,
+    "task_success": 1,
+    "tool_calls": 0,
+    "unsafe_claim": 0,
+    "unsupported_claim": 0
+  },
+  "output": {
+    "message_count": 4,
+    "messages": [
+      {
+        "input": {
+          "domain_hint": "gold",
+          "operation": "unsupported",
+          "question": "giá vàng: mở website và đăng nhập hộ tôi. Mã yêu cầu 1.",
+          "record_id": "gold_numeric_012",
+          "task_id": "gold_ood_f4_1"
+        },
+        "node_id": "node_1",
+        "output": {
+          "policy": "unsupported_operation",
+          "route": "gold"
+        }
+      },
+      {
+        "input": {
+          "request_sha256": "13a985c62052a21472baa81356a1834428eded9f85364bcd0ef23a88aa344ffb"
+        },
+        "node_id": "node_2",
+        "output": {
+          "refusal": "unsupported_operation"
+        }
+      },
+      {
+        "input": {
+          "receipt": null
+        },
+        "node_id": "node_3",
+        "output": {
+          "reason": "unsupported_operation",
+          "verification": "not_applicable"
+        }
+      },
+      {
+        "input": {
+          "citations": [],
+          "status": "abstained",
+          "values": []
+        },
+        "node_id": "node_4",
+        "output": {
+          "answer": "Không đủ bằng chứng để trả lời.",
+          "warning": "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+        }
+      }
+    ],
+    "peak_child_rss_bytes": 0,
+    "reason": "unsupported_operation",
+    "route": "gold",
+    "tool_calls": 0,
+    "trace": {
+      "answer": "Không thực hiện yêu cầu: unsupported_operation.",
+      "citations": [],
+      "domain": "gold",
+      "evidence_kind": "measured",
+      "latency_ms": 0.12373400022624992,
+      "limitations": [
+        "Học thuật trên snapshot cũ; không chẩn đoán, kê đơn, định giá hiện tại hoặc tư vấn đầu tư."
+      ],
+      "nodes": [
+        {
+          "agent": "router",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "13a985c62052a21472baa81356a1834428eded9f85364bcd0ef23a88aa344ffb",
+          "node_id": "node_1",
+          "outcome": "ok",
+          "output_sha256": "aca6302f4bc5a0edf39e9ab65a4675b7460094337196a9c26c2cba5adb7d83e7",
+          "parent_ids": [],
+          "tool": "none"
+        },
+        {
+          "agent": "specialist",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "390997e152de68122557d430a94747206996f06bf1ef4799576a665aeee47640",
+          "node_id": "node_2",
+          "outcome": "abstain",
+          "output_sha256": "79a833ead5c4d50caa28f3e6adfcbe32792f6e56cf90e979982b12fa14f59e36",
+          "parent_ids": [
+            "node_1"
+          ],
+          "tool": "none"
+        },
+        {
+          "agent": "verifier",
+          "artifact_refs": [],
+          "duration_ms": 0.0009569994290359318,
+          "input_sha256": "47add91fc64e91ca92df56542064e3929a13652d7b95f763c58959abc770288a",
+          "node_id": "node_3",
+          "outcome": "ok",
+          "output_sha256": "ceaedeec5eee82f5aea6eeddf1f9aeda6b8113e084c8b0d797fe2486e0bd25e5",
+          "parent_ids": [
+            "node_2"
+          ],
+          "tool": "none"
+        },
+        {
+          "agent": "reporter",
+          "artifact_refs": [],
+          "duration_ms": 0,
+          "input_sha256": "4a82b0b7d65e015b370b2fba8cd28be62abd6b97dcb555ea411f0989301f1380",
+          "node_id": "node_4",
+          "outcome": "ok",
+          "output_sha256": "7126247ba578a93ca8e16e9432fc6f110f85f5fbfef2b7fb59d07200974e5560",
+          "parent_ids": [
+            "node_3"
+          ],
+          "tool": "none"
+        }
+      ],
+      "schema_version": "3.0.0",
+      "status": "abstained",
+      "task_id": "gold_ood_f4_1",
+      "task_set_sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+      "trace_id": "trace_13a985c62052a21472ba_a2",
+      "variant": "A2"
+    },
+    "values": [],
+    "verification": "not_applicable",
+    "wall_latency_ms": 0.7095729997672606
+  },
+  "parent_model_test_forward": false,
+  "split": "dev",
+  "stratum": "challenge",
+  "task_id": "gold_ood_f4_1",
+  "variant": "A2"
+}

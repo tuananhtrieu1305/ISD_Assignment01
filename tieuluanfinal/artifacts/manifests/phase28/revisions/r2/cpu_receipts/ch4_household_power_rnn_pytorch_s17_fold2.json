@@ -1,0 +1,94 @@
+{
+  "canonical_x_sha256": "4d87c1f0867dc5dab4730d5c0fbcd739b4903dd38ac0da55f105ac302442de01",
+  "checkpoint": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_rnn_pytorch_s17_fold2/best.npz",
+    "sha256": "b10b5b096159ee26030aeb7cd2f75f7e6882fc479a5c620479cc1f274b891d17"
+  },
+  "checkpoint_metadata": {
+    "path": "artifacts/models/v3/ch04_rnn/ch4_household_power_rnn_pytorch_s17_fold2/best.json",
+    "sha256": "48c127907078c06f7a34341eb4b319aac5970e0b5bf0cb688b5a54a49b1492e2"
+  },
+  "comparisons": {
+    "atol": 1e-05,
+    "cpu_reference": {
+      "max_absolute_error": 1.0728836059570312e-06,
+      "output": [
+        [
+          2.4011473655700684,
+          0.9008827805519104,
+          1.26237154006958
+        ],
+        [
+          2.426539421081543,
+          0.5369864702224731,
+          0.507075309753418
+        ],
+        [
+          1.9070366621017456,
+          0.8369088172912598,
+          0.3889491558074951
+        ],
+        [
+          1.0924062728881836,
+          0.6259410977363586,
+          0.1223149448633194
+        ]
+      ],
+      "status": "PASS"
+    },
+    "original_gpu_cpu_gate": {
+      "max_absolute_error": 1.5139579772949219e-05,
+      "output": null,
+      "source": {
+        "path": "artifacts/manifests/phase28/runs/ch4_household_power_rnn_pytorch_s17_fold2/cpu_demo.json",
+        "sha256": "e5abc0d4c0e3f103aa55a57a3141e7d798081acf926f9d57a1bcec5b6c04f64a"
+      },
+      "status": "PASS"
+    },
+    "rtol": 0.0001
+  },
+  "ids": [
+    "HOUSEHOLD/2006-12-23T20:00:00",
+    "HOUSEHOLD/2006-12-23T23:00:00",
+    "HOUSEHOLD/2006-12-24T00:00:00",
+    "HOUSEHOLD/2006-12-24T01:00:00"
+  ],
+  "input_split": "train",
+  "native_cpu_device": "cpu",
+  "native_cpu_engine": "torch",
+  "portable_cpu_output": [
+    [
+      2.4011476039886475,
+      0.9008823037147522,
+      1.2623714208602905
+    ],
+    [
+      2.426539659500122,
+      0.5369865894317627,
+      0.5070754885673523
+    ],
+    [
+      1.9070366621017456,
+      0.8369098901748657,
+      0.38894861936569214
+    ],
+    [
+      1.0924063920974731,
+      0.6259419918060303,
+      0.12231437861919403
+    ]
+  ],
+  "revision": {
+    "path": "artifacts/manifests/phase28/revisions/r2/revision.json",
+    "sha256": "11c7251f5dd092ba7c109f4ea512d3062de3cc6dd1514f683dd7aa06bbc771b7"
+  },
+  "run_id": "ch4_household_power_rnn_pytorch_s17_fold2",
+  "selection": {
+    "path": "artifacts/manifests/phase28/runs/ch4_household_power_rnn_pytorch_s17_fold2/selection.json",
+    "sha256": "4e4eae7d7c5c79ba915c9ea52192c53cf2030e245ae4af5a8b6339853d65eb75"
+  },
+  "status": "PASS",
+  "test_executed": false,
+  "validation_executed": false,
+  "weights_updated": false
+}

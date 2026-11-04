@@ -1,0 +1,22 @@
+[
+  {
+    "old": "<div className=\"comparison-explainer\"><div><b>01 / LLM trực tiếp</b>",
+    "new": "<div className=\"full-demo-preset\"><button type=\"button\" disabled={busy||!examples?.profiles?.length} onClick={selectFullDemo}>Demo đủ 5 agent · Đi bộ & 58%</button><p>{useProfile?'Đã kèm hồ sơ CDC đủ 21 trường. Risk chạy checkpoint local; Reporter nhận score, không nhận 21 giá trị hồ sơ.':'Nút này chọn câu hỏi và kèm hồ sơ TRAIN mẫu để Risk Agent được thực thi. Chưa gửi câu hỏi hoặc gọi Gemini.'}</p></div><div className=\"comparison-explainer\"><div><b>01 / LLM trực tiếp</b>"
+  },
+  {
+    "old": "ready.runtime_revision!=='three-generation-r7'",
+    "new": "ready.runtime_revision!=='full-demo-r8'"
+  },
+  {
+    "old": "để nạp pipeline 3-generation r7.",
+    "new": "để nạp pipeline r8 có Risk → Reporter (vẫn 3 generation)."
+  },
+  {
+    "old": "<summary>Hồ sơ CDC · demo công cụ bổ sung</summary>",
+    "new": "<summary>Hồ sơ CDC · {useProfile?'đang kèm trong pipeline':'chưa kèm trong pipeline'}</summary>"
+  },
+  {
+    "old": "Kèm Risk Agent trong lượt RAG (câu trả lời kiến thức vẫn là so sánh chính)",
+    "new": "Kèm Risk Agent trong lượt RAG · kết quả công cụ được đưa vào câu trả lời cuối"
+  }
+]

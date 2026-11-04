@@ -1,0 +1,11 @@
+decision,selected_value,classification,evidence_or_reason
+input resolution,64x64 RGB,data-determined,All EuroSAT files verified as 64x64 RGB.
+number of classes,10,data-determined,10 class folders verified from actual files.
+train/validation/test split,"70/15/15 stratified, seed 42",operational bound,"Provides training data, validation for selection, and isolated final test."
+model for hyperparameter selection,Basic CNN 2D,architecture-determined,Assignment requires Basic CNN as the baseline for tuning before final architecture comparison.
+learning rate,0.01,experimentally selected,Selected from Stage B validation macro F1/loss.
+batch size,16,experimentally selected,Selected from validation metrics and time-per-epoch trade-off.
+augmentation,none,experimentally selected,Conservative augmentation kept only if validation evidence exceeded no augmentation.
+dropout,not used unless dropout experiment selected it,experimentally selected,No dropout experiment: overfitting evidence did not exceed the preset inspection threshold.
+max_epochs,6,operational bound,Upper bound paired with EarlyStopping; not claimed optimal.
+early stopping patience,2,operational bound,CPU-aware stopping rule based on validation loss stagnation.

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="20" time="32.797" timestamp="2026-10-18T14:06:21.587092+07:00" hostname="LaptopVJP"><testcase classname="tests.recurrent.test_training" name="test_torch_recurrent_slots_canonical_and_resume" time="9.226" /><testcase classname="tests.recurrent.test_training" name="test_manual_bptt_numeric_gradient_tiny_sequence" time="0.014" /><testcase classname="tests.recurrent.test_training" name="test_fit_windows_resume_matches_uninterrupted" time="0.017" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[None-ch4_gold_pink_sheet]" time="0.468" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[None-ch4_bis_house_prices]" time="0.497" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[None-ch4_household_power]" time="3.577" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[1-ch4_gold_pink_sheet]" time="0.146" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[1-ch4_bis_house_prices]" time="0.384" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[1-ch4_household_power]" time="2.918" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[2-ch4_gold_pink_sheet]" time="0.664" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[2-ch4_bis_house_prices]" time="0.615"><failure message="KeyError: 'Q.ZA.N.628/2018-01-01T00:00:00'">dataset = 'ch4_bis_house_prices', fold = 2
+
+    @pytest.mark.parametrize("dataset", DATASETS)
+    @pytest.mark.parametrize("fold", [None, 1, 2, 3])
+    def test_batch_matches_frozen_reference(dataset, fold):
+        data = WindowData(dataset, fold)
+        view = DatasetView(dataset, fold)
+        ids = data.train_ids[:2] + data.validation_ids[-2:]
+        x, y = data.batch(ids)
+&gt;       expected_x, expected_y = view.batch(ids, "scratch")
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/recurrent/test_window_data.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/common/data_access.py:165: in batch
+    x, y = window_batch(self._frame, [self._index[key] for key in ids], self.adapter)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = &lt;list_iterator object at 0x7f564666a2c0&gt;
+
+&gt;   x, y = window_batch(self._frame, [self._index[key] for key in ids], self.adapter)
+                                      ^^^^^^^^^^^^^^^^
+E   KeyError: 'Q.ZA.N.628/2018-01-01T00:00:00'
+
+src/common/data_access.py:165: KeyError</failure></testcase><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[2-ch4_household_power]" time="3.506" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[3-ch4_gold_pink_sheet]" time="0.512" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[3-ch4_bis_house_prices]" time="0.563" /><testcase classname="tests.recurrent.test_window_data" name="test_batch_matches_frozen_reference[3-ch4_household_power]" time="2.936" /><testcase classname="tests.recurrent.test_window_data" name="test_sealed_duplicate_unknown_and_empty_windows_refused" time="0.083" /><testcase classname="tests.recurrent.test_window_data" name="test_validation_targets_remain_original_float64" time="0.222" /><testcase classname="tests.recurrent.test_window_data" name="test_fold_gap_mapping_keeps_frozen_ids_and_target_times[ch4_gold_pink_sheet]" time="0.073" /><testcase classname="tests.recurrent.test_window_data" name="test_fold_gap_mapping_keeps_frozen_ids_and_target_times[ch4_bis_house_prices]" time="0.303" /><testcase classname="tests.recurrent.test_window_data" name="test_fold_gap_mapping_keeps_frozen_ids_and_target_times[ch4_household_power]" time="1.693" /></testsuite></testsuites>

@@ -1,0 +1,19 @@
+# Only small project metadata and synthetic task JSON override the repository data rule.
+!datasets/
+!datasets/*.json
+!datasets/benchmark/
+!datasets/benchmark/*.json
+
+# Old runtime views, installed packages, raw downloads and local secrets remain ignored.
+web/.runtime/
+artifacts/mplconfig/
+artifacts/plot_style/fontlist-*.json
+
+# Small source-backed RAG v2 corpus/contracts may be versioned; raw archives stay local.
+!datasets/llm_v2/
+!datasets/llm_v2/*.json
+!datasets/llm_v2/*.jsonl
+!datasets/llm_v2/*.md
+!datasets/llm_v2/evaluation_v1/
+!datasets/llm_v2/evaluation_v1/*.json
+!datasets/llm_v2/evaluation_v1/*.jsonl

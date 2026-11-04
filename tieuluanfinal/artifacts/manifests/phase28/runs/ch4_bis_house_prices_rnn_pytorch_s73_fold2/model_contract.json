@@ -1,0 +1,530 @@
+{
+  "backend": "torch",
+  "comparison_group_sha256": "1f7419937c98a9f95e3e7ccba8bba11c7c8772ebe63cdfe7d184ebdc98527862",
+  "composition": [
+    "rnn_1",
+    "rnn_2",
+    "rnn_3",
+    "dense_4",
+    "activation_5",
+    "dense_6",
+    "activation_7",
+    "dense_8"
+  ],
+  "composition_plain": "đầu vào → Nhớ thông tin theo thời gian [12, 32] → Nhớ thông tin theo thời gian [12, 32] → Nhớ thông tin theo thời gian [32] → Kết hợp các đặc trưng [16] → Giữ tín hiệu dương, tạo khả năng học phi tuyến [16] → Kết hợp các đặc trưng [8] → Giữ tín hiệu dương, tạo khả năng học phi tuyến [8] → Kết hợp các đặc trưng [3] → đầu ra (logit/giá trị chuẩn hóa)",
+  "config_sha256": "f4c46b27318741c81f1b4eb4d9f14c673a99b9b30a9e9f7ea97b19006ee135b4",
+  "dataset_id": "ch4_bis_house_prices",
+  "dataset_sha256": "85ea7713ea144922d757ee7b4a129e2b38d455a05852e0d8fe85adf621b41752",
+  "evidence_kind": "measured",
+  "family": "rnn",
+  "functions": [
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [12, 51] → [12, 32] cho một mẫu; batch được giữ nguyên.",
+        "expression": "h_t = tanh(x_t W + h_previous U + b)",
+        "plain_explanation": "Kết hợp dữ liệu hiện tại và thông tin nhớ từ bước trước.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          },
+          {
+            "meaning": "trạng thái ở bước t",
+            "symbol": "h_t"
+          },
+          {
+            "meaning": "trạng thái bước trước, bắt đầu bằng 0",
+            "symbol": "h_previous"
+          },
+          {
+            "meaning": "trọng số trạng thái",
+            "symbol": "U"
+          },
+          {
+            "meaning": "chỉ số bước thời gian",
+            "symbol": "t"
+          },
+          {
+            "meaning": "hàm ép giá trị vào khoảng -1 đến 1",
+            "symbol": "tanh"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "rnn_1",
+      "input_shape": [
+        "batch",
+        12,
+        51
+      ],
+      "mapping": {
+        "keras": "keras.layers.SimpleRNN",
+        "pytorch": "torch.nn.RNN",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[rnn]"
+      },
+      "output_shape": [
+        "batch",
+        12,
+        32
+      ],
+      "parameters": 2688,
+      "role": "Nhớ thông tin theo thời gian",
+      "signature": "rnn(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [12, 32] → [12, 32] cho một mẫu; batch được giữ nguyên.",
+        "expression": "h_t = tanh(x_t W + h_previous U + b)",
+        "plain_explanation": "Kết hợp dữ liệu hiện tại và thông tin nhớ từ bước trước.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          },
+          {
+            "meaning": "trạng thái ở bước t",
+            "symbol": "h_t"
+          },
+          {
+            "meaning": "trạng thái bước trước, bắt đầu bằng 0",
+            "symbol": "h_previous"
+          },
+          {
+            "meaning": "trọng số trạng thái",
+            "symbol": "U"
+          },
+          {
+            "meaning": "chỉ số bước thời gian",
+            "symbol": "t"
+          },
+          {
+            "meaning": "hàm ép giá trị vào khoảng -1 đến 1",
+            "symbol": "tanh"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "rnn_2",
+      "input_shape": [
+        "batch",
+        12,
+        32
+      ],
+      "mapping": {
+        "keras": "keras.layers.SimpleRNN",
+        "pytorch": "torch.nn.RNN",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[rnn]"
+      },
+      "output_shape": [
+        "batch",
+        12,
+        32
+      ],
+      "parameters": 2080,
+      "role": "Nhớ thông tin theo thời gian",
+      "signature": "rnn(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [12, 32] → [32] cho một mẫu; batch được giữ nguyên.",
+        "expression": "h_t = tanh(x_t W + h_previous U + b)",
+        "plain_explanation": "Kết hợp dữ liệu hiện tại và thông tin nhớ từ bước trước.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          },
+          {
+            "meaning": "trạng thái ở bước t",
+            "symbol": "h_t"
+          },
+          {
+            "meaning": "trạng thái bước trước, bắt đầu bằng 0",
+            "symbol": "h_previous"
+          },
+          {
+            "meaning": "trọng số trạng thái",
+            "symbol": "U"
+          },
+          {
+            "meaning": "chỉ số bước thời gian",
+            "symbol": "t"
+          },
+          {
+            "meaning": "hàm ép giá trị vào khoảng -1 đến 1",
+            "symbol": "tanh"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "rnn_3",
+      "input_shape": [
+        "batch",
+        12,
+        32
+      ],
+      "mapping": {
+        "keras": "keras.layers.SimpleRNN",
+        "pytorch": "torch.nn.RNN",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[rnn]"
+      },
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameters": 2080,
+      "role": "Nhớ thông tin theo thời gian",
+      "signature": "rnn(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [32] → [16] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = xW + b",
+        "plain_explanation": "Kết hợp các giá trị đầu vào bằng trọng số rồi cộng bias.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "dense_4",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "mapping": {
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[dense]"
+      },
+      "output_shape": [
+        "batch",
+        16
+      ],
+      "parameters": 528,
+      "role": "Kết hợp các đặc trưng",
+      "signature": "dense(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "activation_5",
+      "input_shape": [
+        "batch",
+        16
+      ],
+      "mapping": {
+        "keras": "keras.layers.ReLU",
+        "pytorch": "torch.nn.ReLU",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[activation]"
+      },
+      "output_shape": [
+        "batch",
+        16
+      ],
+      "parameters": 0,
+      "role": "Giữ tín hiệu dương, tạo khả năng học phi tuyến",
+      "signature": "activation(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [16] → [8] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = xW + b",
+        "plain_explanation": "Kết hợp các giá trị đầu vào bằng trọng số rồi cộng bias.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "dense_6",
+      "input_shape": [
+        "batch",
+        16
+      ],
+      "mapping": {
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[dense]"
+      },
+      "output_shape": [
+        "batch",
+        8
+      ],
+      "parameters": 136,
+      "role": "Kết hợp các đặc trưng",
+      "signature": "dense(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": null,
+      "id": "activation_7",
+      "input_shape": [
+        "batch",
+        8
+      ],
+      "mapping": {
+        "keras": "keras.layers.ReLU",
+        "pytorch": "torch.nn.ReLU",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[activation]"
+      },
+      "output_shape": [
+        "batch",
+        8
+      ],
+      "parameters": 0,
+      "role": "Giữ tín hiệu dương, tạo khả năng học phi tuyến",
+      "signature": "activation(x, weights) -> y"
+    },
+    {
+      "corner_case": "Sai rank/shape bị từ chối; trạng thái RNN/LSTM reset giữa các window; không bỏ batch cuối.",
+      "formula": {
+        "example": "Shape [8] → [3] cho một mẫu; batch được giữ nguyên.",
+        "expression": "y = xW + b",
+        "plain_explanation": "Kết hợp các giá trị đầu vào bằng trọng số rồi cộng bias.",
+        "symbols": [
+          {
+            "meaning": "tensor đầu vào (x_t: tại bước t)",
+            "symbol": "x"
+          },
+          {
+            "meaning": "tensor đầu ra",
+            "symbol": "y"
+          },
+          {
+            "meaning": "trọng số đầu vào",
+            "symbol": "W"
+          },
+          {
+            "meaning": "bias học được",
+            "symbol": "b"
+          }
+        ],
+        "why_needed": "Đối chiếu phép tính forward trong code scratch."
+      },
+      "id": "dense_8",
+      "input_shape": [
+        "batch",
+        8
+      ],
+      "mapping": {
+        "keras": "keras.layers.Dense",
+        "pytorch": "torch.nn.Linear",
+        "scratch": "src.common.numpy_engine.NumpyNetwork.forward[dense]"
+      },
+      "output_shape": [
+        "batch",
+        3
+      ],
+      "parameters": 27,
+      "role": "Kết hợp các đặc trưng",
+      "signature": "dense(x, weights) -> y"
+    }
+  ],
+  "implementation": "pytorch",
+  "input_shape": [
+    "batch",
+    12,
+    51
+  ],
+  "layers": [
+    {
+      "function_id": "rnn_1",
+      "id": "rnn_1",
+      "input_shape": [
+        "batch",
+        12,
+        51
+      ],
+      "kind": "rnn",
+      "output_shape": [
+        "batch",
+        12,
+        32
+      ],
+      "parameter_count": 2688
+    },
+    {
+      "function_id": "rnn_2",
+      "id": "rnn_2",
+      "input_shape": [
+        "batch",
+        12,
+        32
+      ],
+      "kind": "rnn",
+      "output_shape": [
+        "batch",
+        12,
+        32
+      ],
+      "parameter_count": 2080
+    },
+    {
+      "function_id": "rnn_3",
+      "id": "rnn_3",
+      "input_shape": [
+        "batch",
+        12,
+        32
+      ],
+      "kind": "rnn",
+      "output_shape": [
+        "batch",
+        32
+      ],
+      "parameter_count": 2080
+    },
+    {
+      "function_id": "dense_4",
+      "id": "dense_4",
+      "input_shape": [
+        "batch",
+        32
+      ],
+      "kind": "dense",
+      "output_shape": [
+        "batch",
+        16
+      ],
+      "parameter_count": 528
+    },
+    {
+      "function_id": "activation_5",
+      "id": "activation_5",
+      "input_shape": [
+        "batch",
+        16
+      ],
+      "kind": "activation",
+      "output_shape": [
+        "batch",
+        16
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "dense_6",
+      "id": "dense_6",
+      "input_shape": [
+        "batch",
+        16
+      ],
+      "kind": "dense",
+      "output_shape": [
+        "batch",
+        8
+      ],
+      "parameter_count": 136
+    },
+    {
+      "function_id": "activation_7",
+      "id": "activation_7",
+      "input_shape": [
+        "batch",
+        8
+      ],
+      "kind": "activation",
+      "output_shape": [
+        "batch",
+        8
+      ],
+      "parameter_count": 0
+    },
+    {
+      "function_id": "dense_8",
+      "id": "dense_8",
+      "input_shape": [
+        "batch",
+        8
+      ],
+      "kind": "dense",
+      "output_shape": [
+        "batch",
+        3
+      ],
+      "parameter_count": 27
+    }
+  ],
+  "model_id": "ch4_bis_house_prices_rnn_pytorch_s73_fold2",
+  "output_shape": [
+    "batch",
+    3
+  ],
+  "parameter_count": 7539,
+  "preprocessing": {
+    "path": "data/splits/v3/ch4_bis_house_prices/rolling_fold_2/preprocessing.json",
+    "sha256": "9eb92f63f9c94a7e73b6c2dbe7bf8c5ae6a2f6986e54b5d870e34e102db95bbd"
+  },
+  "recurrent_unroll": "Ở mỗi tầng l=1..3, lặp t=1..T theo thứ tự; khởi tạo h (và c) bằng 0 cho mỗi window. Tầng 1–2 trả toàn chuỗi, tầng 3 trả bước cuối → 3 Dense.",
+  "schema_version": "3.0.0"
+}

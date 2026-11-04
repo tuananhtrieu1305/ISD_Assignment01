@@ -1,0 +1,42 @@
+{
+  "contract": {
+    "chapter": 6,
+    "columns": [],
+    "data_card_path": "report/references/dataset_cards/v3_agent/ch6_gold_tasks.md",
+    "dataset_id": "ch6_gold_tasks",
+    "evidence_kind": "measured",
+    "files": [
+      {
+        "path": "artifacts/manifests/phase31/taskset_v2.json",
+        "sha256": "8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab",
+        "size_bytes": 401318
+      }
+    ],
+    "kind": "task_view",
+    "logical_size": {
+      "features": null,
+      "records": 100,
+      "unit": "synthetic-template task per domain over real parent TRAIN tool/evidence records"
+    },
+    "parent_dataset_ids": [
+      "ch4_gold_pink_sheet"
+    ],
+    "schema_version": "3.0.0",
+    "source": {
+      "accessed_at": "2026-10-17T01:19:43.210164+00:00",
+      "citation": "World Bank (2026). Commodity Price Data (The Pink Sheet), historical monthly data, October 2026 snapshot.",
+      "license_note": "Derived task view inherits all parent source terms; templates/OOD/unsafe/fault questions are synthetic, numeric/evidence inputs are frozen parent TRAIN records. Not new clinical/financial truth labels.",
+      "license_status": "approved",
+      "url": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
+      "version": "Phase31 taskset_v2; sha256:8741c1165c77fe8d67ba262a193ddebdd044b45eebf3a8bc0318255123ee23ab"
+    },
+    "status": "ready",
+    "target": "verified_response"
+  },
+  "historical_test_evaluation_executed": false,
+  "parent_declared_manifest": {
+    "path": "artifacts/manifests/datasets/ch6_gold_tasks.json",
+    "sha256": "f2259259788a4071d03833fabf8b18940b683aead2dbe3cc6c38f5dc9051cdf8"
+  },
+  "source_phase": 31
+}

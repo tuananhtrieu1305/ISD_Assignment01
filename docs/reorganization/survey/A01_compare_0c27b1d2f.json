@@ -1,0 +1,61 @@
+{
+  "path": "A01_CT_anhtt.053.ipynb",
+  "cells": 107,
+  "code_cells": 48,
+  "output_cells": 48,
+  "imports": [
+    "dotenv",
+    "joblib",
+    "json",
+    "matplotlib.pyplot",
+    "neo4j",
+    "numpy",
+    "os",
+    "pandas",
+    "pathlib",
+    "shutil",
+    "sklearn",
+    "sklearn.base",
+    "sklearn.dummy",
+    "sklearn.ensemble",
+    "sklearn.impute",
+    "sklearn.linear_model",
+    "sklearn.metrics",
+    "sklearn.model_selection",
+    "sklearn.neighbors",
+    "sklearn.pipeline",
+    "sklearn.preprocessing",
+    "sklearn.svm",
+    "sklearn.tree",
+    "sys",
+    "warnings"
+  ],
+  "headings": [
+    "# INTELLIGENT SYSTEM DEVELOPMENT — ASSIGNMENT 01\n\n## Development of Two Traditional Machine-Learning Intelligent Systems\n\n### Case Study A: Diabetes Prediction\n\n### Case Study B: Vietnam House Price Prediction\n\nBài thực hành xây dựng hai hệ thống thông minh dựa trên dữ liệu có cấu trúc và các mô hình học máy truyền thống. Cả hai hệ thống được phát triển theo cùng một tiến trình:\n\n`Real-world problem → Data → Feature representation → Preprocessing → Learning model → Prediction → Application`\n\nCase Study A giải quyết bài toán phân loại nguy cơ tiểu đường, trong khi Case Study B giải quyết bài toán hồi quy giá nhà tại Việt Nam. Mỗi hệ thống sử d",
+    "# PART A — DIABETES PREDICTION\n\n## 1. System and Problem Definition\n\nBài toán thứ nhất xây dựng một hệ thống dự đoán `Outcome` từ các chỉ số sức khỏe có cấu trúc của bệnh nhân. `Outcome` nhận hai giá trị `0` và `1`, vì vậy đây là một bài toán **binary classification**.\n\n**Formal problem statement:**\n\n> Given a feature vector describing a previously unseen subject's health measurements, predict the binary diabetes outcome class and provide a model-estimated probability for the positive class.\n\nDataset gốc cung cấp tám chỉ số sức khỏe làm predictor. Số lượng và danh sách đặc trưng thực sự được đưa vào mô hình không được cố định trước, mà được x",
+    "## 2. Intelligent System Diagram\n\n```text\nUser / Environment\n        │\n        ▼\nWeb Application / Android Mobile Application\n        │\n        ▼\nSix health measurements\n        │\n        ▼\nFlask REST API\n        │\n        ▼\nFeature vector x ∈ R^6\n        │\n        ▼\nImputation + Scaling when required\n        │\n        ▼\nTraditional ML Classifier\n        │\n        ▼\nClass prediction + probability\n        │\n        ▼\nWeb / Mobile Result\n```\n",
+    "## 3. Dataset Source\n\nBộ dữ liệu sử dụng trong nghiên cứu là `diabetes.csv`, thuộc nhóm dữ liệu **Pima Indians Diabetes Database**. Nguồn tham khảo của bộ dữ liệu:\n\n`https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database`\n\nToàn bộ phân tích, thí nghiệm và đánh giá trong Case Study A sử dụng trực tiếp file dữ liệu này.\n",
+    "## 4. Dataset Description\n\nMỗi dòng dữ liệu biểu diễn một đối tượng quan sát. Dataset có **768 observations** và **9 columns**, gồm **8 predictor features** và một target `Outcome`. Tám predictor features đều là numerical; dataset không có categorical input feature. `Outcome` là binary categorical target với hai lớp `0` và `1`, vì vậy đây là bài toán classification.\n\nPhân tích mô tả tập trung vào số lượng quan sát, kiểu dữ liệu, giá trị thiếu và các thống kê mô tả cơ bản của toàn bộ tám predictor features trước khi lựa chọn representation chính.\n",
+    "### 4.1. Feature Selection Analysis\n\nTrước khi xác định representation đầu vào ở Mục 5, tám predictor gốc của dataset được phân tích theo các tiêu chí kỹ thuật để làm rõ lý do chỉ sáu trong số đó được giữ lại cho hệ thống. Với mỗi feature, các đại lượng sau được tính toán: tỉ lệ giá trị thiếu (`Missing_%`), số giá trị duy nhất, giá trị xuất hiện nhiều nhất (mode) cùng tỉ lệ của nó, độ lệch phân phối (`Skewness`) và tỉ lệ outlier theo phương pháp IQR.\n"
+  ],
+  "io_and_execution_lines": [
+    "Path(filename),",
+    "Path(\"/mnt/data\") / filename,",
+    "ARTIFACT_DIR = Path(\"artifacts\")",
+    "diabetes_raw = pd.read_csv(DIABETES_PATH)",
+    "final_diabetes_model.fit(X_train_d, y_train_d)",
+    "fitted_model.fit(X_train_d, y_train_d)",
+    "\"artifact\": str(Path(\"diabetes_models\") / f\"{model_id}.joblib\"),",
+    "NEO4J_DIR = Path(\"neo4j_scripts\")",
+    "house_raw = pd.read_csv(HOUSE_PATH)",
+    "final_house_model.fit(X_train_h, y_train_h)",
+    "fitted_model.fit(X_train_h, y_train_h)",
+    "\"artifact\": str(Path(\"house_models\") / f\"{model_id}.joblib\"),"
+  ],
+  "contains_training_calls": true,
+  "kernel": {
+    "display_name": "base",
+    "language": "python",
+    "name": "python3"
+  }
+}

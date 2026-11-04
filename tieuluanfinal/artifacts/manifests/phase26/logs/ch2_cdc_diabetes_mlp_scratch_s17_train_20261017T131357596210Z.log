@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/mnt/c/DATA/assign/scripts/phase26_worker.py", line 42, in <module>
+    main()
+  File "/mnt/c/DATA/assign/scripts/phase26_worker.py", line 26, in main
+    result = (train_run if args.mode == "train" else evaluate_run)(args.run_id)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/DATA/assign/src/ch02_ml/experiment.py", line 315, in train_run
+    data = cache_data(entry["dataset_id"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/DATA/assign/src/ch02_ml/protocol.py", line 128, in cache_data
+    arrays = {k: archive[k] for k in archive.files}
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/DATA/assign/src/ch02_ml/protocol.py", line 128, in <dictcomp>
+    arrays = {k: archive[k] for k in archive.files}
+                 ~~~~~~~^^^
+  File "/home/anhca/.local/share/ai-term-paper-v3/.venv-torch/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py", line 257, in __getitem__
+    return format.read_array(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/anhca/.local/share/ai-term-paper-v3/.venv-torch/lib/python3.11/site-packages/numpy/lib/_format_impl.py", line 833, in read_array
+    raise ValueError("Object arrays cannot be loaded when "
+ValueError: Object arrays cannot be loaded when allow_pickle=False

@@ -1,0 +1,29 @@
+{
+  "task_name": "Diabetes Classification",
+  "task_type": "binary_classification",
+  "dataset_name": "CDC Diabetes Health Indicators / BRFSS 2015 balanced",
+  "dataset_path": "datasets/diabetes/diabetes.csv",
+  "target": "Diabetes_binary",
+  "selected_model": "Improved DNN",
+  "selection_metric": "F1",
+  "metrics": {
+    "Accuracy": 0.7208224732117,
+    "Precision": 0.6609031733116355,
+    "Recall": 0.9256410256410257,
+    "F1": 0.7711844291478757,
+    "ROC-AUC": 0.8192380259665302
+  },
+  "feature_count": 21,
+  "transformed_feature_count": 21,
+  "training_date": "2026-09-07T10:06:27+00:00",
+  "preprocessing_summary": "Median imputation and StandardScaler fitted on the training split only.",
+  "target_transformation": null,
+  "model_format": "NumPy DNN weights (.npz) + joblib ColumnTransformer",
+  "model_file": "pipeline/diabetes/model.npz",
+  "preprocessor_file": "pipeline/diabetes/preprocessor.joblib",
+  "decision_threshold": 0.30000000000000004,
+  "notes": [
+    "Exact duplicate rows are removed before train/test split.",
+    "Teacher DL baseline is evaluated separately and is not included in the final six-model table."
+  ]
+}

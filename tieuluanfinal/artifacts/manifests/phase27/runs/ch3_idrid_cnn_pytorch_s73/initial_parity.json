@@ -1,0 +1,30 @@
+{
+  "forward": "PASS",
+  "gradient": {
+    "definition": "norm(g_ref-g_actual)/(norm(g_ref)+norm(g_actual)), denominator floor 1e-12; per tensor",
+    "max_abs_error": 6.804519216530025e-06,
+    "max_relative_l2_error": 6.75712685508679e-05,
+    "per_tensor_relative_l2_error": {
+      "conv2d_1/b": 6.75712685508679e-05,
+      "conv2d_1/w": 5.775322176173656e-05,
+      "conv2d_11/b": 6.404478055139125e-06,
+      "conv2d_11/w": 3.04411418095405e-07,
+      "conv2d_3/b": 6.350464216908193e-07,
+      "conv2d_3/w": 4.3556985365166944e-05,
+      "conv2d_6/b": 4.885747635112623e-07,
+      "conv2d_6/w": 5.375457682606206e-07,
+      "conv2d_8/b": 3.7564760195157067e-07,
+      "conv2d_8/w": 3.850180741939722e-07,
+      "dense_14/b": 3.1973526518433e-08,
+      "dense_14/w": 1.9885049062459197e-07,
+      "dense_16/b": 1.8696750119039014e-08,
+      "dense_16/w": 2.593445222844693e-07
+    },
+    "tolerance": 0.001
+  },
+  "ids": [
+    "train/IDRiD_001",
+    "train/IDRiD_002"
+  ],
+  "input_split": "train"
+}

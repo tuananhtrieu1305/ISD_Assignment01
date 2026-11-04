@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="2.006" timestamp="2026-10-20T21:23:01.553313+07:00" hostname="LaptopVJP"><testcase classname="tests.serving32.test_result_index" name="test_wikidata_has_structural_results_not_qa_scorecards" time="0.149"><failure message="assert False&#10; +  where False = all(&lt;generator object test_wikidata_has_structural_results_not_qa_scorecards.&lt;locals&gt;.&lt;genexpr&gt; at 0x73ca04de6dc0&gt;)">tmp_path = PosixPath('/tmp/pytest-of-tuananh/pytest-10/test_wikidata_has_structural_r0')
+
+    def test_wikidata_has_structural_results_not_qa_scorecards(tmp_path):
+        app = create_app(database=tmp_path / "jobs.db", start_worker=False)
+        reply = app.test_client().get("/api/v3/datasets/ch5_wikidata_subgraphs/results")
+        assert reply.status_code == 200
+&gt;       assert all("graph_statistics" in r["path"] for r in reply.json["data"]["artifacts"])
+E       assert False
+E        +  where False = all(&lt;generator object test_wikidata_has_structural_results_not_qa_scorecards.&lt;locals&gt;.&lt;genexpr&gt; at 0x73ca04de6dc0&gt;)
+
+tests/serving32/test_result_index.py:31: AssertionError</failure></testcase></testsuite></testsuites>

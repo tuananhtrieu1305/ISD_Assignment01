@@ -1,0 +1,10 @@
+Aspect,A03,A04
+Dataset,House Price Prediction Dataset Vietnam 2024,King County House Sales
+Target,Price_BillionVND,price
+Rows used,A03 dataset-specific row count,"21,436 rows after preparation"
+Features,12,24 raw engineered features / 93 transformed features
+Preprocessing,"Numeric median imputation + scaling; categorical Unknown imputation + one-hot encoding, all fitted on training split only.",Numeric imputation+scaling; zipcode imputation+one-hot; fit train only
+Best/final model,Improved DNN,M4 Residual MLP Feature Attention Regressor
+RMSE,1.4169377854341,146274.765625
+R2,0.5798776325912685,0.867289662361145
+Comparison caveat,Vietnam price scale in billion VND,King County sale price scale; not directly comparable

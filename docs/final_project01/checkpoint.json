@@ -1,0 +1,86 @@
+﻿{
+    "schema_version":  "1.0.0",
+    "plan":  "FINAL_PROJECT01_EXECUTION_PLAN.md",
+    "plan_version":  "1.0",
+    "created_date":  "2026-11-01",
+    "timezone":  "Asia/Bangkok",
+    "status":  "SUPERSEDED",
+    "active_phase":  null,
+    "next_phase":  null,
+    "completed_phases":  [
+                             1,
+                             2
+                         ],
+    "phases":  {
+                   "1":  {
+                             "name":  "Chốt đầu vào và dựng nền project",
+                             "status":  "COMPLETE",
+                             "depends_on":  [
+
+                                            ],
+                             "report":  "docs/final_project01/phase1_report.md",
+                             "evidence":  "project01/artifacts/phase1/complete.json",
+                             "verification":  "docs/final_project01/phase1_verification.json"
+                         },
+                   "2":  {
+                             "name":  "Project01 end-to-end, web và đánh giá",
+                             "status":  "COMPLETE",
+                             "depends_on":  [
+                                                1
+                                            ],
+                             "report":  "docs/final_project01/phase2_report.md",
+                             "evidence":  "project01/artifacts/phase2/acceptance.json",
+                             "verification":  "project01/artifacts/phase2/verification.json"
+                         },
+                   "3":  {
+                             "name":  "Tiểu luận final DOCX, tích hợp demo và bàn giao project",
+                             "status":  "SUPERSEDED_UNSTARTED",
+                             "depends_on":  [
+                                                2
+                                            ],
+                             "report":  "docs/final_project01/phase3_report.md"
+                         }
+               },
+    "current_step":  "Superseded by LLM v2 plan at user request; v1 Phase 1–2 preserved COMPLETE; unfinished final deliverable transferred to v2 Phase 3",
+    "completed_steps":  [
+                            "Preserved dispatcher/README history with read-only verifier revision",
+                            "Created project01 skeleton and standalone pinned-runtime runner",
+                            "Pinned 28 reused resources and identified current released DOCX/manuscript",
+                            "Validated CDC model/preprocessing and medical corpus/index/graph in real Jupyter kernel",
+                            "Chose bounded Vietnamese glossary scope from three diagnostic query pairs",
+                            "Defined five-agent contracts and froze 20 development/40 new evaluation cases",
+                            "Implemented full source in three notebooks and exact backend export",
+                            "Packaged medical-only assets with original index/model parity",
+                            "Built and checked React/Python UI on desktop/mobile",
+                            "Frozen source/evaluator; executed 120 unique new evaluation pairs once",
+                            "Applied 54 explicit assistant support reviews; preserved all raw outputs",
+                            "Reviewed three plots, produced report and Render/standalone serving handoff"
+                        ],
+    "remaining_steps":  [
+                            "Phase 3: integrate project case study into tieuluan3 and produce final DOCX"
+                        ],
+    "active_processes":  [
+
+                         ],
+    "runtime":  "Existing WSL Ubuntu / user tuananh / separate Torch and Keras environments",
+    "historical_training_or_TEST_rerun_authorized":  false,
+    "project01_new_evaluation_scope":  "Only in requested Phase 2, after development/rubric/config are frozen",
+    "commit_push_deploy_authorized":  false,
+    "presentation_revisions":  [
+                                   {
+                                       "revision":  "results_flow_v1",
+                                       "status":  "COMPLETE",
+                                       "report":  "docs/final_project01/ui_results_flow_v1_report.md",
+                                       "release":  "project01/artifacts/ui_revisions/results_flow_v1/release.json",
+                                       "verifier":  "project01/scripts/verify_results_flow_v1.py"
+                                   },
+                                   {
+                                       "revision":  "answer_first_v2",
+                                       "status":  "COMPLETE",
+                                       "report":  "docs/final_project01/ui_answer_first_v2_report.md",
+                                       "release":  "project01/artifacts/ui_revisions/answer_first_v2/release.json",
+                                       "verifier":  "project01/scripts/verify_answer_first_v2.py"
+                                   }
+                               ],
+    "superseded_by":  "docs/final_project01/llm_v2/checkpoint.json"
+}

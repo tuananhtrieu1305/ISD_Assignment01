@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "checks": [
+    "active leased worker is not marked interrupted",
+    "unleased orphan becomes interrupted and drops profile",
+    "orphan original bytes preserved before recovery",
+    "repeated GET never repeats recovery or generation",
+    "recovery releases worker lease",
+    "unexpected worker exception becomes terminal failure",
+    "internal exception text not exposed",
+    "GET never exposes local profile",
+    "failed unknown request cannot be silently replayed",
+    "worker failure releases busy semaphore",
+    "Gemini timeout message includes measured wait",
+    "provider fault marks RAG not started rather than running",
+    "polling and provider failure never trigger another model call",
+    "provider timeout never fabricates an answer",
+    "later RAG fault preserves completed direct result",
+    "live GET exposes elapsed/stage without interrupting worker",
+    "concurrent compare rejected while worker active",
+    "quota pause remains distinct from unknown timeout"
+  ],
+  "count": 18,
+  "new_live_API_calls": 0,
+  "mock_scope": "job lifecycle, timeout/quota/runtime failures only; not LLM quality acceptance"
+}
